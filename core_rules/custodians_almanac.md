@@ -6,7 +6,7 @@ A razor‑lean chassis for any genre. One d20, five numbers, limitless skins. 
 
 ---
 
-## 🕯️ CUSTODIAN’S ALMANAC (GM GUIDE)
+## 🕯️ CUSTODIAN’S ALMANAC (GM Guide)
 
 ### 1 Luck Tests — Guidance
 

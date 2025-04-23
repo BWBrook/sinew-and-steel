@@ -1,10 +1,12 @@
-# **CLANFIRE — SKIN ADD‑ON FOR SINEW & STEEL**
+# **CLANFIRE — FLINT & FROST**
+## Skin add-on for the Sinew & Steel game system
 *Neanderthal Europe at the edge of extinction, ≈ 40 000 BP.*  
-Plug directly onto the universal rules page; anything not stated here defaults to core.
+
+_(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
 
 ---
 
-## 🔥 PLAYER ADD‑ON
+## 🔥 HUNTER'S MARK
 
 ### Attribute Names
 | Core slot | Clanfire label | What it governs |
@@ -26,8 +28,11 @@ Tokens are carved bone beads.  Rest by the hearth +1 bead; mythic visions, tranc
 | Atlatl dart, fire‑hardened pike, cave bear claw | +2 |
 
 ### Armour & Soak
-Hide / Fur cloak | soak 1  
-Leather + bone splints | soak 2  
+| Protection | Soak |
+|---|---|
+| Hide / Fur cloak | 1 |
+| Leather + bone splints | 2 |
+
 (Critical 1 ignores all soak; dynamic soak 1‑per‑4‑margin applies.)
 
 ### Recovery
@@ -42,7 +47,7 @@ Tamed beast = **3‑token Instinct pool**. Each intervention flips a token; at 0
 ### Carry Limit flavour
 A hunter totes six big items (spears, blade kit, hide water skin…). Extra gear ⇒ Disadvantage on Fleetness.
 
-*Hold these laws close; the Ice drinks fools. The clan that masters flint and fate endures another dawn.*
+>*Hold these laws close; the Ice drinks fools. The clan that masters flint and fate endures another dawn.*
 
 ---
 
@@ -75,13 +80,10 @@ Other track motifs: dying hearth‑fires, a one‑eyed cave bear, the piercing f
 ### Hearth Beats
 Play is visceral—crackling fire, reek of hides, breath steaming in moonlight. Mechanics provide bone, but story is sinew. When scenes falter, unleash weather, predator or uneasy strangers. Ambush, ice collapse, bride‑price negotiation, mammoth hunt, cave art.  
 
-Write scenes 200–500 words. Hook (scent of musk‑ox, distant torch line) → Action → Consequence. Give 2–4 options, example:
+Present 2-4 options in second‑person imperative, focused on protagonist. Include at least one hidden or risky path. Example: 
 > 1. Stalk the reindeer downwind.  
 > 2. Retreat to limestone shelter.  
 > 3. Approach the tall newcomers in peace.  
-
-Provide one sure-but‑costly route, one bold‑risk path, one weird lore thread (ancient painting corridor).  
-
 Ensure outcomes ripple—sharing meat with Sapiens may avert later spear‑fight.  
 Mark Save‑Stones (rewind at cost: –2 INS or +1 Shadow): spirit‑walk—rebirth, parallel timelines—dream‑visions, ancestral memory—welcomed.
 
@@ -108,7 +110,7 @@ Prosody terse, sensory. Primal lyricism: “The aurora danced, green spears acro
 Technology sparse; wonder hides in sparks off a biface.  
 GM moves: storm lashes camp · rival scouts appear · food stores spoil · spirits demand ochre.  
 
-*Guard the fire, Keeper. Night is long and the winds speak new tongues.*
+>*Guard the fire, Keeper. Night is long and the winds speak new tongues.*
 
 ---
 
@@ -129,4 +131,4 @@ Can sense weather shifts hours ahead; disadvantage when forced into raw melee.
 Carved bone flute (Adv calming beasts).  
 Fire‑bow drill, herb bundle, scrap of strange cloth from southern strangers.  
 
-Track INS stones, STM loss, Shadow gains.  Scars will etch the cavern walls.
+>*Track INS stones, STM loss, Shadow gains.  Scars will etch the cavern walls.*

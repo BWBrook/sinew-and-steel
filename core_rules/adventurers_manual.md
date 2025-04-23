@@ -6,7 +6,7 @@ A razor‑lean chassis for any genre. One d20, five numbers, limitless skins. 
 
 ---
 
-## 📜 PLAYER’S HANDBOOK
+## 📜 ADVENTURER'S MANUAL (Player's Handbook)
 
 ### 1 Core Principle
 

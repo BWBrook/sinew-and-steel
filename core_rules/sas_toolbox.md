@@ -53,7 +53,7 @@ All obey the +1/‑2 ledger.
 3. **Give a Hook**
    “Claw swipe +1 dmg,” “Mind‑spike forces Luck roll,” etc.
 
-*Example*: **Morlock Brute** – MGT 14, REF 8, edge +1 club, soak 1 hide, special: on hit may drag victim 5 m into darkness.
+*Example*: **Morlock Brute** – MGT 12, REF 8, edge +1 club, soak 1 hide, special: on hit may drag victim 5 m into darkness.
 
 ### D. Advantage Source List
 
