@@ -90,12 +90,13 @@ Track beats and parallel timelines with chronological tags (1895A, 802,701B…).
 
 ### George — The Time Traveller
 *Victorian inventor, boundless curiosity, dash of reckless courage.*  
-PRW 9 REF 10 INT 14 EMP 9 ING 12 (12) STM 5 Anomaly 0/5  
+PRW 9 REF 10 INT 14 EMP 9 ING 12/12 STM 5/5 Anomaly 0/5  
 Pocket revolver +1 (close), brass goggles (Adv vision REF), notebook (Adv INT deduction), tool‑roll, mixed‑era coins  
+Milestones Completed: 5
 
 ### Weena — Eloi Companion
 *Gentle child of 802,701 AD, embodies innocence and quiet resilience.*  
-PRW 6 REF 9 INT 7 EMP 15 ING 10 (10) STM 3 Anomaly 0/5  
+PRW 6 REF 9 INT 7 EMP 15 ING 10/10 STM 3/3 Anomaly 0/5  
 Wiltflower charm (Adv calming creatures), glow‑stone bead (light). Disadv in harsh industrial ages.
 
 >*Track Ingenuity spent, Stamina lost, Anomaly gained. Each scar may echo through centuries.*

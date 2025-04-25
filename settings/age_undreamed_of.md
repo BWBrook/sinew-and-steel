@@ -144,12 +144,12 @@ Failure should reshape the world, not halt the story. Death is meaningful only i
 
 ### Cairn the Reaver — Mercenary  
 *A northern barbarian too stubborn to die.*  
-BRN 13 AGI 11 CUN 7 WIL 6 FOR 8(8) STM 6 Doom 0/5  
+BRN 13 AGI 11 CUN 7 WIL 6 FOR 8/8 STM 6/6 Doom 0/5  
 Heavy axe +1, tattered mail soak 1, notched shield (once/combat Adv when ramming).
 
 ### Yara the Occultist — Exiled Priestess  
 *Raven-haired mystic with forbidden sigils inked into her flesh.*  
-BRN 6 AGI 7 CUN 14 WIL 11 FOR 8(8) STM 4 Doom 0/5  
+BRN 6 AGI 7 CUN 14 WIL 11 FOR 8/8 STM 4/4 Doom 0/5  
 **Whispering Flame** (WIL: light torch or deal 1 dmg; fail +1 Doom).  
 Ritual dagger (brandish for 1-turn Disadv on opponent's WIL failure), scrolls, incense bundle.  
 

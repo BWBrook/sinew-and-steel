@@ -87,13 +87,6 @@ Present 2-4 options in second‑person imperative, focused on protagonist. Inclu
 Ensure outcomes ripple—sharing meat with Sapiens may avert later spear‑fight.  
 Mark Save‑Stones (rewind at cost: –2 INS or +1 Shadow): spirit‑walk—rebirth, parallel timelines—dream‑visions, ancestral memory—welcomed.
 
-### Quick NPC Forge
-1 Pick tier 8–16 → Vagrant 8 | Hunter 10 | Elite 12 | Monster 14 | Nemesis 16  
-2 Edge/Soak per tables  
-3 Give one hook (e.g. “drag into darkness on hit”).
-
-_Example_ **Cave Bear** MGT 15, FLT 8, edge +2 maul, soak 1 thick fur, special: on attacker Nat 1 bear counter‑swipes 1 STM.
-
 ### Milestone Boon Seeds (d6)
 After a successful megafauna hunt, forging alliance, or surviving sky‑fire, award a Milestone:
 1 Amber pendant (Adv once on SPR)  
@@ -118,14 +111,14 @@ GM moves: storm lashes camp · rival scouts appear · food stores spoil · spiri
 
 ### Grak of Tall Cliffs (Hunter)
 *Sturdy hunter, bearer of granite confidence.*  
-MGT 12  FLT 10  CUN 10  SPR 7  INS 8(8)  STM 6  Shadow 0/5  
+MGT 12  FLT 10  CUN 10  SPR 7  INS 8/8  STM 6/6  Shadow 0/5  
 Adv on megafauna tracking, wary fascination with Sapiens iron blades.  
 Stone spear +1 (thrown or thrust), hand‑axe +1 (strike), hide cloak 1.  
 Ochre pouch (ritual mark), sinew cord.  
 
 ### Tarra the Ember‑Singer (Shaman)
 *Clan shaman, voice between worlds.*  
-MGT 6  FLT 8  CUN 11  SPR 13  INS 10(10)  STM 3  Shadow 0/5    
+MGT 6  FLT 8  CUN 11  SPR 13  INS 10/10/  STM 3/3  Shadow 0/5    
 Ritual **Ember Dream** (SPR roll: spark fire *or* daze foe; fail +1 Shadow).    
 Can sense weather shifts hours ahead; disadvantage when forced into raw melee.  
 Carved bone flute (Adv calming beasts).  

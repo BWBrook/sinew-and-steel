@@ -27,7 +27,7 @@ Start with the **baseline frame**:
 - **Stamina 5**
 
 **Point‑Buy Rule (double‑debit)**\
-Every +1 you add **above baseline** costs **‑2** total subtracted from any other score(s).\
+Every +1 you add **above baseline** costs **‑2** total subtracted from any other score(s).
 No score may drop below 6 or rise above 16 (Stamina floors at 3, caps at 9).
 
 > *"Bump a stat up? Pay double elsewhere."*
@@ -91,9 +91,9 @@ Both roll. If only one succeeds, that side wins. If both succeed, compare margin
 | Mail / Kevlar            | 2         |
 | Plate / Powered carapace | 3         |
 
-After a hit reduce soak **by 1 for every full 4 points of attacker margin** (round down). Remainder subtracts from damage. Critical 1 ignores all soak
+After a hit reduce soak **by 1 for every full 4 points of attacker margin** (round down). Remainder subtracts from damage. Critical 1 ignores all soak.
 
-\---
+---
 
 ### 7 Carry Limit
 

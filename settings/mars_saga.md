@@ -136,14 +136,14 @@ Call Luck when chance, bureaucracy, or random supply crate decides. One‑two pe
 
 ### Tom Jetland — Spacer
 *Roguish spacer marooned on the Red Frontier, silver tongue masking weary pragmatism.*  
-ATK 12 DEF 11 SKL 8 MND 8 LCK 8(8) STM 5 Heat 0/5  
+ATK 12 DEF 11 SKL 8 MND 8 LCK 8/8 STM 5/5 Heat 0/5  
 Laser carbine +2 (close/long; –1 melee), handgun +1, kevlar wrap soak 1, omni‑tool (Adv repair/hack), mixed ammo, modest creds.  
 Streetwise; Adv shady social/stealth in neon alleys.  
 Currently solvent enough to eat, broke enough to take risks.  
 
 ### Miira — Hacker
 *Composed hacker steeped in Martian network lore, preferring code to gun‑smoke.*  
-ATK 8 DEF 8 SKL 13 MND 11 LCK 7(7) STM 4 Heat 0/5  
+ATK 8 DEF 8 SKL 13 MND 11 LCK 7/7 STM 4/4 Heat 0/5  
 Datapad & probes (+1 SKL hack), light sidearm +1, vac‑suit soak 0, hoarded creds, ration pack.  
 Calm under fire; owns hidden crash‑pad in Primus; prefers to avoid gunfights.  
 

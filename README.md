@@ -33,13 +33,14 @@ That’s the chassis.  Everything else is flavour‐text.
 
 ---
 
-## Included skins
+## Example skins
 
-| Folder | Pitch |
+| Scenario | Pitch |
 |---|---|
 | **Clanfire** | Neanderthal Ice-Age survival.  Totem spirits, Beast bonds, Shadow track. |
 | **Age Undreamed Of** | Howard-esque sword-and-sorcery.  Doom, Heroic acts, foul Sorcery. |
 | **Time Odyssey** | H. G. Wells chrononautics.  Ingenuity pool, Anomaly crises, epoch graphing. |
+| **Briar & Benedictine** | Medieval sleuthing.  Divine providence, Sin and pennance, murder mystery. |
 | **Mars Saga** | Noir-tinged colonised Mars.  Heat track, psionics, red-dust grime. |
 
 Swap a few words and build your own skin in an afternoon.
