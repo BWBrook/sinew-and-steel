@@ -62,7 +62,7 @@ In AI-driven play:
 
 ---
 
-# APPENDIX **SINEW & STEEL — COMMENTARY & TOOLBOX**
+# Custodian's Toolkit
 
 *Optional deep‑dive for designers, GMs and tinkerers.*
 
@@ -94,12 +94,12 @@ All obey the +1/‑2 ledger.
 
 ---
 
-## Part II Custodian Toolkit
+## Part II Optional Plug-in Rules
 
 ### A. Tone Dial — Build-Point Pool
-At character creation you may gift each player 0 points for grim survival, 8 for pulpy competence, or 16 for heroic flair, or whatever else suits your campagin.
+At character creation you may gift each player additional build points: 0 for grim survival, 8 for pulpy competence, 16 for heroic flair, or whatever suits your campaign.
 
-The pool lets heroes spike a signature strength or patch a weakness without repainting every stat. It adjusts the success rate (≈ 50 %, 60 %, 70 %) while leaving all core math, tables and advance pacing untouched.
+The pool lets heroes spike a signature strength or patch a weakness without repainting every stat. It adjusts the success rate (≈ 50 %, 60 %, 70 %) while leaving all core maths, tables and advance pacing untouched.
 
 ### B. Luck Test Frequency
 
