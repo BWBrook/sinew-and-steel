@@ -54,8 +54,9 @@ Swap a few words and build your own skin in an afternoon.
 1. **Read `quickstart_rules_on_a_page.md`.**  
 2. Pick or clone a skin from `/skins/`.  
 3. Hand the rules page to players; keep the skin doc behind your screen.  
-4. (Optional) paste the **Starter Prompt** `/ai_play/` into ChatGPT or another LLM and hit enter.  
-5. Roll dice, burn Luck, tell messy stories.
+4. (Optional) paste the **Starter Prompt** `/ai_play/` into ChatGPT or another LLM and hit enter.
+5. (Optional) use the **Hidden Scenario Prompt** `/ai_play/` to generate a secret scenario/module! 
+6. Roll dice, burn Luck, tell messy stories.
 
 ---
 
