@@ -44,6 +44,7 @@ That’s the chassis.  Everything else is flavour‐text.
 |Mars Saga | Noir-tinged colonised Mars. Heat track, psionics, red-dust grime. |
 |Candlelight Dungeons | Old-school dungeon crawl. Fatigue clock, spell backlash, torchlit terror. |
 |Jeffries-Tube Blues | Starfleet lower-deck drama. Resourcefulness pool, Stress track, system saves. |
+|Whispers in the Fog | Lovecraftian 1920s horror. Insanity track, fragile hope, occult dread. |
 
 Swap a few words and build your own skin in an afternoon.
 
