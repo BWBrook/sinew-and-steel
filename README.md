@@ -35,13 +35,15 @@ That’s the chassis.  Everything else is flavour‐text.
 
 ## Example skins
 
-| Scenario | Pitch |
+|Scenario | Pitch |
 |---|---|
-| **Clanfire** | Neanderthal Ice-Age survival.  Totem spirits, Beast bonds, Shadow track. |
-| **Age Undreamed Of** | Howard-esque sword-and-sorcery.  Doom, Heroic acts, foul Sorcery. |
-| **Time Odyssey** | H. G. Wells chrononautics.  Ingenuity pool, Anomaly crises, epoch graphing. |
-| **Briar & Benedictine** | Medieval sleuthing.  Divine providence, Sin and pennance, murder mystery. |
-| **Mars Saga** | Noir-tinged colonised Mars.  Heat track, psionics, red-dust grime. |
+|Clanfire | Neanderthal Ice-Age survival. Totem spirits, Beast bonds, Shadow track. |
+|Age Undreamed Of | Howard-esque sword-and-sorcery. Doom, Heroic acts, foul Sorcery. |
+|Time Odyssey | H. G. Wells chrononautics. Ingenuity pool, Anomaly crises, epoch graphing. |
+|Briar & Benedictine | Medieval sleuthing. Divine providence, Sin and penance, murder mystery. |
+|Mars Saga | Noir-tinged colonised Mars. Heat track, psionics, red-dust grime. |
+|Candlelight Dungeons | Old-school dungeon crawl. Fatigue clock, spell backlash, torchlit terror. |
+|Jeffries-Tube Blues | Starfleet lower-deck drama. Resourcefulness pool, Stress track, system saves. |
 
 Swap a few words and build your own skin in an afternoon.
 
@@ -49,7 +51,7 @@ Swap a few words and build your own skin in an afternoon.
 
 ## Quick start
 
-1. **Read `/core/Sinew&Steel_rules_on_a_page.pdf`.**  
+1. **Read `quickstart_rules_on_a_page.md`.**  
 2. Pick or clone a skin from `/skins/`.  
 3. Hand the rules page to players; keep the skin doc behind your screen.  
 4. (Optional) paste the **Starter Prompt** `/ai_play/` into ChatGPT or another LLM and hit enter.  

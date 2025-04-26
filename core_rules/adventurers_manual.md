@@ -2,7 +2,7 @@
 
 A razor‑lean chassis for any genre. One d20, five numbers, limitless skins. 
 
-*Also ideal for use with reasoning-AI game masters.*
+*Also ideal for use with reasoning-AI game masters with tool use.*
 
 ---
 
