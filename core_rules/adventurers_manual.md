@@ -34,6 +34,8 @@ No score may drop below 6 or rise above 16 (Stamina floors at 3, caps at�
 
 Milestones hand out **2 build points** that follow the same rule: +1 to an above‑baseline stat **or** +2 to a below‑baseline stat.
 
+The Custodian may also allot each player 0 (grim), 6 (standard), 12 (pulp) or 16 (heroic) build-points **at creation** and let them sculpt freely by the +1/-2 economy.
+
 ---
 
 ### 3 Luck Pool
@@ -57,6 +59,7 @@ Your **Luck score** *is* your token count.
 - At **0 STM** you collapse; fate per fiction.
 - Short rest +1 STM; good care +2.
 - Healing caps at baseline STM.
+- Instantly fatal blows are possible: Custodian will advise.
 
 ---
 

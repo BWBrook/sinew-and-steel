@@ -96,11 +96,16 @@ All obey the +1/‑2 ledger.
 
 ## Part II Custodian Toolkit
 
-### A. Luck Test Frequency
+### A. Tone Dial — Build-Point Pool
+At character creation you may gift each player 0 points for grim survival, 8 for pulpy competence, or 16 for heroic flair, or whatever else suits your campagin.
+
+The pool lets heroes spike a signature strength or patch a weakness without repainting every stat. It adjusts the success rate (≈ 50 %, 60 %, 70 %) while leaving all core math, tables and advance pacing untouched.
+
+### B. Luck Test Frequency
 
 > **Rule of Thumb**: If you’ve called for Luck twice this session, reach for another lever before a third.
 
-### B. Pressure Colour Suggestions
+### C. Pressure Colour Suggestions
 
 | Skin            | 1                | 2             | 3             | 4             | 5 (Crisis)        |
 | --------------- | ---------------- | ------------- | ------------- | ------------- | ----------------- |
@@ -108,7 +113,7 @@ All obey the +1/‑2 ledger.
 | Hard‑SF         | Static blips     | Sensor ghosts | Hull groans   | Reactor spike | Core breach       |
 | Gothic Horror   | Chill wind       | Mirrors fog   | Whispers grow | Shadows move  | The Guest arrives |
 
-### C. NPC / Monster Design (30‑second method)
+### D. NPC / Monster Design (30‑second method)
 
 1. **Pick Threat Tier**
    *Peasant 8 | Soldier 10 | Elite 12 | Monster 14 | Nemesis 16*
@@ -120,7 +125,32 @@ All obey the +1/‑2 ledger.
 *Example*: **Morlock Brute** – MGT 12, REF 8, edge +1 club, soak 1 hide, special: on hit may drag victim 5 m into darkness.
 *Example*: **Cave Bear** – MGT 15, FLT 8, edge +2 maul, soak 1 thick fur, special: on attacker Nat 1 bear counter‑swipes 1 STM.
 
-### D. Advantage Source List
+### E. “Fatal Tag” — a one-line universal override  
+
+> **Fatal** This harm **ignores Stamina and soak**; a struck target drops to 0 STM unless they possess the one listed counter-measure.
+
+*Use it sparingly, flag it clearly, and state the counter up front.*
+
+| Setting | Fatal weapon / event | Counter-measure |
+|---|---|---|
+| **Jeffries-Tube Blues** | Phaser set to *disrupt* | Personal shield emitter or starship force-field |
+| **Age Undreamed Of** | Basilisk gaze | Averting eyes behind a polished bronze mirror |
+| **Clanfire** | Mammoth stampede hoof | Spending 1 Instinct **and** passing a FLT roll to dive clear |
+| **Candlelight Dungeons** | Assassin’s throat-slit on sleeping victim | Staying conscious or wearing gorget; helmet while resting |
+
+**How to apply**
+
+1. Declare the attack/event is **Fatal (counter: X)**.  
+2. If the target lacks the counter, they drop to **0 Stamina** immediately; normal collapse/death rules follow.  
+3. Counters can be equipment, a successful roll, or a resource spend—keep it explicit.
+
+**Why it works**
+
+* Adds cinematic stakes without new math.  
+* Remains lean: a single tag plus a counter clause.  
+* Scales across genres—laser vaporise, divine smite, syringe to carotid—without rewriting core combat.
+
+### F. Advantage Source List
 
 - Solid cover   (Dodge Adv.)
 - Height on foe (Melee Adv.)
@@ -129,7 +159,7 @@ All obey the +1/‑2 ledger.
 
 Add or prune per setting.
 
-### E. Milestone Boon Bank (d6)
+### G. Milestone Boon Bank (d6)
 
 1. Trusted ally owes a favour
 2. Rare gadget (+1 Adv. on one skill)
@@ -138,7 +168,7 @@ Add or prune per setting.
 5. Weapon gains +1 edge vs. one foe type
 6. Vision of future – ask GM one yes/no about next session
 
-### F. Conversion Pointers
+### H. Conversion Pointers
 
 - **d100 games** – divide skill by 5 ≈ attribute
 - **PBTA 2d6+stat** – (10+ stat) × 5 ≈ attribute chance
