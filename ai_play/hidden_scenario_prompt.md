@@ -1,5 +1,5 @@
 # Sinew & Steel · Hidden-Scenario Prompt Template  
-*(for 1-player / AI-GM duet play; send to ChatGPT o3, Gemini-2.5, Deepseek R1, or similar)*
+*(for 1-player / AI-GM duet play; send to ChatGPT o3 or 4o, Gemini-2.5, Deepseek R1, or similar)*
 
 <start_prompt>
 
@@ -38,5 +38,5 @@ When planning is done, write the private record **in Chinese**, wrapped like thi
 
 Include the following instruction inside `[GM-NOTES zh]`:  
 - These notes are private. Consult as needed, but never reveal, translate, or reference them unless the player explicitly requests a spoiler or the fiction exposes them naturally.
-
+- Remember to only output a public teaser and the private [GM-NOTES zh] block... NO SPOILERS!
 </end_prompt>
