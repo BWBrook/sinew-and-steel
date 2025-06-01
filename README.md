@@ -45,6 +45,8 @@ That’s the chassis.  Everything else is flavour‐text.
 |Candlelight Dungeons | Old-school dungeon crawl. Fatigue clock, spell backlash, torchlit terror. |
 |Jeffries-Tube Blues | Starfleet lower-deck drama. Resourcefulness pool, Stress track, system saves. |
 |Whispers in the Fog | Lovecraftian 1920s horror. Insanity track, fragile hope, occult dread. |
+|Free Traders of the Marches | Traveller-style starfreight drama. Ship Shares, Stress track, speculative cargo gambles. |
+|Twilight of the North-Kingdom | Tolkien frontier elegy. Hope and Shadow, subtle magic, barrow-depth dread. |
 
 Swap a few words and build your own skin in an afternoon.
 
