@@ -1,7 +1,11 @@
 # Changelog
 
 ## Unreleased
+- TBD
+
+## 0.2.0 - 2025-12-21
 - Restructured rules, skins, and prompts into a predictable layout.
-- Added manifest and templates for agent-driven prompt assembly.
-- Introduced agent harness docs, skills, and CLI tools for dice and sheets.
-- Added state and examples scaffolding for local play sessions.
+- Added agent harness docs, skills, and CLI tools for dice, state, and prompt assembly.
+- Added campaign scaffolding, memory/logging tools, and point-buy character builder.
+- Added manifest and templates to standardize skins, sheets, and trackers.
+- Added uv-based Python environment pinning for reproducible tooling.

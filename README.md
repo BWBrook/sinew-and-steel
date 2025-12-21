@@ -63,6 +63,25 @@ Swap a few words and build your own skin in an afternoon.
 
 ---
 
+## Local setup (recommended)
+
+The CLI tools are Python-based. For reproducible installs, use `uv`:
+
+```bash
+uv venv
+uv sync
+```
+
+Alternative (no uv):
+
+```bash
+python -m venv .venv
+. .venv/bin/activate
+pip install pyyaml
+```
+
+---
+
 ## For AI game-masters
 
 The repo’s `/prompts/` folder contains:

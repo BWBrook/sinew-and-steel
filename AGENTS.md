@@ -22,6 +22,14 @@ Use the files and tools below to keep play consistent, reproducible, and private
 - Separate public narration from private tracking.
 - Prefer manifest.yaml for paths instead of hardcoding.
 
+## Environment setup
+The CLI tools require Python and PyYAML. Recommended:
+
+```bash
+uv venv
+uv sync
+```
+
 ## Recommended session flow
 1. Choose a skin from manifest.yaml.
 2. Create a character sheet in state/characters/ (start from templates/character_sheet.yaml).

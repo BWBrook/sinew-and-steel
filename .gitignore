@@ -5,3 +5,5 @@ campaigns/*
 # Python artifacts
 __pycache__/
 *.pyc
+.venv/
+.uv-cache/
