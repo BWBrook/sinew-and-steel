@@ -14,6 +14,7 @@ Requires Python 3 and PyYAML (already present in most agent runtimes).
 - doctor.py: run repo/campaign diagnostics in one command.
 - recap.py: append a structured summary to memory and optionally advance clocks.
 - session_log.py: append public narration or roll results to session logs.
+- checkpoint.py: save exact last GM text for “save and quit” (separate from logs/memory).
 - summary.py: one-screen campaign snapshot (scene, clocks, sheet, last memory).
 - trackers.py: update scene counters and clocks (pressure, threat, etc).
 - update_sheet.py: update YAML sheets and trackers by path.
@@ -49,4 +50,9 @@ python tools/validate_campaign.py --campaign ice_hunt
 python tools/validate_repo.py
 python tools/doctor.py --campaign ice_hunt
 python tools/ss.py beat --campaign ice_hunt --character grak check --stat-key SYS
+python tools/checkpoint.py --campaign ice_hunt --role GM --show
+
+# Prefer stdin or --text-file for multi-line messages
+cat /tmp/last_gm.md | python tools/checkpoint.py --campaign ice_hunt --role GM --replace --archive
+python tools/checkpoint.py --campaign ice_hunt --role GM --show
 ```

@@ -21,6 +21,7 @@ TOOLS = {
     "validate_campaign": "validate_campaign.py",
     "validate_sheet": "validate_sheet.py",
     "doctor": "doctor.py",
+    "checkpoint": "checkpoint.py",
     "new_skin": "new_skin.py",
 }
 

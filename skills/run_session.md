@@ -24,3 +24,5 @@ Run a branching RPG session with clear separation between public narration and p
 ## End of session
 - Write a short memory summary in state/memory/.
 - Capture unresolved threads in state/trackers/ or state/memory/.
+- Optional “save and quit”: write the last exact GM response to a checkpoint file, separate from logs/memory:
+  `cat /tmp/last_gm.md | python tools/checkpoint.py --campaign <slug> --role GM --replace --archive`

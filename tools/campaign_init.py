@@ -58,8 +58,9 @@ def main() -> int:
     trackers_dir = state_dir / "trackers"
     memory_dir = state_dir / "memory"
     logs_dir = state_dir / "logs"
+    checkpoints_dir = state_dir / "checkpoints"
 
-    for d in (campaign_dir, state_dir, chars_dir, trackers_dir, memory_dir, logs_dir):
+    for d in (campaign_dir, state_dir, chars_dir, trackers_dir, memory_dir, logs_dir, checkpoints_dir):
         d.mkdir(parents=True, exist_ok=True)
 
     # campaign.yaml

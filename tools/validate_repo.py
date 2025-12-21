@@ -98,6 +98,7 @@ def collect_errors() -> list[str]:
         "tools/beat.py",
         "tools/doctor.py",
         "tools/ss.py",
+        "tools/checkpoint.py",
         "tools/summary.py",
         "tools/gen_character.py",
         "tools/char_builder.py",
