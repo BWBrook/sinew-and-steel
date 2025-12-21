@@ -34,6 +34,7 @@ def list_skins(manifest: dict) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Assemble a full starter prompt from rules + skin.")
     parser.add_argument("--skin", help="Skin slug from manifest.yaml")
+    parser.add_argument("--campaign", help="Campaign slug under campaigns/ (uses campaign.yaml)")
     parser.add_argument("--template", help="Prompt template path", default=None)
     parser.add_argument("--hidden", help="Optional hidden scenario file", default=None)
     parser.add_argument("--out", help="Output file path (default: stdout)")
@@ -46,13 +47,33 @@ def main() -> int:
         list_skins(manifest)
         return 0
 
-    if not args.skin:
-        print("error: --skin is required (use --list-skins to see options)", file=sys.stderr)
+    campaign_skin = None
+    campaign_dir = None
+    if args.campaign:
+        campaign_dir = ROOT / "campaigns" / args.campaign
+        campaign_file = campaign_dir / "campaign.yaml"
+        if not campaign_file.exists():
+            print(f"error: campaign not found: {campaign_file}", file=sys.stderr)
+            return 1
+        campaign_data = yaml.safe_load(campaign_file.read_text(encoding=\"utf-8\")) or {}
+        campaign_skin = campaign_data.get("skin")
+        if not campaign_skin:
+            print(\"error: campaign.yaml missing skin\", file=sys.stderr)
+            return 1
+
+    if not args.skin and not campaign_skin:
+        print(\"error: --skin is required (use --list-skins to see options)\", file=sys.stderr)
         return 1
 
+    if args.skin and campaign_skin and args.skin != campaign_skin:
+        print(\"error: --skin does not match campaign.yaml\", file=sys.stderr)
+        return 1
+
+    skin_slug = args.skin or campaign_skin
+
     skins = manifest.get("skins", {})
-    if args.skin not in skins:
-        print(f"error: unknown skin '{args.skin}'", file=sys.stderr)
+    if skin_slug not in skins:
+        print(f\"error: unknown skin '{skin_slug}'\", file=sys.stderr)
         return 1
 
     rules = manifest.get("rules", {})
@@ -60,7 +81,7 @@ def main() -> int:
     adv_path = ROOT / core.get("adventurers_manual", "")
     cust_path = ROOT / core.get("custodians_almanac", "")
 
-    skin_entry = skins[args.skin]
+    skin_entry = skins[skin_slug]
     skin_path = ROOT / skin_entry.get("file", "")
 
     prompts = manifest.get("prompts", {})
@@ -97,7 +118,10 @@ def main() -> int:
         out_path = Path(args.out)
         if not out_path.is_absolute():
             out_path = ROOT / out_path
-        out_path.write_text(output, encoding="utf-8")
+        out_path.write_text(output, encoding=\"utf-8\")
+    elif campaign_dir:
+        out_path = campaign_dir / \"prompt.md\"
+        out_path.write_text(output, encoding=\"utf-8\")
     else:
         print(output)
 

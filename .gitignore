@@ -1,0 +1,7 @@
+campaigns/*
+!campaigns/.gitignore
+!campaigns/README.md
+
+# Python artifacts
+__pycache__/
+*.pyc

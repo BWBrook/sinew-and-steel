@@ -83,6 +83,7 @@ This repo includes an agent-focused harness to run sessions without API adapters
 * **`tools/`** — CLI helpers for assembling prompts, rolling dice, and updating YAML sheets.
 * **`manifest.yaml`** — a machine-readable index of rules, skins, and prompts.
 * **`state/`** — private notes, trackers, and character sheets (local runtime data).
+* **`campaigns/`** — untracked per-campaign workspaces with their own state and logs.
 
 ---
 

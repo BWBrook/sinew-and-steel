@@ -66,6 +66,15 @@ def main() -> int:
         if not (ROOT / rel).exists():
             errors.append(f"missing template ({key}): {rel}")
 
+    # Check campaigns scaffold files
+    campaigns_dir = ROOT / "campaigns"
+    if not campaigns_dir.exists():
+        errors.append("missing campaigns directory")
+    else:
+        for rel in ("campaigns/README.md", "campaigns/.gitignore"):
+            if not (ROOT / rel).exists():
+                errors.append(f"missing file: {rel}")
+
     return report(errors)
 
 

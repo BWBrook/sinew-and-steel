@@ -9,42 +9,122 @@ skins:
     name: Clanfire
     file: skins/clanfire.md
     pressure_track: Shadow
+    attributes:
+      MGT: Might
+      FLT: Fleetness
+      CUN: Cunning
+      SPR: Spirit
+      INS: Instinct
+    luck_key: INS
+    luck_name: Instinct
   age_undreamed_of:
     name: Age Undreamed Of
     file: skins/age_undreamed_of.md
     pressure_track: Doom
+    attributes:
+      BRN: Brawn
+      AGI: Agility
+      CUN: Cunning
+      WIL: Will
+      FOR: Fortune
+    luck_key: FOR
+    luck_name: Fortune
   time_odyssey:
     name: Time Odyssey
     file: skins/time_odyssey.md
     pressure_track: Anomaly
+    attributes:
+      PRW: Prowess
+      REF: Reflex
+      INT: Intellect
+      EMP: Empathy
+      ING: Ingenuity
+    luck_key: ING
+    luck_name: Ingenuity
   briar_benedictine:
     name: Briar & Benedictine
     file: skins/briar_benedictine.md
     pressure_track: Sin
+    attributes:
+      HEW: Hew
+      FLT: Fleet
+      LOR: Lore
+      MCY: Mercy
+      PRV: Providence
+    luck_key: PRV
+    luck_name: Providence
   mars_saga:
     name: Mars Saga
     file: skins/mars_saga.md
     pressure_track: Heat
+    attributes:
+      ATK: Attack
+      DEF: Defence
+      SKL: Skill
+      MND: Mind
+      LCK: Luck
+    luck_key: LCK
+    luck_name: Luck
   candlelight_dungeons:
     name: Candlelight Dungeons
     file: skins/candlelight_dungeons.md
     pressure_track: Fatigue
+    attributes:
+      STR: Strength
+      DEX: Dexterity
+      LOR: Lore
+      FTH: Faith
+      FOR: Fortune
+    luck_key: FOR
+    luck_name: Fortune
   jeffries_tube_blues:
     name: Jeffries-Tube Blues
     file: skins/jeffries_tube_blues.md
     pressure_track: Stress
+    attributes:
+      MSC: Muscle
+      REF: Reflex
+      SYS: Systems
+      HAR: Harmony
+      RES: Resourcefulness
+    luck_key: RES
+    luck_name: Resourcefulness
   whispers_in_the_fog:
     name: Whispers in the Fog
     file: skins/whispers_in_the_fog.md
     pressure_track: Insanity
+    attributes:
+      VIG: Vigor
+      AGI: Agility
+      SCH: Scholarship
+      FOR: Fortitude
+      FAT: Fate
+    luck_key: FAT
+    luck_name: Fate
   free_traders_of_the_marches:
     name: Free Traders of the Marches
     file: skins/free_traders_of_the_marches.md
     pressure_track: Stress
+    attributes:
+      STR: Strength
+      DEX: Dexterity
+      EDU: Education
+      SOC: Social
+      FAT: Fate
+    luck_key: FAT
+    luck_name: Fate
   twilight_of_the_north_kingdom:
     name: Twilight of the North-Kingdom
     file: skins/twilight_of_the_north_kingdom.md
     pressure_track: Shadow
+    attributes:
+      STR: Strength
+      NIM: Nimbleness
+      WIS: Wisdom
+      HRT: Heart
+      HOP: Hope
+    luck_key: HOP
+    luck_name: Hope
 prompts:
   starter: prompts/starter_prompt.md
   hidden_scenario: prompts/hidden_scenario_prompt.md
@@ -54,3 +134,4 @@ templates:
   character_sheet: templates/character_sheet.yaml
   session_notes: templates/session_notes.md
   tracker: templates/tracker.yaml
+  campaign: templates/campaign.yaml

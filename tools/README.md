@@ -4,6 +4,8 @@ Local CLI helpers intended for Codex/Claude Code agents (and humans).
 Requires Python 3 and PyYAML (already present in most agent runtimes).
 
 - build_prompt.py: assemble a full prompt from rules + skin + optional hidden notes.
+- campaign_init.py: create a per-campaign state scaffold (untracked).
+- gen_character.py: generate a random character sheet for a skin.
 - new_skin.py: create a skin from templates and optionally register it in the manifest.
 - roll.py: d20 rolls for checks and opposed tests.
 - trackers.py: update scene counters and clocks (pressure, threat, etc).
@@ -15,6 +17,9 @@ Examples:
 ```bash
 python tools/build_prompt.py --list-skins
 python tools/build_prompt.py --skin clanfire --out /tmp/ss_prompt.md
+python tools/build_prompt.py --campaign icehunt
+python tools/campaign_init.py --name icehunt --skin clanfire --random-character \"Grak\"
+python tools/gen_character.py --skin clanfire --name \"Tarra\" --out /tmp/tarra.yaml
 python tools/new_skin.py --slug skyfarer
 python tools/roll.py check --stat 12 --adv
 python tools/trackers.py --file state/trackers/session.yaml scene --inc 1

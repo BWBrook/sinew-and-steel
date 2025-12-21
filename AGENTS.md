@@ -11,11 +11,13 @@ Use the files and tools below to keep play consistent, reproducible, and private
 - tools/: local CLI helpers (no API adapters).
 - skills/: step-by-step agent workflows.
 - state/: private runtime data (character sheets, trackers, memory).
+- campaigns/: untracked per-campaign workspaces (each with its own state/).
 
 ## Operating rules
 - Keep private notes in state/. Do not reveal them to players unless explicitly requested.
 - Use tools/roll.py for dice and tools/update_sheet.py for sheet changes.
 - Use tools/trackers.py for pressure clocks and scene counters.
+- Use tools/campaign_init.py and tools/gen_character.py for campaign setup.
 - Record each roll result and consequence in state/memory/ or state/logs/.
 - Separate public narration from private tracking.
 - Prefer manifest.yaml for paths instead of hardcoding.
@@ -36,7 +38,9 @@ Use the files and tools below to keep play consistent, reproducible, and private
 ## Skills
 Use the skills in skills/ for repeatable workflows:
 - skills/build_prompt.md
+- skills/campaign_setup.md
 - skills/dice_resolution.md
 - skills/manage_state.md
+- skills/random_character.md
 - skills/session_recap.md
 - skills/run_session.md
