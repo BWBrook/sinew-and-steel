@@ -52,7 +52,8 @@ python tools/doctor.py --campaign ice_hunt
 python tools/ss.py beat --campaign ice_hunt --character grak check --stat-key SYS
 python tools/checkpoint.py --campaign ice_hunt --role GM --show
 
-# Prefer stdin or --text-file for multi-line messages
-cat /tmp/last_gm.md | python tools/checkpoint.py --campaign ice_hunt --role GM --replace --archive
-python tools/checkpoint.py --campaign ice_hunt --role GM --show
+# Save and quit (ironman): store exactly one checkpoint per campaign (overwritten each time).
+# Prefer stdin or --text-file for multi-line messages.
+cat /tmp/last_gm.md | python tools/checkpoint.py --campaign ice_hunt
+python tools/checkpoint.py --campaign ice_hunt --show
 ```

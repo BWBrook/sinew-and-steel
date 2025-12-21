@@ -115,6 +115,15 @@ python tools/session_log.py --campaign <slug> --role GM \
 - Use `python tools/summary.py --campaign <slug>` for a quick snapshot (scene, clocks, pools).
 - Use `python tools/doctor.py --campaign <slug>` for a single diagnostic pass.
 
+## Save and quit (ironman checkpoint)
+If you need to stop mid-beat and later resume with a fresh context window, save the *exact* last GM message text.
+This is separate from the deliberately summarized memory and the session log, and is **not** intended as a branch-point rewind.
+
+- Save (overwrites the prior checkpoint for that campaign):
+  `cat /tmp/last_gm.md | python tools/checkpoint.py --campaign <slug>`
+- Restore (prints the exact text):
+  `python tools/checkpoint.py --campaign <slug> --show`
+
 ## Optional: repo-level state
 If you are not using campaigns/, you can store data in state/ at repo root.
 The tools work the same way; just point them to state/ paths.

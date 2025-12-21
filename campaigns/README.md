@@ -9,6 +9,6 @@ Suggested layout per campaign:
 - campaigns/<slug>/state/trackers/
 - campaigns/<slug>/state/memory/
 - campaigns/<slug>/state/logs/
-- campaigns/<slug>/state/checkpoints/ (exact last GM text for save/quit)
+- campaigns/<slug>/state/checkpoints/ (exact last GM text for save/quit, overwritten each time)
 
 Use tools/campaign_init.py to create a campaign scaffold. Prefer a slug like `ice_hunt`, or pass `--title` to auto-slugify.
