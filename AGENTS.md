@@ -40,6 +40,7 @@ Use the skills in skills/ for repeatable workflows:
 - skills/build_prompt.md
 - skills/agent_dm_handbook.md
 - skills/campaign_setup.md
+- skills/character_build.md
 - skills/dice_resolution.md
 - skills/manage_state.md
 - skills/random_character.md

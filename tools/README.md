@@ -5,6 +5,7 @@ Requires Python 3 and PyYAML (already present in most agent runtimes).
 
 - build_prompt.py: assemble a full prompt from rules + skin + optional hidden notes.
 - campaign_init.py: create a per-campaign state scaffold (untracked).
+- char_builder.py: build a character sheet with point-buy validation.
 - gen_character.py: generate a random character sheet for a skin.
 - new_skin.py: create a skin from templates and optionally register it in the manifest.
 - roll.py: d20 rolls for checks and opposed tests.
@@ -22,6 +23,7 @@ python tools/build_prompt.py --list-skins
 python tools/build_prompt.py --skin clanfire --out /tmp/ss_prompt.md
 python tools/build_prompt.py --campaign icehunt
 python tools/campaign_init.py --name icehunt --skin clanfire --random-character \"Grak\"
+python tools/char_builder.py --campaign icehunt --name \"Aveline\" --set HEW=6 --set FLT=9 --set LOR=11 --set MCY=13 --set PRV=9
 python tools/gen_character.py --skin clanfire --name \"Tarra\" --out /tmp/tarra.yaml
 python tools/new_skin.py --slug skyfarer
 python tools/roll.py check --stat 12 --adv

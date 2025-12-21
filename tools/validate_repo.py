@@ -81,6 +81,7 @@ def main() -> int:
         "tools/session_log.py",
         "tools/apply_roll.py",
         "tools/gen_character.py",
+        "tools/char_builder.py",
         "tools/campaign_init.py",
     ):
         if not (ROOT / rel).exists():
