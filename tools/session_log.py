@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import argparse
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 import re
 import sys
@@ -62,10 +62,10 @@ def main() -> int:
             return 1
         logs_dir = campaign_dir / "state" / "logs"
         logs_dir.mkdir(parents=True, exist_ok=True)
-        if args.new or log_path is None:
-            log_path = next_log_path(logs_dir)
-        else:
-            if not log_path:
+        if log_path is None:
+            if args.new:
+                log_path = next_log_path(logs_dir)
+            else:
                 log_path = find_latest_log(logs_dir) or next_log_path(logs_dir)
 
     if not log_path:
@@ -83,7 +83,7 @@ def main() -> int:
         print("error: no text provided", file=sys.stderr)
         return 1
 
-    timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%SZ")
+    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%SZ")
     header_parts = []
     if not args.no_timestamp:
         header_parts.append(timestamp)

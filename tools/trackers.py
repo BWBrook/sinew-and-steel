@@ -4,6 +4,7 @@ from pathlib import Path
 import sys
 import yaml
 
+import _sslib
 
 def load_yaml(path: Path) -> dict:
     if not path.exists():
@@ -102,7 +103,8 @@ def command_clock(args) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Update session trackers (scene counter, clocks).")
-    parser.add_argument("--file", required=True, type=Path, help="Tracker YAML file")
+    parser.add_argument("--file", type=Path, help="Tracker YAML file")
+    parser.add_argument("--campaign", help="Campaign slug under campaigns/ (uses state/trackers/session.yaml)")
     parser.add_argument("--stdout", action="store_true", help="Print to stdout instead of writing")
 
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -127,6 +129,16 @@ def main() -> int:
     pressure.add_argument("--clamp", action="store_true", help="Clamp current between 0 and max")
 
     args = parser.parse_args()
+
+    root = _sslib.repo_root()
+    if args.file:
+        if not args.file.is_absolute():
+            args.file = root / args.file
+    elif args.campaign:
+        args.file = _sslib.campaign_trackers_dir(args.campaign, root=root) / "session.yaml"
+    else:
+        print("error: provide --file or --campaign", file=sys.stderr)
+        return 1
 
     if args.command == "scene":
         command_scene(args)

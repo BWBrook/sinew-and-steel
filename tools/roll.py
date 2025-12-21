@@ -1,85 +1,27 @@
 #!/usr/bin/env python3
 import argparse
 import json
-import random
 import sys
 
+import random
 
-def roll_d20():
-    return random.randint(1, 20)
-
-
-def resolve_check(stat, adv=False, dis=False):
-    rolls = [roll_d20()]
-    if adv or dis:
-        rolls.append(roll_d20())
-
-    if adv:
-        chosen = min(rolls)
-    elif dis:
-        chosen = max(rolls)
-    else:
-        chosen = rolls[0]
-
-    success = chosen <= stat
-    margin = stat - chosen
-    crit = None
-    if chosen == 1:
-        crit = "nat1"
-    elif chosen == 20:
-        crit = "nat20"
-
-    return {
-        "stat": stat,
-        "rolls": rolls,
-        "result": chosen,
-        "success": success,
-        "margin": margin,
-        "crit": crit,
-        "adv": bool(adv),
-        "dis": bool(dis),
-    }
+import _dice
 
 
 def command_check(args):
-    data = resolve_check(args.stat, adv=args.adv, dis=args.dis)
+    data = _dice.resolve_check(args.stat, adv=args.adv, dis=args.dis)
     return data
 
 
 def command_opposed(args):
-    attacker = resolve_check(args.attacker, adv=args.adv_attacker, dis=args.dis_attacker)
-    defender = resolve_check(args.defender, adv=args.adv_defender, dis=args.dis_defender)
-
-    outcome = {
-        "winner": None,
-        "reason": None,
-    }
-
-    if attacker["success"] and not defender["success"]:
-        outcome["winner"] = "attacker"
-        outcome["reason"] = "attacker_success_only"
-    elif defender["success"] and not attacker["success"]:
-        outcome["winner"] = "defender"
-        outcome["reason"] = "defender_success_only"
-    elif attacker["success"] and defender["success"]:
-        if attacker["margin"] > defender["margin"]:
-            outcome["winner"] = "attacker"
-            outcome["reason"] = "higher_margin"
-        elif defender["margin"] > attacker["margin"]:
-            outcome["winner"] = "defender"
-            outcome["reason"] = "higher_margin"
-        else:
-            outcome["winner"] = "defender"
-            outcome["reason"] = "tie_margins_defender"
-    else:
-        outcome["winner"] = "defender"
-        outcome["reason"] = "both_failed_defender"
-
-    return {
-        "attacker": attacker,
-        "defender": defender,
-        "outcome": outcome,
-    }
+    return _dice.resolve_opposed(
+        args.attacker,
+        args.defender,
+        adv_attacker=args.adv_attacker,
+        dis_attacker=args.dis_attacker,
+        adv_defender=args.adv_defender,
+        dis_defender=args.dis_defender,
+    )
 
 
 def main() -> int:

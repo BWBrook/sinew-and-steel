@@ -17,7 +17,8 @@ Run a branching RPG session with clear separation between public narration and p
 ## During play
 - Write public narration and choices only to the player.
 - Record private notes and tracker changes in state/.
-- Roll dice with tools/roll.py and update sheets with tools/update_sheet.py.
+- Roll dice with tools/roll.py only when uncertainty + stakes demand it; otherwise resolve narratively.
+- When you do roll, update sheets with tools/update_sheet.py (or tools/apply_roll.py / tools/beat.py).
 - Advance pressure tracks and clocks when fiction demands (tools/trackers.py).
 
 ## End of session

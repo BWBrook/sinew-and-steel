@@ -15,6 +15,7 @@ Use the files and tools below to keep play consistent, reproducible, and private
 
 ## Operating rules
 - Keep private notes in state/. Do not reveal them to players unless explicitly requested.
+- Do not roll by default. Roll only when the outcome is uncertain *and* it matters; many choices can be resolved narratively.
 - Use tools/roll.py for dice and tools/update_sheet.py for sheet changes.
 - Use tools/trackers.py for pressure clocks and scene counters.
 - Use tools/campaign_init.py and tools/gen_character.py for campaign setup.

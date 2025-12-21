@@ -82,12 +82,18 @@ def main() -> int:
 
     # Check tools we rely on
     for rel in (
+        "tools/_sslib.py",
+        "tools/_dice.py",
         "tools/recap.py",
         "tools/session_log.py",
         "tools/apply_roll.py",
+        "tools/beat.py",
+        "tools/summary.py",
         "tools/gen_character.py",
         "tools/char_builder.py",
         "tools/campaign_init.py",
+        "tools/validate_sheet.py",
+        "tools/validate_campaign.py",
     ):
         if not (ROOT / rel).exists():
             errors.append(f"missing file: {rel}")

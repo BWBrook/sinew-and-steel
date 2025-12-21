@@ -18,15 +18,15 @@ Keep durable, private session data for the agent: sheets, trackers, memory, and 
 Use the updater for consistent changes:
 
 ```bash
-python tools/update_sheet.py --file state/characters/<name>.yaml --inc pools.luck.current=-1
-python tools/update_sheet.py --file state/characters/<name>.yaml --set tracks.pressure.current=2
+python tools/update_sheet.py --campaign <slug> --character <name> --inc pools.luck.current=-1
+python tools/update_sheet.py --campaign <slug> --character <name> --set tracks.pressure.current=2
 ```
 
 For trackers and scene counters:
 
 ```bash
-python tools/trackers.py --file state/trackers/session.yaml scene --inc 1
-python tools/trackers.py --file state/trackers/session.yaml pressure --inc 1 --clamp
+python tools/trackers.py --campaign <slug> scene --inc 1
+python tools/trackers.py --campaign <slug> pressure --inc 1 --clamp
 ```
 
 ## Notes

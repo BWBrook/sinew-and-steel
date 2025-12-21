@@ -5,6 +5,8 @@ from pathlib import Path
 import sys
 import yaml
 
+import _sslib
+
 
 def load_roll(args):
     if args.roll:
@@ -103,6 +105,8 @@ def main() -> int:
 
     parser.add_argument("--sheet", help="Sheet YAML file to update")
     parser.add_argument("--tracker", help="Tracker YAML file to update")
+    parser.add_argument("--campaign", help="Campaign slug under campaigns/ (defaults sheet/tracker paths)")
+    parser.add_argument("--character", help="Character slug or filename under campaign state")
 
     parser.add_argument("--success-sheet-set", action="append", default=[])
     parser.add_argument("--success-sheet-inc", action="append", default=[])
@@ -162,19 +166,45 @@ def main() -> int:
         tracker_sets = failure_tracker_sets
         tracker_incs = failure_tracker_incs
 
-    if args.sheet:
-        path = Path(args.sheet)
-        if not path.exists():
-            print(f"error: sheet not found: {path}", file=sys.stderr)
-            return 1
-        update_file(path, sheet_sets, sheet_incs, clamp=args.clamp)
+    root = _sslib.repo_root()
+    sheet_path = None
+    tracker_path = None
 
+    need_sheet = bool(sheet_sets or sheet_incs)
+    need_tracker = bool(tracker_sets or tracker_incs)
+
+    if args.sheet:
+        sheet_path = Path(args.sheet)
+        if not sheet_path.is_absolute():
+            sheet_path = root / sheet_path
     if args.tracker:
-        path = Path(args.tracker)
-        if not path.exists():
-            print(f"error: tracker not found: {path}", file=sys.stderr)
+        tracker_path = Path(args.tracker)
+        if not tracker_path.is_absolute():
+            tracker_path = root / tracker_path
+
+    if args.campaign:
+        if sheet_path is None and need_sheet:
+            chars_dir = _sslib.campaign_characters_dir(args.campaign, root=root)
+            try:
+                sheet_path = _sslib.resolve_character_file(chars_dir, args.character)
+            except FileNotFoundError as exc:
+                print(f"error: {exc}", file=sys.stderr)
+                return 1
+
+        if tracker_path is None and need_tracker:
+            tracker_path = _sslib.campaign_trackers_dir(args.campaign, root=root) / "session.yaml"
+
+    if need_sheet:
+        if not sheet_path or not sheet_path.exists():
+            print(f"error: sheet not found: {sheet_path}", file=sys.stderr)
             return 1
-        update_file(path, tracker_sets, tracker_incs, clamp=args.clamp)
+        update_file(sheet_path, sheet_sets, sheet_incs, clamp=args.clamp)
+
+    if need_tracker:
+        if not tracker_path or not tracker_path.exists():
+            print(f"error: tracker not found: {tracker_path}", file=sys.stderr)
+            return 1
+        update_file(tracker_path, tracker_sets, tracker_incs, clamp=args.clamp)
 
     print("applied" if success else "applied (failure)")
     return 0

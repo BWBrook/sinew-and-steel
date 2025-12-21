@@ -4,6 +4,8 @@ from pathlib import Path
 import sys
 import yaml
 
+import _sslib
+
 
 def parse_kv(item: str):
     if "=" not in item:
@@ -45,13 +47,31 @@ def inc_path(data: dict, path: str, delta):
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Update a YAML character sheet or tracker file.")
-    parser.add_argument("--file", required=True, help="YAML file to update")
+    parser.add_argument("--file", help="YAML file to update")
+    parser.add_argument("--campaign", help="Campaign slug under campaigns/")
+    parser.add_argument("--character", help="Character slug or filename under campaign state")
     parser.add_argument("--set", action="append", default=[], help="Set key=value (repeatable)")
     parser.add_argument("--inc", action="append", default=[], help="Increment key=delta (repeatable)")
     parser.add_argument("--stdout", action="store_true", help="Print to stdout instead of writing")
 
     args = parser.parse_args()
-    path = Path(args.file)
+    root = _sslib.repo_root()
+
+    if args.file:
+        path = Path(args.file)
+        if not path.is_absolute():
+            path = root / path
+    elif args.campaign:
+        chars_dir = _sslib.campaign_characters_dir(args.campaign, root=root)
+        try:
+            path = _sslib.resolve_character_file(chars_dir, args.character)
+        except FileNotFoundError as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 1
+    else:
+        print("error: provide --file or --campaign", file=sys.stderr)
+        return 1
+
     if not path.exists():
         print(f"error: file not found: {path}", file=sys.stderr)
         return 1

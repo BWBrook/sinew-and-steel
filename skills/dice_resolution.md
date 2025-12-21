@@ -20,7 +20,7 @@ python tools/roll.py check --stat 12 --dis
 Apply roll to state (example):
 
 ```bash
-python tools/apply_roll.py --roll /tmp/roll.json --sheet state/characters/<name>.yaml --success-sheet-inc pools.stamina.current=-1
+python tools/apply_roll.py --campaign <slug> --character <name> --roll /tmp/roll.json --success-sheet-inc pools.stamina.current=-1
 ```
 
 Opposed check:

@@ -12,6 +12,19 @@ It is written for Codex/Claude-Code style agents and keeps private GM data separ
 - Keep rules, skin, and prompt assembly deterministic and auditable.
 - Store private notes and trackers locally (never show them unless asked).
 - Use the CLI tools for rolls and state updates to avoid mistakes.
+- Keep mechanics in service of story: roll only when uncertainty + real stakes.
+
+## When to roll (and when not to)
+- **Do not roll by default.** If the player’s approach is plausible and the outcome is interesting either way, you can resolve it narratively.
+- **Roll only when** (a) the outcome is genuinely uncertain, and (b) it matters (danger, time, reputation, resources, irreversible consequences).
+- **Reward initiative.** Smart plans can be auto-success, reduce risk, or grant Advantage; dice are not “permission slips.”
+- **Prefer meaningful costs over filler rolls.** If you need tension without randomness, offer: a hard bargain, a time cost, +1 Pressure/Stress, or a resource spend.
+- **Keep cadence tight.** Many beats need zero rolls; most beats should need at most 1–2.
+
+Examples of non-roll resolutions:
+- “Yes, but…” (success with complication) or “No, but…” (failure with progress).
+- Offer a choice: “You can do it quietly, or quickly, but not both.”
+- Spend a token to bypass a routine obstacle rather than rolling.
 
 ## Repo map (agent view)
 - rules/: core system (adventurers_manual + custodians_almanac)
@@ -47,12 +60,24 @@ This writes campaigns/<slug>/prompt.md using the campaign skin.
 - Roll dice with tools/roll.py.
 - Apply outcomes using tools/update_sheet.py, tools/trackers.py, or tools/apply_roll.py.
 
+Choice design (avoid dice spam):
+- Offer 2–4 options; **at least one should be narrative** (no roll, or a simple tradeoff).
+- If a roll is needed, state **what’s at stake** before rolling (what changes on success vs failure).
+- Use rolls to resolve risky actions; use narration to resolve competence and routine work.
+
 Examples:
 ```bash
 python tools/roll.py check --stat 12 --adv > /tmp/roll.json
 python tools/apply_roll.py --roll /tmp/roll.json \
   --sheet campaigns/<slug>/state/characters/hero.yaml \
   --success-sheet-inc pools.stamina.current=-1
+```
+
+One-command alternative (roll + optional nudge + updates + logging):
+
+```bash
+python tools/beat.py --campaign <slug> --character hero --log \
+  check --stat-key SYS --adv --nudge -1
 ```
 
 ### 5) Capture memory and logs
@@ -85,6 +110,8 @@ python tools/session_log.py --campaign <slug> --role GM \
 - Run `python tools/validate_repo.py` if tools or paths break.
 - Use `tools/build_prompt.py --list-skins` to verify skin slugs.
 - If a campaign is missing, re-run campaign_init.
+- Use `python tools/validate_campaign.py --campaign <slug>` to check campaign scaffolding/state.
+- Use `python tools/summary.py --campaign <slug>` for a quick snapshot (scene, clocks, pools).
 
 ## Optional: repo-level state
 If you are not using campaigns/, you can store data in state/ at repo root.

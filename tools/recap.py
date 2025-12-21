@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import argparse
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 import re
 import sys
@@ -133,10 +133,10 @@ def main() -> int:
             return 1
         memory_dir = campaign_dir / "state" / "memory"
         memory_dir.mkdir(parents=True, exist_ok=True)
-        if args.new or memory_path is None:
-            memory_path = next_session_path(memory_dir)
-        else:
-            if not memory_path:
+        if memory_path is None:
+            if args.new:
+                memory_path = next_session_path(memory_dir)
+            else:
                 memory_path = find_latest_session(memory_dir) or next_session_path(memory_dir)
 
         tracker_path = campaign_dir / "state" / "trackers" / "session.yaml"
@@ -157,7 +157,7 @@ def main() -> int:
     npcs = ensure_list(data.get("npcs"))
     secrets = ensure_list(data.get("secrets"))
 
-    timestamp = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     for item in args.summary:
         summaries.append(f"[{timestamp}] {item}")
