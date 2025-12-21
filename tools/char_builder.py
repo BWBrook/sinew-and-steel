@@ -41,9 +41,28 @@ def main() -> int:
     parser.add_argument("--out", help="Output file (default: stdout or campaign path)")
     parser.add_argument("--set", action="append", default=[], help="Set stat (STAT=VALUE)")
     parser.add_argument("--delta", action="append", default=[], help="Adjust stat by delta (STAT=+2)")
-    parser.add_argument("--stamina", type=int, default=5, help="Starting stamina (default 5)")
+    parser.add_argument(
+        "--stamina",
+        type=int,
+        default=5,
+        help="Stamina score (default 5; participates in point-buy). Prefer --set STA=... for clarity.",
+    )
+    parser.add_argument(
+        "--build-points",
+        type=int,
+        help="Build points budget at creation (default: campaign.yaml build_points_budget or 6).",
+    )
+    parser.add_argument(
+        "--tone",
+        choices=["grim", "standard", "pulp", "heroic"],
+        help="Shortcut for build-point budgets: grim=0, standard=6, pulp=12, heroic=16.",
+    )
     parser.add_argument("--note", action="append", default=[], help="Add note to sheet")
-    parser.add_argument("--strict", action="store_true", help="Require exact double-debit payment (no extra decreases)")
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="Disallow extra decreases beyond what is needed (no voluntary weakness below baseline).",
+    )
 
     args = parser.parse_args()
 
@@ -55,6 +74,7 @@ def main() -> int:
     skins = manifest.get("skins", {})
 
     skin_slug = args.skin
+    campaign = None
     if args.campaign:
         campaign = load_campaign(args.campaign)
         campaign_skin = campaign.get("skin")
@@ -76,56 +96,88 @@ def main() -> int:
         print("error: skin attributes missing or incomplete", file=sys.stderr)
         return 1
 
-    # Build stats from baseline 10
+    if args.tone and args.build_points is not None:
+        print("error: provide only one of --tone or --build-points", file=sys.stderr)
+        return 1
+
+    tone_map = {"grim": 0, "standard": 6, "pulp": 12, "heroic": 16}
+    if args.tone:
+        build_points_budget = tone_map[args.tone]
+    elif args.build_points is not None:
+        build_points_budget = int(args.build_points)
+    elif campaign and isinstance(campaign.get("build_points_budget"), int):
+        build_points_budget = int(campaign["build_points_budget"])
+    else:
+        build_points_budget = 6
+
+    if build_points_budget < 0:
+        print("error: --build-points must be >= 0", file=sys.stderr)
+        return 1
+
+    # Build stats from baseline 10 (STA baseline is 5 and participates in ledger)
     stats = {key: 10 for key in attrs.keys()}
+    stamina_value = int(args.stamina)
 
     try:
         for item in args.delta:
             key, value = parse_kv(item)
+            if key == "STA":
+                stamina_value += int(value)
+                continue
             if key not in stats:
-                raise ValueError(f"Unknown stat '{key}'")
+                raise ValueError(f"Unknown stat '{key}' (use STA for stamina)")
             delta = int(value)
             stats[key] += delta
 
         for item in args.set:
             key, value = parse_kv(item)
+            if key == "STA":
+                stamina_value = int(value)
+                continue
             if key not in stats:
-                raise ValueError(f"Unknown stat '{key}'")
+                raise ValueError(f"Unknown stat '{key}' (use STA for stamina)")
             stats[key] = int(value)
     except ValueError as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
 
-    # Validate point-buy rules
+    # Validate point-buy rules (attributes baseline 10; stamina baseline 5) with build points.
     errors = []
-    baseline = 10
-    increases = sum(max(0, v - baseline) for v in stats.values())
-    decreases = sum(max(0, baseline - v) for v in stats.values())
-    required_decreases = 2 * increases
+    baselines = {key: 10 for key in stats.keys()}
+    baselines["STA"] = 5
+    values = dict(stats)
+    values["STA"] = stamina_value
 
-    if decreases < required_decreases:
+    try:
+        needed, increases, decreases, required_decreases, slack = _sslib.build_points_needed_mixed(values, baselines)
+    except Exception as exc:
+        errors.append(f"failed to compute point-buy validation: {exc}")
+        needed = increases = decreases = required_decreases = slack = 0
+
+    if needed > build_points_budget:
         errors.append(
-            f"double-debit not paid: increases={increases} decreases={decreases} (need >= {required_decreases})"
+            "build points exceeded: "
+            f"needed={needed} budget={build_points_budget} "
+            f"(increases={increases} decreases={decreases})"
         )
 
     for key, value in stats.items():
         if value < 6 or value > 16:
             errors.append(f"{key} out of range (6-16): {value}")
 
-    if args.stamina < 3 or args.stamina > 9:
-        errors.append(f"stamina out of range (3-9): {args.stamina}")
+    if stamina_value < 3 or stamina_value > 9:
+        errors.append(f"stamina out of range (3-9): {stamina_value}")
 
     if errors:
         for err in errors:
             print(f"error: {err}", file=sys.stderr)
         return 1
 
-    slack = decreases - required_decreases
-    if args.strict and slack != 0:
-        print(f"error: strict mode requires slack=0 (got slack={slack})", file=sys.stderr)
+    if args.strict and slack > 0:
+        print(f"error: strict mode forbids extra decreases (slack={slack})", file=sys.stderr)
         return 1
-    if slack > 0 and increases > 0:
-        print(f"warning: build overpays by {slack} point(s) (decreases beyond required)", file=sys.stderr)
+    if slack > 0:
+        print(f"warning: build leaves {slack} point(s) of extra decreases below baseline", file=sys.stderr)
 
     luck_key = skin.get("luck_key")
     if luck_key not in stats:
@@ -140,6 +192,10 @@ def main() -> int:
         "skin": skin_slug,
         "player": args.player,
         "created": date.today().isoformat(),
+        "creation": {
+            "build_points_budget": build_points_budget,
+            "build_points_used": needed,
+        },
         "attributes": stats,
         "pools": {
             "luck": {
@@ -148,8 +204,8 @@ def main() -> int:
                 "max": luck_value,
             },
             "stamina": {
-                "current": args.stamina,
-                "max": args.stamina,
+                "current": stamina_value,
+                "max": stamina_value,
             },
         },
         "tracks": {

@@ -6,8 +6,9 @@
 * **Roll-under d20.** ≤ attribute = success. Nat 1 = legendary, nat 20 = calamity.  
 * **Adv / Dis.** Roll two d20, keep lower / higher.  
 * **Opposed.** Both roll; compare **margins** (attribute – roll); ties defend.  
-* **Five attributes.** Start all at 10. Each +1 costs –2 elsewhere. Range 6–16.  
-* **Stamina 5.** Damage = 1 + weapon **edge** (0 / +1 / +2). 0 STM ⇒ collapse.  
+* **Scores.** Five attributes start at **10** (range 6–16). **Stamina starts at 5** (range 3–9).  
+  * Standard creation grants **6 build points** (grim 0 / pulp 12 / heroic 16): +1 above baseline costs 2 points; +1 below baseline costs 1 point.  
+* **Stamina.** Damage = 1 + weapon **edge** (0 / +1 / +2). 0 STM ⇒ collapse.  
 * **Luck pool.** Current Luck = tokens left. Spend tokens to nudge ±1 (nat 1/20 locked). Rest +1; milestone refills. Luck tests roll under **current** score.  
 * **Dynamic soak.** Armour reduces 1–3. Reduce soak 1 per **4 attacker margin**; nat 1 pierces all.  
 * **Carry limit.** Up to 6 big items; extra load ⇒ REF / FLT Disadvantage.  

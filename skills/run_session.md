@@ -20,6 +20,8 @@ Run a branching RPG session with clear separation between public narration and p
 - Roll dice with tools/roll.py only when uncertainty + stakes demand it; otherwise resolve narratively.
 - When you do roll, update sheets with tools/update_sheet.py (or tools/apply_roll.py / tools/beat.py).
 - Advance pressure tracks and clocks when fiction demands (tools/trackers.py).
+- After each GM response, checkpoint the exact text (ironman resume):
+  `cat /tmp/last_gm.md | python tools/checkpoint.py --campaign <slug>`
 
 ## End of session
 - Write a short memory summary in state/memory/.

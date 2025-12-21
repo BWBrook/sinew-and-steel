@@ -23,7 +23,7 @@ Sinew & Steel works the other way round:
 | Pillar | One-line summary |
 |---|---|
 | **Roll-under d20** | ≤ attribute = succeed.  Natural 1 legendary, 20 catastrophic. |
-| **Five attributes** | Baseline 10.  +1 costs –2 elsewhere.  Range 6-16. |
+| **Scores** | Attributes baseline 10 (6–16) and Stamina baseline 5 (3–9). Standard play starts with **6 build points** (grim 0, pulp 12, heroic 16): +1 above baseline costs 2 points; +1 below baseline costs 1 point. |
 | **Luck = tokens** | Spend to nudge dice; pool size *is* the score. |
 | **Stamina** | Starts at 5.  Hits deal 1 + weapon edge.  0 = collapse. |
 | **Pressure track** | 0-5 fuse.  Colour changes by skin (Heat, Doom, Shadow, Anomaly). |
@@ -64,7 +64,7 @@ Start here if you want a Codex/Claude Code agent to run the game from this repo.
 2. **List skins:** `python tools/build_prompt.py --list-skins`
 3. **Create a campaign + character:**
    ```bash
-   python tools/campaign_init.py --title "Ice Hunt" --skin clanfire --random-character "Grak"
+   python tools/campaign_init.py --title "Ice Hunt" --skin clanfire --tone standard --random-character "Grak"
    ```
 4. **Build the agent prompt:**
    ```bash

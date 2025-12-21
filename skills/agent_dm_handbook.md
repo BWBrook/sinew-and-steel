@@ -40,11 +40,15 @@ Examples of non-roll resolutions:
 
 ### 1) Initialize a campaign
 ```bash
-python tools/campaign_init.py --title "My Campaign" --skin <skin> --random-character "Name"
+python tools/campaign_init.py --title "My Campaign" --skin <skin> --tone standard --random-character "Name"
 ```
 This creates:
 - campaigns/<slug>/campaign.yaml
 - campaigns/<slug>/state/{characters,trackers,memory,logs}/
+
+Campaign tone:
+- `campaign.yaml` records `build_points_budget` (default 6).
+- Character creation tools use this budget in campaign workflows (or you can override per character).
 
 ### 2) Build the full prompt
 ```bash
@@ -123,6 +127,13 @@ This is separate from the deliberately summarized memory and the session log, an
   `cat /tmp/last_gm.md | python tools/checkpoint.py --campaign <slug>`
 - Restore (prints the exact text):
   `python tools/checkpoint.py --campaign <slug> --show`
+
+### Recommended discipline (do this every GM message)
+To avoid “where were we?” drift when resuming in a fresh context window:
+- After you send a GM response to the player, immediately write that exact text into `/tmp/last_gm.md` (or any temp file).
+- Then run: `cat /tmp/last_gm.md | python tools/checkpoint.py --campaign <slug>`
+
+This keeps one authoritative “last GM output” checkpoint per campaign with no checkpoint bloat.
 
 ## Optional: repo-level state
 If you are not using campaigns/, you can store data in state/ at repo root.

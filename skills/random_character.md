@@ -6,7 +6,9 @@ description: Generate a random character sheet that obeys Sinew & Steel build ru
 # Random Character
 
 ## Goal
-Create a legal random sheet (stats 6–16) with skin-specific labels, generated using the double-debit method.
+Create a legal random sheet with skin-specific labels, generated using:
+- a double-debit “specialization” pass, then
+- spending a build points budget (default 6) to improve scores.
 
 ## Command
 ```bash
@@ -16,3 +18,4 @@ python tools/gen_character.py --skin <skin> --name "Name" --out state/characters
 ## Notes
 - The generator uses manifest.yaml for attribute labels and luck naming.
 - Use --seed for reproducible generation.
+- Use `--tone grim|standard|pulp|heroic` (or `--build-points N`) to control starting power.

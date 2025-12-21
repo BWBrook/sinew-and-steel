@@ -4,6 +4,10 @@ skin: "clanfire"
 player: "Example"
 created: "2025-12-21"
 
+creation:
+  build_points_budget: 6
+  build_points_used: 0
+
 attributes:
   MGT: 12
   FLT: 10

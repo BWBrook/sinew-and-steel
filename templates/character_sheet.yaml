@@ -4,6 +4,10 @@ skin: ""
 player: ""
 created: ""
 
+creation:
+  build_points_budget: 6
+  build_points_used: 0
+
 attributes:
   stat_1: 10
   stat_2: 10

@@ -3,4 +3,5 @@ slug: emberfall_demo
 title: Emberfall Demo
 skin: clanfire
 created: "2025-12-21"
+build_points_budget: 6
 notes: "Example campaign scaffold for documentation."

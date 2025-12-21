@@ -68,18 +68,6 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
         if value < 6 or value > 16:
             errors.append(f"attribute {key} out of range (6-16): {value}")
 
-    # Double-debit validation
-    try:
-        increases, decreases, required, slack = _sslib.validate_double_debit(stats)
-        if decreases < required:
-            errors.append(
-                f"double-debit not paid: increases={increases} decreases={decreases} (need >= {required})"
-            )
-        elif slack > 0 and increases > 0:
-            warnings.append(f"double-debit overpay: slack={slack} (extra decreases beyond required)")
-    except Exception as exc:
-        errors.append(f"failed to compute point-buy validation: {exc}")
-
     # Pools
     pools = sheet.get("pools")
     if not isinstance(pools, dict):
@@ -122,6 +110,7 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
                 )
 
     stamina = pools.get("stamina")
+    stamina_max_for_ledger = None
     if not isinstance(stamina, dict):
         errors.append("missing or invalid pools.stamina")
     else:
@@ -134,9 +123,62 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
             errors.append("pools.stamina.current and pools.stamina.max must be ints")
         else:
             if max_value < 3 or max_value > 9:
-                warnings.append(f"pools.stamina.max out of expected range (3-9): {max_value}")
+                errors.append(f"pools.stamina.max out of range (3-9): {max_value}")
             if cur_value < 0 or cur_value > max_value:
                 errors.append(f"pools.stamina.current out of range (0-{max_value}): {cur_value}")
+            stamina_max_for_ledger = max_value
+
+    # Build points validation (attributes baseline 10; stamina baseline 5).
+    # Economy: +1 above baseline costs 2 build points; +1 below baseline costs 1 build point.
+    creation = sheet.get("creation")
+    if creation is None:
+        warnings.append("sheet missing creation section (assuming build_points_budget=6)")
+        build_points_budget = 6
+        build_points_declared_used = None
+    elif not isinstance(creation, dict):
+        warnings.append("sheet creation is not a dict (assuming build_points_budget=6)")
+        build_points_budget = 6
+        build_points_declared_used = None
+    else:
+        budget = creation.get("build_points_budget")
+        if budget is None:
+            warnings.append("creation missing build_points_budget (assuming 6)")
+            build_points_budget = 6
+        elif not is_int(budget):
+            warnings.append(f"creation build_points_budget is not int (assuming 6): {budget}")
+            build_points_budget = 6
+        else:
+            build_points_budget = int(budget)
+        if is_int(build_points_budget) and int(build_points_budget) < 0:
+            errors.append(f"creation build_points_budget must be >= 0 (got {build_points_budget})")
+
+        declared = creation.get("build_points_used")
+        build_points_declared_used = int(declared) if is_int(declared) else None
+        if declared is not None and build_points_declared_used is None:
+            warnings.append(f"creation build_points_used is not int: {declared}")
+
+    try:
+        baselines = {key: 10 for key in stats.keys()}
+        values = dict(stats)
+        baselines["STA"] = 5
+        if stamina_max_for_ledger is None:
+            raise ValueError("missing stamina max for point-buy validation")
+        values["STA"] = stamina_max_for_ledger
+
+        needed, increases, decreases, required, slack = _sslib.build_points_needed_mixed(values, baselines)
+        if needed > int(build_points_budget):
+            errors.append(
+                f"build points exceeded: needed={needed} budget={build_points_budget} "
+                f"(increases={increases} decreases={decreases})"
+            )
+        if slack > 0:
+            warnings.append(f"extra decreases below baseline: slack={slack} (voluntary weakness)")
+        if build_points_declared_used is not None and build_points_declared_used != needed:
+            warnings.append(
+                f"creation build_points_used ({build_points_declared_used}) != computed needed ({needed})"
+            )
+    except Exception as exc:
+        errors.append(f"failed to compute point-buy validation: {exc}")
 
     # Tracks
     tracks = sheet.get("tracks")

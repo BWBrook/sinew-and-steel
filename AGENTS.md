@@ -20,6 +20,7 @@ Use the files and tools below to keep play consistent, reproducible, and private
 - Use tools/trackers.py for pressure clocks and scene counters.
 - Use tools/campaign_init.py and tools/gen_character.py for campaign setup.
 - Record each roll result and consequence in state/memory/ or state/logs/.
+- After each GM response, save the *exact* text to the campaign checkpoint (tools/checkpoint.py) so the session can be resumed from a fresh context window.
 - Separate public narration from private tracking.
 - Prefer manifest.yaml for paths instead of hardcoding.
 

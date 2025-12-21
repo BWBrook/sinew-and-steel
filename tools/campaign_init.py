@@ -28,6 +28,16 @@ def main() -> int:
     parser.add_argument("--slug", help="Campaign slug (folder name)")
     parser.add_argument("--title", help="Campaign title (used to derive slug if --slug not provided)")
     parser.add_argument("--skin", required=True, help="Skin slug from manifest.yaml")
+    parser.add_argument(
+        "--build-points",
+        type=int,
+        help="Build points budget at creation for this campaign (default 6).",
+    )
+    parser.add_argument(
+        "--tone",
+        choices=["grim", "standard", "pulp", "heroic"],
+        help="Shortcut for build-point budgets: grim=0, standard=6, pulp=12, heroic=16.",
+    )
     parser.add_argument("--base-dir", default="campaigns", help="Base campaigns directory")
     parser.add_argument("--force", action="store_true", help="Overwrite existing files")
     parser.add_argument("--random-character", help="Optional character name to generate")
@@ -42,6 +52,22 @@ def main() -> int:
 
     if not args.slug and not args.name and not args.title:
         print("error: provide --slug or --title (or legacy --name)", file=sys.stderr)
+        return 1
+
+    if args.tone and args.build_points is not None:
+        print("error: provide only one of --tone or --build-points", file=sys.stderr)
+        return 1
+
+    tone_map = {"grim": 0, "standard": 6, "pulp": 12, "heroic": 16}
+    if args.tone:
+        build_points_budget = tone_map[args.tone]
+    elif args.build_points is not None:
+        build_points_budget = int(args.build_points)
+    else:
+        build_points_budget = 6
+
+    if build_points_budget < 0:
+        print("error: --build-points must be >= 0", file=sys.stderr)
         return 1
 
     slug = args.slug or args.name or _sslib.slugify(args.title, fallback="campaign")
@@ -75,6 +101,7 @@ def main() -> int:
         "title": title,
         "skin": args.skin,
         "created": date.today().isoformat(),
+        "build_points_budget": build_points_budget,
         "notes": "",
     }
     write_yaml(campaign_file, campaign_data)
@@ -115,6 +142,8 @@ def main() -> int:
                 str(ROOT / "tools" / "gen_character.py"),
                 "--skin",
                 args.skin,
+                "--build-points",
+                str(build_points_budget),
                 "--name",
                 args.random_character,
                 "--out",

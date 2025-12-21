@@ -119,6 +119,54 @@ def validate_double_debit(stats: dict[str, Any], baseline: int = 10) -> tuple[in
     return increases, decreases, required_decreases, slack
 
 
+def validate_double_debit_mixed(
+    values: dict[str, Any],
+    baselines: dict[str, int],
+) -> tuple[int, int, int, int]:
+    increases = 0
+    decreases = 0
+    for key, raw in values.items():
+        if key not in baselines:
+            raise KeyError(f"missing baseline for '{key}'")
+        baseline = int(baselines[key])
+        value = int(raw)
+        if value > baseline:
+            increases += value - baseline
+        elif value < baseline:
+            decreases += baseline - value
+    required_decreases = 2 * increases
+    slack = decreases - required_decreases
+    return increases, decreases, required_decreases, slack
+
+
+def build_points_needed_mixed(
+    values: dict[str, Any],
+    baselines: dict[str, int],
+) -> tuple[int, int, int, int, int]:
+    """
+    Compute creation build-point usage under the Sinew & Steel economy.
+
+    - Raising a score above baseline costs 2 build points per +1.
+    - Raising a score from below baseline toward baseline costs 1 build point per +1.
+      (This matches the rules text: 2 build points = +1 above baseline OR +2 below baseline.)
+
+    Returns:
+      needed, increases, decreases, required_decreases, slack
+
+    Where:
+      increases = total points above baseline (sum of deltas > 0)
+      decreases = total points below baseline (sum of deltas < 0, absolute)
+      required_decreases = 2 * increases
+      needed = max(0, required_decreases - decreases)
+      slack = decreases - required_decreases
+
+    With build point budget B, the legal condition is: needed <= B.
+    """
+    increases, decreases, required_decreases, slack = validate_double_debit_mixed(values, baselines)
+    needed = max(0, required_decreases - decreases)
+    return needed, increases, decreases, required_decreases, slack
+
+
 ALLOWED_CLOCK_FIELDS = {"name", "current", "max", "notes"}
 
 

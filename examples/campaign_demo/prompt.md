@@ -39,15 +39,19 @@ Start with the **baseline frame**:
 
 **Point‑Buy Rule (double‑debit)**\
 Every +1 you add **above baseline** costs **‑2** total subtracted from any other score(s).
-No **attribute** may drop below 6 or rise above 16. **Stamina is chosen separately** (3–9 at creation).
+No score may drop below 6 or rise above 16 (**Stamina** floors at 3, caps at 9).
+
+Baseline notes:
+- Attributes baseline at **10**.
+- Stamina baseline at **5**.
 
 > *"Bump a stat up? Pay double elsewhere."*
 
-Milestones hand out **2 build points** that follow the same rule: +1 to an above‑baseline stat **or** +2 to a below‑baseline stat.
+Milestones hand out **2 build points** that follow the same rule: +1 to an above‑baseline score **or** +2 to a below‑baseline score (Stamina baseline 5; attributes baseline 10).
 
 The Custodian may also allot each player 0 (grim), 6 (standard), 12 (pulp) or 16 (heroic) build-points **at creation** and let them sculpt freely by the +1/-2 economy.
 
-Build points apply to **attributes**; adjust Stamina only when the fiction or Custodian allows.
+Note: Stamina uses a **baseline of 5** (not 10) but still participates in the same +1/-2 ledger.
 
 ---
 
@@ -235,20 +239,27 @@ Five scores map cleanly onto the d20’s 20‑step granularity while keeping she
 
 ### C. Sample Builds (baseline 10/5)
 
-| Concept       | MGT    | REF | INT    | EMP    | LCK | STA |
-| ------------- | ------ | --- | ------ | ------ | --- | --- |
-| Scholar       | 7      | 8   | **14** | 9      | 8   | 5   |
-| Iron Brute    | **15** | 7   | 6      | 6      | 7   | 7   |
-| Silver‑tongue | 8      | 8   | **11** | **12** | 8   | 4   |
+| Concept       | MGT    | REF | INT    | EMP    | LCK | STA   |
+| ------------- | ------ | --- | ------ | ------ | --- | ----- |
+| Scholar       | 7      | 10  | **14** | 10     | 7   | 3     |
+| Iron Brute    | **15** | 7   | 6      | 8      | 10  | 4     |
+| Silver‑tongue | 8      | 8   | **11** | **12** | 9   | 4     |
 
-Attribute scores obey the +1/‑2 ledger; Stamina is chosen independently (3–9).
+All obey the +1/‑2 ledger (attributes baseline 10; Stamina baseline 5).
+These examples spend **0 build points** (pure trade-offs); add starting build points to taste.
 
 ---
 
 ## Part II Optional Plug-in Rules
 
 ### A. Tone Dial — Build-Point Pool
-At character creation you may gift each player additional build points: 0 for grim survival, 8 for pulpy competence, 16 for heroic flair, or whatever suits your campaign.
+At character creation you may gift each player build points to set tone:
+- 0 for grim survival
+- 6 for standard play (recommended default)
+- 12 for pulpy competence
+- 16 for heroic flair
+
+(Or pick any number that fits your table.)
 
 The pool lets heroes spike a signature strength or patch a weakness without repainting every stat. It adjusts the success rate (≈ 50 %, 60 %, 70 %) while leaving all core maths, tables and advance pacing untouched.
 

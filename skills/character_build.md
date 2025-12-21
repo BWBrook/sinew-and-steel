@@ -14,15 +14,37 @@ python tools/gen_character.py --skin <skin> --name "Name" --out state/characters
 ```
 
 ## Point-buy build (manual)
-Provide stats explicitly (each stat 6–16) following the **double-debit** rule:
-- Baseline is 10 in every stat.
-- For every **+1 above 10**, subtract **-2 total** from other stats.
+Provide scores explicitly (attributes 6–16; `STA` 3–9) following the **build points** economy.
 
-In other words: total decreases below 10 must be **at least 2×** total increases above 10.
+Baselines:
+- Attributes baseline at **10**.
+- Stamina baseline at **5** (treat as `STA`).
+
+Costs:
+- **+1 above baseline costs 2 build points.**
+- **+1 below baseline costs 1 build point** (so **2 build points** can restore **+2** below baseline).
+
+Default starting budget is **6 build points** (“standard”), but you can run:
+- `--tone grim` (0), `--tone standard` (6), `--tone pulp` (12), `--tone heroic` (16)
+- or `--build-points N` for an explicit budget.
 
 ```bash
 python tools/char_builder.py --skin <skin> --name "Name" \
   --set MSC=12 --set REF=8 --set SYS=8 --set HAR=10 --set RES=10
+```
+
+Example that trades Stamina down to pay for a spike:
+
+```bash
+python tools/char_builder.py --skin <skin> --name "Name" \
+  --set MSC=10 --set REF=10 --set SYS=14 --set HAR=10 --set RES=7 --set STA=3
+```
+
+Example using a heroic budget to raise the floor while still specializing:
+
+```bash
+python tools/char_builder.py --skin <skin> --tone heroic --name "Name" \
+  --set MSC=13 --set REF=10 --set SYS=10 --set HAR=10 --set RES=10 --set STA=6
 ```
 
 Use campaign mode to write directly into campaigns/<slug>/state/characters/:
@@ -32,7 +54,9 @@ python tools/char_builder.py --campaign <slug> --name "Name" --set STAT1=12 --se
 ```
 
 ## Notes
-- The builder enforces the Sinew & Steel point-buy rule (range 6–16 + double-debit validation).
-- Stamina is chosen separately (3–9 at creation) and is **not** part of the double-debit ledger.
-- Use `--strict` to require exact payment (no extra decreases beyond the minimum).
-- Use `--delta STAT=+2` to adjust from baseline 10, then `--set` to override.
+- The builder enforces the Sinew & Steel creation rules:
+  - Ranges: attributes 6–16, `STA` 3–9.
+  - Build points budget (default 6, or campaign.yaml `build_points_budget` in campaign mode).
+- Stamina participates in the same economy, but uses a baseline of **5**.
+- Use `--strict` to disallow extra decreases (voluntary weakness below baseline).
+- Use `--delta STAT=+2` to adjust from baseline (10 for attributes; 5 for `STA`), then `--set` to override.

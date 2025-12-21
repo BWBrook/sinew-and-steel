@@ -84,20 +84,27 @@ Five scores map cleanly onto the d20’s 20‑step granularity while keeping she
 
 ### C. Sample Builds (baseline 10/5)
 
-| Concept       | MGT    | REF | INT    | EMP    | LCK | STA |
-| ------------- | ------ | --- | ------ | ------ | --- | --- |
-| Scholar       | 7      | 8   | **14** | 9      | 8   | 5   |
-| Iron Brute    | **15** | 7   | 6      | 6      | 7   | 7   |
-| Silver‑tongue | 8      | 8   | **11** | **12** | 8   | 4   |
+| Concept       | MGT    | REF | INT    | EMP    | LCK | STA   |
+| ------------- | ------ | --- | ------ | ------ | --- | ----- |
+| Scholar       | 7      | 10  | **14** | 10     | 7   | 3     |
+| Iron Brute    | **15** | 7   | 6      | 8      | 10  | 4     |
+| Silver‑tongue | 8      | 8   | **11** | **12** | 9   | 4     |
 
-Attribute scores obey the +1/‑2 ledger; Stamina is chosen independently (3–9).
+All obey the +1/‑2 ledger (attributes baseline 10; Stamina baseline 5).
+These examples spend **0 build points** (pure trade-offs); add starting build points to taste.
 
 ---
 
 ## Part II Optional Plug-in Rules
 
 ### A. Tone Dial — Build-Point Pool
-At character creation you may gift each player additional build points: 0 for grim survival, 8 for pulpy competence, 16 for heroic flair, or whatever suits your campaign.
+At character creation you may gift each player build points to set tone:
+- 0 for grim survival
+- 6 for standard play (recommended default)
+- 12 for pulpy competence
+- 16 for heroic flair
+
+(Or pick any number that fits your table.)
 
 The pool lets heroes spike a signature strength or patch a weakness without repainting every stat. It adjusts the success rate (≈ 50 %, 60 %, 70 %) while leaving all core maths, tables and advance pacing untouched.
 

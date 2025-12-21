@@ -6,7 +6,7 @@ Requires Python 3 and PyYAML (already present in most agent runtimes).
 - build_prompt.py: assemble a full prompt from rules + skin + optional hidden notes.
 - campaign_init.py: create a per-campaign state scaffold (untracked).
 - char_builder.py: build a character sheet with point-buy validation.
-- gen_character.py: generate a random character sheet for a skin.
+- gen_character.py: generate a random character sheet for a skin (includes build points by default).
 - new_skin.py: create a skin from templates and optionally register it in the manifest.
 - roll.py: d20 rolls for checks and opposed tests.
 - beat.py: roll + (optional) nudge + state updates + log/recap in one command.
@@ -32,9 +32,9 @@ python tools/build_prompt.py --list-skins
 python tools/build_prompt.py --skin clanfire --mode agent --out /tmp/ss_prompt.md
 python tools/build_prompt.py --skin clanfire --mode chat --out /tmp/ss_prompt_chat.md
 python tools/build_prompt.py --campaign ice_hunt --mode agent
-python tools/campaign_init.py --title \"Ice Hunt\" --skin clanfire --random-character \"Grak\"
+python tools/campaign_init.py --title \"Ice Hunt\" --skin clanfire --tone standard --random-character \"Grak\"
 python tools/char_builder.py --campaign ice_hunt --name \"Aveline\" --set HEW=6 --set FLT=8 --set LOR=10 --set MCY=13 --set PRV=10
-python tools/gen_character.py --skin clanfire --name \"Tarra\" --out /tmp/tarra.yaml
+python tools/gen_character.py --skin clanfire --tone standard --name \"Tarra\" --out /tmp/tarra.yaml
 python tools/new_skin.py --slug skyfarer
 python tools/roll.py check --stat 12 --adv
 python tools/beat.py --campaign ice_hunt --character grak --log check --stat-key SYS --adv --nudge -1
