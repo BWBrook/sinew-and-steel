@@ -52,13 +52,37 @@ Swap a few words and build your own skin in an afternoon.
 
 ---
 
-## Quick start
+## Quick start (campaign + agent)
+
+Start here if you want a Codex/Claude Code agent to run the game from this repo.
+
+1. **Install deps (recommended):**
+   ```bash
+   uv venv
+   uv sync
+   ```
+2. **List skins:** `python tools/build_prompt.py --list-skins`
+3. **Create a campaign + character:**
+   ```bash
+   python tools/campaign_init.py --title "Ice Hunt" --skin clanfire --random-character "Grak"
+   ```
+4. **Build the agent prompt:**
+   ```bash
+   python tools/build_prompt.py --campaign ice_hunt --mode agent
+   ```
+5. **Start play** using `campaigns/ice_hunt/prompt.md`, then track state with tools.
+
+Canonical guide: `skills/agent_dm_handbook.md`
+
+---
+
+## Quick start (table / chat play)
 
 1. **Read `rules/quickstart.md`.**  
 2. Pick or clone a skin from `/skins/`.  
 3. Hand the rules page to players; keep the skin doc behind your screen.  
-4. (Optional) paste the **Starter Prompt** in `/prompts/` into ChatGPT or another LLM and hit enter.
-5. (Optional) use the **Hidden Scenario Prompt** in `/prompts/` to generate a secret scenario/module! 
+4. (Optional) paste the **Starter Prompt** in `/prompts/chat/` into ChatGPT or another LLM and hit enter.
+5. (Optional) use the **Hidden Scenario Prompt** in `/prompts/chat/` to generate a secret scenario/module! 
 6. Roll dice, burn Luck, tell messy stories.
 
 ---
@@ -84,10 +108,10 @@ pip install pyyaml
 
 ## For AI game-masters
 
-The repo’s `/prompts/` folder contains:
+The repo’s `/prompts/chat/` folder contains:
 
-* A **starter prompt template** that loads the engine + chosen skin in one go. Add ruleset as required. 
-* Tool call examples for dice rolls, Luck offers, and pressure escalations.
+* A **starter prompt template** that loads the engine + chosen skin in one go.  
+* A **hidden scenario prompt** for secret GM notes.
 
 No plugins needed for reasoning engines with tool use—`random.randint(1,20)` and short, punchy prose carry the night.
 
@@ -104,12 +128,15 @@ This repo includes an agent-focused harness to run sessions without API adapters
 * **`state/`** — private notes, trackers, and character sheets (local runtime data).
 * **`campaigns/`** — untracked per-campaign workspaces with their own state and logs.
 * **`skills/agent_dm_handbook.md`** — end-to-end guide for running sessions with the tools.
+* **`examples/campaign_demo/`** — a real example campaign scaffold (prompt, logs, memory, tracker).
 
 Key utilities for play:
 * `tools/campaign_init.py` to scaffold a campaign workspace.
 * `tools/gen_character.py` to generate legal random characters.
 * `tools/recap.py` and `tools/session_log.py` to capture private memory and public logs.
 * `tools/apply_roll.py` to update sheets and trackers based on roll results.
+* `tools/doctor.py` to validate repo + campaign in one command.
+* `tools/ss.py` for a single entry point (`python tools/ss.py beat ...`).
 
 ---
 

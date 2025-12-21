@@ -46,50 +46,6 @@ def ensure_list(value) -> list[str]:
     return [str(value)]
 
 
-def ensure_path(data: dict, path: str) -> tuple[dict, str]:
-    keys = path.split(".")
-    cur = data
-    for key in keys[:-1]:
-        if key not in cur or not isinstance(cur[key], dict):
-            cur[key] = {}
-        cur = cur[key]
-    return cur, keys[-1]
-
-
-def set_path(data: dict, path: str, value) -> None:
-    parent, key = ensure_path(data, path)
-    parent[key] = value
-
-
-def inc_path(data: dict, path: str, delta: int) -> None:
-    parent, key = ensure_path(data, path)
-    if key not in parent:
-        raise KeyError(f"Missing key '{path}'")
-    if not isinstance(parent[key], (int, float)):
-        raise TypeError(f"Value at '{path}' is not numeric")
-    parent[key] += delta
-
-
-def clamp_currents(data: dict, paths: list[str]) -> None:
-    for path in paths:
-        if not path.endswith(".current"):
-            continue
-        parent_path = path.rsplit(".", 1)[0]
-        parent, _ = ensure_path(data, parent_path)
-        if not isinstance(parent, dict):
-            continue
-        if "current" not in parent or "max" not in parent:
-            continue
-        cur = parent.get("current")
-        max_value = parent.get("max")
-        if not is_int(cur) or not is_int(max_value):
-            continue
-        if cur < 0:
-            parent["current"] = 0
-        elif cur > max_value:
-            parent["current"] = max_value
-
-
 def latest_session_md(logs_dir: Path) -> Path:
     logs_dir.mkdir(parents=True, exist_ok=True)
     latest = None
@@ -145,6 +101,9 @@ def append_recap(memory_path: Path, summary_lines: list[str], threads: list[str]
     if memory_path.exists():
         data = yaml.safe_load(memory_path.read_text(encoding="utf-8")) or {}
 
+    if "schema_version" not in data:
+        data["schema_version"] = 1
+
     summaries = ensure_list(data.get("summary"))
     for line in summary_lines:
         summaries.append(f"[{timestamp}] {line}")
@@ -165,15 +124,15 @@ def format_check_log(label: str | None, check: dict[str, Any]) -> str:
     dis = check.get("dis")
     mode = "Adv" if adv else "Dis" if dis else "Straight"
 
+    raw_result = check.get("raw_result", check.get("result"))
     result = check.get("result")
     nudge = check.get("nudge", 0)
-    final_result = check.get("final_result", result)
-    final_success = check.get("final_success", check.get("success"))
-    final_margin = check.get("final_margin", check.get("margin"))
+    final_success = check.get("success", check.get("final_success"))
+    final_margin = check.get("margin", check.get("final_margin"))
 
-    base = f"{prefix}{mode} roll-under: stat={stat} rolls={rolls} -> {result}"
+    base = f"{prefix}{mode} roll-under: stat={stat} rolls={rolls} -> {raw_result}"
     if nudge:
-        base += f" nudge={nudge} -> {final_result}"
+        base += f" nudge={nudge} -> {result}"
 
     base += f" => {'success' if final_success else 'fail'} (margin {final_margin})"
     return base
@@ -182,8 +141,8 @@ def format_check_log(label: str | None, check: dict[str, Any]) -> str:
 def opposed_outcome(attacker: dict[str, Any], defender: dict[str, Any]) -> dict[str, str]:
     def final(check):
         return {
-            "success": bool(check.get("final_success", check.get("success"))),
-            "margin": int(check.get("final_margin", check.get("margin"))),
+            "success": bool(check.get("success", check.get("final_success"))),
+            "margin": int(check.get("margin", check.get("final_margin"))),
         }
 
     a = final(attacker)
@@ -215,45 +174,49 @@ def opposed_outcome(attacker: dict[str, Any], defender: dict[str, Any]) -> dict[
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="One-command roll + state update + logging for a beat.")
-    parser.add_argument("--campaign", required=True, help="Campaign slug under campaigns/")
-    parser.add_argument("--character", help="Character slug or filename")
-    parser.add_argument("--seed", type=int, help="Random seed")
+    global_parser = argparse.ArgumentParser(add_help=False)
+    global_parser.add_argument("--campaign", help="Campaign slug under campaigns/")
+    global_parser.add_argument("--character", help="Character slug or filename")
+    global_parser.add_argument("--seed", type=int, help="Random seed")
 
-    parser.add_argument("--label", help="Short label for this roll (logged)")
-    parser.add_argument("--nudge", type=int, default=0, help="Nudge the chosen die result by N (costs |N| luck tokens)")
-    parser.add_argument(
+    global_parser.add_argument("--label", help="Short label for this roll (logged)")
+    global_parser.add_argument(
+        "--nudge", type=int, default=0, help="Nudge the chosen die result by N (costs |N| luck tokens)"
+    )
+    global_parser.add_argument(
         "--nudge-target",
         choices=["attacker", "defender"],
         default="attacker",
         help="For opposed rolls, which side to nudge",
     )
 
-    parser.add_argument("--scene-inc", type=int, default=0, help="Increment tracker scene counter")
-    parser.add_argument("--pressure-inc", type=int, default=0, help="Increment tracker pressure clock")
-    parser.add_argument("--clock-inc", action="append", default=[], help="Increment clock: name=delta")
+    global_parser.add_argument("--scene-inc", type=int, default=0, help="Increment tracker scene counter")
+    global_parser.add_argument("--pressure-inc", type=int, default=0, help="Increment tracker pressure clock")
+    global_parser.add_argument("--clock-inc", action="append", default=[], help="Increment clock: name=delta")
 
-    parser.add_argument("--success-sheet-set", action="append", default=[])
-    parser.add_argument("--success-sheet-inc", action="append", default=[])
-    parser.add_argument("--failure-sheet-set", action="append", default=[])
-    parser.add_argument("--failure-sheet-inc", action="append", default=[])
+    global_parser.add_argument("--success-sheet-set", action="append", default=[])
+    global_parser.add_argument("--success-sheet-inc", action="append", default=[])
+    global_parser.add_argument("--failure-sheet-set", action="append", default=[])
+    global_parser.add_argument("--failure-sheet-inc", action="append", default=[])
 
-    parser.add_argument("--success-tracker-set", action="append", default=[])
-    parser.add_argument("--success-tracker-inc", action="append", default=[])
-    parser.add_argument("--failure-tracker-set", action="append", default=[])
-    parser.add_argument("--failure-tracker-inc", action="append", default=[])
+    global_parser.add_argument("--success-tracker-set", action="append", default=[])
+    global_parser.add_argument("--success-tracker-inc", action="append", default=[])
+    global_parser.add_argument("--failure-tracker-set", action="append", default=[])
+    global_parser.add_argument("--failure-tracker-inc", action="append", default=[])
 
-    parser.add_argument("--log", action="store_true", help="Append roll details to campaign session log")
-    parser.add_argument("--log-role", default="System", help="Role label for log entries")
-    parser.add_argument("--recap", action="append", default=[], help="Add a memory summary line (repeatable)")
-    parser.add_argument("--thread", action="append", default=[])
-    parser.add_argument("--npc", action="append", default=[])
-    parser.add_argument("--secret", action="append", default=[])
+    global_parser.add_argument("--log", action="store_true", help="Append roll details to campaign session log")
+    global_parser.add_argument("--log-role", default="System", help="Role label for log entries")
+    global_parser.add_argument("--recap", action="append", default=[], help="Add a memory summary line (repeatable)")
+    global_parser.add_argument("--thread", action="append", default=[])
+    global_parser.add_argument("--npc", action="append", default=[])
+    global_parser.add_argument("--secret", action="append", default=[])
 
-    parser.add_argument("--out-roll", help="Write roll JSON to this file")
-    parser.add_argument("--json", action="store_true", help="Print roll JSON")
+    global_parser.add_argument("--out-roll", help="Write roll JSON to this file")
+    global_parser.add_argument("--json", action="store_true", help="Print roll JSON")
+    global_parser.add_argument("--allow-new", action="store_true", help="Allow creating new keys when updating state")
 
-    subparsers = parser.add_subparsers(dest="command", required=True)
+    command_parser = argparse.ArgumentParser(description="One-command roll + state update + logging for a beat.")
+    subparsers = command_parser.add_subparsers(dest="command", required=True)
 
     check = subparsers.add_parser("check", help="Single roll-under check")
     check.add_argument("--stat", type=int, help="Stat value")
@@ -271,7 +234,15 @@ def main() -> int:
     opposed.add_argument("--adv-defender", action="store_true")
     opposed.add_argument("--dis-defender", action="store_true")
 
-    args = parser.parse_args()
+    global_args, remaining = global_parser.parse_known_args()
+    command_args = command_parser.parse_args(remaining)
+    merged = vars(global_args).copy()
+    merged.update(vars(command_args))
+    args = argparse.Namespace(**merged)
+
+    if not args.campaign:
+        print("error: provide --campaign", file=sys.stderr)
+        return 1
 
     if args.seed is not None:
         import random
@@ -324,7 +295,7 @@ def main() -> int:
                 print(f"error: {exc}", file=sys.stderr)
                 return 1
 
-        success = bool(check_roll.get("final_success", check_roll.get("success")))
+        success = bool(check_roll.get("success", check_roll.get("final_success")))
         roll_payload = check_roll
         roll_payload["label"] = args.label
         roll_payload["stat_key"] = args.stat_key
@@ -373,18 +344,25 @@ def main() -> int:
         success = roll_payload["outcome"]["winner"] == args.as_role
         roll_payload["as"] = args.as_role
 
+    roll_payload["schema_version"] = 1
+    roll_payload["tool_version"] = _sslib.repo_version(root)
+
     # Spend luck for nudge
     if args.nudge:
         luck_cost = abs(args.nudge)
-        luck_path = "pools.luck.current"
         try:
-            parent, key = ensure_path(sheet, luck_path)
-            current_luck = parent.get(key)
+            pools = sheet.get("pools")
+            if not isinstance(pools, dict):
+                raise KeyError("pools missing from sheet")
+            luck = pools.get("luck")
+            if not isinstance(luck, dict):
+                raise KeyError("pools.luck missing from sheet")
+            current_luck = luck.get("current")
             if not is_int(current_luck):
                 raise TypeError("pools.luck.current is not int")
             if current_luck < luck_cost:
                 raise ValueError(f"not enough luck tokens: need {luck_cost}, have {current_luck}")
-            parent[key] = current_luck - luck_cost
+            luck["current"] = current_luck - luck_cost
         except (KeyError, TypeError, ValueError) as exc:
             print(f"error: {exc}", file=sys.stderr)
             return 1
@@ -410,25 +388,27 @@ def main() -> int:
         tracker_sets = parse_list(args.failure_tracker_set)
         tracker_incs = parse_list(args.failure_tracker_inc)
 
-    changed_paths: list[str] = []
+    sheet_changed: list[str] = []
+    tracker_changed: list[str] = []
+    allow_new = bool(args.allow_new)
     try:
         for key, value in sheet_sets:
-            set_path(sheet, key, value)
-            changed_paths.append(key)
+            _sslib.set_path(sheet, key, value, allow_new=allow_new, allow_clock=False)
+            sheet_changed.append(key)
         for key, delta in sheet_incs:
             if not isinstance(delta, (int, float)):
                 raise TypeError(f"delta for {key} is not numeric")
-            inc_path(sheet, key, int(delta))
-            changed_paths.append(key)
+            _sslib.inc_path(sheet, key, int(delta), allow_new=allow_new, allow_clock=False)
+            sheet_changed.append(key)
 
         for key, value in tracker_sets:
-            set_path(tracker, key, value)
-            changed_paths.append(key)
+            _sslib.set_path(tracker, key, value, allow_new=allow_new, allow_clock=True)
+            tracker_changed.append(key)
         for key, delta in tracker_incs:
             if not isinstance(delta, (int, float)):
                 raise TypeError(f"delta for {key} is not numeric")
-            inc_path(tracker, key, int(delta))
-            changed_paths.append(key)
+            _sslib.inc_path(tracker, key, int(delta), allow_new=allow_new, allow_clock=True)
+            tracker_changed.append(key)
 
     except (KeyError, TypeError) as exc:
         print(f"error: {exc}", file=sys.stderr)
@@ -439,25 +419,37 @@ def main() -> int:
         tracker["scene"] = int(tracker.get("scene", 0)) + args.scene_inc
 
     if args.pressure_inc:
-        clocks = tracker.setdefault("clocks", {})
-        pressure = clocks.setdefault("pressure", {})
-        pressure.setdefault("name", "pressure")
-        pressure.setdefault("current", 0)
-        pressure.setdefault("max", 5)
-        pressure["current"] = int(pressure.get("current", 0)) + args.pressure_inc
+        try:
+            _sslib.inc_path(
+                tracker,
+                "clocks.pressure.current",
+                int(args.pressure_inc),
+                allow_new=False,
+                allow_clock=True,
+            )
+            tracker_changed.append("clocks.pressure.current")
+        except (KeyError, TypeError) as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 1
 
     for item in args.clock_inc:
         name, value = parse_kv(item)
         delta = int(value)
-        clocks = tracker.setdefault("clocks", {})
-        clock = clocks.setdefault(name, {})
-        clock.setdefault("name", name)
-        clock.setdefault("current", 0)
-        clock.setdefault("max", 5)
-        clock["current"] = int(clock.get("current", 0)) + delta
+        try:
+            _sslib.inc_path(
+                tracker,
+                f"clocks.{name}.current",
+                delta,
+                allow_new=False,
+                allow_clock=True,
+            )
+            tracker_changed.append(f"clocks.{name}.current")
+        except (KeyError, TypeError) as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 1
 
-    clamp_currents(sheet, changed_paths)
-    clamp_currents(tracker, changed_paths)
+    _sslib.clamp_currents(sheet, sheet_changed)
+    _sslib.clamp_currents(tracker, tracker_changed)
 
     _sslib.save_yaml(sheet_path, sheet)
     _sslib.save_yaml(tracker_path, tracker)

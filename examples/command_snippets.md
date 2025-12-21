@@ -3,7 +3,7 @@
 Build a starter prompt for Clanfire:
 
 ```bash
-python tools/build_prompt.py --skin clanfire --out /tmp/ss_prompt.md
+python tools/build_prompt.py --skin clanfire --mode agent --out /tmp/ss_prompt.md
 ```
 
 Roll a standard check:

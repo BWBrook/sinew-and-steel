@@ -22,6 +22,12 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
     errors: list[str] = []
     warnings: list[str] = []
 
+    schema_version = sheet.get("schema_version")
+    if schema_version is None:
+        warnings.append("sheet missing schema_version")
+    elif not isinstance(schema_version, int):
+        warnings.append(f"sheet schema_version is not int: {schema_version}")
+
     skin_slug = sheet.get("skin")
     if not skin_slug or not isinstance(skin_slug, str):
         errors.append("missing or invalid sheet.skin")
@@ -79,6 +85,10 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
     if not isinstance(pools, dict):
         errors.append("missing or invalid sheet.pools")
         return _sslib.ValidationResult(errors, warnings)
+    else:
+        extra_pool_keys = sorted(set(pools.keys()) - {"luck", "stamina"})
+        if extra_pool_keys:
+            warnings.append(f"unexpected pools keys: {', '.join(extra_pool_keys)}")
 
     luck_key = skin.get("luck_key")
     if not luck_key or not isinstance(luck_key, str):
@@ -89,6 +99,9 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
         if not isinstance(luck, dict):
             errors.append("missing or invalid pools.luck")
         else:
+            extra_luck_keys = sorted(set(luck.keys()) - {"name", "current", "max"})
+            if extra_luck_keys:
+                warnings.append(f"unexpected pools.luck keys: {', '.join(extra_luck_keys)}")
             max_value = luck.get("max")
             cur_value = luck.get("current")
             if not is_int(max_value) or not is_int(cur_value):
@@ -112,6 +125,9 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
     if not isinstance(stamina, dict):
         errors.append("missing or invalid pools.stamina")
     else:
+        extra_stamina_keys = sorted(set(stamina.keys()) - {"name", "current", "max"})
+        if extra_stamina_keys:
+            warnings.append(f"unexpected pools.stamina keys: {', '.join(extra_stamina_keys)}")
         max_value = stamina.get("max")
         cur_value = stamina.get("current")
         if not is_int(max_value) or not is_int(cur_value):
@@ -127,10 +143,16 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
     if not isinstance(tracks, dict):
         errors.append("missing or invalid sheet.tracks")
     else:
+        extra_track_keys = sorted(set(tracks.keys()) - {"pressure"})
+        if extra_track_keys:
+            warnings.append(f"unexpected tracks keys: {', '.join(extra_track_keys)}")
         pressure = tracks.get("pressure")
         if not isinstance(pressure, dict):
             errors.append("missing or invalid tracks.pressure")
         else:
+            extra_pressure_keys = sorted(set(pressure.keys()) - {"name", "current", "max"})
+            if extra_pressure_keys:
+                warnings.append(f"unexpected tracks.pressure keys: {', '.join(extra_pressure_keys)}")
             max_value = pressure.get("max")
             cur_value = pressure.get("current")
             if not is_int(max_value) or not is_int(cur_value):

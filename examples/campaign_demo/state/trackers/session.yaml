@@ -1,15 +1,15 @@
 schema_version: 1
 name: "Session Tracker"
-scene: 0
+scene: 1
 
 clocks:
   pressure:
-    name: "Pressure"
-    current: 0
+    name: "Shadow"
+    current: 1
     max: 5
   threat:
-    name: "Threat"
-    current: 0
+    name: "Beast Signs"
+    current: 2
     max: 6
 
 notes: []

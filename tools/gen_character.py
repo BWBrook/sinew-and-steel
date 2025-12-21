@@ -99,6 +99,7 @@ def build_sheet(skin_entry: dict, name: str, player: str):
     luck_value = stats[luck_key]
 
     sheet = {
+        "schema_version": 1,
         "name": name,
         "skin": skin_entry.get("slug", ""),
         "player": player,

@@ -21,30 +21,6 @@ def parse_value(value: str):
         return value
 
 
-def ensure_path(data: dict, path: str):
-    keys = path.split(".")
-    cur = data
-    for key in keys[:-1]:
-        if key not in cur or not isinstance(cur[key], dict):
-            cur[key] = {}
-        cur = cur[key]
-    return cur, keys[-1]
-
-
-def set_path(data: dict, path: str, value):
-    parent, key = ensure_path(data, path)
-    parent[key] = value
-
-
-def inc_path(data: dict, path: str, delta):
-    parent, key = ensure_path(data, path)
-    if key not in parent:
-        raise KeyError(f"Missing key '{path}'")
-    if not isinstance(parent[key], (int, float)):
-        raise TypeError(f"Value at '{path}' is not numeric")
-    parent[key] += delta
-
-
 def main() -> int:
     parser = argparse.ArgumentParser(description="Update a YAML character sheet or tracker file.")
     parser.add_argument("--file", help="YAML file to update")
@@ -53,6 +29,7 @@ def main() -> int:
     parser.add_argument("--set", action="append", default=[], help="Set key=value (repeatable)")
     parser.add_argument("--inc", action="append", default=[], help="Increment key=delta (repeatable)")
     parser.add_argument("--stdout", action="store_true", help="Print to stdout instead of writing")
+    parser.add_argument("--allow-new", action="store_true", help="Allow creating new keys when updating state")
 
     args = parser.parse_args()
     root = _sslib.repo_root()
@@ -79,18 +56,24 @@ def main() -> int:
     data = yaml.safe_load(path.read_text(encoding="utf-8"))
     if data is None:
         data = {}
+    allow_clock = isinstance(data.get("clocks"), dict)
+    if data.get("clocks") is not None and not allow_clock:
+        print("error: clocks is not a dict", file=sys.stderr)
+        return 1
 
     try:
         for item in args.set:
             key, value = parse_kv(item)
-            set_path(data, key, parse_value(value))
+            _sslib.set_path(
+                data, key, parse_value(value), allow_new=args.allow_new, allow_clock=allow_clock
+            )
 
         for item in args.inc:
             key, value = parse_kv(item)
             delta = parse_value(value)
             if not isinstance(delta, (int, float)):
                 raise TypeError(f"Delta for '{key}' is not numeric")
-            inc_path(data, key, delta)
+            _sslib.inc_path(data, key, delta, allow_new=args.allow_new, allow_clock=allow_clock)
     except (KeyError, TypeError, ValueError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1

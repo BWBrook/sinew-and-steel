@@ -28,13 +28,15 @@ Start with the **baseline frame**:
 
 **Point‑Buy Rule (double‑debit)**\
 Every +1 you add **above baseline** costs **‑2** total subtracted from any other score(s).
-No score may drop below 6 or rise above 16 (Stamina floors at 3, caps at 9).
+No **attribute** may drop below 6 or rise above 16. **Stamina is chosen separately** (3–9 at creation).
 
 > *"Bump a stat up? Pay double elsewhere."*
 
 Milestones hand out **2 build points** that follow the same rule: +1 to an above‑baseline stat **or** +2 to a below‑baseline stat.
 
 The Custodian may also allot each player 0 (grim), 6 (standard), 12 (pulp) or 16 (heroic) build-points **at creation** and let them sculpt freely by the +1/-2 economy.
+
+Build points apply to **attributes**; adjust Stamina only when the fiction or Custodian allows.
 
 ---
 

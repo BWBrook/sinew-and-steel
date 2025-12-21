@@ -35,6 +35,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Assemble a full starter prompt from rules + skin.")
     parser.add_argument("--skin", help="Skin slug from manifest.yaml")
     parser.add_argument("--campaign", help="Campaign slug under campaigns/ (uses campaign.yaml)")
+    parser.add_argument("--mode", choices=["agent", "chat"], default="agent", help="Prompt style (default: agent)")
     parser.add_argument("--template", help="Prompt template path", default=None)
     parser.add_argument("--hidden", help="Optional hidden scenario file", default=None)
     parser.add_argument("--out", help="Output file path (default: stdout)")
@@ -85,7 +86,10 @@ def main() -> int:
     skin_path = ROOT / skin_entry.get("file", "")
 
     prompts = manifest.get("prompts", {})
-    default_template = ROOT / prompts.get("starter", "prompts/starter_prompt.md")
+    if args.mode == "chat":
+        default_template = ROOT / prompts.get("chat_starter", prompts.get("starter", "prompts/chat/starter_prompt.md"))
+    else:
+        default_template = ROOT / prompts.get("agent_starter", prompts.get("starter", "prompts/agent/starter_prompt.md"))
     template_path = Path(args.template) if args.template else default_template
     if not template_path.is_absolute():
         template_path = ROOT / template_path

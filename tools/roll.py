@@ -6,6 +6,7 @@ import sys
 import random
 
 import _dice
+import _sslib
 
 
 def command_check(args):
@@ -62,6 +63,9 @@ def main() -> int:
             print("error: choose only one of --adv-defender or --dis-defender", file=sys.stderr)
             return 1
         data = command_opposed(args)
+
+    data["schema_version"] = 1
+    data["tool_version"] = _sslib.repo_version()
 
     if args.pretty:
         print(json.dumps(data, indent=2))

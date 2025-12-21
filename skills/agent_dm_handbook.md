@@ -29,7 +29,8 @@ Examples of non-roll resolutions:
 ## Repo map (agent view)
 - rules/: core system (adventurers_manual + custodians_almanac)
 - skins/: setting overlays
-- prompts/: prompt templates
+- prompts/agent/: agent prompt templates
+- prompts/chat/: chat-oriented prompt templates
 - skills/: repeatable workflows (including this guide)
 - tools/: CLI helpers
 - state/: private runtime data (repo-level)
@@ -39,7 +40,7 @@ Examples of non-roll resolutions:
 
 ### 1) Initialize a campaign
 ```bash
-python tools/campaign_init.py --name <slug> --skin <skin> --random-character "Name"
+python tools/campaign_init.py --title "My Campaign" --skin <skin> --random-character "Name"
 ```
 This creates:
 - campaigns/<slug>/campaign.yaml
@@ -47,7 +48,7 @@ This creates:
 
 ### 2) Build the full prompt
 ```bash
-python tools/build_prompt.py --campaign <slug>
+python tools/build_prompt.py --campaign <slug> --mode agent
 ```
 This writes campaigns/<slug>/prompt.md using the campaign skin.
 
@@ -112,6 +113,7 @@ python tools/session_log.py --campaign <slug> --role GM \
 - If a campaign is missing, re-run campaign_init.
 - Use `python tools/validate_campaign.py --campaign <slug>` to check campaign scaffolding/state.
 - Use `python tools/summary.py --campaign <slug>` for a quick snapshot (scene, clocks, pools).
+- Use `python tools/doctor.py --campaign <slug>` for a single diagnostic pass.
 
 ## Optional: repo-level state
 If you are not using campaigns/, you can store data in state/ at repo root.

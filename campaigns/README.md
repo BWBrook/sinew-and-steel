@@ -10,4 +10,4 @@ Suggested layout per campaign:
 - campaigns/<slug>/state/memory/
 - campaigns/<slug>/state/logs/
 
-Use tools/campaign_init.py to create a campaign scaffold.
+Use tools/campaign_init.py to create a campaign scaffold. Prefer a slug like `ice_hunt`, or pass `--title` to auto-slugify.

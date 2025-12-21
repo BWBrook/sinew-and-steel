@@ -10,11 +10,11 @@ Create a campaign workspace with its own state and metadata, using a chosen skin
 
 ## Steps
 1. Initialize a campaign:
-   `python tools/campaign_init.py --name <slug> --skin <skin>`
+   `python tools/campaign_init.py --title "My Campaign" --skin <skin>`
 2. (Optional) Generate a starting character:
-   `python tools/campaign_init.py --name <slug> --skin <skin> --random-character "Name"`
+   `python tools/campaign_init.py --title "My Campaign" --skin <skin> --random-character "Name"`
 3. Build the full prompt directly from the campaign:
-   `python tools/build_prompt.py --campaign <slug>`
+   `python tools/build_prompt.py --campaign <slug> --mode agent`
 
 ## Notes
 - Campaigns live in campaigns/ and are ignored by git.

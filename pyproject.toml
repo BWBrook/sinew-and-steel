@@ -1,6 +1,6 @@
 [project]
 name = "sinew-and-steel"
-version = "0.2.0"
+version = "0.3.0"
 description = "Agent-friendly tabletop RPG engine and tooling"
 requires-python = ">=3.10"
 dependencies = [

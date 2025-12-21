@@ -1,39 +1,38 @@
 schema_version: 1
-name: "Grak"
+name: "Ember"
 skin: "clanfire"
 player: "Example"
 created: "2025-12-21"
 
 attributes:
   MGT: 12
-  FLT: 10
+  FLT: 9
   CUN: 10
-  SPR: 7
-  INS: 8
+  SPR: 8
+  INS: 9
 
 pools:
   luck:
     name: "Instinct"
-    current: 8
-    max: 8
+    current: 9
+    max: 9
   stamina:
-    current: 6
-    max: 6
+    current: 5
+    max: 5
 
 tracks:
   pressure:
     name: "Shadow"
-    current: 0
+    current: 1
     max: 5
 
 inventory:
   big_items:
     - "Stone spear +1"
-    - "Hand-axe +1"
     - "Hide cloak (soak 1)"
   small_items:
-    - "Ochre pouch"
-    - "Sinew cord"
+    - "Bone needle"
+    - "Firestarter kit"
 
 notes:
-  - "Advantage when tracking megafauna."
+  - "Scouts ahead when visibility is low."

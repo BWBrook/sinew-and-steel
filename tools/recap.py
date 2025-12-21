@@ -6,6 +6,8 @@ import re
 import sys
 import yaml
 
+import _sslib
+
 ROOT = Path(__file__).resolve().parents[1]
 SESSION_RE = re.compile(r"session_(\d{3})\.ya?ml$")
 
@@ -56,8 +58,16 @@ def ensure_list(value):
     return [value]
 
 
-def update_tracker(tracker_path: Path, scene_inc: int | None, pressure_inc: int | None, clock_incs, clock_sets):
+def update_tracker(
+    tracker_path: Path,
+    scene_inc: int | None,
+    pressure_inc: int | None,
+    clock_incs,
+    clock_sets,
+    clamp: bool = True,
+):
     data = load_yaml(tracker_path)
+    changed_paths: list[str] = []
     if scene_inc is not None:
         scene = data.get("scene", 0)
         if not isinstance(scene, int):
@@ -79,6 +89,7 @@ def update_tracker(tracker_path: Path, scene_inc: int | None, pressure_inc: int 
         if inc is not None:
             current += inc
         clock["current"] = current
+        changed_paths.append(f"clocks.{name}.current")
 
     if pressure_inc is not None:
         apply_clock("pressure", inc=pressure_inc)
@@ -88,6 +99,9 @@ def update_tracker(tracker_path: Path, scene_inc: int | None, pressure_inc: int 
 
     for name, value in clock_sets:
         apply_clock(name, set_value=value)
+
+    if clamp:
+        _sslib.clamp_currents(data, changed_paths)
 
     save_yaml(tracker_path, data)
 
@@ -115,6 +129,8 @@ def main() -> int:
     parser.add_argument("--clock-inc", action="append", default=[], help="Clock increment name=delta")
     parser.add_argument("--clock-set", action="append", default=[], help="Clock set name=value")
     parser.add_argument("--tracker", help="Tracker YAML file (overrides campaign default)")
+    parser.add_argument("--no-clamp", dest="clamp", action="store_false", help="Disable clock clamping")
+    parser.set_defaults(clamp=True)
 
     args = parser.parse_args()
 
@@ -151,6 +167,8 @@ def main() -> int:
         return 1
 
     data = load_yaml(memory_path)
+    if "schema_version" not in data:
+        data["schema_version"] = 1
 
     summaries = ensure_list(data.get("summary"))
     threads = ensure_list(data.get("threads"))
@@ -184,7 +202,7 @@ def main() -> int:
 
     if tracker_path and (args.scene_inc is not None or args.pressure_inc is not None or clock_incs or clock_sets):
         try:
-            update_tracker(tracker_path, args.scene_inc, args.pressure_inc, clock_incs, clock_sets)
+            update_tracker(tracker_path, args.scene_inc, args.pressure_inc, clock_incs, clock_sets, clamp=args.clamp)
         except ValueError as exc:
             print(f"error: {exc}", file=sys.stderr)
             return 1

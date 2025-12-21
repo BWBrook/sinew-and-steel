@@ -33,3 +33,4 @@ python tools/trackers.py --campaign <slug> pressure --inc 1 --clamp
 - Treat state/ as private. Do not reveal it to players unless you intend spoilers.
 - Summarize every scene or milestone in memory notes.
 - Keep pressure tracks and clocks in trackers for fast retrieval.
+- `update_sheet.py` is strict by default; use `--allow-new` only when you intend to add new keys.

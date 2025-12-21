@@ -5,6 +5,8 @@ from pathlib import Path
 import sys
 import yaml
 
+import _sslib
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -22,7 +24,9 @@ def write_yaml(path: Path, data: dict):
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Initialize a campaign folder with state scaffolding.")
-    parser.add_argument("--name", required=True, help="Campaign slug (folder name)")
+    parser.add_argument("--name", help="Campaign slug (folder name) (deprecated; use --slug/--title)")
+    parser.add_argument("--slug", help="Campaign slug (folder name)")
+    parser.add_argument("--title", help="Campaign title (used to derive slug if --slug not provided)")
     parser.add_argument("--skin", required=True, help="Skin slug from manifest.yaml")
     parser.add_argument("--base-dir", default="campaigns", help="Base campaigns directory")
     parser.add_argument("--force", action="store_true", help="Overwrite existing files")
@@ -36,10 +40,17 @@ def main() -> int:
         print(f"error: unknown skin '{args.skin}'", file=sys.stderr)
         return 1
 
+    if not args.slug and not args.name and not args.title:
+        print("error: provide --slug or --title (or legacy --name)", file=sys.stderr)
+        return 1
+
+    slug = args.slug or args.name or _sslib.slugify(args.title, fallback="campaign")
+    title = args.title or slug
+
     base_dir = Path(args.base_dir)
     if not base_dir.is_absolute():
         base_dir = ROOT / base_dir
-    campaign_dir = base_dir / args.name
+    campaign_dir = base_dir / slug
 
     # Scaffold directories
     state_dir = campaign_dir / "state"
@@ -58,7 +69,9 @@ def main() -> int:
         return 1
 
     campaign_data = {
-        "name": args.name,
+        "schema_version": 1,
+        "slug": slug,
+        "title": title,
         "skin": args.skin,
         "created": date.today().isoformat(),
         "notes": "",
@@ -92,7 +105,7 @@ def main() -> int:
     # optional character
     if args.random_character:
         from subprocess import run
-        char_path = chars_dir / f"{args.random_character.replace(' ', '_').lower()}.yaml"
+        char_path = chars_dir / f"{_sslib.slugify(args.random_character, fallback='character')}.yaml"
         if char_path.exists() and not args.force:
             print(f"warning: character already exists: {char_path}", file=sys.stderr)
         else:

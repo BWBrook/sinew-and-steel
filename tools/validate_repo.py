@@ -13,12 +13,22 @@ REQUIRED_PLACEHOLDERS = [
 ]
 
 
-def main() -> int:
-    errors = []
+def check_prompt_template(path: Path, label: str, errors: list[str]) -> None:
+    if path.exists():
+        content = path.read_text(encoding="utf-8")
+        for placeholder in REQUIRED_PLACEHOLDERS:
+            if placeholder not in content:
+                errors.append(f"{label} missing placeholder: {placeholder}")
+    else:
+        errors.append(f"missing file: {path}")
+
+
+def collect_errors() -> list[str]:
+    errors: list[str] = []
     manifest_path = ROOT / "manifest.yaml"
     if not manifest_path.exists():
         errors.append("missing manifest.yaml")
-        return report(errors)
+        return errors
 
     manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
 
@@ -51,14 +61,12 @@ def main() -> int:
         errors.append(f"skin missing on disk: {slug}")
 
     # Check prompt template placeholders
-    starter_path = ROOT / manifest.get("prompts", {}).get("starter", "prompts/starter_prompt.md")
-    if starter_path.exists():
-        content = starter_path.read_text(encoding="utf-8")
-        for placeholder in REQUIRED_PLACEHOLDERS:
-            if placeholder not in content:
-                errors.append(f"starter prompt missing placeholder: {placeholder}")
-    else:
-        errors.append(f"missing file: {starter_path}")
+    prompts = manifest.get("prompts", {})
+    agent_path = ROOT / prompts.get("agent_starter", prompts.get("starter", "prompts/agent/starter_prompt.md"))
+    chat_path = ROOT / prompts.get("chat_starter", "prompts/chat/starter_prompt.md")
+    check_prompt_template(agent_path, "agent starter prompt", errors)
+    if prompts.get("chat_starter"):
+        check_prompt_template(chat_path, "chat starter prompt", errors)
 
     # Check templates
     templates = manifest.get("templates", {})
@@ -88,6 +96,8 @@ def main() -> int:
         "tools/session_log.py",
         "tools/apply_roll.py",
         "tools/beat.py",
+        "tools/doctor.py",
+        "tools/ss.py",
         "tools/summary.py",
         "tools/gen_character.py",
         "tools/char_builder.py",
@@ -98,6 +108,11 @@ def main() -> int:
         if not (ROOT / rel).exists():
             errors.append(f"missing file: {rel}")
 
+    return errors
+
+
+def main() -> int:
+    errors = collect_errors()
     return report(errors)
 
 

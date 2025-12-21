@@ -36,8 +36,18 @@ def validate_campaign(campaign_slug: str, manifest: dict) -> _sslib.ValidationRe
         errors.append("campaign.yaml missing skin")
         return _sslib.ValidationResult(errors, warnings)
 
-    if campaign.get("name") and campaign.get("name") != campaign_slug:
-        warnings.append(f"campaign.yaml name '{campaign.get('name')}' != folder '{campaign_slug}'")
+    schema_version = campaign.get("schema_version")
+    if schema_version is None:
+        warnings.append("campaign.yaml missing schema_version")
+    elif not isinstance(schema_version, int):
+        warnings.append(f"campaign.yaml schema_version is not int: {schema_version}")
+
+    name_field = campaign.get("name")
+    slug_field = campaign.get("slug") or name_field
+    if slug_field and slug_field != campaign_slug:
+        warnings.append(f"campaign.yaml slug '{slug_field}' != folder '{campaign_slug}'")
+    if campaign.get("slug") and name_field and campaign.get("slug") != name_field:
+        warnings.append(f"campaign.yaml name '{name_field}' != slug '{campaign.get('slug')}'")
 
     skins = manifest.get("skins", {})
     skin = skins.get(skin_slug)
@@ -62,6 +72,16 @@ def validate_campaign(campaign_slug: str, manifest: dict) -> _sslib.ValidationRe
         errors.append(f"missing tracker: {tracker_path}")
     else:
         tracker = yaml.safe_load(tracker_path.read_text(encoding="utf-8")) or {}
+        tracker_schema = tracker.get("schema_version")
+        if tracker_schema is None:
+            warnings.append("tracker missing schema_version")
+        elif not is_int(tracker_schema):
+            warnings.append(f"tracker schema_version is not int: {tracker_schema}")
+
+        extra_tracker_keys = sorted(set(tracker.keys()) - {"schema_version", "name", "scene", "clocks", "notes"})
+        if extra_tracker_keys:
+            warnings.append(f"tracker unexpected keys: {', '.join(extra_tracker_keys)}")
+
         scene = tracker.get("scene")
         if scene is None:
             warnings.append("tracker missing scene counter")
@@ -72,6 +92,23 @@ def validate_campaign(campaign_slug: str, manifest: dict) -> _sslib.ValidationRe
         if not isinstance(clocks, dict):
             errors.append("tracker clocks missing or invalid")
         else:
+            for clock_name, clock in clocks.items():
+                if not isinstance(clock, dict):
+                    errors.append(f"tracker clock '{clock_name}' is not a dict")
+                    continue
+                extra_clock_keys = sorted(set(clock.keys()) - {"name", "current", "max", "notes"})
+                if extra_clock_keys:
+                    warnings.append(f"tracker clock '{clock_name}' unexpected keys: {', '.join(extra_clock_keys)}")
+                cur_value = clock.get("current")
+                max_value = clock.get("max")
+                if not is_int(cur_value) or not is_int(max_value):
+                    errors.append(f"tracker clock '{clock_name}' current/max must be ints")
+                else:
+                    if cur_value < 0 or cur_value > max_value:
+                        errors.append(
+                            f"tracker clock '{clock_name}' current out of range (0-{max_value}): {cur_value}"
+                        )
+
             pressure = clocks.get("pressure")
             if not isinstance(pressure, dict):
                 errors.append("tracker missing clocks.pressure")
@@ -114,8 +151,22 @@ def validate_campaign(campaign_slug: str, manifest: dict) -> _sslib.ValidationRe
     # Memory
     memory_dir = _sslib.campaign_memory_dir(campaign_slug, root=root)
     if memory_dir.exists():
-        if not any(memory_dir.glob("session_*.yaml")):
+        memory_files = sorted(memory_dir.glob("session_*.yaml"))
+        if not memory_files:
             warnings.append("no session_*.yaml files in memory")
+        for mem_path in memory_files:
+            mem = yaml.safe_load(mem_path.read_text(encoding="utf-8")) or {}
+            mem_schema = mem.get("schema_version")
+            if mem_schema is None:
+                warnings.append(f"{mem_path.name}: missing schema_version")
+            elif not is_int(mem_schema):
+                warnings.append(f"{mem_path.name}: schema_version is not int: {mem_schema}")
+            for key in ("summary", "threads", "npcs", "secrets"):
+                if key not in mem:
+                    continue
+                value = mem.get(key)
+                if not isinstance(value, list) and not isinstance(value, str):
+                    warnings.append(f"{mem_path.name}: {key} should be list or string")
 
     # Logs
     logs_dir = _sslib.campaign_logs_dir(campaign_slug, root=root)

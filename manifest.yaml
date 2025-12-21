@@ -1,4 +1,4 @@
-version: 0.1.0
+version: 0.3.0
 rules:
   core:
     adventurers_manual: rules/core/adventurers_manual.md
@@ -126,9 +126,11 @@ skins:
     luck_key: HOP
     luck_name: Hope
 prompts:
-  starter: prompts/starter_prompt.md
-  hidden_scenario: prompts/hidden_scenario_prompt.md
-  chinese_room: prompts/how_to_use_chinese_room.md
+  agent_starter: prompts/agent/starter_prompt.md
+  chat_starter: prompts/chat/starter_prompt.md
+  starter: prompts/agent/starter_prompt.md
+  hidden_scenario: prompts/chat/hidden_scenario_prompt.md
+  chinese_room: prompts/chat/how_to_use_chinese_room.md
 templates:
   skin: templates/skin_template.md
   character_sheet: templates/character_sheet.yaml

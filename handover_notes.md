@@ -55,7 +55,7 @@ Success criteria:
   - `campaigns/<slug>/state/logs/`
 
 ### Prompt building
-- `tools/build_prompt.py --campaign <slug>` builds `campaigns/<slug>/prompt.md`.
+- `tools/build_prompt.py --campaign <slug> --mode agent` builds `campaigns/<slug>/prompt.md`.
 
 ### Dice + bookkeeping
 - `tools/roll.py` rolls checks/opposed checks (JSON output).
@@ -146,8 +146,8 @@ uv venv
 uv sync
 python tools/validate_repo.py
 
-python tools/campaign_init.py --name demo --skin jeffries_tube_blues --random-character "Demo Crew"
-python tools/build_prompt.py --campaign demo
+python tools/campaign_init.py --title "Demo" --skin jeffries_tube_blues --random-character "Demo Crew"
+python tools/build_prompt.py --campaign demo --mode agent
 python tools/summary.py --campaign demo
 python tools/validate_campaign.py --campaign demo
 ```

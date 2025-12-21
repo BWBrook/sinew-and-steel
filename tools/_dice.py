@@ -85,18 +85,35 @@ def resolve_opposed(
 
 
 def apply_nudge_to_check(check: dict[str, Any], nudge: int) -> dict[str, Any]:
-    if not nudge:
-        return {**check, "nudge": 0, "final_result": check.get("result"), "final_success": check.get("success")}
+    raw_result = check.get("result")
+    raw_success = check.get("success")
+    raw_margin = check.get("margin")
+    raw_crit = check.get("crit")
 
-    result = check.get("result")
+    if not nudge:
+        return {
+            **check,
+            "nudge": 0,
+            "raw_result": raw_result,
+            "raw_success": raw_success,
+            "raw_margin": raw_margin,
+            "raw_crit": raw_crit,
+            "final_result": raw_result,
+            "final_success": raw_success,
+            "final_margin": raw_margin,
+            "result": raw_result,
+            "success": raw_success,
+            "margin": raw_margin,
+        }
+
     stat = check.get("stat")
-    if result in (1, 20):
+    if raw_result in (1, 20):
         raise ValueError("cannot nudge a natural 1 or 20")
 
-    if not isinstance(result, int) or not isinstance(stat, int):
+    if not isinstance(raw_result, int) or not isinstance(stat, int):
         raise ValueError("invalid check data")
 
-    final_result = result + nudge
+    final_result = raw_result + nudge
     if final_result < 1:
         final_result = 1
     if final_result > 20:
@@ -108,7 +125,14 @@ def apply_nudge_to_check(check: dict[str, Any], nudge: int) -> dict[str, Any]:
     return {
         **check,
         "nudge": nudge,
+        "raw_result": raw_result,
+        "raw_success": raw_success,
+        "raw_margin": raw_margin,
+        "raw_crit": raw_crit,
         "final_result": final_result,
         "final_success": final_success,
         "final_margin": final_margin,
+        "result": final_result,
+        "success": final_success,
+        "margin": final_margin,
     }

@@ -14,5 +14,6 @@ Create a single prompt file containing core rules, the chosen skin, and optional
 3. (Optional) Include a hidden scenario: `--hidden path/to/notes.md`.
 
 ## Notes
-- The template is `prompts/starter_prompt.md` and uses placeholders.
+- Default templates are `prompts/agent/starter_prompt.md` (agent mode) and `prompts/chat/starter_prompt.md` (chat mode).
+- Use `--mode chat` for non-agent play or `--template` to override.
 - The manifest is the source of truth for file paths.

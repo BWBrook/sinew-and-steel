@@ -84,13 +84,13 @@ Five scores map cleanly onto the d20’s 20‑step granularity while keeping she
 
 ### C. Sample Builds (baseline 10/5)
 
-| Concept       | MGT    | REF | INT    | EMP    | LCK | STA   |
-| ------------- | ------ | --- | ------ | ------ | --- | ----- |
-| Scholar       | 7      | 10  | **14** | 10     | 7   | 3     |
-| Iron Brute    | **15** | 7   | 6      | 6      | 8   | **8** |
-| Silver‑tongue | 8      | 8   | **11** | **12** | 9   | 4     |
+| Concept       | MGT    | REF | INT    | EMP    | LCK | STA |
+| ------------- | ------ | --- | ------ | ------ | --- | --- |
+| Scholar       | 7      | 8   | **14** | 9      | 8   | 5   |
+| Iron Brute    | **15** | 7   | 6      | 6      | 7   | 7   |
+| Silver‑tongue | 8      | 8   | **11** | **12** | 8   | 4   |
 
-All obey the +1/‑2 ledger.
+Attribute scores obey the +1/‑2 ledger; Stamina is chosen independently (3–9).
 
 ---
 

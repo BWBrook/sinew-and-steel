@@ -2,10 +2,10 @@
 import argparse
 from datetime import date
 from pathlib import Path
-import re
 import sys
 import yaml
 
+import _sslib
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -30,11 +30,6 @@ def parse_kv(item: str):
         raise ValueError(f"Expected key=value, got '{item}'")
     key, value = item.split("=", 1)
     return key.strip(), value.strip()
-
-
-def slugify(text: str) -> str:
-    slug = re.sub(r"[^a-zA-Z0-9]+", "_", text).strip("_").lower()
-    return slug or "character"
 
 
 def main() -> int:
@@ -140,6 +135,7 @@ def main() -> int:
     luck_value = stats[luck_key]
 
     sheet = {
+        "schema_version": 1,
         "name": args.name,
         "skin": skin_slug,
         "player": args.player,
@@ -178,7 +174,7 @@ def main() -> int:
             out_path = ROOT / out_path
         out_path.write_text(output, encoding="utf-8")
     elif args.campaign:
-        char_slug = slugify(args.name)
+        char_slug = _sslib.slugify(args.name, fallback="character")
         out_path = ROOT / "campaigns" / args.campaign / "state" / "characters" / f"{char_slug}.yaml"
         out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_text(output, encoding="utf-8")

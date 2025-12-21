@@ -21,30 +21,6 @@ def load_roll(args):
     return json.loads(raw)
 
 
-def ensure_path(data: dict, path: str):
-    keys = path.split(".")
-    cur = data
-    for key in keys[:-1]:
-        if key not in cur or not isinstance(cur[key], dict):
-            cur[key] = {}
-        cur = cur[key]
-    return cur, keys[-1]
-
-
-def set_path(data: dict, path: str, value):
-    parent, key = ensure_path(data, path)
-    parent[key] = value
-
-
-def inc_path(data: dict, path: str, delta):
-    parent, key = ensure_path(data, path)
-    if key not in parent:
-        raise KeyError(f"Missing key '{path}'")
-    if not isinstance(parent[key], (int, float)):
-        raise TypeError(f"Value at '{path}' is not numeric")
-    parent[key] += delta
-
-
 def parse_kv(item: str):
     if "=" not in item:
         raise ValueError(f"Expected key=value, got '{item}'")
@@ -59,40 +35,16 @@ def parse_value(value: str):
         return value
 
 
-def apply_ops(data: dict, sets, incs):
-    for key, value in sets:
-        set_path(data, key, value)
-    for key, value in incs:
-        inc_path(data, key, value)
-
-
-def clamp_updated(data: dict, paths):
-    for path in paths:
-        if not path.endswith(".current"):
-            continue
-        parent_path = path.rsplit(".", 1)[0]
-        parent, _ = ensure_path(data, parent_path)
-        if not isinstance(parent, dict):
-            continue
-        if "current" not in parent or "max" not in parent:
-            continue
-        current = parent.get("current")
-        max_value = parent.get("max")
-        if not isinstance(current, int) or not isinstance(max_value, int):
-            continue
-        if current < 0:
-            parent["current"] = 0
-        elif current > max_value:
-            parent["current"] = max_value
-
-
-def update_file(path: Path, sets, incs, clamp=False):
+def update_file(path: Path, sets, incs, clamp=False, allow_new=False, allow_clock=False):
     data = yaml.safe_load(path.read_text(encoding="utf-8"))
     if data is None:
         data = {}
-    apply_ops(data, sets, incs)
+    for key, value in sets:
+        _sslib.set_path(data, key, value, allow_new=allow_new, allow_clock=allow_clock)
+    for key, value in incs:
+        _sslib.inc_path(data, key, value, allow_new=allow_new, allow_clock=allow_clock)
     if clamp:
-        clamp_updated(data, [k for k, _ in sets] + [k for k, _ in incs])
+        _sslib.clamp_currents(data, [k for k, _ in sets] + [k for k, _ in incs])
     path.write_text(yaml.safe_dump(data, sort_keys=False), encoding="utf-8")
 
 
@@ -102,6 +54,7 @@ def main() -> int:
     parser.add_argument("--roll-json", help="Roll JSON string")
     parser.add_argument("--as", dest="as_role", choices=["attacker", "defender"], default="attacker")
     parser.add_argument("--clamp", action="store_true", help="Clamp .current values between 0 and .max")
+    parser.add_argument("--allow-new", action="store_true", help="Allow creating new keys when updating state")
 
     parser.add_argument("--sheet", help="Sheet YAML file to update")
     parser.add_argument("--tracker", help="Tracker YAML file to update")
@@ -133,10 +86,10 @@ def main() -> int:
             return 1
         success = winner == args.as_role
     else:
-        if "success" not in roll:
+        if "success" not in roll and "final_success" not in roll:
             print("error: roll JSON missing success field", file=sys.stderr)
             return 1
-        success = bool(roll.get("success"))
+        success = bool(roll.get("final_success", roll.get("success")))
 
     def parse_list(items):
         parsed = []
@@ -198,13 +151,27 @@ def main() -> int:
         if not sheet_path or not sheet_path.exists():
             print(f"error: sheet not found: {sheet_path}", file=sys.stderr)
             return 1
-        update_file(sheet_path, sheet_sets, sheet_incs, clamp=args.clamp)
+        update_file(
+            sheet_path,
+            sheet_sets,
+            sheet_incs,
+            clamp=args.clamp,
+            allow_new=args.allow_new,
+            allow_clock=False,
+        )
 
     if need_tracker:
         if not tracker_path or not tracker_path.exists():
             print(f"error: tracker not found: {tracker_path}", file=sys.stderr)
             return 1
-        update_file(tracker_path, tracker_sets, tracker_incs, clamp=args.clamp)
+        update_file(
+            tracker_path,
+            tracker_sets,
+            tracker_incs,
+            clamp=args.clamp,
+            allow_new=args.allow_new,
+            allow_clock=True,
+        )
 
     print("applied" if success else "applied (failure)")
     return 0

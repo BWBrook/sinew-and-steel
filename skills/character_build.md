@@ -33,5 +33,6 @@ python tools/char_builder.py --campaign <slug> --name "Name" --set STAT1=12 --se
 
 ## Notes
 - The builder enforces the Sinew & Steel point-buy rule (range 6–16 + double-debit validation).
+- Stamina is chosen separately (3–9 at creation) and is **not** part of the double-debit ledger.
 - Use `--strict` to require exact payment (no extra decreases beyond the minimum).
 - Use `--delta STAT=+2` to adjust from baseline 10, then `--set` to override.

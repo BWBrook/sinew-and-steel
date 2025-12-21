@@ -65,6 +65,7 @@ def main() -> int:
 
     campaign = load_yaml_optional(cfile)
     skin_slug = campaign.get("skin")
+    campaign_title = campaign.get("title") or campaign.get("name") or args.campaign
     skins = manifest.get("skins", {})
     skin = skins.get(skin_slug, {})
 
@@ -110,6 +111,7 @@ def main() -> int:
     payload = {
         "campaign": {
             "slug": args.campaign,
+            "title": campaign_title,
             "skin": skin_slug,
             "created": campaign.get("created"),
         },
@@ -146,7 +148,10 @@ def main() -> int:
         return 0
 
     skin_name = skin.get("name", skin_slug)
-    print(f"Campaign: {args.campaign} (skin: {skin_name})")
+    if campaign_title and campaign_title != args.campaign:
+        print(f"Campaign: {campaign_title} ({args.campaign}) (skin: {skin_name})")
+    else:
+        print(f"Campaign: {args.campaign} (skin: {skin_name})")
     scene = tracker.get("scene")
     if scene is not None:
         print(f"Scene: {scene}")
