@@ -1,59 +1,56 @@
-version: "0.1.0"
-
+version: 0.1.0
 rules:
   core:
     adventurers_manual: rules/core/adventurers_manual.md
     custodians_almanac: rules/core/custodians_almanac.md
   quickstart: rules/quickstart.md
-
 skins:
   clanfire:
-    name: "Clanfire"
+    name: Clanfire
     file: skins/clanfire.md
-    pressure_track: "Shadow"
+    pressure_track: Shadow
   age_undreamed_of:
-    name: "Age Undreamed Of"
+    name: Age Undreamed Of
     file: skins/age_undreamed_of.md
-    pressure_track: "Doom"
+    pressure_track: Doom
   time_odyssey:
-    name: "Time Odyssey"
+    name: Time Odyssey
     file: skins/time_odyssey.md
-    pressure_track: "Anomaly"
+    pressure_track: Anomaly
   briar_benedictine:
-    name: "Briar & Benedictine"
+    name: Briar & Benedictine
     file: skins/briar_benedictine.md
-    pressure_track: "Sin"
+    pressure_track: Sin
   mars_saga:
-    name: "Mars Saga"
+    name: Mars Saga
     file: skins/mars_saga.md
-    pressure_track: "Heat"
+    pressure_track: Heat
   candlelight_dungeons:
-    name: "Candlelight Dungeons"
+    name: Candlelight Dungeons
     file: skins/candlelight_dungeons.md
-    pressure_track: "Fatigue"
+    pressure_track: Fatigue
   jeffries_tube_blues:
-    name: "Jeffries-Tube Blues"
+    name: Jeffries-Tube Blues
     file: skins/jeffries_tube_blues.md
-    pressure_track: "Stress"
+    pressure_track: Stress
   whispers_in_the_fog:
-    name: "Whispers in the Fog"
+    name: Whispers in the Fog
     file: skins/whispers_in_the_fog.md
-    pressure_track: "Insanity"
+    pressure_track: Insanity
   free_traders_of_the_marches:
-    name: "Free Traders of the Marches"
+    name: Free Traders of the Marches
     file: skins/free_traders_of_the_marches.md
-    pressure_track: "Stress"
+    pressure_track: Stress
   twilight_of_the_north_kingdom:
-    name: "Twilight of the North-Kingdom"
+    name: Twilight of the North-Kingdom
     file: skins/twilight_of_the_north_kingdom.md
-    pressure_track: "Shadow"
-
+    pressure_track: Shadow
 prompts:
   starter: prompts/starter_prompt.md
   hidden_scenario: prompts/hidden_scenario_prompt.md
   chinese_room: prompts/how_to_use_chinese_room.md
-
 templates:
   skin: templates/skin_template.md
   character_sheet: templates/character_sheet.yaml
   session_notes: templates/session_notes.md
+  tracker: templates/tracker.yaml

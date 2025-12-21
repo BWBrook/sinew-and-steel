@@ -1,0 +1,10 @@
+name: "Session Tracker"
+scene: 0
+
+clocks:
+  pressure:
+    name: "Pressure"
+    current: 0
+    max: 5
+
+notes: []

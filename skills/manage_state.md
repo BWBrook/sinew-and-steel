@@ -22,6 +22,13 @@ python tools/update_sheet.py --file state/characters/<name>.yaml --inc pools.luc
 python tools/update_sheet.py --file state/characters/<name>.yaml --set tracks.pressure.current=2
 ```
 
+For trackers and scene counters:
+
+```bash
+python tools/trackers.py --file state/trackers/session.yaml scene --inc 1
+python tools/trackers.py --file state/trackers/session.yaml pressure --inc 1 --clamp
+```
+
 ## Notes
 - Treat state/ as private. Do not reveal it to players unless you intend spoilers.
 - Summarize every scene or milestone in memory notes.

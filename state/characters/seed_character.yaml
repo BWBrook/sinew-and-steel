@@ -1,0 +1,32 @@
+name: "Example Hero"
+skin: "clanfire"
+player: "Local"
+created: "YYYY-MM-DD"
+
+attributes:
+  MGT: 10
+  FLT: 10
+  CUN: 10
+  SPR: 10
+  INS: 10
+
+pools:
+  luck:
+    name: "Instinct"
+    current: 10
+    max: 10
+  stamina:
+    current: 5
+    max: 5
+
+tracks:
+  pressure:
+    name: "Shadow"
+    current: 0
+    max: 5
+
+inventory:
+  big_items: []
+  small_items: []
+
+notes: []

@@ -1,3 +1,14 @@
 *
 !.gitignore
 !README.md
+!characters/
+!trackers/
+!memory/
+!logs/
+!characters/README.md
+!characters/seed_character.yaml
+!trackers/README.md
+!trackers/seed_tracker.yaml
+!memory/README.md
+!memory/seed_memory.yaml
+!logs/README.md

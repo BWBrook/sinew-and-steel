@@ -15,6 +15,7 @@ Use the files and tools below to keep play consistent, reproducible, and private
 ## Operating rules
 - Keep private notes in state/. Do not reveal them to players unless explicitly requested.
 - Use tools/roll.py for dice and tools/update_sheet.py for sheet changes.
+- Use tools/trackers.py for pressure clocks and scene counters.
 - Record each roll result and consequence in state/memory/ or state/logs/.
 - Separate public narration from private tracking.
 - Prefer manifest.yaml for paths instead of hardcoding.
@@ -37,4 +38,5 @@ Use the skills in skills/ for repeatable workflows:
 - skills/build_prompt.md
 - skills/dice_resolution.md
 - skills/manage_state.md
+- skills/session_recap.md
 - skills/run_session.md

@@ -8,4 +8,5 @@ Index:
 - skills/build_prompt.md
 - skills/dice_resolution.md
 - skills/manage_state.md
+- skills/session_recap.md
 - skills/run_session.md

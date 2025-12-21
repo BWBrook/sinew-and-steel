@@ -9,4 +9,9 @@ Suggested layout:
 - state/memory/     : private notes and summaries
 - state/logs/       : session transcripts (private)
 
-Use tools/update_sheet.py for consistent edits.
+Seed files:
+- state/characters/seed_character.yaml
+- state/trackers/seed_tracker.yaml
+- state/memory/seed_memory.yaml
+
+Use tools/update_sheet.py and tools/trackers.py for consistent edits.
