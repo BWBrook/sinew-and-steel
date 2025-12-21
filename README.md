@@ -84,6 +84,7 @@ This repo includes an agent-focused harness to run sessions without API adapters
 * **`manifest.yaml`** — a machine-readable index of rules, skins, and prompts.
 * **`state/`** — private notes, trackers, and character sheets (local runtime data).
 * **`campaigns/`** — untracked per-campaign workspaces with their own state and logs.
+* **`skills/agent_dm_handbook.md`** — end-to-end guide for running sessions with the tools.
 
 Key utilities for play:
 * `tools/campaign_init.py` to scaffold a campaign workspace.

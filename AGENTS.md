@@ -38,6 +38,7 @@ Use the files and tools below to keep play consistent, reproducible, and private
 ## Skills
 Use the skills in skills/ for repeatable workflows:
 - skills/build_prompt.md
+- skills/agent_dm_handbook.md
 - skills/campaign_setup.md
 - skills/dice_resolution.md
 - skills/manage_state.md
