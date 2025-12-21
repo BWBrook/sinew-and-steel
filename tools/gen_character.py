@@ -7,6 +7,9 @@ import sys
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
+BASELINE = 10
+MIN_STAT = 6
+MAX_STAT = 16
 
 
 def load_manifest() -> dict:
@@ -17,13 +20,59 @@ def load_manifest() -> dict:
     return yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
 
 
-def sample_stats(keys):
-    # Rejection sample for sum 50 within [6,16]
-    for _ in range(10000):
-        values = [random.randint(6, 16) for _ in keys]
-        if sum(values) == 50:
-            return dict(zip(keys, values))
-    raise RuntimeError("Failed to sample stats after 10,000 attempts")
+def apply_double_debit_steps(keys, steps: int, primary: str | None = None) -> dict:
+    stats = {key: BASELINE for key in keys}
+
+    if primary and primary not in stats:
+        raise ValueError(f"Unknown primary stat '{primary}'")
+
+    for _ in range(steps):
+        # Only increase stats at/above baseline so each step represents a real
+        # \"above baseline\" increase that must be paid for.
+        inc_candidates = [k for k in keys if BASELINE <= stats[k] < MAX_STAT]
+        if not inc_candidates:
+            break
+
+        if primary and stats[primary] < MAX_STAT:
+            weights = [6 if k == primary else 1 for k in inc_candidates]
+            inc_key = random.choices(inc_candidates, weights=weights, k=1)[0]
+        else:
+            inc_key = random.choice(inc_candidates)
+
+        # Only pay from stats that are not above baseline. This keeps generated
+        # sheets tight: decreases == 2 * increases (no accidental overpay).
+        dec_candidates = [k for k in keys if k != inc_key and MIN_STAT < stats[k] <= BASELINE]
+        if not dec_candidates:
+            break
+
+        dec_1 = random.choice(dec_candidates)
+        stats[dec_1] -= 1
+
+        dec_candidates_2 = [k for k in keys if k != inc_key and MIN_STAT < stats[k] <= BASELINE]
+        if not dec_candidates_2:
+            stats[dec_1] += 1
+            break
+
+        dec_2 = random.choice(dec_candidates_2)
+        stats[dec_2] -= 1
+
+        stats[inc_key] += 1
+
+    return stats
+
+
+def sample_stats(keys, steps: int | None, min_steps: int, max_steps: int, primary: str | None) -> dict:
+    if steps is None:
+        if min_steps < 0 or max_steps < min_steps:
+            raise ValueError("Invalid min/max steps")
+        steps = random.randint(min_steps, max_steps)
+
+    for _ in range(200):
+        stats = apply_double_debit_steps(keys, steps=steps, primary=primary)
+        if any(v > BASELINE for v in stats.values()):
+            return stats
+
+    raise RuntimeError("Failed to generate a specialized character after 200 attempts")
 
 
 def build_sheet(skin_entry: dict, name: str, player: str):
@@ -33,7 +82,14 @@ def build_sheet(skin_entry: dict, name: str, player: str):
         sys.exit(1)
 
     keys = list(attrs.keys())
-    stats = sample_stats(keys)
+    gen = skin_entry.get("_gen", {}) if isinstance(skin_entry.get("_gen"), dict) else {}
+    stats = sample_stats(
+        keys,
+        steps=gen.get("steps"),
+        min_steps=int(gen.get("min_steps", 2)),
+        max_steps=int(gen.get("max_steps", 6)),
+        primary=gen.get("primary"),
+    )
 
     luck_key = skin_entry.get("luck_key")
     if luck_key not in stats:
@@ -47,6 +103,15 @@ def build_sheet(skin_entry: dict, name: str, player: str):
         "skin": skin_entry.get("slug", ""),
         "player": player,
         "created": date.today().isoformat(),
+        "meta": {
+            "generated": {
+                "method": "double_debit",
+                "steps": gen.get("steps"),
+                "min_steps": gen.get("min_steps", 2),
+                "max_steps": gen.get("max_steps", 6),
+                "primary": gen.get("primary"),
+            }
+        },
         "attributes": stats,
         "pools": {
             "luck": {
@@ -82,6 +147,10 @@ def main() -> int:
     parser.add_argument("--player", default="", help="Player name")
     parser.add_argument("--out", help="Output file (default: stdout)")
     parser.add_argument("--seed", type=int, help="Random seed")
+    parser.add_argument("--steps", type=int, help="Number of double-debit steps to apply")
+    parser.add_argument("--min-steps", type=int, default=2, help="Min steps when --steps not provided")
+    parser.add_argument("--max-steps", type=int, default=6, help="Max steps when --steps not provided")
+    parser.add_argument("--primary", help="Bias stat increases toward this stat key")
 
     args = parser.parse_args()
 
@@ -97,7 +166,23 @@ def main() -> int:
     skin_entry = skins[args.skin]
     skin_entry = {**skin_entry, "slug": args.skin}
 
-    sheet = build_sheet(skin_entry, args.name, args.player)
+    try:
+        sheet = build_sheet(
+            {
+                **skin_entry,
+                "_gen": {
+                    "steps": args.steps,
+                    "min_steps": args.min_steps,
+                    "max_steps": args.max_steps,
+                    "primary": args.primary,
+                },
+            },
+            args.name,
+            args.player,
+        )
+    except (RuntimeError, ValueError) as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 1
     output = yaml.safe_dump(sheet, sort_keys=False)
 
     if args.out:

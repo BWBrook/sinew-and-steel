@@ -48,6 +48,7 @@ def main() -> int:
     parser.add_argument("--delta", action="append", default=[], help="Adjust stat by delta (STAT=+2)")
     parser.add_argument("--stamina", type=int, default=5, help="Starting stamina (default 5)")
     parser.add_argument("--note", action="append", default=[], help="Add note to sheet")
+    parser.add_argument("--strict", action="store_true", help="Require exact double-debit payment (no extra decreases)")
 
     args = parser.parse_args()
 
@@ -102,17 +103,34 @@ def main() -> int:
 
     # Validate point-buy rules
     errors = []
-    total = sum(stats.values())
-    if total != 50:
-        errors.append(f"sum of stats must equal 50 (got {total})")
+    baseline = 10
+    increases = sum(max(0, v - baseline) for v in stats.values())
+    decreases = sum(max(0, baseline - v) for v in stats.values())
+    required_decreases = 2 * increases
+
+    if decreases < required_decreases:
+        errors.append(
+            f"double-debit not paid: increases={increases} decreases={decreases} (need >= {required_decreases})"
+        )
+
     for key, value in stats.items():
         if value < 6 or value > 16:
             errors.append(f"{key} out of range (6-16): {value}")
+
+    if args.stamina < 3 or args.stamina > 9:
+        errors.append(f"stamina out of range (3-9): {args.stamina}")
 
     if errors:
         for err in errors:
             print(f"error: {err}", file=sys.stderr)
         return 1
+
+    slack = decreases - required_decreases
+    if args.strict and slack != 0:
+        print(f"error: strict mode requires slack=0 (got slack={slack})", file=sys.stderr)
+        return 1
+    if slack > 0 and increases > 0:
+        print(f"warning: build overpays by {slack} point(s) (decreases beyond required)", file=sys.stderr)
 
     luck_key = skin.get("luck_key")
     if luck_key not in stats:

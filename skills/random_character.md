@@ -6,7 +6,7 @@ description: Generate a random character sheet that obeys Sinew & Steel build ru
 # Random Character
 
 ## Goal
-Create a legal random sheet (stats 6–16, total 50) with skin-specific labels.
+Create a legal random sheet (stats 6–16) with skin-specific labels, generated using the double-debit method.
 
 ## Command
 ```bash
