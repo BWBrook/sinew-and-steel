@@ -75,6 +75,17 @@ def main() -> int:
             if not (ROOT / rel).exists():
                 errors.append(f"missing file: {rel}")
 
+    # Check tools we rely on
+    for rel in (
+        "tools/recap.py",
+        "tools/session_log.py",
+        "tools/apply_roll.py",
+        "tools/gen_character.py",
+        "tools/campaign_init.py",
+    ):
+        if not (ROOT / rel).exists():
+            errors.append(f"missing file: {rel}")
+
     return report(errors)
 
 

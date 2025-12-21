@@ -85,6 +85,12 @@ This repo includes an agent-focused harness to run sessions without API adapters
 * **`state/`** — private notes, trackers, and character sheets (local runtime data).
 * **`campaigns/`** — untracked per-campaign workspaces with their own state and logs.
 
+Key utilities for play:
+* `tools/campaign_init.py` to scaffold a campaign workspace.
+* `tools/gen_character.py` to generate legal random characters.
+* `tools/recap.py` and `tools/session_log.py` to capture private memory and public logs.
+* `tools/apply_roll.py` to update sheets and trackers based on roll results.
+
 ---
 
 ## Contributing

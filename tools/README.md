@@ -8,6 +8,9 @@ Requires Python 3 and PyYAML (already present in most agent runtimes).
 - gen_character.py: generate a random character sheet for a skin.
 - new_skin.py: create a skin from templates and optionally register it in the manifest.
 - roll.py: d20 rolls for checks and opposed tests.
+- apply_roll.py: apply roll results to sheets/trackers based on success/failure.
+- recap.py: append a structured summary to memory and optionally advance clocks.
+- session_log.py: append public narration or roll results to session logs.
 - trackers.py: update scene counters and clocks (pressure, threat, etc).
 - update_sheet.py: update YAML sheets and trackers by path.
 - validate_repo.py: sanity checks for manifest and file layout.
@@ -22,8 +25,11 @@ python tools/campaign_init.py --name icehunt --skin clanfire --random-character 
 python tools/gen_character.py --skin clanfire --name \"Tarra\" --out /tmp/tarra.yaml
 python tools/new_skin.py --slug skyfarer
 python tools/roll.py check --stat 12 --adv
+python tools/recap.py --campaign icehunt --summary \"Beat 1: the blizzard\" --pressure-inc 1 --scene-inc 1
+python tools/session_log.py --campaign icehunt --role GM --text \"The storm splits the ridge.\"
 python tools/trackers.py --file state/trackers/session.yaml scene --inc 1
 python tools/trackers.py --file state/trackers/session.yaml pressure --inc 1 --clamp
 python tools/update_sheet.py --file state/characters/grak.yaml --inc pools.luck.current=-1
+python tools/apply_roll.py --roll /tmp/roll.json --sheet state/characters/grak.yaml --success-sheet-inc pools.stamina.current=-1
 python tools/validate_repo.py
 ```
