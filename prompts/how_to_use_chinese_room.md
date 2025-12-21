@@ -3,7 +3,7 @@
 1. **Replace placeholders**  
    - `{{ SKIN NAME }}` – e.g., *Briar & Benedictine*, *Jeffries-Tube Blues*, etc.
 
-2. **Paste** the quickstart rules and chosen skin under **Context**.
+2. **Paste** the core rules from `rules/core/` and the chosen skin from `skins/` under **Context**.
 
 3. **Send** the entire `<start_prompt> … <end_prompt>` to ChatGPT or your chosen API model.
 

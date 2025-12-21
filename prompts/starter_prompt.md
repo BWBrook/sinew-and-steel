@@ -13,16 +13,16 @@ RPG Style: Channel *Lone Wolf*, *Fighting Fantasy*, and *Choose Your Own Adventu
 ---
 
 ### 1. Core Engine (Sinew & Steel Rules and Player's Manual)
-[ADD most-current version of: core_rules/adventurers_manual.md here]
+{{CORE_RULES_ADVENTURERS}}
 
 ### 2. Custodian's Almanac (GM Guide and Extra Rules)
-[ADD most-current version of: core_rules/custodians_almanac.md here]
+{{CORE_RULES_CUSTODIANS}}
 
 ### 3. Skin Add-On (Setting and Rules Modifications)
-[ADD SKIN MARKDOWN TEXT here: settings/*]
+{{SKIN_TEXT}}
 
 ### 3B. Hidden Scenario (Optional Secret Module)
-[ADD Chinese Room `[GM-NOTES zh]` generated using the **Hidden Scenario Prompt** here]
+{{HIDDEN_SCENARIO}}
 
 ---
 

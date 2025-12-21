@@ -54,23 +54,35 @@ Swap a few words and build your own skin in an afternoon.
 
 ## Quick start
 
-1. **Read `quickstart_rules_on_a_page.md`.**  
+1. **Read `rules/quickstart.md`.**  
 2. Pick or clone a skin from `/skins/`.  
 3. Hand the rules page to players; keep the skin doc behind your screen.  
-4. (Optional) paste the **Starter Prompt** `/ai_play/` into ChatGPT or another LLM and hit enter.
-5. (Optional) use the **Hidden Scenario Prompt** `/ai_play/` to generate a secret scenario/module! 
+4. (Optional) paste the **Starter Prompt** in `/prompts/` into ChatGPT or another LLM and hit enter.
+5. (Optional) use the **Hidden Scenario Prompt** in `/prompts/` to generate a secret scenario/module! 
 6. Roll dice, burn Luck, tell messy stories.
 
 ---
 
 ## For AI game-masters
 
-The repo’s `/ai_play/` folder contains:
+The repo’s `/prompts/` folder contains:
 
 * A **starter prompt template** that loads the engine + chosen skin in one go. Add ruleset as required. 
 * Tool call examples for dice rolls, Luck offers, and pressure escalations.
 
 No plugins needed for reasoning engines with tool use—`random.randint(1,20)` and short, punchy prose carry the night.
+
+---
+
+## Agent harness (Codex / Claude Code / Jules-friendly)
+
+This repo includes an agent-focused harness to run sessions without API adapters:
+
+* **`AGENTS.md`** — operational rules for an AI agent running games.
+* **`skills/`** — small, reusable instruction files for common tasks (prompt build, dice, state updates).
+* **`tools/`** — CLI helpers for assembling prompts, rolling dice, and updating YAML sheets.
+* **`manifest.yaml`** — a machine-readable index of rules, skins, and prompts.
+* **`state/`** — private notes, trackers, and character sheets (local runtime data).
 
 ---
 
@@ -84,11 +96,13 @@ Issues, forks, pull requests, new skins, typo fixes—all welcome.  Keep additio
 
 ---
 
-## Licence
+## License
 
 * Sinew & Steel core rules © 2025 Barry Brook
 * **Text & tables:** Creative Commons **CC-BY 4.0**  
 * **Helper code snippets:** MIT
+
+See `NOTICE` and `LICENSES/` for details and scope.
 
 Credit the project, hack it, sell adventures, translate it into Akkadian—just link back here.
 

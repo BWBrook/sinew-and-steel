@@ -11,7 +11,7 @@ The human player sees only public narrative; secret notes stay hidden.
 # Context
 ## MASTER PROMPT — SINEW & STEEL RPG with AI GM
 
-[ADD core rules + skin doc here.]
+[ADD core rules from rules/core/ and the chosen skin from skins/.]
 
 ---
 

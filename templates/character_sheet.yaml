@@ -1,0 +1,32 @@
+name: ""
+skin: ""
+player: ""
+created: ""
+
+attributes:
+  stat_1: 10
+  stat_2: 10
+  stat_3: 10
+  stat_4: 10
+  luck: 10
+
+pools:
+  luck:
+    name: "Luck"
+    current: 10
+    max: 10
+  stamina:
+    current: 5
+    max: 5
+
+tracks:
+  pressure:
+    name: "Pressure"
+    current: 0
+    max: 5
+
+inventory:
+  big_items: []
+  small_items: []
+
+notes: []
