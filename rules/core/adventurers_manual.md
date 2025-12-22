@@ -1,119 +1,232 @@
-# **SINEW & STEEL — UNIVERSAL ROLL‑UNDER GAME ENGINE**
+# **SINEW & STEEL — ADVENTURER’S MANUAL**
 
-A razor‑lean chassis for any genre. One d20, five numbers, limitless skins. 
+A razor‑lean, setting‑agnostic chassis for any genre. One d20, five attribute scores, limitless skins.
 
-*Also ideal for use with reasoning-AI game masters with tool use.*
+In Sinew & Steel, a **skin** is a small genre overlay that renames the attributes, defines what fortune and fate represent, and adds a few custom rules.
 
----
-
-## 📜 ADVENTURER'S MANUAL (Player's Handbook)
-
-### 1 Core Principle
-
-Roll **one d20**. If the result is **≤ your attribute**, you succeed; higher, you fail.
-
-- **Natural 1** – legendary success | **Natural 20** – disastrous failure
-- **Advantage / Disadvantage** – roll two d20, keep the lower / higher.
-- **Opposed rolls** – both parties roll; if both succeed compare **margins** (attribute − roll). Higher margin wins; **ties favour the defender**.
-- Roll only when uncertainty + real stakes = drama.
+For the one‑page version, see `rules/quickstart.md`.
 
 ---
 
-### 2 Building a Hero
+## 1 The Core Rule
 
-Start with the **baseline frame**:
+Roll **one d20**. If the result is **≤ your attribute**, you succeed; if it’s higher, you fail.
 
-- Five attributes at **10** (rename to taste: Might, Reflex, Intellect, Empathy, Luck…)
-- **Stamina 5**
+### 1.1 Natural results
+- **Natural 1** — legendary success.
+- **Natural 20** — disastrous failure.
 
-**Point‑Buy Rule (double‑debit)**\
-Every +1 you add **above baseline** costs **‑2** total subtracted from any other score(s).
-No score may drop below 6 or rise above 16 (**Stamina** floors at 3, caps at 9).
+### 1.2 Margin (how well / how badly)
+**Margin** = `attribute − roll`.
+- Positive margin means you succeed with room to spare.
+- Negative margin means you fail (and how far off you were).
+
+### 1.3 Advantage / Disadvantage
+- **Advantage:** roll 2d20, keep the **lower**.
+- **Disadvantage:** roll 2d20, keep the **higher**.
+
+### 1.4 Opposed rolls
+Both sides roll under their relevant attribute.
+
+- If only one side succeeds, that side wins.
+- If both succeed, compare **margins**. Higher margin wins.
+- **Ties favour the defender.**
+- If both fail, the defender wins (you don’t “accidentally succeed”).
+
+### 1.5 When to roll
+Roll only when **the outcome is uncertain** *and* **it matters**.
+If failure would be boring, resolve it narratively.
+
+**Micro‑example (the table loop):**
+> Custodian: “The rope bridge is slick with ice. What do you do?”  
+> Player: “I go slow, testing each plank, and keep low.”  
+> Custodian: “That’s careful. Roll under REF with Advantage. On a fail you still cross, but you lose time and the Pressure clock ticks.”
+
+---
+
+## 2 Building a Hero
+
+### 2.1 Start from the baseline frame
+Every character begins at:
+- **Five attributes at 10** (skins rename these to fit genre).
+- **Stamina 5** (your health).
+
+Legal ranges at creation:
+- Attributes: **6–16**
+- Stamina: **3–9**
+
+### 2.1.1 What the five attributes mean (default names)
+Skins rename and re‑flavour attributes, but the core game assumes five broad domains.
+If you need a default set (and for examples in this manual), use:
+
+- **MGT — Might:** strength, endurance, force, brutality.
+- **REF — Reflex:** speed, coordination, balance, stealth, aim.
+- **INT — Intellect:** knowledge, planning, perception, systems.
+- **EMP — Empathy:** social sense, willpower, leadership, composure.
+- **LCK — Luck:** tokens you spend to nudge fate (and roll under when sheer chance decides).
+
+### 2.2 The point‑buy economy (plain English)
+You can customize your stats using the same economy in two equivalent ways:
+
+**A) Trade‑offs (the “double‑debit” ledger):**  
+Every **+1** you push **above baseline** must be “paid for” by **‑2 total** below baseline across other scores.
+
+**B) Build points (the tone dial):**  
+Build points let you raise stats without taking as many trade‑offs.
+
+You can mix these: take some trade‑offs, spend some build points; they’re two ways of paying into the same economy.
+
+Cost model (same for attributes and Stamina):
+- If the score is **at/above baseline**, **+1 costs 2 build points**.
+- If the score is **below baseline**, **+1 costs 1 build point** (to climb back toward baseline).
 
 Baseline notes:
 - Attributes baseline at **10**.
 - Stamina baseline at **5**.
 
-> *"Bump a stat up? Pay double elsewhere."*
+> *Bump a stat up? Either pay double elsewhere… or pay build points.*
 
-Milestones hand out **2 build points** that follow the same rule: +1 to an above‑baseline score **or** +2 to a below‑baseline score (Stamina baseline 5; attributes baseline 10).
+### 2.3 Starting build points (recommended default)
+At creation, the Custodian chooses a starting budget for tone:
+- **0** (grim survival)
+- **6** (standard; recommended default)
+- **12** (pulp competence)
+- **16** (heroic flair)
 
-The Custodian may also allot each player 0 (grim), 6 (standard), 12 (pulp) or 16 (heroic) build-points **at creation** and let them sculpt freely by the +1/-2 economy.
+### 2.4 Step‑by‑step creation (fast, reliable)
+1. Pick a skin (it names your five attributes and your Pressure track colour).
+2. Write the baseline frame: five 10s, Stamina 5.
+3. Choose one “signature” strength and raise it.
+4. Either:
+   - take matching trade‑offs (‑2 total per +1 above baseline), **or**
+   - spend build points to avoid (some of) those reductions.
+5. Set your **Luck pool**: your skin tells you which attribute is Luck.
+6. Write 3–6 items of gear and one small advantage (if your table uses them).
 
-Note: Stamina uses a **baseline of 5** (not 10) but still participates in the same +1/-2 ledger.
+### 2.5 Worked example (build points + trade‑offs)
+You want a sharp‑witted hero and you raise INT from 10 to 13 (**+3 above baseline**).
 
----
-
-### 3 Luck Pool
-
-Your **Luck score** *is* your token count.
-
-> "*The more you bend fate, the greater the later risk.*"
-
-- Spend any number of tokens after seeing a roll to nudge the die ±1 per token (naturals 1 & 20 remain fixed).
-- Luck tests roll ≤ *current* score.
-- Rest +1 token; Milestone refills to baseline (and may raise that for 2 build points).
-
-> *You may spend Luck after a successful attack to deepen your margin and chew through armour (see 6.2).*
-
----
-
-### 4 Health & Recovery
-
-- Generic wound = 1.
-- Light / Standard / Brutal weapons add +0 / +1 / +2.
-- At **0 STM** you collapse; fate per fiction.
-- Short rest +1 STM; good care +2.
-- Healing caps at baseline STM.
-- Instantly fatal blows are possible: Custodian will advise.
+- Trade‑off version: you must take **‑6 total** across other scores (no build points required).
+- Build‑point version: you can instead spend **6 build points** (2 per +1 above baseline) and keep the rest closer to baseline.
 
 ---
 
-### 5 Taking Action
+## 3 Luck Pool (tokens)
 
-#### 5.1 Simple Tests
+Your **Luck score** *is* your token pool.
+If your skin says “Hope” or “Fortune” or “Resourcefulness,” that score is still Luck mechanically.
 
-Roll under the relevant attribute. Advantage / Disadvantage as fiction dictates.
+Luck pulls double duty: it’s a pool you spend to bend results, and it’s the score you roll under when sheer chance decides.
+Spend for the moment, but remember you’ll feel it in the future, when the Custodian asks you to “Test your Luck!”.
 
-#### 5.2 Opposed Tests
+> *The more you bend fate now, the shakier your later odds.*
 
-Both roll. If only one succeeds, that side wins. If both succeed, compare margins; higher wins, ties defend.
+- After you see a roll, spend any number of tokens to **nudge** the die **±1 per token**.
+  - **Natural 1 and 20 are locked** (cannot be nudged).
+- Luck tests roll **≤ your current tokens** (not your maximum).
+- A short rest restores **+1 token**.
+- At a milestone, you refill back up to your Luck score (your max).
+
+Combat note:
+> You may spend Luck after a successful attack to deepen your margin and chew through armour soak.
 
 ---
 
-### 6 Combat Snapshot
+## 4 Stamina (Health) & Recovery
 
-1. **Attacker** rolls under Melee/Range attribute.
-2. **Defender** rolls under Dodge/Parry/Cover.
-3. On a hit: damage = 1 STM + weapon edge – **effective soak**.
-4. Natural 1 or margin ≥ 10 adds +1 damage.
+- **Damage reduces Stamina.**
+- Typical weapons add **edge**: +0 / +1 / +2.
+- At **0 Stamina**, you collapse (what that means is fiction‑dependent).
+- Short rest: **+1 Stamina** (up to your max).
+- Good care: **+2 Stamina** (up to your max).
 
-#### 6.1 Weapon Edges (suggested)
+Stamina isn’t a promise of immortality: falls, fire, vacuum, and guillotines can be instantly fatal.
+The Custodian may warn you when the fiction implies lethal stakes beyond a normal wound.
 
-- Improvised club 0 | Blade/Spear/Handgun +1 | Great‑axe/Rifle/Plasma +2
+---
 
-#### 6.2 Armour & Dynamic Soak
+## 5 Taking Action
 
+### 5.1 Simple tests
+Roll under the relevant attribute, or test your luck. Advantage / Disadvantage as fiction dictates.
+
+### 5.2 Opposed tests
+Both roll. If only one succeeds, that side wins. If both succeed, compare margins; higher wins; ties defend.
+
+---
+
+## 6 Combat
+
+1. **Attacker** rolls under the attribute that matches how they attack.
+   - **Heavy / forceful** (wrestle, smash, cleave): usually **MGT**.
+   - **Fast / precise** (finesse, archery, thrown weapons): usually **REF**.
+   - **Clever / technical** (aiming for a weak point, gadgets, “spells”): usually **INT**.
+   - **Presence / nerve** (taunt, command, distract, intimidate): sometimes **EMP**.
+   - **Lucky break** (pull off a trick shot, trigger an environmental cascade): rarely **LCK**.
+2. **Defender** rolls under the attribute that matches how they defend.
+   - **Dodge** (get out of the way): usually **REF**.
+   - **Parry / brace** (meet force with force): usually **MGT**.
+   - **Cover / positioning** (angles, terrain, timing): usually **INT**.
+   - **Luck** (sheer chance — a ricochet, a misfire, a loose plank): sometimes **LCK**.
+   - **Composure / resolve** (keep your head, accept a surrender, resist intimidation): sometimes **EMP**.
+
+   If there’s no plausible defense (surprised, pinned, helpless), the Custodian can skip the defense roll — or call for Luck if fate alone might spare you.
+3. On a hit: damage = **1 + weapon edge − effective soak**.
+4. **Natural 1** or **margin ≥ 10** adds **+1 damage**.
+   If your goal isn’t harm (disarm, drive off, talk down), use the same opposed roll — but apply the agreed consequence instead of damage.
+
+**Tiny examples (conflict without extra rules):**
+> One‑in‑a‑million: you fire a last‑ditch ricochet shot (attack with **LCK**) to sever a hanging rope. On success, the portcullis drops; on failure, it stays up and Pressure rises.
+> Talk‑down: you step in hard and command a surrender (attack with **EMP**) while your ally keeps their blade ready (threat in the fiction). On success, they back down; on failure, they lash out or call reinforcements.
+
+### 6.1 Weapon edges (suggested)
+- Improvised club **+0**
+- Blade / spear / handgun **+1**
+- Great‑axe / rifle / plasma **+2**
+
+### 6.2 Armour & dynamic soak
 | Armour                   | Base soak |
-| ------------------------ | --------- |
-| Hide / Leather           | 1         |
-| Mail / Kevlar            | 2         |
-| Plate / Powered carapace | 3         |
+| ------------------------ | --------: |
+| Hide / leather           |        1 |
+| Mail / kevlar            |        2 |
+| Plate / powered carapace |        3 |
 
-After a hit reduce soak **by 1 for every full 4 points of attacker margin** (round down). Remainder subtracts from damage. Critical 1 ignores all soak.
+After a hit:
+- Reduce soak by **1 for every full 4 points of attacker margin** (round down).
+- Any remaining soak reduces damage normally.
+- **Natural 1 ignores all soak.**
+
+**Micro‑example (soak erosion):**
+> You hit with margin +9 against soak 2.  
+> Full 4s = 2 → soak drops by 2 (to 0).  
+> The armour is shredded at the penetration point; this hit takes full damage.
 
 ---
 
-### 7 Carry Limit
+## 7 Carry Limit
 
-Six substantial items ride comfortably; more invites Disadvantage on agility tasks. Tiny trinkets are free. Money has no limit, but excess attracts unwanted attention.
+Six substantial items ride comfortably; more invites Disadvantage on agility tasks.
+Tiny trinkets are free.
+
+Money does not count against carry limit. By default it’s tracked loosely in the fiction — but if your table wants it tangible, use the optional **Wealth (0–4)** track (see the Custodian’s Almanac).
 
 ---
 
-### 8 Quick‑Reference Tables
+## 8 Pressure & Milestones (the pacing tools)
 
-**8.1 Chance to Succeed (single d20)**
+Every skin uses a shared **Pressure track (0–5)**, renamed to fit genre (Doom, Stress, Shadow, Heat, Insanity, Anomaly…).
+Pressure is the fuse: it rises with risk, blunders, bargains, and time pressure.
 
+- When Pressure hits **5**, a **crisis** triggers — then Pressure **resets to 0**.
+- Milestones happen every 3–4 *perilous* beats:
+  - **+2 build points**
+  - and a narrative boon (ally, relic, favour, scar, access)
+
+---
+
+## 9 Quick‑Reference Tables
+
+### 9.1 Chance to succeed (single d20)
 | Score | Straight | Adv. | Dis. |
 | ----- | -------- | ---- | ---- |
 | 6     | 30 %     | 51 % | 9 %  |
@@ -123,11 +236,10 @@ Six substantial items ride comfortably; more invites Disadvantage on agility tas
 | 14    | 70 %     | 91 % | 49 % |
 | 16    | 80 %     | 96 % | 64 % |
 
-**8.2 Attacker Wins Opposed Check (%)**
+### 9.2 Attacker wins opposed check (%)
+(Attacker rows, defender columns)
 
-(Attacker rows, Defender columns)
-
-|    | 6  | 8  | 10 | 12 | 14 | 16 |
+| Sc | 6  | 8  | 10 | 12 | 14 | 16 |
 | -- | -- | -- | -- | -- | -- | -- |
 | 6  | 25 | 22 | 19 | 16 | 13 | 10 |
 | 8  | 35 | 31 | 27 | 23 | 19 | 15 |
@@ -138,4 +250,4 @@ Six substantial items ride comfortably; more invites Disadvantage on agility tas
 
 ---
 
-*Print this on a double-sided sheet, slide it under a coffee cup, and you’re ready to play!*
+*Print this on a double‑sided sheet, slide it under a coffee cup, and you’re ready to play.*

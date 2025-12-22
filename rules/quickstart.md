@@ -1,47 +1,101 @@
-**SINEW & STEEL — RULES ON A PAGE**  
+# **SINEW & STEEL — QUICKSTART (RULES ON TWO PAGES)**
 *Everything else is story-fuel.*
 
-**1 Core Engine (60-second digest)**
+**If you remember nothing else:** roll under, margin matters, Luck nudges, Pressure is the fuse.
 
-* **Roll-under d20.** ≤ attribute = success. Nat 1 = legendary, nat 20 = calamity.  
-* **Adv / Dis.** Roll two d20, keep lower / higher.  
-* **Opposed.** Both roll; compare **margins** (attribute – roll); ties defend.  
-* **Scores.** Five attributes start at **10** (range 6–16). **Stamina starts at 5** (range 3–9).  
-  * Standard creation grants **6 build points** (grim 0 / pulp 12 / heroic 16): +1 above baseline costs 2 points; +1 below baseline costs 1 point.  
-* **Stamina.** Damage = 1 + weapon **edge** (0 / +1 / +2). 0 STM ⇒ collapse.  
-* **Luck pool.** Current Luck = tokens left. Spend tokens to nudge ±1 (nat 1/20 locked). Rest +1; milestone refills. Luck tests roll under **current** score.  
-* **Dynamic soak.** Armour reduces 1–3. Reduce soak 1 per **4 attacker margin**; nat 1 pierces all.  
-* **Carry limit.** Up to 6 big items; extra load ⇒ REF / FLT Disadvantage.  
-* **Pressure track 0–5.** Skin sets colour & crisis; 5 triggers crisis, then resets.
+---
 
-**2 Skins (swap flavour, colour, and pressure)**
+## 1 Core Engine (60‑second digest)
 
-Pick a skin to set tone and tweak rules:
+- **Roll‑under d20.** If `d20 ≤ attribute`, you succeed; otherwise you fail.
+  - **Natural 1** = legendary success | **Natural 20** = catastrophic failure.
+- **Margin** = `attribute − roll` (positive = how well; negative = how badly).
+- **Advantage / Disadvantage.** Roll 2d20; keep the lower / higher.
+- **Opposed.** Both roll.
+  - If only one succeeds, that side wins.
+  - If both succeed, compare **margins**; higher margin wins; **ties favour the defender**.
+  - If both fail, **the defender wins** (you don’t “accidentally succeed”).
+- **Scores (creation).** Start from the baseline frame:
+  - Five attributes at **10** (range **6–16**).
+  - **Stamina 5** (range **3–9**).
+  - Standard creation gives **6 build points** (grim 0 / pulp 12 / heroic 16).
+    - **+1 above baseline costs 2 build points** (or “pay” by taking **‑2 total** below baseline elsewhere).
+    - **+1 below baseline costs 1 build point** (to climb back toward baseline).
+  - Default attributes (used in examples; skins rename these):
+    - **MGT** — Might (strength, endurance, force)
+    - **REF** — Reflex (speed, coordination, stealth)
+    - **INT** — Intellect (knowledge, planning, systems)
+    - **EMP** — Empathy (social sense, resolve, rapport)
+    - **LCK** — Luck (tokens; also used when pure fate decides)
+- **Stamina (health).** Damage reduces Stamina. At **0 STM** you collapse.
+  - Typical weapons add **edge**: 0 / +1 / +2.
+  - Recovery: short rest +1 STM; good care +2 (never above max).
+- **Luck pool (tokens).** Your Luck score *is* your token count.
+  - Luck is also the score you roll under when sheer chance decides; spending tokens makes later Luck rolls harder.
+  - Spend tokens after a roll to **nudge** the die ±1 per token (**nat 1/20 are locked**).
+  - Luck tests roll under **current** tokens.
+  - Rest +1 token; milestone refills to baseline.
+- **Armour & dynamic soak.** Armour has **soak 1–3**.
+  - After a hit, reduce soak by **1 per full 4 points of attacker margin**; **nat 1 pierces all**.
+- **Carry limit.** Up to **6 big items**; extra load ⇒ Disadvantage on agility tasks (your Reflex / Fleetness‑type rolls).
+- **Money.** Usually abstract; if you want it tangible, use the optional **Wealth (0–4)** track (see the Custodian’s Almanac).
+- **Pressure track (0–5).** Skin defines its name and crisis.
+  - When Pressure hits **5**, trigger a crisis, then reset to **0**.
 
-- **Clanfire** — Ice Age survival; Shadow track; Totem Marks, Beast Bonds.  
-- **Age Undreamed Of** — Sword & Sorcery; Doom track; foul Sorcery.  
-- **Time Odyssey** — Chrononautics; Anomaly crises; epoch mapping.  
-- **Briar & Benedictine** — Medieval sleuths; Sin track; divine providence.  
-- **Mars Saga** — Red-planet noir; Heat track; psionics, dust storms.  
-- **Candlelight Dungeons** — Classic dungeon crawl; Fatigue track; torchlit terror.  
-- **Jeffries-Tube Blues** — Starfleet slice-of-life; Stress track; technobabble saves.
+**Example (check + nudge):**
+- REF 12, you roll **15** → fail (margin **–3**).
+- Spend **3 Luck** to nudge **15 → 12** → success (margin **0**).
 
-> *To build your own:* Rename stats, recolour the pressure track, add 1–2 flavour rules.
+**Example (opposed):**
+- Attacker MGT 12 rolls **8** (margin **+4**).
+- Defender REF 10 rolls **9** (margin **+1**).
+- Both succeed; attacker wins (higher margin).
 
-**3 GM Quick-start**
+---
 
-1. **Scene beat** = 200–500 words → finish on tension → give **2–4 options** (one risky or weird).  
-2. **Roll only** when the outcome is uncertain *and* it matters.  
-3. **Offer Luck burn** when failure is close.  
-4. **Advance pressure** on big blunders, dark bargains, noisy heroics.  
-5. **Milestone** every 3–4 perilous beats: +2 build points + narrative boon.  
-6. If players stall: advance threat clock, shift weather, drop a hard bargain.
+## 2 Skins (swap flavour, rename stats, recolour Pressure)
 
-*(AI note: dice with `random.randint(1,20)`; tell number, margin, burn offer.)*
+Pick a skin to set tone and tweak rules. A skin tells you:
+- what the five attributes are called,
+- which attribute is your **Luck** score (token pool),
+- what **Pressure** represents and what happens at 5.
 
-**4 Example Character (Clanfire skin)**
+Example skins (see `/skins/` for the full list):
+- **Clanfire** — Ice‑Age survival; **Shadow** track; Totem Marks, Beast Bonds.
+- **Age Undreamed Of** — sword‑and‑sorcery; **Doom** track; foul Sorcery.
+- **Time Odyssey** — chrononautics; **Anomaly** crises; epoch mapping.
+- **Briar & Benedictine** — medieval sleuthing; **Sin** track; divine providence.
+- **Mars Saga** — red‑planet noir; **Heat** track; psionics, dust storms.
+- **Candlelight Dungeons** — classic dungeon crawl; **Fatigue** track; torchlit terror.
+- **Jeffries‑Tube Blues** — Starfleet lower‑deck drama; **Stress** track; technobabble saves.
+- **Whispers in the Fog** — cosmic horror; **Insanity** track; occult dread.
+- **Free Traders of the Marches** — trader‑crew drama; **Stress** track; cargo and hard choices.
+- **Twilight of the North‑Kingdom** — frontier elegy; **Shadow** track; fading hope.
 
-**Grak – Hunter**  
-MGT 13 FLT 12 CUN 10 SPR 9 INS 10/10 STM 7/7 Shadow 0/5  
-Stone spear +1 • Hand-axe +1 • Hide cloak soak 1  
+> *To build your own skin:* rename stats, recolour Pressure, add 1–2 strict mechanical rules.
+
+---
+
+## 3 Custodian Quick‑Start (run a first session tonight)
+
+1. **Frame the scene** in concrete details. End on a hook.
+2. Ask: **“What do you do?”** Then listen for intent + method.
+3. Decide resolution:
+   - **No roll** if it’s plausible and uninteresting to fail.
+   - **Roll‑under** if uncertainty + stakes demand it.
+   - **Opposed** if someone actively resists.
+4. If rolling, say the **stakes first**: what changes on success vs failure.
+5. Give **2–4 options** when players hesitate; **at least one should be narrative** (no roll, just a trade‑off).
+6. **Offer a Luck nudge** when failure is close and it would be fun to “pay for the win.”
+7. **Advance Pressure** on big blunders, dark bargains, noisy heroics, time passing.
+8. **Milestone** every 3–4 perilous beats: **+2 build points** + a narrative boon.
+9. If play stalls: advance a clock, change the weather, introduce a hard bargain, or reveal a threat.
+
+---
+
+## 4 Example Character (Clanfire skin, standard build points)
+
+**Grak — Hunter**  
+MGT 12 • FLT 12 • CUN 9 • SPR 8 • INS 9 (Luck 9/9) • STM 6/6 • Shadow 0/5  
+Stone spear (edge +1) • Hand‑axe (edge +1) • Hide cloak (soak 1)  
 *Advantage when tracking megafauna.*
