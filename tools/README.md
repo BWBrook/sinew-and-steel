@@ -15,6 +15,7 @@ Requires Python 3 and PyYAML (already present in most agent runtimes).
 - recap.py: append a structured summary to memory and optionally advance clocks.
 - session_log.py: append public narration or roll results to session logs.
 - checkpoint.py: save exact last GM text for “save and quit” (separate from logs/memory).
+- resume_pack.py: print a compact resume snapshot (campaign + character + memory + log + checkpoint).
 - summary.py: one-screen campaign snapshot (scene, clocks, sheet, last memory).
 - trackers.py: update scene counters and clocks (pressure, threat, etc).
 - update_sheet.py: update YAML sheets and trackers by path.
@@ -36,7 +37,7 @@ python tools/campaign_init.py --title \"Ice Hunt\" --skin clanfire --tone standa
 python tools/char_builder.py --campaign ice_hunt --name \"Aveline\" --set HEW=6 --set FLT=8 --set LOR=10 --set MCY=13 --set PRV=10
 python tools/gen_character.py --skin clanfire --tone standard --name \"Tarra\" --out /tmp/tarra.yaml
 python tools/new_skin.py --slug skyfarer
-python tools/roll.py check --stat 12 --adv
+python tools/roll.py check --stat 12 --adv --pretty
 python tools/beat.py --campaign ice_hunt --character grak --log check --stat-key SYS --adv --nudge -1
 python tools/recap.py --campaign ice_hunt --summary \"Beat 1: the blizzard\" --pressure-inc 1 --scene-inc 1
 python tools/session_log.py --campaign ice_hunt --role GM --text \"The storm splits the ridge.\"
@@ -51,6 +52,7 @@ python tools/validate_repo.py
 python tools/doctor.py --campaign ice_hunt
 python tools/ss.py beat --campaign ice_hunt --character grak check --stat-key SYS
 python tools/checkpoint.py --campaign ice_hunt --role GM --show
+python tools/resume_pack.py --campaign ice_hunt --character grak
 
 # Save and quit (ironman): store exactly one checkpoint per campaign (overwritten each time).
 # Prefer stdin or --text-file for multi-line messages.

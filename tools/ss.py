@@ -22,6 +22,7 @@ TOOLS = {
     "validate_sheet": "validate_sheet.py",
     "doctor": "doctor.py",
     "checkpoint": "checkpoint.py",
+    "resume_pack": "resume_pack.py",
     "new_skin": "new_skin.py",
 }
 

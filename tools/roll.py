@@ -26,11 +26,14 @@ def command_opposed(args):
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Roll d20 checks for Sinew & Steel.")
-    parser.add_argument("--seed", type=int, help="Random seed for reproducible rolls")
-    parser.add_argument("--pretty", action="store_true", help="Pretty-print JSON output")
+    # Allow global flags to appear before or after the subcommand, which is
+    # friendlier for both humans and LLM-driven agents.
+    global_parser = argparse.ArgumentParser(add_help=False)
+    global_parser.add_argument("--seed", type=int, help="Random seed for reproducible rolls")
+    global_parser.add_argument("--pretty", action="store_true", help="Pretty-print JSON output")
 
-    subparsers = parser.add_subparsers(dest="command", required=True)
+    command_parser = argparse.ArgumentParser(description="Roll d20 checks for Sinew & Steel.")
+    subparsers = command_parser.add_subparsers(dest="command", required=True)
 
     check = subparsers.add_parser("check", help="Single roll-under check")
     check.add_argument("--stat", type=int, required=True)
@@ -45,7 +48,11 @@ def main() -> int:
     opposed.add_argument("--adv-defender", action="store_true")
     opposed.add_argument("--dis-defender", action="store_true")
 
-    args = parser.parse_args()
+    global_args, remaining = global_parser.parse_known_args()
+    command_args = command_parser.parse_args(remaining)
+    merged = vars(global_args).copy()
+    merged.update(vars(command_args))
+    args = argparse.Namespace(**merged)
 
     if args.seed is not None:
         random.seed(args.seed)

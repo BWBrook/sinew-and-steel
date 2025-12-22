@@ -5,6 +5,7 @@ Each skill uses YAML frontmatter with `name` and `description` to keep conventio
 compatible across Codex, Claude Code, and similar tools.
 
 Index:
+- skills/agent_bootstrap.md
 - skills/build_prompt.md
 - skills/agent_dm_handbook.md
 - skills/campaign_setup.md

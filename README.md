@@ -74,6 +74,17 @@ Start here if you want a Codex/Claude Code agent to run the game from this repo.
 
 Canonical guide: `skills/agent_dm_handbook.md`
 
+### Resume fast (fresh context)
+
+If you’re resuming a campaign in a new agent context, use the resume pack:
+
+```bash
+python tools/resume_pack.py --campaign <slug> --character <name>
+```
+
+Or read: `skills/agent_bootstrap.md` for the shortest possible “get playing” path.
+
+
 ---
 
 ## Quick start (table / chat play)
