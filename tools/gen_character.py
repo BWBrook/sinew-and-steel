@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 from datetime import date
+import json
 from pathlib import Path
 import random
 import sys
@@ -266,11 +267,13 @@ def main() -> int:
     parser.add_argument("--name", default="Unnamed", help="Character name")
     parser.add_argument("--player", default="", help="Player name")
     parser.add_argument("--out", help="Output file (default: stdout)")
+    parser.add_argument("--dry-run", action="store_true", help="Compute output but do not write files")
+    parser.add_argument("--json", action="store_true", help="Output JSON (includes sheet data)")
     parser.add_argument("--seed", type=int, help="Random seed")
     parser.add_argument("--steps", type=int, help="Number of double-debit steps to apply")
-    parser.add_argument("--min-steps", type=int, default=2, help="Min steps when --steps not provided")
-    parser.add_argument("--max-steps", type=int, default=6, help="Max steps when --steps not provided")
-    parser.add_argument("--primary", help="Bias stat increases toward this stat key")
+    parser.add_argument("--min-steps", type=int, help="Min steps when --steps not provided (default: skin _gen or 2)")
+    parser.add_argument("--max-steps", type=int, help="Max steps when --steps not provided (default: skin _gen or 6)")
+    parser.add_argument("--primary", help="Bias stat increases toward this stat key (default: skin _gen)")
     parser.add_argument(
         "--build-points",
         type=int,
@@ -331,15 +334,21 @@ def main() -> int:
     skin_entry = skins[skin_slug]
     skin_entry = {**skin_entry, "slug": skin_slug}
 
+    gen_defaults = skin_entry.get("_gen", {}) if isinstance(skin_entry.get("_gen"), dict) else {}
+    steps = args.steps if args.steps is not None else gen_defaults.get("steps")
+    min_steps = args.min_steps if args.min_steps is not None else int(gen_defaults.get("min_steps", 2))
+    max_steps = args.max_steps if args.max_steps is not None else int(gen_defaults.get("max_steps", 6))
+    primary = args.primary if args.primary else gen_defaults.get("primary")
+
     try:
         sheet = build_sheet(
             {
                 **skin_entry,
                 "_gen": {
-                    "steps": args.steps,
-                    "min_steps": args.min_steps,
-                    "max_steps": args.max_steps,
-                    "primary": args.primary,
+                    "steps": steps,
+                    "min_steps": min_steps,
+                    "max_steps": max_steps,
+                    "primary": primary,
                     "build_points_budget": build_points_budget,
                 },
             },
@@ -349,15 +358,43 @@ def main() -> int:
     except (RuntimeError, ValueError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
-    output = yaml.safe_dump(sheet, sort_keys=False)
 
+    output = yaml.safe_dump(sheet, sort_keys=False)
+    out_path = None
     if args.out:
         out_path = Path(args.out)
         if not out_path.is_absolute():
             out_path = ROOT / out_path
+    elif args.campaign:
+        char_slug = _sslib.slugify(args.name, fallback="character")
+        out_path = ROOT / "campaigns" / args.campaign / "state" / "characters" / f"{char_slug}.yaml"
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    payload = {
+        "ok": True,
+        "path": str(out_path) if out_path else None,
+        "sheet": sheet,
+    }
+
+    if args.dry_run:
+        if args.json:
+            print(json.dumps(payload, indent=2))
+        else:
+            print(output)
+        return 0
+
+    if out_path:
         out_path.write_text(output, encoding="utf-8")
+        if args.json:
+            print(json.dumps(payload, indent=2))
+            return 0
+        if args.campaign and not args.out:
+            print(f"written {out_path}")
     else:
-        print(output)
+        if args.json:
+            print(json.dumps(payload, indent=2))
+        else:
+            print(output)
 
     return 0
 

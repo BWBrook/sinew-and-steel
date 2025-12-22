@@ -28,6 +28,8 @@ def main() -> int:
     parser.add_argument("--slug", help="Campaign slug (folder name)")
     parser.add_argument("--title", help="Campaign title (used to derive slug if --slug not provided)")
     parser.add_argument("--skin", required=True, help="Skin slug from manifest.yaml")
+    parser.add_argument("--dry-run", action="store_true", help="Compute output but do not write files")
+    parser.add_argument("--json", action="store_true", help="Output JSON summary")
     parser.add_argument(
         "--build-points",
         type=int,
@@ -53,6 +55,9 @@ def main() -> int:
     if not args.slug and not args.name and not args.title:
         print("error: provide --slug or --title (or legacy --name)", file=sys.stderr)
         return 1
+
+    if args.name:
+        print("warning: --name is deprecated; use --slug or --title", file=sys.stderr)
 
     if args.tone and args.build_points is not None:
         print("error: provide only one of --tone or --build-points", file=sys.stderr)
@@ -86,14 +91,45 @@ def main() -> int:
     logs_dir = state_dir / "logs"
     checkpoints_dir = state_dir / "checkpoints"
 
-    for d in (campaign_dir, state_dir, chars_dir, trackers_dir, memory_dir, logs_dir, checkpoints_dir):
-        d.mkdir(parents=True, exist_ok=True)
-
     # campaign.yaml
     campaign_file = campaign_dir / "campaign.yaml"
     if campaign_file.exists() and not args.force:
         print(f"error: campaign already exists: {campaign_file}", file=sys.stderr)
         return 1
+
+    payload = {
+        "ok": True,
+        "campaign": {
+            "slug": slug,
+            "title": title,
+            "skin": args.skin,
+            "build_points_budget": build_points_budget,
+            "dir": str(campaign_dir),
+            "campaign_yaml": str(campaign_file),
+        },
+        "paths": {
+            "state": str(state_dir),
+            "characters": str(chars_dir),
+            "trackers": str(trackers_dir),
+            "memory": str(memory_dir),
+            "logs": str(logs_dir),
+            "checkpoints": str(checkpoints_dir),
+        },
+        "random_character": args.random_character,
+        "dry_run": bool(args.dry_run),
+    }
+
+    if args.dry_run:
+        if args.json:
+            import json
+
+            print(json.dumps(payload, indent=2))
+        else:
+            print(f"dry-run: would initialize {campaign_dir}")
+        return 0
+
+    for d in (campaign_dir, state_dir, chars_dir, trackers_dir, memory_dir, logs_dir, checkpoints_dir):
+        d.mkdir(parents=True, exist_ok=True)
 
     campaign_data = {
         "schema_version": 1,
@@ -153,7 +189,12 @@ def main() -> int:
             if result.returncode != 0:
                 return result.returncode
 
-    print(f"initialized {campaign_dir}")
+    if args.json:
+        import json
+
+        print(json.dumps(payload, indent=2))
+    else:
+        print(f"initialized {campaign_dir}")
     return 0
 
 

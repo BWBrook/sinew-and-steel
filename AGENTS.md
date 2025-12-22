@@ -19,6 +19,7 @@ Use the files and tools below to keep play consistent, reproducible, and private
 - Use tools/roll.py for dice and tools/update_sheet.py for sheet changes.
 - Use tools/trackers.py for pressure clocks and scene counters.
 - Use tools/campaign_init.py and tools/gen_character.py for campaign setup.
+- For fast resumes, use tools/resume_pack.py or follow skills/agent_bootstrap.md.
 - Record each roll result and consequence in state/memory/ or state/logs/.
 - After each GM response, save the *exact* text to the campaign checkpoint (tools/checkpoint.py) so the session can be resumed from a fresh context window.
 - Separate public narration from private tracking.
@@ -49,6 +50,7 @@ uv sync
 Use the skills in skills/ for repeatable workflows:
 - skills/build_prompt.md
 - skills/agent_dm_handbook.md
+- skills/agent_bootstrap.md
 - skills/campaign_setup.md
 - skills/character_build.md
 - skills/dice_resolution.md

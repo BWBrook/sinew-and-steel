@@ -20,17 +20,18 @@ def load_yaml_optional(path: Path) -> dict:
     return data or {}
 
 
-def latest_session_file(directory: Path, pattern: re.Pattern, suffix: str) -> Path | None:
+def latest_session_file(directory: Path, pattern: re.Pattern, suffixes: tuple[str, ...]) -> Path | None:
     latest = None
     latest_num = -1
-    for p in directory.glob(f"session_*.{suffix}"):
-        match = pattern.search(p.name)
-        if not match:
-            continue
-        num = int(match.group(1))
-        if num > latest_num:
-            latest_num = num
-            latest = p
+    for suffix in suffixes:
+        for p in directory.glob(f"session_*.{suffix}"):
+            match = pattern.search(p.name)
+            if not match:
+                continue
+            num = int(match.group(1))
+            if num > latest_num:
+                latest_num = num
+                latest = p
     return latest
 
 
@@ -58,6 +59,11 @@ def main() -> int:
     parser.add_argument("--no-log", action="store_true", help="Skip log output")
     parser.add_argument("--no-memory", action="store_true", help="Skip memory output")
     parser.add_argument("--no-checkpoint", action="store_true", help="Skip checkpoint output")
+    parser.add_argument(
+        "--public",
+        action="store_true",
+        help="Public-safe output (skips memory/secrets; keeps logs and checkpoint)",
+    )
     parser.add_argument("--json", action="store_true", help="Output JSON")
     parser.add_argument("--yaml", action="store_true", help="Output YAML")
 
@@ -66,6 +72,9 @@ def main() -> int:
     if args.json and args.yaml:
         print("error: choose only one of --json or --yaml", file=sys.stderr)
         return 1
+
+    if args.public:
+        args.no_memory = True
 
     root = _sslib.repo_root()
     campaign_dir = _sslib.campaign_dir(args.campaign, root=root)
@@ -83,7 +92,8 @@ def main() -> int:
     try:
         sheet_path = _sslib.resolve_character_file(chars_dir, args.character)
         sheet = load_yaml_optional(sheet_path)
-    except FileNotFoundError:
+    except FileNotFoundError as exc:
+        print(f"warning: {exc}", file=sys.stderr)
         sheet_path = None
 
     # Tracker
@@ -95,7 +105,7 @@ def main() -> int:
     memory = {}
     if not args.no_memory:
         memory_dir = _sslib.campaign_memory_dir(args.campaign, root=root)
-        memory_path = latest_session_file(memory_dir, SESSION_YAML_RE, "yaml")
+        memory_path = latest_session_file(memory_dir, SESSION_YAML_RE, ("yaml", "yml"))
         if memory_path:
             memory = load_yaml_optional(memory_path)
 
@@ -104,7 +114,7 @@ def main() -> int:
     log_entry = ""
     if not args.no_log:
         logs_dir = _sslib.campaign_logs_dir(args.campaign, root=root)
-        log_path = latest_session_file(logs_dir, SESSION_MD_RE, "md")
+        log_path = latest_session_file(logs_dir, SESSION_MD_RE, ("md",))
         if log_path:
             log_entry = read_last_log_entry(log_path, args.log_lines)
 

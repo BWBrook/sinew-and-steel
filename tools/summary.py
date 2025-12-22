@@ -76,7 +76,8 @@ def main() -> int:
     try:
         sheet_path = _sslib.resolve_character_file(chars_dir, args.character)
         sheet = load_yaml_optional(sheet_path)
-    except FileNotFoundError:
+    except FileNotFoundError as exc:
+        print(f"warning: {exc}", file=sys.stderr)
         sheet_path = None
         sheet = {}
 
@@ -104,6 +105,7 @@ def main() -> int:
     pools = sheet.get("pools") if isinstance(sheet.get("pools"), dict) else {}
     luck = pools.get("luck") if isinstance(pools.get("luck"), dict) else {}
     stamina = pools.get("stamina") if isinstance(pools.get("stamina"), dict) else {}
+    creation = sheet.get("creation") if isinstance(sheet.get("creation"), dict) else {}
 
     memory_summary = normalize_list(memory.get("summary"))
     last_summary = memory_summary[-1] if memory_summary else ""
@@ -131,6 +133,10 @@ def main() -> int:
             "stamina": {
                 "current": stamina.get("current"),
                 "max": stamina.get("max"),
+            },
+            "creation": {
+                "build_points_budget": creation.get("build_points_budget"),
+                "build_points_used": creation.get("build_points_used"),
             },
         },
         "memory": {

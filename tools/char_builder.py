@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 from datetime import date
+import json
 from pathlib import Path
 import sys
 import yaml
@@ -39,6 +40,8 @@ def main() -> int:
     parser.add_argument("--name", required=True, help="Character name")
     parser.add_argument("--player", default="", help="Player name")
     parser.add_argument("--out", help="Output file (default: stdout or campaign path)")
+    parser.add_argument("--dry-run", action="store_true", help="Compute output but do not write files")
+    parser.add_argument("--json", action="store_true", help="Output JSON (includes sheet data)")
     parser.add_argument("--set", action="append", default=[], help="Set stat (STAT=VALUE)")
     parser.add_argument("--delta", action="append", default=[], help="Adjust stat by delta (STAT=+2)")
     parser.add_argument(
@@ -224,19 +227,41 @@ def main() -> int:
 
     output = yaml.safe_dump(sheet, sort_keys=False)
 
+    out_path = None
     if args.out:
         out_path = Path(args.out)
         if not out_path.is_absolute():
             out_path = ROOT / out_path
-        out_path.write_text(output, encoding="utf-8")
     elif args.campaign:
         char_slug = _sslib.slugify(args.name, fallback="character")
         out_path = ROOT / "campaigns" / args.campaign / "state" / "characters" / f"{char_slug}.yaml"
         out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    payload = {
+        "ok": True,
+        "path": str(out_path) if out_path else None,
+        "sheet": sheet,
+    }
+
+    if args.dry_run:
+        if args.json:
+            print(json.dumps(payload, indent=2))
+        else:
+            print(output)
+        return 0
+
+    if out_path:
         out_path.write_text(output, encoding="utf-8")
-        print(f"written {out_path}")
+        if args.json:
+            print(json.dumps(payload, indent=2))
+            return 0
+        if args.campaign and not args.out:
+            print(f"written {out_path}")
     else:
-        print(output)
+        if args.json:
+            print(json.dumps(payload, indent=2))
+        else:
+            print(output)
 
     return 0
 

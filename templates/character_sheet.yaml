@@ -1,3 +1,5 @@
+# Template only: replace stat_1..stat_4 and luck with skin-specific keys before validation.
+# Prefer tools/char_builder.py or tools/gen_character.py for skin-aware sheets.
 schema_version: 1
 name: ""
 skin: ""

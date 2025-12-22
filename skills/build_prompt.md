@@ -17,3 +17,4 @@ Create a single prompt file containing core rules, the chosen skin, and optional
 - Default templates are `prompts/agent/starter_prompt.md` (agent mode) and `prompts/chat/starter_prompt.md` (chat mode).
 - Use `--mode chat` for non-agent play or `--template` to override.
 - The manifest is the source of truth for file paths.
+- Use `--dry-run` to avoid writing files, or `--json` for a machine-readable summary.

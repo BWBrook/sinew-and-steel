@@ -1,4 +1,4 @@
-version: 0.3.0
+version: 0.3.1
 rules:
   core:
     adventurers_manual: rules/core/adventurers_manual.md
@@ -9,6 +9,10 @@ skins:
     name: Clanfire
     file: skins/clanfire.md
     pressure_track: Shadow
+    _gen:
+      primary: MGT
+      min_steps: 2
+      max_steps: 6
     attributes:
       MGT: Might
       FLT: Fleetness
@@ -21,6 +25,10 @@ skins:
     name: Age Undreamed Of
     file: skins/age_undreamed_of.md
     pressure_track: Doom
+    _gen:
+      primary: BRN
+      min_steps: 2
+      max_steps: 6
     attributes:
       BRN: Brawn
       AGI: Agility
@@ -33,6 +41,10 @@ skins:
     name: Time Odyssey
     file: skins/time_odyssey.md
     pressure_track: Anomaly
+    _gen:
+      primary: PRW
+      min_steps: 2
+      max_steps: 6
     attributes:
       PRW: Prowess
       REF: Reflex
@@ -45,6 +57,10 @@ skins:
     name: Briar & Benedictine
     file: skins/briar_benedictine.md
     pressure_track: Sin
+    _gen:
+      primary: HEW
+      min_steps: 2
+      max_steps: 6
     attributes:
       HEW: Hew
       FLT: Fleet
@@ -57,6 +73,10 @@ skins:
     name: Mars Saga
     file: skins/mars_saga.md
     pressure_track: Heat
+    _gen:
+      primary: ATK
+      min_steps: 2
+      max_steps: 6
     attributes:
       ATK: Attack
       DEF: Defence
@@ -69,6 +89,10 @@ skins:
     name: Candlelight Dungeons
     file: skins/candlelight_dungeons.md
     pressure_track: Fatigue
+    _gen:
+      primary: STR
+      min_steps: 2
+      max_steps: 6
     attributes:
       STR: Strength
       DEX: Dexterity
@@ -81,6 +105,10 @@ skins:
     name: Jeffries-Tube Blues
     file: skins/jeffries_tube_blues.md
     pressure_track: Stress
+    _gen:
+      primary: MSC
+      min_steps: 2
+      max_steps: 6
     attributes:
       MSC: Muscle
       REF: Reflex
@@ -93,6 +121,10 @@ skins:
     name: Whispers in the Fog
     file: skins/whispers_in_the_fog.md
     pressure_track: Insanity
+    _gen:
+      primary: VIG
+      min_steps: 2
+      max_steps: 6
     attributes:
       VIG: Vigor
       AGI: Agility
@@ -105,6 +137,10 @@ skins:
     name: Free Traders of the Marches
     file: skins/free_traders_of_the_marches.md
     pressure_track: Stress
+    _gen:
+      primary: STR
+      min_steps: 2
+      max_steps: 6
     attributes:
       STR: Strength
       DEX: Dexterity
@@ -117,6 +153,10 @@ skins:
     name: Twilight of the North-Kingdom
     file: skins/twilight_of_the_north_kingdom.md
     pressure_track: Shadow
+    _gen:
+      primary: STR
+      min_steps: 2
+      max_steps: 6
     attributes:
       STR: Strength
       NIM: Nimbleness

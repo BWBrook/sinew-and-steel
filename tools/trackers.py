@@ -14,11 +14,11 @@ def load_yaml(path: Path) -> dict:
     return data or {}
 
 
-def save_yaml(path: Path, data: dict, stdout: bool) -> None:
+def save_yaml(path: Path, data: dict, stdout: bool, dry_run: bool) -> None:
     output = yaml.safe_dump(data, sort_keys=False)
-    if stdout:
+    if stdout or dry_run:
         print(output)
-    else:
+    if not stdout and not dry_run:
         path.write_text(output, encoding="utf-8")
 
 
@@ -59,7 +59,6 @@ def command_scene(args) -> dict:
         inc = args.inc if args.inc is not None else 1
         data["scene"] = scene + inc
 
-    save_yaml(args.file, data, args.stdout)
     return data
 
 
@@ -97,17 +96,21 @@ def command_clock(args) -> dict:
         current = clamp_value(current, 0, max_value)
 
     clock["current"] = current
-    save_yaml(args.file, data, args.stdout)
     return data
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Update session trackers (scene counter, clocks).")
-    parser.add_argument("--file", type=Path, help="Tracker YAML file")
-    parser.add_argument("--campaign", help="Campaign slug under campaigns/ (uses state/trackers/session.yaml)")
-    parser.add_argument("--stdout", action="store_true", help="Print to stdout instead of writing")
+    global_parser = argparse.ArgumentParser(add_help=False)
+    global_parser.add_argument("--file", type=Path, help="Tracker YAML file")
+    global_parser.add_argument("--campaign", help="Campaign slug under campaigns/ (uses state/trackers/session.yaml)")
+    global_parser.add_argument("--stdout", action="store_true", help="Print to stdout instead of writing")
+    global_parser.add_argument("--dry-run", action="store_true", help="Compute changes but do not write files")
+    global_parser.add_argument("--json", action="store_true", help="Output JSON summary")
 
-    subparsers = parser.add_subparsers(dest="command", required=True)
+    command_parser = argparse.ArgumentParser(
+        description="Update session trackers (scene counter, clocks)."
+    )
+    subparsers = command_parser.add_subparsers(dest="command", required=True)
 
     scene = subparsers.add_parser("scene", help="Increment or set scene counter")
     scene.add_argument("--inc", type=int, help="Increment by N (default 1)")
@@ -128,7 +131,11 @@ def main() -> int:
     pressure.add_argument("--label", help="Display name if clock is created")
     pressure.add_argument("--clamp", action="store_true", help="Clamp current between 0 and max")
 
-    args = parser.parse_args()
+    global_args, remaining = global_parser.parse_known_args()
+    command_args = command_parser.parse_args(remaining)
+    merged = vars(global_args).copy()
+    merged.update(vars(command_args))
+    args = argparse.Namespace(**merged)
 
     root = _sslib.repo_root()
     if args.file:
@@ -141,12 +148,33 @@ def main() -> int:
         return 1
 
     if args.command == "scene":
-        command_scene(args)
+        data = command_scene(args)
+        changed = ["scene"]
     elif args.command == "clock":
-        command_clock(args)
+        data = command_clock(args)
+        changed = [f"clocks.{args.name}.current"]
     else:
         args.name = "pressure"
-        command_clock(args)
+        data = command_clock(args)
+        changed = ["clocks.pressure.current"]
+
+    if args.json:
+        if not args.dry_run and not args.stdout:
+            output = yaml.safe_dump(data, sort_keys=False)
+            args.file.write_text(output, encoding="utf-8")
+
+        import json
+
+        payload = {
+            "ok": True,
+            "file": str(args.file),
+            "changed": changed,
+            "dry_run": bool(args.dry_run),
+        }
+        print(json.dumps(payload, indent=2))
+        return 0
+
+    save_yaml(args.file, data, args.stdout, args.dry_run)
 
     return 0
 

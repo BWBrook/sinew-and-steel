@@ -40,6 +40,8 @@ def main() -> int:
     parser.add_argument("--hidden", help="Optional hidden scenario file", default=None)
     parser.add_argument("--out", help="Output file path (default: stdout)")
     parser.add_argument("--list-skins", action="store_true", help="List available skins")
+    parser.add_argument("--dry-run", action="store_true", help="Compute output but do not write files")
+    parser.add_argument("--json", action="store_true", help="Output JSON summary")
 
     args = parser.parse_args()
     manifest = load_manifest()
@@ -118,16 +120,49 @@ def main() -> int:
     for key, value in replacements.items():
         output = output.replace(key, value + "\n")
 
+    out_path = None
     if args.out:
         out_path = Path(args.out)
         if not out_path.is_absolute():
             out_path = ROOT / out_path
-        out_path.write_text(output, encoding="utf-8")
     elif campaign_dir:
         out_path = campaign_dir / "prompt.md"
-        out_path.write_text(output, encoding="utf-8")
     else:
-        print(output)
+        out_path = None
+
+    payload = {
+        "ok": True,
+        "skin": skin_slug,
+        "mode": args.mode,
+        "campaign": args.campaign,
+        "template": str(template_path),
+        "output_path": str(out_path) if out_path else None,
+        "bytes": len(output.encode("utf-8")),
+        "dry_run": bool(args.dry_run),
+    }
+
+    if args.dry_run:
+        if args.json:
+            import json
+
+            print(json.dumps(payload, indent=2))
+        else:
+            print(output)
+        return 0
+
+    if out_path:
+        out_path.write_text(output, encoding="utf-8")
+        if args.json:
+            import json
+
+            print(json.dumps(payload, indent=2))
+    else:
+        if args.json:
+            import json
+
+            print(json.dumps(payload, indent=2))
+        else:
+            print(output)
 
     return 0
 

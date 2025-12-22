@@ -1,6 +1,6 @@
 # **Sinew & Steel**
 
-*A razor-lean, setting-agnostic role-playing engine—designed to sing at the table and purr in the prompt window of any reasoning AI.*
+*A razor-lean, setting-agnostic role-playing engine—designed to sing at the table and purr in the context of any reasoning AI.*
 
 ---
 
@@ -25,7 +25,7 @@ Sinew & Steel works the other way round:
 | **Roll-under d20** | ≤ attribute = succeed.  Natural 1 legendary, 20 catastrophic. |
 | **Scores** | Attributes baseline 10 (6–16) and Stamina baseline 5 (3–9). Standard play starts with **6 build points** (grim 0, pulp 12, heroic 16): +1 above baseline costs 2 points; +1 below baseline costs 1 point. |
 | **Luck = tokens** | Spend to nudge dice; pool size *is* the score. |
-| **Stamina** | Starts at 5.  Hits deal 1 + weapon edge.  0 = collapse. |
+| **Stamina** | Baseline at 5; nudge with build points.  Hits deal 1 + weapon edge.  0 = collapse. |
 | **Pressure track** | 0-5 fuse.  Colour changes by skin (Heat, Doom, Shadow, Anomaly). |
 | **Dynamic armour** | Soak 1-3; attacker margin erodes soak 1 per 4 points. |
 
@@ -81,8 +81,17 @@ If you’re resuming a campaign in a new agent context, use the resume pack:
 ```bash
 python tools/resume_pack.py --campaign <slug> --character <name>
 ```
+Add `--public` to redact private memory/secrets when you need player-safe output.
 
 Or read: `skills/agent_bootstrap.md` for the shortest possible “get playing” path.
+
+Example player directive (fresh Codex resume):
+```
+You’re resuming a Sinew & Steel campaign. Read only AGENTS.md and skills/agent_dm_handbook.md.
+Then run: python tools/resume_pack.py --campaign <campaign_slug> --character <character_slug>
+Use that output for your internal context only (do not show memory/secrets/log to me).
+If you have any questions, ask now. If not, print ONLY the checkpoint text and continue play from there.
+```
 
 
 ---
@@ -146,6 +155,10 @@ Key utilities for play:
 * `tools/gen_character.py` to generate legal random characters.
 * `tools/recap.py` and `tools/session_log.py` to capture private memory and public logs.
 * `tools/apply_roll.py` to update sheets and trackers based on roll results.
+* `tools/new_session.py` to advance memory/log files in lockstep.
+* `tools/recalc_sheet.py` to recompute `creation.build_points_used` after manual edits.
+* `tools/resume_pack.py` (or `--public`) for fast context resumes.
+* `tools/checkpoint.py` for ironman save-and-quit checkpoints.
 * `tools/doctor.py` to validate repo + campaign in one command.
 * `tools/ss.py` for a single entry point (`python tools/ss.py beat ...`).
 

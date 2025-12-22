@@ -4,6 +4,10 @@ skin: "clanfire"
 player: "Local"
 created: "YYYY-MM-DD"
 
+creation:
+  build_points_budget: 6
+  build_points_used: 0
+
 attributes:
   MGT: 10
   FLT: 10

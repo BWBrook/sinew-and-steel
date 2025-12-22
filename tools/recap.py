@@ -103,7 +103,7 @@ def update_tracker(
     if clamp:
         _sslib.clamp_currents(data, changed_paths)
 
-    save_yaml(tracker_path, data)
+    return data, changed_paths
 
 
 def parse_kv(item: str):
@@ -131,6 +131,8 @@ def main() -> int:
     parser.add_argument("--tracker", help="Tracker YAML file (overrides campaign default)")
     parser.add_argument("--no-clamp", dest="clamp", action="store_false", help="Disable clock clamping")
     parser.set_defaults(clamp=True)
+    parser.add_argument("--dry-run", action="store_true", help="Compute changes but do not write files")
+    parser.add_argument("--json", action="store_true", help="Output JSON summary")
 
     args = parser.parse_args()
 
@@ -188,7 +190,8 @@ def main() -> int:
     data["npcs"] = npcs
     data["secrets"] = secrets
 
-    save_yaml(memory_path, data)
+    if not args.dry_run:
+        save_yaml(memory_path, data)
 
     clock_incs = []
     for item in args.clock_inc:
@@ -200,15 +203,57 @@ def main() -> int:
         name, value = parse_kv(item)
         clock_sets.append((name, int(value)))
 
+    tracker_changed: list[str] = []
     if tracker_path and (args.scene_inc is not None or args.pressure_inc is not None or clock_incs or clock_sets):
         try:
-            update_tracker(tracker_path, args.scene_inc, args.pressure_inc, clock_incs, clock_sets, clamp=args.clamp)
+            tracker_data, tracker_changed = update_tracker(
+                tracker_path,
+                args.scene_inc,
+                args.pressure_inc,
+                clock_incs,
+                clock_sets,
+                clamp=args.clamp,
+            )
         except ValueError as exc:
             print(f"error: {exc}", file=sys.stderr)
             return 1
 
+        if not args.dry_run:
+            save_yaml(tracker_path, tracker_data)
+
+    if args.json:
+        import json
+
+        payload = {
+            "ok": True,
+            "memory": str(memory_path),
+            "tracker": str(tracker_path) if tracker_path and tracker_changed else None,
+            "changed": {
+                "memory": [
+                    key
+                    for key, items in (
+                        ("summary", args.summary),
+                        ("threads", args.thread),
+                        ("npcs", args.npc),
+                        ("secrets", args.secret),
+                    )
+                    if items
+                ],
+                "tracker": tracker_changed,
+            },
+            "dry_run": bool(args.dry_run),
+        }
+        print(json.dumps(payload, indent=2))
+        return 0
+
+    if args.dry_run:
+        print(f"dry-run: recap would write to {memory_path}")
+        if tracker_path and tracker_changed:
+            print(f"dry-run: tracker would update {tracker_path}")
+        return 0
+
     print(f"recap saved to {memory_path}")
-    if tracker_path and (args.scene_inc is not None or args.pressure_inc is not None or clock_incs or clock_sets):
+    if tracker_path and tracker_changed:
         print(f"tracker updated: {tracker_path}")
 
     return 0

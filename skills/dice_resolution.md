@@ -15,6 +15,7 @@ Single check:
 python tools/roll.py check --stat 12
 python tools/roll.py check --stat 12 --adv
 python tools/roll.py check --stat 12 --dis
+python tools/roll.py check --stat 12 --nudge -1
 ```
 
 Apply roll to state (example):

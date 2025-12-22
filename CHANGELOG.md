@@ -3,14 +3,19 @@
 ## Unreleased
 - TBD
 
+## 0.3.1 - 2025-12-22
+- Stamina now participates in the point-buy ledger (baseline 5), with build-point budgets integrated across rules, builders, validators, and sample builds.
+- Added per-skin random generation defaults in manifest (`_gen`) and builder tracking fields in sheets.
+- New tooling: `new_session.py`, `recalc_sheet.py`, resume pack `--public`, plus dry-run/JSON support across remaining mutators.
+- Improved roll/beat ergonomics (nudges, spend-side controls, global flags after subcommands) and safer tracker/sheet clamping.
+- Documentation refresh: bootstrap/resume flow, checkpoint discipline, and new tool examples.
+
 ## 0.3.0 - 2025-12-21
 - Split prompts into chat vs agent templates and updated build_prompt `--mode`.
 - Added schema_version fields to sheets/trackers/memory and roll tool version stamps.
 - Hardened state mutation with strict path updates and `--allow-new` escape hatch.
-- Fixed beat.py flag ordering (global flags accepted before/after subcommand).
 - Standardized roll success semantics after nudges (raw vs final fields).
 - Added doctor/ss utilities and example campaign scaffold under examples/.
-- Clarified Stamina as separate from point-buy ledger; updated sample builds.
 - Clamped tracker clock updates in recap/beat.
 
 ## 0.2.0 - 2025-12-21

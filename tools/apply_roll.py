@@ -35,7 +35,7 @@ def parse_value(value: str):
         return value
 
 
-def update_file(path: Path, sets, incs, clamp=False, allow_new=False, allow_clock=False):
+def update_file(path: Path, sets, incs, clamp=False, allow_new=False, allow_clock=False, dry_run=False):
     data = yaml.safe_load(path.read_text(encoding="utf-8"))
     if data is None:
         data = {}
@@ -45,7 +45,9 @@ def update_file(path: Path, sets, incs, clamp=False, allow_new=False, allow_cloc
         _sslib.inc_path(data, key, value, allow_new=allow_new, allow_clock=allow_clock)
     if clamp:
         _sslib.clamp_currents(data, [k for k, _ in sets] + [k for k, _ in incs])
-    path.write_text(yaml.safe_dump(data, sort_keys=False), encoding="utf-8")
+    if not dry_run:
+        path.write_text(yaml.safe_dump(data, sort_keys=False), encoding="utf-8")
+    return data
 
 
 def main() -> int:
@@ -53,8 +55,12 @@ def main() -> int:
     parser.add_argument("--roll", help="Path to roll JSON (from tools/roll.py)")
     parser.add_argument("--roll-json", help="Roll JSON string")
     parser.add_argument("--as", dest="as_role", choices=["attacker", "defender"], default="attacker")
-    parser.add_argument("--clamp", action="store_true", help="Clamp .current values between 0 and .max")
+    parser.add_argument("--clamp", dest="clamp", action="store_true", help="Clamp .current values between 0 and .max")
+    parser.add_argument("--no-clamp", dest="clamp", action="store_false", help="Disable clamping of .current values")
+    parser.set_defaults(clamp=True)
     parser.add_argument("--allow-new", action="store_true", help="Allow creating new keys when updating state")
+    parser.add_argument("--dry-run", action="store_true", help="Compute changes but do not write files")
+    parser.add_argument("--json", action="store_true", help="Output JSON summary")
 
     parser.add_argument("--sheet", help="Sheet YAML file to update")
     parser.add_argument("--tracker", help="Tracker YAML file to update")
@@ -158,6 +164,7 @@ def main() -> int:
             clamp=args.clamp,
             allow_new=args.allow_new,
             allow_clock=False,
+            dry_run=args.dry_run,
         )
 
     if need_tracker:
@@ -171,9 +178,28 @@ def main() -> int:
             clamp=args.clamp,
             allow_new=args.allow_new,
             allow_clock=True,
+            dry_run=args.dry_run,
         )
 
-    print("applied" if success else "applied (failure)")
+    if args.json:
+        payload = {
+            "ok": True,
+            "success": bool(success),
+            "sheet": str(sheet_path) if sheet_path else None,
+            "tracker": str(tracker_path) if tracker_path else None,
+            "changed": {
+                "sheet": [k for k, _ in sheet_sets] + [k for k, _ in sheet_incs],
+                "tracker": [k for k, _ in tracker_sets] + [k for k, _ in tracker_incs],
+            },
+            "dry_run": bool(args.dry_run),
+        }
+        print(json.dumps(payload, indent=2))
+        return 0
+
+    message = "applied" if success else "applied (failure)"
+    if args.dry_run:
+        message += " (dry-run)"
+    print(message)
     return 0
 
 

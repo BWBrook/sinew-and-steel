@@ -7,9 +7,5 @@ clocks:
     name: "Pressure"
     current: 0
     max: 5
-  threat:
-    name: "Threat"
-    current: 0
-    max: 6
 
 notes: []

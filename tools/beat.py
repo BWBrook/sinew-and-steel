@@ -189,6 +189,12 @@ def main() -> int:
         default="attacker",
         help="For opposed rolls, which side to nudge",
     )
+    global_parser.add_argument(
+        "--nudge-spend",
+        choices=["as", "attacker", "defender", "none"],
+        default="as",
+        help="Which side pays luck for a nudge (default: as_role). Use 'none' to skip spending.",
+    )
 
     global_parser.add_argument("--scene-inc", type=int, default=0, help="Increment tracker scene counter")
     global_parser.add_argument("--pressure-inc", type=int, default=0, help="Increment tracker pressure clock")
@@ -214,6 +220,7 @@ def main() -> int:
     global_parser.add_argument("--out-roll", help="Write roll JSON to this file")
     global_parser.add_argument("--json", action="store_true", help="Print roll JSON")
     global_parser.add_argument("--allow-new", action="store_true", help="Allow creating new keys when updating state")
+    global_parser.add_argument("--dry-run", action="store_true", help="Compute changes but do not write files")
 
     command_parser = argparse.ArgumentParser(description="One-command roll + state update + logging for a beat.")
     subparsers = command_parser.add_subparsers(dest="command", required=True)
@@ -349,25 +356,45 @@ def main() -> int:
 
     # Spend luck for nudge
     if args.nudge:
-        luck_cost = abs(args.nudge)
-        try:
-            pools = sheet.get("pools")
-            if not isinstance(pools, dict):
-                raise KeyError("pools missing from sheet")
-            luck = pools.get("luck")
-            if not isinstance(luck, dict):
-                raise KeyError("pools.luck missing from sheet")
-            current_luck = luck.get("current")
-            if not is_int(current_luck):
-                raise TypeError("pools.luck.current is not int")
-            if current_luck < luck_cost:
-                raise ValueError(f"not enough luck tokens: need {luck_cost}, have {current_luck}")
-            luck["current"] = current_luck - luck_cost
-        except (KeyError, TypeError, ValueError) as exc:
-            print(f"error: {exc}", file=sys.stderr)
+        if args.nudge_spend == "none":
+            spend_side = None
+        elif args.nudge_spend == "as":
+            spend_side = "attacker" if args.command == "check" else args.as_role
+        else:
+            spend_side = args.nudge_spend
+
+        if args.command == "check" and spend_side == "defender":
+            print("error: --nudge-spend defender is invalid for check rolls", file=sys.stderr)
             return 1
 
-        roll_payload["luck_spent"] = luck_cost
+        if spend_side is not None:
+            if args.command == "opposed" and spend_side != args.as_role:
+                print(
+                    f"warning: nudge spend side '{spend_side}' does not match your role '{args.as_role}'; "
+                    "no luck spent",
+                    file=sys.stderr,
+                )
+            else:
+                luck_cost = abs(args.nudge)
+                try:
+                    pools = sheet.get("pools")
+                    if not isinstance(pools, dict):
+                        raise KeyError("pools missing from sheet")
+                    luck = pools.get("luck")
+                    if not isinstance(luck, dict):
+                        raise KeyError("pools.luck missing from sheet")
+                    current_luck = luck.get("current")
+                    if not is_int(current_luck):
+                        raise TypeError("pools.luck.current is not int")
+                    if current_luck < luck_cost:
+                        raise ValueError(f"not enough luck tokens: need {luck_cost}, have {current_luck}")
+                    luck["current"] = current_luck - luck_cost
+                    roll_payload["luck_spent"] = luck_cost
+                except (KeyError, TypeError, ValueError) as exc:
+                    print(f"error: {exc}", file=sys.stderr)
+                    return 1
+
+        roll_payload["nudge_spend"] = spend_side or "none"
 
     # Apply scripted ops
     def parse_list(items):
@@ -451,11 +478,12 @@ def main() -> int:
     _sslib.clamp_currents(sheet, sheet_changed)
     _sslib.clamp_currents(tracker, tracker_changed)
 
-    _sslib.save_yaml(sheet_path, sheet)
-    _sslib.save_yaml(tracker_path, tracker)
+    if not args.dry_run:
+        _sslib.save_yaml(sheet_path, sheet)
+        _sslib.save_yaml(tracker_path, tracker)
 
     # Logging / recap
-    if args.log:
+    if args.log and not args.dry_run:
         log_path = latest_session_md(_sslib.campaign_logs_dir(args.campaign, root=root))
         if args.command == "check":
             log_line = format_check_log(args.label, roll_payload)
@@ -467,12 +495,12 @@ def main() -> int:
             log_line += f" | outcome={out.get('winner')} ({out.get('reason')})"
         append_log(log_path, args.log_role, log_line)
 
-    if args.recap or args.thread or args.npc or args.secret:
+    if (args.recap or args.thread or args.npc or args.secret) and not args.dry_run:
         memory_path = latest_session_yaml(_sslib.campaign_memory_dir(args.campaign, root=root))
         append_recap(memory_path, args.recap, args.thread, args.npc, args.secret)
 
     # Output
-    if args.out_roll:
+    if args.out_roll and not args.dry_run:
         out_path = Path(args.out_roll)
         if not out_path.is_absolute():
             out_path = root / out_path

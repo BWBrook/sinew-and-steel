@@ -11,6 +11,8 @@ import _sslib
 
 def command_check(args):
     data = _dice.resolve_check(args.stat, adv=args.adv, dis=args.dis)
+    if args.nudge:
+        data = _dice.apply_nudge_to_check(data, args.nudge)
     return data
 
 
@@ -26,8 +28,7 @@ def command_opposed(args):
 
 
 def main() -> int:
-    # Allow global flags to appear before or after the subcommand, which is
-    # friendlier for both humans and LLM-driven agents.
+    # Global flags are parsed separately so they can appear before or after the subcommand.
     global_parser = argparse.ArgumentParser(add_help=False)
     global_parser.add_argument("--seed", type=int, help="Random seed for reproducible rolls")
     global_parser.add_argument("--pretty", action="store_true", help="Pretty-print JSON output")
@@ -39,6 +40,7 @@ def main() -> int:
     check.add_argument("--stat", type=int, required=True)
     check.add_argument("--adv", action="store_true")
     check.add_argument("--dis", action="store_true")
+    check.add_argument("--nudge", type=int, default=0, help="Nudge the chosen die result by N")
 
     opposed = subparsers.add_parser("opposed", help="Opposed roll-under check")
     opposed.add_argument("--attacker", type=int, required=True)
@@ -61,7 +63,11 @@ def main() -> int:
         if args.adv and args.dis:
             print("error: choose only one of --adv or --dis", file=sys.stderr)
             return 1
-        data = command_check(args)
+        try:
+            data = command_check(args)
+        except ValueError as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 1
     else:
         if args.adv_attacker and args.dis_attacker:
             print("error: choose only one of --adv-attacker or --dis-attacker", file=sys.stderr)

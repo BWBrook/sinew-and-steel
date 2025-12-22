@@ -7,6 +7,7 @@ Requires Python 3 and PyYAML (already present in most agent runtimes).
 - campaign_init.py: create a per-campaign state scaffold (untracked).
 - char_builder.py: build a character sheet with point-buy validation.
 - gen_character.py: generate a random character sheet for a skin (includes build points by default).
+- recalc_sheet.py: recompute build_points_used on a sheet after manual edits.
 - new_skin.py: create a skin from templates and optionally register it in the manifest.
 - roll.py: d20 rolls for checks and opposed tests.
 - beat.py: roll + (optional) nudge + state updates + log/recap in one command.
@@ -16,6 +17,7 @@ Requires Python 3 and PyYAML (already present in most agent runtimes).
 - session_log.py: append public narration or roll results to session logs.
 - checkpoint.py: save exact last GM text for “save and quit” (separate from logs/memory).
 - resume_pack.py: print a compact resume snapshot (campaign + character + memory + log + checkpoint).
+- new_session.py: create paired session memory/log files together to avoid drift.
 - summary.py: one-screen campaign snapshot (scene, clocks, sheet, last memory).
 - trackers.py: update scene counters and clocks (pressure, threat, etc).
 - update_sheet.py: update YAML sheets and trackers by path.
@@ -25,6 +27,9 @@ Requires Python 3 and PyYAML (already present in most agent runtimes).
 - ss.py: thin dispatcher (`python tools/ss.py <command> ...`) for single-command workflows.
 
 Note: state mutation tools are strict by default; use `--allow-new` only when you intend to create new keys.
+Most mutators also accept `--dry-run` (no writes) and `--json` (machine-readable summary).
+For tools with subcommands (roll/beat/trackers), global flags can appear before or after the subcommand.
+Random generation reads optional per-skin `_gen` defaults from manifest.yaml (override with CLI flags).
 
 Examples:
 
@@ -42,17 +47,20 @@ python tools/beat.py --campaign ice_hunt --character grak --log check --stat-key
 python tools/recap.py --campaign ice_hunt --summary \"Beat 1: the blizzard\" --pressure-inc 1 --scene-inc 1
 python tools/session_log.py --campaign ice_hunt --role GM --text \"The storm splits the ridge.\"
 python tools/summary.py --campaign ice_hunt
+python tools/new_session.py --campaign ice_hunt
 python tools/trackers.py --campaign ice_hunt scene --inc 1
 python tools/trackers.py --campaign ice_hunt pressure --inc 1 --clamp
 python tools/update_sheet.py --campaign ice_hunt --character grak --inc pools.luck.current=-1
 python tools/apply_roll.py --campaign ice_hunt --character grak --roll /tmp/roll.json --success-sheet-inc pools.stamina.current=-1
+python tools/recalc_sheet.py --campaign ice_hunt --character grak
 python tools/validate_sheet.py --campaign ice_hunt --character grak
 python tools/validate_campaign.py --campaign ice_hunt
 python tools/validate_repo.py
 python tools/doctor.py --campaign ice_hunt
 python tools/ss.py beat --campaign ice_hunt --character grak check --stat-key SYS
-python tools/checkpoint.py --campaign ice_hunt --role GM --show
+python tools/checkpoint.py --campaign ice_hunt --show
 python tools/resume_pack.py --campaign ice_hunt --character grak
+python tools/resume_pack.py --campaign ice_hunt --character grak --public
 
 # Save and quit (ironman): store exactly one checkpoint per campaign (overwritten each time).
 # Prefer stdin or --text-file for multi-line messages.

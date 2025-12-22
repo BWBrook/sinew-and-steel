@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 from datetime import datetime, timezone
+import json
 from pathlib import Path
 import re
 import sys
@@ -45,6 +46,8 @@ def main() -> int:
     parser.add_argument("--text", help="Text to append")
     parser.add_argument("--text-file", help="Read text from file")
     parser.add_argument("--no-timestamp", action="store_true", help="Disable timestamp heading")
+    parser.add_argument("--dry-run", action="store_true", help="Compute output but do not write files")
+    parser.add_argument("--json", action="store_true", help="Output JSON summary")
 
     args = parser.parse_args()
 
@@ -94,6 +97,24 @@ def main() -> int:
     if header_parts:
         header = " - ".join(header_parts)
         entry = f"## {header}\n\n{entry}\n"
+
+    if args.json:
+        if not args.dry_run:
+            log_path.parent.mkdir(parents=True, exist_ok=True)
+            with log_path.open("a", encoding="utf-8") as handle:
+                handle.write(entry)
+
+        payload = {
+            "ok": True,
+            "file": str(log_path),
+            "dry_run": bool(args.dry_run),
+        }
+        print(json.dumps(payload, indent=2))
+        return 0
+
+    if args.dry_run:
+        print(entry)
+        return 0
 
     log_path.parent.mkdir(parents=True, exist_ok=True)
     with log_path.open("a", encoding="utf-8") as handle:

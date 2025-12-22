@@ -29,22 +29,26 @@ def write_checkpoint(
     campaign: str,
     root: Path,
     text: str,
+    dry_run: bool = False,
 ) -> dict:
     cdir = checkpoint_dir(campaign, root)
-    cdir.mkdir(parents=True, exist_ok=True)
-
     timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
-    # Ironman behavior: keep exactly one checkpoint per campaign.
-    # Always overwrite last.md and last.yaml; delete any older archived files.
-    for pattern in ("checkpoint_*.md", "checkpoint_*.yaml", "last_*.md", "last_*.yaml"):
-        for path in cdir.glob(pattern):
-            try:
-                path.unlink()
-            except OSError:
-                pass
+    if not dry_run:
+        cdir.mkdir(parents=True, exist_ok=True)
+
+        # Ironman behavior: keep exactly one checkpoint per campaign.
+        # Always overwrite last.md and last.yaml; delete any older archived files.
+        for pattern in ("checkpoint_*.md", "checkpoint_*.yaml", "last_*.md", "last_*.yaml"):
+            for path in cdir.glob(pattern):
+                try:
+                    path.unlink()
+                except OSError:
+                    pass
 
     def write_pair(markdown_path: Path) -> None:
+        if dry_run:
+            return
         markdown_path.write_text(text, encoding="utf-8")
         meta = {
             "schema_version": 1,
@@ -62,7 +66,7 @@ def write_checkpoint(
     write_pair(base)
     written.append(str(base))
 
-    return {"campaign": campaign, "written": written, "created": timestamp}
+    return {"campaign": campaign, "written": written, "created": timestamp, "dry_run": bool(dry_run)}
 
 
 def show_checkpoint(*, campaign: str, root: Path) -> int:
@@ -86,6 +90,7 @@ def main() -> int:
     parser.add_argument("--text", help="Checkpoint text (exact GM message)")
     parser.add_argument("--text-file", help="Read checkpoint text from a file")
     parser.add_argument("--json", action="store_true", help="Output JSON payload")
+    parser.add_argument("--dry-run", action="store_true", help="Compute output but do not write files")
 
     args = parser.parse_args()
 
@@ -107,6 +112,7 @@ def main() -> int:
         campaign=args.campaign,
         root=root,
         text=text,
+        dry_run=args.dry_run,
     )
 
     if args.json:
@@ -115,7 +121,10 @@ def main() -> int:
         print(json.dumps(payload, indent=2))
     else:
         for path in payload["written"]:
-            print(f"saved {path}")
+            if args.dry_run:
+                print(f"dry-run: would save {path}")
+            else:
+                print(f"saved {path}")
 
     return 0
 

@@ -60,3 +60,4 @@ python tools/char_builder.py --campaign <slug> --name "Name" --set STAT1=12 --se
 - Stamina participates in the same economy, but uses a baseline of **5**.
 - Use `--strict` to disallow extra decreases (voluntary weakness below baseline).
 - Use `--delta STAT=+2` to adjust from baseline (10 for attributes; 5 for `STA`), then `--set` to override.
+- If you edit a sheet by hand, run `python tools/recalc_sheet.py --file <sheet.yaml>` to refresh `creation.build_points_used`.

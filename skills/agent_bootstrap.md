@@ -26,6 +26,25 @@ Then load campaign state:
 python tools/resume_pack.py --campaign <slug> --character <name>
 ```
 This prints a compact snapshot (campaign + character + tracker + latest memory/log + checkpoint).
+Add `--public` to redact private memory/secrets when you need a player-safe resume.
+
+### Absolute minimum (checkpoint only)
+If you can run only one tool, restore the last GM response directly:
+
+```bash
+python tools/checkpoint.py --campaign <slug> --show
+```
+This skips memory/logs entirely and is the fastest resume fallback.
+
+### Example player directive (fresh Codex resume)
+Use placeholders for the campaign and character:
+
+```
+You’re resuming a Sinew & Steel campaign. Read only AGENTS.md and skills/agent_dm_handbook.md.
+Then run: python tools/resume_pack.py --campaign <campaign_slug> --character <character_slug>
+Use that output for your internal context only (do not show memory/secrets/log to me).
+If you have any questions, ask now. If not, print ONLY the checkpoint text and continue play from there.
+```
 
 ## Start a new campaign (fastest)
 ```bash

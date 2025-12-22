@@ -14,12 +14,11 @@ Keep durable, private session data for the agent: sheets, trackers, memory, and 
 - state/memory/     : private notes and summaries
 - state/logs/       : full session logs (private)
 
-## Updating sheets
-Use the updater for consistent changes:
+## Updating sheets and trackers
+Use the updater for consistent changes to character sheets, but keep **pressure** in trackers (campaign-wide clock).
 
 ```bash
 python tools/update_sheet.py --campaign <slug> --character <name> --inc pools.luck.current=-1
-python tools/update_sheet.py --campaign <slug> --character <name> --set tracks.pressure.current=2
 ```
 
 For trackers and scene counters:

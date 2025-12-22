@@ -29,7 +29,10 @@ def main() -> int:
     parser.add_argument("--set", action="append", default=[], help="Set key=value (repeatable)")
     parser.add_argument("--inc", action="append", default=[], help="Increment key=delta (repeatable)")
     parser.add_argument("--stdout", action="store_true", help="Print to stdout instead of writing")
+    parser.add_argument("--dry-run", action="store_true", help="Compute changes but do not write files")
+    parser.add_argument("--json", action="store_true", help="Output JSON summary")
     parser.add_argument("--allow-new", action="store_true", help="Allow creating new keys when updating state")
+    parser.add_argument("--clamp", action="store_true", help="Clamp .current values between 0 and .max")
 
     args = parser.parse_args()
     root = _sslib.repo_root()
@@ -62,11 +65,13 @@ def main() -> int:
         return 1
 
     try:
+        changed_paths = []
         for item in args.set:
             key, value = parse_kv(item)
             _sslib.set_path(
                 data, key, parse_value(value), allow_new=args.allow_new, allow_clock=allow_clock
             )
+            changed_paths.append(key)
 
         for item in args.inc:
             key, value = parse_kv(item)
@@ -74,16 +79,33 @@ def main() -> int:
             if not isinstance(delta, (int, float)):
                 raise TypeError(f"Delta for '{key}' is not numeric")
             _sslib.inc_path(data, key, delta, allow_new=args.allow_new, allow_clock=allow_clock)
+            changed_paths.append(key)
     except (KeyError, TypeError, ValueError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
 
-    output = yaml.safe_dump(data, sort_keys=False)
+    if args.clamp:
+        _sslib.clamp_currents(data, changed_paths)
 
-    if args.stdout:
-        print(output)
-    else:
+    output = yaml.safe_dump(data, sort_keys=False)
+    payload = {
+        "ok": True,
+        "file": str(path),
+        "changed": changed_paths,
+        "dry_run": bool(args.dry_run),
+    }
+
+    if not args.dry_run and not args.stdout:
         path.write_text(output, encoding="utf-8")
+
+    if args.json:
+        import json
+
+        print(json.dumps(payload, indent=2))
+        return 0
+
+    if args.stdout or args.dry_run:
+        print(output)
 
     return 0
 

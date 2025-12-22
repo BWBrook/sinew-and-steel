@@ -42,6 +42,14 @@ def validate_campaign(campaign_slug: str, manifest: dict) -> _sslib.ValidationRe
     elif not isinstance(schema_version, int):
         warnings.append(f"campaign.yaml schema_version is not int: {schema_version}")
 
+    build_points_budget = campaign.get("build_points_budget")
+    if build_points_budget is None:
+        warnings.append("campaign.yaml missing build_points_budget")
+    elif not is_int(build_points_budget):
+        errors.append(f"campaign.yaml build_points_budget is not int: {build_points_budget}")
+    elif int(build_points_budget) < 0:
+        errors.append(f"campaign.yaml build_points_budget must be >= 0 (got {build_points_budget})")
+
     name_field = campaign.get("name")
     slug_field = campaign.get("slug") or name_field
     if slug_field and slug_field != campaign_slug:
@@ -130,6 +138,18 @@ def validate_campaign(campaign_slug: str, manifest: dict) -> _sslib.ValidationRe
                         f"tracker clocks.pressure.name '{actual_name}' != expected '{expected_name}' for skin"
                     )
 
+    tracker_pressure = None
+    if tracker_path.exists():
+        try:
+            tracker_data = yaml.safe_load(tracker_path.read_text(encoding="utf-8")) or {}
+            tracker_pressure = (
+                tracker_data.get("clocks", {}).get("pressure", {}).get("current")
+                if isinstance(tracker_data.get("clocks"), dict)
+                else None
+            )
+        except Exception:
+            tracker_pressure = None
+
     # Characters
     chars_dir = _sslib.campaign_characters_dir(campaign_slug, root=root)
     sheets = sorted(chars_dir.glob("*.yaml"))
@@ -147,6 +167,24 @@ def validate_campaign(campaign_slug: str, manifest: dict) -> _sslib.ValidationRe
             errors.append(f"{sheet_path.name}: {e}")
         for w in sheet_result.warnings:
             warnings.append(f"{sheet_path.name}: {w}")
+
+        # Cross-check tracker vs sheet pressure (if present)
+        try:
+            sheet_tracks = sheet.get("tracks") if isinstance(sheet.get("tracks"), dict) else {}
+            sheet_pressure = None
+            if isinstance(sheet_tracks, dict):
+                pressure = sheet_tracks.get("pressure")
+                if isinstance(pressure, dict):
+                    sheet_pressure = pressure.get("current")
+            if tracker_pressure is not None and sheet_pressure is not None:
+                if is_int(tracker_pressure) and is_int(sheet_pressure):
+                    if int(tracker_pressure) != int(sheet_pressure):
+                        warnings.append(
+                            f"{sheet_path.name}: tracks.pressure.current ({sheet_pressure}) != "
+                            f"tracker clocks.pressure.current ({tracker_pressure})"
+                        )
+        except Exception:
+            pass
 
     # Memory
     memory_dir = _sslib.campaign_memory_dir(campaign_slug, root=root)
