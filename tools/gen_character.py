@@ -38,10 +38,10 @@ def apply_double_debit_steps(keys, steps: int, primary: str | None = None) -> di
     baselines = {key: BASELINE for key in keys}
     mins = {key: MIN_STAT for key in keys}
     maxs = {key: MAX_STAT for key in keys}
-    if "STA" in keys:
-        baselines["STA"] = STAMINA_BASELINE
-        mins["STA"] = MIN_STAMINA
-        maxs["STA"] = MAX_STAMINA
+    if "STM" in keys:
+        baselines["STM"] = STAMINA_BASELINE
+        mins["STM"] = MIN_STAMINA
+        maxs["STM"] = MAX_STAMINA
 
     stats = {key: baselines[key] for key in keys}
 
@@ -56,10 +56,10 @@ def apply_double_debit_steps(keys, steps: int, primary: str | None = None) -> di
             break
 
         if primary and stats[primary] < maxs[primary]:
-            weights = [6 if k == primary else (0.5 if k == "STA" else 1.0) for k in inc_candidates]
+            weights = [6 if k == primary else (0.5 if k == "STM" else 1.0) for k in inc_candidates]
             inc_key = random.choices(inc_candidates, weights=weights, k=1)[0]
         else:
-            weights = [0.5 if k == "STA" else 1.0 for k in inc_candidates]
+            weights = [0.5 if k == "STM" else 1.0 for k in inc_candidates]
             inc_key = random.choices(inc_candidates, weights=weights, k=1)[0]
 
         # Only pay from stats that are not above baseline. This keeps generated
@@ -68,7 +68,7 @@ def apply_double_debit_steps(keys, steps: int, primary: str | None = None) -> di
         if not dec_candidates:
             break
 
-        dec_weights = [0.3 if k == "STA" else 1.0 for k in dec_candidates]
+        dec_weights = [0.3 if k == "STM" else 1.0 for k in dec_candidates]
         dec_1 = random.choices(dec_candidates, weights=dec_weights, k=1)[0]
         stats[dec_1] -= 1
 
@@ -77,7 +77,7 @@ def apply_double_debit_steps(keys, steps: int, primary: str | None = None) -> di
             stats[dec_1] += 1
             break
 
-        dec_weights_2 = [0.3 if k == "STA" else 1.0 for k in dec_candidates_2]
+        dec_weights_2 = [0.3 if k == "STM" else 1.0 for k in dec_candidates_2]
         dec_2 = random.choices(dec_candidates_2, weights=dec_weights_2, k=1)[0]
         stats[dec_2] -= 1
 
@@ -125,7 +125,7 @@ def spend_build_points(
                 weight *= 4.0
             if int(stats[key]) < int(baselines[key]):
                 weight *= 3.0
-            if key == "STA":
+            if key == "STM":
                 weight *= 0.7
             weights.append(weight)
 
@@ -149,8 +149,8 @@ def sample_stats(keys, steps: int | None, min_steps: int, max_steps: int, primar
         steps = random.randint(min_steps, max_steps)
 
     baselines = {key: BASELINE for key in keys}
-    if "STA" in keys:
-        baselines["STA"] = STAMINA_BASELINE
+    if "STM" in keys:
+        baselines["STM"] = STAMINA_BASELINE
 
     for _ in range(200):
         stats = apply_double_debit_steps(keys, steps=steps, primary=primary)
@@ -166,7 +166,7 @@ def build_sheet(skin_entry: dict, name: str, player: str):
         print("error: skin attributes missing or incomplete", file=sys.stderr)
         sys.exit(1)
 
-    keys = list(attrs.keys()) + ["STA"]
+    keys = list(attrs.keys()) + ["STM"]
     gen = skin_entry.get("_gen", {}) if isinstance(skin_entry.get("_gen"), dict) else {}
     stats = sample_stats(
         keys,
@@ -178,8 +178,8 @@ def build_sheet(skin_entry: dict, name: str, player: str):
 
     baselines = {key: BASELINE for key in keys}
     maxs = {key: MAX_STAT for key in keys}
-    baselines["STA"] = STAMINA_BASELINE
-    maxs["STA"] = MAX_STAMINA
+    baselines["STM"] = STAMINA_BASELINE
+    maxs["STM"] = MAX_STAMINA
 
     build_points_budget = int(gen.get("build_points_budget", 6))
     remaining = spend_build_points(
@@ -190,12 +190,12 @@ def build_sheet(skin_entry: dict, name: str, player: str):
         primary=gen.get("primary"),
     )
 
-    stamina_value = int(stats.get("STA", STAMINA_BASELINE))
+    stamina_value = int(stats.get("STM", STAMINA_BASELINE))
     stats = {k: stats[k] for k in attrs.keys()}
 
     needed, _, _, _, slack = _sslib.build_points_needed_mixed(
-        {**stats, "STA": stamina_value},
-        {**{k: BASELINE for k in attrs.keys()}, "STA": STAMINA_BASELINE},
+        {**stats, "STM": stamina_value},
+        {**{k: BASELINE for k in attrs.keys()}, "STM": STAMINA_BASELINE},
     )
     if needed > build_points_budget:
         raise RuntimeError(

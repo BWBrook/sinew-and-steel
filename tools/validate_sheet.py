@@ -160,10 +160,10 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
     try:
         baselines = {key: 10 for key in stats.keys()}
         values = dict(stats)
-        baselines["STA"] = 5
+        baselines["STM"] = 5
         if stamina_max_for_ledger is None:
             raise ValueError("missing stamina max for point-buy validation")
-        values["STA"] = stamina_max_for_ledger
+        values["STM"] = stamina_max_for_ledger
 
         needed, increases, decreases, required, slack = _sslib.build_points_needed_mixed(values, baselines)
         if needed > int(build_points_budget):

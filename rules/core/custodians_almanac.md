@@ -135,7 +135,7 @@ A tight economy stops power creep yet still allows extremes to emerge.
 All obey the +1/‑2 ledger (attributes baseline 10; Stamina baseline 5).
 These examples spends a mix of **6 build points** and stat trade‑offs; add starting build points to taste.
 
-| Concept       | MGT    | REF | INT    | EMP    | LCK | STA |
+| Concept       | MGT    | REF | INT    | EMP    | LCK | STM |
 | ------------- | ------ | --- | ------ | ------ | --- | --- |
 | Scholar       | 7      | 10  | **14** | 10     | 11  | 4   |
 | Iron Brute    | **15** | 7   | 6      | 7      | 10  | 8   |
@@ -184,8 +184,8 @@ It shifts capability while leaving core maths and pacing intact.
 3. **Give a hook:** one special move or rule that makes them feel distinct (“mind‑spike forces Luck test,” “web‑snare: failed Reflex ⇒ immobile until cut free,” “howl: on nat 20 targets mark +1 Pressure”).
 
 Examples:
-- **Morlock Brute (Elite 12)** — MGT 12, REF 8, STA 5; edge +1 club, soak 1 hide; on hit may drag victim 5 m into darkness.
-- **Cave Bear (Monster 14, large)** — MGT 14, REF 8, STA 8; edge +2 maul, soak 1 thick fur; on attacker nat 1 bear counter‑swipes edge +1.
+- **Morlock Brute (Elite 12)** — MGT 12, REF 8, STM 5; edge +1 club, soak 1 hide; on hit may drag victim 5 m into darkness.
+- **Cave Bear (Monster 14, large)** — MGT 14, REF 8, STM 8; edge +2 maul, soak 1 thick fur; on attacker nat 1 bear counter‑swipes 1 STM.
 
 ### E. “Fatal” tag (one‑line universal override)
 > **Fatal** — this harm **ignores Stamina and soak**; a struck target drops to 0 STM unless they possess the listed counter‑measure.

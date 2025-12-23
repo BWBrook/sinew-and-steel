@@ -48,7 +48,7 @@ def main() -> int:
         "--stamina",
         type=int,
         default=5,
-        help="Stamina score (default 5; participates in point-buy). Prefer --set STA=... for clarity.",
+        help="Stamina score (default 5; participates in point-buy). Prefer --set STM=... for clarity (STA also accepted).",
     )
     parser.add_argument(
         "--build-points",
@@ -117,28 +117,28 @@ def main() -> int:
         print("error: --build-points must be >= 0", file=sys.stderr)
         return 1
 
-    # Build stats from baseline 10 (STA baseline is 5 and participates in ledger)
+    # Build stats from baseline 10 (Stamina baseline is 5 and participates in the ledger)
     stats = {key: 10 for key in attrs.keys()}
     stamina_value = int(args.stamina)
 
     try:
         for item in args.delta:
             key, value = parse_kv(item)
-            if key == "STA":
+            if key in ("STM", "STA"):
                 stamina_value += int(value)
                 continue
             if key not in stats:
-                raise ValueError(f"Unknown stat '{key}' (use STA for stamina)")
+                raise ValueError(f"Unknown stat '{key}' (use skin stats or STM for stamina)")
             delta = int(value)
             stats[key] += delta
 
         for item in args.set:
             key, value = parse_kv(item)
-            if key == "STA":
+            if key in ("STM", "STA"):
                 stamina_value = int(value)
                 continue
             if key not in stats:
-                raise ValueError(f"Unknown stat '{key}' (use STA for stamina)")
+                raise ValueError(f"Unknown stat '{key}' (use skin stats or STM for stamina)")
             stats[key] = int(value)
     except ValueError as exc:
         print(f"error: {exc}", file=sys.stderr)
@@ -147,9 +147,9 @@ def main() -> int:
     # Validate point-buy rules (attributes baseline 10; stamina baseline 5) with build points.
     errors = []
     baselines = {key: 10 for key in stats.keys()}
-    baselines["STA"] = 5
+    baselines["STM"] = 5
     values = dict(stats)
-    values["STA"] = stamina_value
+    values["STM"] = stamina_value
 
     try:
         needed, increases, decreases, required_decreases, slack = _sslib.build_points_needed_mixed(values, baselines)

@@ -49,7 +49,7 @@ If failure would be boring, resolve it narratively.
 ### 2.1 Start from the baseline frame
 Every character begins at:
 - **Five attributes at 10** (skins rename these to fit genre).
-- **Stamina 5** (your health).
+- **Stamina 5** (STM: your health).
 
 Legal ranges at creation:
 - Attributes: **6–16**

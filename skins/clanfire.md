@@ -4,9 +4,12 @@
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
 
+Clanfire is a survival story skin: you are a small band of hunters in a cold land where hunger, weather, beasts, spirits, and strangers all bite.
+Expect hunts, migration, taboo, and uneasy encounters with Sapiens — and remember that the hearth is as precious as the spear.
+
 ---
 
-## 🔥 HUNTER'S MARK
+## 🔥 HUNTER'S MARK (Adventurer)
 
 ### Attribute Names
 | Core slot | Clanfire label | What it governs |
@@ -17,8 +20,12 @@ _(Paste atop the Sinew & Steel rules; anything not listed here follows the c
 | Empathy | **Spirit (SPR)** | willpower, ritual chant, resisting fear and frost |
 | Luck | **Instinct (INS)** | gut fortune, sudden insight **and** expendable pool |
 
+**Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
+
 ### Instinct (Luck) flavour
-Tokens are carved bone beads.  Rest by the hearth +1 bead; mythic visions, trance rites or spirit blessings may restore more. Empty instincts leave hunters exposed to fate.
+Tokens are carved bone beads. A rest by the hearth restores **+1 bead**; mythic visions, trance rites, or spirit blessings may restore more.
+
+When the Custodian calls for pure chance or gut‑feeling — “**Test your Instinct**!” — roll under your **current beads**. Empty instincts leave hunters exposed to fate.
 
 ### Weapons & Edges
 | Weapon | Edge |
@@ -33,16 +40,18 @@ Tokens are carved bone beads.  Rest by the hearth +1 bead; mythic visions, tranc
 | Hide / Fur cloak | 1 |
 | Leather + bone splints | 2 |
 
-(Critical 1 ignores all soak; dynamic soak 1‑per‑4‑margin applies.)
+(Dynamic soak: after a hit, reduce soak by **1 per full 4 points** of attacker margin; **nat 1 pierces all**.)
 
 ### Recovery
-A short rest with fire and water restores **1**, deep shelter and herbs **2**. Grave wounds need shaman craft.
+A short rest with fire and water restores **+1 Stamina**; deep shelter and herbs **+2** (never above max). Grave wounds need shaman craft.
 
 ### Totem Mark (once per session)
 Invoke clan spirit (Bear, Owl, Salmon…). Gain **Advantage** on a thematically linked roll **and** either spend **1 Instinct** or accept **+1 Shadow**.
 
+Name the totem and show its sign in the fiction (breath smokes, eyes flash owl‑gold, the air tastes of river‑stone).
+
 ### Beast Bond
-Tamed beast = **3‑token Instinct pool**. Each intervention flips a token; at 0 the animal flees, dies, or turns feral.
+A tamed beast is a **3‑token Instinct pool** you may spend instead of your own. Each intervention flips a token; at 0 the animal flees, dies, or turns feral.
 
 ### Carry Limit flavour
 A hunter totes six big items (spears, blade kit, hide water skin…). Extra gear ⇒ Disadvantage on Fleetness.
@@ -51,18 +60,18 @@ A hunter totes six big items (spears, blade kit, hide water skin…). Extra gear
 
 ---
 
-## 🕯️ SHAMAN’S FIRE‑CIRCLE (GM)
+## 🕯️ SHAMAN’S FIRE‑CIRCLE (Custodian)
 *A shaman’s guide for tales of Neanderthal dusk and encroaching sapiens*
 
 ### Shadow Track (Pressure skin)
-| Step | Portent | Suggested GM twists |
+| Step | Portent | Suggested Custodian twists |
 |--|--|--|
 |0|Hearth calm|—|
 |1|Whispering wind|cosmetic omens|
 |2|Strange tracks|minor Disadvantage, resource drain|
 |3|Spirits restless|NPC mistrust, eerie dreams|
-|4|Veil tearing|All rites cost +1 INS|
-|5 **Crisis**|Blizzard / Curse|Roll on Crisis table, reset 0|
+|4|Veil tearing|All rites cost **+1 Instinct bead**|
+|5 **Crisis**|Blizzard / Curse|Roll on Crisis table, reset to **0**|
 
 **Earning**: failed risky rites, taboo breach, speaking with Sapiens, invoking time‑old spirits, Totem choice (if Shadow).  
 **Purging**: sacrifice (lose item/stat), dangerous ritual, great hunt or story quest.
@@ -70,7 +79,7 @@ A hunter totes six big items (spears, blade kit, hide water skin…). Extra gear
 Other track motifs: dying hearth‑fires, a one‑eyed cave bear, the piercing flutes of Sapiens scouts, spirits withdraw, illness spreads.
 
 #### Crisis Table (d6)
-1 Possession by ancestor — GM controls hunter for one scene  
+1 Possession by ancestor — Custodian controls hunter for one scene  
 2 Withering chill — –1 Stamina & prized tool shatters  
 3 Nightmare fugue — Disadvantage next session  
 4 Blizzard drives migration — forced locale shift  
@@ -80,28 +89,33 @@ Other track motifs: dying hearth‑fires, a one‑eyed cave bear, the piercing f
 ### Hearth Beats
 Play is visceral—crackling fire, reek of hides, breath steaming in moonlight. Mechanics provide bone, but story is sinew. When scenes falter, unleash weather, predator or uneasy strangers. Ambush, ice collapse, bride‑price negotiation, mammoth hunt, cave art.  
 
+**Micro‑vignette (frame a beat):**
+> The hearth is down to embers. Frost beads on the cave mouth. Somewhere beyond the birches, something large exhales.
+
 Present 2-4 options in second‑person imperative, focused on protagonist. Include at least one hidden or risky path. Example: 
 > 1. Stalk the reindeer downwind.  
 > 2. Retreat to limestone shelter.  
 > 3. Approach the tall newcomers in peace.  
 Ensure outcomes ripple—sharing meat with Sapiens may avert later spear‑fight.  
-Mark Save‑Stones (rewind at cost: –2 INS or +1 Shadow): spirit‑walk—rebirth, parallel timelines—dream‑visions, ancestral memory—welcomed.
+
+**Vision Glass (omens, not do‑overs):** rare obsidian shards that show a fork of possible futures. In the firelight you glimpse a sign: a broken spear, fresh footprints, a sky‑fire glow.
+Once per session, a hunter may **Test Instinct**; on success ask the Custodian **one yes/no** about the next beat. On failure, the omen still comes — but mark **+1 Shadow**.
 
 ### Milestone Boon Seeds (d6)
 After a successful megafauna hunt, forging alliance, or surviving sky‑fire, award a Milestone:
 1 Amber pendant (Adv once on SPR)  
 2 Wolf pup (Beast Bond)  
-3 Spirit scar (+1 build to SPR)  
+3 Spirit scar (once per session, gain Advantage on one SPR roll to bargain with spirits; costs +1 Shadow)  
 4 Hidden hot‑spring (full INS reset mid‑journey)  
 5 Obsidian blade (+1 edge)  
-6 Prophetic dream (ask GM one yes/no about next trek)
+6 Vision glass shard (once per session: Test INS for a true omen; on fail +1 Shadow)
 
 Other examples: quality flint core, mammoth‑bone mail, dream of distant summers.
 
 ### Tone & Moves
-Prosody terse, sensory. Primal lyricism: “The aurora danced, green spears across an ink sky, mocking our flint.”  
+Voice terse, sensory. Primal lyricism: “The aurora danced, green spears across an ink sky, mocking our flint.”  
 Technology sparse; wonder hides in sparks off a biface.  
-GM moves: storm lashes camp · rival scouts appear · food stores spoil · spirits demand ochre.  
+Custodian moves: storm lashes camp · rival scouts appear · food stores spoil · spirits demand ochre.  
 
 >*Guard the fire, Keeper. Night is long and the winds speak new tongues.*
 
@@ -111,15 +125,17 @@ GM moves: storm lashes camp · rival scouts appear · food stores spoil · spiri
 
 ### Grak of Tall Cliffs (Hunter)
 *Sturdy hunter, bearer of granite confidence.*  
-MGT 12  FLT 10  CUN 10  SPR 7  INS 8/8  STM 6/6  Shadow 0/5  
+Creation: standard (**6** build points)  
+MGT 12  FLT 11  CUN 10  SPR 8  INS 8/8  STM 7/7  Shadow 0/5  
 Adv on megafauna tracking, wary fascination with Sapiens iron blades.  
 Stone spear +1 (thrown or thrust), hand‑axe +1 (strike), hide cloak 1.  
 Ochre pouch (ritual mark), sinew cord.  
 
 ### Tarra the Ember‑Singer (Shaman)
 *Clan shaman, voice between worlds.*  
-MGT 6  FLT 8  CUN 11  SPR 13  INS 10/10/  STM 3/3  Shadow 0/5    
-Ritual **Ember Dream** (SPR roll: spark fire *or* daze foe; fail +1 Shadow).    
+Creation: standard (**6** build points)  
+MGT 6  FLT 8  CUN 12  SPR 14  INS 11/11  STM 3/3  Shadow 0/5  
+Ritual **Ember Dream** (when a rite’s outcome is uncertain: Test SPR; on failure +1 Shadow).  
 Can sense weather shifts hours ahead; disadvantage when forced into raw melee.  
 Carved bone flute (Adv calming beasts).  
 Fire‑bow drill, herb bundle, scrap of strange cloth from southern strangers.  

@@ -239,7 +239,7 @@ Five scores map cleanly onto the d20’s 20‑step granularity while keeping she
 
 ### C. Sample Builds (baseline 10/5)
 
-| Concept       | MGT    | REF | INT    | EMP    | LCK | STA   |
+| Concept       | MGT    | REF | INT    | EMP    | LCK | STM   |
 | ------------- | ------ | --- | ------ | ------ | --- | ----- |
 | Scholar       | 7      | 10  | **14** | 10     | 7   | 3     |
 | Iron Brute    | **15** | 7   | 6      | 8      | 10  | 4     |

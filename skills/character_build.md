@@ -14,11 +14,11 @@ python tools/gen_character.py --skin <skin> --name "Name" --out state/characters
 ```
 
 ## Point-buy build (manual)
-Provide scores explicitly (attributes 6–16; `STA` 3–9) following the **build points** economy.
+Provide scores explicitly (attributes 6–16; `STM` 3–9) following the **build points** economy.
 
 Baselines:
 - Attributes baseline at **10**.
-- Stamina baseline at **5** (treat as `STA`).
+- Stamina baseline at **5** (treat as `STM`).
 
 Costs:
 - **+1 above baseline costs 2 build points.**
@@ -37,14 +37,14 @@ Example that trades Stamina down to pay for a spike:
 
 ```bash
 python tools/char_builder.py --skin <skin> --name "Name" \
-  --set MSC=10 --set REF=10 --set SYS=14 --set HAR=10 --set RES=7 --set STA=3
+  --set MSC=10 --set REF=10 --set SYS=14 --set HAR=10 --set RES=7 --set STM=3
 ```
 
 Example using a heroic budget to raise the floor while still specializing:
 
 ```bash
 python tools/char_builder.py --skin <skin> --tone heroic --name "Name" \
-  --set MSC=13 --set REF=10 --set SYS=10 --set HAR=10 --set RES=10 --set STA=6
+  --set MSC=13 --set REF=10 --set SYS=10 --set HAR=10 --set RES=10 --set STM=6
 ```
 
 Use campaign mode to write directly into campaigns/<slug>/state/characters/:
@@ -55,9 +55,9 @@ python tools/char_builder.py --campaign <slug> --name "Name" --set STAT1=12 --se
 
 ## Notes
 - The builder enforces the Sinew & Steel creation rules:
-  - Ranges: attributes 6–16, `STA` 3–9.
+  - Ranges: attributes 6–16, `STM` 3–9.
   - Build points budget (default 6, or campaign.yaml `build_points_budget` in campaign mode).
 - Stamina participates in the same economy, but uses a baseline of **5**.
 - Use `--strict` to disallow extra decreases (voluntary weakness below baseline).
-- Use `--delta STAT=+2` to adjust from baseline (10 for attributes; 5 for `STA`), then `--set` to override.
+- Use `--delta STAT=+2` to adjust from baseline (10 for attributes; 5 for `STM`), then `--set` to override.
 - If you edit a sheet by hand, run `python tools/recalc_sheet.py --file <sheet.yaml>` to refresh `creation.build_points_used`.

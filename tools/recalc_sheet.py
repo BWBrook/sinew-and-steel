@@ -65,9 +65,9 @@ def main() -> int:
         return 1
 
     values = {k: int(v) for k, v in attrs.items()}
-    values["STA"] = int(stamina_value)
+    values["STM"] = int(stamina_value)
     baselines = {k: 10 for k in attrs.keys()}
-    baselines["STA"] = 5
+    baselines["STM"] = 5
 
     try:
         needed, increases, decreases, required_decreases, slack = _sslib.build_points_needed_mixed(values, baselines)
