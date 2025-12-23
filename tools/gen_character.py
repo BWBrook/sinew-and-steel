@@ -99,45 +99,82 @@ def spend_build_points(
     Cost model:
       - If the stat is currently below baseline: +1 costs 1 point.
       - If the stat is at/above baseline: +1 costs 2 points.
+
+    This generator tries to spend the full budget where possible. If it cannot
+    (e.g., caps), it returns the unspent remainder.
     """
     remaining = int(points)
     if remaining <= 0:
         return 0
 
-    for _ in range(10_000):
-        if remaining <= 0:
-            break
+    def spend_cost_1():
+        nonlocal remaining
+        candidates = [k for k, v in stats.items() if int(v) < int(baselines[k]) and int(v) < int(maxs[k])]
+        if not candidates or remaining < 1:
+            return False
 
-        candidates = [k for k, v in stats.items() if int(v) < int(maxs[k])]
-        if not candidates:
-            break
-
-        affordable: list[str] = []
         weights: list[float] = []
         for key in candidates:
-            cost = 1 if int(stats[key]) < int(baselines[key]) else 2
-            if remaining < cost:
-                continue
-            affordable.append(key)
-
-            weight = 1.0
+            deficit = int(baselines[key]) - int(stats[key])
+            weight = max(1.0, float(deficit))
             if primary and key == primary:
-                weight *= 4.0
-            if int(stats[key]) < int(baselines[key]):
-                weight *= 3.0
+                weight *= 1.5
             if key == "STM":
                 weight *= 0.7
             weights.append(weight)
 
-        if not affordable:
+        chosen = random.choices(candidates, weights=weights, k=1)[0]
+        stats[chosen] += 1
+        remaining -= 1
+        return True
+
+    def spend_cost_2():
+        nonlocal remaining
+        candidates = [k for k, v in stats.items() if int(v) >= int(baselines[k]) and int(v) < int(maxs[k])]
+        if not candidates or remaining < 2:
+            return False
+
+        weights: list[float] = []
+        for key in candidates:
+            weight = 1.0
+            if primary and key == primary:
+                weight *= 4.0
+            if key == "STM":
+                weight *= 0.7
+            weights.append(weight)
+
+        chosen = random.choices(candidates, weights=weights, k=1)[0]
+        stats[chosen] += 1
+        remaining -= 2
+        return True
+
+    # Phase 1: spend as many 1-point raises (below baseline) as we can, while
+    # keeping the remaining budget spendable using 2-point raises.
+    deficit_points_total = sum(max(0, int(baselines[k]) - int(stats[k])) for k in stats.keys())
+    cost_1_spends = min(deficit_points_total, remaining)
+    if (remaining - cost_1_spends) % 2 != 0:
+        cost_1_spends -= 1
+    cost_1_spends = max(0, int(cost_1_spends))
+
+    for _ in range(cost_1_spends):
+        if remaining <= 0:
+            break
+        if not spend_cost_1():
             break
 
-        chosen = random.choices(affordable, weights=weights, k=1)[0]
-        cost = 1 if int(stats[chosen]) < int(baselines[chosen]) else 2
-        if remaining < cost:
+    # Phase 2: spend the rest (prefer cost-2 raises; fall back to pairs of cost-1).
+    for _ in range(10_000):
+        if remaining <= 0:
             break
-        stats[chosen] += 1
-        remaining -= cost
+        if remaining == 1:
+            if not spend_cost_1():
+                break
+            continue
+        if spend_cost_2():
+            continue
+        if spend_cost_1() and spend_cost_1():
+            continue
+        break
 
     return remaining
 

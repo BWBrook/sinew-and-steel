@@ -58,7 +58,7 @@ skins:
     file: skins/briar_benedictine.md
     pressure_track: Sin
     _gen:
-      primary: HEW
+      primary: LOR
       min_steps: 2
       max_steps: 6
     attributes:
@@ -122,14 +122,14 @@ skins:
     file: skins/whispers_in_the_fog.md
     pressure_track: Insanity
     _gen:
-      primary: VIG
+      primary: SCH
       min_steps: 2
       max_steps: 6
     attributes:
       VIG: Vigor
       AGI: Agility
       SCH: Scholarship
-      FOR: Fortitude
+      FRT: Fortitude
       FAT: Fate
     luck_key: FAT
     luck_name: Fate
@@ -138,7 +138,7 @@ skins:
     file: skins/free_traders_of_the_marches.md
     pressure_track: Stress
     _gen:
-      primary: STR
+      primary: EDU
       min_steps: 2
       max_steps: 6
     attributes:
@@ -154,7 +154,7 @@ skins:
     file: skins/twilight_of_the_north_kingdom.md
     pressure_track: Shadow
     _gen:
-      primary: STR
+      primary: HRT
       min_steps: 2
       max_steps: 6
     attributes:

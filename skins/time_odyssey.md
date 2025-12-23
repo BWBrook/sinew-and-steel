@@ -4,9 +4,14 @@
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
 
+Time Odyssey is a scientific romance skin: brass and ivory wonder, distant epochs, and the chill realisation that history does not care who you are.
+Expect hard choices, strange futures, and consequences that ripple across centuries.
+
+Suggested creation tone: **pulp** (**12** build points) suits daring chrononautics well.
+
 ---
 
-## ⏳ CHRONONAUT'S CODEX
+## ⏳ CHRONONAUT'S CODEX (Adventurer)
 *A skin for H. G. Wells‑style excursions across the centuries*  
 
 ---
@@ -21,7 +26,12 @@ _(Paste atop the Sinew & Steel rules; anything not listed here follows the c
 | Luck | **Ingenuity (ING)** | lateral insight **&** token pool |
 
 ### Ingenuity Pool flavour
-Tokens are brass cogs. Restful night +1; paradoxical boon or esoteric rejuvenator may restore more. Empty cogs leave travellers at time’s mercy.
+Tokens are brass cogs.
+
+When the Custodian calls for pure chance — “**Test your Ingenuity**!” — roll under your **current tokens**.
+A short rest restores **+1 token**; paradoxical boons or esoteric rejuvenators may restore more.
+
+**Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
 
 ### Weapons & Edges (typical era)
 | Weapon | Edge |
@@ -37,34 +47,43 @@ Tokens are brass cogs. Restful night +1; paradoxical boon or esoteric rejuvenato
 | Leather riding jacket | 1 |
 | Experimental alloy breastplate | 2 |
 
-(Dynamic soak 1‑per‑4‑margin; nat 1 ignores all.)
+(Dynamic soak: after a hit, reduce soak by **1 per full 4 points** of attacker margin; **nat 1 pierces all**.)
 
 ### Temporal Anomaly (Pressure skin)
-Meddling with history courts paradox. Certain feats—altering major events, meeting one’s past self, operating the machine under duress—require checks. Such acts call for INT or ING roll. Failure **+1 Anomaly**. At 5 trigger Crisis table then reset 0.
+Meddling with history courts paradox.
+
+Call for a Test when the outcome is uncertain and the stakes are historical: altering major events, meeting one’s past self, operating the machine under duress, or defying a fixed point.
+
+- **Test INT** (reason, calculations) or **Test ING** (lateral insight, luck).
+- On failure, mark **+1 Anomaly**.
+- At **5**, trigger a crisis from the table — then reset Anomaly to **0**.
 
 #### Crisis Table (d6)
-1 Memory fracture — lose recent scene until reminded  
+1 Memory fracture — forget the last scene until reminded  
 2 Equipment sublimates — key item vanishes in glitter  
 3 Rip current — party hurled d10×1000 years off‑target  
 4 Temporal echo — hostile duplicate of PC appears  
-5 Reality blur — Disadvantage for next session  
-6 Roll twice (stack)
+5 Reality blur — Disadvantage on all rolls next session  
+6 Roll twice; apply both
 
 ### Equipment & Burden nuance
 Six big items; brass‑and‑crystal **Time Machine** is always off‑screen. Currency shifts by era—bulky coinage invites thieves or customs scrutiny.
 
 ### Advancement Boon Seeds
 After surviving a paradox cascade, cataloguing a prehistoric beast or shaping an epochal alliance, a **Milestone** and Boon might be awarded.  
-Future‑alloy blade (+1 edge) • Patent rights (wealth advantage) • Eocene amber sample (sell for +3 Ingenuity refill) • Sphinx guardian favour (Adv once on EMP).
+Future‑alloy blade (+1 edge) • Patent rights (wealth advantage) • Eocene amber sample (sell it: restore **+3 Ingenuity tokens**, up to max) • Sphinx guardian favour (Adv once on EMP).
 
 >*Ink these strictures upon vellum or etch them on a pocket brass plate—chrononauts who ignore them soon vanish into contradictory echoes.*  
 ---
 
-## 🔍 CUSTODIAN MANUAL (GM Guide)
+## 🔍 CUSTODIAN MANUAL (Custodian)
 *A guide for stewards of paradox, peril and Edwardian wonder*
 
 ### Narrative Tone
 Brisk reportage, lyrical awe, with undercurrent of unease: Wells, Wyndham, Poe. Mix brass rivets and cosmic dread: “Ultramarine suns shimmered over a crystal sea as the machine’s valves hissed with protest.”
+
+**Micro‑vignette (frame a beat):**
+> The lever shudders. The needles climb. Outside the frosted glass, the world turns—too fast, too smooth—until the sky is the wrong colour.
 
 Present 2-4 options in second‑person imperative, focused on protagonist. Include at least one hidden or risky path. Example:  
 > 1. Descend into the ventilator shaft.  
@@ -72,16 +91,20 @@ Present 2-4 options in second‑person imperative, focused on protagonist. Inclu
 > 3. Trust the pale child’s silent gesture.  
 
 Ensure consequences ripple across epochs—saving a single flower in 802,701 AD may cure a Victorian cholera outbreak.  
-Wrap the boon in story: a Krao‑crystal implant grants +1 INT; Weena’s unwavering faith grants +1 EMP.
+Wrap the boon in story: a Krao‑crystal implant grants **Advantage on one INT test per session**; Weena’s unwavering faith grants **one EMP reroll** (once).
 
-### GM Moves
+### Custodian moves
 Morlock ambush · Temporal storm blocks return · Rival chrononaut stakes claim · Faustian bargain: erase plague, gain +1 Anomaly.
 
 ### Luck (Ingenuity) Guidance
-Call for ING test when blind chance or hidden quantum decides: which epoch‑rift opens, whether a stray bullet hits the machine. Keep to 1–2 per session.
+Call for a **Test of Ingenuity** when blind chance or hidden quantum decides: which epoch‑rift opens, whether a stray bullet hits the machine.
+Keep it to 1–2 per session.
 
 ### Epoch Graph
-Track beats and parallel timelines with chronological tags (1895A, 802,701B…). Save Nodes cost –2 ING or +1 Anomaly to rewind.
+Track beats and parallel timelines with chronological tags (1895A, 802,701B…).
+Reward good record‑keeping: if players consult journals, maps, or diagrams, grant **Advantage** on INT/ING rolls to reconcile contradictions.
+
+In this genre, the timeline doesn’t rewind — paradox is paid for in scars, loss, and **Anomaly**.
 
 >*Chrononauts are needles in the fabric of time; you, Custodian, are the hand that stitches and snips. Keep the thread taut.*
 ---
@@ -90,14 +113,14 @@ Track beats and parallel timelines with chronological tags (1895A, 802,701B…).
 
 ### George — The Time Traveller
 *Victorian inventor, boundless curiosity, dash of reckless courage.*  
-PRW 9 REF 10 INT 14 EMP 9 ING 12/12 STM 5/5 Anomaly 0/5  
+Creation: pulp budget (**12** build points; used **12**)  
+PRW 9 REF 11 INT 14 EMP 7 ING 13/13 STM 5/5 Anomaly 0/5  
 Pocket revolver +1 (close), brass goggles (Adv vision REF), notebook (Adv INT deduction), tool‑roll, mixed‑era coins  
-Milestones Completed: 5
 
 ### Weena — Eloi Companion
 *Gentle child of 802,701 AD, embodies innocence and quiet resilience.*  
-PRW 6 REF 9 INT 7 EMP 15 ING 10/10 STM 3/3 Anomaly 0/5  
+Creation: pulp budget (**12** build points; used **12**)  
+PRW 6 REF 11 INT 9 EMP 16 ING 12/12 STM 4/4 Anomaly 0/5  
 Wiltflower charm (Adv calming creatures), glow‑stone bead (light). Disadv in harsh industrial ages.
 
 >*Track Ingenuity spent, Stamina lost, Anomaly gained. Each scar may echo through centuries.*
-

@@ -125,7 +125,7 @@ Custodian moves: storm lashes camp · rival scouts appear · food stores spoil �
 
 ### Grak of Tall Cliffs (Hunter)
 *Sturdy hunter, bearer of granite confidence.*  
-Creation: standard (**6** build points)  
+Creation: standard budget (**6** build points; used **6**)  
 MGT 12  FLT 11  CUN 10  SPR 8  INS 8/8  STM 7/7  Shadow 0/5  
 Adv on megafauna tracking, wary fascination with Sapiens iron blades.  
 Stone spear +1 (thrown or thrust), hand‑axe +1 (strike), hide cloak 1.  
@@ -133,7 +133,7 @@ Ochre pouch (ritual mark), sinew cord.
 
 ### Tarra the Ember‑Singer (Shaman)
 *Clan shaman, voice between worlds.*  
-Creation: standard (**6** build points)  
+Creation: standard budget (**6** build points; used **6**)  
 MGT 6  FLT 8  CUN 12  SPR 14  INS 11/11  STM 3/3  Shadow 0/5  
 Ritual **Ember Dream** (when a rite’s outcome is uncertain: Test SPR; on failure +1 Shadow).  
 Can sense weather shifts hours ahead; disadvantage when forced into raw melee.  

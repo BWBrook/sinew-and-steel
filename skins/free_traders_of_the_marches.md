@@ -1,239 +1,242 @@
-### **FREE TRADERS OF THE MARCHES**
+# **FREE TRADERS OF THE MARCHES**
 ## Skin add-on for the Sinew & Steel game system
-*Spinward Main, I.S.W. 1105.  Jump-flashes bloom in dark between the stars, patrons wave low-credit cargo chits, and a worn Type-A free-trader hauls dreams through the Third Imperium.*
+*Spinward Main, I.S.W. 1105. Jump‑flashes bloom in the dark between the stars, patrons wave low‑credit cargo chits, and a worn Type‑A free trader hauls dreams through the Third Imperium.*
 
-_(Layer onto the universal rules; anything unmentioned defaults to core.)_
+_(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
 
+Free Traders of the Marches is “blue‑book” space adventure: debt, fuel, patron jobs, hard vacuum, and the quiet terror of a jump that comes out wrong.
+Expect clipped comms, messy morality, ports that smile with teeth, and runs where profit and survival are the same problem.
 
-## 🚀  PLAYER ADD-ON
+Suggested creation tone: **standard** (**6** build points).
 
+In this skin, the Custodian is often called the **Guildmaster**.
+
+**Micro‑vignette (cold open):**
+> “Free Trader *Peregrine*, this is Port Authority. You are cleared for berth… once your outstanding fees are settled. Out.”
+
+---
+
+## 🚀 FREE TRADER’S HANDBOOK (Adventurer)
+
+### Attribute Labels
 | Core slot | Marches label | Covers |
 |---|---|---|
 | Might | **Strength (STR)** | lug crates, melee, EVA clamp |
 | Reflex | **Dexterity (DEX)** | vacuum pistol, pilot jink, quick patch |
-| Intellect | **Education (EDU)** | astrogation, engineering, medical, xenolinguistics |
+| Intellect | **Education (EDU)** | astrogation, engineering, medicine, xenolinguistics |
 | Empathy | **Social (SOC)** | rank, bureaucracy, haggling, morale |
 | Luck | **Fate (FAT)** | uncanny breaks **and** token pool |
 
-### Fate tokens  
-Stamped Imperial credits kept in a battered cred-clip.  A restful week in port + 1; high-grade liquor or Vilani meditation may restore more.
+**Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
 
-### Prior-Service Knacks *(pick one, cost 1 FAT or +1 Stress per use)*
+### Fate (Luck) tokens
+Tokens are stamped Imperial credits kept in a battered cred‑clip.
+
+When the Custodian calls for blind chance — “**Test your Fate**!” — roll under your **current credits** (not your maximum).
+Spend credits now to nudge rolls, but remember: fewer tokens means shakier Fate later.
+
+A short rest in a safe berth restores **+1 token**; a restful week in port, high-grade liquor or Vilani meditation may restore more.
+
+*“Jump‑shock rippled your fillings; the vox hummed with residual static.”*
+
+### Prior‑Service Knacks (choose one)
+Each use costs: **spend 1 Fate token** or **mark +1 Stress**.
+
 | Knack | Effect |
 |---|---|
-| **Ex-Marine** | Once/scene treat one ranged attack as Advantage (ignore recoil/zero-G). |
-| **Scout Surveyor** | Once/scene roll EDU astrogation with Advantage. |
-| **Merchant Broker** | Once per trade cycle reroll the **Cargo Gamble** die and keep result. |
-| **Noble Lineage** | Spend 1 FAT to pull rank: Advantage on SOC test with Imperial officials. |
-| **Belter Rat** | Auto-pass a zero-G maneuver once/scene; gain +1 Stress if attempted in grav-zone. |
+| **Ex‑Marine** | Once per scene, treat one ranged attack as Advantage (ignore recoil/zero‑G). |
+| **Scout Surveyor** | Once per scene, test EDU for astrogation/survey with Advantage. |
+| **Merchant Broker** | Once per port call, reroll one trade test you just made (keep the new result). |
+| **Noble Lineage** | Spend 1 Fate token to pull rank: Advantage on a SOC test with Imperial officials. |
+| **Belter Rat** | Once per scene, you automatically succeed on a zero‑G manoeuvre that would otherwise need a test. If you try this in gravity, mark **+1 Stress**. |
 
-*“Jump-shock rippled your fillings; the vox hummed with residual static.”* 
-
-### Expertise Die *(optional)*
-Choose one stat as **Expertise**—pilot (DEX), engineer (EDU), liaison (SOC).  When an action sits squarely in that wheel-house, roll with Advantage.
+### Optional Expertise (choose one stat)
+Choose one stat as **Expertise** — pilot (DEX), engineer (EDU), liaison (SOC).
+When a task squarely fits your expertise, roll with Advantage.
 
 ### Weapons & Edges
 | Weapon | Edge |
 |---|---|
 | Blade, shock baton | 0 |
-| Snub-pistol (gauss), shotgun | +1 |
+| Snub‑pistol (gauss), shotgun | +1 |
 | Laser carbine, ACR | +2 |
 
-*Fatal tag:* Laser carbine vs unarmoured target — **Fatal (counter: any armour, reflective cloak).**
+**Fatal (example):** laser carbine at point‑blank against an unarmoured target — **Fatal (counter: any armour or hard cover)**.
 
 ### Armour & Soak
 | Protection | Soak |
 |---|---|
-| Jack/flight suit | 0 |
+| Jack / flight suit | 0 |
 | Combat cloth | 1 |
 | Battle dress | 2 |
 
-Dynamic soak applies; nat 1 burns through.
+(Dynamic soak: after a hit, reduce soak by **1 per full 4 points** of attacker margin; **nat 1 pierces all**.)
 
 ---
 
-*“Dockmaster’s grin didn’t reach his eyes—even money smells desperate this far spinward.”*
+## 🛰️ SHIPBOARD PROCEDURE (core‑aligned)
+Traveller tension comes from logistics, debt, and bad odds — but you don’t need extra dice systems to get it.
+Use **clocks** plus a few decisive tests.
 
-## ⚙️  STARSHIP OPERATIONS MINI-GAME
+### Recommended ship clocks
+These are story‑facing meters. Make them **public** if you want planning, **hidden** if you want dread.
 
-**Jump Leg** — every parsec / week of travel:
+- **Fuel Depletion (0/4)** — tick **+1** each jump; tick **+2** on a misjump. At **4**, you’re dry: stranded until you refuel.
+- **Hull Damage (0/6)** — tick when the ship is hit or the drive strains. At **6**, drive disabled: drift, board, or die.
+- **Debt (0/6)** — tick when fees, bribes, or patron penalties land. Clear ticks when you get paid. At **6**, repo attempt / impound / creditor crisis.
 
-| Role | Stat roll | Success | Failure |
+> *“Dockmaster’s grin didn’t reach his eyes — even money smells desperate this far spinward.”*
+
+### Jump leg (one travel beat)
+When you make a jump (or cross a week of hard travel) and the stakes matter, resolve the leg with up to three tests.
+If a role is unfilled, treat it as a failure.
+
+| Role | Test | On success | On failure |
 |---|---|---|---|
-| **Astrogator** | EDU | clean emergence | +1 Stress; on nat 20 **Misjump** (random hex, all PCs −1 STM, +1 Stress) |
-| **Engineer** | EDU | fuel economy, no wear | +1 Stress *and* ship takes 1 armour-ignoring STM |
-| **Watch Officer** | DEX or SOC | early pirate/hazard warning (Adv first round) | surprise encounter or red-tape delay |
-
-If the crew leaves a role unfilled, treat that roll as automatic failure.
-
----
+| **Astrogator** | EDU | clean emergence | mark **+1 Stress**; on natural **20**: **misjump** (tick Fuel +2, mark +1 Stress, arrive somewhere wrong) |
+| **Engineer** | EDU | no wear | mark **+1 Stress** and tick **Hull Damage +1** |
+| **Watch officer** | DEX or SOC | early warning (Advantage on first roll next encounter) | surprise encounter or red‑tape delay |
 
 ### Ship Shares (party pool)
-Pool starts at **2 tokens** (or GM’s tone).  Spend a share to:
+Ship Shares represent liquid breathing room: fuel bills paid, port fees smoothed, creditors delayed.
 
-* Pay port fees or creditor bribe  
-* Negate 1 point of ship damage  
-* Replace a lost cargo load
+- Start at **2 shares** (adjust to tone).
+- Spend 1 share to: pay fees, grease a bureaucrat, replace a lost cargo load, or clear **1 tick** from **Hull Damage**.
+- If the pool hits **0**, everyone marks **+1 Stress** immediately.
 
-Emptying the pool immediately gives **+1 Stress to every PC**.
+If you want concrete numbers, treat **1 share ~ Cr 10 000** of “problem‑solving money.” (Optional; not required.)
 
 ---
 
-## 📉  STRESS TRACK (Pressure)
+## 📉 STRESS TRACK (Pressure skin)
+Stress is crew morale and systems strain. It runs **0–5**; at **5** trigger a crisis, then reset Stress to **0**.
 
 | Step | Indicator | Effect |
 |--|--|--|
 |0|Green board|—|
 |1|Amber caution|cosmetic: crew snappish, hull pings |
-|2|High load|Disadv next Engineering or social roll |
-|3|Over-taxed|All rolls cost +1 Fate |
-|4|Red line|Disadv on all actions |
-|5 **Break**|Panic, mutiny, or hull crisis|Roll Stress Crisis, reset 0 |
+|2|High load|Disadvantage on your next **EDU** or **SOC** test |
+|3|Over‑taxed|Each **risky test** costs **1 Fate token** (spend before rolling) or marks **+1 Stress** |
+|4|Red line|Disadvantage on all tests |
+|5 **Crisis**|Panic, mutiny, or hull crisis|Trigger a crisis, reset Stress to **0** |
 
-**Stress Crisis d6**  
-1 Core flash-over — everyone −1 STM  
-2 Helm panic — veer into hazard (encounter)  
-3 Mutiny spark — social conflict, SOC rolls Disadvantage next session  
+_(A risky test is any roll where failure would materially change the situation: harm, loss, exposure, separation. Routine talk and obvious chores need no roll.)_
+
+**Gain Stress:** combat hits, jump failures, overdue loans, empty Ship Shares.  
+**Clear Stress:** 72‑hour shore leave (costs you something), captain’s commendation (narrative), or a patron payoff that actually lands.
+
+**Stress crisis (pick or roll d6)**  
+1 Core flash‑over — everyone loses **1 STM**  
+2 Helm panic — veer into hazard (an encounter begins at Disadvantage)  
+3 Mutiny spark — immediate social conflict; **SOC** tests at Disadvantage next session  
 4 System lockdown — one ship function offline until port repair  
-5 Debt call-in — lose 1 Ship Share immediately  
-6 Roll twice
+5 Debt call‑in — lose **1 Ship Share** immediately (or tick Debt +1 if at 0 shares)  
+6 Roll twice; apply both
 
-*Gain Stress:* combat hits, jump failures, overdue loan threats, empty Ship Shares.  
-*Clear:* 72-hour shore leave (cost Cr), captain’s commendation (narrative), satisfying patron payoff.
-
-FAT is self-risked; Stress reflects crew morale and system failure. The captain’s courage may cost the ship’s calm.
+Fate is personal risk. Stress is the ship’s mood, its wear, and the crew’s frayed nerves. Your courage may cost the ship its calm.
 
 ---
 
-## 💰  CARGO GAMBLE  (each star-port visit)
+## 💰 TRADE & PORT CALLS (keep it fast)
+When you hit port, resolve money and trouble in one beat.
 
-Roll 1d6 (Merchant may reroll once):
+### Trade test (one per port call)
+Test **SOC** (broker it) or **EDU** (read the market).
 
-1-2 Loss (−Cr 1 000) | 3-4 Break-even | 5 Profit (+Cr 1 000) | 6 Big score (+Cr 3 000, **+1 Stress** heat)
+- **Success:** gain **+1 Ship Share**, or clear **−1 Debt tick**.
+- **Failure:** mark **+1 Stress**, or tick **Debt +1** (Guildmaster chooses the more truthful consequence).
+- **Natural 20:** both — and someone notices (add a complication: audit, shakedown, or a patron with leverage).
 
----
+Merchant Broker lets you reroll this once per port call.
 
-## 🩺  MEDICAL AID
-**Med-kit (Usage d6).**  Roll EDU; success heals 1 STM.  Nat 20 → infection: patient gains +1 Stress.
-
----
-
-Below are **optional bolt-ons and sidebars** you can splice into *Free Traders of the Marches* to echo 1977 Traveller subsystems and Steve Jackson’s *Starship Traveller* CYOA feel.  Add or ignore as suits the table.
-
----
-
-## ⚠️ GUILDMASTER'S PROTOCOLS (GM Notes)
-
-*“The Beowulf-class liner drifts dead-stick, running lights blinking in tired semaphore.”*  
-
-## 🚨 Ship-to-Ship Combat (mini-module)
-
-Treat the vessel as a single “character” when a quick dog-fight is all that’s needed.
-
-| Stat               | Starting value                                             |
-| ------------------ | ---------------------------------------------------------- |
-| **Hull (STM)**     | 6 for a 200-ton Free Trader (add +2 per displacement step) |
-| **Screens (Soak)** | 1 if civilian sandcasters, 2 if military deflector grid    |
-| **Turret Edge**    | +1 per armed turret; high-energy laser +2                  |
-
-**Round:**
-
-1. Each pilot rolls DEX; win = Advantage on next attack.
-2. Gunner rolls DEX (edge applies) vs target pilot’s DEX defence.
-3. Hit → dmg = 1 STM + turret edge – screens (dynamic soak still applies).
-4. At **0 Hull**: drive disabled; boarding or boom per fiction.
-
-*Missile salvo option*: Fire-and-forget; target rolls EDU to jam.  On hit, add +1 dmg but counts as spent rack.
+### Patron jobs (default structure)
+Offer 2–3 jobs. Each job should state:
+- payment (Ship Shares / Debt clearance)
+- risk (what clocks tick on failure)
+- the “catch” (legal, moral, or logistical)
 
 ---
 
-## 🛡️ Away-Team Casualty Table (Redshirt Rule)
+## 🩺 MEDICAL AID (supplies clock)
+To keep “limited med‑supplies” tension without usage dice, track **Medkit Supplies (0/4)**.
 
-After any dangerous surface encounter where nameless crew accompanied PCs:
-
-Roll d6 → casualties:
-
-1 None
-2 One redshirt wounded (−1 STM, med-kit needed)
-3 One redshirt killed outright
-4 Two wounded
-5 One wounded, one missing (Keeper may reuse)
-6 PC of GM’s choice takes stray hit (−1 STM)
-
-Spice tension without tracking every NPC stat block.
+- Each time you treat a serious injury, tick Supplies **+1** and test **EDU**.
+  - Success: restore **+1 STM** (up to max).
+  - Failure: no healing and mark **+1 Stress** (panic, infection risk, missing meds).
+- At **4/4**, the kit is empty until resupplied in port.
+- On a natural **20**, the patient worsens (infection, shock, or a botched stitch): lose **1 STM** and mark **+1 Stress**.
 
 ---
 
-## 🌌 Sector Event D6 (drop during any lull)
+## ⚠️ GUILDMASTER’S PROTOCOLS (Custodian)
+*“The Beowulf‑class liner drifts dead‑stick, running lights blinking in tired semaphore.”*
 
-1 Pirate corsair shadowing — demand tribute or combat
-2 Local noble requests jump-capable courier → lucrative patron
-3 Solar flare: Comms blackout, DEX roll to protect sensors
-4 Scout X-boat drops rumours of war on next main; +1 Stress
-5 Merchant prince auctioning rare jump fuel (bid Cr or Ship Share)
-6 Derelict liner beacons: salvage claim vs rescue ethics (Shadow-like dilemma)
+### Ship‑to‑ship combat (quick module)
+Use this when you want a fast dogfight without a tactical map.
 
----
+- Treat each ship as an NPC with:
+  - **Pilot score** (usually 10–14)
+  - **Hull Damage clock (0/6)** (or bigger for larger hulls)
+  - **Screens soak** (1 civilian, 2 military)
+  - **Turret edge** (+1 per turret; high‑energy laser +2)
 
-## ⛽ Fuel Usage Die (simple logistics)
+Each round:
+1. Both pilots test **DEX**. Winner gains Advantage on the gunner’s next attack.
+2. Gunner tests **DEX** (attack) vs defender pilot’s **DEX** (defend).
+3. On a hit, tick Hull Damage by **(1 + turret edge − effective soak)** (dynamic soak applies as normal).
+4. At Hull Damage **6**, the drive is disabled: drift, board, or boom per fiction.
 
-Jump fuel tanks = **Usage d8**.
+Missiles (optional): one salvo per rack. Defender tests **EDU** to jam; on a failed jam, treat the missile as **edge +2** and tick Hull Damage.
 
-* Each jump or misjump roll d8; on a **1** tanks empty → stranded, +2 Stress.
-* Refuelling at star-port resets die; gas-giant skimming requires DEX pilot roll (fail = +1 Stress, ship −1 STM).
+### Away‑team “redshirt” rule (no bookkeeping)
+When nameless crew accompany the PCs on a dangerous surface beat:
 
-Keeps Traveller’s fuel loop without gallon math.
+- If the PCs **fail** the key risky test of the beat, the Guildmaster chooses a consequence:
+  - one redshirt wounded (lose **1 STM**, needs treatment)
+  - one redshirt killed
+  - one redshirt missing (later complication)
+  - stray hit: a PC loses **1 STM**
 
----
+If you want randomness, pick or roll d6 on your own table — but keep it fast and fair.
 
-## 📖 FF-Style Branching Episode Tips (GM sidebar)
+### Sector events (pick or roll d6)
+1 Pirate corsair shadows you — demand tribute or combat  
+2 Local noble requests a jump courier — lucrative patron  
+3 Solar flare: comms blackout; test DEX to protect sensors (failure marks +1 Stress)  
+4 Scout X‑boat drops war rumours on the next main; mark +1 Stress  
+5 Merchant prince auctions rare jump fuel (bid Ship Shares or take Debt ticks)  
+6 Derelict liner beacons: salvage claim vs rescue ethics
 
-* Number your planned scenes (001–050).  Each ends with 2-3 choices labelled by number—players call a number; you flick pages “behind the screen.”
-* Pair each node with a quick stat mantra: “001 – cargo hold / hazard roll / Stress +1 on fail.”
-* Great for solo or duet play; dovetails with S\&S Save-Node rewinds (record paragraph numbers).
+### FF‑style branching episode tips (solo / duet)
+- Number planned scenes (001–050). Each ends with 2–3 numbered choices.
+- Pair each node with a quick note: “003 — cargo hold / vacuum hazard / Stress +1 on fail.”
+- This is for pacing and solo structure — **not** rewinds. Keep a log; consequences stick.
 
----
+### Writing in Miller & Chadwick register (blue‑book polish)
+- Technical brevity: “Type‑A2 Far Trader *Peregrine*, 200‑ton.”
+- Sparse wonder: one vivid detail per scene (rings, aurora, hull frost).
+- Understated danger: pirates transmit terse ultimatums; they don’t cackle.
+- Economic motive drives plot: debt, fuel, speculative cargo — the crew feels every credit.
+- Staccato comms: clipped phrases. End transmissions with “Out.”
+- Hex references: sprinkle coordinates. Worlds get a UWP line, then one evocative sentence.
 
-## ✍️ WRITING IN MILLER & CHADWICK REGISTER
-
-* **Technical brevity.**  Use ship-registry strings: “Type-A2 Far Trader *Peregrine*, 200-ton.”  
-* **Sparse wonder.**  A single vivid detail: “sunlight flares off the gas giant’s pale rings.”  
-* **Understated danger.**  No pulp melodrama—pirates don’t cackle, they transmit terse ultimatums.  
-* **Economic motive drives plot.**  Debt, fuel cost, speculative cargo boom; players feel every Cr-chip.  
-* **Staccato comms.**  Dialogue uses clipped Naval phrases: “Lock nav-sol, mark vector 359-grid-alpha.”  
-* **Hex references.**  Sprinkle coordinates: “Distress beacon in Gamma-March 2305.”  
-* **Blue-book NPCs.**  A single line each: “Captain Orvoss, Navy retiree, SOC 11, hates smugglers.”
-
-*Addendum to style guide*
-
-* Present ship data in string blocks: “Beowulf-class 400-ton/Jump-2, P-4/E-1.”
-* Keep economics concrete: Cr 7 500 cargo, Cr 3 000 port fee, 1 Ship Share ≈ Cr 10 000 equity.
-* Default NPCs to competence 10; remarkable NPCs nudge 12–14 only.
-* End transmissions with “Out.”  Radio silence breeds tension.
-* Describe worlds with Universal World Profile shorthand, then one vivid line: “Glisten 0406 A434A9F-F — mirror seas split by obsidian ridges.”
-
----
-
-## 🛰️  GUILDMASTER MOVES  
-
-1. Port fees double; bank lien threatens to impound ship.  
-2. Pirate corsair appears on long-range scan (DEX pilot vs ambush).  
-3. Misfuelled jump fuel contaminates drive (+1 Stress, Engineer check).  
-4. Patron offers time-critical chainglass shipment: high pay, higher risk.  
-5. Lingering sickness on board (infection test or lose 1 STM).
+### Guildmaster moves
+Port fees double; lien threatens impound • Pirate corsair on scan • Misfuelled jump contaminates the drive • Patron offers time‑critical cargo • Lingering sickness on board.
 
 ---
 
-## 🛡️  SAMPLE CREW
+## 🛡️ SAMPLE CREW
 
-### Lt-cmdr Mara Thorne — Scout Service mustering-out
-STR 8  DEX 11  EDU 13  SOC 9  FAT 8/8  STM 5/5  Stress 0/5  
-Knack: Scout Surveyor.  Expertise: EDU (Astrogation).  
-Snub-pistol +1, flight suit 0.
+### Lt‑Cmdr Mara Thorne — Scout Service mustering‑out
+Creation: standard budget (**6** build points; used **6**)  
+STR 8 DEX 12 EDU 14 SOC 8 FAT 8/8 STM 5/5 Stress 0/5  
+Knack: Scout Surveyor. Expertise: EDU (Astrogation).  
+Snub‑pistol +1, flight suit (soak 0), battered survey kit (Advantage on EDU field analysis when you have time).
 
-### Harlan “Holo” Vesk — Free Trader Deckhand
-STR 12  DEX 9  EDU 8  SOC 7  FAT 9/9  STM 6/6  Stress 0/5  
-Knack: Belter Rat.  Expertise: STR (Cargo Handling).  
-Blade 0, jack suit 0.
+### Harlan “Holo” Vesk — Free Trader deckhand
+Creation: standard budget (**6** build points; used **6**)  
+STR 14 DEX 9 EDU 8 SOC 7 FAT 10/10 STM 7/7 Stress 0/5  
+Knack: Belter Rat. Expertise: STR (Cargo Handling).  
+Blade 0, jack suit (soak 0), EVA clamps, a lucky spacer charm he swears he doesn’t believe in.
 
-*Ship Shares: 2.  Fate, Stress, and Cr ebb faster than jump-fuel; keep tallies on the bulkhead chalkboard.*
+*Ship Shares: 2. Fate, Stress, and credits ebb faster than jump fuel; keep tallies on the bulkhead chalkboard.*
