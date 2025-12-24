@@ -9,12 +9,12 @@
 Because most RPG rulebooks ask you to memorise a phone-book of subsystems before you can bleed on the page.  
 Sinew & Steel works the other way round:
 
-* **One d20, five numbers, two tracks**: simple enough to fit on a beer-soaked coaster.  
-* **Friction where it matters:** burning Luck, shaving armour with margin, riding peril tracks.  
+* **One d20. Five stats. Luck tokens. Stamina. Pressure.**  
+* **Friction where it matters:**  Burning Luck, shaving armour with margin, riding peril tracks.  
 * **Skin-agnostic.**  Swap the coat of paint and you’re in Bronze-Age Atlantis, a Martian dust storm, or the heat-death horizon.  
 * **AI-ready.**  The rules are easy for a language model to keep in short-term memory, so the “GM” can focus on story beats instead of chart-flipping.
 
-> *Summarise the unwritten novel, said Borges.  We did.*
+> *A lean chassis for messy stories. Everything else is skin and sparks.*
 
 ---
 
@@ -26,10 +26,10 @@ Sinew & Steel works the other way round:
 | **Scores** | Attributes baseline 10 (6–16) and Stamina baseline 5 (3–9). Standard play starts with **6 build points** (grim 0, pulp 12, heroic 16): +1 above baseline costs 2 points; +1 below baseline costs 1 point. |
 | **Luck = tokens** | Spend to nudge dice; pool size *is* the score. |
 | **Stamina** | Baseline at 5; nudge with build points.  Hits deal 1 + weapon edge.  0 = collapse. |
-| **Pressure track** | 0-5 fuse.  Colour changes by skin (Heat, Doom, Shadow, Anomaly). |
+| **Pressure track** | 0-5 fuse.  Colour changes by skin (Doom, Shadow, Sin, Heat, Fatigue, Stress, Strain, Dread, Insanity, Anomaly…). |
 | **Dynamic armour** | Soak 1-3; attacker margin erodes soak 1 per 4 points. |
 
-That’s the chassis.  Everything else is flavour‐text.
+That’s the chassis. Everything else is flavour‐text.
 
 ---
 
@@ -38,15 +38,15 @@ That’s the chassis.  Everything else is flavour‐text.
 |Scenario | Pitch |
 |---|---|
 |Clanfire | Neanderthal Ice-Age survival. Totem spirits, Beast bonds, Shadow track. |
-|Age Undreamed Of | Howard-esque sword-and-sorcery. Doom, Heroic acts, foul Sorcery. |
-|Time Odyssey | H. G. Wells chrononautics. Ingenuity pool, Anomaly crises, epoch graphing. |
+|Iron & Ruin | Pulp sword-and-sorcery. Doom, Heroic acts, bargain-magic. |
+|Time Odyssey | Brass-and-crystal chrononautics. Ingenuity pool, Anomaly crises, epoch graphing. |
 |Briar & Benedictine | Medieval sleuthing. Divine providence, Sin and penance, murder mystery. |
-|Mars Saga | Noir-tinged colonised Mars. Heat track, psionics, red-dust grime. |
+|Rust & Domes | Noir-tinged Red Planet frontier. Heat track, psionics, red-dust grime. |
 |Candlelight Dungeons | Old-school dungeon crawl. Fatigue clock, spell backlash, torchlit terror. |
-|Jeffries-Tube Blues | Starfleet lower-deck drama. Resourcefulness pool, Stress track, system saves. |
-|Whispers in the Fog | Lovecraftian 1920s horror. Insanity track, fragile hope, occult dread. |
-|Free Traders of the Marches | Traveller-style starfreight drama. Ship Shares, Stress track, speculative cargo gambles. |
-|Twilight of the North-Kingdom | Tolkien frontier elegy. Hope and Shadow, subtle magic, barrow-depth dread. |
+|Service Duct Blues | Lower-decks starship drama. Resourcefulness pool, Stress track, system saves. |
+|Whispers in the Fog | Weird 1920s horror. Insanity track, fragile hope, occult terror. |
+|Free Traders of the Drift Marches | Starfreight drama. Ship Shares, Strain track, speculative cargo gambles. |
+|Twilight of the Northlands | Wanderer fantasy elegy. Hope and Dread, subtle rites, travel Fatigue. |
 
 Swap a few words and build your own skin in an afternoon.
 
@@ -54,7 +54,7 @@ Swap a few words and build your own skin in an afternoon.
 
 ## Quick start (campaign + agent)
 
-Start here if you want a Codex/Claude Code agent to run the game from this repo.
+Start here if you want a Codex CLI or Claude Code agent to run the game from this repo.
 
 1. **Install deps (recommended):**
    ```bash
@@ -133,7 +133,7 @@ The repo’s `/prompts/chat/` folder contains:
 * A **starter prompt template** that loads the engine + chosen skin in one go.  
 * A **hidden scenario prompt** for secret GM notes.
 
-No plugins needed for reasoning engines with tool use—`random.randint(1,20)` and short, punchy prose carry the night.
+No plugins needed for reasoning engines with tool use — `random.randint(1,20)` and short, punchy prose carry the night.
 
 ---
 
@@ -142,7 +142,7 @@ No plugins needed for reasoning engines with tool use—`random.randint(1,20)` a
 This repo includes an agent-focused harness to run sessions without API adapters:
 
 * **`AGENTS.md`** — operational rules for an AI agent running games.
-* **`skills/`** — small, reusable instruction files for common tasks (prompt build, dice, state updates).
+* **`skills/`** — small, reusable instruction files for common tasks (prompt build, editor notes, dice, state updates).
 * **`tools/`** — CLI helpers for assembling prompts, rolling dice, and updating YAML sheets.
 * **`manifest.yaml`** — a machine-readable index of rules, skins, and prompts.
 * **`state/`** — private notes, trackers, and character sheets (local runtime data).
@@ -166,7 +166,7 @@ Key utilities for play:
 
 ## Contributing
 
-Issues, forks, pull requests, new skins, typo fixes—all welcome.  Keep additions:
+Issues, forks, pull requests, new skins, typo fixes — all welcome. Keep additions:
 
 * **Lean.**  One new rule should replace three lines of “crunch.”  
 * **Setting-agnostic** in core; setting-specific rules live in `skins/`.  
@@ -182,11 +182,11 @@ Issues, forks, pull requests, new skins, typo fixes—all welcome.  Keep additio
 
 See `NOTICE` and `LICENSES/` for details and scope.
 
-Credit the project, hack it, sell adventures, translate it into Akkadian—just link back here.
+Credit the project, hack it, sell adventures, translate it into Akkadian — just link back here.
 
 ---
 
-> “Steel is honest; spells are treacherous.  Dice are the coin we pay for either.”  
+> “Steel is honest; spells are treacherous. Dice are the coin we pay for either.”  
 > — *Design notes, margin scrawl*
 
 Happy carving.

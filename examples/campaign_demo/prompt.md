@@ -9,122 +9,235 @@ RPG Style: Channel *Lone Wolf*, *Fighting Fantasy*, and *Choose Your Own Adventu
 ---
 
 ### 1. Core Engine (Sinew & Steel Rules)
-# **SINEW & STEEL — UNIVERSAL ROLL‑UNDER GAME ENGINE**
+# **SINEW & STEEL — ADVENTURER’S MANUAL**
 
-A razor‑lean chassis for any genre. One d20, five numbers, limitless skins. 
+A razor‑lean, setting‑agnostic chassis for any genre. One d20, five attribute scores, limitless skins.
 
-*Also ideal for use with reasoning-AI game masters with tool use.*
+In Sinew & Steel, a **skin** is a small genre overlay that renames the attributes, defines what fortune and fate represent, and adds a few custom rules.
 
----
-
-## 📜 ADVENTURER'S MANUAL (Player's Handbook)
-
-### 1 Core Principle
-
-Roll **one d20**. If the result is **≤ your attribute**, you succeed; higher, you fail.
-
-- **Natural 1** – legendary success | **Natural 20** – disastrous failure
-- **Advantage / Disadvantage** – roll two d20, keep the lower / higher.
-- **Opposed rolls** – both parties roll; if both succeed compare **margins** (attribute − roll). Higher margin wins; **ties favour the defender**.
-- Roll only when uncertainty + real stakes = drama.
+For the one‑page version, see `rules/quickstart.md`.
 
 ---
 
-### 2 Building a Hero
+## 1 The Core Rule
 
-Start with the **baseline frame**:
+Roll **one d20**. If the result is **≤ your attribute**, you succeed; if it’s higher, you fail.
 
-- Five attributes at **10** (rename to taste: Might, Reflex, Intellect, Empathy, Luck…)
-- **Stamina 5**
+### 1.1 Natural results
+- **Natural 1** — legendary success.
+- **Natural 20** — disastrous failure.
 
-**Point‑Buy Rule (double‑debit)**\
-Every +1 you add **above baseline** costs **‑2** total subtracted from any other score(s).
-No score may drop below 6 or rise above 16 (**Stamina** floors at 3, caps at 9).
+### 1.2 Margin (how well / how badly)
+**Margin** = `attribute − roll`.
+- Positive margin means you succeed with room to spare.
+- Negative margin means you fail (and how far off you were).
+
+### 1.3 Advantage / Disadvantage
+- **Advantage:** roll 2d20, keep the **lower**.
+- **Disadvantage:** roll 2d20, keep the **higher**.
+
+### 1.4 Opposed rolls
+Both sides roll under their relevant attribute.
+
+- If only one side succeeds, that side wins.
+- If both succeed, compare **margins**. Higher margin wins.
+- **Ties favour the defender.**
+- If both fail, the defender wins (you don’t “accidentally succeed”).
+
+### 1.5 When to roll
+Roll only when **the outcome is uncertain** *and* **it matters**.
+If failure would be boring, resolve it narratively.
+
+**Micro‑example (the table loop):**
+> Custodian: “The rope bridge is slick with ice. What do you do?”  
+> Player: “I go slow, testing each plank, and keep low.”  
+> Custodian: “That’s careful. Roll under REF with Advantage. On a fail you still cross, but you lose time and the Pressure clock ticks.”
+
+---
+
+## 2 Building a Hero
+
+### 2.1 Start from the baseline frame
+Every character begins at:
+- **Five attributes at 10** (skins rename these to fit genre).
+- **Stamina 5** (STM: your health).
+
+Legal ranges at creation:
+- Attributes: **6–16**
+- Stamina: **3–9**
+
+### 2.1.1 What the five attributes mean (default names)
+Skins rename and re‑flavour attributes, but the core game assumes five broad domains.
+If you need a default set (and for examples in this manual), use:
+
+- **MGT — Might:** strength, endurance, force, brutality.
+- **REF — Reflex:** speed, coordination, balance, stealth, aim.
+- **INT — Intellect:** knowledge, planning, perception, systems.
+- **EMP — Empathy:** social sense, willpower, leadership, composure.
+- **LCK — Luck:** tokens you spend to nudge fate (and roll under when sheer chance decides).
+
+### 2.2 The point‑buy economy (plain English)
+You can customize your stats using the same economy in two equivalent ways:
+
+**A) Trade‑offs (the “double‑debit” ledger):**  
+Every **+1** you push **above baseline** must be “paid for” by **‑2 total** below baseline across other scores.
+
+**B) Build points (the tone dial):**  
+Build points let you raise stats without taking as many trade‑offs.
+
+You can mix these: take some trade‑offs, spend some build points; they’re two ways of paying into the same economy.
+
+Cost model (same for attributes and Stamina):
+- If the score is **at/above baseline**, **+1 costs 2 build points**.
+- If the score is **below baseline**, **+1 costs 1 build point** (to climb back toward baseline).
 
 Baseline notes:
 - Attributes baseline at **10**.
 - Stamina baseline at **5**.
 
-> *"Bump a stat up? Pay double elsewhere."*
+> *Bump a stat up? Either pay double elsewhere… or pay build points.*
 
-Milestones hand out **2 build points** that follow the same rule: +1 to an above‑baseline score **or** +2 to a below‑baseline score (Stamina baseline 5; attributes baseline 10).
+### 2.3 Starting build points (recommended default)
+At creation, the Custodian chooses a starting budget for tone:
+- **0** (grim survival)
+- **6** (standard; recommended default)
+- **12** (pulp competence)
+- **16** (heroic flair)
 
-The Custodian may also allot each player 0 (grim), 6 (standard), 12 (pulp) or 16 (heroic) build-points **at creation** and let them sculpt freely by the +1/-2 economy.
+### 2.4 Step‑by‑step creation (fast, reliable)
+1. Pick a skin (it names your five attributes and your Pressure track colour).
+2. Write the baseline frame: five 10s, Stamina 5.
+3. Choose one “signature” strength and raise it.
+4. Either:
+   - take matching trade‑offs (‑2 total per +1 above baseline), **or**
+   - spend build points to avoid (some of) those reductions.
+5. Set your **Luck pool**: your skin tells you which attribute is Luck.
+6. Write 3–6 items of gear and one small advantage (if your table uses them).
 
-Note: Stamina uses a **baseline of 5** (not 10) but still participates in the same +1/-2 ledger.
+### 2.5 Worked example (build points + trade‑offs)
+You want a sharp‑witted hero and you raise INT from 10 to 13 (**+3 above baseline**).
 
----
-
-### 3 Luck Pool
-
-Your **Luck score** *is* your token count.
-
-> "*The more you bend fate, the greater the later risk.*"
-
-- Spend any number of tokens after seeing a roll to nudge the die ±1 per token (naturals 1 & 20 remain fixed).
-- Luck tests roll ≤ *current* score.
-- Rest +1 token; Milestone refills to baseline (and may raise that for 2 build points).
-
-> *You may spend Luck after a successful attack to deepen your margin and chew through armour (see 6.2).*
-
----
-
-### 4 Health & Recovery
-
-- Generic wound = 1.
-- Light / Standard / Brutal weapons add +0 / +1 / +2.
-- At **0 STM** you collapse; fate per fiction.
-- Short rest +1 STM; good care +2.
-- Healing caps at baseline STM.
-- Instantly fatal blows are possible: Custodian will advise.
+- Trade‑off version: you must take **‑6 total** across other scores (no build points required).
+- Build‑point version: you can instead spend **6 build points** (2 per +1 above baseline) and keep the rest closer to baseline.
 
 ---
 
-### 5 Taking Action
+## 3 Luck Pool (tokens)
 
-#### 5.1 Simple Tests
+Your **Luck score** *is* your token pool.
+If your skin says “Hope” or “Fortune” or “Resourcefulness,” that score is still Luck mechanically.
 
-Roll under the relevant attribute. Advantage / Disadvantage as fiction dictates.
+Luck pulls double duty: it’s a pool you spend to bend results, and it’s the score you roll under when sheer chance decides.
+Spend for the moment, but remember you’ll feel it in the future, when the Custodian asks you to “Test your Luck!”.
 
-#### 5.2 Opposed Tests
+> *The more you bend fate now, the shakier your later odds.*
 
-Both roll. If only one succeeds, that side wins. If both succeed, compare margins; higher wins, ties defend.
+- After you see a roll, spend any number of tokens to **nudge** the die **±1 per token**.
+  - **Natural 1 and 20 are locked** (cannot be nudged).
+- Luck tests roll **≤ your current tokens** (not your maximum).
+- A short rest restores **+1 token**.
+- At a milestone, you refill back up to your Luck score (your max).
+
+Combat note:
+> You may spend Luck after a successful attack to deepen your margin and chew through armour soak.
 
 ---
 
-### 6 Combat Snapshot
+## 4 Stamina (Health) & Recovery
 
-1. **Attacker** rolls under Melee/Range attribute.
-2. **Defender** rolls under Dodge/Parry/Cover.
-3. On a hit: damage = 1 STM + weapon edge – **effective soak**.
-4. Natural 1 or margin ≥ 10 adds +1 damage.
+- **Damage reduces Stamina.**
+- Typical weapons add **edge**: +0 / +1 / +2.
+- At **0 Stamina**, you collapse (what that means is fiction‑dependent).
+- Short rest: **+1 Stamina** (up to your max).
+- Good care: **+2 Stamina** (up to your max).
 
-#### 6.1 Weapon Edges (suggested)
+Stamina isn’t a promise of immortality: falls, fire, vacuum, and guillotines can be instantly fatal.
+The Custodian may warn you when the fiction implies lethal stakes beyond a normal wound.
 
-- Improvised club 0 | Blade/Spear/Handgun +1 | Great‑axe/Rifle/Plasma +2
+---
 
-#### 6.2 Armour & Dynamic Soak
+## 5 Taking Action
 
+### 5.1 Simple tests
+Roll under the relevant attribute, or test your luck. Advantage / Disadvantage as fiction dictates.
+
+### 5.2 Opposed tests
+Both roll. If only one succeeds, that side wins. If both succeed, compare margins; higher wins; ties defend.
+
+---
+
+## 6 Combat
+
+1. **Attacker** rolls under the attribute that matches how they attack.
+   - **Heavy / forceful** (wrestle, smash, cleave): usually **MGT**.
+   - **Fast / precise** (finesse, archery, thrown weapons): usually **REF**.
+   - **Clever / technical** (aiming for a weak point, gadgets, “spells”): usually **INT**.
+   - **Presence / nerve** (taunt, command, distract, intimidate): sometimes **EMP**.
+   - **Lucky break** (pull off a trick shot, trigger an environmental cascade): rarely **LCK**.
+2. **Defender** rolls under the attribute that matches how they defend.
+   - **Dodge** (get out of the way): usually **REF**.
+   - **Parry / brace** (meet force with force): usually **MGT**.
+   - **Cover / positioning** (angles, terrain, timing): usually **INT**.
+   - **Luck** (sheer chance — a ricochet, a misfire, a loose plank): sometimes **LCK**.
+   - **Composure / resolve** (keep your head, accept a surrender, resist intimidation): sometimes **EMP**.
+
+   If there’s no plausible defense (surprised, pinned, helpless), the Custodian can skip the defense roll — or call for Luck if fate alone might spare you.
+3. On a hit: damage = **1 + weapon edge − effective soak**.
+4. **Natural 1** or **margin ≥ 10** adds **+1 damage**.
+   If your goal isn’t harm (disarm, drive off, talk down), use the same opposed roll — but apply the agreed consequence instead of damage.
+
+**Tiny examples (conflict without extra rules):**
+> One‑in‑a‑million: you fire a last‑ditch ricochet shot (attack with **LCK**) to sever a hanging rope. On success, the portcullis drops; on failure, it stays up and Pressure rises.
+> Talk‑down: you step in hard and command a surrender (attack with **EMP**) while your ally keeps their blade ready (threat in the fiction). On success, they back down; on failure, they lash out or call reinforcements.
+
+### 6.1 Weapon edges (suggested)
+- Improvised club **+0**
+- Blade / spear / handgun **+1**
+- Great‑axe / rifle / plasma **+2**
+
+### 6.2 Armour & dynamic soak
 | Armour                   | Base soak |
-| ------------------------ | --------- |
-| Hide / Leather           | 1         |
-| Mail / Kevlar            | 2         |
-| Plate / Powered carapace | 3         |
+| ------------------------ | --------: |
+| Hide / leather           |        1 |
+| Mail / kevlar            |        2 |
+| Plate / powered carapace |        3 |
 
-After a hit reduce soak **by 1 for every full 4 points of attacker margin** (round down). Remainder subtracts from damage. Critical 1 ignores all soak.
+After a hit:
+- Reduce soak by **1 for every full 4 points of attacker margin** (round down).
+- Any remaining soak reduces damage normally.
+- **Natural 1 ignores all soak.**
+
+**Micro‑example (soak erosion):**
+> You hit with margin +9 against soak 2.  
+> Full 4s = 2 → soak drops by 2 (to 0).  
+> The armour is shredded at the penetration point; this hit takes full damage.
 
 ---
 
-### 7 Carry Limit
+## 7 Carry Limit
 
-Six substantial items ride comfortably; more invites Disadvantage on agility tasks. Tiny trinkets are free. Money has no limit, but excess attracts unwanted attention.
+Six substantial items ride comfortably; more invites Disadvantage on agility tasks.
+Tiny trinkets are free.
+
+Money does not count against carry limit. By default it’s tracked loosely in the fiction — but if your table wants it tangible, use the optional **Wealth (0–4)** track (see the Custodian’s Almanac).
 
 ---
 
-### 8 Quick‑Reference Tables
+## 8 Pressure & Milestones (the pacing tools)
 
-**8.1 Chance to Succeed (single d20)**
+Every skin uses a shared **Pressure track (0–5)**, renamed to fit genre (Doom, Stress, Shadow, Heat, Insanity, Anomaly…).
+Pressure is the fuse: it rises with risk, blunders, bargains, and time pressure.
 
+- When Pressure hits **5**, a **crisis** triggers — then Pressure **resets to 0**.
+- Milestones happen every 3–4 *perilous* beats:
+  - **+2 build points**
+  - and a narrative boon (ally, relic, favour, scar, access)
+
+---
+
+## 9 Quick‑Reference Tables
+
+### 9.1 Chance to succeed (single d20)
 | Score | Straight | Adv. | Dis. |
 | ----- | -------- | ---- | ---- |
 | 6     | 30 %     | 51 % | 9 %  |
@@ -134,11 +247,10 @@ Six substantial items ride comfortably; more invites Disadvantage on agility tas
 | 14    | 70 %     | 91 % | 49 % |
 | 16    | 80 %     | 96 % | 64 % |
 
-**8.2 Attacker Wins Opposed Check (%)**
+### 9.2 Attacker wins opposed check (%)
+(Attacker rows, defender columns)
 
-(Attacker rows, Defender columns)
-
-|    | 6  | 8  | 10 | 12 | 14 | 16 |
+| Sc | 6  | 8  | 10 | 12 | 14 | 16 |
 | -- | -- | -- | -- | -- | -- | -- |
 | 6  | 25 | 22 | 19 | 16 | 13 | 10 |
 | 8  | 35 | 31 | 27 | 23 | 19 | 15 |
@@ -149,200 +261,281 @@ Six substantial items ride comfortably; more invites Disadvantage on agility tas
 
 ---
 
-*Print this on a double-sided sheet, slide it under a coffee cup, and you’re ready to play!*
+*Print this on a double‑sided sheet, slide it under a coffee cup, and you’re ready to play.*
 
 
 ### 2. Custodian's Almanac (GM Guide and Extra Rules)
-# **SINEW & STEEL — UNIVERSAL ROLL‑UNDER GAME ENGINE**
+# **SINEW & STEEL — CUSTODIAN’S ALMANAC**
 
-A razor‑lean chassis for any genre. One d20, five numbers, limitless skins. 
+A razor‑lean booklet for custodians (GMs): pacing levers, adjudication guidance, and optional modules.
+One d20, five attribute scores, limitless skins.
 
-*Also ideal for use with reasoning-AI game masters.*
+For player‑facing rules, see `rules/quickstart.md` and `rules/core/adventurers_manual.md`.
 
 ---
 
-## 🕯️ CUSTODIAN’S ALMANAC (GM Guide)
+## 🕯️ Custodian’s Almanac (GM Quick Guide)
 
-### 1 Luck Tests — Guidance
+### 1 The Custodian’s job (30 seconds)
+You do three things, on repeat:
 
-Call for Luck when **no skill reasonably applies** or when sheer fate decides: rockfalls, blind picks, surprise patrol timings. Use sparingly: one or two per session is plenty.
+1. **Frame the fiction** (concrete details, a hook, a pressure point).
+2. **Ask for intent + method** (“What do you do, and how?”).
+3. **Adjudicate** (no roll / roll‑under / opposed), then apply consequences.
 
-You can season luck recovery: a sacred ritual adds +3, a night on Martian rad‑dust adds none.
+The rules exist to support momentum. If you’re forcing dice every sentence, you’re doing it wrong.
 
-### 2 Pressure Track (Doom / Shadow / Anomaly, etc.)
+### 2 When to roll (and when not to)
+Call for a roll only when:
+- the outcome is **uncertain**, and
+- the outcome **matters** (risk, time, reputation, resources, irreversible consequences).
 
-A 0–5 fuse shared by all skins.
+If the player’s approach is plausible and failure would be boring, resolve it narratively.
 
-| Step         | Mood               | GM levers                                   |
-| ------------ | ------------------ | ------------------------------------------- |
-| 0            | Calm               | —                                           |
-| 1            | Unease             | Cosmetic omens                              |
-| 2            | Stirrings          | Minor Disadvantage, flicker tech            |
-| 3            | Rumble             | Noticeable penalty, NPC mistrust            |
-| 4            | Fracture           | Abilities cost +1 Luck, environment hostile |
-| 5 **Crisis** | Backlash / Paradox | Trigger Crisis table, reset to 0            |
+**Good non‑roll outcomes:**
+- **Yes, and…** (clean success with an extra advantage)
+- **Yes, but…** (success with cost: time, noise, +1 Pressure, lost item)
+- **No, but…** (failure with progress: you get in, but you’re spotted)
 
-**Earning & Purging** — failure on risky rituals, taboo acts, or desperate bargains adds +1.  Sacrifice, cleansing rites, or story quests remove points.  Crisis results in a dramatic twist then resets.
+### 3 Luck tests (sheer fate)
+Call for players to “Test your Luck!” when **no skill reasonably applies** or when pure chance decides:
+rockfalls, blind picks, patrol timings, “did the guard step away for a second?”
 
-### 3 Milestones & Boons
+Use sparingly — one or two Luck tests per dozen beats is plenty.
 
-Every 3–4 perilous beats, award 2 build points **and** a narrative boon (rare item, ally favour, mystic scar). Boons never break the maths; they sit outside the economy. 
+You can season recovery by fiction: a sacred rite adds +3 tokens; a night on Martian rad‑dust adds none.
 
-Progress is narrative, not numeric grind.
+### 4 Pressure track (Doom / Shadow / Heat / Anomaly…) and Clocks (Countdowns)
+A universal **0–5 fuse** shared by all skins. When it hits **5**, a crisis triggers — then it resets to **0**.
 
-### 4 GM Moves When Players Stall
+| Step         | Mood               | Custodian levers                             |
+| ------------ | ------------------ | -------------------------------------------- |
+| 0            | Calm               | —                                            |
+| 1            | Unease             | Cosmetic omens                               |
+| 2            | Stirrings          | Minor Disadvantage, flicker tech             |
+| 3            | Rumble             | Noticeable penalty, NPC mistrust             |
+| 4            | Fracture           | Abilities cost +1 Luck, environment hostile  |
+| 5 **Crisis** | Backlash / Paradox | Trigger crisis, then reset Pressure to **0** |
 
-Advance clock · reveal omen · shift terrain · offer harsh bargain. Keep fiction flowing without forcing dice every time.
+**Earning & purging**
+- Add **+1 Pressure** for: desperate bargains, taboo acts, noisy heroics, risky rituals, big blunders, time passing under threat.
+- Remove points by: sacrifice, cleansing rites, story quests, cash burn, hard‑won safety.
+- A crisis should be a **dramatic twist**, not a punishment; it resets the fuse so play keeps moving.
 
-### 5 Optional Plug‑Ins
+**Micro‑example (Pressure as a lever):**
+> “You can kick the door right now. It’ll work — but it’s loud. +1 Pressure.”
 
+**Clocks (Heat / Threat / countdowns)**
+Alongside Pressure, you may also run one or more **clocks**: named progress meters that track a specific looming outcome.
+
+- A clock is usually **4–8 ticks** (but any size works).
+- When a clock fills, **something happens** (“guards arrive,” “the storm closes the pass,” “the cult completes the rite,” “the ship jumps to red alert”).
+- You can **tick** a clock when time passes, after failures, or when players stall — it’s a clean way to apply pressure without demanding a roll.
+- Clocks can be **public** (“Reinforcements: 3/6”) or **hidden** (revealed only as signs and consequences).
+
+**Pressure vs clocks**
+- **Pressure** is universal, abstract, and short‑cycle: it hits 5, triggers a crisis, then resets to 0.
+- **Clocks** are specific, story‑facing, and long‑cycle: they track one concrete danger or countdown and don’t reset unless you choose to reset them in the fiction.
+
+### 5 Milestones & boons (progress without grind)
+Every 3–4 *perilous* beats or combat encounters, award:
+- **+2 build points**, and
+- **a narrative boon** (rare item, ally favour, mystic scar, access, safe refuge).
+
+Boons don’t break the maths; they sit outside the economy. Progress is narrative, not numeric grind.
+
+### 6 Moves when players stall
+If players stall, don’t demand a roll “to do something.” Move the world:
+
+- advance a clock
+- reveal an omen
+- shift weather / lighting / terrain
+- offer a harsh bargain
+- introduce a threat with a visible timer
+
+**Micro‑example (unstick play):**
+> “While you argue, the lantern sputters. If you don’t act, it goes out in one minute.”
+
+### 7 Optional plug‑ins (use only what you need)
 - **Totem/Feat** — once per session gain Advantage at cost of 1 Luck or +1 Pressure.
 - **Allies / Pets** — treat as a temporary 3‑token Luck pool that depletes on use.
-- **Stress Tracks** — Fear, Radiation, Madness: same 0–5 ladder, own colour text.
+- **Condition Tracks** — Fear, Radiation, Madness: extra 0–5 fuses like Pressure, but tied to one specific hazard. Use them only when you want a **second escalation axis** besides Pressure; otherwise use clocks.
+- **Wealth & Attention** — optional 0–4 “money” track; big spends drop it; flashing wealth draws trouble.
 
-### 6 Advice for the AI GM
+### 8 Advice for AI game masters (optional)
+If you’re running Sinew & Steel with an AI custodian:
 
-In AI-driven play:
+- Write scenes in **2–5 paragraphs**, ending on tension or uncertainty.
+- Offer **2–4 numbered options** (and allow freeform play, always).
+- State **stakes before rolling** (what changes on success vs failure).
+- Roll only for uncertainty + stakes — many beats are pure narrative.
+- Record outcomes: what changed, what was spent, what clock ticked.
 
-- Write scenes of 300–500 words: *Hook → Action → Consequence* ending on tension.
-- Offer 2–4 numbered options, one risky or hidden.
-- Track scenes as a directed graph; mark *Save Nodes* for rewinds on total defeat at a cost (Pool drain or +Pressure).
-- Keep dice secret for suspense or show them for agency—your call. Use hidden code (\`random.randint(1,20)\`) to preserve neutrality; surface results, margins, and Pool‑spend offers.
-
-**Beat length guideline:** Descriptive passage should fall between 300 and 500 words (2-5 paragraphs) before options. Include at least two vivid sensory cues and a note of inner mood. If rushed play demands shorter text, bank that “word credit” and pay it back next beat.
-
----
-
-*Print this on a single sheet, slide it under a coffee cup, and you’re ready to run anything from mammoth hunts to star‑ship mutinies.*
+Dice neutrality matters. Use a method the table trusts (physical dice, a local tool, or a transparent roll function).
+Always surface the result, margin, and any Luck‑spend offer.
 
 ---
 
-# Custodian's Toolkit
-
-*Optional deep‑dive for designers, GMs and tinkerers.*
+*Print this, slide it under a coffee cup, and you’re ready to run anything from mammoth hunts to starship mutinies.*
 
 ---
 
-## Part I Player Insights
+# **Custodian’s Toolkit**
+*Optional deep‑dive for designers, tinkerers, and busy custodians who like tables.*
 
-### A. Why Five Numbers?
+---
 
-Five scores map cleanly onto the d20’s 20‑step granularity while keeping sheets readable. A ±2 trade‑off rule stops power creep yet lets extremes emerge.
+## Part I Player insights (why the chassis works)
 
-### B. Burning Luck — When It Matters
+### A. Why five numbers?
+Five attribute scores map cleanly onto the d20’s 20‑step granularity while keeping sheets readable.
+A tight economy stops power creep yet still allows extremes to emerge.
 
-- **Save the day**: Flip a total miss into a glancing hit to avoid a TPK.
-- **Pierce armour**: Spend extra tokens after a success to deepen margin and shred soak.
-- **Turn the plot**: Burn the last 3 Luck on a vital opposed test—knowing future Luck rolls are now long shots.
+### B. Burning Luck — when it matters
+- **Save the day:** flip a miss into a glancing hit to avoid disaster.
+- **Pierce armour:** spend extra tokens after a success to deepen margin and shred soak.
+- **Turn the plot:** burn your last 3 Luck on a vital opposed roll, knowing future Luck tests are now long shots.
 
-> **Guideline**: A pool under 4 tokens means “walk gingerly”; under 2 means “pray for milestone.”
+> **Guideline:** a pool under 4 tokens means “walk gingerly”; under 2 means “pray for milestone”.
 
-### C. Sample Builds (baseline 10/5)
-
-| Concept       | MGT    | REF | INT    | EMP    | LCK | STM   |
-| ------------- | ------ | --- | ------ | ------ | --- | ----- |
-| Scholar       | 7      | 10  | **14** | 10     | 7   | 3     |
-| Iron Brute    | **15** | 7   | 6      | 8      | 10  | 4     |
-| Silver‑tongue | 8      | 8   | **11** | **12** | 9   | 4     |
-
+### C. Sample builds (baseline 10/5)
 All obey the +1/‑2 ledger (attributes baseline 10; Stamina baseline 5).
-These examples spend **0 build points** (pure trade-offs); add starting build points to taste.
+These examples spends a mix of **6 build points** and stat trade‑offs; add starting build points to taste.
+
+| Concept       | MGT    | REF | INT    | EMP    | LCK | STM |
+| ------------- | ------ | --- | ------ | ------ | --- | --- |
+| Scholar       | 7      | 10  | **14** | 10     | 11  | 4   |
+| Iron Brute    | **15** | 7   | 6      | 7      | 10  | 8   |
+| Silver‑tongue | 8      | 10  | **11** | **13** | 10  | 5   |
 
 ---
 
-## Part II Optional Plug-in Rules
+## Part II Optional modules & tables
 
-### A. Tone Dial — Build-Point Pool
+### A. Tone dial — build‑point pool
 At character creation you may gift each player build points to set tone:
-- 0 for grim survival
-- 6 for standard play (recommended default)
-- 12 for pulpy competence
-- 16 for heroic flair
+- **0** for grim survival
+- **6** for standard play (recommended default)
+- **12** for pulpy competence
+- **16** for heroic flair
 
 (Or pick any number that fits your table.)
 
-The pool lets heroes spike a signature strength or patch a weakness without repainting every stat. It adjusts the success rate (≈ 50 %, 60 %, 70 %) while leaving all core maths, tables and advance pacing untouched.
+The pool lets heroes spike a signature strength or patch a weakness without repainting every stat.
+It shifts capability while leaving core maths and pacing intact.
 
-### B. Luck Test Frequency
+### B. Luck test frequency
+> **Rule of thumb:** if you’ve called for Luck twice this session, reach for another lever before a third.
 
-> **Rule of Thumb**: If you’ve called for Luck twice this session, reach for another lever before a third.
-
-### C. Pressure Colour Suggestions
-
+### C. Pressure colour suggestions
 | Skin            | 1                | 2             | 3             | 4             | 5 (Crisis)        |
 | --------------- | ---------------- | ------------- | ------------- | ------------- | ----------------- |
 | Sword & Sorcery | Whispered sigils | Blood moon    | Spirits stalk | Gates crack   | Demon walks       |
 | Hard‑SF         | Static blips     | Sensor ghosts | Hull groans   | Reactor spike | Core breach       |
 | Gothic Horror   | Chill wind       | Mirrors fog   | Whispers grow | Shadows move  | The Guest arrives |
 
-### D. NPC / Monster Design (30‑second method)
+### D. NPC / monster design (30‑second method)
+1. **Pick threat tier (the number that matters):** *Peasant 8 | Soldier 10 | Elite 12 | Monster 14 | Nemesis 16*
+   - This number is the NPC’s **tier score**: the roll‑under target for their main actions.
+   - You can run simple NPCs with **one score** (use the tier score for most rolls).
+   - If you want a little texture, give them a **strong/weak pair**:
+     - one “best” attribute at **tier**
+     - one “worst” attribute at **tier − 4**
+     - treat anything else as **tier − 2** (or just improvise per fiction).
+   - NPC stats may fall below player‑character creation floors; that’s fine — they’re not built on the same ledger.
+2. **Assign stamina, edge & soak:**
+   - Suggested **Stamina** by tier (human‑scale): Peasant 3, Soldier 4, Elite 5, Monster 6, Nemesis 7.
+   - For **large beasts** add +2 Stamina; for a **boss** add +4 (or give them a second phase at 0).
+   - Suggested weapon **edge**: Light +0 / Standard +1 / Brutal +2.
+   - Suggested armour **soak**: Hide 1 / Shell 2 / Plate 3.
+3. **Give a hook:** one special move or rule that makes them feel distinct (“mind‑spike forces Luck test,” “web‑snare: failed Reflex ⇒ immobile until cut free,” “howl: on nat 20 targets mark +1 Pressure”).
 
-1. **Pick Threat Tier**
-   *Peasant 8 | Soldier 10 | Elite 12 | Monster 14 | Nemesis 16*
-2. **Assign Edge & Soak**
-   Light 0 / Standard +1 edge | Hide 1 soak / Shell 2 soak.
-3. **Give a Hook**
-   “Claw swipe +1 dmg,” “Mind‑spike forces Luck roll,” etc.
+Examples:
+- **Tunnel Brute (Elite 12)** — MGT 12, REF 8, STM 5; edge +1 club, soak 1 hide; on hit may drag victim 5 m into darkness.
+- **Cave Bear (Monster 14, large)** — MGT 14, REF 8, STM 8; edge +2 maul, soak 1 thick fur; on attacker nat 1 bear counter‑swipes 1 STM.
 
-*Example*: **Morlock Brute** – MGT 12, REF 8, edge +1 club, soak 1 hide, special: on hit may drag victim 5 m into darkness.
-*Example*: **Cave Bear** – MGT 15, FLT 8, edge +2 maul, soak 1 thick fur, special: on attacker Nat 1 bear counter‑swipes 1 STM.
+### E. “Fatal” tag (one‑line universal override)
+> **Fatal** — this harm **ignores Stamina and soak**; a struck target drops to 0 STM unless they possess the listed counter‑measure.
 
-### E. “Fatal Tag” — a one-line universal override  
+Use it sparingly, flag it clearly, and state the counter up front.
 
-> **Fatal** This harm **ignores Stamina and soak**; a struck target drops to 0 STM unless they possess the one listed counter-measure.
-
-*Use it sparingly, flag it clearly, and state the counter up front.*
-
-| Setting | Fatal weapon / event | Counter-measure |
+| Setting | Fatal weapon / event | Counter‑measure |
 |---|---|---|
-| **Jeffries-Tube Blues** | Phaser set to *disrupt* | Personal shield emitter or starship force-field |
-| **Age Undreamed Of** | Basilisk gaze | Averting eyes behind a polished bronze mirror |
-| **Clanfire** | Mammoth stampede hoof | Spending 1 Instinct **and** passing a FLT roll to dive clear |
-| **Candlelight Dungeons** | Assassin’s throat-slit on sleeping victim | Staying conscious or wearing gorget; helmet while resting |
+| **Service Duct Blues** | Rapid decompression | Sealed suit **or** an emergency bulkhead seal |
+| **Iron & Ruin** | Basilisk gaze | Averting eyes behind a polished bronze mirror |
+| **Clanfire** | Mammoth stampede crush | Spending 1 Luck (Clanfire: Instinct) **and** passing a Reflex/Fleetness roll to dive clear |
+| **Candlelight Dungeons** | Assassin’s throat‑slit on sleeping victim | Staying conscious or wearing a gorget helmet while resting |
 
 **How to apply**
+1. Declare: **Fatal (counter: X)**.
+2. If the target lacks the counter, they drop to **0 Stamina** immediately; normal collapse/death rules follow.
+3. Counters can be equipment, a successful roll, or a resource spend — keep it explicit.
 
-1. Declare the attack/event is **Fatal (counter: X)**.  
-2. If the target lacks the counter, they drop to **0 Stamina** immediately; normal collapse/death rules follow.  
-3. Counters can be equipment, a successful roll, or a resource spend—keep it explicit.
+Why it works:
+- cinematic stakes without new math
+- a single tag plus a counter clause
+- scales across genres without rewriting combat
 
-**Why it works**
+### F. Advantage source list (example set)
+- Solid cover (Dodge Adv.)
+- Has the high ground (Melee Adv.)
+- Blind firing (Ranged Dis.)
+- Exhausted (Stamina ≤ 2 ⇒ Dis. on physical)
 
-* Adds cinematic stakes without new math.  
-* Remains lean: a single tag plus a counter clause.  
-* Scales across genres—laser vaporise, divine smite, syringe to carotid—without rewriting core combat.
+Add or prune per skin.
 
-### F. Advantage Source List
-
-- Solid cover   (Dodge Adv.)
-- Height on foe (Melee Adv.)
-- Blind firing  (Ranged Dis.)
-- Exhausted     (Stamina ≤ 2 ⇒ Dis. on physical)
-
-Add or prune per setting.
-
-### G. Milestone Boon Bank (d6)
-
+### G. Milestone boon bank (d6) — mixed examples
 1. Trusted ally owes a favour
 2. Rare gadget (+1 Adv. on one skill)
 3. Mystic scar (+1 build point to Spirit stat)
 4. Hidden refuge grants full Luck reset mid‑adventure
 5. Weapon gains +1 edge vs. one foe type
-6. Vision of future – ask GM one yes/no about next session
+6. Vision of future — ask the custodian one yes/no about next session
 
-### H. Conversion Pointers
-
-- **d100 games** – divide skill by 5 ≈ attribute
-- **PBTA 2d6+stat** – (10+ stat) × 5 ≈ attribute chance
-- **OSR AC** – treat armour class /2 rounded as soak (leather 1… plate 3)
+### H. Conversion pointers
+- **d100 games:** divide skill by 5 ≈ attribute
+- **PBTA 2d6+stat:** (10 + stat) × 5 ≈ attribute chance
+- **OSR AC:** treat armour class / 2 rounded as soak (leather 1… plate 3)
 
 ---
 
-### Using This Document
+### I. Wealth & Attention (optional money subsystem)
+By default, Sinew & Steel does not count coins, credits, or rations.
+Money doesn’t take inventory slots — but it can still matter in play.
 
-Hand the *Rules on a Page* to the table; keep this booklet behind the screen or share digitally for deeper guidance.  Trim, hack, translate—licence is CC‑BY; credit & create.
+If you want money to have table‑weight without bookkeeping, track a single **Wealth** score per party or per character:
 
-“*In libraries we find legions of unwritten books; we merely summarise them here.*” — after Borges
+| Wealth | Name   | What it means (examples)                     |
+| ------ | ------ | -------------------------------------------- |
+| 0      | Broke  | scavenging, begging, barter only             |
+| 1      | Poor   | basic food, cheap lodging, simple gear       |
+| 2      | Steady | normal supplies, travel, common bribes       |
+| 3      | Flush  | serious bribes, mounts, quality kit          |
+| 4      | Rich   | rare goods, influence, attention magnets     |
+
+**How to use it**
+- **Trivial costs:** ignore them.
+- When a purchase matters, assign a **cost tier** (0–4).
+  - If Wealth is **≥ tier**, they can afford it.
+  - If it’s a meaningful spend, **reduce Wealth by 1** (don’t do this for every meal).
+- If Wealth is **below tier**, roll **LCK**:
+  - **Success:** they scrape it together — but Wealth drops by 1 *or* they take a complication (debt, favour owed, suspicious seller).
+  - **Failure:** they can’t afford it — or they can only afford it by paying a hard cost (Debt clock, +Pressure, dangerous favour).
+
+**Attention rule (turn riches into story):**
+When Wealth is **3+** and they flash it in public (big bribes, rare purchases, loud luxury), expect consequences:
+- tick **Pressure** (+1), **or**
+- start/tick a **Heat/Threat** clock.
+
+Rename Wealth per skin (Coin / Dollars / Credits / Supplies / Influence / Cargo Scrip) without changing the procedure.
+
+---
+
+### Using this document
+Hand the two‑page rules to the table; keep this booklet behind the screen (or share it digitally for deeper guidance).
+Trim, hack, translate — licence is CC‑BY; credit & create.
+
+> “In libraries we find legions of unwritten books; we merely summarise them here.” — after Borges
 
 
 ### 3. Skin Add-On (Setting and Rules Modifications)
@@ -352,9 +545,12 @@ Hand the *Rules on a Page* to the table; keep this booklet behind the screen or 
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
 
+Clanfire is a survival story skin: you are a small band of hunters in a cold land where hunger, weather, beasts, spirits, and strangers all bite.
+Expect hunts, migration, taboo, and uneasy encounters with Sapiens — and remember that the hearth is as precious as the spear.
+
 ---
 
-## 🔥 HUNTER'S MARK
+## 🔥 HUNTER'S MARK (Adventurer)
 
 ### Attribute Names
 | Core slot | Clanfire label | What it governs |
@@ -365,8 +561,12 @@ _(Paste atop the Sinew & Steel rules; anything not listed here follows the c
 | Empathy | **Spirit (SPR)** | willpower, ritual chant, resisting fear and frost |
 | Luck | **Instinct (INS)** | gut fortune, sudden insight **and** expendable pool |
 
+**Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
+
 ### Instinct (Luck) flavour
-Tokens are carved bone beads.  Rest by the hearth +1 bead; mythic visions, trance rites or spirit blessings may restore more. Empty instincts leave hunters exposed to fate.
+Tokens are carved bone beads. A rest by the hearth restores **+1 bead**; mythic visions, trance rites, or spirit blessings may restore more.
+
+When the Custodian calls for pure chance or gut‑feeling — “**Test your Instinct**!” — roll under your **current beads**. Empty instincts leave hunters exposed to fate.
 
 ### Weapons & Edges
 | Weapon | Edge |
@@ -381,16 +581,18 @@ Tokens are carved bone beads.  Rest by the hearth +1 bead; mythic visions, tranc
 | Hide / Fur cloak | 1 |
 | Leather + bone splints | 2 |
 
-(Critical 1 ignores all soak; dynamic soak 1‑per‑4‑margin applies.)
+(Dynamic soak: after a hit, reduce soak by **1 per full 4 points** of attacker margin; **nat 1 pierces all**.)
 
 ### Recovery
-A short rest with fire and water restores **1**, deep shelter and herbs **2**. Grave wounds need shaman craft.
+A short rest with fire and water restores **+1 Stamina**; deep shelter and herbs **+2** (never above max). Grave wounds need shaman craft.
 
 ### Totem Mark (once per session)
 Invoke clan spirit (Bear, Owl, Salmon…). Gain **Advantage** on a thematically linked roll **and** either spend **1 Instinct** or accept **+1 Shadow**.
 
+Name the totem and show its sign in the fiction (breath smokes, eyes flash owl‑gold, the air tastes of river‑stone).
+
 ### Beast Bond
-Tamed beast = **3‑token Instinct pool**. Each intervention flips a token; at 0 the animal flees, dies, or turns feral.
+A tamed beast is a **3‑token Instinct pool** you may spend instead of your own. Each intervention flips a token; at 0 the animal flees, dies, or turns feral.
 
 ### Carry Limit flavour
 A hunter totes six big items (spears, blade kit, hide water skin…). Extra gear ⇒ Disadvantage on Fleetness.
@@ -399,18 +601,18 @@ A hunter totes six big items (spears, blade kit, hide water skin…). Extra gear
 
 ---
 
-## 🕯️ SHAMAN’S FIRE‑CIRCLE (GM)
+## 🕯️ SHAMAN’S FIRE‑CIRCLE (Custodian)
 *A shaman’s guide for tales of Neanderthal dusk and encroaching sapiens*
 
 ### Shadow Track (Pressure skin)
-| Step | Portent | Suggested GM twists |
+| Step | Portent | Suggested Custodian twists |
 |--|--|--|
 |0|Hearth calm|—|
 |1|Whispering wind|cosmetic omens|
 |2|Strange tracks|minor Disadvantage, resource drain|
 |3|Spirits restless|NPC mistrust, eerie dreams|
-|4|Veil tearing|All rites cost +1 INS|
-|5 **Crisis**|Blizzard / Curse|Roll on Crisis table, reset 0|
+|4|Veil tearing|All rites cost **+1 Instinct bead**|
+|5 **Crisis**|Blizzard / Curse|Roll on Crisis table, reset to **0**|
 
 **Earning**: failed risky rites, taboo breach, speaking with Sapiens, invoking time‑old spirits, Totem choice (if Shadow).  
 **Purging**: sacrifice (lose item/stat), dangerous ritual, great hunt or story quest.
@@ -418,7 +620,7 @@ A hunter totes six big items (spears, blade kit, hide water skin…). Extra gear
 Other track motifs: dying hearth‑fires, a one‑eyed cave bear, the piercing flutes of Sapiens scouts, spirits withdraw, illness spreads.
 
 #### Crisis Table (d6)
-1 Possession by ancestor — GM controls hunter for one scene  
+1 Possession by ancestor — Custodian controls hunter for one scene  
 2 Withering chill — –1 Stamina & prized tool shatters  
 3 Nightmare fugue — Disadvantage next session  
 4 Blizzard drives migration — forced locale shift  
@@ -428,28 +630,33 @@ Other track motifs: dying hearth‑fires, a one‑eyed cave bear, the piercing f
 ### Hearth Beats
 Play is visceral—crackling fire, reek of hides, breath steaming in moonlight. Mechanics provide bone, but story is sinew. When scenes falter, unleash weather, predator or uneasy strangers. Ambush, ice collapse, bride‑price negotiation, mammoth hunt, cave art.  
 
+**Micro‑vignette (frame a beat):**
+> The hearth is down to embers. Frost beads on the cave mouth. Somewhere beyond the birches, something large exhales.
+
 Present 2-4 options in second‑person imperative, focused on protagonist. Include at least one hidden or risky path. Example: 
 > 1. Stalk the reindeer downwind.  
 > 2. Retreat to limestone shelter.  
 > 3. Approach the tall newcomers in peace.  
 Ensure outcomes ripple—sharing meat with Sapiens may avert later spear‑fight.  
-Mark Save‑Stones (rewind at cost: –2 INS or +1 Shadow): spirit‑walk—rebirth, parallel timelines—dream‑visions, ancestral memory—welcomed.
+
+**Vision Glass (omens, not do‑overs):** rare obsidian shards that show a fork of possible futures. In the firelight you glimpse a sign: a broken spear, fresh footprints, a sky‑fire glow.
+Once per session, a hunter may **Test Instinct**; on success ask the Custodian **one yes/no** about the next beat. On failure, the omen still comes — but mark **+1 Shadow**.
 
 ### Milestone Boon Seeds (d6)
 After a successful megafauna hunt, forging alliance, or surviving sky‑fire, award a Milestone:
 1 Amber pendant (Adv once on SPR)  
 2 Wolf pup (Beast Bond)  
-3 Spirit scar (+1 build to SPR)  
+3 Spirit scar (once per session, gain Advantage on one SPR roll to bargain with spirits; costs +1 Shadow)  
 4 Hidden hot‑spring (full INS reset mid‑journey)  
 5 Obsidian blade (+1 edge)  
-6 Prophetic dream (ask GM one yes/no about next trek)
+6 Vision glass shard (once per session: Test INS for a true omen; on fail +1 Shadow)
 
 Other examples: quality flint core, mammoth‑bone mail, dream of distant summers.
 
 ### Tone & Moves
-Prosody terse, sensory. Primal lyricism: “The aurora danced, green spears across an ink sky, mocking our flint.”  
+Voice terse, sensory. Primal lyricism: “The aurora danced, green spears across an ink sky, mocking our flint.”  
 Technology sparse; wonder hides in sparks off a biface.  
-GM moves: storm lashes camp · rival scouts appear · food stores spoil · spirits demand ochre.  
+Custodian moves: storm lashes camp · rival scouts appear · food stores spoil · spirits demand ochre.  
 
 >*Guard the fire, Keeper. Night is long and the winds speak new tongues.*
 
@@ -459,15 +666,17 @@ GM moves: storm lashes camp · rival scouts appear · food stores spoil · spiri
 
 ### Grak of Tall Cliffs (Hunter)
 *Sturdy hunter, bearer of granite confidence.*  
-MGT 12  FLT 10  CUN 10  SPR 7  INS 8/8  STM 6/6  Shadow 0/5  
+Creation: standard budget (**6** build points; used **6**)  
+MGT 12  FLT 11  CUN 10  SPR 8  INS 8/8  STM 7/7  Shadow 0/5  
 Adv on megafauna tracking, wary fascination with Sapiens iron blades.  
 Stone spear +1 (thrown or thrust), hand‑axe +1 (strike), hide cloak 1.  
 Ochre pouch (ritual mark), sinew cord.  
 
 ### Tarra the Ember‑Singer (Shaman)
 *Clan shaman, voice between worlds.*  
-MGT 6  FLT 8  CUN 11  SPR 13  INS 10/10/  STM 3/3  Shadow 0/5    
-Ritual **Ember Dream** (SPR roll: spark fire *or* daze foe; fail +1 Shadow).    
+Creation: standard budget (**6** build points; used **6**)  
+MGT 6  FLT 8  CUN 12  SPR 14  INS 11/11  STM 3/3  Shadow 0/5  
+Ritual **Ember Dream** (when a rite’s outcome is uncertain: Test SPR; on failure +1 Shadow).  
 Can sense weather shifts hours ahead; disadvantage when forced into raw melee.  
 Carved bone flute (Adv calming beasts).  
 Fire‑bow drill, herb bundle, scrap of strange cloth from southern strangers.  

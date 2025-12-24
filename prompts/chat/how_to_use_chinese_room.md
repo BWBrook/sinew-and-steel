@@ -1,7 +1,7 @@
 ### How to use the Chinese Room
 
 1. **Replace placeholders**  
-   - `{{ SKIN NAME }}` – e.g., *Briar & Benedictine*, *Jeffries-Tube Blues*, etc.
+   - `{{ SKIN NAME }}` – e.g., *Briar & Benedictine*, *Service Duct Blues*, etc.
 
 2. **Paste** the core rules from `rules/core/` and the chosen skin from `skins/` under **Context**.
 

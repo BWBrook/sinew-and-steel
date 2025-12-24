@@ -1,20 +1,20 @@
-# **AGE UNDREAMED OF**
+# **IRON & RUIN**
 ## Skin add-on for the Sinew & Steel game system
-*Grim sword‑and‑sorcery in the spirit of Robert E. Howard.*
+*Grim sword‑and‑sorcery in the spirit of pulp adventure.*
 
 _(Layer atop the universal rules; anything unstated defaults to core.)_
 
-Age Undreamed Of is a tale of iron and ruin: barbarian courage, decadent cities, and sorcery that always exacts a price.
+Iron & Ruin is a tale of iron and ash: barbarian courage, decadent cities, and sorcery that always exacts a price.
 Heroes can defy fate — but the gods, the cults, and the old powers keep ledgers.
 
 Suggested creation tone: **pulp** (**12** build points) fits the genre well.
 
 ---
 
-## ⚔️ SCROLL OF GRIM TALES (Adventurer)
+## SCROLL OF GRIM TALES (Adventurer)
 
 ### Attribute Labels
-| Core slot | Age Undreamed label | Covers |
+| Core slot | Iron & Ruin label | Covers |
 |---|---|---|
 | Might | **Brawn (BRN)** | raw strength, ferocity, melee power |
 | Reflex | **Agility (AGI)** | speed, balance, tumbling |
@@ -37,7 +37,7 @@ A rest by a safe hearth restores **+1 token**; priestly blessings or stolen reli
 | Broadsword, war‑axe, short bow | +1 |
 | Greatsword, long bow, sorcerous bolt | +2 |
 
-Fists and blackjacks are usually nonlethal: at **0 STM** the target is out cold unless you choose otherwise (or the fiction demands worse).
+Fists and blackjacks are usually non-lethal: at **0 STM** the target is out cold unless you choose otherwise (or the fiction demands worse).
 
 ### Armour & Soak
 | Protection | Soak |
@@ -56,14 +56,14 @@ A character may carry up to six substantial items — armour, weapons, bundles, 
 Coin is an inconvenient necessity; carry too much, and brigands will smell it.
 
 ### Sorcery
-Steel is honest; spells are treacherous. Any feat is *theoretically* possible, but risk scales brutally.
+Steel is trustworthy; spells are treacherous. Any feat is *theoretically* possible, but risk scales brutally.
 
 | Tier | Example intent | Roll | Cost on **success** | Cost on **failure** |
 |---|---|---|---|---|
 | **Whisper** | Spark a torch, seal a minor wound, chill wine | Test WIL | none | fizzles (no Doom) |
 | **Weave** | Hurl a flame bolt, cloud a guard’s mind, walk unseen a heartbeat | Test WIL; you may spend Fortune to nudge | choose **1:** <br>• spend **1 Fortune** <br>• or lose **1 STM** | **+1 Doom** |
 | **Wrack** | Shatter iron gates, summon shadow hound, freeze a river ford | Test WIL (no Fortune nudges) | **+1 Doom** *even on success* | **+2 Doom** *and* a backlash (Custodian chooses or roll) |
-| **Wyrd** | Rewrite the memory of a city, call a storm-god’s spear | Automatic **+3 Doom**, then Test WIL; nat 1 = legend; any fail = Custodian’s worst | success: tale echoes for ages | immediate backlash (table) |
+| **Wyrd** | Rewrite the memory of a city, call a storm‑god’s spear | Automatic **+3 Doom**, then Test WIL; nat 1 = legend; any fail = Custodian’s worst | success: tale echoes for ages | immediate backlash (table) |
 
 #### Backlash table (d6)
 
@@ -86,7 +86,7 @@ Steel is honest; spells are treacherous. Any feat is *theoretically* possible, b
 * Whisper = cantrips; costs nothing but time.  
 * Weave = combat tricks; Fortune or blood can power them.  
 * Wrack = story shakers; even success scars the soul.  
-* Wyrd = campaign-level sorcery; Doom will bite and history will buckle.
+* Wyrd = campaign‑level sorcery; Doom will bite and history will buckle.
 
 Natural 1 pierces all soak and doubles narrative punch. Natural 20 jumps to the “fail” column; the Custodian may add **+1 Doom** if it fits the bargain.
 
@@ -120,11 +120,11 @@ Once per session declare a **Heroic Act**: attempt a cinematic stunt (kick from 
 Gain **Advantage**. If you succeed, you may either add **+1 edge** to the action’s harm or inflict a simple status (disarmed, stunned, driven back).
 Cost: **1 Fortune**.
 
->*Ready your steel. The world kneels only to those who dare carve their saga.*
+> *Ready your steel. The world kneels only to those who dare carve their saga.*
 
 ---
 
-## 🗡️ CHRONICLER'S TOUCHSTONE (Custodian)
+## CHRONICLER'S TOUCHSTONE (Custodian)
 
 ### Narrative Rhythm
 Terse, muscular prose. Violence sudden; sorcery foul or uncanny. Civilisation decadent; heroes carve fate. Cursed sigils, rival factions, prophetic dreams.
@@ -134,10 +134,10 @@ Terse, muscular prose. Violence sudden; sorcery foul or uncanny. Civilisation de
 
 Keep rolls sparse; heroes triumph more than they fail, yet peril must feel real. Use Advantage to reward cunning gambits, Disadvantage to punish hubris. Fortune is precious—recover it slowly so its last flickers feel desperate. Hand out Doom sparingly but make its consequences unforgettable. Milestones should follow story logic, not arithmetic.
 
-### Howardian Style Primer
-Robert E. Howard’s voice is lean and sinewed. Keep sentences short, verbs vivid, adjectives sparing but potent. 
+### Storyteller's Primer
+The voice should be lean and sinewed. Keep sentences short, verbs vivid, adjectives sparing but potent. 
 
-Emphasise physical sensation—iron, sweat, blood, stone. Let sorcery feel foul and wondrous, as much curse as gift. Characters reveal themselves through deeds, not ruminations. Lift the register only for moments of dread or grandeur, using archaic diction sparingly ("eldritch", "abysmal", "thews"). 
+Emphasise physical sensation—iron, sweat, blood, stone. Let sorcery feel foul and wondrous, as much curse as gift. Characters reveal themselves through deeds, not ruminations. Lift the register only for moments of foreboding or grandeur, using archaic diction sparingly ("eldritch", "abysmal", "thews"). 
 
 Violence is sudden; wonder is sombre; civilisation is decadent; fate is grim but defied.
 
@@ -160,9 +160,9 @@ Failure should reshape the world, not halt the story. Death is meaningful only i
 
 ---
 
-## 🛡️ HEROIC FIGURES
+## HEROIC FIGURES
 
-### Cairn the Reaver — Mercenary  
+### Tragan the Reaver — Mercenary  
 *A northern barbarian too stubborn to die.*  
 Creation: pulp budget (**12** build points; used **12**)  
 BRN 16 AGI 11 CUN 6 WIL 10 FOR 8/8 STM 7/7 Doom 0/5  
@@ -175,4 +175,4 @@ BRN 6 AGI 9 CUN 15 WIL 14 FOR 10/10 STM 4/4 Doom 0/5
 **Whispering Flame** (Weave: Test WIL; on success choose 1 Fortune or 1 STM; on failure +1 Doom).  
 Ritual dagger (brandish for 1-turn Disadv on opponent's WIL failure), scrolls, incense bundle.  
 
->*Track Fortune spent, Stamina lost, Doom gained. Scars and bargains write the saga.*
+> *Track Fortune spent, Stamina lost, Doom gained. Scars and bargains write the saga.*

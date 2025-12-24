@@ -2,9 +2,9 @@
 
 A razor‑lean, setting‑agnostic chassis for any genre. One d20, five attribute scores, limitless skins.
 
-In Sinew & Steel, a **skin** is a small genre overlay that renames the attributes, defines what fortune and fate represent, and adds a few custom rules.
+In Sinew & Steel, a **skin** is a small genre overlay that renames the attributes, defines what fortune and fate represent, names your Pressure track, and adds a few custom rules.
 
-For the one‑page version, see `rules/quickstart.md`.
+For the two‑page version, see `rules/quickstart.md`.
 
 ---
 
@@ -214,7 +214,7 @@ Money does not count against carry limit. By default it’s tracked loosely in t
 
 ## 8 Pressure & Milestones (the pacing tools)
 
-Every skin uses a shared **Pressure track (0–5)**, renamed to fit genre (Doom, Stress, Shadow, Heat, Insanity, Anomaly…).
+Every skin uses a shared **Pressure track (0–5)**, renamed to fit genre (Doom, Fatigue, Sin, Heat, Stress, Strain, Dread, Insanity, Anomaly…).
 Pressure is the fuse: it rises with risk, blunders, bargains, and time pressure.
 
 - When Pressure hits **5**, a **crisis** triggers — then Pressure **resets to 0**.

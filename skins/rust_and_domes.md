@@ -1,17 +1,17 @@
-# **MARS SAGA**
+# **RUST & DOMES**
 ## Skin add-on for the Sinew & Steel game system
 *Gritty exploits on a colonised Red Planet, circa 2205 AE.*
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
 
-Mars Saga is hard‑sci‑fi frontier play: dust and domes, corporate rot, and people who will sell you oxygen.
+Rust & Domes is hard‑sci‑fi frontier play: dust and domes, corporate rot, and people who will sell you oxygen.
 Expect salvage, heists, mag‑rail runs, life‑support scares, and hard choices made under cameras.
 
 Suggested creation tone: **standard** (**6** build points) — gritty but capable operatives.
 
 ---
 
-## 🚀 COLONIST'S HANDBOOK (Adventurer)
+## COLONIST'S HANDBOOK (Adventurer)
 *A fast‑moving toolkit for dust‑choked sci‑fi adventure.*
 
 ### Attribute Labels
@@ -46,7 +46,7 @@ A short rest in a safe hab restores **+1 cred‑chit**; stim packs or narrative 
 | Work suit / dust cloak | 0 |
 | Kevlar wrap or reinforced vac‑suit | 1 |
 | Composite plate / powered hardsuit | 2 |
-| Golum battlearmour | 3 |
+| Carbite battlearmour | 3 |
 
 (Dynamic soak: after a hit, reduce soak by **1 per full 4 points** of attacker margin; **nat 1 pierces all**.)
 
@@ -84,7 +84,7 @@ Because each miss spikes **Heat**, repeated misuse draws Corp‑Sec “mind‑sc
 Use sparingly; Mars already wants your mind.
 
 ### Pressure Track — **Heat**
-Heat is corporate and Syndicate scrutiny. It runs **0–5**; at **5** trigger a crisis, then reset Heat to **0**.
+Heat is Corporate and Syndicate scrutiny. It runs **0–5**; at **5** trigger a crisis, then reset Heat to **0**.
 
 A **risky test** is any roll where failure would materially change the situation (harm, loss, alarm, exposure). Routine travel and obvious chores need no roll.
 
@@ -113,13 +113,13 @@ Salvage permit (once ignore **+1 Heat** from a single trigger) • Dome Elder fa
 
 ---
 
-## 🛰️ CONTROLLER'S DOSSIER (Custodian)
+## CONTROLLER'S DOSSIER (Custodian)
 *An operational brief for weaving intrigue, peril, and dust‑choked wonder across the Red Frontier.*
 
-In Mars Saga, the Custodian is often called the **Controller** — the one watching the HUD and deciding what the system does next.
+In Rust & Domes, the Custodian is often called the **Controller** — the one watching the HUD and deciding what the system does next.
 
 ### Red‑Dust Tone
-Keep prose lean. Chandler on Olympus Mons: dust devils along the mag‑rail; jet exhaust etching rust into the sky.
+Keep prose lean. Hardboiled noir on Olympus Mons: dust devils along the mag‑rail; jet exhaust etching rust into the sky.
 Tech is rusting, corps are bloated carrion birds, and wonder haunts ghost domes.
 
 **Micro‑vignette (frame a beat):**
@@ -130,22 +130,22 @@ Death is for pathos, not arithmetic.
 
 ### Default Martian kit (optional setting spine)
 If you want a ready map: four underground settlements.
-Primus (old), Parallax (new, crime‑ridden), Progeny (science station), Proscenium (outpost under construction: contact mysteriously lost).
-Colonies established by Paramount Mining Corporation after ilmenite reserves.
+Hearthwell (old), Mirage Junction (new, crime‑ridden), Cobalt Array (science station), Gantry Point (outpost under construction: contact mysteriously lost).
+Colonies established by **Perihelion Mining Corporation (PMC)** after rich aresite strikes.
 
-### Martian threats (bestiary‑inspired)
-If you want to echo the classic computer‑adventure bestiary, consider:
+### Martian threats (quick bestiary seeds)
+If you want fast, punchy threats that feel *Martian* without needing a long bestiary, start with:
 
 - **Crusher** — bipedal brute; armoured hide; hits like a piledriver.
-- **Dust Worm** — burrows under the sand; erupts beneath boots and vehicles.
-- **Sand Lion** — huge predator with jaws like a mining clamp; stalks the edge of light.
-- **Scorad** — alien crustacean; emits a gut‑turning shockwave when threatened.
-- **Urchin** — spined crawler; poisonous barbs; can “shoot” spines at close range.
-- **Thrasher** — lank, whipping‑armed horror that closes fast in tight corridors.
+- **Dust Slug** — burrows under the sand; erupts beneath boots and vehicles.
+- **Sand Snatcher** — huge predator with jaws like a mining clamp; stalks the edge of light.
+- **Shockcrab** — alien crustacean; emits a gut‑turning shockwave when threatened.
+- **Spine Urchin** — spined crawler; poisonous barbs; can “shoot” spines at close range.
+- **Thresher** — lank, whipping‑armed horror that closes fast in tight corridors.
 
 ### Beat & Graph notes
 Open with a sensory hook (sand rasping against a visor, antiseptic med‑gel, the tang of ozone), follow with decisive action, end at a fork.
-Tag nodes by dome/quadrant (PR‑01, VM‑A2) and keep a short “job ledger”: objective, debts, Heat triggers, casualties.
+Tag nodes by dome/quadrant (HW‑01, MJ‑A2) and keep a short “job ledger”: objective, debts, Heat triggers, casualties.
 
 This skin does **not** rewind. If you want an in‑fiction safety net, use **blackbox logs** as clues — footage doesn’t change what happened.
 
@@ -162,13 +162,13 @@ When in doubt favour bold action but remember that every triumph on rust‑red s
 Call Luck when chance, bureaucracy, or a random supply crate decides.
 Keep it to 1–2 per session — Mars is harsh, but not roulette.
 
->*Use this dossier like a smuggler’s map — spill coffee on it, cross out old threats, ink in new ones. Mars is alive, merciless, and waiting.*
+> *Use this dossier like a smuggler’s map — spill coffee on it, cross out old threats, ink in new ones. Mars is alive, merciless, and waiting.*
 
 ---
 
-## 🛠️ ACTIVE OPERATIVES
+## ACTIVE OPERATIVES
 
-### Tom Jetland — Spacer
+### Rafe Calder — Spacer
 *Roguish spacer marooned on the Red Frontier, silver tongue masking weary pragmatism.*
 
 Creation: standard budget (**6** build points; used **6**)  
@@ -178,13 +178,13 @@ Laser carbine (+2 edge at range; Disadvantage if used in melee), handgun +1, kev
 Streetwise; Advantage on one MND test per session when dealing with criminals or dock‑bosses.
 Solvent enough to eat, broke enough to take risks.
 
-### Miira — Hacker
+### Miira Nix — Hacker
 *Composed hacker steeped in Martian network lore, preferring code to gun‑smoke.*
 
 Creation: standard budget (**6** build points; used **6**)  
 ATK 8 DEF 8 SKL 14 MND 12 LCK 8/8 STM 5/5 Heat 0/5
 
 Datapad & probes (Advantage on SKL tests to hack secured systems once you’re connected), light sidearm +1, work suit (soak 0), ration pack, hoarded cred‑sticks.
-Keeps a hidden crash‑pad in Primus; prefers to avoid gunfights.
+Keeps a hidden crash‑pad in Hearthwell; prefers to avoid gunfights.
 
->*Update Luck spent, Stamina lost, Heat gained. Red dust remembers every debt.*
+> *Update Luck spent, Stamina lost, Heat gained. Red dust remembers every debt.*

@@ -2,6 +2,12 @@ campaigns/*
 !campaigns/.gitignore
 !campaigns/README.md
 
+# Local release workspace (PDF builds, exports, checklists, etc.)
+release/
+
+# Private homebrew / homage skins (kept out of git for publish safety)
+skins/homebrew/
+
 # Python artifacts
 __pycache__/
 *.pyc

@@ -1,6 +1,6 @@
 # **CANDLELIGHT DUNGEONS**
 ## Skin add-on for the Sinew & Steel game system
-*Torchlit delves in the warrens of a dying principality, inspired by 1980s Basic/Expert vibes.*
+*Torchlit delves in the warrens of a dying principality, inspired by classic 1980s dungeon‑crawl play.*
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
 
@@ -12,7 +12,7 @@ If you want a meat‑grinder crawl, lower build points (standard **6** or grim *
 
 ---
 
-## 🔦 DELVER'S KIT (Adventurer)
+## DELVER'S KIT (Adventurer)
 
 ### Attribute Labels
 | Core slot | Dungeon label | Covers |
@@ -52,7 +52,7 @@ A short rest at a warm hearth restores **+1 coin**; dank caves do not.
 
 ---
 
-## 📜 SPELLCRAFT
+## SPELLCRAFT
 
 > *Spells are named effects tagged to a tier when learned. Test under the listed stat, then pay the tier cost.*
 
@@ -71,7 +71,7 @@ A short rest at a warm hearth restores **+1 coin**; dank caves do not.
 
 ---
 
-## 😓 FATIGUE TRACK (Pressure skin)
+## FATIGUE TRACK (Pressure skin)
 Fatigue is the dungeon’s hourglass. It runs **0–5**; at **5** trigger a crisis, then reset Fatigue to **0**.
 
 | Step | Portent | Effect |
@@ -98,7 +98,7 @@ _(A risky test is any roll where failure would materially change the situation: 
 
 ---
 
-## 🎲 KNACKS (choose one per PC)
+## KNACKS (choose one per PC)
 Once per scene, do a signature trick. Pay **1 Fortune coin** or mark **+1 Fatigue**.
 
 | Knack | Effect |
@@ -112,20 +112,20 @@ Once per scene, do a signature trick. Pay **1 Fortune coin** or mark **+1 Fatigu
 
 ---
 
-## ⭐ EXPERTISE (choose one stat)
+## EXPERTISE (choose one stat)
 Pick one stat as your **Expertise**.
 When the task squarely fits that expertise, roll with **Advantage** (no class labels needed).
 
 ---
 
-## 🔑 TOOLS & TAGS
+## TOOLS & TAGS
 - **Lockpick satchel** — Advantage on **DEX** tests to open/disarm when you have access. On a natural **20**, the picks snap (spent).
 - **Holy symbol** — required focus for Turn Undead; shatters on **FTH** natural **20**.
 
 ---
 
-## 📖 CHRONICLER’S LANTERN (Custodian)
-_Custodian guidance in the spirit of Gygax, Arneson, Mentzer & Cook_
+## CHRONICLER’S LANTERN (Custodian)
+_Custodian guidance in the spirit of classic dungeon‑crawl refereeing_
 
 **1. Open with the torch, not the rulebook.**  
 Give mossy flagstones, a draught that smells of old iron, the scrape of scaled hide on stone. Roll only when the next step could maim or enrich.
@@ -140,7 +140,7 @@ When a delver tries the unexpected — pouring oil down a murder‑hole, bargain
 A purse of 50 silver keeps iron rations flowing; a ruby the size of a child’s heart funds the next delve. Tie milestones to discoveries, not body counts.
 
 **5. Monsters want something.**  
-Kobolds barter for lamp oil, ghouls crave tales of grief, otyughs yearn for refuse. One motive line turns fodder into story.
+Goblins barter for lamp oil, ghouls crave tales of grief, muck‑ogres yearn for refuse. One motive line turns fodder into story.
 
 **6. Fatigue is the hourglass.**  
 Every torch burned, every spell miscast, every wrong turn adds weight to shoulders. When Fatigue climbs, describe ringing ears and shaking knees — players will beg for daylight on their own.
@@ -149,7 +149,7 @@ Every torch burned, every spell miscast, every wrong turn adds weight to shoulde
 One lethal trap per session keeps courage taut; the rest should maim, scare, or split the party’s purse. You want them limping, not quitting.
 
 **8. End each beat on a hook.**  
-Cook & Mentzer knew: “Beyond the door lies laughter… or weeping.” Offer two or three choices: one should sparkle with gold, one should reek of doom, one should whisper old lore.
+“Beyond the door lies laughter… or weeping.” Offer two or three choices: one should sparkle with gold, one should reek of doom, one should whisper old lore.
 
 **9. Keep the lexicon vivid but lean.**  
 Sprinkle five‑dollar words like saffron, never by the ladle: _miasma_, _balustrade_, _chthonic_. Let action carry the prose.
@@ -179,7 +179,7 @@ Example: Assassin’s throat‑slit on a sleeping victim — **Fatal (counter: s
 
 ---
 
-## 🛡️ SAMPLE DELVERS
+## SAMPLE DELVERS
 
 **Durn Bravefoot** — Fighter  
 Creation: heroic budget (**16** build points; used **16**)  

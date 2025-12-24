@@ -1,0 +1,47 @@
+schema_version: 1
+name: Grak
+skin: clanfire
+player: Example
+created: '2025-12-24'
+creation:
+  build_points_budget: 6
+  build_points_used: 6
+meta:
+  generated:
+    method: double_debit
+    steps: null
+    min_steps: 2
+    max_steps: 6
+    primary: MGT
+    build_points_budget: 6
+    build_points_unspent: 0
+attributes:
+  MGT: 11
+  FLT: 11
+  CUN: 10
+  SPR: 11
+  INS: 10
+pools:
+  luck:
+    name: Instinct
+    current: 10
+    max: 10
+  stamina:
+    current: 5
+    max: 5
+tracks:
+  pressure:
+    name: Shadow
+    current: 1
+    max: 5
+inventory:
+  big_items:
+  - Stone spear (+1 edge)
+  - Hand‑axe (+1 edge)
+  - Hide cloak (soak 1)
+  - Waterskin
+  small_items:
+  - Ochre pouch
+  - Sinew cord
+notes:
+- Advantage when tracking megafauna in fresh snow.

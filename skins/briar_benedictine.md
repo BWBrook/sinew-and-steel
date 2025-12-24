@@ -12,7 +12,7 @@ If you want a more capable party, raise build points (standard **6** or pulp **1
 
 ---
 
-## ✝️ CHAPTERHOUSE SECRETS (Adventurer)
+## CHAPTERHOUSE SECRETS (Adventurer)
 
 ### Attribute Labels
 | Core slot | Abbey label | Governs |
@@ -70,14 +70,14 @@ Pick the attribute that matches the approach (not “the correct stat”).
   - Failure: restore nothing and mark **+1 Sin** (prideful meddling).
 - **Vow-break.** Violence on church grounds marks **+1 Sin** (no roll).
 
->*“A candle gutters; for an instant the scriptorium smells of brimstone.”*
+> *“A candle gutters; for an instant the scriptorium smells of brimstone.”*
 
 ---
 
 ## ECUMENICAL NOTES (Custodian)
 
 ### The Abbey Case (mystery procedure)
-This skin is a Cadfael‑style mystery. Keep it moving with two table rules:
+This skin is a Medieval monastic mystery. Keep it moving with two table rules:
 
 - **Clues are never gated by rolls.** A test decides clarity, speed, and cost — not whether the clue exists.
   - Success: the clue is clear.
@@ -118,19 +118,19 @@ Sin is the spiritual pressure of suspicion, pride, and proximity to evil. It run
 Lean, sensory: “Iron brazier hisses as herbs crack; the air stinks of blood and rosemary.” Violence is rare but final.
 “The devil prowls like a wolf among lambs — yet wolves leave tracks.”
 
->*“Quis custodiet ipsos custodes?”*
+> *“Quis custodiet ipsos custodes?”*
 
 ### Custodian moves
 Sheriff arrives • Siege rumours tighten trade • Storm floods Severn • Skeleton unearthed under nave • A confession implicates the wrong person.
 
-> **GRIM PORTENT •** A parchment seal pops in the warming brazier, disgorging blackened petals onto the refectory table. All present test **MCY**; on failure, mark **+1 Sin** from dread.
+> **GRIM PORTENT •** A parchment seal pops in the warming brazier, disgorging blackened petals onto the refectory table. All present test **MCY**; on failure, mark **+1 Sin** from fear.
 
 ### Investigation map (keep it simple)
 Tag scenes by location (CL‑1 cloister, TW‑2 town, WD‑3 woodland). Keep a short case ledger: suspects, motives, alibis, clue list.
 
 This skin does **not** rewind: words cannot be unspoken, vows cannot be unbroken — only confession and atonement can change what comes next.
 
->*“Wax gutters in crooked rivulets; the effigy saints seem to weep.”*
+> *“Wax gutters in crooked rivulets; the effigy saints seem to weep.”*
 
 ### d6 Quick mystery seeds
 | d6 | Hook | Twist |
@@ -158,7 +158,7 @@ Roll or pick to ground any scene in seconds.
 
 ---
 
-## 👤 EXAMPLE MONASTICS
+## EXAMPLE MONASTICS
 
 ### Brother Cadoc — Herbalist‑Inquisitor
 Creation: grim budget (**0** build points; used **0**)  

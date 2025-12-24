@@ -9,7 +9,7 @@ Expect hunts, migration, taboo, and uneasy encounters with Sapiens — and remem
 
 ---
 
-## 🔥 HUNTER'S MARK (Adventurer)
+## HUNTER'S MARK (Adventurer)
 
 ### Attribute Names
 | Core slot | Clanfire label | What it governs |
@@ -56,11 +56,11 @@ A tamed beast is a **3‑token Instinct pool** you may spend instead of your own
 ### Carry Limit flavour
 A hunter totes six big items (spears, blade kit, hide water skin…). Extra gear ⇒ Disadvantage on Fleetness.
 
->*Hold these laws close; the Ice drinks fools. The clan that masters flint and fate endures another dawn.*
+> *Hold these laws close; the Ice drinks fools. The clan that masters flint and fate endures another dawn.*
 
 ---
 
-## 🕯️ SHAMAN’S FIRE‑CIRCLE (Custodian)
+## SHAMAN’S FIRE‑CIRCLE (Custodian)
 *A shaman’s guide for tales of Neanderthal dusk and encroaching sapiens*
 
 ### Shadow Track (Pressure skin)
@@ -117,11 +117,11 @@ Voice terse, sensory. Primal lyricism: “The aurora danced, green spears across
 Technology sparse; wonder hides in sparks off a biface.  
 Custodian moves: storm lashes camp · rival scouts appear · food stores spoil · spirits demand ochre.  
 
->*Guard the fire, Keeper. Night is long and the winds speak new tongues.*
+> *Guard the fire, Shaman. Night is long and the winds speak new tongues.*
 
 ---
 
-## 👣 EXAMPLE CLANSFOLK
+## EXAMPLE CLANSFOLK
 
 ### Grak of Tall Cliffs (Hunter)
 *Sturdy hunter, bearer of granite confidence.*  
@@ -140,4 +140,4 @@ Can sense weather shifts hours ahead; disadvantage when forced into raw melee.
 Carved bone flute (Adv calming beasts).  
 Fire‑bow drill, herb bundle, scrap of strange cloth from southern strangers.  
 
->*Track INS stones, STM loss, Shadow gains.  Scars will etch the cavern walls.*
+> *Track INS beads, STM loss, Shadow gains.  Scars will etch the cavern walls.*

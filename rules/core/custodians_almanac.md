@@ -7,7 +7,7 @@ For player‑facing rules, see `rules/quickstart.md` and `rules/core/adventurers
 
 ---
 
-## 🕯️ Custodian’s Almanac (GM Quick Guide)
+## Custodian’s Almanac (GM Quick Guide)
 
 ### 1 The Custodian’s job (30 seconds)
 You do three things, on repeat:
@@ -38,7 +38,7 @@ Use sparingly — one or two Luck tests per dozen beats is plenty.
 
 You can season recovery by fiction: a sacred rite adds +3 tokens; a night on Martian rad‑dust adds none.
 
-### 4 Pressure track (Doom / Shadow / Heat / Anomaly…) and Clocks (Countdowns)
+### 4 Pressure track (Doom / Heat / Strain / Dread / Anomaly…) and Clocks (Countdowns)
 A universal **0–5 fuse** shared by all skins. When it hits **5**, a crisis triggers — then it resets to **0**.
 
 | Step         | Mood               | Custodian levers                             |
@@ -78,7 +78,7 @@ Every 3–4 *perilous* beats or combat encounters, award:
 Boons don’t break the maths; they sit outside the economy. Progress is narrative, not numeric grind.
 
 ### 6 Moves when players stall
-If players stall, don’t demand a roll “to do something.” Move the world:
+If players stall, don’t demand a roll “to do something”. Move the world:
 
 - advance a clock
 - reveal an omen
@@ -92,7 +92,7 @@ If players stall, don’t demand a roll “to do something.” Move the world:
 ### 7 Optional plug‑ins (use only what you need)
 - **Totem/Feat** — once per session gain Advantage at cost of 1 Luck or +1 Pressure.
 - **Allies / Pets** — treat as a temporary 3‑token Luck pool that depletes on use.
-- **Stress Tracks** — Fear, Radiation, Madness: same 0–5 ladder, with their own colour text.
+- **Condition Tracks** — Fear, Radiation, Madness: extra 0–5 fuses like Pressure, but tied to one specific hazard. Use them only when you want a **second escalation axis** besides Pressure; otherwise use clocks.
 - **Wealth & Attention** — optional 0–4 “money” track; big spends drop it; flashing wealth draws trouble.
 
 ### 8 Advice for AI game masters (optional)
@@ -126,14 +126,14 @@ A tight economy stops power creep yet still allows extremes to emerge.
 
 ### B. Burning Luck — when it matters
 - **Save the day:** flip a miss into a glancing hit to avoid disaster.
-- **Pierce armour:** spend extra tokens after a success to deepen margin and shred soak.
+- **Penetrate armour:** spend extra tokens after a success to deepen margin and shred soak.
 - **Turn the plot:** burn your last 3 Luck on a vital opposed roll, knowing future Luck tests are now long shots.
 
 > **Guideline:** a pool under 4 tokens means “walk gingerly”; under 2 means “pray for milestone”.
 
 ### C. Sample builds (baseline 10/5)
 All obey the +1/‑2 ledger (attributes baseline 10; Stamina baseline 5).
-These examples spends a mix of **6 build points** and stat trade‑offs; add starting build points to taste.
+These examples spend a mix of **6 build points** and stat trade‑offs; add starting build points to taste.
 
 | Concept       | MGT    | REF | INT    | EMP    | LCK | STM |
 | ------------- | ------ | --- | ------ | ------ | --- | --- |
@@ -184,7 +184,7 @@ It shifts capability while leaving core maths and pacing intact.
 3. **Give a hook:** one special move or rule that makes them feel distinct (“mind‑spike forces Luck test,” “web‑snare: failed Reflex ⇒ immobile until cut free,” “howl: on nat 20 targets mark +1 Pressure”).
 
 Examples:
-- **Morlock Brute (Elite 12)** — MGT 12, REF 8, STM 5; edge +1 club, soak 1 hide; on hit may drag victim 5 m into darkness.
+- **Tunnel Brute (Elite 12)** — MGT 12, REF 8, STM 5; edge +1 club, soak 1 hide; on hit may drag victim 5 m into darkness.
 - **Cave Bear (Monster 14, large)** — MGT 14, REF 8, STM 8; edge +2 maul, soak 1 thick fur; on attacker nat 1 bear counter‑swipes 1 STM.
 
 ### E. “Fatal” tag (one‑line universal override)
@@ -194,8 +194,8 @@ Use it sparingly, flag it clearly, and state the counter up front.
 
 | Setting | Fatal weapon / event | Counter‑measure |
 |---|---|---|
-| **Jeffries‑Tube Blues** | Phaser set to *disrupt* | Personal shield emitter or starship force‑field |
-| **Age Undreamed Of** | Basilisk gaze | Averting eyes behind a polished bronze mirror |
+| **Service Duct Blues** | Rapid decompression | Sealed suit **or** an emergency bulkhead seal |
+| **Iron & Ruin** | Basilisk gaze | Averting eyes behind a polished bronze mirror |
 | **Clanfire** | Mammoth stampede crush | Spending 1 Luck (Clanfire: Instinct) **and** passing a Reflex/Fleetness roll to dive clear |
 | **Candlelight Dungeons** | Assassin’s throat‑slit on sleeping victim | Staying conscious or wearing a gorget helmet while resting |
 
@@ -220,15 +220,15 @@ Add or prune per skin.
 ### G. Milestone boon bank (d6) — mixed examples
 1. Trusted ally owes a favour
 2. Rare gadget (+1 Adv. on one skill)
-3. Mystic scar (+1 build point to Spirit stat)
+3. Mystic scar (+1 build point earmarked for your signature stat)
 4. Hidden refuge grants full Luck reset mid‑adventure
 5. Weapon gains +1 edge vs. one foe type
 6. Vision of future — ask the custodian one yes/no about next session
 
 ### H. Conversion pointers
 - **d100 games:** divide skill by 5 ≈ attribute
-- **PBTA 2d6+stat:** (10 + stat) × 5 ≈ attribute chance
-- **OSR AC:** treat armour class / 2 rounded as soak (leather 1… plate 3)
+- **2d6+stat games:** (10 + stat) × 5 ≈ attribute chance
+- **Old‑school AC:** treat armour class / 2 rounded as soak (leather 1… plate 3)
 
 ---
 
@@ -268,4 +268,4 @@ Rename Wealth per skin (Coin / Dollars / Credits / Supplies / Influence / Cargo 
 Hand the two‑page rules to the table; keep this booklet behind the screen (or share it digitally for deeper guidance).
 Trim, hack, translate — licence is CC‑BY; credit & create.
 
-> “In libraries we find legions of unwritten books; we merely summarise them here.” — after Borges
+> “This is a pocket atlas of unwritten stories: enough to guide you, never enough to cage you.”

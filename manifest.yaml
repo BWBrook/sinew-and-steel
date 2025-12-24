@@ -21,9 +21,9 @@ skins:
       INS: Instinct
     luck_key: INS
     luck_name: Instinct
-  age_undreamed_of:
-    name: Age Undreamed Of
-    file: skins/age_undreamed_of.md
+  iron_and_ruin:
+    name: Iron & Ruin
+    file: skins/iron_and_ruin.md
     pressure_track: Doom
     _gen:
       primary: BRN
@@ -69,9 +69,9 @@ skins:
       PRV: Providence
     luck_key: PRV
     luck_name: Providence
-  mars_saga:
-    name: Mars Saga
-    file: skins/mars_saga.md
+  rust_and_domes:
+    name: Rust & Domes
+    file: skins/rust_and_domes.md
     pressure_track: Heat
     _gen:
       primary: ATK
@@ -101,9 +101,9 @@ skins:
       FOR: Fortune
     luck_key: FOR
     luck_name: Fortune
-  jeffries_tube_blues:
-    name: Jeffries-Tube Blues
-    file: skins/jeffries_tube_blues.md
+  service_duct_blues:
+    name: Service Duct Blues
+    file: skins/service_duct_blues.md
     pressure_track: Stress
     _gen:
       primary: MSC
@@ -133,10 +133,10 @@ skins:
       FAT: Fate
     luck_key: FAT
     luck_name: Fate
-  free_traders_of_the_marches:
-    name: Free Traders of the Marches
-    file: skins/free_traders_of_the_marches.md
-    pressure_track: Stress
+  free_traders_of_the_drift_marches:
+    name: Free Traders of the Drift Marches
+    file: skins/free_traders_of_the_drift_marches.md
+    pressure_track: Strain
     _gen:
       primary: EDU
       min_steps: 2
@@ -149,10 +149,10 @@ skins:
       FAT: Fate
     luck_key: FAT
     luck_name: Fate
-  twilight_of_the_north_kingdom:
-    name: Twilight of the North-Kingdom
-    file: skins/twilight_of_the_north_kingdom.md
-    pressure_track: Shadow
+  twilight_of_the_northlands:
+    name: Twilight of the Northlands
+    file: skins/twilight_of_the_northlands.md
+    pressure_track: Dread
     _gen:
       primary: HRT
       min_steps: 2

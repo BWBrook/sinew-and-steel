@@ -1,6 +1,6 @@
 # **TIME ODYSSEY**
 ## Skin add-on for the Sinew & Steel game system
-*Victorian chrononautics in the spirit of H.G. Wells & John Wyndham.*
+*Victorian chrononautics in the spirit of scientific romance and strange futures.*
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
 
@@ -11,8 +11,8 @@ Suggested creation tone: **pulp** (**12** build points) suits daring chrononauti
 
 ---
 
-## ⏳ CHRONONAUT'S CODEX (Adventurer)
-*A skin for H. G. Wells‑style excursions across the centuries*  
+## CHRONONAUT'S CODEX (Adventurer)
+*A skin for excursions across the centuries*  
 
 ---
 
@@ -58,7 +58,7 @@ Call for a Test when the outcome is uncertain and the stakes are historical: alt
 - On failure, mark **+1 Anomaly**.
 - At **5**, trigger a crisis from the table — then reset Anomaly to **0**.
 
-#### Crisis Table (d6)
+#### Crisis Table (d6) or choose
 1 Memory fracture — forget the last scene until reminded  
 2 Equipment sublimates — key item vanishes in glitter  
 3 Rip current — party hurled d10×1000 years off‑target  
@@ -67,20 +67,20 @@ Call for a Test when the outcome is uncertain and the stakes are historical: alt
 6 Roll twice; apply both
 
 ### Equipment & Burden nuance
-Six big items; brass‑and‑crystal **Time Machine** is always off‑screen. Currency shifts by era—bulky coinage invites thieves or customs scrutiny.
+Six big items; your brass‑and‑crystal chronal engine is always off‑screen. Currency shifts by era—bulky coinage invites thieves or customs scrutiny.
 
 ### Advancement Boon Seeds
 After surviving a paradox cascade, cataloguing a prehistoric beast or shaping an epochal alliance, a **Milestone** and Boon might be awarded.  
 Future‑alloy blade (+1 edge) • Patent rights (wealth advantage) • Eocene amber sample (sell it: restore **+3 Ingenuity tokens**, up to max) • Sphinx guardian favour (Adv once on EMP).
 
->*Ink these strictures upon vellum or etch them on a pocket brass plate—chrononauts who ignore them soon vanish into contradictory echoes.*  
+> *Ink these strictures upon vellum or etch them on a pocket brass plate—chrononauts who ignore them soon vanish into contradictory echoes.*  
 ---
 
-## 🔍 CUSTODIAN MANUAL (Custodian)
+## CUSTODIAN MANUAL (Custodian)
 *A guide for stewards of paradox, peril and Edwardian wonder*
 
 ### Narrative Tone
-Brisk reportage, lyrical awe, with undercurrent of unease: Wells, Wyndham, Poe. Mix brass rivets and cosmic dread: “Ultramarine suns shimmered over a crystal sea as the machine’s valves hissed with protest.”
+Brisk reportage, lyrical awe, with undercurrent of unease. Mix brass rivets and cosmic foreboding: “Ultramarine suns shimmered over a crystal sea as the machine’s valves hissed with protest.”
 
 **Micro‑vignette (frame a beat):**
 > The lever shudders. The needles climb. Outside the frosted glass, the world turns—too fast, too smooth—until the sky is the wrong colour.
@@ -90,37 +90,37 @@ Present 2-4 options in second‑person imperative, focused on protagonist. Inclu
 > 2. Retreat to the machine and recalibrate era coils.  
 > 3. Trust the pale child’s silent gesture.  
 
-Ensure consequences ripple across epochs—saving a single flower in 802,701 AD may cure a Victorian cholera outbreak.  
-Wrap the boon in story: a Krao‑crystal implant grants **Advantage on one INT test per session**; Weena’s unwavering faith grants **one EMP reroll** (once).
+Ensure consequences ripple across epochs—saving a single flower in a far‑future garden may cure a Victorian cholera outbreak.  
+Wrap the boon in story: a strange crystal implant grants **Advantage on one INT test per session**; a companion’s unwavering faith grants **one EMP reroll** (once).
 
 ### Custodian moves
-Morlock ambush · Temporal storm blocks return · Rival chrononaut stakes claim · Faustian bargain: erase plague, gain +1 Anomaly.
+Under‑tunnel ambush · Temporal storm blocks return · Rival chrononaut stakes claim · Faustian bargain: erase plague, gain +1 Anomaly.
 
 ### Luck (Ingenuity) Guidance
 Call for a **Test of Ingenuity** when blind chance or hidden quantum decides: which epoch‑rift opens, whether a stray bullet hits the machine.
 Keep it to 1–2 per session.
 
 ### Epoch Graph
-Track beats and parallel timelines with chronological tags (1895A, 802,701B…).
+Track beats and parallel timelines with chronological tags (1890A, 9000B, 2MyrC…).
 Reward good record‑keeping: if players consult journals, maps, or diagrams, grant **Advantage** on INT/ING rolls to reconcile contradictions.
 
 In this genre, the timeline doesn’t rewind — paradox is paid for in scars, loss, and **Anomaly**.
 
->*Chrononauts are needles in the fabric of time; you, Custodian, are the hand that stitches and snips. Keep the thread taut.*
+> *Chrononauts are needles in the fabric of time; you, Custodian, are the hand that stitches and snips. Keep the thread taut.*
 ---
 
-## 🕰️ ACTIVE CHRONONAUTS
+## ACTIVE CHRONONAUTS
 
-### George — The Time Traveller
-*Victorian inventor, boundless curiosity, dash of reckless courage.*  
+### Galen — The Chrononaut
+*Steam‑age inventor, boundless curiosity, dash of reckless courage.*  
 Creation: pulp budget (**12** build points; used **12**)  
 PRW 9 REF 11 INT 14 EMP 7 ING 13/13 STM 5/5 Anomaly 0/5  
 Pocket revolver +1 (close), brass goggles (Adv vision REF), notebook (Adv INT deduction), tool‑roll, mixed‑era coins  
 
-### Weena — Eloi Companion
-*Gentle child of 802,701 AD, embodies innocence and quiet resilience.*  
+### Nyra — Far‑Future Companion
+*Gentle child of a far future, embodies innocence and quiet resilience.*  
 Creation: pulp budget (**12** build points; used **12**)  
 PRW 6 REF 11 INT 9 EMP 16 ING 12/12 STM 4/4 Anomaly 0/5  
 Wiltflower charm (Adv calming creatures), glow‑stone bead (light). Disadv in harsh industrial ages.
 
->*Track Ingenuity spent, Stamina lost, Anomaly gained. Each scar may echo through centuries.*
+> *Track Ingenuity spent, Stamina lost, Anomaly gained. Each scar may echo through centuries.*

@@ -34,7 +34,7 @@
   - Luck is also the score you roll under when sheer chance decides; spending tokens makes later Luck rolls harder.
   - Spend tokens after a roll to **nudge** the die ±1 per token (**nat 1/20 are locked**).
   - Luck tests roll under **current** tokens.
-  - Rest +1 token; milestone refills to baseline.
+  - Rest +1 token; milestone refills up to your Luck score (your max).
 - **Armour & dynamic soak.** Armour has **soak 1–3**.
   - After a hit, reduce soak by **1 per full 4 points of attacker margin**; **nat 1 pierces all**.
 - **Carry limit.** Up to **6 big items**; extra load ⇒ Disadvantage on agility tasks (your Reflex / Fleetness‑type rolls).
@@ -60,17 +60,17 @@ Pick a skin to set tone and tweak rules. A skin tells you:
 - which attribute is your **Luck** score (token pool),
 - what **Pressure** represents and what happens at 5.
 
-Example skins (see `/skins/` for the full list):
-- **Clanfire** — Ice‑Age survival; **Shadow** track; Totem Marks, Beast Bonds.
-- **Age Undreamed Of** — sword‑and‑sorcery; **Doom** track; foul Sorcery.
-- **Time Odyssey** — chrononautics; **Anomaly** crises; epoch mapping.
-- **Briar & Benedictine** — medieval sleuthing; **Sin** track; divine providence.
-- **Mars Saga** — red‑planet noir; **Heat** track; psionics, dust storms.
-- **Candlelight Dungeons** — classic dungeon crawl; **Fatigue** track; torchlit terror.
-- **Jeffries‑Tube Blues** — Starfleet lower‑deck drama; **Stress** track; technobabble saves.
-- **Whispers in the Fog** — cosmic horror; **Insanity** track; occult dread.
-- **Free Traders of the Marches** — trader‑crew drama; **Stress** track; cargo and hard choices.
-- **Twilight of the North‑Kingdom** — frontier elegy; **Shadow** track; fading hope.
+Example skin genres (see `/skins/` for the full list):
+- Ice‑Age survival — **Shadow** track; totems and beast bonds.
+- Pulp sword‑and‑sorcery — **Doom** track; bargains and bad magic.
+- Chrononautics — **Anomaly** crises; epoch mapping.
+- Medieval monastic mystery — **Sin** track; penance and providence.
+- Red‑planet noir — **Heat** track; pressure, dust, hard choices.
+- Classic dungeon crawl — **Fatigue** track; torchlight and spell backlash.
+- Lower‑decks starship drama — **Stress** track; emergency fixes under scrutiny.
+- Cosmic horror — **Insanity** track; fragile hope and occult terror.
+- Trader‑crew starfreight — **Strain** track; cargo, debt, patron jobs.
+- Wanderer road‑fantasy — **Dread** track; fading hope and subtle rites.
 
 > *To build your own skin:* rename stats, recolour Pressure, add 1–2 strict mechanical rules.
 
