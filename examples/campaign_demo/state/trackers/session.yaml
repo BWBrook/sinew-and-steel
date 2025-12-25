@@ -4,6 +4,14 @@ scene: 1
 clocks:
   pressure:
     name: Shadow
-    current: 1
+    current: 0
     max: 5
+  hunger:
+    name: Hunger
+    current: 0
+    max: 6
+  storm:
+    name: Storm
+    current: 0
+    max: 6
 notes: []

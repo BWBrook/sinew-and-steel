@@ -14,4 +14,4 @@
 6. **Play!**  
    *(Players who translate the hidden Chinese only rob themselves; honest duet play preserves the mystery.)*
 
-> *Happy delving—may your secrets stay cryptic until the final torch gutters out.*
+> *Happy delving — may your secrets stay cryptic until the final torch gutters out.*

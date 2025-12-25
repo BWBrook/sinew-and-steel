@@ -14,6 +14,13 @@ python tools/build_prompt.py --campaign <slug>
 python tools/validate_campaign.py --campaign <slug>
 ```
 
+Run the “Emberfall” starter scenario module (Clanfire):
+
+```bash
+python tools/campaign_init.py --title "Emberfall" --skin clanfire --tone standard
+python tools/build_prompt.py --campaign emberfall --mode agent --hidden rules/scenarios/clanfire_emberfall_hidden.md
+```
+
 Roll a standard check:
 
 ```bash

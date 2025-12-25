@@ -8,7 +8,7 @@ creation:
   build_points_used: 6
 meta:
   generated:
-    method: double_debit
+    method: example
     steps: null
     min_steps: 2
     max_steps: 6
@@ -16,23 +16,23 @@ meta:
     build_points_budget: 6
     build_points_unspent: 0
 attributes:
-  MGT: 11
+  MGT: 12
   FLT: 11
   CUN: 10
-  SPR: 11
-  INS: 10
+  SPR: 8
+  INS: 8
 pools:
   luck:
     name: Instinct
-    current: 10
-    max: 10
+    current: 8
+    max: 8
   stamina:
-    current: 5
-    max: 5
+    current: 7
+    max: 7
 tracks:
   pressure:
     name: Shadow
-    current: 1
+    current: 0
     max: 5
 inventory:
   big_items:
@@ -44,4 +44,4 @@ inventory:
   - Ochre pouch
   - Sinew cord
 notes:
-- Advantage when tracking megafauna in fresh snow.
+- Advantage when tracking megafauna.

@@ -1,0 +1,39 @@
+schema_version: 1
+name: Tarra
+skin: clanfire
+player: Example
+created: '2025-12-24'
+creation:
+  build_points_budget: 6
+  build_points_used: 6
+meta:
+  generated:
+    method: example
+attributes:
+  MGT: 6
+  FLT: 8
+  CUN: 12
+  SPR: 14
+  INS: 11
+pools:
+  luck:
+    name: Instinct
+    current: 11
+    max: 11
+  stamina:
+    current: 3
+    max: 3
+tracks:
+  pressure:
+    name: Shadow
+    current: 0
+    max: 5
+inventory:
+  big_items:
+  - Carved bone flute (Adv calming beasts)
+  - Fire‑bow drill
+  - Herb bundle
+  - Scrap of strange cloth
+  small_items: []
+notes:
+- Clan shaman; voice between worlds.

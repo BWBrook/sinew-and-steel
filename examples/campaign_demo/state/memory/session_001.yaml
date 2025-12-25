@@ -1,9 +1,11 @@
 schema_version: 1
 summary:
-- '[2025-12-24T01:17:12Z] Grak slipped out to read the night-wet tracks.'
+- '[2025-12-24T01:17:12Z] The hearth waned; Grak stalked the birch-line while Tarra called to embers.'
+- '[2025-12-24T01:18:40Z] A cave wolf tested the edge of the light. Grak wounded it; Tarra drove it off with flame and chant.'
 threads:
-- What is stalking the clan near the birch-line?
+- What is making the birch-line “wrong” tonight?
+- Where did the wolf retreat to, and is it alone?
 npcs:
 - 'Tarra the Ember-Singer: hears ''patient hunger'' in the wind.'
 secrets:
-- The prints are too heavy for reindeer.
+- The wolf’s prints run alongside other, lighter tracks that do not match any beast.

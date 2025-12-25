@@ -1,5 +1,5 @@
 # Sinew & Steel · Hidden-Scenario Prompt Template  
-*(for 1-player / AI-GM duet play; send to ChatGPT o3 or 4o, Gemini-2.5, Deepseek R1, or similar)*
+*(for 1-player / AI-GM duet play; send to ChatGPT, Gemini, Claude, DeepSeek, or similar, set to "Thinking" mode)*
 
 <start_prompt>
 

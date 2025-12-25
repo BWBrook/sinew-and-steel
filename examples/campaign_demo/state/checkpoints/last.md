@@ -1,8 +1,10 @@
-You slip into the birches, keeping the wind on your cheek. The prints are deep — not reindeer, not bear. Something walked here with purpose and weight.
+The cave wolf is gone, blood dark on snow.
 
-Ahead, the trees thin toward the frozen stream. In the dark, you hear a second sound: a faint clicking, like teeth on bone.
+The birches click together in the wind, but beneath that you catch another rhythm: lighter steps, too neat for any beast. Whoever made them walked *without hurry*.
+
+Ahead, the trees thin toward the frozen stream. In the dark, something taps bone against stone — once, then again — like a signal.
 
 Options:
-1. Circle wide and try to see the thing before it sees you (NIM).
-2. Lay a quick snare-trap and retreat toward the cave (CUN).
+1. Follow the wolf’s blood toward the frozen stream (CUN).
+2. Circle wide and try to spot the watcher before it spots you (FLT).
 3. Call softly for Tarra and the clan (no roll).

@@ -96,6 +96,6 @@ Example skin genres (see `/skins/` for the full list):
 ## 4 Example Character (Clanfire skin, standard build points)
 
 **Grak — Hunter**  
-MGT 12 • FLT 12 • CUN 9 • SPR 8 • INS 9 (Luck 9/9) • STM 6/6 • Shadow 0/5  
+MGT 12 • FLT 11 • CUN 10 • SPR 8 • INS 8/8 • STM 7/7 • Shadow 0/5  
 Stone spear (edge +1) • Hand‑axe (edge +1) • Hide cloak (soak 1)  
 *Advantage when tracking megafauna.*

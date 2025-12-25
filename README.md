@@ -74,6 +74,10 @@ Start here if you want a Codex CLI or Claude Code agent to run the game from thi
 
 Canonical guide: `skills/agent_dm_handbook.md`
 
+Starter scenario (Clanfire, “play tonight”):
+- `rules/scenarios/clanfire_emberfall.md`
+- `rules/scenarios/clanfire_emberfall_hidden.md` (prompt-ready module)
+
 ### Resume fast (fresh context)
 
 If you’re resuming a campaign in a new agent context, use the resume pack:
@@ -135,6 +139,8 @@ The repo’s `/prompts/chat/` folder contains:
 
 No plugins needed for reasoning engines with tool use — `random.randint(1,20)` and short, punchy prose carry the night.
 
+Appendix (AI play): `rules/appendices/ai_play.md`
+
 ---
 
 ## Agent harness (Codex / Claude Code / Jules-friendly)
@@ -168,7 +174,7 @@ Key utilities for play:
 
 Issues, forks, pull requests, new skins, typo fixes — all welcome. Keep additions:
 
-* **Lean.**  One new rule should replace three lines of “crunch.”  
+* **Lean.**  One new rule should replace three lines of “crunch”.  
 * **Setting-agnostic** in core; setting-specific rules live in `skins/`.  
 * **Plain Markdown** first; we’ll prettify later.
 

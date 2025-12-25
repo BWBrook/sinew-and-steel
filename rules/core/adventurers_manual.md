@@ -44,7 +44,7 @@ If failure would be boring, resolve it narratively.
 
 ---
 
-## 2 Building a Hero
+## 2 Building a Hero (player character)
 
 ### 2.1 Start from the baseline frame
 Every character begins at:
@@ -54,6 +54,8 @@ Every character begins at:
 Legal ranges at creation:
 - Attributes: **6–16**
 - Stamina: **3–9**
+
+_Abbreviation note: PC = player character, NPC = non-player character_
 
 ### 2.1.1 What the five attributes mean (default names)
 Skins rename and re‑flavour attributes, but the core game assumes five broad domains.
@@ -65,7 +67,7 @@ If you need a default set (and for examples in this manual), use:
 - **EMP — Empathy:** social sense, willpower, leadership, composure.
 - **LCK — Luck:** tokens you spend to nudge fate (and roll under when sheer chance decides).
 
-### 2.2 The point‑buy economy (plain English)
+### 2.2 The point‑buy economy (trade-offs and build points)
 You can customize your stats using the same economy in two equivalent ways:
 
 **A) Trade‑offs (the “double‑debit” ledger):**  
@@ -104,7 +106,7 @@ At creation, the Custodian chooses a starting budget for tone:
 6. Write 3–6 items of gear and one small advantage (if your table uses them).
 
 ### 2.5 Worked example (build points + trade‑offs)
-You want a sharp‑witted hero and you raise INT from 10 to 13 (**+3 above baseline**).
+You want a sharp‑witted PC hero and you raise INT from 10 to 13 (**+3 above baseline**).
 
 - Trade‑off version: you must take **‑6 total** across other scores (no build points required).
 - Build‑point version: you can instead spend **6 build points** (2 per +1 above baseline) and keep the rest closer to baseline.
@@ -197,7 +199,7 @@ After a hit:
 - **Natural 1 ignores all soak.**
 
 **Micro‑example (soak erosion):**
-> You hit with margin +9 against soak 2.  
+> You hit with an NPC guard with margin +9 against soak 2.  
 > Full 4s = 2 → soak drops by 2 (to 0).  
 > The armour is shredded at the penetration point; this hit takes full damage.
 
