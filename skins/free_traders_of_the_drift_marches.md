@@ -1,5 +1,5 @@
 # **FREE TRADERS OF THE DRIFT MARCHES**
-## Skin add-on for the Sinew & Steel game system
+### Skin add-on for the Sinew & Steel game system
 *Out along the drift routes between the stars: jump‑flashes bloom in the dark, patrons wave low‑credit cargo chits, and a worn free trader hauls dreams through the long night.*
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
@@ -12,6 +12,7 @@ Suggested creation tone: **standard** (**6** build points).
 In this skin, the Custodian is often called the **Guildmaster**.
 
 **Micro‑vignette (cold open):**
+
 > “Free trader *Peregrine*, this is Port Authority. You are cleared for berth… once your outstanding fees are settled. Out.”
 
 ---
@@ -125,13 +126,16 @@ _(A risky test is any roll where failure would materially change the situation: 
 **Gain Strain:** combat hits, jump failures, overdue loans, empty Ship Shares.  
 **Clear Strain:** 72‑hour shore leave (costs you something), captain’s commendation (narrative), or a patron payoff that actually lands.
 
-**Strain crisis (pick or roll d6)**  
-1 Core flash‑over — everyone loses **1 STM**  
-2 Helm panic — veer into hazard (an encounter begins at Disadvantage)  
-3 Mutiny spark — immediate social conflict; **SOC** tests at Disadvantage next session  
-4 System lockdown — one ship function offline until port repair  
-5 Debt call‑in — lose **1 Ship Share** immediately (or tick Debt +1 if at 0 shares)  
-6 Roll twice; apply both
+**Strain crisis (pick or roll d6)**
+
+| d6 | Crisis |
+|---:|---|
+| 1 | Core flash‑over — everyone loses **1 STM** |
+| 2 | Helm panic — veer into hazard (an encounter begins at Disadvantage) |
+| 3 | Mutiny spark — immediate social conflict; **SOC** tests at Disadvantage next session |
+| 4 | System lockdown — one ship function offline until port repair |
+| 5 | Debt call‑in — lose **1 Ship Share** immediately (or tick Debt +1 if at 0 shares) |
+| 6 | Roll twice; apply both |
 
 Fate is personal risk. Strain is the ship’s mood, its wear, and the crew’s frayed nerves. Your courage may cost the ship its calm.
 
@@ -223,12 +227,18 @@ Port fees double; lien threatens impound • Pirate corsair on scan • Misfuell
 ## SAMPLE CREW
 
 ### Lt‑Cmdr Mara Thorne — Survey Service mustering‑out
+
+![](../assets/art/ss_free_traders_mara.png){.wrap-right width=1.55in}
+
 Creation: standard budget (**6** build points; used **6**)  
 STR 8 DEX 12 EDU 14 SOC 8 FAT 8/8 STM 5/5 Strain 0/5  
 Knack: Scout Surveyor. Expertise: EDU (Astrogation).  
 Snub‑pistol +1, flight suit (soak 0), battered survey kit (Advantage on EDU field analysis when you have time).
 
 ### Harlan “Holo” Vesk — Free Trader deckhand
+
+![](../assets/art/ss_free_traders_holo.png){.wrap-left width=1.55in}
+
 Creation: standard budget (**6** build points; used **6**)  
 STR 14 DEX 9 EDU 8 SOC 7 FAT 10/10 STM 7/7 Strain 0/5  
 Knack: Belter Rat. Expertise: STR (Cargo Handling).  

@@ -1,0 +1,387 @@
+schema_version: 1
+
+# Sinew & Steel — Skin Artwork Requests
+#
+# Purpose
+# - A prompt-ready list of additional spot-art assets (and per-skin logos) to
+#   improve visual appeal in `skins/*.md`.
+# - All prompts assume the established house style: black-and-white pen-and-ink
+#   spot illustrations that read clearly when printed small.
+#
+# Conventions
+# - Filenames use `ss_` prefix and are suggested only (rename as you like).
+# - "logo" assets are intended as small maker's marks near the top of each skin.
+# - "spot_art" assets are intended for inline wrap (`.wrap-left/.wrap-right`)
+#   near the named section.
+
+style_guide:
+  base_prompt: >
+    Black-and-white pen-and-ink spot illustration, field-manual schematic.
+    White background. No text. High contrast. Clean silhouettes. Minimal fine
+    detail so it reads when small. Keep line weight consistent with existing
+    S&S interior art.
+  sizing_notes:
+    logo_px: 1024
+    spot_px: 1024
+  do_not:
+    - no text, lettering, or numerals
+    - no copyrighted logos or recognizable franchise marks
+    - avoid overly dense cross-hatching (should print cleanly)
+
+skins:
+  clanfire:
+    logo:
+      key: clanfire_logo
+      suggested_file: assets/logos/ss_logo_clanfire.png
+      description: "Clanfire maker's mark (flint & frost survival)."
+      prompt: |
+        Black-and-white pen-and-ink maker's mark icon. White background. No text.
+        Subject: a flint spearhead above a small hearth ember-flame, with two
+        birch leaves crossed behind them. Simple circular badge border. Bold,
+        readable at small size.
+    spot_art:
+      - key: hearth_embers
+        suggested_file: assets/art/ss_clanfire_hearth_embers.png
+        description: "Hearth embers + smoke curl (for Hearth Beats / scene framing)."
+        suggested_placement: "skins/clanfire.md: near 'Hearth Beats'"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a low hearth of embers with a thin curl of smoke; a few
+          scattered bone beads nearby (Luck tokens). Keep it small and iconic.
+      - key: totem_mark
+        suggested_file: assets/art/ss_clanfire_totem_mark.png
+        description: "Totem / spirit mark (for Totem Mark + Beast Bond rules)."
+        suggested_placement: "skins/clanfire.md: near 'Totem Mark' / 'Beast Bond'"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a carved bone totem pendant with simple animal motif (bear or
+          wolf) and a sinew cord loop. Field-manual style, minimal shading.
+      - key: vision_glass
+        suggested_file: assets/art/ss_clanfire_vision_glass.png
+        description: "Obsidian shard reflecting a forked future (for Vision Glass)."
+        suggested_placement: "skins/clanfire.md: near 'Vision Glass (omens, not do-overs)'"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a jagged obsidian shard; inside it, a faint mirrored scene split
+          into two simple silhouettes (two diverging footprints). Keep the inner
+          detail extremely simple.
+
+  iron_and_ruin:
+    logo:
+      key: iron_ruin_logo
+      suggested_file: assets/logos/ss_logo_iron_and_ruin.png
+      description: "Iron & Ruin maker's mark (pulp sword-and-sorcery)."
+      prompt: |
+        Black-and-white pen-and-ink maker's mark icon. White background. No text.
+        Subject: a chipped sword crossed with a crescent moon talisman; a small
+        sorcerous spark/sigil between them. Simple circular badge border.
+        Bold silhouette, minimal linework.
+    spot_art:
+      - key: doom_sigils
+        suggested_file: assets/art/ss_iron_ruin_doom_sigils.png
+        description: "A scroll with creeping sigils (for Doom track / sorcery cost)."
+        suggested_placement: "skins/iron_and_ruin.md: near Doom (Pressure track) section"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a rolled parchment scroll with faint creeping rune-like marks
+          crawling from the edge, and a small wax seal cracked open.
+      - key: sorcery_tiers
+        suggested_file: assets/art/ss_iron_ruin_sorcery_tiers.png
+        description: "A three-step sorcery ladder (Whisper/Weave/Wrack vibe, no words)."
+        suggested_placement: "skins/iron_and_ruin.md: near Sorcery tier table"
+        prompt: |
+          Black-and-white pen-and-ink schematic. White background. No text.
+          Subject: a vertical 3-step ladder of icons: small spark -> flame swirl
+          -> jagged lightning bolt. Minimal, clean, like a rules diagram.
+      - key: idol_ruby_eyes
+        suggested_file: assets/art/ss_iron_ruin_idol.png
+        description: "Cursed idol (for Chronicaler's Touchstone / vignette)."
+        suggested_placement: "skins/iron_and_ruin.md: near Custodian tone section"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a squat stone idol with two gem-like eyes (no color, just
+          glossy highlight). Keep it ominous but simple.
+
+  time_odyssey:
+    logo:
+      key: time_odyssey_logo
+      suggested_file: assets/logos/ss_logo_time_odyssey.png
+      description: "Time Odyssey maker's mark (chrononautics / paradox)."
+      prompt: |
+        Black-and-white pen-and-ink maker's mark icon. White background. No text.
+        Subject: an hourglass set inside a gear ring, with a looping arrow
+        circling the hourglass (time loop). Simple circular badge border.
+        Bold and readable small.
+    spot_art:
+      - key: epoch_timeline
+        suggested_file: assets/art/ss_time_odyssey_timeline.png
+        description: "Timeline with 3–5 labeled nodes (no text), for Epoch Graph."
+        suggested_placement: "skins/time_odyssey.md: near 'Epoch Graph'"
+        prompt: |
+          Black-and-white pen-and-ink schematic. White background. No text.
+          Subject: a horizontal timeline with 5 circular nodes; two nodes have
+          a small lightning-scar mark (paradox). Add a branching offshoot from
+          one node to show divergence. Keep it clean and diagram-like.
+      - key: anomaly_crack
+        suggested_file: assets/art/ss_time_odyssey_anomaly_crack.png
+        description: "Reality crack / chrono static (for Anomaly track + crisis)."
+        suggested_placement: "skins/time_odyssey.md: near 'Temporal Anomaly (Pressure skin)'"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a hairline crack in a circular clock-face outline, with tiny
+          'static' dots drifting out. Very simple, iconic.
+      - key: chrononaut_kit
+        suggested_file: assets/art/ss_time_odyssey_kit.png
+        description: "Pocket-watch + notebook + odd coin (for equipment vibe)."
+        suggested_placement: "skins/time_odyssey.md: near equipment/burden section"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a pocket watch, a small notebook, and one strange coin.
+          Minimal shading; readable small.
+
+  briar_benedictine:
+    logo:
+      key: briar_benedictine_logo
+      suggested_file: assets/logos/ss_logo_briar_benedictine.png
+      description: "Briar & Benedictine maker's mark (monastic mystery)."
+      prompt: |
+        Black-and-white pen-and-ink maker's mark icon. White background. No text.
+        Subject: a quill crossed with a sprig of yarrow (herb), set inside a
+        simple gothic arch outline. Bold, minimal detail; reads small.
+    spot_art:
+      - key: wax_seal
+        suggested_file: assets/art/ss_benedictine_wax_seal.png
+        description: "Cracked wax seal and parchment (for mystery hooks / portents)."
+        suggested_placement: "skins/briar_benedictine.md: near mystery procedure / seeds"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a folded parchment with a cracked wax seal; a few dried petals
+          spilling out. Keep it iconic and clean.
+      - key: reliquary_key
+        suggested_file: assets/art/ss_benedictine_reliquary_key.png
+        description: "Old iron key + small reliquary box (for abbey investigation)."
+        suggested_placement: "skins/briar_benedictine.md: near 'The Abbey Case'"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: an old iron key beside a small ornate reliquary box. Minimal
+          ornamentation; focus on silhouette.
+      - key: confession_screen
+        suggested_file: assets/art/ss_benedictine_confessional.png
+        description: "Confessional screen / candlelit lattice (for Sin track vibe)."
+        suggested_placement: "skins/briar_benedictine.md: near Sin Track section"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a simple wooden confessional lattice with a candle flame behind
+          it (suggested by glow lines). Keep it minimal.
+
+  candlelight_dungeons:
+    logo:
+      key: candlelight_logo
+      suggested_file: assets/logos/ss_logo_candlelight_dungeons.png
+      description: "Candlelight Dungeons maker's mark (classic crawl)."
+      prompt: |
+        Black-and-white pen-and-ink maker's mark icon. White background. No text.
+        Subject: a candle flame above a dungeon keyhole/door arch. Simple circular
+        badge border. Bold silhouette.
+    spot_art:
+      - key: torch_sconce
+        suggested_file: assets/art/ss_candlelight_torch_sconce.png
+        description: "Wall sconce torch (for Fatigue / light tension)."
+        suggested_placement: "skins/candlelight_dungeons.md: near Fatigue track / torchlight"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a torch in a wall sconce with a small drip of wax and smoke curl.
+          Keep it small, iconic.
+      - key: dungeon_door
+        suggested_file: assets/art/ss_candlelight_dungeon_door.png
+        description: "Iron-banded door with a keyhole (for delver vibe)."
+        suggested_placement: "skins/candlelight_dungeons.md: near Delver's Kit / opening tone"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: an iron-banded wooden door, slightly ajar, with darkness beyond.
+          Minimal detail; strong silhouette.
+      - key: spell_backlash
+        suggested_file: assets/art/ss_candlelight_spell_backlash.png
+        description: "Simple rune flare + singed page edge (for Spellcraft costs)."
+        suggested_placement: "skins/candlelight_dungeons.md: near Spellcraft section"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a small open spellbook page with a sudden flare/spark bursting
+          from it, singe marks at the corner. Keep it clean and readable.
+
+  rust_and_domes:
+    logo:
+      key: rust_domes_logo
+      suggested_file: assets/logos/ss_logo_rust_and_domes.png
+      description: "Rust & Domes maker's mark (red frontier / domes)."
+      prompt: |
+        Black-and-white pen-and-ink maker's mark icon. White background. No text.
+        Subject: a simple dome habitat silhouette with a dust swirl and a tiny
+        comms tower. Circular badge border; minimal shading.
+    spot_art:
+      - key: dome_skyline
+        suggested_file: assets/art/ss_rust_domes_dome_skyline.png
+        description: "Dome skyline with dust gust (for setting spine section)."
+        suggested_placement: "skins/rust_and_domes.md: near default kit / setting spine"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: 2–3 connected habitat domes with a low dust gust curling past.
+          Minimal detail; strong shapes.
+      - key: oxygen_gauge
+        suggested_file: assets/art/ss_rust_domes_oxygen_gauge.png
+        description: "O2 gauge dropping (for tension / recovery / hazards)."
+        suggested_placement: "skins/rust_and_domes.md: near recovery / hazards sections"
+        prompt: |
+          Black-and-white pen-and-ink schematic. White background. No text.
+          Subject: a simple circular gauge with needle dipping low; tiny crack in
+          the glass. No numbers. Clean diagram style.
+      - key: corp_audit_stamp
+        suggested_file: assets/art/ss_rust_domes_audit_stamp.png
+        description: "Corporate audit stamp (for Controller moves / complications)."
+        suggested_placement: "skins/rust_and_domes.md: near Controller moves"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a heavy rubber stamp hitting a document, leaving an abstract
+          geometric mark (no letters). Simple impact lines.
+
+  service_duct_blues:
+    logo:
+      key: service_ducts_logo
+      suggested_file: assets/logos/ss_logo_service_duct_blues.png
+      description: "Service Duct Blues maker's mark (lower-decks ship drama)."
+      prompt: |
+        Black-and-white pen-and-ink maker's mark icon. White background. No text.
+        Subject: a wrench over a simplified duct cross-section (rectangular vent),
+        with a small warning strobe triangle. Circular badge border; clean lines.
+    spot_art:
+      - key: duct_maze
+        suggested_file: assets/art/ss_service_ducts_duct_maze.png
+        description: "Simplified duct maze map (for beat tags / crawl scenes)."
+        suggested_placement: "skins/service_duct_blues.md: near Beat tags / scene seed"
+        prompt: |
+          Black-and-white pen-and-ink schematic. White background. No text.
+          Subject: a tiny top-down duct maze: 6–8 rectangles connected by short
+          corridors; one node highlighted with a small star icon (no letters).
+          Clean, diagram-like.
+      - key: klaxon_steam
+        suggested_file: assets/art/ss_service_ducts_klaxon_steam.png
+        description: "Alarm strobe + steam burst (for Stress track / emergencies)."
+        suggested_placement: "skins/service_duct_blues.md: near Stress track section"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a wall strobe light with radiating lines and a nearby pipe
+          venting steam. Minimal, bold.
+      - key: comms_channel
+        suggested_file: assets/art/ss_service_ducts_comms.png
+        description: "Comms iconography (for 'the other 99%' crew roles)."
+        suggested_placement: "skins/service_duct_blues.md: near 'The other 99%' section"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a simple headset/mic and a small waveform (abstract, no text).
+          Keep it super clean.
+
+  free_traders_of_the_drift_marches:
+    logo:
+      key: free_traders_logo
+      suggested_file: assets/logos/ss_logo_free_traders.png
+      description: "Free Traders maker's mark (cargo, debt, jump routes)."
+      prompt: |
+        Black-and-white pen-and-ink maker's mark icon. White background. No text.
+        Subject: a small starship silhouette above a cargo crate and a simple
+        balance scale (trade). Circular badge border; minimal detail.
+    spot_art:
+      - key: cargo_manifest
+        suggested_file: assets/art/ss_free_traders_cargo_manifest.png
+        description: "Cargo crate + manifest sheet (for trade/port calls)."
+        suggested_placement: "skins/free_traders_of_the_drift_marches.md: near Trade & Port Calls"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a cargo crate with a clipped manifest sheet (blank lines only,
+          no words) and a stamp mark (geometric, no letters).
+      - key: jump_arc
+        suggested_file: assets/art/ss_free_traders_jump_arc.png
+        description: "Star map arc between two dots (for jump leg / sector events)."
+        suggested_placement: "skins/free_traders_of_the_drift_marches.md: near Jump leg / sector events"
+        prompt: |
+          Black-and-white pen-and-ink schematic. White background. No text.
+          Subject: two star dots connected by a curved arc with tiny spark marks
+          along the path. Clean and minimal.
+      - key: med_supply_clock
+        suggested_file: assets/art/ss_free_traders_med_supplies.png
+        description: "Medical kit + small 6-tick clock (for medical aid supplies)."
+        suggested_placement: "skins/free_traders_of_the_drift_marches.md: near Medical Aid (supplies clock)"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a simple medical kit box and beside it a small circular 6-tick
+          clock with 2 ticks filled. No numbers.
+
+  twilight_of_the_northlands:
+    logo:
+      key: twilight_northlands_logo
+      suggested_file: assets/logos/ss_logo_twilight_northlands.png
+      description: "Twilight of the Northlands maker's mark (lantern-road fantasy)."
+      prompt: |
+        Black-and-white pen-and-ink maker's mark icon. White background. No text.
+        Subject: a hanging lantern on a signpost at a forked road; a small rune
+        stone at the base. Circular badge border; minimal detail.
+    spot_art:
+      - key: road_lantern
+        suggested_file: assets/art/ss_twilight_road_lantern.png
+        description: "Lantern on a lonely road (for tone / journeys)."
+        suggested_placement: "skins/twilight_of_the_northlands.md: near opening / Writing in saga style"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a small lantern casting a cone of light onto a winding road
+          line, with a few falling leaves. Simple, iconic.
+      - key: stance_wheel
+        suggested_file: assets/art/ss_twilight_combat_positions.png
+        description: "Three combat positions (close/balanced/far) as simple icons."
+        suggested_placement: "skins/twilight_of_the_northlands.md: near Combat Positions micro-module"
+        prompt: |
+          Black-and-white pen-and-ink schematic. White background. No text.
+          Subject: three small stance icons in a row: (1) two figures close with
+          shields touching, (2) two figures mid-distance with weapons ready,
+          (3) two figures far with a bow. Keep them as simple silhouettes.
+      - key: rune_stone
+        suggested_file: assets/art/ss_twilight_rune_stone.png
+        description: "Rune-carved standing stone (for subtle magic / old rites)."
+        suggested_placement: "skins/twilight_of_the_northlands.md: near Subtle Magic — Old Rites"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a standing stone with a few abstract rune scratches (no letters),
+          with a small sprig of heather at its base.
+
+  whispers_in_the_fog:
+    logo:
+      key: whispers_logo
+      suggested_file: assets/logos/ss_logo_whispers_in_the_fog.png
+      description: "Whispers in the Fog maker's mark (weird horror / occult dread)."
+      prompt: |
+        Black-and-white pen-and-ink maker's mark icon. White background. No text.
+        Subject: a lantern half-obscured by fog, with an eye shape faintly implied
+        in the mist (simple outline). Circular badge border; bold and minimal.
+    spot_art:
+      - key: fog_lantern
+        suggested_file: assets/art/ss_whispers_fog_lantern.png
+        description: "Lantern beam swallowed by fog (for tone section)."
+        suggested_placement: "skins/whispers_in_the_fog.md: near Keeper tone / palette"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a lantern casting light that immediately dissolves into fog
+          curls. Keep it clean and haunting.
+      - key: forbidden_tome
+        suggested_file: assets/art/ss_whispers_forbidden_tome.png
+        description: "Old book with occult sigil (for Eldritch Rites section)."
+        suggested_placement: "skins/whispers_in_the_fog.md: near Eldritch Rites"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: an old book slightly open with a simple geometric sigil on the
+          cover (no letters), and a few drifting motes like dust.
+      - key: insanity_spiral
+        suggested_file: assets/art/ss_whispers_insanity_spiral.png
+        description: "A simple spiral + cracked mirror shard (for Insanity track)."
+        suggested_placement: "skins/whispers_in_the_fog.md: near Insanity track section"
+        prompt: |
+          Black-and-white pen-and-ink spot illustration. White background. No text.
+          Subject: a simple spiral (madness motif) beside a small cracked mirror
+          shard reflecting an eye. Minimal, high contrast.

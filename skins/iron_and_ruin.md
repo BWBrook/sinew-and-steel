@@ -1,5 +1,5 @@
 # **IRON & RUIN**
-## Skin add-on for the Sinew & Steel game system
+### Skin add-on for the Sinew & Steel game system
 *Grim sword‑and‑sorcery in the spirit of pulp adventure.*
 
 _(Layer atop the universal rules; anything unstated defaults to core.)_
@@ -107,13 +107,16 @@ The sorcery tier table tells you exactly when Doom rises; as a rule of thumb, **
 
 Doom purge: cleric rite, sacrificial pyre, or grim personal cost.
 
-Doom Crisis (d6):
-1 Demon grip — lose control one scene  
-2 Soul scar — –1 STM & gain eerie stigma  
-3 Eldritch eruption — area damage  
-4 Mind shatter — Disadv all rolls next session  
-5 Curse brand — foes scent you across leagues  
-6 Roll twice.
+**Doom crisis (d6)**
+
+| d6 | Crisis |
+|---:|---|
+| 1 | Demon grip — lose control one scene |
+| 2 | Soul scar — -1 STM & gain eerie stigma |
+| 3 | Eldritch eruption — area damage |
+| 4 | Mind shatter — Disadv all rolls next session |
+| 5 | Curse brand — foes scent you across leagues |
+| 6 | Roll twice. |
 
 ### Totemic Feats
 Once per session declare a **Heroic Act**: attempt a cinematic stunt (kick from battlements, snap a chain, cut a rope bridge at the right moment).
@@ -130,6 +133,7 @@ Cost: **1 Fortune**.
 Terse, muscular prose. Violence sudden; sorcery foul or uncanny. Civilisation decadent; heroes carve fate. Cursed sigils, rival factions, prophetic dreams.
 
 **Micro‑vignette (frame a beat):**
+
 > The idol’s eyes are rubies. The chamber reeks of old incense and newer blood. Somewhere beyond the lintel, a priest begins to chant your name.
 
 Keep rolls sparse; heroes triumph more than they fail, yet peril must feel real. Use Advantage to reward cunning gambits, Disadvantage to punish hubris. Fortune is precious—recover it slowly so its last flickers feel desperate. Hand out Doom sparingly but make its consequences unforgettable. Milestones should follow story logic, not arithmetic.
@@ -163,12 +167,18 @@ Failure should reshape the world, not halt the story. Death is meaningful only i
 ## HEROIC FIGURES
 
 ### Tragan the Reaver — Mercenary  
+
+![](../assets/art/ss_iron_ruin_tragan.png){.wrap-right width=1.55in}
+
 *A northern barbarian too stubborn to die.*  
 Creation: pulp budget (**12** build points; used **12**)  
 BRN 16 AGI 11 CUN 6 WIL 10 FOR 8/8 STM 7/7 Doom 0/5  
 Heavy axe +1, tattered mail soak 1, notched shield (once/combat Adv when ramming).
 
 ### Yara the Occultist — Exiled Priestess  
+
+![](../assets/art/ss_iron_ruin_yara.png){.wrap-left width=1.55in}
+
 *Raven-haired mystic with forbidden sigils inked into her flesh.*  
 Creation: pulp budget (**12** build points; used **12**)  
 BRN 6 AGI 9 CUN 15 WIL 14 FOR 10/10 STM 4/4 Doom 0/5  

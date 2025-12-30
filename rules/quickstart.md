@@ -7,6 +7,8 @@
 
 ## 1 Core Engine (60‑second digest)
 
+![](../assets/art/ss_core_mechanic.png){.wrap-right width=1.6in wraplines=18} Keep this page in view; it’s meant to be used mid‑play.
+
 - **Roll‑under d20.** If `d20 ≤ attribute`, you succeed; otherwise you fail.
   - **Natural 1** = legendary success | **Natural 20** = catastrophic failure.
 - **Margin** = `attribute − roll` (positive = how well; negative = how badly).
@@ -78,6 +80,8 @@ Example skin genres (see `/skins/` for the full list):
 
 ## 3 Custodian Quick‑Start (run a first session tonight)
 
+![](../assets/art/ss_logbook.png){.wrap-left width=1.7in wraplines=20} Use this checklist to start a first session quickly.
+
 1. **Frame the scene** in concrete details. End on a hook.
 2. Ask: **“What do you do?”** Then listen for intent + method.
 3. Decide resolution:
@@ -95,7 +99,7 @@ Example skin genres (see `/skins/` for the full list):
 
 ## 4 Example Character (Clanfire skin, standard build points)
 
-**Grak — Hunter**  
+![](../assets/art/ss_clanfire_grak.png){.wrap-right width=1.35in wraplines=18} **Grak — Hunter**  
 MGT 12 • FLT 11 • CUN 10 • SPR 8 • INS 8/8 • STM 7/7 • Shadow 0/5  
 Stone spear (edge +1) • Hand‑axe (edge +1) • Hide cloak (soak 1)  
 *Advantage when tracking megafauna.*

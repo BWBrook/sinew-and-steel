@@ -1,5 +1,5 @@
 # **BRIAR & BENEDICTINE**
-## Skin add-on for the Sinew & Steel game system
+### Skin add-on for the Sinew & Steel game system
 *A Benedictine abbey, England, winter of 1142. Murder, heresy, and siege swirl beyond the cloister walls.*
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
@@ -87,6 +87,7 @@ This skin is a Medieval monastic mystery. Keep it moving with two table rules:
 Use the **Insight** plug‑in as your “unstick lever” if the table stalls.
 
 **Micro‑example (how to run a clue):**
+
 > Cadoc scrapes blood from the altar cloth. Test **LOR**.  
 > Success: “It’s old blood — at least five days — and it reeks of yarrow.”  
 > Failure: “It’s old blood… but your hands shake. Mark **+1 Sin**: prideful certainty can damn the innocent.”
@@ -106,13 +107,16 @@ Sin is the spiritual pressure of suspicion, pride, and proximity to evil. It run
 **Gain Sin:** lie under oath, break a vow of peace, disturb a sanctified grave, use Insight on sacred matters for petty ends.  
 **Purge Sin:** public confession (lose a favoured item), week‑long fast, hazardous pilgrimage.
 
-**Crisis table (d6)**  
-1 Public scourging — lose **1 STM**; the penance resets Sin to **0**  
-2 Possessed by pride — Custodian controls the PC for one scene  
-3 Devil’s whisper — your next **MCY** test against a suspect is at Disadvantage  
-4 Lost reliquary — a key piece of evidence vanishes  
-5 Chapter trial — Disadvantage on all rolls next session  
-6 Roll twice; apply both
+**Crisis table (d6)**
+
+| d6 | Crisis |
+|---:|---|
+| 1 | Public scourging — lose **1 STM**; the penance resets Sin to **0** |
+| 2 | Possessed by pride — Custodian controls the PC for one scene |
+| 3 | Devil’s whisper — your next **MCY** test against a suspect is at Disadvantage |
+| 4 | Lost reliquary — a key piece of evidence vanishes |
+| 5 | Chapter trial — Disadvantage on all rolls next session |
+| 6 | Roll twice; apply both |
 
 ### Tone
 Lean, sensory: “Iron brazier hisses as herbs crack; the air stinks of blood and rosemary.” Violence is rare but final.
@@ -161,11 +165,17 @@ Roll or pick to ground any scene in seconds.
 ## EXAMPLE MONASTICS
 
 ### Brother Cadoc — Herbalist‑Inquisitor
+
+![](../assets/art/ss_benedictine_cadoc.png){.wrap-right width=1.55in}
+
 Creation: grim budget (**0** build points; used **0**)  
 HEW 8 FLT 7 LOR 14 MCY 10 PRV 8/8 STM 4/4 Sin 0/5  
 Satchel of salves (Advantage on one LOR diagnosis per day), hand staff (edge 0), vellum notebook.
 
 ### Sister Aveline — Lay Scribe
+
+![](../assets/art/ss_benedictine_aveline.png){.wrap-left width=1.55in}
+
 Creation: grim budget (**0** build points; used **0**)  
 HEW 6 FLT 9 LOR 11 MCY 13 PRV 9/9 STM 3/3 Sin 0/5  
 Wax tablets, dagger +1 (kept hidden), empathic gaze (Advantage on first MCY roll per session).

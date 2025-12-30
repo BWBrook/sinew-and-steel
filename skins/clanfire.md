@@ -1,5 +1,5 @@
 # **CLANFIRE — FLINT & FROST**
-## Skin add-on for the Sinew & Steel game system
+### Skin add-on for the Sinew & Steel game system
 *Neanderthal Europe at the edge of extinction, ≈ 40 000 BP.*  
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
@@ -79,20 +79,25 @@ A hunter totes six big items (spears, blade kit, hide water skin…). Extra gear
 Other track motifs: dying hearth‑fires, a one‑eyed cave bear, the piercing flutes of Sapiens scouts, spirits withdraw, illness spreads.
 
 #### Crisis Table (d6)
-1 Possession by ancestor — Custodian controls hunter for one scene  
-2 Withering chill — –1 Stamina & prized tool shatters  
-3 Nightmare fugue — Disadvantage next session  
-4 Blizzard drives migration — forced locale shift  
-5 Secret revealed — Sapiens learn camp location  
-6 Roll twice — stack horrors
+
+| d6 | Crisis |
+|---:|---|
+| 1 | Possession by ancestor — Custodian controls hunter for one scene |
+| 2 | Withering chill — -1 Stamina & prized tool shatters |
+| 3 | Nightmare fugue — Disadvantage next session |
+| 4 | Blizzard drives migration — forced locale shift |
+| 5 | Secret revealed — Sapiens learn camp location |
+| 6 | Roll twice — stack horrors |
 
 ### Hearth Beats
 Play is visceral—crackling fire, reek of hides, breath steaming in moonlight. Mechanics provide bone, but story is sinew. When scenes falter, unleash weather, predator or uneasy strangers. Ambush, ice collapse, bride‑price negotiation, mammoth hunt, cave art.  
 
 **Micro‑vignette (frame a beat):**
+
 > The hearth is down to embers. Frost beads on the cave mouth. Somewhere beyond the birches, something large exhales.
 
 Present 2-4 options in second‑person imperative, focused on protagonist. Include at least one hidden or risky path. Example: 
+
 > 1. Stalk the reindeer downwind.  
 > 2. Retreat to limestone shelter.  
 > 3. Approach the tall newcomers in peace.  
@@ -124,6 +129,8 @@ Custodian moves: storm lashes camp · rival scouts appear · food stores spoil �
 ## EXAMPLE CLANSFOLK
 
 ### Grak of Tall Cliffs (Hunter)
+![](../assets/art/ss_clanfire_grak.png){.wrap-right width=1.6in}
+
 *Sturdy hunter, bearer of granite confidence.*  
 Creation: standard budget (**6** build points; used **6**)  
 MGT 12  FLT 11  CUN 10  SPR 8  INS 8/8  STM 7/7  Shadow 0/5  
@@ -132,6 +139,9 @@ Stone spear +1 (thrown or thrust), hand‑axe +1 (strike), hide cloak 1.
 Ochre pouch (ritual mark), sinew cord.  
 
 ### Tarra the Ember‑Singer (Shaman)
+
+![](../assets/art/ss_clanfire_tarra.png){.wrap-left width=1.6in}
+
 *Clan shaman, voice between worlds.*  
 Creation: standard budget (**6** build points; used **6**)  
 MGT 6  FLT 8  CUN 12  SPR 14  INS 11/11  STM 3/3  Shadow 0/5  

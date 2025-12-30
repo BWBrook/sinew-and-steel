@@ -24,6 +24,7 @@ Requires Python 3 and PyYAML (already present in most agent runtimes).
 - validate_sheet.py: validate a character sheet against point-buy + manifest.
 - validate_campaign.py: validate a campaign scaffold and its state.
 - validate_repo.py: sanity checks for manifest and file layout.
+- release_build.py: build release bundles (markdown + optional PDFs via pandoc) into release/dist/.
 - ss.py: thin dispatcher (`python tools/ss.py <command> ...`) for single-command workflows.
 
 Note: state mutation tools are strict by default; use `--allow-new` only when you intend to create new keys.

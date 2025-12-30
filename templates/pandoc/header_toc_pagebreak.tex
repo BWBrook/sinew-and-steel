@@ -1,0 +1,14 @@
+% Sinew & Steel: Pandoc PDF header tweaks
+%
+% Keep the table of contents isolated:
+% - TOC begins on its own page (after title)
+% - TOC ends with a page break so content never runs on directly
+\makeatletter
+\let\ss@orig@tableofcontents\tableofcontents
+\renewcommand{\tableofcontents}{%
+  \clearpage%
+  \ss@orig@tableofcontents%
+  \clearpage%
+}
+\makeatother
+

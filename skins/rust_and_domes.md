@@ -1,5 +1,5 @@
 # **RUST & DOMES**
-## Skin add-on for the Sinew & Steel game system
+### Skin add-on for the Sinew & Steel game system
 *Gritty exploits on a colonised Red Planet, circa 2205 AE.*
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
@@ -100,13 +100,16 @@ A **risky test** is any roll where failure would materially change the situation
 **Gain Heat:** failed covert tests, public gunfire, traced hacks, reckless media leaks.  
 **Clear Heat:** pay bribes (lose creds/item), lay low an entire session, or do a favour for the controlling corp.
 
-**Heat crisis (d6):**  
-1 Corp‑Sec raid (combat or surrender)  
-2 Syndicate kidnaps ally  
-3 Bounty hunters strike en route  
-4 Bio‑sensor lockout: habitat denies life support  
-5 Universal arrest warrant (Disadvantage on all social tests next session)  
-6 Roll twice; apply both
+**Heat crisis (d6):**
+
+| d6 | Crisis |
+|---:|---|
+| 1 | Corp‑Sec raid (combat or surrender) |
+| 2 | Syndicate kidnaps ally |
+| 3 | Bounty hunters strike en route |
+| 4 | Bio‑sensor lockout: habitat denies life support |
+| 5 | Universal arrest warrant (Disadvantage on all social tests next session) |
+| 6 | Roll twice; apply both |
 
 ### Milestone Boon Seeds
 Salvage permit (once ignore **+1 Heat** from a single trigger) • Dome Elder favour (Advantage in one social scene) • Pre‑Collapse alloy blade (+1 edge) • Hidden cache (refill Luck pool mid‑run) • Scrambler code (Advantage on your next SKL hack).
@@ -123,6 +126,7 @@ Keep prose lean. Hardboiled noir on Olympus Mons: dust devils along the mag‑ra
 Tech is rusting, corps are bloated carrion birds, and wonder haunts ghost domes.
 
 **Micro‑vignette (frame a beat):**
+
 > The airlock cycles with a cough. Red dust scuttles across the deck like insects. Somewhere in the dome, an alarm is trying not to panic.
 
 Defeat should twist the story rather than break it: prison work crews, debt, blackmail, a memory‑wipe implant.
@@ -169,6 +173,9 @@ Keep it to 1–2 per session — Mars is harsh, but not roulette.
 ## ACTIVE OPERATIVES
 
 ### Rafe Calder — Spacer
+
+![](../assets/art/ss_rust_dome_rafe.png){.wrap-right width=1.55in}
+
 *Roguish spacer marooned on the Red Frontier, silver tongue masking weary pragmatism.*
 
 Creation: standard budget (**6** build points; used **6**)  
@@ -179,6 +186,9 @@ Streetwise; Advantage on one MND test per session when dealing with criminals or
 Solvent enough to eat, broke enough to take risks.
 
 ### Miira Nix — Hacker
+
+![](../assets/art/ss_rust_dome_miira.png){.wrap-left width=1.55in}
+
 *Composed hacker steeped in Martian network lore, preferring code to gun‑smoke.*
 
 Creation: standard budget (**6** build points; used **6**)  

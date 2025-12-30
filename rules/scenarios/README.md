@@ -1,5 +1,7 @@
 # Scenarios
 
+![](../../assets/art/ss_logbook.png){.wrap-right width=1.25in}
+
 This folder contains short, table-ready scenarios for Sinew & Steel.
 
 - Scenarios are written to be **publish-safe** and **skin-forward** (they teach the chassis by play).
@@ -13,4 +15,3 @@ If you’re using the agent harness, look for a matching `*_hidden.md` module yo
 ```bash
 python tools/build_prompt.py --skin <skin> --hidden rules/scenarios/<scenario>_hidden.md --out /tmp/prompt.md
 ```
-

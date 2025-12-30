@@ -1,5 +1,5 @@
 # **TWILIGHT OF THE NORTHLANDS**
-## Skin add-on for the Sinew & Steel game system
+### Skin add-on for the Sinew & Steel game system
 *The Northlands, late in a fading age. The Wardens keep lonely watch, dread gathers in forgotten tombs, and humble folk cherish hearth‑fires against the returning dark.*
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
@@ -12,6 +12,7 @@ Suggested creation tone: **heroic** (**16** build points).
 In this skin, the Custodian is often called the **Lorekeeper**.
 
 **Micro‑vignette (cold open):**
+
 > The Old Road lies empty. The wind smells of rain and old stone. Somewhere beyond the next rise, a black bird cries — and the sound echoes like a question.
 
 ---
@@ -142,13 +143,16 @@ _(A risky test is any roll where failure would materially change the situation: 
 
 **Purge (rare):** set Dread to **0** after a true cleansing scene — song in a sanctuary, a grave confession to a wise mentor, or a gift freely given that costs you something.
 
-**Dread Crisis (pick or roll d6)**  
-1 Sudden greed — the company loses **1 Companionship token** (if any remain)  
-2 Black despair — you are helpless for one scene (you may only defend or speak)  
-3 Dread‑tongue — Disadvantage on your next social test this session  
-4 Hope gutters — set your Hope to **0** (current only; max unchanged)  
-5 Doom‑mark — foes sense you; the next dangerous encounter begins at Disadvantage  
-6 Roll twice; apply both
+**Dread Crisis (pick or roll d6)**
+
+| d6 | Crisis |
+|---:|---|
+| 1 | Sudden greed — the company loses **1 Companionship token** (if any remain) |
+| 2 | Black despair — you are helpless for one scene (you may only defend or speak) |
+| 3 | Dread‑tongue — Disadvantage on your next social test this session |
+| 4 | Hope gutters — set your Hope to **0** (current only; max unchanged) |
+| 5 | Doom‑mark — foes sense you; the next dangerous encounter begins at Disadvantage |
+| 6 | Roll twice; apply both |
 
 ---
 
@@ -278,12 +282,18 @@ Knack seeds: *Second Snack* (once per session clear 1 Fatigue with a meal) • *
 ## SAMPLE COMPANY
 
 ### Tolly Noakes — river‑country wayfarer (Halfling)
+
+![](../assets/art/ss_twilight_tolly.png){.wrap-right width=1.55in}
+
 Creation: heroic budget (**16** build points; used **16**)  
 STR 6 NIM 14 WIS 10 HRT 14 HOP 12/12 STM 5/5 Dread 0/5 Fatigue 0/5  
 Knack: Small & Quiet.  
 Sling 0, herb‑satchel (Advantage on WIS when identifying plants if you have time), fishing pole, pony “Chestnut”.
 
 ### Halvar of the Stone Roads — road‑guardian (Dwarf)
+
+![](../assets/art/ss_twilight_halvar.png){.wrap-left width=1.55in}
+
 Creation: heroic budget (**16** build points; used **16**)  
 STR 14 NIM 8 WIS 11 HRT 10 HOP 12/12 STM 7/7 Dread 0/5 Fatigue 0/5  
 Knack: Stout‑Heart.  

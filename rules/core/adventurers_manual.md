@@ -10,6 +10,8 @@ For the two‑page version, see `rules/quickstart.md`.
 
 ## 1 The Core Rule
 
+![](../../assets/art/ss_roll_under.png){.wrap-right width=1.6in}
+
 Roll **one d20**. If the result is **≤ your attribute**, you succeed; if it’s higher, you fail.
 
 ### 1.1 Natural results
@@ -38,6 +40,7 @@ Roll only when **the outcome is uncertain** *and* **it matters**.
 If failure would be boring, resolve it narratively.
 
 **Micro‑example (the table loop):**
+
 > Custodian: “The rope bridge is slick with ice. What do you do?”  
 > Player: “I go slow, testing each plank, and keep low.”  
 > Custodian: “That’s careful. Roll under REF with Advantage. On a fail you still cross, but you lose time and the Pressure clock ticks.”
@@ -47,6 +50,9 @@ If failure would be boring, resolve it narratively.
 ## 2 Building a Hero (player character)
 
 ### 2.1 Start from the baseline frame
+
+![](../../assets/art/ss_baseline_character_frame.png){.wrap-right width=1.9in}
+
 Every character begins at:
 - **Five attributes at 10** (skins rename these to fit genre).
 - **Stamina 5** (STM: your health).
@@ -68,6 +74,9 @@ If you need a default set (and for examples in this manual), use:
 - **LCK — Luck:** tokens you spend to nudge fate (and roll under when sheer chance decides).
 
 ### 2.2 The point‑buy economy (trade-offs and build points)
+
+![](../../assets/art/ss_points_buy_economy.png){.wrap-right width=1.55in}
+
 You can customize your stats using the same economy in two equivalent ways:
 
 **A) Trade‑offs (the “double‑debit” ledger):**  
@@ -115,6 +124,8 @@ You want a sharp‑witted PC hero and you raise INT from 10 to 13 (**+3 above ba
 
 ## 3 Luck Pool (tokens)
 
+![](../../assets/art/ss_luck_pool.png){.wrap-left width=1.7in}
+
 Your **Luck score** *is* your token pool.
 If your skin says “Hope” or “Fortune” or “Resourcefulness,” that score is still Luck mechanically.
 
@@ -130,6 +141,7 @@ Spend for the moment, but remember you’ll feel it in the future, when the Cust
 - At a milestone, you refill back up to your Luck score (your max).
 
 Combat note:
+
 > You may spend Luck after a successful attack to deepen your margin and chew through armour soak.
 
 ---
@@ -159,6 +171,8 @@ Both roll. If only one succeeds, that side wins. If both succeed, compare margin
 
 ## 6 Combat
 
+![](../../assets/art/ss_combat_sequence.png){.wrap-right width=1.9in}
+
 1. **Attacker** rolls under the attribute that matches how they attack.
    - **Heavy / forceful** (wrestle, smash, cleave): usually **MGT**.
    - **Fast / precise** (finesse, archery, thrown weapons): usually **REF**.
@@ -178,6 +192,7 @@ Both roll. If only one succeeds, that side wins. If both succeed, compare margin
    If your goal isn’t harm (disarm, drive off, talk down), use the same opposed roll — but apply the agreed consequence instead of damage.
 
 **Tiny examples (conflict without extra rules):**
+
 > One‑in‑a‑million: you fire a last‑ditch ricochet shot (attack with **LCK**) to sever a hanging rope. On success, the portcullis drops; on failure, it stays up and Pressure rises.
 > Talk‑down: you step in hard and command a surrender (attack with **EMP**) while your ally keeps their blade ready (threat in the fiction). On success, they back down; on failure, they lash out or call reinforcements.
 
@@ -199,6 +214,7 @@ After a hit:
 - **Natural 1 ignores all soak.**
 
 **Micro‑example (soak erosion):**
+
 > You hit with an NPC guard with margin +9 against soak 2.  
 > Full 4s = 2 → soak drops by 2 (to 0).  
 > The armour is shredded at the penetration point; this hit takes full damage.
@@ -206,6 +222,8 @@ After a hit:
 ---
 
 ## 7 Carry Limit
+
+![](../../assets/art/ss_item_carry_limit.png){.wrap-right width=1.7in}
 
 Six substantial items ride comfortably; more invites Disadvantage on agility tasks.
 Tiny trinkets are free.
@@ -215,6 +233,8 @@ Money does not count against carry limit. By default it’s tracked loosely in t
 ---
 
 ## 8 Pressure & Milestones (the pacing tools)
+
+![](../../assets/art/ss_pressure_fuse.png){.wrap-left width=2.2in}
 
 Every skin uses a shared **Pressure track (0–5)**, renamed to fit genre (Doom, Fatigue, Sin, Heat, Stress, Strain, Dread, Insanity, Anomaly…).
 Pressure is the fuse: it rises with risk, blunders, bargains, and time pressure.

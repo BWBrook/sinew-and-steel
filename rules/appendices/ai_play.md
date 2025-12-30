@@ -6,6 +6,9 @@ It covers two approaches: **copy/paste mode** and **repo harness mode**.
 ---
 
 ## 1) The one rule that matters
+
+![](../../assets/art/ss_when_to_roll.png){.wrap-right width=1.6in}
+
 **Do not roll by default.** Roll only when the outcome is uncertain *and* it matters.
 
 An AI will often try to “gamify” everything into checks. Don’t let it.

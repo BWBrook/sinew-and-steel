@@ -1,5 +1,5 @@
 # **CANDLELIGHT DUNGEONS**
-## Skin add-on for the Sinew & Steel game system
+### Skin add-on for the Sinew & Steel game system
 *Torchlit delves in the warrens of a dying principality, inspired by classic 1980s dungeon‑crawl play.*
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
@@ -86,13 +86,16 @@ Fatigue is the dungeon’s hourglass. It runs **0–5**; at **5** trigger a cris
 *Gain:* failed spells, forced marches, grave wounds, night without rest.  
 *Clear:* sleep, hearty stew, or a miracle that removes Fatigue.
 
-**Fatigue crisis (d6)**  
-1 Collapse — drop what you’re holding; lose your next action  
-2 Torch‑gutter — light falters; the next beat begins in dimness or dark  
-3 Cramp — lose **1 STM**; you can’t run until you rest  
-4 Wrong turn — you blunder into trouble or split the party (Custodian chooses)  
-5 Backlash — if any magic was used this scene, it twists (Custodian chooses); otherwise: a trap triggers “late”  
-6 Roll twice; apply both
+**Fatigue crisis (d6)**
+
+| d6 | Crisis |
+|---:|---|
+| 1 | Collapse — drop what you’re holding; lose your next action |
+| 2 | Torch‑gutter — light falters; the next beat begins in dimness or dark |
+| 3 | Cramp — lose **1 STM**; you can’t run until you rest |
+| 4 | Wrong turn — you blunder into trouble or split the party (Custodian chooses) |
+| 5 | Backlash — if any magic was used this scene, it twists (Custodian chooses); otherwise: a trap triggers “late” |
+| 6 | Roll twice; apply both |
 
 _(A risky test is any roll where failure would materially change the situation: harm, loss, alarm, separation. Routine mapping and careful talk need no roll.)_
 
@@ -181,10 +184,14 @@ Example: Assassin’s throat‑slit on a sleeping victim — **Fatal (counter: s
 
 ## SAMPLE DELVERS
 
+![](../assets/art/ss_candlelight_durn.png){.wrap-right width=1.55in}
+
 **Durn Bravefoot** — Fighter  
 Creation: heroic budget (**16** build points; used **16**)  
 STR 16 DEX 11 LOR 9 FTH 9 FOR 10/10 STM 7/7 Fatigue 0/5  
 Knack: Second Wind. Sword +1, shield, chain shirt (soak 2).
+
+![](../assets/art/ss_candlelight_lirae.png){.wrap-left width=1.55in}
 
 **Lirae Willow‑Tongue** — Hedge Mage  
 Creation: heroic budget (**16** build points; used **16**)  

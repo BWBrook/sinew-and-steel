@@ -1,5 +1,5 @@
 # **WHISPERS IN THE FOG**
-## Skin add-on for the Sinew & Steel game system
+### Skin add-on for the Sinew & Steel game system
 *Mournful New‑England shores, 1924. Gas‑lamps gutter, marsh‑mists coil, and nameless shapes lurk just beyond the churchyard wall.*
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
@@ -12,6 +12,7 @@ Suggested creation tone: **standard** (**6** build points) — capable investiga
 In this skin, the Custodian is often called the **Keeper**.
 
 **Micro‑vignette (cold open):**
+
 > The fog comes in like a living thing, as though the sea is exhaling. A buoy bell rings where it should not. Your lantern’s glass is filmed with salt — and something else.
 
 ---
@@ -76,13 +77,16 @@ _(A risky test is any roll where failure would materially change the situation: 
 **Gain Insanity:** witnessing gore or cosmic horrors, failed rites, reading forbidden tomes.  
 **Purge:** a month in a sanitarium, costly hypnosis (spend **2 Fate tickets**), or a grounding ritual (marriage, Mass, a sober confession to someone you trust).
 
-**Insanity crisis (d6)**  
-1 Black‑out violence — you awaken holding a bloodied object (lose **1 STM**)  
-2 Catalepsy — helpless for one scene  
-3 Desolate vision — Disadvantage on all rolls next session  
-4 Whispered truth — gain one crucial rumour clue; your next rest restores **no Fate**  
-5 Public hysteria — NPCs fear or shun you; Disadvantage on **FRT** tests in polite society until resolved  
-6 Roll twice; apply both
+**Insanity crisis (d6)**
+
+| d6 | Crisis |
+|---:|---|
+| 1 | Black‑out violence — you awaken holding a bloodied object (lose **1 STM**) |
+| 2 | Catalepsy — helpless for one scene |
+| 3 | Desolate vision — Disadvantage on all rolls next session |
+| 4 | Whispered truth — gain one crucial rumour clue; your next rest restores **no Fate** |
+| 5 | Public hysteria — NPCs fear or shun you; Disadvantage on **FRT** tests in polite society until resolved |
+| 6 | Roll twice; apply both |
 
 > *“Eli’s match flared, briefly revealing a smear of wet footprints that began in the centre of the room and led nowhere.”*
 
@@ -140,7 +144,9 @@ Keeper guidance: you may keep the light clock **public** (for planning) or **hid
 
 ---
 
-### Keeper’s Quill (Custodian) — Writing in weird‑horror tone
+## KEEPER’S QUILL (Custodian)
+
+### Writing in weird‑horror tone
 - **Use archaisms sparingly.** One archaic verb per paragraph (‘betokened’, ‘antediluvian’) is perfume; a whole bouquet is parody.
 - **Layer sensory unease.** Sight‑smells‑sounds in quick succession: “salt‑reek, pulsing lavender glow, distant surf that pounded like vast respirations.”
 - **Imply the shape, deny the whole.** Describe edges, textures, odours — never the full anatomy of the horror. Let the cortex finish the sketch.
@@ -154,7 +160,7 @@ Keeper guidance: you may keep the light clock **public** (for planning) or **hid
 
 ---
 
-## FLAVOUR PALETTE (Keeper cues)
+### Flavour Palette (Keeper cues)
 - **Sights:** fog halos the gas‑lamps; moonlit marsh reeds sway like skeletal fingers.
 - **Sounds:** distant buoy bell, wet slither beneath floorboards, a church clock that skips the chime for two o’clock.
 - **Smells:** brackish tide‑mud, old books stained with vinegar, acrid cordite lingering after a single shot.
@@ -164,7 +170,7 @@ Keeper guidance: you may keep the light clock **public** (for planning) or **hid
 
 ---
 
-## EPISODE STRUCTURE (one‑shot model)
+### Episode Structure (one‑shot model)
 
 1. **Cold open.** Newspaper clipping or funeral sets the hook.  
 2. **Investigation web.** Three core locales (abandoned church, docks, upland woods).  
@@ -181,11 +187,15 @@ Stylistic rule: pain is concrete, hope is whispered, knowledge always costs.
 
 ## SAMPLE INQUIRERS
 
+![](../assets/art/ss_whispers_lydia.png){.wrap-right width=1.55in}
+
 **Dr Lydia Harker** — Folklore Professor  
 Creation: standard budget (**6** build points; used **6**)  
 VIG 8 AGI 9 SCH 14 FRT 12 FAT 8/8 STM 4/4 Insanity 0/5  
 Knack: Occult Scholar.  
 Pocket‑knife 0, notebook & fountain pen, trunk of grimoires.
+
+![](../assets/art/ss_whispers_eli.png){.wrap-left width=1.55in}
 
 **Elias “Eli” Graves** — War‑weary P.I.  
 Creation: standard budget (**6** build points; used **6**)  

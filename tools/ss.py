@@ -20,6 +20,7 @@ TOOLS = {
     "gen_character": "gen_character.py",
     "char_builder": "char_builder.py",
     "validate_repo": "validate_repo.py",
+    "release_build": "release_build.py",
     "validate_campaign": "validate_campaign.py",
     "validate_sheet": "validate_sheet.py",
     "doctor": "doctor.py",

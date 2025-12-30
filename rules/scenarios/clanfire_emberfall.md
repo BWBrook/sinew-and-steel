@@ -24,10 +24,16 @@ If your group can run *this*, you can reskin Sinew & Steel to anything.
 If you want to start in 60 seconds, use these two example clansfolk (from the Clanfire skin):
 
 ### Grak of Tall Cliffs — Hunter
+
+![](../../assets/art/ss_clanfire_grak.png){.wrap-right width=1.55in}
+
 MGT 12 · FLT 11 · CUN 10 · SPR 8 · **INS 8/8** · **STM 7/7** · Shadow 0/5  
 Stone spear (+1 edge), hand‑axe (+1 edge), hide cloak (soak 1), ochre pouch, sinew cord.
 
 ### Tarra the Ember‑Singer — Shaman
+
+![](../../assets/art/ss_clanfire_tarra.png){.wrap-left width=1.55in}
+
 MGT 6 · FLT 8 · CUN 12 · SPR 14 · **INS 11/11** · **STM 3/3** · Shadow 0/5  
 Carved bone flute (Adv calming beasts), fire‑bow drill, herb bundle, scrap of strange cloth.
 
@@ -69,6 +75,8 @@ Pick one twist to taste (or roll a d3):
 ## 5) Optional clocks (clean, story-facing)
 Use clocks only if you want extra tension beyond Shadow.
 
+![](../../assets/art/ss_clocks.png){.wrap-right width=1.9in}
+
 - **Hunger (0/6):** ticks when time passes, you return empty‑handed, or you spend food.  
   - When full: the clan must migrate *now* (or someone is lost to starvation).
 - **Storm (0/6):** ticks on loud actions, long travel, or a bad miss in the open.  
@@ -79,6 +87,8 @@ Use clocks only if you want extra tension beyond Shadow.
 ---
 
 ## 6) Threats and NPCs (fast cards)
+
+![](../../assets/art/ss_npc_card.png){.wrap-right width=1.7in}
 
 ### Cave Wolf (Soldier 10; pack hunter)
 - **Attack:** FLT 10 (pounce / bite) · **Edge +1**  
@@ -107,6 +117,8 @@ Breaks: if you shame them publicly, they return later with allies.
 
 ## 7) A combat example (Grak + Tarra vs a Cave Wolf)
 Use this as a teaching exchange. It’s short, it shows the math, and it shows that “combat” can be “drive it off”.
+
+![](../../assets/art/ss_combat_sequence.png){.wrap-left width=1.9in}
 
 ### Setup
 The cave wolf slips between birches at the edge of firelight, hackles raised.

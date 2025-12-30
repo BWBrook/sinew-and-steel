@@ -1,5 +1,5 @@
 # **SERVICE DUCT BLUES**
-## Skin add-on for the Sinew & Steel game system
+### Skin add-on for the Sinew & Steel game system
 *Life below decks on a frontier starship, starbase, or deep‑space platform, Shift 17—.*
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
@@ -10,6 +10,7 @@ Expect coolant leaks, anomalous readings, personal frictions, and episodes where
 Suggested creation tone: **standard** (**6** build points).
 
 **Micro‑vignette (cold open):**
+
 > The deck plates hum under your palms. A warning chime tries to sound polite. Somewhere above, Command stays calm — and expects you to do the same.
 
 ---
@@ -108,13 +109,16 @@ _(A risky test is any roll where failure would materially change the situation: 
 **Gain Stress:** failed covert repairs, sidearm discharge in public corridors, ignoring safety interlocks, “Technobabble Buffer” overrun.  
 **Reduce:** shore leave, commendation, spotless inspection.
 
-**Crisis table (d6)**  
-1 Reactor cascade — EVA scramble or emergency vent  
-2 Containment loss — radiation burns: lose **1 STM** if you’re in the section  
-3 Safety inquiry — Disadv social with command next session  
-4 Nanite alarm — SYS roll or lose a key system  
-5 Shipwide lockdown — travel restricted, timers tick  
-6 Roll twice; apply both
+**Crisis table (d6)**
+
+| d6 | Crisis |
+|---:|---|
+| 1 | Reactor cascade — EVA scramble or emergency vent |
+| 2 | Containment loss — radiation burns: lose **1 STM** if you’re in the section |
+| 3 | Safety inquiry — Disadv social with command next session |
+| 4 | Nanite alarm — SYS roll or lose a key system |
+| 5 | Shipwide lockdown — travel restricted, timers tick |
+| 6 | Roll twice; apply both |
 
 #### Showrunner Notes (Custodian) — Writing an Optimistic Space Episode
 
@@ -167,13 +171,18 @@ This skin does **not** rewind. If you want a safety valve, use **logs** as clues
 ## ACTIVE CREW
 
 ### Ensign Talara — Away‑Team Specialist
+
+![](../assets/art/ss_service_duct_talara.png){.wrap-right width=1.55in}
+
 Creation: standard budget (**6** build points; used **6**)  
 MSC 10 REF 12 SYS 11 HAR 8 RES 10/10 STM 6/6 Stress 0/5  
 Beam sidearm +1 (stun), spanner set, scanner (Adv SYS scans).
 
 ### Chief Ortiz — Maintenance Bosun
+
+![](../assets/art/ss_service_duct_ortiz.png){.wrap-left width=1.55in}
+
 Creation: standard budget (**6** build points; used **6**)  
 MSC 11 REF 8 SYS 13 HAR 11 RES 8/8 STM 5/5 Stress 0/5  
 Tool satchel (Adv SYS repairs when you have access), stun baton 0, tactical vest soak 2.  
 Knows every duct crawlspace between the engine rooms.
-
