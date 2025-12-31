@@ -1,5 +1,8 @@
 # **CANDLELIGHT DUNGEONS**
 ### Skin add-on for the Sinew & Steel game system
+
+![](../assets/covers/ss_logo_candlelight_dungeons.png){.wrap-right width=0.45in}
+
 *Torchlit delves in the warrens of a dying principality, inspired by classic 1980s dungeon‑crawl play.*
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
@@ -13,6 +16,7 @@ If you want a meat‑grinder crawl, lower build points (standard **6** or grim *
 ---
 
 ## DELVER'S KIT (Adventurer)
+![](../assets/art/ss_candlelight_dungeon_door.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
 
 ### Attribute Labels
 | Core slot | Dungeon label | Covers |
@@ -53,6 +57,7 @@ A short rest at a warm hearth restores **+1 coin**; dank caves do not.
 ---
 
 ## SPELLCRAFT
+![](../assets/art/ss_candlelight_spell_backlash.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
 
 > *Spells are named effects tagged to a tier when learned. Test under the listed stat, then pay the tier cost.*
 
@@ -72,6 +77,8 @@ A short rest at a warm hearth restores **+1 coin**; dank caves do not.
 ---
 
 ## FATIGUE TRACK (Pressure skin)
+![](../assets/art/ss_candlelight_torch_sconce.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+
 Fatigue is the dungeon’s hourglass. It runs **0–5**; at **5** trigger a crisis, then reset Fatigue to **0**.
 
 | Step | Portent | Effect |

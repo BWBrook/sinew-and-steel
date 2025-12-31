@@ -134,15 +134,37 @@ def inject_skin_section_pagebreaks(text: str) -> str:
     return "\n".join(out).rstrip() + "\n"
 
 
-def _preferred_logo_image() -> Path | None:
-    # Prefer a dedicated logo if present, otherwise fall back to the icon.
-    for rel in (
-        Path("assets/covers/ss_logo.png"),
-        Path("assets/covers/ss_icon.png"),
-    ):
-        candidate = ROOT / rel
-        if candidate.exists():
+def _preferred_logo_image_for_skin(skin_path: Path) -> Path | None:
+    """
+    Pick the best maker's-mark image for a given skin.
+
+    Preference order:
+      1) Per-skin logo in `assets/covers/ss_logo_<skin>.png`
+      2) Compatibility aliases (e.g. remove `_of_the_`, `free_traders_*`)
+      3) Generic S&S logo (`assets/covers/ss_logo.png`)
+      4) Generic icon fallback (`assets/covers/ss_icon.png`) if present
+    """
+
+    stem = skin_path.stem
+    candidates: list[Path] = [Path(f"assets/covers/ss_logo_{stem}.png")]
+
+    if "_of_the_" in stem:
+        candidates.append(Path(f"assets/covers/ss_logo_{stem.replace('_of_the_', '_')}.png"))
+
+    if stem.startswith("free_traders_"):
+        candidates.append(Path("assets/covers/ss_logo_free_traders.png"))
+
+    candidates.extend(
+        [
+            Path("assets/covers/ss_logo.png"),
+            Path("assets/covers/ss_icon.png"),
+        ]
+    )
+
+    for rel in candidates:
+        if (ROOT / rel).exists():
             return rel
+
     return None
 
 
@@ -294,7 +316,7 @@ def concatenate_markdown(paths: list[Path]) -> str:
         except Exception:
             rel = None
         if rel and rel.parts and rel.parts[0] == "skins" and path.suffix.lower() == ".md":
-            logo_rel = _preferred_logo_image()
+            logo_rel = _preferred_logo_image_for_skin(path)
             if logo_rel is not None:
                 text = inject_skin_maker_mark(text, logo_rel=logo_rel).strip()
             text = inject_skin_section_pagebreaks(text).strip()

@@ -1,5 +1,8 @@
 # **WHISPERS IN THE FOG**
 ### Skin add-on for the Sinew & Steel game system
+
+![](../assets/covers/ss_logo_whispers_in_the_fog.png){.wrap-right width=0.45in}
+
 *Mournful New‑England shores, 1924. Gas‑lamps gutter, marsh‑mists coil, and nameless shapes lurk just beyond the churchyard wall.*
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
@@ -43,6 +46,7 @@ A short rest in safety restores **+1 ticket**; opium dreams or saintly relics ma
 ---
 
 ## ELDRITCH RITES
+![](../assets/art/ss_whispers_forbidden_tome.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
 
 > *Spells and rituals are named effects tagged to a tier on discovery.*
 
@@ -60,6 +64,8 @@ A short rest in safety restores **+1 ticket**; opium dreams or saintly relics ma
 ---
 
 ## INSANITY TRACK (Pressure skin)
+![](../assets/art/ss_whispers_insanity_spiral.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+
 Insanity is mental pressure. It runs **0–5**; at **5** you **Break**, trigger a crisis, then reset Insanity to **0**.
 The mind forgets the count; it does not forget the scar.
 
@@ -129,6 +135,8 @@ Choose one stat as **Expertise** (marksman = AGI, doctor = SCH). When the task s
 ---
 
 ### Lantern & Battery (light tension, core‑aligned)
+![](../assets/art/ss_whispers_fog_lantern.png){.wrap-right width=1.25in trim="0.15in 0.15in 0.15in 0.15in"}
+
 In this genre, light is safety. Darkness is a weapon.
 To keep resource tension without extra dice systems, track portable light as a small **clock**.
 

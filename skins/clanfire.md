@@ -1,5 +1,8 @@
 # **CLANFIRE — FLINT & FROST**
 ### Skin add-on for the Sinew & Steel game system
+
+![](../assets/covers/ss_logo_clanfire.png){.wrap-right width=0.45in}
+
 *Neanderthal Europe at the edge of extinction, ≈ 40 000 BP.*  
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
@@ -46,6 +49,8 @@ When the Custodian calls for pure chance or gut‑feeling — “**Test your Ins
 A short rest with fire and water restores **+1 Stamina**; deep shelter and herbs **+2** (never above max). Grave wounds need shaman craft.
 
 ### Totem Mark (once per session)
+![](../assets/art/ss_clanfire_totem_mark.png){.wrap-right width=1.25in trim="0.15in 0.15in 0.15in 0.15in"}
+
 Invoke clan spirit (Bear, Owl, Salmon…). Gain **Advantage** on a thematically linked roll **and** either spend **1 Instinct** or accept **+1 Shadow**.
 
 Name the totem and show its sign in the fiction (breath smokes, eyes flash owl‑gold, the air tastes of river‑stone).
@@ -90,6 +95,8 @@ Other track motifs: dying hearth‑fires, a one‑eyed cave bear, the piercing f
 | 6 | Roll twice — stack horrors |
 
 ### Hearth Beats
+![](../assets/art/ss_clanfire_hearth_embers.png){.wrap-right width=1.35in trim="0.15in 0.15in 0.15in 0.15in"}
+
 Play is visceral—crackling fire, reek of hides, breath steaming in moonlight. Mechanics provide bone, but story is sinew. When scenes falter, unleash weather, predator or uneasy strangers. Ambush, ice collapse, bride‑price negotiation, mammoth hunt, cave art.  
 
 **Micro‑vignette (frame a beat):**
@@ -102,6 +109,8 @@ Present 2-4 options in second‑person imperative, focused on protagonist. Inclu
 > 2. Retreat to limestone shelter.  
 > 3. Approach the tall newcomers in peace.  
 Ensure outcomes ripple—sharing meat with Sapiens may avert later spear‑fight.  
+
+![](../assets/art/ss_clanfire_vision_glass.png){.wrap-left width=1.25in trim="0.15in 0.15in 0.15in 0.15in"}
 
 **Vision Glass (omens, not do‑overs):** rare obsidian shards that show a fork of possible futures. In the firelight you glimpse a sign: a broken spear, fresh footprints, a sky‑fire glow.
 Once per session, a hunter may **Test Instinct**; on success ask the Custodian **one yes/no** about the next beat. On failure, the omen still comes — but mark **+1 Shadow**.

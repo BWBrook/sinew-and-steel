@@ -1,5 +1,8 @@
 # **IRON & RUIN**
 ### Skin add-on for the Sinew & Steel game system
+
+![](../assets/covers/ss_logo_iron_and_ruin.png){.wrap-right width=0.45in}
+
 *Grim sword‑and‑sorcery in the spirit of pulp adventure.*
 
 _(Layer atop the universal rules; anything unstated defaults to core.)_
@@ -56,6 +59,8 @@ A character may carry up to six substantial items — armour, weapons, bundles, 
 Coin is an inconvenient necessity; carry too much, and brigands will smell it.
 
 ### Sorcery
+![](../assets/art/ss_iron_ruin_sorcery_tiers.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+
 Steel is trustworthy; spells are treacherous. Any feat is *theoretically* possible, but risk scales brutally.
 
 | Tier | Example intent | Roll | Cost on **success** | Cost on **failure** |
@@ -93,6 +98,8 @@ Natural 1 pierces all soak and doubles narrative punch. Natural 20 jumps to the 
 _Sorcery is a bargain with things that do not love you. Spend Doom like coin, but remember the debt collector always comes before dawn._
 
 ### **Doom** (Pressure track)
+![](../assets/art/ss_iron_ruin_doom_sigils.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+
 Doom is the Pressure track for this skin: the shadow of magic and the debt of the unseen.
 The sorcery tier table tells you exactly when Doom rises; as a rule of thumb, **most failed sorcery adds +1 Doom**, and stronger workings can add Doom even on success.
 
@@ -130,6 +137,8 @@ Cost: **1 Fortune**.
 ## CHRONICLER'S TOUCHSTONE (Custodian)
 
 ### Narrative Rhythm
+![](../assets/art/ss_iron_ruin_idol.png){.wrap-right width=1.15in trim="0.15in 0.15in 0.15in 0.15in"}
+
 Terse, muscular prose. Violence sudden; sorcery foul or uncanny. Civilisation decadent; heroes carve fate. Cursed sigils, rival factions, prophetic dreams.
 
 **Micro‑vignette (frame a beat):**

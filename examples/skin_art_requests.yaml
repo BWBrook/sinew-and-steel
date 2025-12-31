@@ -32,7 +32,7 @@ skins:
   clanfire:
     logo:
       key: clanfire_logo
-      suggested_file: assets/logos/ss_logo_clanfire.png
+      suggested_file: assets/covers/ss_logo_clanfire.png
       description: "Clanfire maker's mark (flint & frost survival)."
       prompt: |
         Black-and-white pen-and-ink maker's mark icon. White background. No text.
@@ -69,7 +69,7 @@ skins:
   iron_and_ruin:
     logo:
       key: iron_ruin_logo
-      suggested_file: assets/logos/ss_logo_iron_and_ruin.png
+      suggested_file: assets/covers/ss_logo_iron_and_ruin.png
       description: "Iron & Ruin maker's mark (pulp sword-and-sorcery)."
       prompt: |
         Black-and-white pen-and-ink maker's mark icon. White background. No text.
@@ -105,7 +105,7 @@ skins:
   time_odyssey:
     logo:
       key: time_odyssey_logo
-      suggested_file: assets/logos/ss_logo_time_odyssey.png
+      suggested_file: assets/covers/ss_logo_time_odyssey.png
       description: "Time Odyssey maker's mark (chrononautics / paradox)."
       prompt: |
         Black-and-white pen-and-ink maker's mark icon. White background. No text.
@@ -142,7 +142,7 @@ skins:
   briar_benedictine:
     logo:
       key: briar_benedictine_logo
-      suggested_file: assets/logos/ss_logo_briar_benedictine.png
+      suggested_file: assets/covers/ss_logo_briar_benedictine.png
       description: "Briar & Benedictine maker's mark (monastic mystery)."
       prompt: |
         Black-and-white pen-and-ink maker's mark icon. White background. No text.
@@ -177,7 +177,7 @@ skins:
   candlelight_dungeons:
     logo:
       key: candlelight_logo
-      suggested_file: assets/logos/ss_logo_candlelight_dungeons.png
+      suggested_file: assets/covers/ss_logo_candlelight_dungeons.png
       description: "Candlelight Dungeons maker's mark (classic crawl)."
       prompt: |
         Black-and-white pen-and-ink maker's mark icon. White background. No text.
@@ -212,7 +212,7 @@ skins:
   rust_and_domes:
     logo:
       key: rust_domes_logo
-      suggested_file: assets/logos/ss_logo_rust_and_domes.png
+      suggested_file: assets/covers/ss_logo_rust_and_domes.png
       description: "Rust & Domes maker's mark (red frontier / domes)."
       prompt: |
         Black-and-white pen-and-ink maker's mark icon. White background. No text.
@@ -247,7 +247,7 @@ skins:
   service_duct_blues:
     logo:
       key: service_ducts_logo
-      suggested_file: assets/logos/ss_logo_service_duct_blues.png
+      suggested_file: assets/covers/ss_logo_service_duct_blues.png
       description: "Service Duct Blues maker's mark (lower-decks ship drama)."
       prompt: |
         Black-and-white pen-and-ink maker's mark icon. White background. No text.
@@ -283,7 +283,7 @@ skins:
   free_traders_of_the_drift_marches:
     logo:
       key: free_traders_logo
-      suggested_file: assets/logos/ss_logo_free_traders.png
+      suggested_file: assets/covers/ss_logo_free_traders.png
       description: "Free Traders maker's mark (cargo, debt, jump routes)."
       prompt: |
         Black-and-white pen-and-ink maker's mark icon. White background. No text.
@@ -318,7 +318,7 @@ skins:
   twilight_of_the_northlands:
     logo:
       key: twilight_northlands_logo
-      suggested_file: assets/logos/ss_logo_twilight_northlands.png
+      suggested_file: assets/covers/ss_logo_twilight_northlands.png
       description: "Twilight of the Northlands maker's mark (lantern-road fantasy)."
       prompt: |
         Black-and-white pen-and-ink maker's mark icon. White background. No text.
@@ -354,7 +354,7 @@ skins:
   whispers_in_the_fog:
     logo:
       key: whispers_logo
-      suggested_file: assets/logos/ss_logo_whispers_in_the_fog.png
+      suggested_file: assets/covers/ss_logo_whispers_in_the_fog.png
       description: "Whispers in the Fog maker's mark (weird horror / occult dread)."
       prompt: |
         Black-and-white pen-and-ink maker's mark icon. White background. No text.

@@ -1,5 +1,8 @@
 # **FREE TRADERS OF THE DRIFT MARCHES**
 ### Skin add-on for the Sinew & Steel game system
+
+![](../assets/covers/ss_logo_free_traders.png){.wrap-right width=0.45in}
+
 *Out along the drift routes between the stars: jump‑flashes bloom in the dark, patrons wave low‑credit cargo chits, and a worn free trader hauls dreams through the long night.*
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
@@ -89,6 +92,8 @@ These are story‑facing meters. Make them **public** if you want planning, **hi
 > *“Dockmaster’s grin didn’t reach his eyes — even money smells desperate this far rimward.”*
 
 ### Jump leg (one travel beat)
+![](../assets/art/ss_free_traders_jump_arc.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+
 When you make a jump (or cross a week of hard travel) and the stakes matter, resolve the leg with up to three tests.
 If a role is unfilled, treat it as a failure.
 
@@ -142,6 +147,8 @@ Fate is personal risk. Strain is the ship’s mood, its wear, and the crew’s f
 ---
 
 ## TRADE & PORT CALLS (keep it fast)
+![](../assets/art/ss_free_traders_cargo_manifest.png){.wrap-right width=1.25in trim="0.15in 0.15in 0.15in 0.15in"}
+
 When you hit port, resolve money and trouble in one beat.
 
 ### Trade test (one per port call)
@@ -162,6 +169,8 @@ Offer 2–3 jobs. Each job should state:
 ---
 
 ## MEDICAL AID (supplies clock)
+![](../assets/art/ss_free_traders_med_supplies.png){.wrap-right width=1.25in trim="0.15in 0.15in 0.15in 0.15in"}
+
 To keep “limited med‑supplies” tension without usage dice, track **Medkit Supplies (0/4)**.
 
 - Each time you treat a serious injury, tick Supplies **+1** and test **EDU**.

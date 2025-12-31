@@ -1,5 +1,8 @@
 # **BRIAR & BENEDICTINE**
 ### Skin add-on for the Sinew & Steel game system
+
+![](../assets/covers/ss_logo_briar_benedictine.png){.wrap-right width=0.45in}
+
 *A Benedictine abbey, England, winter of 1142. Murder, heresy, and siege swirl beyond the cloister walls.*
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
@@ -77,6 +80,8 @@ Pick the attribute that matches the approach (not “the correct stat”).
 ## ECUMENICAL NOTES (Custodian)
 
 ### The Abbey Case (mystery procedure)
+![](../assets/art/ss_benedictine_reliquary_key.png){.wrap-right width=1.25in trim="0.15in 0.15in 0.15in 0.15in"}
+
 This skin is a Medieval monastic mystery. Keep it moving with two table rules:
 
 - **Clues are never gated by rolls.** A test decides clarity, speed, and cost — not whether the clue exists.
@@ -93,6 +98,8 @@ Use the **Insight** plug‑in as your “unstick lever” if the table stalls.
 > Failure: “It’s old blood… but your hands shake. Mark **+1 Sin**: prideful certainty can damn the innocent.”
 
 ### Sin Track (Pressure skin)
+![](../assets/art/ss_benedictine_confessional.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+
 Sin is the spiritual pressure of suspicion, pride, and proximity to evil. It runs **0–5**; at **5** trigger a crisis, then reset Sin to **0**.
 
 | Step | Portent | Custodian leverage |
@@ -137,6 +144,8 @@ This skin does **not** rewind: words cannot be unspoken, vows cannot be unbroken
 > *“Wax gutters in crooked rivulets; the effigy saints seem to weep.”*
 
 ### d6 Quick mystery seeds
+![](../assets/art/ss_benedictine_wax_seal.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+
 | d6 | Hook | Twist |
 |---|---|---|
 | 1 | A novice vanishes after night‑office. | His sandal prints stop at the sealed reliquary vault. |

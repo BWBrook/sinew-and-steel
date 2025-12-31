@@ -1,5 +1,8 @@
 # **SERVICE DUCT BLUES**
 ### Skin add-on for the Sinew & Steel game system
+
+![](../assets/covers/ss_logo_service_duct_blues.png){.wrap-right width=0.45in}
+
 *Life below decks on a frontier starship, starbase, or deep‑space platform, Shift 17—.*
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
@@ -79,6 +82,8 @@ You’ve done time in other departments. Say which one, then take Advantage on t
 > (Safety regs: bypassing sensor interlocks without authorisation marks **+1 Stress**.)
 
 ### The other 99% (crew roles)
+![](../assets/art/ss_service_ducts_comms.png){.wrap-right width=1.15in trim="0.15in 0.15in 0.15in 0.15in"}
+
 This skin is about the people who keep the ship alive while senior officers make speeches.
 Rotate spotlight scenes across departments so “ship life” feels broad and lived‑in.
 
@@ -93,6 +98,8 @@ Rotate spotlight scenes across departments so “ship life” feels broad and li
 ## COMPUTER SYSTEMS (Showrunner Notes — Custodian)
 
 ### **Stress** Track (Pressure skin)
+![](../assets/art/ss_service_ducts_klaxon_steam.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+
 Stress is shipboard pressure. It runs **0–5**; at **5** trigger a crisis, then reset Stress to **0**.
 
 | Step | Status hue | Shipboard effect |
@@ -150,6 +157,8 @@ Roll opening credits.
 Power surge shorts a duct node • Coolant leak clouds maintenance bay • Medbay monitor fails mid‑triage • Lab containment field flickers • Away team loses comms • Captain on comm: “I need that grid stable in three minutes, ensign.”
 
 ### Beat tags
+![](../assets/art/ss_service_ducts_duct_maze.png){.wrap-right width=1.35in trim="0.15in 0.15in 0.15in 0.15in"}
+
 Label nodes by deck/section: ENG‑D4, SCI‑B2, MED‑C1, SHBAY‑2, DUCT‑J19, AWAY‑01.
 
 This skin does **not** rewind. If you want a safety valve, use **logs** as clues: sensor records and captain’s reports might reveal what happened.

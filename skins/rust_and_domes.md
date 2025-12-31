@@ -1,5 +1,8 @@
 # **RUST & DOMES**
 ### Skin add-on for the Sinew & Steel game system
+
+![](../assets/covers/ss_logo_rust_and_domes.png){.wrap-right width=0.45in}
+
 *Gritty exploits on a colonised Red Planet, circa 2205 AE.*
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
@@ -51,6 +54,8 @@ A short rest in a safe hab restores **+1 cred‑chit**; stim packs or narrative 
 (Dynamic soak: after a hit, reduce soak by **1 per full 4 points** of attacker margin; **nat 1 pierces all**.)
 
 ### Recovery
+![](../assets/art/ss_rust_domes_oxygen_gauge.png){.wrap-right width=1.25in trim="0.15in 0.15in 0.15in 0.15in"}
+
 A short breather with clean water restores **+1 STM**; a full med‑bay cycle or expert field surgeon restores **+2 STM** (up to max).
 Critical injuries may require med‑gel, cybernetic grafts, or a night in the autodoc.
 
@@ -133,6 +138,8 @@ Defeat should twist the story rather than break it: prison work crews, debt, bla
 Death is for pathos, not arithmetic.
 
 ### Default Martian kit (optional setting spine)
+![](../assets/art/ss_rust_domes_dome_skyline.png){.wrap-right width=1.35in trim="0.15in 0.15in 0.15in 0.15in"}
+
 If you want a ready map: four underground settlements.
 Hearthwell (old), Mirage Junction (new, crime‑ridden), Cobalt Array (science station), Gantry Point (outpost under construction: contact mysteriously lost).
 Colonies established by **Perihelion Mining Corporation (PMC)** after rich aresite strikes.
@@ -158,6 +165,8 @@ Creative stunts are encouraged. Fire‑suppression foam may smother a plasma arc
 Reward ingenuity with Advantage or narrative leverage.
 
 ### Controller moves
+![](../assets/art/ss_rust_domes_audit_stamp.png){.wrap-right width=1.15in trim="0.15in 0.15in 0.15in 0.15in"}
+
 Life‑support warning • Rail‑cannon test quake • Terraformer glitch kicks up storm • Corp auditor arrives • Nomads block the pass.
 After a heist concluded, a secret unearthed, or a dust‑storm crossing survived, grant a Milestone.
 When in doubt favour bold action but remember that every triumph on rust‑red soil comes smeared with dust and danger.

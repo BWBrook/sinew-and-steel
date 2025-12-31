@@ -1,5 +1,8 @@
 # **TWILIGHT OF THE NORTHLANDS**
 ### Skin add-on for the Sinew & Steel game system
+
+![](../assets/covers/ss_logo_twilight_northlands.png){.wrap-right width=0.45in}
+
 *The Northlands, late in a fading age. The Wardens keep lonely watch, dread gathers in forgotten tombs, and humble folk cherish hearth‑fires against the returning dark.*
 
 _(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
@@ -83,6 +86,7 @@ Each use costs: **spend 1 Hope token** or **mark +1 Dread**.
 ---
 
 ## SUBTLE MAGIC — Old Rites
+![](../assets/art/ss_twilight_rune_stone.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
 
 Rites do not hurl fire. They kindle courage, veil footsteps, and turn the will — softly, rarely, and with a price.
 
@@ -189,6 +193,8 @@ It adds two ideas:
 - **Injury** = significant lingering damage (e.g., a lacerating or crushing blow that gets through a defence).
 
 #### Combat Positions (choose each exchange)
+![](../assets/art/ss_twilight_combat_positions.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+
 At the start of each combat exchange (or “round”), each PC chooses a position in the line:
 
 | Position | Attack | Defence | Notes |
@@ -241,6 +247,7 @@ Travel choices acquire moral weight.
 ---
 
 ## WRITING IN NORTHLAND SAGA STYLE
+![](../assets/art/ss_twilight_road_lantern.png){.wrap-right width=1.25in trim="0.15in 0.15in 0.15in 0.15in"}
 
 - **Elevate but stay clear.** Plain words, with occasional high diction (“ere”, “fell”, “lo”).
 - **Landscape as character.** Heather, hush of pines, stars wheeling above a ruined watch‑hill.
