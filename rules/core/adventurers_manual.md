@@ -2,7 +2,7 @@
 
 A razor‑lean, setting‑agnostic chassis for any genre. One d20, five attribute scores, limitless skins.
 
-In Sinew & Steel, a **skin** is a small genre overlay that renames the attributes, defines what fortune and fate represent, names your Pressure track, and adds a few custom rules.
+![](../../assets/art/ss_skin_overlay.png){.wrap-right width=1.6in} In Sinew & Steel, a **skin** is a small genre overlay that renames the attributes, defines what fortune and fate represent, names your Pressure track, and adds a few custom rules.
 
 For the two‑page version, see `rules/quickstart.md`.
 
@@ -24,6 +24,9 @@ Roll **one d20**. If the result is **≤ your attribute**, you succeed; if it’
 - Negative margin means you fail (and how far off you were).
 
 ### 1.3 Advantage / Disadvantage
+
+![](../../assets/art/ss_advantage_disadvantage.png){.wrap-right width=1.6in}
+
 - **Advantage:** roll 2d20, keep the **lower**.
 - **Disadvantage:** roll 2d20, keep the **higher**.
 
@@ -147,6 +150,8 @@ Combat note:
 ---
 
 ## 4 Stamina (Health) & Recovery
+
+![](../../assets/art/ss_stamina_recovery.png){.wrap-right width=1.6in}
 
 - **Damage reduces Stamina.**
 - Typical weapons add **edge**: +0 / +1 / +2.

@@ -18,6 +18,8 @@ Use the conversation loop first: intent, method, stakes, then (maybe) a roll.
 
 ## 2) Two ways to play
 
+![](../../assets/art/ss_public_private_notes.png){.wrap-right width=1.6in}
+
 ### A) Copy/paste mode (no repo, no tools)
 Use this if you just want to play in a chat window.
 
@@ -111,6 +113,9 @@ python tools/session_log.py --campaign <slug> --role GM --text "Public narration
 ---
 
 ## 5) Save and quit (ironman checkpoint)
+
+![](../../assets/art/ss_checkpoint_overwrite.png){.wrap-right width=1.6in}
+
 Sinew & Steel campaigns are designed to be “ironman”: no branching, no rewind.
 
 To resume cleanly in a fresh agent context, save **only the last GM message** (overwrite the prior checkpoint):

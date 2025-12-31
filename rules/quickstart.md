@@ -6,8 +6,8 @@
 ---
 
 ## 1 Core Engine (60‑second digest)
-
-![](../assets/art/ss_core_mechanic.png){.wrap-right width=1.6in wraplines=18} Keep this page in view; it’s meant to be used mid‑play.
+![](../assets/art/ss_core_mechanic.png){.wrap-right width=1.4in trim="0.15in 0.15in 0.15in 0.15in"}
+Keep this page in view; it’s meant to be used mid‑play.
 
 - **Roll‑under d20.** If `d20 ≤ attribute`, you succeed; otherwise you fail.
   - **Natural 1** = legendary success | **Natural 20** = catastrophic failure.
@@ -63,16 +63,13 @@ Pick a skin to set tone and tweak rules. A skin tells you:
 - what **Pressure** represents and what happens at 5.
 
 Example skin genres (see `/skins/` for the full list):
+
 - Ice‑Age survival — **Shadow** track; totems and beast bonds.
 - Pulp sword‑and‑sorcery — **Doom** track; bargains and bad magic.
 - Chrononautics — **Anomaly** crises; epoch mapping.
-- Medieval monastic mystery — **Sin** track; penance and providence.
 - Red‑planet noir — **Heat** track; pressure, dust, hard choices.
 - Classic dungeon crawl — **Fatigue** track; torchlight and spell backlash.
-- Lower‑decks starship drama — **Stress** track; emergency fixes under scrutiny.
 - Cosmic horror — **Insanity** track; fragile hope and occult terror.
-- Trader‑crew starfreight — **Strain** track; cargo, debt, patron jobs.
-- Wanderer road‑fantasy — **Dread** track; fading hope and subtle rites.
 
 > *To build your own skin:* rename stats, recolour Pressure, add 1–2 strict mechanical rules.
 
@@ -80,7 +77,7 @@ Example skin genres (see `/skins/` for the full list):
 
 ## 3 Custodian Quick‑Start (run a first session tonight)
 
-![](../assets/art/ss_logbook.png){.wrap-left width=1.7in wraplines=20} Use this checklist to start a first session quickly.
+Use this checklist to start a first session quickly.
 
 1. **Frame the scene** in concrete details. End on a hook.
 2. Ask: **“What do you do?”** Then listen for intent + method.
@@ -95,11 +92,10 @@ Example skin genres (see `/skins/` for the full list):
 8. **Milestone** every 3–4 perilous beats: **+2 build points** + a narrative boon.
 9. If play stalls: advance a clock, change the weather, introduce a hard bargain, or reveal a threat.
 
----
+![](../assets/art/ss_clanfire_grak.png){.wrap-left width=0.75in trim="0.15in 0.15in 0.15in 0.15in"}
 
 ## 4 Example Character (Clanfire skin, standard build points)
 
-![](../assets/art/ss_clanfire_grak.png){.wrap-right width=1.35in wraplines=18} **Grak — Hunter**  
+**Grak — Neanderthal Hunter**  
 MGT 12 • FLT 11 • CUN 10 • SPR 8 • INS 8/8 • STM 7/7 • Shadow 0/5  
-Stone spear (edge +1) • Hand‑axe (edge +1) • Hide cloak (soak 1)  
-*Advantage when tracking megafauna.*
+Stone spear (edge +1) • Hand‑axe (edge +1) • Hide cloak (soak 1) • Adv: tracking megafauna
