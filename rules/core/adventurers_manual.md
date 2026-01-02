@@ -2,7 +2,7 @@
 
 A razor‑lean, setting‑agnostic chassis for any genre. One d20, five attribute scores, limitless skins.
 
-![](../../assets/art/ss_skin_overlay.png){.wrap-right width=1.6in} In Sinew & Steel, a **skin** is a small genre overlay that renames the attributes, defines what fortune and fate represent, names your Pressure track, and adds a few custom rules.
+![](../../assets/art/ss_skin_overlay.png){.wrap-right width=1.6in trim="513bp 195bp 502bp 97bp"} In Sinew & Steel, a **skin** is a small genre overlay that renames the attributes, defines what fortune and fate represent, names your Pressure track, and adds a few custom rules.
 
 For the two‑page version, see `rules/quickstart.md`.
 
@@ -10,27 +10,29 @@ For the two‑page version, see `rules/quickstart.md`.
 
 ## 1 The Core Rule
 
-![](../../assets/art/ss_roll_under.png){.wrap-right width=1.6in}
-
-Roll **one d20**. If the result is **≤ your attribute**, you succeed; if it’s higher, you fail.
+![](../../assets/art/ss_roll_under.png){.wrap-right width=1.6in wraplines=3 trim="229bp 263bp 261bp 230bp"} Roll **one d20**. If the result is **≤ your attribute**, you succeed; if it’s higher, you fail.
 
 ### 1.1 Natural results
+
 - **Natural 1** — legendary success.
 - **Natural 20** — disastrous failure.
 
 ### 1.2 Margin (how well / how badly)
+
 **Margin** = `attribute − roll`.
+
 - Positive margin means you succeed with room to spare.
 - Negative margin means you fail (and how far off you were).
 
 ### 1.3 Advantage / Disadvantage
 
-![](../../assets/art/ss_advantage_disadvantage.png){.wrap-right width=1.6in}
+![](../../assets/art/ss_advantage_disadvantage.png){.wrap-right width=1.6in wraplines=2 trim="159bp 246bp 161bp 254bp"} Roll twice; keep one die.
 
 - **Advantage:** roll 2d20, keep the **lower**.
 - **Disadvantage:** roll 2d20, keep the **higher**.
 
 ### 1.4 Opposed rolls
+
 Both sides roll under their relevant attribute.
 
 - If only one side succeeds, that side wins.
@@ -39,6 +41,7 @@ Both sides roll under their relevant attribute.
 - If both fail, the defender wins (you don’t “accidentally succeed”).
 
 ### 1.5 When to roll
+
 Roll only when **the outcome is uncertain** *and* **it matters**.
 If failure would be boring, resolve it narratively.
 
@@ -54,13 +57,15 @@ If failure would be boring, resolve it narratively.
 
 ### 2.1 Start from the baseline frame
 
-![](../../assets/art/ss_baseline_character_frame.png){.wrap-right width=1.9in}
+![](../../assets/art/ss_baseline_character_frame.png){.wrap-right width=1.9in trim="258bp 331bp 260bp 238bp"}
 
 Every character begins at:
+
 - **Five attributes at 10** (skins rename these to fit genre).
 - **Stamina 5** (STM: your health).
 
 Legal ranges at creation:
+
 - Attributes: **6–16**
 - Stamina: **3–9**
 
@@ -78,7 +83,7 @@ If you need a default set (and for examples in this manual), use:
 
 ### 2.2 The point‑buy economy (trade-offs and build points)
 
-![](../../assets/art/ss_points_buy_economy.png){.wrap-right width=1.55in}
+![](../../assets/art/ss_points_buy_economy.png){.wrap-right width=1.55in trim="393bp 161bp 215bp 173bp"}
 
 You can customize your stats using the same economy in two equivalent ways:
 
@@ -91,10 +96,12 @@ Build points let you raise stats without taking as many trade‑offs.
 You can mix these: take some trade‑offs, spend some build points; they’re two ways of paying into the same economy.
 
 Cost model (same for attributes and Stamina):
+
 - If the score is **at/above baseline**, **+1 costs 2 build points**.
 - If the score is **below baseline**, **+1 costs 1 build point** (to climb back toward baseline).
 
 Baseline notes:
+
 - Attributes baseline at **10**.
 - Stamina baseline at **5**.
 
@@ -102,6 +109,7 @@ Baseline notes:
 
 ### 2.3 Starting build points (recommended default)
 At creation, the Custodian chooses a starting budget for tone:
+
 - **0** (grim survival)
 - **6** (standard; recommended default)
 - **12** (pulp competence)
@@ -127,7 +135,7 @@ You want a sharp‑witted PC hero and you raise INT from 10 to 13 (**+3 above ba
 
 ## 3 Luck Pool (tokens)
 
-![](../../assets/art/ss_luck_pool.png){.wrap-left width=1.7in}
+![](../../assets/art/ss_luck_pool.png){.wrap-left width=1.7in trim="193bp 198bp 247bp 206bp"}
 
 Your **Luck score** *is* your token pool.
 If your skin says “Hope” or “Fortune” or “Resourcefulness,” that score is still Luck mechanically.
@@ -151,7 +159,7 @@ Combat note:
 
 ## 4 Stamina (Health) & Recovery
 
-![](../../assets/art/ss_stamina_recovery.png){.wrap-right width=1.6in}
+![](../../assets/art/ss_stamina_recovery.png){.wrap-right width=1.6in trim="168bp 307bp 146bp 280bp"}
 
 - **Damage reduces Stamina.**
 - Typical weapons add **edge**: +0 / +1 / +2.
@@ -176,7 +184,7 @@ Both roll. If only one succeeds, that side wins. If both succeed, compare margin
 
 ## 6 Combat
 
-![](../../assets/art/ss_combat_sequence.png){.wrap-right width=1.9in}
+![](../../assets/art/ss_combat_sequence.png){.wrap-right width=1.9in trim="109bp 429bp 100bp 366bp"}
 
 1. **Attacker** rolls under the attribute that matches how they attack.
    - **Heavy / forceful** (wrestle, smash, cleave): usually **MGT**.
@@ -228,7 +236,7 @@ After a hit:
 
 ## 7 Carry Limit
 
-![](../../assets/art/ss_item_carry_limit.png){.wrap-right width=1.7in}
+![](../../assets/art/ss_item_carry_limit.png){.wrap-right width=1.7in trim="345bp 248bp 314bp 179bp"}
 
 Six substantial items ride comfortably; more invites Disadvantage on agility tasks.
 Tiny trinkets are free.
@@ -239,7 +247,7 @@ Money does not count against carry limit. By default it’s tracked loosely in t
 
 ## 8 Pressure & Milestones (the pacing tools)
 
-![](../../assets/art/ss_pressure_fuse.png){.wrap-left width=2.2in}
+![](../../assets/art/ss_pressure_fuse.png){.wrap-left width=2.2in trim="276bp 420bp 245bp 243bp"}
 
 Every skin uses a shared **Pressure track (0–5)**, renamed to fit genre (Doom, Fatigue, Sin, Heat, Stress, Strain, Dread, Insanity, Anomaly…).
 Pressure is the fuse: it rises with risk, blunders, bargains, and time pressure.

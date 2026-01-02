@@ -1,7 +1,7 @@
 # **WHISPERS IN THE FOG**
 ### Skin add-on for the Sinew & Steel game system
 
-![](../assets/covers/ss_logo_whispers_in_the_fog.png){.wrap-right width=0.45in}
+![](../assets/covers/ss_logo_whispers_in_the_fog.png){.wrap-right width=0.45in trim="416bp 190bp 412bp 134bp"}
 
 *Mournful New‑England shores, 1924. Gas‑lamps gutter, marsh‑mists coil, and nameless shapes lurk just beyond the churchyard wall.*
 
@@ -46,7 +46,7 @@ A short rest in safety restores **+1 ticket**; opium dreams or saintly relics ma
 ---
 
 ## ELDRITCH RITES
-![](../assets/art/ss_whispers_forbidden_tome.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_whispers_forbidden_tome.png){.margin-right width=0.95in trim="342bp 96bp 182bp 132bp"}
 
 > *Spells and rituals are named effects tagged to a tier on discovery.*
 
@@ -64,7 +64,7 @@ A short rest in safety restores **+1 ticket**; opium dreams or saintly relics ma
 ---
 
 ## INSANITY TRACK (Pressure skin)
-![](../assets/art/ss_whispers_insanity_spiral.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_whispers_insanity_spiral.png){.margin-right width=0.95in trim="352bp 280bp 346bp 280bp"}
 
 Insanity is mental pressure. It runs **0–5**; at **5** you **Break**, trigger a crisis, then reset Insanity to **0**.
 The mind forgets the count; it does not forget the scar.
@@ -135,7 +135,7 @@ Choose one stat as **Expertise** (marksman = AGI, doctor = SCH). When the task s
 ---
 
 ### Lantern & Battery (light tension, core‑aligned)
-![](../assets/art/ss_whispers_fog_lantern.png){.wrap-right width=1.25in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_whispers_fog_lantern.png){.wrap-right width=1.25in trim="294bp 213bp 282bp 209bp"}
 
 In this genre, light is safety. Darkness is a weapon.
 To keep resource tension without extra dice systems, track portable light as a small **clock**.
@@ -195,7 +195,7 @@ Stylistic rule: pain is concrete, hope is whispered, knowledge always costs.
 
 ## SAMPLE INQUIRERS
 
-![](../assets/art/ss_whispers_lydia.png){.wrap-right width=1.55in}
+![](../assets/art/ss_whispers_lydia.png){.wrap-right width=1.55in trim="54bp 105bp 0bp 128bp"}
 
 **Dr Lydia Harker** — Folklore Professor  
 Creation: standard budget (**6** build points; used **6**)  
@@ -203,7 +203,7 @@ VIG 8 AGI 9 SCH 14 FRT 12 FAT 8/8 STM 4/4 Insanity 0/5
 Knack: Occult Scholar.  
 Pocket‑knife 0, notebook & fountain pen, trunk of grimoires.
 
-![](../assets/art/ss_whispers_eli.png){.wrap-left width=1.55in}
+![](../assets/art/ss_whispers_eli.png){.wrap-left width=1.55in trim="0bp 94bp 0bp 65bp"}
 
 **Elias “Eli” Graves** — War‑weary P.I.  
 Creation: standard budget (**6** build points; used **6**)  

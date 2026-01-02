@@ -1,7 +1,7 @@
 # **BRIAR & BENEDICTINE**
 ### Skin add-on for the Sinew & Steel game system
 
-![](../assets/covers/ss_logo_briar_benedictine.png){.wrap-right width=0.45in}
+![](../assets/covers/ss_logo_briar_benedictine.png){.wrap-right width=0.45in trim="517bp 144bp 518bp 128bp"}
 
 *A Benedictine abbey, England, winter of 1142. Murder, heresy, and siege swirl beyond the cloister walls.*
 
@@ -80,7 +80,7 @@ Pick the attribute that matches the approach (not “the correct stat”).
 ## ECUMENICAL NOTES (Custodian)
 
 ### The Abbey Case (mystery procedure)
-![](../assets/art/ss_benedictine_reliquary_key.png){.wrap-right width=1.25in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_benedictine_reliquary_key.png){.wrap-right width=1.25in trim="308bp 116bp 304bp 104bp"}
 
 This skin is a Medieval monastic mystery. Keep it moving with two table rules:
 
@@ -98,7 +98,7 @@ Use the **Insight** plug‑in as your “unstick lever” if the table stalls.
 > Failure: “It’s old blood… but your hands shake. Mark **+1 Sin**: prideful certainty can damn the innocent.”
 
 ### Sin Track (Pressure skin)
-![](../assets/art/ss_benedictine_confessional.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_benedictine_confessional.png){.margin-right width=0.95in trim="433bp 161bp 254bp 179bp"}
 
 Sin is the spiritual pressure of suspicion, pride, and proximity to evil. It runs **0–5**; at **5** trigger a crisis, then reset Sin to **0**.
 
@@ -144,7 +144,7 @@ This skin does **not** rewind: words cannot be unspoken, vows cannot be unbroken
 > *“Wax gutters in crooked rivulets; the effigy saints seem to weep.”*
 
 ### d6 Quick mystery seeds
-![](../assets/art/ss_benedictine_wax_seal.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_benedictine_wax_seal.png){.margin-right width=0.95in trim="290bp 116bp 282bp 175bp"}
 
 | d6 | Hook | Twist |
 |---|---|---|
@@ -175,7 +175,7 @@ Roll or pick to ground any scene in seconds.
 
 ### Brother Cadoc — Herbalist‑Inquisitor
 
-![](../assets/art/ss_benedictine_cadoc.png){.wrap-right width=1.55in}
+![](../assets/art/ss_benedictine_cadoc.png){.wrap-right width=1.55in trim="80bp 89bp 55bp 103bp"}
 
 Creation: grim budget (**0** build points; used **0**)  
 HEW 8 FLT 7 LOR 14 MCY 10 PRV 8/8 STM 4/4 Sin 0/5  
@@ -183,7 +183,7 @@ Satchel of salves (Advantage on one LOR diagnosis per day), hand staff (edge 0),
 
 ### Sister Aveline — Lay Scribe
 
-![](../assets/art/ss_benedictine_aveline.png){.wrap-left width=1.55in}
+![](../assets/art/ss_benedictine_aveline.png){.wrap-left width=1.55in trim="63bp 88bp 64bp 107bp"}
 
 Creation: grim budget (**0** build points; used **0**)  
 HEW 6 FLT 9 LOR 11 MCY 13 PRV 9/9 STM 3/3 Sin 0/5  

@@ -6,7 +6,7 @@
 ---
 
 ## 1 Core Engine (60‑second digest)
-![](../assets/art/ss_core_mechanic.png){.wrap-right width=1.4in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_core_mechanic.png){.wrap-right width=1.4in trim="312bp 229bp 409bp 165bp"}
 Keep this page in view; it’s meant to be used mid‑play.
 
 - **Roll‑under d20.** If `d20 ≤ attribute`, you succeed; otherwise you fail.
@@ -92,7 +92,7 @@ Use this checklist to start a first session quickly.
 8. **Milestone** every 3–4 perilous beats: **+2 build points** + a narrative boon.
 9. If play stalls: advance a clock, change the weather, introduce a hard bargain, or reveal a threat.
 
-![](../assets/art/ss_clanfire_grak.png){.wrap-left width=0.75in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_clanfire_grak.png){.wrap-left width=0.75in trim="73bp 150bp 33bp 42bp"}
 
 ## 4 Example Character (Clanfire skin, standard build points)
 

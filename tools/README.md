@@ -26,6 +26,7 @@ Requires Python 3 and PyYAML (already present in most agent runtimes).
 - validate_repo.py: sanity checks for manifest and file layout.
 - release_build.py: build release bundles (markdown + optional PDFs via pandoc) into release/dist/.
 - md_pdf.py: build an ad-hoc PDF from arbitrary markdown file(s) for layout/art iteration.
+- suggest_trim.py: optional maintainer helper to suggest `trim="l b r t"` for spot-art PNGs (uses Pillow if installed).
 - ss.py: thin dispatcher (`python tools/ss.py <command> ...`) for single-command workflows.
 
 Note: state mutation tools are strict by default; use `--allow-new` only when you intend to create new keys.
@@ -66,6 +67,7 @@ python tools/resume_pack.py --campaign ice_hunt --character grak --public
 python tools/md_pdf.py rules/quickstart.md --out /tmp/quickstart.pdf --style bookish
 python tools/md_pdf.py rules/quickstart.md skins/clanfire.md --out /tmp/layout_test.pdf --toc --style bookish
 python tools/md_pdf.py --files \"rules/quickstart.md skins/clanfire.md\" --out /tmp/layout_test.pdf --toc --style bookish
+python tools/suggest_trim.py --glob \"assets/art/*.png\" --out /tmp/trim_suggestions.yaml
 
 # Save and quit (ironman): store exactly one checkpoint per campaign (overwritten each time).
 # Prefer stdin or --text-file for multi-line messages.

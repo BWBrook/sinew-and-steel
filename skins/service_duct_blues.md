@@ -1,7 +1,7 @@
 # **SERVICE DUCT BLUES**
 ### Skin add-on for the Sinew & Steel game system
 
-![](../assets/covers/ss_logo_service_duct_blues.png){.wrap-right width=0.45in}
+![](../assets/covers/ss_logo_service_duct_blues.png){.wrap-right width=0.45in trim="435bp 201bp 431bp 162bp"}
 
 *Life below decks on a frontier starship, starbase, or deep‑space platform, Shift 17—.*
 
@@ -82,7 +82,7 @@ You’ve done time in other departments. Say which one, then take Advantage on t
 > (Safety regs: bypassing sensor interlocks without authorisation marks **+1 Stress**.)
 
 ### The other 99% (crew roles)
-![](../assets/art/ss_service_ducts_comms.png){.wrap-right width=1.15in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_service_ducts_comms.png){.wrap-right width=1.15in trim="342bp 320bp 308bp 261bp"}
 
 This skin is about the people who keep the ship alive while senior officers make speeches.
 Rotate spotlight scenes across departments so “ship life” feels broad and lived‑in.
@@ -98,7 +98,7 @@ Rotate spotlight scenes across departments so “ship life” feels broad and li
 ## COMPUTER SYSTEMS (Showrunner Notes — Custodian)
 
 ### **Stress** Track (Pressure skin)
-![](../assets/art/ss_service_ducts_klaxon_steam.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_service_ducts_klaxon_steam.png){.margin-right width=0.95in trim="307bp 205bp 293bp 129bp"}
 
 Stress is shipboard pressure. It runs **0–5**; at **5** trigger a crisis, then reset Stress to **0**.
 
@@ -157,7 +157,7 @@ Roll opening credits.
 Power surge shorts a duct node • Coolant leak clouds maintenance bay • Medbay monitor fails mid‑triage • Lab containment field flickers • Away team loses comms • Captain on comm: “I need that grid stable in three minutes, ensign.”
 
 ### Beat tags
-![](../assets/art/ss_service_ducts_duct_maze.png){.wrap-right width=1.35in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_service_ducts_duct_maze.png){.wrap-right width=1.35in trim="396bp 261bp 395bp 179bp"}
 
 Label nodes by deck/section: ENG‑D4, SCI‑B2, MED‑C1, SHBAY‑2, DUCT‑J19, AWAY‑01.
 
@@ -181,7 +181,7 @@ This skin does **not** rewind. If you want a safety valve, use **logs** as clues
 
 ### Ensign Talara — Away‑Team Specialist
 
-![](../assets/art/ss_service_duct_talara.png){.wrap-right width=1.55in}
+![](../assets/art/ss_service_duct_talara.png){.wrap-right width=1.55in trim="72bp 131bp 26bp 101bp"}
 
 Creation: standard budget (**6** build points; used **6**)  
 MSC 10 REF 12 SYS 11 HAR 8 RES 10/10 STM 6/6 Stress 0/5  
@@ -189,7 +189,7 @@ Beam sidearm +1 (stun), spanner set, scanner (Adv SYS scans).
 
 ### Chief Ortiz — Maintenance Bosun
 
-![](../assets/art/ss_service_duct_ortiz.png){.wrap-left width=1.55in}
+![](../assets/art/ss_service_duct_ortiz.png){.wrap-left width=1.55in trim="61bp 124bp 11bp 114bp"}
 
 Creation: standard budget (**6** build points; used **6**)  
 MSC 11 REF 8 SYS 13 HAR 11 RES 8/8 STM 5/5 Stress 0/5  

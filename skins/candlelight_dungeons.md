@@ -1,7 +1,7 @@
 # **CANDLELIGHT DUNGEONS**
 ### Skin add-on for the Sinew & Steel game system
 
-![](../assets/covers/ss_logo_candlelight_dungeons.png){.wrap-right width=0.45in}
+![](../assets/covers/ss_logo_candlelight_dungeons.png){.wrap-right width=0.45in trim="441bp 204bp 438bp 169bp"}
 
 *Torchlit delves in the warrens of a dying principality, inspired by classic 1980s dungeon‑crawl play.*
 
@@ -16,7 +16,7 @@ If you want a meat‑grinder crawl, lower build points (standard **6** or grim *
 ---
 
 ## DELVER'S KIT (Adventurer)
-![](../assets/art/ss_candlelight_dungeon_door.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_candlelight_dungeon_door.png){.margin-right width=0.95in trim="389bp 131bp 393bp 96bp"}
 
 ### Attribute Labels
 | Core slot | Dungeon label | Covers |
@@ -57,7 +57,7 @@ A short rest at a warm hearth restores **+1 coin**; dank caves do not.
 ---
 
 ## SPELLCRAFT
-![](../assets/art/ss_candlelight_spell_backlash.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_candlelight_spell_backlash.png){.margin-right width=0.95in trim="399bp 223bp 372bp 83bp"}
 
 > *Spells are named effects tagged to a tier when learned. Test under the listed stat, then pay the tier cost.*
 
@@ -77,7 +77,7 @@ A short rest at a warm hearth restores **+1 coin**; dank caves do not.
 ---
 
 ## FATIGUE TRACK (Pressure skin)
-![](../assets/art/ss_candlelight_torch_sconce.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_candlelight_torch_sconce.png){.margin-right width=0.95in trim="555bp 151bp 654bp 67bp"}
 
 Fatigue is the dungeon’s hourglass. It runs **0–5**; at **5** trigger a crisis, then reset Fatigue to **0**.
 
@@ -191,14 +191,14 @@ Example: Assassin’s throat‑slit on a sleeping victim — **Fatal (counter: s
 
 ## SAMPLE DELVERS
 
-![](../assets/art/ss_candlelight_durn.png){.wrap-right width=1.55in}
+![](../assets/art/ss_candlelight_durn.png){.wrap-right width=1.55in trim="36bp 141bp 0bp 151bp"}
 
 **Durn Bravefoot** — Fighter  
 Creation: heroic budget (**16** build points; used **16**)  
 STR 16 DEX 11 LOR 9 FTH 9 FOR 10/10 STM 7/7 Fatigue 0/5  
 Knack: Second Wind. Sword +1, shield, chain shirt (soak 2).
 
-![](../assets/art/ss_candlelight_lirae.png){.wrap-left width=1.55in}
+![](../assets/art/ss_candlelight_lirae.png){.wrap-left width=1.55in trim="60bp 95bp 87bp 83bp"}
 
 **Lirae Willow‑Tongue** — Hedge Mage  
 Creation: heroic budget (**16** build points; used **16**)  

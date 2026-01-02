@@ -1,7 +1,7 @@
 # **TWILIGHT OF THE NORTHLANDS**
 ### Skin add-on for the Sinew & Steel game system
 
-![](../assets/covers/ss_logo_twilight_northlands.png){.wrap-right width=0.45in}
+![](../assets/covers/ss_logo_twilight_northlands.png){.wrap-right width=0.45in trim="410bp 183bp 409bp 134bp"}
 
 *The Northlands, late in a fading age. The Wardens keep lonely watch, dread gathers in forgotten tombs, and humble folk cherish hearth‑fires against the returning dark.*
 
@@ -86,7 +86,7 @@ Each use costs: **spend 1 Hope token** or **mark +1 Dread**.
 ---
 
 ## SUBTLE MAGIC — Old Rites
-![](../assets/art/ss_twilight_rune_stone.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_twilight_rune_stone.png){.margin-right width=0.95in trim="410bp 188bp 412bp 154bp"}
 
 Rites do not hurl fire. They kindle courage, veil footsteps, and turn the will — softly, rarely, and with a price.
 
@@ -193,7 +193,7 @@ It adds two ideas:
 - **Injury** = significant lingering damage (e.g., a lacerating or crushing blow that gets through a defence).
 
 #### Combat Positions (choose each exchange)
-![](../assets/art/ss_twilight_combat_positions.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_twilight_combat_positions.png){.margin-right width=0.95in trim="129bp 398bp 40bp 346bp"}
 
 At the start of each combat exchange (or “round”), each PC chooses a position in the line:
 
@@ -247,7 +247,7 @@ Travel choices acquire moral weight.
 ---
 
 ## WRITING IN NORTHLAND SAGA STYLE
-![](../assets/art/ss_twilight_road_lantern.png){.wrap-right width=1.25in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_twilight_road_lantern.png){.wrap-right width=1.25in trim="418bp 204bp 403bp 206bp"}
 
 - **Elevate but stay clear.** Plain words, with occasional high diction (“ere”, “fell”, “lo”).
 - **Landscape as character.** Heather, hush of pines, stars wheeling above a ruined watch‑hill.
@@ -290,7 +290,7 @@ Knack seeds: *Second Snack* (once per session clear 1 Fatigue with a meal) • *
 
 ### Tolly Noakes — river‑country wayfarer (Halfling)
 
-![](../assets/art/ss_twilight_tolly.png){.wrap-right width=1.55in}
+![](../assets/art/ss_twilight_tolly.png){.wrap-right width=1.55in trim="195bp 133bp 33bp 113bp"}
 
 Creation: heroic budget (**16** build points; used **16**)  
 STR 6 NIM 14 WIS 10 HRT 14 HOP 12/12 STM 5/5 Dread 0/5 Fatigue 0/5  
@@ -299,7 +299,7 @@ Sling 0, herb‑satchel (Advantage on WIS when identifying plants if you have ti
 
 ### Halvar of the Stone Roads — road‑guardian (Dwarf)
 
-![](../assets/art/ss_twilight_halvar.png){.wrap-left width=1.55in}
+![](../assets/art/ss_twilight_halvar.png){.wrap-left width=1.55in trim="147bp 116bp 0bp 124bp"}
 
 Creation: heroic budget (**16** build points; used **16**)  
 STR 14 NIM 8 WIS 11 HRT 10 HOP 12/12 STM 7/7 Dread 0/5 Fatigue 0/5  

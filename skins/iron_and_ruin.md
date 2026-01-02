@@ -1,7 +1,7 @@
 # **IRON & RUIN**
 ### Skin add-on for the Sinew & Steel game system
 
-![](../assets/covers/ss_logo_iron_and_ruin.png){.wrap-right width=0.45in}
+![](../assets/covers/ss_logo_iron_and_ruin.png){.wrap-right width=0.45in trim="413bp 152bp 408bp 148bp"}
 
 *Grim sword‑and‑sorcery in the spirit of pulp adventure.*
 
@@ -59,7 +59,7 @@ A character may carry up to six substantial items — armour, weapons, bundles, 
 Coin is an inconvenient necessity; carry too much, and brigands will smell it.
 
 ### Sorcery
-![](../assets/art/ss_iron_ruin_sorcery_tiers.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_iron_ruin_sorcery_tiers.png){.margin-right width=0.95in trim="409bp 341bp 371bp 246bp"}
 
 Steel is trustworthy; spells are treacherous. Any feat is *theoretically* possible, but risk scales brutally.
 
@@ -98,7 +98,7 @@ Natural 1 pierces all soak and doubles narrative punch. Natural 20 jumps to the 
 _Sorcery is a bargain with things that do not love you. Spend Doom like coin, but remember the debt collector always comes before dawn._
 
 ### **Doom** (Pressure track)
-![](../assets/art/ss_iron_ruin_doom_sigils.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_iron_ruin_doom_sigils.png){.margin-right width=0.95in trim="313bp 262bp 284bp 253bp"}
 
 Doom is the Pressure track for this skin: the shadow of magic and the debt of the unseen.
 The sorcery tier table tells you exactly when Doom rises; as a rule of thumb, **most failed sorcery adds +1 Doom**, and stronger workings can add Doom even on success.
@@ -137,7 +137,7 @@ Cost: **1 Fortune**.
 ## CHRONICLER'S TOUCHSTONE (Custodian)
 
 ### Narrative Rhythm
-![](../assets/art/ss_iron_ruin_idol.png){.wrap-right width=1.15in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_iron_ruin_idol.png){.wrap-right width=1.15in trim="350bp 118bp 329bp 104bp"}
 
 Terse, muscular prose. Violence sudden; sorcery foul or uncanny. Civilisation decadent; heroes carve fate. Cursed sigils, rival factions, prophetic dreams.
 
@@ -177,7 +177,7 @@ Failure should reshape the world, not halt the story. Death is meaningful only i
 
 ### Tragan the Reaver — Mercenary  
 
-![](../assets/art/ss_iron_ruin_tragan.png){.wrap-right width=1.55in}
+![](../assets/art/ss_iron_ruin_tragan.png){.wrap-right width=1.55in trim="79bp 151bp 10bp 120bp"}
 
 *A northern barbarian too stubborn to die.*  
 Creation: pulp budget (**12** build points; used **12**)  
@@ -186,7 +186,7 @@ Heavy axe +1, tattered mail soak 1, notched shield (once/combat Adv when rammi
 
 ### Yara the Occultist — Exiled Priestess  
 
-![](../assets/art/ss_iron_ruin_yara.png){.wrap-left width=1.55in}
+![](../assets/art/ss_iron_ruin_yara.png){.wrap-left width=1.55in trim="214bp 93bp 25bp 101bp"}
 
 *Raven-haired mystic with forbidden sigils inked into her flesh.*  
 Creation: pulp budget (**12** build points; used **12**)  

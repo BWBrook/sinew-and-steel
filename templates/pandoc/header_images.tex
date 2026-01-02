@@ -6,6 +6,16 @@
 % - intextsep/columnsep tighten spacing around wraps (tune as needed)
 \usepackage{graphicx}
 \usepackage{wrapfig}
+\usepackage{enumitem}
+
+% List indentation: keep bullets/numbers *inside* the text block (not hanging
+% into the left margin). This also makes top-level lists visually consistent
+% with nested lists.
+%
+% Keep this fairly tight so the quickstart doesn't bloat; we can tune further
+% if needed.
+\setlist[itemize]{leftmargin=2.5em}
+\setlist[enumerate]{leftmargin=2.5em}
 \setlength{\intextsep}{0.6\baselineskip}
 \setlength{\columnsep}{1em}
 
@@ -13,3 +23,28 @@
 % Keep this within the page margin so small icons don't get clipped.
 \setlength{\marginparwidth}{0.85in}
 \setlength{\marginparsep}{0.15in}
+
+% When a `wrapfigure` is active, LaTeX will happily wrap *lists* too. That can
+% look awkward for "quick reference" bullets: the label can shift, and the
+% list shape can become hard to scan.
+%
+% `\SSwrapfill` forces the next block to start *below* any active wrapfigure.
+% It does this by consuming the remaining wrapped lines as vertical space,
+% then finalizing the wrapfig state.
+%
+% This is a pragmatic, opt-in escape hatch: use it sparingly in markdown
+% (e.g. between an image+paragraph and a bullet-heavy section).
+\makeatletter
+\newcommand{\SSwrapfill}{%
+  \par
+  \ifnum\c@WF@wrappedlines>\@ne
+    \@tempcnta=\c@WF@wrappedlines
+    \advance\@tempcnta by -1
+    \@tempdima=\baselineskip
+    \multiply\@tempdima by \@tempcnta
+    \vspace*{\@tempdima}%
+    \global\c@WF@wrappedlines\z@
+    \WF@finale
+  \fi
+}
+\makeatother

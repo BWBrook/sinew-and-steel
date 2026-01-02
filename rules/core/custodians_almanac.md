@@ -11,7 +11,7 @@ For player‑facing rules, see `rules/quickstart.md` and `rules/core/adventurers
 
 ### 1 The Custodian’s job (30 seconds)
 
-![](../../assets/art/ss_decision_loop.png){.wrap-right width=1.7in}
+![](../../assets/art/ss_decision_loop.png){.wrap-right width=1.7in trim="324bp 200bp 337bp 135bp"}
 
 You do three things, on repeat:
 
@@ -23,7 +23,7 @@ The rules exist to support momentum. If you’re forcing dice every sentence, yo
 
 ### 2 When to roll (and when not to)
 
-![](../../assets/art/ss_non_roll_outcomes.png){.wrap-left width=2.3in}
+![](../../assets/art/ss_non_roll_outcomes.png){.wrap-left width=2.3in trim="167bp 410bp 168bp 384bp"}
 
 Call for a roll only when:
 - the outcome is **uncertain**, and
@@ -38,7 +38,7 @@ If the player’s approach is plausible and failure would be boring, resolve it 
 
 ### 3 Luck tests (sheer fate)
 
-![](../../assets/art/ss_luck_test.png){.wrap-right width=1.7in}
+![](../../assets/art/ss_luck_test.png){.wrap-right width=1.7in trim="338bp 235bp 301bp 167bp"}
 
 Call for players to “Test your Luck!” when **no skill reasonably applies** or when pure chance decides:
 rockfalls, blind picks, patrol timings, “did the guard step away for a second?”
@@ -59,7 +59,7 @@ A universal **0–5 fuse** shared by all skins. When it hits **5**, a crisis tri
 | 4            | Fracture           | Abilities cost +1 Luck, environment hostile  |
 | 5 **Crisis** | Backlash / Paradox | Trigger crisis, then reset Pressure to **0** |
 
-![](../../assets/art/ss_pressure_fuse.png){.wrap-right width=2.1in}
+![](../../assets/art/ss_pressure_fuse.png){.wrap-right width=2.1in trim="276bp 420bp 245bp 243bp"}
 
 **Earning & purging**
 - Add **+1 Pressure** for: desperate bargains, taboo acts, noisy heroics, risky rituals, big blunders, time passing under threat.
@@ -72,7 +72,7 @@ A universal **0–5 fuse** shared by all skins. When it hits **5**, a crisis tri
 
 **Clocks (Heat / Threat / countdowns)**
 
-![](../../assets/art/ss_clocks.png){.wrap-right width=2.2in}
+![](../../assets/art/ss_clocks.png){.wrap-right width=2.2in trim="405bp 293bp 359bp 241bp"}
 
 Alongside Pressure, you may also run one or more **clocks**: named progress meters that track a specific looming outcome.
 
@@ -87,7 +87,7 @@ Alongside Pressure, you may also run one or more **clocks**: named progress mete
 
 ### 5 Milestones & boons (progress without grind)
 
-![](../../assets/art/ss_milestone_bonus.png){.wrap-right width=2.0in}
+![](../../assets/art/ss_milestone_bonus.png){.wrap-right width=2.0in trim="288bp 343bp 287bp 290bp"}
 
 Every 3–4 *perilous* beats or combat encounters, award:
 - **+2 build points**, and
@@ -97,7 +97,7 @@ Boons don’t break the maths; they sit outside the economy. Progress is narrati
 
 ### 6 Moves when players stall
 
-![](../../assets/art/ss_act_now.png){.wrap-left width=1.6in}
+![](../../assets/art/ss_act_now.png){.wrap-left width=1.6in trim="380bp 251bp 354bp 183bp"}
 
 If players stall, don’t demand a roll “to do something”. Move the world:
 
@@ -192,7 +192,7 @@ It shifts capability while leaving core maths and pacing intact.
 
 ### D. NPC / monster design (30‑second method)
 
-![](../../assets/art/ss_npc_card.png){.wrap-right width=1.7in}
+![](../../assets/art/ss_npc_card.png){.wrap-right width=1.7in trim="380bp 266bp 380bp 251bp"}
 
 1. **Pick threat tier (the number that matters):** *Peasant 8 | Soldier 10 | Elite 12 | Monster 14 | Nemesis 16*
    - This number is the NPC’s **tier score**: the roll‑under target for their main actions.
@@ -273,7 +273,7 @@ If you want money to have table‑weight without bookkeeping, track a single **W
 | 3      | Flush  | serious bribes, mounts, quality kit          |
 | 4      | Rich   | rare goods, influence, attention magnets     |
 
-![](../../assets/art/ss_money_trouble.png){.wrap-right width=2.0in}
+![](../../assets/art/ss_money_trouble.png){.wrap-right width=2.0in trim="271bp 312bp 216bp 234bp"}
 
 **How to use it**
 - **Trivial costs:** ignore them.

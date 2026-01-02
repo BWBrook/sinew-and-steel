@@ -1,7 +1,7 @@
 # **FREE TRADERS OF THE DRIFT MARCHES**
 ### Skin add-on for the Sinew & Steel game system
 
-![](../assets/covers/ss_logo_free_traders.png){.wrap-right width=0.45in}
+![](../assets/covers/ss_logo_free_traders.png){.wrap-right width=0.45in trim="413bp 185bp 412bp 133bp"}
 
 *Out along the drift routes between the stars: jump‑flashes bloom in the dark, patrons wave low‑credit cargo chits, and a worn free trader hauls dreams through the long night.*
 
@@ -92,7 +92,7 @@ These are story‑facing meters. Make them **public** if you want planning, **hi
 > *“Dockmaster’s grin didn’t reach his eyes — even money smells desperate this far rimward.”*
 
 ### Jump leg (one travel beat)
-![](../assets/art/ss_free_traders_jump_arc.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_free_traders_jump_arc.png){.margin-right width=0.95in trim="276bp 378bp 264bp 299bp"}
 
 When you make a jump (or cross a week of hard travel) and the stakes matter, resolve the leg with up to three tests.
 If a role is unfilled, treat it as a failure.
@@ -147,7 +147,7 @@ Fate is personal risk. Strain is the ship’s mood, its wear, and the crew’s f
 ---
 
 ## TRADE & PORT CALLS (keep it fast)
-![](../assets/art/ss_free_traders_cargo_manifest.png){.wrap-right width=1.25in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_free_traders_cargo_manifest.png){.wrap-right width=1.25in trim="337bp 196bp 340bp 193bp"}
 
 When you hit port, resolve money and trouble in one beat.
 
@@ -169,7 +169,7 @@ Offer 2–3 jobs. Each job should state:
 ---
 
 ## MEDICAL AID (supplies clock)
-![](../assets/art/ss_free_traders_med_supplies.png){.wrap-right width=1.25in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_free_traders_med_supplies.png){.wrap-right width=1.25in trim="280bp 263bp 312bp 250bp"}
 
 To keep “limited med‑supplies” tension without usage dice, track **Medkit Supplies (0/4)**.
 
@@ -237,7 +237,7 @@ Port fees double; lien threatens impound • Pirate corsair on scan • Misfuell
 
 ### Lt‑Cmdr Mara Thorne — Survey Service mustering‑out
 
-![](../assets/art/ss_free_traders_mara.png){.wrap-right width=1.55in}
+![](../assets/art/ss_free_traders_mara.png){.wrap-right width=1.55in trim="39bp 106bp 10bp 112bp"}
 
 Creation: standard budget (**6** build points; used **6**)  
 STR 8 DEX 12 EDU 14 SOC 8 FAT 8/8 STM 5/5 Strain 0/5  
@@ -246,7 +246,7 @@ Snub‑pistol +1, flight suit (soak 0), battered survey kit (Advantage on EDU fi
 
 ### Harlan “Holo” Vesk — Free Trader deckhand
 
-![](../assets/art/ss_free_traders_holo.png){.wrap-left width=1.55in}
+![](../assets/art/ss_free_traders_holo.png){.wrap-left width=1.55in trim="79bp 118bp 30bp 117bp"}
 
 Creation: standard budget (**6** build points; used **6**)  
 STR 14 DEX 9 EDU 8 SOC 7 FAT 10/10 STM 7/7 Strain 0/5  

@@ -1,7 +1,7 @@
 # **RUST & DOMES**
 ### Skin add-on for the Sinew & Steel game system
 
-![](../assets/covers/ss_logo_rust_and_domes.png){.wrap-right width=0.45in}
+![](../assets/covers/ss_logo_rust_and_domes.png){.wrap-right width=0.45in trim="407bp 166bp 405bp 139bp"}
 
 *Gritty exploits on a colonised Red Planet, circa 2205 AE.*
 
@@ -54,7 +54,7 @@ A short rest in a safe hab restores **+1 cred‑chit**; stim packs or narrative 
 (Dynamic soak: after a hit, reduce soak by **1 per full 4 points** of attacker margin; **nat 1 pierces all**.)
 
 ### Recovery
-![](../assets/art/ss_rust_domes_oxygen_gauge.png){.wrap-right width=1.25in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_rust_domes_oxygen_gauge.png){.wrap-right width=1.25in trim="440bp 117bp 255bp 119bp"}
 
 A short breather with clean water restores **+1 STM**; a full med‑bay cycle or expert field surgeon restores **+2 STM** (up to max).
 Critical injuries may require med‑gel, cybernetic grafts, or a night in the autodoc.
@@ -138,7 +138,7 @@ Defeat should twist the story rather than break it: prison work crews, debt, bla
 Death is for pathos, not arithmetic.
 
 ### Default Martian kit (optional setting spine)
-![](../assets/art/ss_rust_domes_dome_skyline.png){.wrap-right width=1.35in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_rust_domes_dome_skyline.png){.wrap-right width=1.35in trim="167bp 297bp 240bp 272bp"}
 
 If you want a ready map: four underground settlements.
 Hearthwell (old), Mirage Junction (new, crime‑ridden), Cobalt Array (science station), Gantry Point (outpost under construction: contact mysteriously lost).
@@ -165,7 +165,7 @@ Creative stunts are encouraged. Fire‑suppression foam may smother a plasma arc
 Reward ingenuity with Advantage or narrative leverage.
 
 ### Controller moves
-![](../assets/art/ss_rust_domes_audit_stamp.png){.wrap-right width=1.15in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_rust_domes_audit_stamp.png){.wrap-right width=1.15in trim="351bp 103bp 375bp 103bp"}
 
 Life‑support warning • Rail‑cannon test quake • Terraformer glitch kicks up storm • Corp auditor arrives • Nomads block the pass.
 After a heist concluded, a secret unearthed, or a dust‑storm crossing survived, grant a Milestone.
@@ -183,7 +183,7 @@ Keep it to 1–2 per session — Mars is harsh, but not roulette.
 
 ### Rafe Calder — Spacer
 
-![](../assets/art/ss_rust_dome_rafe.png){.wrap-right width=1.55in}
+![](../assets/art/ss_rust_dome_rafe.png){.wrap-right width=1.55in trim="171bp 120bp 4bp 71bp"}
 
 *Roguish spacer marooned on the Red Frontier, silver tongue masking weary pragmatism.*
 
@@ -196,7 +196,7 @@ Solvent enough to eat, broke enough to take risks.
 
 ### Miira Nix — Hacker
 
-![](../assets/art/ss_rust_dome_miira.png){.wrap-left width=1.55in}
+![](../assets/art/ss_rust_dome_miira.png){.wrap-left width=1.55in trim="63bp 119bp 66bp 104bp"}
 
 *Composed hacker steeped in Martian network lore, preferring code to gun‑smoke.*
 

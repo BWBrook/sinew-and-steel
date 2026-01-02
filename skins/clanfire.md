@@ -1,7 +1,7 @@
 # **CLANFIRE — FLINT & FROST**
 ### Skin add-on for the Sinew & Steel game system
 
-![](../assets/covers/ss_logo_clanfire.png){.wrap-right width=0.45in}
+![](../assets/covers/ss_logo_clanfire.png){.wrap-right width=0.45in trim="460bp 190bp 460bp 176bp"}
 
 *Neanderthal Europe at the edge of extinction, ≈ 40 000 BP.*  
 
@@ -49,7 +49,7 @@ When the Custodian calls for pure chance or gut‑feeling — “**Test your Ins
 A short rest with fire and water restores **+1 Stamina**; deep shelter and herbs **+2** (never above max). Grave wounds need shaman craft.
 
 ### Totem Mark (once per session)
-![](../assets/art/ss_clanfire_totem_mark.png){.wrap-right width=1.25in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_clanfire_totem_mark.png){.wrap-right width=1.25in trim="591bp 124bp 552bp 96bp"}
 
 Invoke clan spirit (Bear, Owl, Salmon…). Gain **Advantage** on a thematically linked roll **and** either spend **1 Instinct** or accept **+1 Shadow**.
 
@@ -95,7 +95,7 @@ Other track motifs: dying hearth‑fires, a one‑eyed cave bear, the piercing f
 | 6 | Roll twice — stack horrors |
 
 ### Hearth Beats
-![](../assets/art/ss_clanfire_hearth_embers.png){.wrap-right width=1.35in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_clanfire_hearth_embers.png){.wrap-right width=1.35in trim="436bp 169bp 433bp 138bp"}
 
 Play is visceral—crackling fire, reek of hides, breath steaming in moonlight. Mechanics provide bone, but story is sinew. When scenes falter, unleash weather, predator or uneasy strangers. Ambush, ice collapse, bride‑price negotiation, mammoth hunt, cave art.  
 
@@ -110,7 +110,7 @@ Present 2-4 options in second‑person imperative, focused on protagonist. Inclu
 > 3. Approach the tall newcomers in peace.  
 Ensure outcomes ripple—sharing meat with Sapiens may avert later spear‑fight.  
 
-![](../assets/art/ss_clanfire_vision_glass.png){.wrap-left width=1.25in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_clanfire_vision_glass.png){.wrap-left width=1.25in trim="335bp 122bp 521bp 91bp"}
 
 **Vision Glass (omens, not do‑overs):** rare obsidian shards that show a fork of possible futures. In the firelight you glimpse a sign: a broken spear, fresh footprints, a sky‑fire glow.
 Once per session, a hunter may **Test Instinct**; on success ask the Custodian **one yes/no** about the next beat. On failure, the omen still comes — but mark **+1 Shadow**.
@@ -138,7 +138,7 @@ Custodian moves: storm lashes camp · rival scouts appear · food stores spoil �
 ## EXAMPLE CLANSFOLK
 
 ### Grak of Tall Cliffs (Hunter)
-![](../assets/art/ss_clanfire_grak.png){.wrap-right width=1.6in}
+![](../assets/art/ss_clanfire_grak.png){.wrap-right width=1.6in trim="73bp 150bp 33bp 42bp"}
 
 *Sturdy hunter, bearer of granite confidence.*  
 Creation: standard budget (**6** build points; used **6**)  
@@ -149,7 +149,7 @@ Ochre pouch (ritual mark), sinew cord.
 
 ### Tarra the Ember‑Singer (Shaman)
 
-![](../assets/art/ss_clanfire_tarra.png){.wrap-left width=1.6in}
+![](../assets/art/ss_clanfire_tarra.png){.wrap-left width=1.6in trim="129bp 138bp 14bp 107bp"}
 
 *Clan shaman, voice between worlds.*  
 Creation: standard budget (**6** build points; used **6**)  

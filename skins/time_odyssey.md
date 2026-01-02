@@ -1,7 +1,7 @@
 # **TIME ODYSSEY**
 ### Skin add-on for the Sinew & Steel game system
 
-![](../assets/covers/ss_logo_time_odyssey.png){.wrap-right width=0.45in}
+![](../assets/covers/ss_logo_time_odyssey.png){.wrap-right width=0.45in trim="394bp 156bp 393bp 122bp"}
 
 *Victorian chrononautics in the spirit of scientific romance and strange futures.*
 
@@ -53,7 +53,7 @@ A short rest restores **+1 token**; paradoxical boons or esoteric rejuvenators m
 (Dynamic soak: after a hit, reduce soak by **1 per full 4 points** of attacker margin; **nat 1 pierces all**.)
 
 ### Temporal Anomaly (Pressure skin)
-![](../assets/art/ss_time_odyssey_anomaly_crack.png){.margin-right width=0.95in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_time_odyssey_anomaly_crack.png){.margin-right width=0.95in trim="397bp 183bp 383bp 147bp"}
 
 Meddling with history courts paradox.
 
@@ -75,7 +75,7 @@ Call for a Test when the outcome is uncertain and the stakes are historical: alt
 | 6 | Roll twice; apply both |
 
 ### Equipment & Burden nuance
-![](../assets/art/ss_time_odyssey_kit.png){.wrap-right width=1.35in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_time_odyssey_kit.png){.wrap-right width=1.35in trim="286bp 155bp 301bp 145bp"}
 
 Six big items; your brass‑and‑crystal chronal engine is always off‑screen. Currency shifts by era—bulky coinage invites thieves or customs scrutiny.
 
@@ -114,7 +114,7 @@ Call for a **Test of Ingenuity** when blind chance or hidden quantum decides: wh
 Keep it to 1–2 per session.
 
 ### Epoch Graph
-![](../assets/art/ss_time_odyssey_timeline.png){.wrap-right width=1.45in trim="0.15in 0.15in 0.15in 0.15in"}
+![](../assets/art/ss_time_odyssey_timeline.png){.wrap-right width=1.45in trim="120bp 238bp 120bp 264bp"}
 
 Track beats and parallel timelines with chronological tags (1890A, 9000B, 2MyrC…).
 Reward good record‑keeping: if players consult journals, maps, or diagrams, grant **Advantage** on INT/ING rolls to reconcile contradictions.
@@ -129,7 +129,7 @@ In this genre, the timeline doesn’t rewind — paradox is paid for in scars, l
 
 ### Galen — The Chrononaut
 
-![](../assets/art/ss_time_galen.png){.wrap-right width=1.55in}
+![](../assets/art/ss_time_galen.png){.wrap-right width=1.55in trim="51bp 116bp 6bp 103bp"}
 
 *Steam‑age inventor, boundless curiosity, dash of reckless courage.*  
 Creation: pulp budget (**12** build points; used **12**)  
@@ -138,7 +138,7 @@ Pocket revolver +1 (close), brass goggles (Adv vision REF), notebook (Adv INT de
 
 ### Nyra — Far‑Future Companion
 
-![](../assets/art/ss_time_nyra.png){.wrap-left width=1.55in}
+![](../assets/art/ss_time_nyra.png){.wrap-left width=1.55in trim="81bp 107bp 30bp 123bp"}
 
 *Gentle child of a far future, embodies innocence and quiet resilience.*  
 Creation: pulp budget (**12** build points; used **12**)  
