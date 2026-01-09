@@ -2,15 +2,16 @@
 
 A razor‑lean, setting‑agnostic chassis for any genre. One d20, five attribute scores, limitless skins.
 
-![](../../assets/art/ss_skin_overlay.png){.wrap-right width=1.6in trim="513bp 195bp 502bp 97bp"} In Sinew & Steel, a **skin** is a small genre overlay that renames the attributes, defines what fortune and fate represent, names your Pressure track, and adds a few custom rules.
+![](../../assets/art/ss_skin_overlay.png){.wrap-right width=1.0in trim="384.80bp 146.27bp 376.55bp 72.76bp"} 
+In Sinew & Steel, a **skin** is a small genre overlay that renames the attributes, defines what fortune and fate represent, names your Pressure track, and adds a few custom rules.
 
-For the two‑page version, see `rules/quickstart.md`.
+For the two‑page version, see **Quickstart Rules**.
 
 ---
 
 ## 1 The Core Rule
 
-![](../../assets/art/ss_roll_under.png){.wrap-right width=1.6in wraplines=3 trim="229bp 263bp 261bp 230bp"} Roll **one d20**. If the result is **≤ your attribute**, you succeed; if it’s higher, you fail.
+Roll **one d20**. If the result is **≤ your attribute**, you succeed; if it’s higher, you fail.
 
 ### 1.1 Natural results
 
@@ -26,7 +27,7 @@ For the two‑page version, see `rules/quickstart.md`.
 
 ### 1.3 Advantage / Disadvantage
 
-![](../../assets/art/ss_advantage_disadvantage.png){.wrap-right width=1.6in wraplines=2 trim="159bp 246bp 161bp 254bp"} Roll twice; keep one die.
+Roll twice; keep one die.
 
 - **Advantage:** roll 2d20, keep the **lower**.
 - **Disadvantage:** roll 2d20, keep the **higher**.
@@ -40,12 +41,18 @@ Both sides roll under their relevant attribute.
 - **Ties favour the defender.**
 - If both fail, the defender wins (you don’t “accidentally succeed”).
 
+![](../../assets/art/ss_roll_under.png){.wrap-right width=1.6in wraplines=3 trim="229bp 263bp 261bp 230bp"} 
+
 ### 1.5 When to roll
 
 Roll only when **the outcome is uncertain** *and* **it matters**.
 If failure would be boring, resolve it narratively.
 
-**Micro‑example (the table loop):**
+---
+
+\clearpage
+
+**Example (the table loop):**
 
 > Custodian: “The rope bridge is slick with ice. What do you do?”  
 > Player: “I go slow, testing each plank, and keep low.”  
@@ -57,7 +64,7 @@ If failure would be boring, resolve it narratively.
 
 ### 2.1 Start from the baseline frame
 
-![](../../assets/art/ss_baseline_character_frame.png){.wrap-right width=1.9in trim="258bp 331bp 260bp 238bp"}
+![](../../assets/art/ss_baseline_character_frame.png){.wrap-left width=1.9in trim="258bp 331bp 260bp 238bp"}
 
 Every character begins at:
 
@@ -153,7 +160,7 @@ Spend for the moment, but remember you’ll feel it in the future, when the Cust
 
 Combat note:
 
-> You may spend Luck after a successful attack to deepen your margin and chew through armour soak.
+> *You may spend Luck after a successful attack to deepen your margin and chew through armour soak*
 
 ---
 
@@ -184,7 +191,7 @@ Both roll. If only one succeeds, that side wins. If both succeed, compare margin
 
 ## 6 Combat
 
-![](../../assets/art/ss_combat_sequence.png){.wrap-right width=1.9in trim="109bp 429bp 100bp 366bp"}
+![](../../assets/art/ss_combat_sequence.png){.wrap-right width=1.9in trim="81.76bp 321.79bp 75bp 274.54bp"}
 
 1. **Attacker** rolls under the attribute that matches how they attack.
    - **Heavy / forceful** (wrestle, smash, cleave): usually **MGT**.
@@ -204,9 +211,10 @@ Both roll. If only one succeeds, that side wins. If both succeed, compare margin
 4. **Natural 1** or **margin ≥ 10** adds **+1 damage**.
    If your goal isn’t harm (disarm, drive off, talk down), use the same opposed roll — but apply the agreed consequence instead of damage.
 
-**Tiny examples (conflict without extra rules):**
+**Examples (conflict without extra rules):**
 
 > One‑in‑a‑million: you fire a last‑ditch ricochet shot (attack with **LCK**) to sever a hanging rope. On success, the portcullis drops; on failure, it stays up and Pressure rises.
+>
 > Talk‑down: you step in hard and command a surrender (attack with **EMP**) while your ally keeps their blade ready (threat in the fiction). On success, they back down; on failure, they lash out or call reinforcements.
 
 ### 6.1 Weapon edges (suggested)
@@ -222,11 +230,12 @@ Both roll. If only one succeeds, that side wins. If both succeed, compare margin
 | Plate / powered carapace |        3 |
 
 After a hit:
+
 - Reduce soak by **1 for every full 4 points of attacker margin** (round down).
 - Any remaining soak reduces damage normally.
 - **Natural 1 ignores all soak.**
 
-**Micro‑example (soak erosion):**
+**Example (soak erosion):**
 
 > You hit with an NPC guard with margin +9 against soak 2.  
 > Full 4s = 2 → soak drops by 2 (to 0).  
@@ -234,9 +243,11 @@ After a hit:
 
 ---
 
+\clearpage
+
 ## 7 Carry Limit
 
-![](../../assets/art/ss_item_carry_limit.png){.wrap-right width=1.7in trim="345bp 248bp 314bp 179bp"}
+![](../../assets/art/ss_item_carry_limit.png){.wrap-left width=1.2in trim="345bp 248bp 314bp 179bp"}
 
 Six substantial items ride comfortably; more invites Disadvantage on agility tasks.
 Tiny trinkets are free.
@@ -247,7 +258,7 @@ Money does not count against carry limit. By default it’s tracked loosely in t
 
 ## 8 Pressure & Milestones (the pacing tools)
 
-![](../../assets/art/ss_pressure_fuse.png){.wrap-left width=2.2in trim="276bp 420bp 245bp 243bp"}
+![](../../assets/art/ss_pressure_fuse.png){.wrap-right width=1.8in trim="276bp 420bp 245bp 243bp"}
 
 Every skin uses a shared **Pressure track (0–5)**, renamed to fit genre (Doom, Fatigue, Sin, Heat, Stress, Strain, Dread, Insanity, Anomaly…).
 Pressure is the fuse: it rises with risk, blunders, bargains, and time pressure.
@@ -282,7 +293,3 @@ Pressure is the fuse: it rises with risk, blunders, bargains, and time pressure.
 | 12 | 55 | 51 | 46 | 40 | 34 | 28 |
 | 14 | 65 | 61 | 56 | 50 | 44 | 37 |
 | 16 | 75 | 71 | 66 | 60 | 54 | 46 |
-
----
-
-*Print this on a double‑sided sheet, slide it under a coffee cup, and you’re ready to play.*

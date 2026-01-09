@@ -3,7 +3,7 @@
 A razor‑lean booklet for custodians (GMs): pacing levers, adjudication guidance, and optional modules.
 One d20, five attribute scores, limitless skins.
 
-For player‑facing rules, see `rules/quickstart.md` and `rules/core/adventurers_manual.md`.
+For player‑facing rules, see **Quickstart Rules** and **Adventurer's Manual**.
 
 ---
 
@@ -21,20 +21,26 @@ You do three things, on repeat:
 
 The rules exist to support momentum. If you’re forcing dice every sentence, you’re doing it wrong.
 
+---
+
 ### 2 When to roll (and when not to)
 
 ![](../../assets/art/ss_non_roll_outcomes.png){.wrap-left width=2.3in trim="167bp 410bp 168bp 384bp"}
 
 Call for a roll only when:
+
 - the outcome is **uncertain**, and
 - the outcome **matters** (risk, time, reputation, resources, irreversible consequences).
 
 If the player’s approach is plausible and failure would be boring, resolve it narratively.
 
 **Good non‑roll outcomes:**
+
 - **Yes, and…** (clean success with an extra advantage)
 - **Yes, but…** (success with cost: time, noise, +1 Pressure, lost item)
 - **No, but…** (failure with progress: you get in, but you’re spotted)
+
+---
 
 ### 3 Luck tests (sheer fate)
 
@@ -46,6 +52,8 @@ rockfalls, blind picks, patrol timings, “did the guard step away for a second?
 Use sparingly — one or two Luck tests per dozen beats is plenty.
 
 You can season recovery by fiction: a sacred rite adds +3 tokens; a night on Martian rad‑dust adds none.
+
+---
 
 ### 4 Pressure track (Doom / Heat / Strain / Dread / Anomaly…) and Clocks (Countdowns)
 A universal **0–5 fuse** shared by all skins. When it hits **5**, a crisis triggers — then it resets to **0**.
@@ -62,13 +70,18 @@ A universal **0–5 fuse** shared by all skins. When it hits **5**, a crisis tri
 ![](../../assets/art/ss_pressure_fuse.png){.wrap-right width=2.1in trim="276bp 420bp 245bp 243bp"}
 
 **Earning & purging**
+
 - Add **+1 Pressure** for: desperate bargains, taboo acts, noisy heroics, risky rituals, big blunders, time passing under threat.
 - Remove points by: sacrifice, cleansing rites, story quests, cash burn, hard‑won safety.
 - A crisis should be a **dramatic twist**, not a punishment; it resets the fuse so play keeps moving.
 
-**Micro‑example (Pressure as a lever):**
+---
 
-> “You can kick the door right now. It’ll work — but it’s loud. +1 Pressure.”
+**Example (Pressure as a lever):**
+
+> “*You can kick the door right now. It’ll work — but it’s loud. +1 Pressure.*”
+
+---
 
 **Clocks (Heat / Threat / countdowns)**
 
@@ -82,18 +95,24 @@ Alongside Pressure, you may also run one or more **clocks**: named progress mete
 - Clocks can be **public** (“Reinforcements: 3/6”) or **hidden** (revealed only as signs and consequences).
 
 **Pressure vs clocks**
+
 - **Pressure** is universal, abstract, and short‑cycle: it hits 5, triggers a crisis, then resets to 0.
 - **Clocks** are specific, story‑facing, and long‑cycle: they track one concrete danger or countdown and don’t reset unless you choose to reset them in the fiction.
+
+---
 
 ### 5 Milestones & boons (progress without grind)
 
 ![](../../assets/art/ss_milestone_bonus.png){.wrap-right width=2.0in trim="288bp 343bp 287bp 290bp"}
 
 Every 3–4 *perilous* beats or combat encounters, award:
+
 - **+2 build points**, and
 - **a narrative boon** (rare item, ally favour, mystic scar, access, safe refuge).
 
 Boons don’t break the maths; they sit outside the economy. Progress is narrative, not numeric grind.
+
+---
 
 ### 6 Moves when players stall
 
@@ -107,15 +126,21 @@ If players stall, don’t demand a roll “to do something”. Move the world:
 - offer a harsh bargain
 - introduce a threat with a visible timer
 
-**Micro‑example (unstick play):**
+---
 
-> “While you argue, the lantern sputters. If you don’t act, it goes out in one minute.”
+**Example (unstick play):**
+
+> “*While you argue, the lantern sputters. If you don’t act, it goes out in one minute.*”
+
+---
 
 ### 7 Optional plug‑ins (use only what you need)
 - **Totem/Feat** — once per session gain Advantage at cost of 1 Luck or +1 Pressure.
 - **Allies / Pets** — treat as a temporary 3‑token Luck pool that depletes on use.
 - **Condition Tracks** — Fear, Radiation, Madness: extra 0–5 fuses like Pressure, but tied to one specific hazard. Use them only when you want a **second escalation axis** besides Pressure; otherwise use clocks.
 - **Wealth & Attention** — optional 0–4 “money” track; big spends drop it; flashing wealth draws trouble.
+
+---
 
 ### 8 Advice for AI game masters (optional)
 If you’re running Sinew & Steel with an AI custodian:
@@ -126,14 +151,18 @@ If you’re running Sinew & Steel with an AI custodian:
 - Roll only for uncertainty + stakes — many beats are pure narrative.
 - Record outcomes: what changed, what was spent, what clock ticked.
 
-Dice neutrality matters. Use a method the table trusts (physical dice, a local tool, or a transparent roll function).
+Dice neutrality matters. 
+
+Use a method the table trusts (physical dice, a local tool, or a transparent roll function).
 Always surface the result, margin, and any Luck‑spend offer.
 
 ---
 
-*Print this, slide it under a coffee cup, and you’re ready to run anything from mammoth hunts to starship mutinies.*
+*With these few notes, you’re ready to run anything from mammoth hunts to starship mutinies.*
 
 ---
+
+\clearpage
 
 # **Custodian’s Toolkit**
 *Optional deep‑dive for designers, tinkerers, and busy custodians who like tables.*
@@ -169,6 +198,7 @@ These examples spend a mix of **6 build points** and stat trade‑offs; add star
 
 ### A. Tone dial — build‑point pool
 At character creation you may gift each player build points to set tone:
+
 - **0** for grim survival
 - **6** for standard play (recommended default)
 - **12** for pulpy competence
@@ -210,6 +240,7 @@ It shifts capability while leaving core maths and pacing intact.
 3. **Give a hook:** one special move or rule that makes them feel distinct (“mind‑spike forces Luck test,” “web‑snare: failed Reflex ⇒ immobile until cut free,” “howl: on nat 20 targets mark +1 Pressure”).
 
 Examples:
+
 - **Tunnel Brute (Elite 12)** — MGT 12, REF 8, STM 5; edge +1 club, soak 1 hide; on hit may drag victim 5 m into darkness.
 - **Cave Bear (Monster 14, large)** — MGT 14, REF 8, STM 8; edge +2 maul, soak 1 thick fur; on attacker nat 1 bear counter‑swipes 1 STM.
 
@@ -227,11 +258,13 @@ Use it sparingly, flag it clearly, and state the counter up front.
 | **Candlelight Dungeons** | Assassin’s throat‑slit on sleeping victim | Staying conscious or wearing a gorget helmet while resting |
 
 **How to apply**
+
 1. Declare: **Fatal (counter: X)**.
 2. If the target lacks the counter, they drop to **0 Stamina** immediately; normal collapse/death rules follow.
 3. Counters can be equipment, a successful roll, or a resource spend — keep it explicit.
 
 Why it works:
+
 - cinematic stakes without new math
 - a single tag plus a counter clause
 - scales across genres without rewriting combat
@@ -276,6 +309,7 @@ If you want money to have table‑weight without bookkeeping, track a single **W
 ![](../../assets/art/ss_money_trouble.png){.wrap-right width=2.0in trim="271bp 312bp 216bp 234bp"}
 
 **How to use it**
+
 - **Trivial costs:** ignore them.
 - When a purchase matters, assign a **cost tier** (0–4).
   - If Wealth is **≥ tier**, they can afford it.
@@ -286,6 +320,7 @@ If you want money to have table‑weight without bookkeeping, track a single **W
 
 **Attention rule (turn riches into story):**
 When Wealth is **3+** and they flash it in public (big bribes, rare purchases, loud luxury), expect consequences:
+
 - tick **Pressure** (+1), **or**
 - start/tick a **Heat/Threat** clock.
 
@@ -297,4 +332,4 @@ Rename Wealth per skin (Coin / Dollars / Credits / Supplies / Influence / Cargo 
 Hand the two‑page rules to the table; keep this booklet behind the screen (or share it digitally for deeper guidance).
 Trim, hack, translate — licence is CC‑BY; credit & create.
 
-> “This is a pocket atlas of unwritten stories: enough to guide you, never enough to cage you.”
+> “*This is a pocket atlas of unwritten stories: enough to guide you, never enough to cage you.*”
