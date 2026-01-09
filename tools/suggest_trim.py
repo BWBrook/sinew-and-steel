@@ -45,9 +45,12 @@ def require_pillow() -> tuple[object, object]:
     except ModuleNotFoundError:
         print(
             "error: Pillow (PIL) is not installed.\n"
-            "Install it only if you need layout trim suggestions:\n"
-            "  uv add --dev pillow\n"
-            "  # or: python -m pip install pillow",
+            "Install it only if you need layout trim suggestions.\n"
+            "Recommended (no repo dependency change):\n"
+            '  uv run --with pillow --script tools/suggest_trim.py --glob "assets/art/*.png" --out assets/trim_suggestions.yaml\n'
+            "\n"
+            "Alternatives:\n"
+            "  python -m pip install pillow",
             file=sys.stderr,
         )
         raise
@@ -179,21 +182,25 @@ def suggest_trim_for_image(
 
     # Convert px -> TeX dimensions.
     #
-    # In practice (XeLaTeX + xdvipdfmx), PNG "px" are often treated as if
-    # they were at 72dpi when applying `trim=`. Using embedded DPI metadata
-    # can produce incorrect crops. So we provide a *recommended* trim string
-    # in bp by treating 1px == 1bp, and an equivalent inch value at 72dpi.
+    # LaTeX `trim=` is a physical dimension. `includegraphics` computes the
+    # image's physical size from pixel dimensions *and the embedded DPI*
+    # (often 72 or 96 for PNGs). If we treat px as bp directly, we will
+    # over/under-trim images depending on DPI, which can “zoom” artwork into
+    # a narrow strip (seen most often with 96dpi assets).
     #
-    # Keep the raw `dpi` field for debugging, but do not rely on it for trim.
-    left_bp = float(trim_left_px)
-    right_bp = float(trim_right_px)
-    top_bp = float(trim_top_px)
-    bottom_bp = float(trim_bottom_px)
+    # So: convert px -> bp via (px / dpi) * 72.
+    x_scale = 72.0 / (dpi_x or 72.0)
+    y_scale = 72.0 / (dpi_y or 72.0)
 
-    left_in = trim_left_px / 72.0
-    right_in = trim_right_px / 72.0
-    top_in = trim_top_px / 72.0
-    bottom_in = trim_bottom_px / 72.0
+    left_bp = trim_left_px * x_scale
+    right_bp = trim_right_px * x_scale
+    top_bp = trim_top_px * y_scale
+    bottom_bp = trim_bottom_px * y_scale
+
+    left_in = trim_left_px / (dpi_x or 72.0)
+    right_in = trim_right_px / (dpi_x or 72.0)
+    top_in = trim_top_px / (dpi_y or 72.0)
+    bottom_in = trim_bottom_px / (dpi_y or 72.0)
 
     payload["bbox_px"] = [left, top, right, bottom]  # right/bottom are exclusive
     payload["trim_px"] = {"left": trim_left_px, "bottom": trim_bottom_px, "right": trim_right_px, "top": trim_top_px}

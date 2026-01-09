@@ -39,6 +39,8 @@ Examples:
 ```bash
 python tools/build_prompt.py --list-skins
 python tools/build_prompt.py --skin clanfire --mode agent --out /tmp/ss_prompt.md
+# Note: build_prompt strips artwork image tags by default (for LLM prompt cleanliness).
+# Use --keep-art if you explicitly want the `![](...){...}` artwork markers included.
 python tools/build_prompt.py --skin clanfire --mode chat --out /tmp/ss_prompt_chat.md
 python tools/build_prompt.py --campaign ice_hunt --mode agent
 python tools/campaign_init.py --title \"Ice Hunt\" --skin clanfire --tone standard --random-character \"Grak\"

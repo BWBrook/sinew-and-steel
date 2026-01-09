@@ -70,6 +70,7 @@ Start here if you want a Codex CLI or Claude Code agent to run the game from thi
    ```bash
    python tools/build_prompt.py --campaign ice_hunt --mode agent
    ```
+   (By default this strips PDF-only artwork tags from rules/skins to keep the prompt clean for LLM ingestion; use `--keep-art` if you want them included.)
 5. **Start play** using `campaigns/ice_hunt/prompt.md`, then track state with tools.
 
 Canonical guide: `skills/agent_dm_handbook.md`

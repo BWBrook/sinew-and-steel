@@ -1,10 +1,39 @@
 #!/usr/bin/env python3
 import argparse
 from pathlib import Path
+import re
 import sys
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
+
+MD_IMAGE_RE = re.compile(
+    r"!\[[^\]]*\]\("  # ![alt](
+    r"\s*(?:<[^>]+>|[^)]+?)\s*"  # path (optionally <...>)
+    r"(?:\s+\"[^\"]*\")?"  # optional title
+    r"\)"  # )
+    r"(?:\{[^}]*\})?"  # optional Pandoc attribute block
+    r"[ \t]*"  # any following spaces on the same line
+)
+
+
+def strip_art_markdown(text: str) -> str:
+    """
+    Remove markdown image tags (and their Pandoc attribute blocks).
+
+    Why:
+    - The published rules/skins use embedded `![](...){...}` art helpers for PDF layout.
+    - Those tags add noise (and token cost) when the same content is embedded in a
+      prompt for an LLM-based GM.
+
+    This is intentionally conservative: it only strips image tags, not normal links.
+    """
+    out = MD_IMAGE_RE.sub("", text)
+    # Remove whitespace-only lines created by stripping.
+    out = re.sub(r"^[ \t]+$", "", out, flags=re.MULTILINE)
+    # Avoid huge blank gaps.
+    out = re.sub(r"\n{3,}", "\n\n", out)
+    return out
 
 
 def load_text(path: Path) -> str:
@@ -39,6 +68,11 @@ def main() -> int:
     parser.add_argument("--template", help="Prompt template path", default=None)
     parser.add_argument("--hidden", help="Optional hidden scenario file", default=None)
     parser.add_argument("--out", help="Output file path (default: stdout)")
+    parser.add_argument(
+        "--keep-art",
+        action="store_true",
+        help="Keep artwork image tags in embedded rules/skins (default: strip them for cleaner LLM prompts).",
+    )
     parser.add_argument("--list-skins", action="store_true", help="List available skins")
     parser.add_argument("--dry-run", action="store_true", help="Compute output but do not write files")
     parser.add_argument("--json", action="store_true", help="Output JSON summary")
@@ -108,6 +142,13 @@ def main() -> int:
             hidden_path = ROOT / hidden_path
         hidden_text = load_text(hidden_path)
 
+    if not args.keep_art:
+        adv_text = strip_art_markdown(adv_text)
+        cust_text = strip_art_markdown(cust_text)
+        skin_text = strip_art_markdown(skin_text)
+        if args.hidden:
+            hidden_text = strip_art_markdown(hidden_text)
+
     replacements = {
         "{{CORE_RULES_ADVENTURERS}}": adv_text.strip(),
         "{{CORE_RULES_CUSTODIANS}}": cust_text.strip(),
@@ -135,6 +176,7 @@ def main() -> int:
         "skin": skin_slug,
         "mode": args.mode,
         "campaign": args.campaign,
+        "keep_art": bool(args.keep_art),
         "template": str(template_path),
         "output_path": str(out_path) if out_path else None,
         "bytes": len(output.encode("utf-8")),
