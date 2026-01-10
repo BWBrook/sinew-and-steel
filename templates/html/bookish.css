@@ -1,0 +1,163 @@
+/* Sinew & Steel: "bookish" HTML/CSS style for PDF backends (WeasyPrint, etc.)
+ *
+ * Key goals:
+ * - Classic serif rulebook feel.
+ * - Page margins are handled by @page (injected at runtime by tools/md_pdf.py).
+ * - Inline spot art supports left/right wrapping via CSS floats.
+ * - Prevent wrap cascades into structured blocks (lists/tables/quotes) by clearing floats.
+ */
+
+body {
+  /* Pandoc's standalone HTML template injects a default stylesheet that sets
+   * max-width + padding. For PDF output we want the *page* margins to define
+   * the text block, so we reset those here.
+   */
+  margin: 0 !important;
+  max-width: none !important;
+  padding: 0 !important;
+  color: #111;
+  font-family: "Linux Libertine O", "Libertine", "Times New Roman", serif;
+  font-size: 11pt;
+  line-height: 1.05;
+}
+
+/* Title block (Pandoc) */
+header#title-block-header {
+  text-align: center;
+  margin-top: 0.2in;
+  margin-bottom: 0.25in;
+}
+
+header#title-block-header .title {
+  font-size: 1.65em;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+header#title-block-header .subtitle {
+  font-size: 1.1em;
+  margin: 0.1in 0 0 0;
+}
+
+header#title-block-header .author,
+header#title-block-header .date {
+  font-size: 0.9em;
+  margin: 0.08in 0 0 0;
+}
+
+/* Headings */
+h1 {
+  font-size: 1.45em;
+  margin: 0.2in 0 0.12in 0;
+}
+
+h2 {
+  font-size: 1.18em;
+  margin: 0.18in 0 0.1in 0;
+}
+
+h3 {
+  font-size: 1em;
+  margin: 0.15in 0 0.08in 0;
+}
+
+/* Paragraphs */
+p {
+  margin: 0.08in 0;
+}
+
+/* Inline spot art (float inside the text block, never in the page margin). */
+img.wrap-left,
+img.margin-left {
+  float: left;
+  display: block;
+  margin: 0.02in 0.14in 0.1in 0;
+}
+
+img.wrap-right,
+img.margin-right {
+  float: right;
+  display: block;
+  margin: 0.02in 0 0.1in 0.14in;
+}
+
+/* Never let a float cascade into structured blocks by default. */
+ul,
+ol,
+table,
+blockquote,
+pre,
+hr {
+  clear: both;
+}
+
+/* Lists */
+ul,
+ol {
+  margin: 0.08in 0 0.08in 0.25in;
+  padding: 0;
+}
+
+li {
+  margin: 0.03in 0;
+}
+
+/* Blockquotes */
+blockquote {
+  margin: 0.1in 0 0.1in 0.2in;
+  padding-left: 0.12in;
+  border-left: 2px solid #bbb;
+  color: #222;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  /* Pandoc's default HTML CSS forces tables to `display: block` and adds
+   * horizontal scrolling. For PDFs we want normal table layout.
+   */
+  display: table !important;
+  overflow: visible !important;
+  border-collapse: collapse;
+  margin: 0.1in 0;
+  font-size: 0.91em;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.05in 0.06in;
+}
+
+thead th {
+  border-bottom: 1px solid #666;
+}
+
+tbody tr:first-child td {
+  border-top: 1px solid #666;
+}
+
+tbody tr:last-child td {
+  border-bottom: 1px solid #666;
+}
+
+/* Code */
+code,
+pre {
+  font-family: "JetBrains Mono", "DejaVu Sans Mono", monospace;
+  font-size: 0.86em;
+}
+
+pre {
+  padding: 0.08in 0.1in;
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+}
+
+/* Horizontal rules */
+hr {
+  border: none;
+  border-top: 1px solid #999;
+  margin: 0.2in 0;
+}

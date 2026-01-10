@@ -5,10 +5,13 @@
 --   Your text begins here and will flow around the image.
 --
 -- Supported classes:
---   - wrap-right  => wrapfigure r
---   - wrap-left   => wrapfigure l
---   - margin-right => margin note on right (does not reduce text width)
---   - margin-left  => margin note on left  (does not reduce text width)
+--   - wrap-right  => wrapfigure r (inside the text block)
+--   - wrap-left   => wrapfigure l (inside the text block)
+--
+-- Compatibility / deprecation:
+--   - margin-right / margin-left used to emit `\marginpar`, but margin figures
+--     look bad in bound books and can get clipped. Treat them as aliases for
+--     wrap-right / wrap-left so no output ever goes into the page margin.
 --
 -- Supported attributes:
 --   - width=<latex dim> (e.g. 1.2in, 3cm)
@@ -18,8 +21,10 @@
 --
 -- Notes:
 -- - This is deliberately PDF-only; HTML/Markdown previews can ignore it.
--- - The filter only wraps images that are the *first inline* of a paragraph,
---   so authors can control placement without surprises.
+-- - Wrapfig can misbehave if wrapping spills into “structured” blocks
+--   (lists, tables, blockquotes, headings, raw LaTeX). To keep authoring
+--   ergonomic, we automatically insert `\SSwrapfill` before such blocks when
+--   a wrapfigure was recently started, so the layout can’t cascade.
 
 local function has_class(classes, target)
   for _, c in ipairs(classes) do
@@ -75,61 +80,39 @@ local function wrapfigure_latex(img, side)
   }, "\n")
 end
 
-local function marginpar_latex(img, side)
-  local width = attr_get(img.attr, "width") or "\\marginparwidth"
-  local src = image_src(img) or ""
-  local inner = table.concat({
-    "\\centering",
-    "\\includegraphics[" .. includegraphics_opts(img, width) .. "]{" .. src .. "}",
-  }, "")
-
-  if side == "l" then
-    return table.concat({
-      "{\\reversemarginpar",
-      "\\marginpar{" .. inner .. "}",
-      "\\normalmarginpar}",
-    }, "")
+local function wrap_kind_for_image(img)
+  local classes = img.attr and img.attr.classes or {}
+  if has_class(classes, "wrap-right") or has_class(classes, "margin-right") then
+    return "r"
   end
-
-  return "\\marginpar{" .. inner .. "}"
+  if has_class(classes, "wrap-left") or has_class(classes, "margin-left") then
+    return "l"
+  end
+  return nil
 end
 
-function Para(el)
-  if not el or not el.content or #el.content == 0 then
-    return nil
+local function transform_para_like(block)
+  if not block or not block.content or #block.content == 0 then
+    return { block }, false
   end
 
-  local first = el.content[1]
+  local first = block.content[1]
   if not first or first.t ~= "Image" then
-    return nil
+    return { block }, false
   end
 
-  local classes = first.attr and first.attr.classes or {}
-  local side = nil
-  local kind = nil
-  if has_class(classes, "wrap-right") then
-    side = "r"
-    kind = "wrap"
-  elseif has_class(classes, "wrap-left") then
-    side = "l"
-    kind = "wrap"
-  elseif has_class(classes, "margin-right") then
-    side = "r"
-    kind = "margin"
-  elseif has_class(classes, "margin-left") then
-    side = "l"
-    kind = "margin"
-  else
-    return nil
+  local side = wrap_kind_for_image(first)
+  if not side then
+    return { block }, false
   end
 
-  local latex = (kind == "margin") and marginpar_latex(first, side) or wrapfigure_latex(first, side)
-  local raw = pandoc.RawBlock("latex", latex)
+  local latex = wrapfigure_latex(first, side)
+  local raw_block = pandoc.RawBlock("latex", latex)
 
   -- Drop the leading image and a single following space (if present).
   local new_inlines = {}
-  for i = 2, #el.content do
-    table.insert(new_inlines, el.content[i])
+  for i = 2, #block.content do
+    table.insert(new_inlines, block.content[i])
   end
   if #new_inlines > 0 and new_inlines[1].t == "Space" then
     table.remove(new_inlines, 1)
@@ -138,13 +121,101 @@ function Para(el)
   if #new_inlines == 0 then
     -- This paragraph is just the wrapped image; emit it as a block so the
     -- *next* paragraph can flow around it.
-    return raw
+    return { raw_block }, true
   end
 
-  -- Keep the image "inline" so list item bullets don't get separated from
-  -- their text. `wrapfigure` is designed to be placed at the start of a
-  -- paragraph.
+  -- Keep the wrapfigure at the start of the paragraph so text wraps
+  -- correctly. This also avoids the list bullet being separated from the
+  -- first line of text.
   local raw_inline = pandoc.RawInline("latex", latex)
   table.insert(new_inlines, 1, raw_inline)
-  return pandoc.Para(new_inlines)
+
+  if block.t == "Plain" then
+    return { pandoc.Plain(new_inlines) }, true
+  end
+  return { pandoc.Para(new_inlines) }, true
+end
+
+local function is_wrap_unsafe_block(block)
+  if not block or not block.t then
+    return false
+  end
+
+  -- Let headings flow around art. This is especially useful for “portrait then
+  -- character name” patterns in skins, and avoids trying to clear before a
+  -- wrap has actually started.
+  if block.t == "Header" or block.t == "HorizontalRule" then
+    return false
+  end
+
+  -- Safe: plain paragraphs can wrap naturally.
+  if block.t == "Para" or block.t == "Plain" then
+    return false
+  end
+
+  -- Everything else can conflict with wrapfig’s internal parshape/margin
+  -- bookkeeping, especially lists/tables/blockquotes/headers.
+  return true
+end
+
+local function process_blocks(blocks)
+  local out = pandoc.List:new()
+  local wrap_active = false
+
+  for _, block in ipairs(blocks) do
+    -- If a wrapfigure might still be active, prevent it from spilling into
+    -- structured blocks.
+    if wrap_active and is_wrap_unsafe_block(block) then
+      out:insert(pandoc.RawBlock("latex", "\\SSwrapfill"))
+      wrap_active = false
+    end
+
+    if block.t == "Para" or block.t == "Plain" then
+      local transformed, started = transform_para_like(block)
+      for _, b in ipairs(transformed) do
+        out:insert(b)
+      end
+      if started then
+        wrap_active = true
+      end
+    elseif block.t == "BlockQuote" then
+      local inner = process_blocks(block.content)
+      out:insert(pandoc.BlockQuote(inner))
+      -- Don’t allow a wrap started inside a quote to leak outward.
+      wrap_active = false
+    elseif block.t == "Div" then
+      local inner = process_blocks(block.content)
+      out:insert(pandoc.Div(inner, block.attr))
+      wrap_active = false
+    elseif block.t == "BulletList" then
+      local items = {}
+      for _, item in ipairs(block.content) do
+        table.insert(items, process_blocks(item))
+      end
+      out:insert(pandoc.BulletList(items))
+      wrap_active = false
+    elseif block.t == "OrderedList" then
+      local new_items = {}
+      for _, item in ipairs(block.content) do
+        table.insert(new_items, process_blocks(item))
+      end
+      out:insert(pandoc.OrderedList(new_items, block.listAttributes))
+      wrap_active = false
+    else
+      out:insert(block)
+    end
+  end
+
+  -- If wrapping is still active at the end of a block list, clear it so it
+  -- can’t cascade into whatever comes next (or the next page).
+  if wrap_active then
+    out:insert(pandoc.RawBlock("latex", "\\SSwrapfill"))
+  end
+
+  return out
+end
+
+function Pandoc(doc)
+  doc.blocks = process_blocks(doc.blocks)
+  return doc
 end

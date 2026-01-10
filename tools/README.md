@@ -29,6 +29,8 @@ Requires Python 3 and PyYAML (already present in most agent runtimes).
 - suggest_trim.py: optional maintainer helper to suggest `trim="l b r t"` for spot-art PNGs (uses Pillow if installed).
 - ss.py: thin dispatcher (`python tools/ss.py <command> ...`) for single-command workflows.
 
+For PDF building (including wrapped inline images), see `docs/pdf_building.md`.
+
 Note: state mutation tools are strict by default; use `--allow-new` only when you intend to create new keys.
 Most mutators also accept `--dry-run` (no writes) and `--json` (machine-readable summary).
 For tools with subcommands (roll/beat/trackers), global flags can appear before or after the subcommand.

@@ -1,0 +1,55 @@
+/* Minimal fallback stylesheet for HTML/CSS PDF backends. */
+
+html {
+  font-size: 11pt;
+}
+
+body {
+  /* Pandoc's standalone HTML template injects a default stylesheet that sets
+   * max-width + padding. For PDF output we want the *page* margins to define
+   * the text block, so we reset those here.
+   */
+  margin: 0 !important;
+  max-width: none !important;
+  padding: 0 !important;
+  font-family: serif;
+  font-size: 11pt;
+  line-height: 1.15;
+}
+
+img.wrap-left,
+img.margin-left {
+  float: left;
+  display: block;
+  margin: 0.02in 0.14in 0.1in 0;
+}
+
+img.wrap-right,
+img.margin-right {
+  float: right;
+  display: block;
+  margin: 0.02in 0 0.1in 0.14in;
+}
+
+ul,
+ol,
+table,
+blockquote,
+pre,
+hr {
+  clear: both;
+}
+
+table {
+  width: 100%;
+  display: table !important;
+  overflow: visible !important;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.04in 0.06in;
+}

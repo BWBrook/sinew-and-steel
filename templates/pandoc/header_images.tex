@@ -43,7 +43,16 @@
     \@tempdima=\baselineskip
     \multiply\@tempdima by \@tempcnta
     \vspace*{\@tempdima}%
+  \fi
+  % If a list/quote environment clobbered wrapfig's internal `\parshape`
+  % tracking, `\WF@finale` won't run its restore logic. If wrapping is active,
+  % force the guard to trigger so we always restore margins/linewidth cleanly.
+  %
+  % Important: only do this when wrapfig is actually active. Otherwise we might
+  % call `\WF@finale` without the internal state being initialized.
+  \ifnum\c@WF@wrappedlines>\z@
     \global\c@WF@wrappedlines\z@
+    \let\parshape\WF@fudgeparshape
     \WF@finale
   \fi
 }

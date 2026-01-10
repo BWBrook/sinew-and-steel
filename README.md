@@ -131,6 +131,18 @@ pip install pyyaml
 
 ---
 
+## Building PDFs
+
+If you want print-ready PDFs (for release packaging or home printing), see:
+
+- `docs/pdf_building.md`
+
+The recommended backend for **inline wrapped images** is WeasyPrint via:
+
+- `tools/md_pdf.py --backend weasyprint`
+
+---
+
 ## For AI game-masters
 
 The repo’s `/prompts/chat/` folder contains:

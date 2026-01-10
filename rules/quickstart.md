@@ -1,12 +1,13 @@
 # **SINEW & STEEL — QUICKSTART (RULES ON TWO PAGES)**
-*Everything else is story-fuel.*
+![](../assets/art/ss_core_mechanic.png){.wrap-right width=1.4in}
+*Everything else is story-fuel.*  
 
 **If you remember nothing else:** roll under, margin matters, Luck nudges, Pressure is the fuse.
 
 ---
 
 ## 1 Core Engine (60‑second digest)
-![](../assets/art/ss_core_mechanic.png){.wrap-right width=1.4in trim="312bp 229bp 409bp 165bp"}
+
 Keep this page in view; it’s meant to be used mid‑play.
 
 - **Roll‑under d20.** If `d20 ≤ attribute`, you succeed; otherwise you fail.
@@ -92,10 +93,8 @@ Use this checklist to start a first session quickly.
 8. **Milestone** every 3–4 perilous beats: **+2 build points** + a narrative boon.
 9. If play stalls: advance a clock, change the weather, introduce a hard bargain, or reveal a threat.
 
-![](../assets/art/ss_clanfire_grak.png){.wrap-left width=0.75in trim="73bp 150bp 33bp 42bp"}
-
 ## 4 Example Character (Clanfire skin, standard build points)
-
+![](../assets/art/ss_clanfire_grak.png){.wrap-left width=0.7in}
 **Grak — Neanderthal Hunter**  
 MGT 12 • FLT 11 • CUN 10 • SPR 8 • INS 8/8 • STM 7/7 • Shadow 0/5  
 Stone spear (edge +1) • Hand‑axe (edge +1) • Hide cloak (soak 1) • Adv: tracking megafauna
