@@ -81,13 +81,22 @@ img.margin-right {
   margin: 0.02in 0 0.1in 0.14in;
 }
 
-/* Never let a float cascade into structured blocks by default. */
-ul,
-ol,
+/* Never let a float cascade into "hard blocks" by default.
+ *
+ * Note: lists are intentionally *not* cleared here so they can wrap beside
+ * spot art in list-heavy documents (common in RPG rules text). Headings do
+ * clear floats so a new section never starts in a narrowed column.
+ */
 table,
 blockquote,
 pre,
-hr {
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   clear: both;
 }
 
@@ -112,15 +121,32 @@ blockquote {
 
 /* Tables */
 table {
-  width: 100%;
+  /* Default: allow small tables to shrink-to-fit instead of stretching across
+   * the full text block. Wide tables will naturally expand up to the max.
+   *
+   * Use `.fullwidth` when you explicitly want a table to span the full width.
+   */
+  width: auto !important;
+  max-width: 100% !important;
+  margin-left: auto;
+  margin-right: auto;
   /* Pandoc's default HTML CSS forces tables to `display: block` and adds
    * horizontal scrolling. For PDFs we want normal table layout.
    */
-  display: table !important;
+  /* WeasyPrint treats `display: table` as a full-width block more readily than
+   * browsers do. `inline-table` gives more reliable shrink-to-fit behavior for
+   * small tables.
+   */
+  display: inline-table !important;
   overflow: visible !important;
   border-collapse: collapse;
   margin: 0.1in 0;
   font-size: 0.91em;
+}
+
+table.fullwidth {
+  width: 100% !important;
+  display: table !important;
 }
 
 th,

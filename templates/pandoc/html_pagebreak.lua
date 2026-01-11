@@ -13,21 +13,23 @@ local function normalize(text)
 end
 
 function RawBlock(el)
-  if el.format ~= "latex" then
+  -- Pandoc may label raw TeX blocks as either "latex" or "tex" depending on
+  -- input/source; accept both.
+  if el.format ~= "latex" and el.format ~= "tex" then
     return nil
   end
 
   local t = normalize(el.text)
+  local tl = t:lower()
 
-  if t == "\\newpage" or t == "\\clearpage" or t == "\\pagebreak" then
+  if tl == "\\newpage" or tl == "\\clearpage" or tl == "\\pagebreak" then
     return pandoc.RawBlock("html", '<div class="pagebreak"></div>')
   end
 
   -- wrapfig-specific escape hatch; in HTML/CSS we clear floats instead.
-  if t == "\\SSwrapfill" then
+  if tl == "\\sswrapfill" then
     return pandoc.RawBlock("html", '<div style="clear: both;"></div>')
   end
 
   return nil
 end
-

@@ -31,20 +31,32 @@ img.margin-right {
   margin: 0.02in 0 0.1in 0.14in;
 }
 
-ul,
-ol,
 table,
 blockquote,
 pre,
-hr {
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   clear: both;
 }
 
 table {
-  width: 100%;
-  display: table !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-table !important;
   overflow: visible !important;
   border-collapse: collapse;
+}
+
+table.fullwidth {
+  width: 100% !important;
+  display: table !important;
 }
 
 th,

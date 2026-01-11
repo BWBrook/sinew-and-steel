@@ -1,6 +1,7 @@
 # **SINEW & STEEL — CUSTODIAN’S ALMANAC**
 
-A razor‑lean booklet for custodians (GMs): pacing levers, adjudication guidance, and optional modules.
+A consise booklet for custodians (GMs): pacing levers, adjudication guidance, and optional modules.  
+
 One d20, five attribute scores, limitless skins.
 
 For player‑facing rules, see **Quickstart Rules** and **Adventurer's Manual**.
@@ -11,7 +12,7 @@ For player‑facing rules, see **Quickstart Rules** and **Adventurer's Manual**.
 
 ### 1 The Custodian’s job (30 seconds)
 
-![](../../assets/art/ss_decision_loop.png){.wrap-right width=1.7in trim="324bp 200bp 337bp 135bp"}
+![](../../assets/art/ss_decision_loop.png){.wrap-right width=2.1in}
 
 You do three things, on repeat:
 
@@ -25,12 +26,12 @@ The rules exist to support momentum. If you’re forcing dice every sentence, yo
 
 ### 2 When to roll (and when not to)
 
-![](../../assets/art/ss_non_roll_outcomes.png){.wrap-left width=2.3in trim="167bp 410bp 168bp 384bp"}
-
 Call for a roll only when:
 
 - the outcome is **uncertain**, and
 - the outcome **matters** (risk, time, reputation, resources, irreversible consequences).
+
+![](../../assets/art/ss_non_roll_outcomes.png){.wrap-right width=2.1in}
 
 If the player’s approach is plausible and failure would be boring, resolve it narratively.
 
@@ -44,7 +45,7 @@ If the player’s approach is plausible and failure would be boring, resolve it 
 
 ### 3 Luck tests (sheer fate)
 
-![](../../assets/art/ss_luck_test.png){.wrap-right width=1.7in trim="338bp 235bp 301bp 167bp"}
+![](../../assets/art/ss_luck_test.png){.wrap-right width=2.1in}
 
 Call for players to “Test your Luck!” when **no skill reasonably applies** or when pure chance decides:
 rockfalls, blind picks, patrol timings, “did the guard step away for a second?”
@@ -67,7 +68,7 @@ A universal **0–5 fuse** shared by all skins. When it hits **5**, a crisis tri
 | 4            | Fracture           | Abilities cost +1 Luck, environment hostile  |
 | 5 **Crisis** | Backlash / Paradox | Trigger crisis, then reset Pressure to **0** |
 
-![](../../assets/art/ss_pressure_fuse.png){.wrap-right width=2.1in trim="276bp 420bp 245bp 243bp"}
+![](../../assets/art/ss_pressure_fuse.png){.wrap-right width=2.1in}
 
 **Earning & purging**
 
@@ -85,7 +86,7 @@ A universal **0–5 fuse** shared by all skins. When it hits **5**, a crisis tri
 
 **Clocks (Heat / Threat / countdowns)**
 
-![](../../assets/art/ss_clocks.png){.wrap-right width=2.2in trim="405bp 293bp 359bp 241bp"}
+![](../../assets/art/ss_clocks.png){.wrap-right width=2.1in}
 
 Alongside Pressure, you may also run one or more **clocks**: named progress meters that track a specific looming outcome.
 
@@ -103,7 +104,7 @@ Alongside Pressure, you may also run one or more **clocks**: named progress mete
 
 ### 5 Milestones & boons (progress without grind)
 
-![](../../assets/art/ss_milestone_bonus.png){.wrap-right width=2.0in trim="288bp 343bp 287bp 290bp"}
+![](../../assets/art/ss_milestone_bonus.png){.wrap-right width=2.1in}
 
 Every 3–4 *perilous* beats or combat encounters, award:
 
@@ -116,7 +117,7 @@ Boons don’t break the maths; they sit outside the economy. Progress is narrati
 
 ### 6 Moves when players stall
 
-![](../../assets/art/ss_act_now.png){.wrap-left width=1.6in trim="380bp 251bp 354bp 183bp"}
+![](../../assets/art/ss_act_now.png){.wrap-right width=2.1in}
 
 If players stall, don’t demand a roll “to do something”. Move the world:
 
@@ -160,8 +161,6 @@ Always surface the result, margin, and any Luck‑spend offer.
 
 *With these few notes, you’re ready to run anything from mammoth hunts to starship mutinies.*
 
----
-
 \clearpage
 
 # **Custodian’s Toolkit**
@@ -172,10 +171,12 @@ Always surface the result, margin, and any Luck‑spend offer.
 ## Part I Player insights (why the chassis works)
 
 ### A. Why five numbers?
+
 Five attribute scores map cleanly onto the d20’s 20‑step granularity while keeping sheets readable.
 A tight economy stops power creep yet still allows extremes to emerge.
 
 ### B. Burning Luck — when it matters
+
 - **Save the day:** flip a miss into a glancing hit to avoid disaster.
 - **Penetrate armour:** spend extra tokens after a success to deepen margin and shred soak.
 - **Turn the plot:** burn your last 3 Luck on a vital opposed roll, knowing future Luck tests are now long shots.
@@ -183,13 +184,14 @@ A tight economy stops power creep yet still allows extremes to emerge.
 > **Guideline:** a pool under 4 tokens means “walk gingerly”; under 2 means “pray for milestone”.
 
 ### C. Sample builds (baseline 10/5)
+
 All obey the +1/‑2 ledger (attributes baseline 10; Stamina baseline 5).
 These examples spend a mix of **6 build points** and stat trade‑offs; add starting build points to taste.
 
 | Concept       | MGT    | REF | INT    | EMP    | LCK | STM |
 | ------------- | ------ | --- | ------ | ------ | --- | --- |
-| Scholar       | 7      | 10  | **14** | 10     | 11  | 4   |
-| Iron Brute    | **15** | 7   | 6      | 7      | 10  | 8   |
+| Scholar       | 7      | 10  | **14** | 10     | **11**  | 4   |
+| Iron Brute    | **15** | 7   | 6      | 7      | 10  | **8**   |
 | Silver‑tongue | 8      | 10  | **11** | **13** | 10  | 5   |
 
 ---
@@ -197,6 +199,7 @@ These examples spend a mix of **6 build points** and stat trade‑offs; add star
 ## Part II Optional modules & tables
 
 ### A. Tone dial — build‑point pool
+
 At character creation you may gift each player build points to set tone:
 
 - **0** for grim survival
@@ -222,7 +225,7 @@ It shifts capability while leaving core maths and pacing intact.
 
 ### D. NPC / monster design (30‑second method)
 
-![](../../assets/art/ss_npc_card.png){.wrap-right width=1.7in trim="380bp 266bp 380bp 251bp"}
+![](../../assets/art/ss_npc_card.png){.wrap-right width=2.5in}
 
 1. **Pick threat tier (the number that matters):** *Peasant 8 | Soldier 10 | Elite 12 | Monster 14 | Nemesis 16*
    - This number is the NPC’s **tier score**: the roll‑under target for their main actions.
@@ -270,6 +273,7 @@ Why it works:
 - scales across genres without rewriting combat
 
 ### F. Advantage source list (example set)
+
 - Solid cover (Dodge Adv.)
 - Has the high ground (Melee Adv.)
 - Blind firing (Ranged Dis.)
@@ -278,6 +282,7 @@ Why it works:
 Add or prune per skin.
 
 ### G. Milestone boon bank (d6) — mixed examples
+
 1. Trusted ally owes a favour
 2. Rare gadget (+1 Adv. on one skill)
 3. Mystic scar (+1 build point earmarked for your signature stat)
@@ -286,6 +291,7 @@ Add or prune per skin.
 6. Vision of future — ask the custodian one yes/no about next session
 
 ### H. Conversion pointers
+
 - **d100 games:** divide skill by 5 ≈ attribute
 - **2d6+stat games:** (10 + stat) × 5 ≈ attribute chance
 - **Old‑school AC:** treat armour class / 2 rounded as soak (leather 1… plate 3)
@@ -293,6 +299,7 @@ Add or prune per skin.
 ---
 
 ### I. Wealth & Attention (optional money subsystem)
+
 By default, Sinew & Steel does not count coins, credits, or rations.
 Money doesn’t take inventory slots — but it can still matter in play.
 
@@ -306,7 +313,7 @@ If you want money to have table‑weight without bookkeeping, track a single **W
 | 3      | Flush  | serious bribes, mounts, quality kit          |
 | 4      | Rich   | rare goods, influence, attention magnets     |
 
-![](../../assets/art/ss_money_trouble.png){.wrap-right width=2.0in trim="271bp 312bp 216bp 234bp"}
+![](../../assets/art/ss_money_trouble.png){.wrap-right width=2.0in}
 
 **How to use it**
 
@@ -329,7 +336,8 @@ Rename Wealth per skin (Coin / Dollars / Credits / Supplies / Influence / Cargo 
 ---
 
 ### Using this document
-Hand the two‑page rules to the table; keep this booklet behind the screen (or share it digitally for deeper guidance).
+Hand the two‑page quickstart rules to the table; keep this booklet behind the screen (or share it digitally for deeper guidance).  
+
 Trim, hack, translate — licence is CC‑BY; credit & create.
 
 > “*This is a pocket atlas of unwritten stories: enough to guide you, never enough to cage you.*”

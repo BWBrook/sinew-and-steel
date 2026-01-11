@@ -1,5 +1,5 @@
 # **SINEW & STEEL — QUICKSTART (RULES ON TWO PAGES)**
-![](../assets/art/ss_core_mechanic.png){.wrap-right width=1.4in}
+![](../assets/art/ss_core_mechanic.png){.wrap-right width=1.6in}
 *Everything else is story-fuel.*  
 
 **If you remember nothing else:** roll under, margin matters, Luck nudges, Pressure is the fuse.
@@ -92,6 +92,8 @@ Use this checklist to start a first session quickly.
 7. **Advance Pressure** on big blunders, dark bargains, noisy heroics, time passing.
 8. **Milestone** every 3–4 perilous beats: **+2 build points** + a narrative boon.
 9. If play stalls: advance a clock, change the weather, introduce a hard bargain, or reveal a threat.
+
+---
 
 ## 4 Example Character (Clanfire skin, standard build points)
 ![](../assets/art/ss_clanfire_grak.png){.wrap-left width=0.7in}

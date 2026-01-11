@@ -1,11 +1,12 @@
 # **SINEW & STEEL — ADVENTURER’S MANUAL**
 
-A razor‑lean, setting‑agnostic chassis for any genre. One d20, five attribute scores, limitless skins.
+![](../../assets/art/ss_skin_overlay.png){.wrap-right width=2in}
 
-![](../../assets/art/ss_skin_overlay.png){.wrap-right width=1.0in trim="384.80bp 146.27bp 376.55bp 72.76bp"} 
-In Sinew & Steel, a **skin** is a small genre overlay that renames the attributes, defines what fortune and fate represent, names your Pressure track, and adds a few custom rules.
+A lean, setting‑agnostic chassis for any genre. One d20, five attribute scores, limitless skins.  
 
-For the two‑page version, see **Quickstart Rules**.
+In Sinew & Steel, a **skin** is a small genre overlay that renames the attributes, defines what fortune and fate represent, names your Pressure track, and adds a few custom rules.  
+
+For the two‑page version, see **Quickstart Rules**.  
 
 ---
 
@@ -34,6 +35,8 @@ Roll twice; keep one die.
 
 ### 1.4 Opposed rolls
 
+![](../../assets/art/ss_roll_under.png){.wrap-right width=1.8in} 
+
 Both sides roll under their relevant attribute.
 
 - If only one side succeeds, that side wins.
@@ -41,11 +44,10 @@ Both sides roll under their relevant attribute.
 - **Ties favour the defender.**
 - If both fail, the defender wins (you don’t “accidentally succeed”).
 
-![](../../assets/art/ss_roll_under.png){.wrap-right width=1.6in wraplines=3 trim="229bp 263bp 261bp 230bp"} 
-
 ### 1.5 When to roll
 
-Roll only when **the outcome is uncertain** *and* **it matters**.
+Roll only when **the outcome is uncertain** *and* **it matters**.  
+
 If failure would be boring, resolve it narratively.
 
 ---
@@ -64,9 +66,9 @@ If failure would be boring, resolve it narratively.
 
 ### 2.1 Start from the baseline frame
 
-![](../../assets/art/ss_baseline_character_frame.png){.wrap-left width=1.9in trim="258bp 331bp 260bp 238bp"}
-
 Every character begins at:
+
+![](../../assets/art/ss_baseline_character_frame.png){.wrap-right width=1.9in}
 
 - **Five attributes at 10** (skins rename these to fit genre).
 - **Stamina 5** (STM: your health).
@@ -79,7 +81,8 @@ Legal ranges at creation:
 _Abbreviation note: PC = player character, NPC = non-player character_
 
 ### 2.1.1 What the five attributes mean (default names)
-Skins rename and re‑flavour attributes, but the core game assumes five broad domains.
+
+Skins rename and re‑flavour attributes, but the core game assumes five broad domains.  
 If you need a default set (and for examples in this manual), use:
 
 - **MGT — Might:** strength, endurance, force, brutality.
@@ -90,9 +93,9 @@ If you need a default set (and for examples in this manual), use:
 
 ### 2.2 The point‑buy economy (trade-offs and build points)
 
-![](../../assets/art/ss_points_buy_economy.png){.wrap-right width=1.55in trim="393bp 161bp 215bp 173bp"}
-
 You can customize your stats using the same economy in two equivalent ways:
+
+![](../../assets/art/ss_points_buy_economy.png){.wrap-right width=1.8in}
 
 **A) Trade‑offs (the “double‑debit” ledger):**  
 Every **+1** you push **above baseline** must be “paid for” by **‑2 total** below baseline across other scores.
@@ -115,6 +118,7 @@ Baseline notes:
 > *Bump a stat up? Either pay double elsewhere… or pay build points.*
 
 ### 2.3 Starting build points (recommended default)
+
 At creation, the Custodian chooses a starting budget for tone:
 
 - **0** (grim survival)
@@ -123,6 +127,7 @@ At creation, the Custodian chooses a starting budget for tone:
 - **16** (heroic flair)
 
 ### 2.4 Step‑by‑step creation (fast, reliable)
+
 1. Pick a skin (it names your five attributes and your Pressure track colour).
 2. Write the baseline frame: five 10s, Stamina 5.
 3. Choose one “signature” strength and raise it.
@@ -133,6 +138,7 @@ At creation, the Custodian chooses a starting budget for tone:
 6. Write 3–6 items of gear and one small advantage (if your table uses them).
 
 ### 2.5 Worked example (build points + trade‑offs)
+
 You want a sharp‑witted PC hero and you raise INT from 10 to 13 (**+3 above baseline**).
 
 - Trade‑off version: you must take **‑6 total** across other scores (no build points required).
@@ -142,12 +148,14 @@ You want a sharp‑witted PC hero and you raise INT from 10 to 13 (**+3 above ba
 
 ## 3 Luck Pool (tokens)
 
-![](../../assets/art/ss_luck_pool.png){.wrap-left width=1.7in trim="193bp 198bp 247bp 206bp"}
+![](../../assets/art/ss_luck_pool.png){.wrap-left width=1.6in}
 
-Your **Luck score** *is* your token pool.
+Your **Luck score** *is* your token pool.  
+
 If your skin says “Hope” or “Fortune” or “Resourcefulness,” that score is still Luck mechanically.
 
-Luck pulls double duty: it’s a pool you spend to bend results, and it’s the score you roll under when sheer chance decides.
+Luck pulls double duty: it’s a pool you spend to bend results, and it’s the score you roll under when sheer chance decides.  
+
 Spend for the moment, but remember you’ll feel it in the future, when the Custodian asks you to “Test your Luck!”.
 
 > *The more you bend fate now, the shakier your later odds.*
@@ -166,7 +174,7 @@ Combat note:
 
 ## 4 Stamina (Health) & Recovery
 
-![](../../assets/art/ss_stamina_recovery.png){.wrap-right width=1.6in trim="168bp 307bp 146bp 280bp"}
+![](../../assets/art/ss_stamina_recovery.png){.wrap-right width=1.8in}
 
 - **Damage reduces Stamina.**
 - Typical weapons add **edge**: +0 / +1 / +2.
@@ -174,7 +182,8 @@ Combat note:
 - Short rest: **+1 Stamina** (up to your max).
 - Good care: **+2 Stamina** (up to your max).
 
-Stamina isn’t a promise of immortality: falls, fire, vacuum, and guillotines can be instantly fatal.
+Stamina isn’t a promise of immortality: falls, fire, vacuum, and guillotines can be instantly fatal.  
+
 The Custodian may warn you when the fiction implies lethal stakes beyond a normal wound.
 
 ---
@@ -182,52 +191,56 @@ The Custodian may warn you when the fiction implies lethal stakes beyond a norma
 ## 5 Taking Action
 
 ### 5.1 Simple tests
+
 Roll under the relevant attribute, or test your luck. Advantage / Disadvantage as fiction dictates.
 
 ### 5.2 Opposed tests
+
 Both roll. If only one succeeds, that side wins. If both succeed, compare margins; higher wins; ties defend.
 
 ---
 
 ## 6 Combat
 
-![](../../assets/art/ss_combat_sequence.png){.wrap-right width=1.9in trim="81.76bp 321.79bp 75bp 274.54bp"}
+![](../../assets/art/ss_combat_sequence.png){.wrap-right width=1.9in}
 
-1. **Attacker** rolls under the attribute that matches how they attack.
-   - **Heavy / forceful** (wrestle, smash, cleave): usually **MGT**.
-   - **Fast / precise** (finesse, archery, thrown weapons): usually **REF**.
-   - **Clever / technical** (aiming for a weak point, gadgets, “spells”): usually **INT**.
-   - **Presence / nerve** (taunt, command, distract, intimidate): sometimes **EMP**.
-   - **Lucky break** (pull off a trick shot, trigger an environmental cascade): rarely **LCK**.
-2. **Defender** rolls under the attribute that matches how they defend.
-   - **Dodge** (get out of the way): usually **REF**.
-   - **Parry / brace** (meet force with force): usually **MGT**.
-   - **Cover / positioning** (angles, terrain, timing): usually **INT**.
-   - **Luck** (sheer chance — a ricochet, a misfire, a loose plank): sometimes **LCK**.
-   - **Composure / resolve** (keep your head, accept a surrender, resist intimidation): sometimes **EMP**.
+1. **Attacker** rolls under the attribute that matches how they attack.  
+   - **Heavy / forceful** (wrestle, smash, cleave): usually **MGT**.  
+   - **Fast / precise** (finesse, archery, thrown weapons): usually **REF**.  
+   - **Clever / technical** (aiming for a weak point, gadgets, “spells”): usually **INT**.  
+   - **Presence / nerve** (taunt, command, distract, intimidate): sometimes **EMP**.  
+   - **Lucky break** (pull off a trick shot, trigger an environmental cascade): rarely **LCK**.  
+2. **Defender** rolls under the attribute that matches how they defend.  
+   - **Dodge** (get out of the way): usually **REF**.  
+   - **Parry / brace** (meet force with force): usually **MGT**.  
+   - **Cover / positioning** (angles, terrain, timing): usually **INT**.  
+   - **Luck** (sheer chance — a ricochet, a misfire, a loose plank): sometimes **LCK**.  
+   - **Composure / resolve** (keep your head, accept a surrender, resist intimidation): sometimes **EMP**.  
+If there’s no plausible defense (surprised, pinned, helpless), the Custodian can skip the defense roll — or call for Luck if fate alone might spare you.    
+3. On a hit: damage = **1 + weapon edge − effective soak**.  
+4. **Natural 1** or **margin ≥ 10** adds **+1 damage**.  
 
-   If there’s no plausible defense (surprised, pinned, helpless), the Custodian can skip the defense roll — or call for Luck if fate alone might spare you.
-3. On a hit: damage = **1 + weapon edge − effective soak**.
-4. **Natural 1** or **margin ≥ 10** adds **+1 damage**.
-   If your goal isn’t harm (disarm, drive off, talk down), use the same opposed roll — but apply the agreed consequence instead of damage.
+If your goal isn’t harm (disarm, drive off, talk down), use the same opposed roll — but apply the agreed consequence instead of damage.  
 
 **Examples (conflict without extra rules):**
 
-> One‑in‑a‑million: you fire a last‑ditch ricochet shot (attack with **LCK**) to sever a hanging rope. On success, the portcullis drops; on failure, it stays up and Pressure rises.
->
+> One‑in‑a‑million: you fire a last‑ditch ricochet shot (attack with **LCK**) to sever a hanging rope. On success, the portcullis drops; on failure, it stays up and Pressure rises.  
+> 
 > Talk‑down: you step in hard and command a surrender (attack with **EMP**) while your ally keeps their blade ready (threat in the fiction). On success, they back down; on failure, they lash out or call reinforcements.
 
 ### 6.1 Weapon edges (suggested)
+
 - Improvised club **+0**
 - Blade / spear / handgun **+1**
 - Great‑axe / rifle / plasma **+2**
 
 ### 6.2 Armour & dynamic soak
+
 | Armour                   | Base soak |
-| ------------------------ | --------: |
-| Hide / leather           |        1 |
-| Mail / kevlar            |        2 |
-| Plate / powered carapace |        3 |
+| ------------------------ | --: |
+| Hide / leather           | 1 |
+| Mail / kevlar            | 2 |
+| Plate / powered carapace | 3 |
 
 After a hit:
 
@@ -243,13 +256,12 @@ After a hit:
 
 ---
 
-\clearpage
-
 ## 7 Carry Limit
 
-![](../../assets/art/ss_item_carry_limit.png){.wrap-left width=1.2in trim="345bp 248bp 314bp 179bp"}
+![](../../assets/art/ss_item_carry_limit.png){.wrap-left width=1.4in}
 
-Six substantial items ride comfortably; more invites Disadvantage on agility tasks.
+Six substantial items ride comfortably; more invites Disadvantage on agility tasks.  
+
 Tiny trinkets are free.
 
 Money does not count against carry limit. By default it’s tracked loosely in the fiction — but if your table wants it tangible, use the optional **Wealth (0–4)** track (see the Custodian’s Almanac).
@@ -258,10 +270,11 @@ Money does not count against carry limit. By default it’s tracked loosely in t
 
 ## 8 Pressure & Milestones (the pacing tools)
 
-![](../../assets/art/ss_pressure_fuse.png){.wrap-right width=1.8in trim="276bp 420bp 245bp 243bp"}
+Every skin uses a shared **Pressure track (0–5)**, renamed to fit genre (Doom, Fatigue, Sin, Heat, Stress, Strain, Dread, Insanity, Anomaly…).  
 
-Every skin uses a shared **Pressure track (0–5)**, renamed to fit genre (Doom, Fatigue, Sin, Heat, Stress, Strain, Dread, Insanity, Anomaly…).
 Pressure is the fuse: it rises with risk, blunders, bargains, and time pressure.
+
+![](../../assets/art/ss_pressure_fuse.png){.wrap-right width=1.8in}
 
 - When Pressure hits **5**, a **crisis** triggers — then Pressure **resets to 0**.
 - Milestones happen every 3–4 *perilous* beats:
@@ -272,7 +285,8 @@ Pressure is the fuse: it rises with risk, blunders, bargains, and time pressure.
 
 ## 9 Quick‑Reference Tables
 
-### 9.1 Chance to succeed (single d20)
+### 9.1 Chance to succeed at a task by score (single d20)
+
 | Score | Straight | Adv. | Dis. |
 | ----- | -------- | ---- | ---- |
 | 6     | 30 %     | 51 % | 9 %  |
@@ -282,7 +296,8 @@ Pressure is the fuse: it rises with risk, blunders, bargains, and time pressure.
 | 14    | 70 %     | 91 % | 49 % |
 | 16    | 80 %     | 96 % | 64 % |
 
-### 9.2 Attacker wins opposed check (%)
+### 9.2 Attacker wins an opposed check (% chance)
+
 (Attacker rows, defender columns)
 
 | Sc | 6  | 8  | 10 | 12 | 14 | 16 |
