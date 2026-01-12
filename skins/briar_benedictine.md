@@ -1,7 +1,7 @@
 # **BRIAR & BENEDICTINE**
 ### Skin add-on for the Sinew & Steel game system
 
-![](../assets/covers/ss_logo_briar_benedictine.png){.wrap-right width=0.8in trim="517bp 144bp 518bp 128bp"}
+![](../assets/covers/ss_logo_briar_benedictine.png){.wrap-right width=2in}
 
 *A Benedictine abbey, England, winter of 1142. Murder, heresy, and siege swirl beyond the cloister walls.*
 
@@ -18,6 +18,7 @@ If you want a more capable party, raise build points (standard **6** or pulp **1
 ## CHAPTERHOUSE SECRETS (Adventurer)
 
 ### Attribute Labels
+
 | Core slot | Abbey label | Governs |
 |--|---|------|
 | Might | **Hew (HEW)** | heaving stones, wrestling soldiers, cracking doors |
@@ -29,19 +30,20 @@ If you want a more capable party, raise build points (standard **6** or pulp **1
 **Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
 
 ### Providence (Luck) flavour
+
 Tokens are carved hazel beads on a rosary.
+
+![](../assets/art/ss_benedictine_confessional.png){.wrap-left width=1.5in} 
 
 When the Custodian calls for blind chance — “**Test your Providence**!” — roll under your **current beads** (not your maximum).
 Spend beads now to nudge rolls, but remember: fewer beads means shakier Providence later.
 
-![](../assets/art/ss_benedictine_confessional.png){.wrap-left width=0.95in wraplines=5 trim="433bp 161bp 254bp 179bp"} 
 A short rest in quiet prayer restores **+1 bead**; vigil at a martyr’s shrine (or true absolution) may restore more.
 
 >*“Tenebrae non comprehenderunt lucem.”*<br>_The darkness grasped not the light._
 
-\SSwrapfill
-
 ### Common tests (defaults)
+
 Pick the attribute that matches the approach (not “the correct stat”).
 
 - **HEW:** force a door, grapple a soldier, hold a gate.
@@ -51,6 +53,7 @@ Pick the attribute that matches the approach (not “the correct stat”).
 - **PRV:** omens, coincidence, the one-in-a-thousand break.
 
 ### Edges & Arms
+
 | Weapon | Edge |
 |---|--|
 | Staff, rope trap | 0 |
@@ -60,6 +63,7 @@ Pick the attribute that matches the approach (not “the correct stat”).
 >*“Cold iron bells toll terce — crows answer from the graveyard yew.”*
 
 ### Armour & Soak
+
 | Protection | Soak |
 |---|--|
 | Monk's cowl | 0 |
@@ -69,6 +73,7 @@ Pick the attribute that matches the approach (not “the correct stat”).
 (Dynamic soak: after a hit, reduce soak by **1 per full 4 points** of attacker margin; **nat 1 pierces all**.)
 
 ### Optional plug-ins (use sparingly)
+
 - **Insight (once per scene).** After you succeed on a **LOR** or **MCY** test while pursuing the case, you may spend **1 Providence bead** to ask the Custodian one **yes/no** question.
   - The Custodian answers truthfully, but only with what the character could plausibly infer.
 - **Herbal poultice.** The healer loses **1 STM**, then tests **LOR**.
@@ -80,10 +85,13 @@ Pick the attribute that matches the approach (not “the correct stat”).
 
 ---
 
+\clearpage
+
 ## ECUMENICAL NOTES (Custodian)
 
 ### The Abbey Case (mystery procedure)
-![](../assets/art/ss_benedictine_reliquary_key.png){.wrap-right width=1.25in trim="308bp 116bp 304bp 104bp"}
+
+![](../assets/art/ss_benedictine_reliquary_key.png){.wrap-right width=1.8in}
 
 This skin is a Medieval monastic mystery. Keep it moving with two table rules:
 
@@ -114,9 +122,12 @@ Sin is the spiritual pressure of suspicion, pride, and proximity to evil. It run
 |5 **Crisis**|Ecclesiastical trial / demonic visitation|roll crisis table, reset to **0**|
 
 **Gain Sin:** lie under oath, break a vow of peace, disturb a sanctified grave, use Insight on sacred matters for petty ends.  
+
 **Purge Sin:** public confession (lose a favoured item), week‑long fast, hazardous pilgrimage.
 
 ---
+
+\clearpage
 
 **Crisis table (d6)**
 
@@ -130,14 +141,15 @@ Sin is the spiritual pressure of suspicion, pride, and proximity to evil. It run
 |6|Roll twice; apply both |
 
 ### Tone
+
+![](../assets/art/ss_benedictine_wax_seal.png){.wrap-right width=1.4in}
 Lean, sensory: “Iron brazier hisses as herbs crack; the air stinks of blood and rosemary.” Violence is rare but final.
 “The devil prowls like a wolf among lambs — yet wolves leave tracks.”
 
 > *“Quis custodiet ipsos custodes?”*
 
-![](../assets/art/ss_benedictine_wax_seal.png){.wrap-right width=0.9in wraplines=5 trim="290bp 116bp 282bp 175bp"}
-
 ### Custodian moves
+
 Sheriff arrives • Siege rumours tighten trade • Storm floods Severn • Skeleton unearthed under nave • A confession implicates the wrong person.
 
 > **GRIM PORTENT**  
@@ -157,6 +169,7 @@ Sheriff arrives • Siege rumours tighten trade • Storm floods Severn • Skel
 
 
 ### Investigation map (keep it simple)
+
 Tag scenes by location (CL‑1 cloister, TW‑2 town, WD‑3 woodland). Keep a short case ledger: suspects, motives, alibis, clue list.
 
 This skin does **not** rewind: words cannot be unspoken, vows cannot be unbroken — only confession and atonement can change what comes next.
@@ -165,9 +178,8 @@ This skin does **not** rewind: words cannot be unspoken, vows cannot be unbroken
 
 ---
 
-\clearpage
-
 ### Sensory table (d4 each)
+
 |d4 | Sounds | Smells | Tastes | Textures |
 |-|----|----|----|----|
 |1|Creaking rood‑screen|Wet wool|Bitter yarrow tonic|Frost‑cracked stone|
@@ -179,20 +191,20 @@ Roll or pick to ground any scene in seconds.
 
 ---
 
-## EXAMPLE MONASTICS
+\clearpage
 
-![](../assets/art/ss_benedictine_cadoc.png){.wrap-right width=1in trim="80bp 89bp 55bp 103bp"}
+## EXAMPLE MONASTICS
 
 ### Brother Cadoc — Herbalist‑Inquisitor
 
+![](../assets/art/ss_benedictine_cadoc.png){.wrap-left width=1in}
 Creation: grim budget (**0** build points; used **0**)  
 HEW 8 FLT 7 LOR 14 MCY 10 PRV 8/8 STM 4/4 Sin 0/5  
 Satchel of salves (Advantage on one LOR diagnosis per day), hand staff (edge 0), vellum notebook.
 
-![](../assets/art/ss_benedictine_aveline.png){.wrap-left width=1in trim="63bp 88bp 64bp 107bp"}
-
 ### Sister Aveline — Lay Scribe
 
+![](../assets/art/ss_benedictine_aveline.png){.wrap-left width=1in}
 Creation: grim budget (**0** build points; used **0**)  
 HEW 6 FLT 9 LOR 11 MCY 13 PRV 9/9 STM 3/3 Sin 0/5  
 Wax tablets, dagger +1 (kept hidden), empathic gaze (Advantage on first MCY roll per session).

@@ -1,7 +1,7 @@
 # **CANDLELIGHT DUNGEONS**
 ### Skin add-on for the Sinew & Steel game system
 
-![](../assets/covers/ss_logo_candlelight_dungeons.png){.wrap-right width=0.9in trim="441bp 204bp 438bp 169bp"}
+![](../assets/covers/ss_logo_candlelight_dungeons.png){.wrap-right width=2in}
 
 *Torchlit delves in the warrens of a dying principality, inspired by classic 1980s dungeon‑crawl play.*
 
@@ -18,6 +18,7 @@ If you want a meat‑grinder crawl, lower build points (standard **6** or grim *
 ## DELVER'S KIT (Adventurer)
 
 ### Attribute Labels
+
 | Core slot | Dungeon label | Covers |
 |--|---|------|
 | Might | **Strength (STR)** | breaking doors, swinging axes, hauling loot |
@@ -28,9 +29,10 @@ If you want a meat‑grinder crawl, lower build points (standard **6** or grim *
 
 **Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
 
-![](../assets/art/ss_candlelight_dungeon_door.png){.margin-left width=0.8in trim="389bp 131bp 393bp 96bp"}
-
 ### Fortune (Luck) flavour
+
+![](../assets/art/ss_candlelight_dungeon_door.png){.wrap-left width=1.5in}
+
 Tokens are tarnished silver coins.
 
 When the Custodian calls for blind chance — “**Test your Fortune**!” — roll under your **current coins** (not your maximum).
@@ -41,6 +43,7 @@ A short rest at a warm hearth restores **+1 coin**; dank caves do not.
 ### Common tests (defaults)
 
 ### Weapons & Edges
+
 | Weapon | Edge |
 |---|---|
 | Dagger, club | 0 |
@@ -48,6 +51,7 @@ A short rest at a warm hearth restores **+1 coin**; dank caves do not.
 | Greataxe, heavy crossbow | +2 |
 
 ### Armour & Soak
+
 | Protection | Soak |
 |---|---|
 | Robes / common clothes | 0 |
@@ -70,7 +74,7 @@ A short rest at a warm hearth restores **+1 coin**; dank caves do not.
 | **Greater** | LOR or FTH (**Fortune cannot aid**) | mark **+1 Fatigue** anyway | mark **+2 Fatigue** and Custodian backlash |
 | **Wyrd** | LOR or FTH (**Fortune cannot aid**) | the effect manifests (nat 1 = legend) | backlash **and** roll a Fatigue crisis immediately (reset to **0**) |
 
-![](../assets/art/ss_candlelight_spell_backlash.png){.margin-right width=0.95in trim="399bp 223bp 372bp 83bp"}
+![](../assets/art/ss_candlelight_spell_backlash.png){.wrap-right width=1.5in}
 
 *Learn a spell by study, scroll, or blessing → agree its tier with the Custodian → note it: “**Sleep — Spell (LOR)**”.*
 
@@ -85,7 +89,7 @@ A short rest at a warm hearth restores **+1 coin**; dank caves do not.
 Fatigue is the dungeon’s hourglass. It runs **0–5**; at **5** trigger a crisis, then reset Fatigue to **0**.
 
 | Step | Portent | Effect |
-|-|----|--------|
+|--|----|--------|
 |0|Fresh|—|
 |1|Winded|cosmetic sweat, shaky torch |
 |2|Weary|Disadvantage on your next **STR** or **DEX** test |
@@ -94,6 +98,7 @@ Fatigue is the dungeon’s hourglass. It runs **0–5**; at **5** trigger a cris
 |5 **Crisis**|Collapse / spell backlash|Roll Fatigue crisis, reset to **0** |
 
 *Gain:* failed spells, forced marches, grave wounds, night without rest.  
+
 *Clear:* sleep, hearty stew, or a miracle that removes Fatigue.
 
 **Fatigue crisis (d6)**
@@ -112,6 +117,7 @@ _(A risky test is any roll where failure would materially change the situation: 
 ---
 
 ## KNACKS (choose one per PC)
+
 Once per scene, do a signature trick. Pay **1 Fortune coin** or mark **+1 Fatigue**.
 
 | Knack | Effect |
@@ -126,19 +132,25 @@ Once per scene, do a signature trick. Pay **1 Fortune coin** or mark **+1 Fatigu
 ---
 
 ## EXPERTISE (choose one stat)
+
 Pick one stat as your **Expertise**.
+
 When the task squarely fits that expertise, roll with **Advantage** (no class labels needed).
 
 ---
 
 ## TOOLS & TAGS
+
 - **Lockpick satchel** — Advantage on **DEX** tests to open/disarm when you have access. On a natural **20**, the picks snap (spent).
 - **Holy symbol** — required focus for Turn Undead; shatters on **FTH** natural **20**.
 
----
+\clearpage
 
 ## CHRONICLER’S LANTERN (Custodian)
+
 _Custodian guidance in the spirit of classic dungeon‑crawl refereeing_
+
+![](../assets/art/ss_candlelight_torch_sconce.png){.wrap-left width=2in}
 
 **1. Open with the torch, not the rulebook.**  
 Give mossy flagstones, a draught that smells of old iron, the scrape of scaled hide on stone. Roll only when the next step could maim or enrich.
@@ -174,9 +186,8 @@ Pole‑tapping every slab should find hidden hinges; charging the idol deserves 
 
 Hold that cadence and the ghosts of ’83 will nod in approval.
 
-![](../assets/art/ss_candlelight_torch_sconce.png){.margin-left width=0.95in trim="555bp 151bp 654bp 67bp"}
-
 ### Chronicler flavour bullets
+
 - Sweat drips into guttering sconces; fat spatters like rain on hot stone.  
 - The corridor air tastes of copper and mildew.  
 - A single rat squeals, then silence — too complete.  
@@ -188,25 +199,28 @@ Hold that cadence and the ghosts of ’83 will nod in approval.
 ---
 
 ### Fatal tag (reminder)
+
 **Fatal** ignores Stamina and soak: a struck target drops to **0 STM** unless they possess the listed counter‑measure.
 
 Example: Assassin’s throat‑slit on a sleeping victim — **Fatal (counter: staying awake or wearing a gorget helmet while resting)**.
 
 ---
 
+\clearpage
+
 ## SAMPLE DELVERS
 
-![](../assets/art/ss_candlelight_durn.png){.wrap-right width=1in trim="36bp 141bp 0bp 151bp"}
-
 ### Durn Bravefoot — Fighter  
+
+![](../assets/art/ss_candlelight_durn.png){.wrap-left width=1in}
 
 Creation: heroic budget (**16** build points; used **16**)  
 STR 16 DEX 11 LOR 9 FTH 9 FOR 10/10 STM 7/7 Fatigue 0/5  
 Knack: Second Wind. Sword +1, shield, chain shirt (soak 2).
 
-![](../assets/art/ss_candlelight_lirae.png){.wrap-left width=1in trim="60bp 95bp 87bp 83bp"}
-
 ### Lirae Willow‑Tongue — Hedge Mage  
+
+![](../assets/art/ss_candlelight_lirae.png){.wrap-left width=1in}
 
 Creation: heroic budget (**16** build points; used **16**)  
 STR 8 DEX 10 LOR 16 FTH 11 FOR 12/12 STM 5/5 Fatigue 0/5  

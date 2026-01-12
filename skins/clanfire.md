@@ -1,11 +1,11 @@
 # **CLANFIRE — FLINT & FROST**
 ### Skin add-on for the Sinew & Steel game system
 
-![](../assets/covers/ss_logo_clanfire.png){.wrap-right width=0.45in trim="460bp 190bp 460bp 176bp"}
+![](../assets/covers/ss_logo_clanfire.png){.wrap-right width=2in}
 
 *Neanderthal Europe at the edge of extinction, ≈ 40 000 BP.*  
 
-_(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
+_(Use atop the Sinew & Steel rules; anything not listed here follows the core.)_
 
 Clanfire is a survival story skin: you are a small band of hunters in a cold land where hunger, weather, beasts, spirits, and strangers all bite.
 Expect hunts, migration, taboo, and uneasy encounters with Sapiens — and remember that the hearth is as precious as the spear.
@@ -15,8 +15,9 @@ Expect hunts, migration, taboo, and uneasy encounters with Sapiens — and remem
 ## HUNTER'S MARK (Adventurer)
 
 ### Attribute Names
+
 | Core slot | Clanfire label | What it governs |
-|---|---|---|
+|--|---|------|
 | Might | **Might (MGT)** | brute strength, hauling, close blows, endurance |
 | Reflex | **Fleetness (FLT)** | quick movement, balance, stealth, thrown weapons |
 | Intellect | **Cunning (CUN)** | tool‑making, tracking, tactical wit, problem‑solving |
@@ -26,11 +27,13 @@ Expect hunts, migration, taboo, and uneasy encounters with Sapiens — and remem
 **Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
 
 ### Instinct (Luck) flavour
+
 Tokens are carved bone beads. A rest by the hearth restores **+1 bead**; mythic visions, trance rites, or spirit blessings may restore more.
 
 When the Custodian calls for pure chance or gut‑feeling — “**Test your Instinct**!” — roll under your **current beads**. Empty instincts leave hunters exposed to fate.
 
 ### Weapons & Edges
+
 | Weapon | Edge |
 |---|---|
 | Fir club, fist, stumble | 0 |
@@ -38,6 +41,7 @@ When the Custodian calls for pure chance or gut‑feeling — “**Test your Ins
 | Atlatl dart, fire‑hardened pike, cave bear claw | +2 |
 
 ### Armour & Soak
+
 | Protection | Soak |
 |---|---|
 | Hide / Fur cloak | 1 |
@@ -46,29 +50,35 @@ When the Custodian calls for pure chance or gut‑feeling — “**Test your Ins
 (Dynamic soak: after a hit, reduce soak by **1 per full 4 points** of attacker margin; **nat 1 pierces all**.)
 
 ### Recovery
+
 A short rest with fire and water restores **+1 Stamina**; deep shelter and herbs **+2** (never above max). Grave wounds need shaman craft.
 
 ### Totem Mark (once per session)
-![](../assets/art/ss_clanfire_totem_mark.png){.wrap-right width=1.25in trim="591bp 124bp 552bp 96bp"}
+
+![](../assets/art/ss_clanfire_totem_mark.png){.wrap-right width=1.5in}
 
 Invoke clan spirit (Bear, Owl, Salmon…). Gain **Advantage** on a thematically linked roll **and** either spend **1 Instinct** or accept **+1 Shadow**.
 
 Name the totem and show its sign in the fiction (breath smokes, eyes flash owl‑gold, the air tastes of river‑stone).
 
 ### Beast Bond
+
 A tamed beast is a **3‑token Instinct pool** you may spend instead of your own. Each intervention flips a token; at 0 the animal flees, dies, or turns feral.
 
 ### Carry Limit flavour
+
 A hunter totes six big items (spears, blade kit, hide water skin…). Extra gear ⇒ Disadvantage on Fleetness.
 
 > *Hold these laws close; the Ice drinks fools. The clan that masters flint and fate endures another dawn.*
 
----
+\clearpage
 
 ## SHAMAN’S FIRE‑CIRCLE (Custodian)
+
 *A shaman’s guide for tales of Neanderthal dusk and encroaching sapiens*
 
 ### Shadow Track (Pressure skin)
+
 | Step | Portent | Suggested Custodian twists |
 |--|--|--|
 |0|Hearth calm|—|
@@ -79,6 +89,7 @@ A hunter totes six big items (spears, blade kit, hide water skin…). Extra gear
 |5 **Crisis**|Blizzard / Curse|Roll on Crisis table, reset to **0**|
 
 **Earning**: failed risky rites, taboo breach, speaking with Sapiens, invoking time‑old spirits, Totem choice (if Shadow).  
+
 **Purging**: sacrifice (lose item/stat), dangerous ritual, great hunt or story quest.
 
 Other track motifs: dying hearth‑fires, a one‑eyed cave bear, the piercing flutes of Sapiens scouts, spirits withdraw, illness spreads.
@@ -95,7 +106,8 @@ Other track motifs: dying hearth‑fires, a one‑eyed cave bear, the piercing f
 | 6 | Roll twice — stack horrors |
 
 ### Hearth Beats
-![](../assets/art/ss_clanfire_hearth_embers.png){.wrap-right width=1.35in trim="436bp 169bp 433bp 138bp"}
+
+![](../assets/art/ss_clanfire_hearth_embers.png){.wrap-left width=1.5in}
 
 Play is visceral—crackling fire, reek of hides, breath steaming in moonlight. Mechanics provide bone, but story is sinew. When scenes falter, unleash weather, predator or uneasy strangers. Ambush, ice collapse, bride‑price negotiation, mammoth hunt, cave art.  
 
@@ -108,37 +120,49 @@ Present 2-4 options in second‑person imperative, focused on protagonist. Inclu
 > 1. Stalk the reindeer downwind.  
 > 2. Retreat to limestone shelter.  
 > 3. Approach the tall newcomers in peace.  
+
 Ensure outcomes ripple—sharing meat with Sapiens may avert later spear‑fight.  
 
 ![](../assets/art/ss_clanfire_vision_glass.png){.wrap-left width=1.25in trim="335bp 122bp 521bp 91bp"}
 
 **Vision Glass (omens, not do‑overs):** rare obsidian shards that show a fork of possible futures. In the firelight you glimpse a sign: a broken spear, fresh footprints, a sky‑fire glow.
+
 Once per session, a hunter may **Test Instinct**; on success ask the Custodian **one yes/no** about the next beat. On failure, the omen still comes — but mark **+1 Shadow**.
 
 ### Milestone Boon Seeds (d6)
+
 After a successful megafauna hunt, forging alliance, or surviving sky‑fire, award a Milestone:
-1 Amber pendant (Adv once on SPR)  
-2 Wolf pup (Beast Bond)  
-3 Spirit scar (once per session, gain Advantage on one SPR roll to bargain with spirits; costs +1 Shadow)  
-4 Hidden hot‑spring (full INS reset mid‑journey)  
-5 Obsidian blade (+1 edge)  
-6 Vision glass shard (once per session: Test INS for a true omen; on fail +1 Shadow)
+
+| d6 | Milestone Boon |
+|-:|------------------------------------------------------------|
+|1| Amber pendant (Adv once on SPR) |
+|2| Wolf pup (Beast Bond) |
+|3| Spirit scar (once per session, gain Advantage on one SPR roll to bargain with spirits; costs +1 Shadow) |
+|4| Hidden hot‑spring (full INS reset mid‑journey) |
+|5| Obsidian blade (+1 edge) |
+|6| Vision glass shard (once per session: Test INS for a true omen; on fail +1 Shadow) |
 
 Other examples: quality flint core, mammoth‑bone mail, dream of distant summers.
 
 ### Tone & Moves
+
 Voice terse, sensory. Primal lyricism: “The aurora danced, green spears across an ink sky, mocking our flint.”  
+
 Technology sparse; wonder hides in sparks off a biface.  
+
 Custodian moves: storm lashes camp · rival scouts appear · food stores spoil · spirits demand ochre.  
 
 > *Guard the fire, Shaman. Night is long and the winds speak new tongues.*
 
 ---
 
+\clearpage
+
 ## EXAMPLE CLANSFOLK
 
 ### Grak of Tall Cliffs (Hunter)
-![](../assets/art/ss_clanfire_grak.png){.wrap-right width=1.6in trim="73bp 150bp 33bp 42bp"}
+
+![](../assets/art/ss_clanfire_grak.png){.wrap-left width=1in}
 
 *Sturdy hunter, bearer of granite confidence.*  
 Creation: standard budget (**6** build points; used **6**)  
@@ -149,7 +173,7 @@ Ochre pouch (ritual mark), sinew cord.
 
 ### Tarra the Ember‑Singer (Shaman)
 
-![](../assets/art/ss_clanfire_tarra.png){.wrap-left width=1.6in trim="129bp 138bp 14bp 107bp"}
+![](../assets/art/ss_clanfire_tarra.png){.wrap-left width=1in}
 
 *Clan shaman, voice between worlds.*  
 Creation: standard budget (**6** build points; used **6**)  
@@ -158,5 +182,7 @@ Ritual **Ember Dream** (when a rite’s outcome is uncertain: Test SPR; on failu
 Can sense weather shifts hours ahead; disadvantage when forced into raw melee.  
 Carved bone flute (Adv calming beasts).  
 Fire‑bow drill, herb bundle, scrap of strange cloth from southern strangers.  
+
+---
 
 > *Track INS beads, STM loss, Shadow gains.  Scars will etch the cavern walls.*
