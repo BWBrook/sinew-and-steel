@@ -12,7 +12,8 @@ For the two‑page version, see **Quickstart Rules**.
 
 ## 1 The Core Rule
 
-Roll **one d20**. If the result is **≤ your attribute**, you succeed; if it’s higher, you fail.
+Roll **one d20**. If the result is **≤ your attribute**, you succeed; if it’s higher, you fail.  
+Lower is better.
 
 ### 1.1 Natural results
 
@@ -35,7 +36,7 @@ Roll twice; keep one die.
 
 ### 1.4 Opposed rolls
 
-![](../../assets/art/ss_roll_under.png){.wrap-right width=1.8in} 
+![](../../assets/art/ss_roll_under.png){.wrap-right width=2in} 
 
 Both sides roll under their relevant attribute.
 
@@ -58,7 +59,7 @@ If failure would be boring, resolve it narratively.
 
 > Custodian: “The rope bridge is slick with ice. What do you do?”  
 > Player: “I go slow, testing each plank, and keep low.”  
-> Custodian: “That’s careful. Roll under REF with Advantage. On a fail you still cross, but you lose time and the Pressure clock ticks.”
+> Custodian: “That’s careful. Roll under your Reflex (or equivalent) with Advantage. On a fail you still cross, but you lose time and Pressure rises.”
 
 ---
 
@@ -68,7 +69,7 @@ If failure would be boring, resolve it narratively.
 
 Every character begins at:
 
-![](../../assets/art/ss_baseline_character_frame.png){.wrap-right width=1.9in}
+![](../../assets/art/ss_baseline_character_frame.png){.wrap-right width=2in}
 
 - **Five attributes at 10** (skins rename these to fit genre).
 - **Stamina 5** (STM: your health).
@@ -95,10 +96,10 @@ If you need a default set (and for examples in this manual), use:
 
 You can customize your stats using the same economy in two equivalent ways:
 
-![](../../assets/art/ss_points_buy_economy.png){.wrap-right width=1.8in}
+![](../../assets/art/ss_points_buy_economy.png){.wrap-right width=2in}
 
 **A) Trade‑offs (the “double‑debit” ledger):**  
-Every **+1** you push **above baseline** must be “paid for” by **‑2 total** below baseline across other scores.
+Every **+1** you push **above baseline** must be “paid for” by **‑2 total** below baseline across other scores (including Stamina).
 
 **B) Build points (the tone dial):**  
 Build points let you raise stats without taking as many trade‑offs.
@@ -115,6 +116,8 @@ Baseline notes:
 - Attributes baseline at **10**.
 - Stamina baseline at **5**.
 
+Example: raising **STM 5 → 7** costs **4 build points**; raising **STM 3 → 5** costs **2 build points**.
+
 > *Bump a stat up? Either pay double elsewhere… or pay build points.*
 
 ### 2.3 Starting build points (recommended default)
@@ -128,14 +131,14 @@ At creation, the Custodian chooses a starting budget for tone:
 
 ### 2.4 Step‑by‑step creation (fast, reliable)
 
-1. Pick a skin (it names your five attributes and your Pressure track colour).
+1. Pick a skin (it names your five attributes and your Pressure track).
 2. Write the baseline frame: five 10s, Stamina 5.
 3. Choose one “signature” strength and raise it.
 4. Either:
    - take matching trade‑offs (‑2 total per +1 above baseline), **or**
    - spend build points to avoid (some of) those reductions.
 5. Set your **Luck pool**: your skin tells you which attribute is Luck.
-6. Write 3–6 items of gear and one small advantage (if your table uses them).
+6. Write 3–6 items of gear and (optionally) one small perk.
 
 ### 2.5 Worked example (build points + trade‑offs)
 
@@ -148,7 +151,7 @@ You want a sharp‑witted PC hero and you raise INT from 10 to 13 (**+3 above ba
 
 ## 3 Luck Pool (tokens)
 
-![](../../assets/art/ss_luck_pool.png){.wrap-left width=1.6in}
+![](../../assets/art/ss_luck_pool.png){.wrap-left width=2in}
 
 Your **Luck score** *is* your token pool.  
 
@@ -156,7 +159,7 @@ If your skin says “Hope” or “Fortune” or “Resourcefulness,” that sco
 
 Luck pulls double duty: it’s a pool you spend to bend results, and it’s the score you roll under when sheer chance decides.  
 
-Spend for the moment, but remember you’ll feel it in the future, when the Custodian asks you to “Test your Luck!”.
+Spend for the moment, but remember you’ll feel it later, when the Custodian asks you to “Test your Luck!”
 
 > *The more you bend fate now, the shakier your later odds.*
 
@@ -168,13 +171,13 @@ Spend for the moment, but remember you’ll feel it in the future, when the Cust
 
 Combat note:
 
-> *You may spend Luck after a successful attack to deepen your margin and chew through armour soak*
+> *You may spend Luck after a successful attack to deepen your margin and chew through armour soak.*
 
 ---
 
 ## 4 Stamina (Health) & Recovery
 
-![](../../assets/art/ss_stamina_recovery.png){.wrap-right width=1.8in}
+![](../../assets/art/ss_stamina_recovery.png){.wrap-right width=2in}
 
 - **Damage reduces Stamina.**
 - Typical weapons add **edge**: +0 / +1 / +2.
@@ -192,17 +195,21 @@ The Custodian may warn you when the fiction implies lethal stakes beyond a norma
 
 ### 5.1 Simple tests
 
-Roll under the relevant attribute, or test your luck. Advantage / Disadvantage as fiction dictates.
+Roll under the relevant attribute, or test your Luck. Advantage / Disadvantage as fiction dictates.
 
 ### 5.2 Opposed tests
 
-Both roll. If only one succeeds, that side wins. If both succeed, compare margins; higher wins; ties defend.
+Both roll.
+
+- If only one side succeeds, that side wins.
+- If both succeed, compare **margins**. Higher margin wins.
+- **Ties favour the defender.**
 
 ---
 
 ## 6 Combat
 
-![](../../assets/art/ss_combat_sequence.png){.wrap-right width=1.9in}
+![](../../assets/art/ss_combat_sequence.png){.wrap-right width=2in}
 
 1. **Attacker** rolls under the attribute that matches how they attack.  
    - **Heavy / forceful** (wrestle, smash, cleave): usually **MGT**.  
@@ -216,8 +223,8 @@ Both roll. If only one succeeds, that side wins. If both succeed, compare margin
    - **Cover / positioning** (angles, terrain, timing): usually **INT**.  
    - **Luck** (sheer chance — a ricochet, a misfire, a loose plank): sometimes **LCK**.  
    - **Composure / resolve** (keep your head, accept a surrender, resist intimidation): sometimes **EMP**.  
-If there’s no plausible defense (surprised, pinned, helpless), the Custodian can skip the defense roll — or call for Luck if fate alone might spare you.    
-3. On a hit: damage = **1 + weapon edge − effective soak**.  
+   If there’s no plausible **defence** (surprised, pinned, helpless), the Custodian can skip the defence roll — or call for Luck if fate alone might spare you.
+3. On a hit: damage = **1 + weapon edge − effective soak** (soak after erosion).  
 4. **Natural 1** or **margin ≥ 10** adds **+1 damage**.  
 
 If your goal isn’t harm (disarm, drive off, talk down), use the same opposed roll — but apply the agreed consequence instead of damage.  
@@ -236,8 +243,8 @@ If your goal isn’t harm (disarm, drive off, talk down), use the same opposed r
 
 ### 6.2 Armour & dynamic soak
 
-| Armour                   | Base soak |
-| ------------------------ | --: |
+| Armour | Base soak |
+| ----- | -- |
 | Hide / leather           | 1 |
 | Mail / kevlar            | 2 |
 | Plate / powered carapace | 3 |
@@ -250,15 +257,17 @@ After a hit:
 
 **Example (soak erosion):**
 
-> You hit with an NPC guard with margin +9 against soak 2.  
+> You hit an NPC guard with margin +9 against soak 2.  
 > Full 4s = 2 → soak drops by 2 (to 0).  
 > The armour is shredded at the penetration point; this hit takes full damage.
 
 ---
 
+\clearpage
+
 ## 7 Carry Limit
 
-![](../../assets/art/ss_item_carry_limit.png){.wrap-left width=1.4in}
+![](../../assets/art/ss_item_carry_limit.png){.wrap-left width=2in}
 
 Six substantial items ride comfortably; more invites Disadvantage on agility tasks.  
 
@@ -272,9 +281,9 @@ Money does not count against carry limit. By default it’s tracked loosely in t
 
 Every skin uses a shared **Pressure track (0–5)**, renamed to fit genre (Doom, Fatigue, Sin, Heat, Stress, Strain, Dread, Insanity, Anomaly…).  
 
-Pressure is the fuse: it rises with risk, blunders, bargains, and time pressure.
+Pressure is the fuse: it rises with risk, blunders, bargains, and time.
 
-![](../../assets/art/ss_pressure_fuse.png){.wrap-right width=1.8in}
+![](../../assets/art/ss_pressure_fuse.png){.wrap-right width=2in}
 
 - When Pressure hits **5**, a **crisis** triggers — then Pressure **resets to 0**.
 - Milestones happen every 3–4 *perilous* beats:
@@ -282,6 +291,8 @@ Pressure is the fuse: it rises with risk, blunders, bargains, and time pressure.
   - and a narrative boon (ally, relic, favour, scar, access)
 
 ---
+
+\clearpage
 
 ## 9 Quick‑Reference Tables
 

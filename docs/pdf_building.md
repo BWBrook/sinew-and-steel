@@ -83,6 +83,14 @@ You’ll need a TeX distribution and a PDF engine (this repo typically uses `xel
 - `--style bookish|default`
 - `--toc --toc-depth 2`
 
+### Pagination baseline (recommended)
+
+If you want your local pagination to match the repo’s default expectations for PDF iteration, use:
+
+```bash
+--backend weasyprint --style bookish --paper letter --margin "0.55in 0.75in" --fontsize 11.5
+```
+
 > Quickstart note: if you are keeping the quickstart to *exactly two pages*, tweak `--margin`, `--fontsize`, and `--linestretch` first before cutting text.
 
 ---
@@ -154,4 +162,3 @@ Run:
 ```
 
 If you’re iterating on art/layout, prefer `tools/md_pdf.py` until you’re happy, then roll changes into the release build.
-
