@@ -1,14 +1,11 @@
 # **SINEW & STEEL — QUICKSTART (RULES ON TWO PAGES)**
-![](../assets/art/ss_core_mechanic.png){.wrap-right width=1.6in}
-*Everything else is story-fuel.*  
 
-**If you remember nothing else:** roll under, margin matters, Luck nudges, Pressure is the fuse.
+Roll‑under, margin matters, Luck nudges, Pressure is the fuse. 
+*Everything else is story-fuel.*
 
 ---
 
 ## 1 Core Engine (60‑second digest)
-
-Keep this page in view; it’s meant to be used mid‑play.
 
 - **Roll‑under d20.** If `d20 ≤ attribute`, you succeed; otherwise you fail.
   - **Natural 1** = legendary success | **Natural 20** = catastrophic failure.
@@ -22,9 +19,12 @@ Keep this page in view; it’s meant to be used mid‑play.
   - Five attributes at **10** (range **6–16**).
   - **Stamina 5** (range **3–9**).
   - Standard creation gives **6 build points** (grim 0 / pulp 12 / heroic 16).
-    - **+1 above baseline costs 2 build points** (or “pay” by taking **‑2 total** below baseline elsewhere).
-    - **+1 below baseline costs 1 build point** (to climb back toward baseline).
-  - Default attributes (used in examples; skins rename these):
+    - **+1 above baseline costs 2 build points** (or “pay” by taking **−2 total** elsewhere).
+    - **+1 below baseline costs 1 build point** (to climb back).
+  
+  ![](../assets/art/ss_core_mechanic.png){.wrap-right width=2in}
+
+  - Default attribute names (skins rename these):
     - **MGT** — Might (strength, endurance, force)
     - **REF** — Reflex (speed, coordination, stealth)
     - **INT** — Intellect (knowledge, planning, systems)
@@ -39,31 +39,27 @@ Keep this page in view; it’s meant to be used mid‑play.
   - Luck tests roll under **current** tokens.
   - Rest +1 token; milestone refills up to your Luck score (your max).
 - **Armour & dynamic soak.** Armour has **soak 1–3**.
-  - After a hit, reduce soak by **1 per full 4 points of attacker margin**; **nat 1 pierces all**.
+  - After a hit, reduce soak by 1 per full 4 points of attacker margin; **nat 1 pierces all**.
 - **Carry limit.** Up to **6 big items**; extra load ⇒ Disadvantage on agility tasks (your Reflex / Fleetness‑type rolls).
 - **Money.** Usually abstract; if you want it tangible, use the optional **Wealth (0–4)** track (see the Custodian’s Almanac).
-- **Pressure track (0–5).** Skin defines its name and crisis.
-  - When Pressure hits **5**, trigger a crisis, then reset to **0**.
+- **Pressure track (0–5).** Skin defines its name and crisis. Hit **5**, trigger a crisis, then reset to **0**.
 
-**Example (check + nudge):**
-- REF 12, you roll **15** → fail (margin **–3**).
-- Spend **3 Luck** to nudge **15 → 12** → success (margin **0**).
+**Example (check + nudge):** 
+REF 12, you roll **15** → fail (margin **–3**). 
+Spend **3 Luck** to nudge **15 → 12** → success (margin **0**).
 
-**Example (opposed):**
-- Attacker MGT 12 rolls **8** (margin **+4**).
-- Defender REF 10 rolls **9** (margin **+1**).
-- Both succeed; attacker wins (higher margin).
+**Example (opposed):** 
+Attacker MGT 12 rolls **8** (margin **+4**). 
+Defender REF 10 rolls **9** (margin **+1**). 
+Both succeed; attacker wins (higher margin). 
 
 ---
 
 ## 2 Skins (swap flavour, rename stats, recolour Pressure)
 
-Pick a skin to set tone and tweak rules. A skin tells you:
-- what the five attributes are called,
-- which attribute is your **Luck** score (token pool),
-- what **Pressure** represents and what happens at 5.
-
-Example skin genres (see `/skins/` for the full list):
+Pick a skin to set tone and tweak rules. They give new optional modules, and tell you:
+new names of the five attributes, which stat is **Luck** (token pool), and what **Pressure** represents.
+**Example genres**:
 
 - Ice‑Age survival — **Shadow** track; totems and beast bonds.
 - Pulp sword‑and‑sorcery — **Doom** track; bargains and bad magic.
@@ -71,8 +67,6 @@ Example skin genres (see `/skins/` for the full list):
 - Red‑planet noir — **Heat** track; pressure, dust, hard choices.
 - Classic dungeon crawl — **Fatigue** track; torchlight and spell backlash.
 - Cosmic horror — **Insanity** track; fragile hope and occult terror.
-
-> *To build your own skin:* rename stats, recolour Pressure, add 1–2 strict mechanical rules.
 
 ---
 
@@ -91,12 +85,12 @@ Use this checklist to start a first session quickly.
 6. **Offer a Luck nudge** when failure is close and it would be fun to “pay for the win.”
 7. **Advance Pressure** on big blunders, dark bargains, noisy heroics, time passing.
 8. **Milestone** every 3–4 perilous beats: **+2 build points** + a narrative boon.
-9. If play stalls: advance a clock, change the weather, introduce a hard bargain, or reveal a threat.
+9. If play stalls: advance Pressure, change the weather, introduce a hard bargain, or reveal a threat.
 
 ---
 
 ## 4 Example Character (Clanfire skin, standard build points)
-![](../assets/art/ss_clanfire_grak.png){.wrap-left width=0.7in}
+![](../assets/art/ss_clanfire_grak.png){.wrap-left width=0.5in}
 **Grak — Neanderthal Hunter**  
 MGT 12 • FLT 11 • CUN 10 • SPR 8 • INS 8/8 • STM 7/7 • Shadow 0/5  
 Stone spear (edge +1) • Hand‑axe (edge +1) • Hide cloak (soak 1) • Adv: tracking megafauna

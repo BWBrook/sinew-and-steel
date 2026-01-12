@@ -1,20 +1,19 @@
 # **WHISPERS IN THE FOG**
 ### Skin add-on for the Sinew & Steel game system
 
-![](../assets/covers/ss_logo_whispers_in_the_fog.png){.wrap-right width=0.45in trim="416bp 190bp 412bp 134bp"}
+![](../assets/covers/ss_logo_whispers_in_the_fog.png){.wrap-right width=2in}
 
 *Mournful New‑England shores, 1924. Gas‑lamps gutter, marsh‑mists coil, and nameless shapes lurk just beyond the churchyard wall.*
 
-_(Paste atop the Sinew & Steel rules; anything not listed here follows the core.)_
+_(Use atop the Sinew & Steel rules; anything not listed here follows the core.)_
 
 Whispers in the Fog is weird‑horror investigation: frail lantern‑light, forbidden books, polite conversations that turn sour, and truths that do not fit inside a human skull.
+
 Expect foreboding that rises by inches, sudden violence, and answers that feel like bargains.
 
 Suggested creation tone: **standard** (**6** build points) — capable investigators, fragile minds.
 
 In this skin, the Custodian is often called the **Keeper**.
-
-**Micro‑vignette (cold open):**
 
 > The fog comes in like a living thing, as though the sea is exhaling. A buoy bell rings where it should not. Your lantern’s glass is filmed with salt — and something else.
 
@@ -23,8 +22,9 @@ In this skin, the Custodian is often called the **Keeper**.
 ## INQUIRER’S NOTES (Adventurer)
 
 ### Attribute Labels
+
 | Core slot | Whispers label | Covers |
-|---|---|---|
+|--|---|-----|
 | Might | **Vigor (VIG)** | brawling, forced doors, sprinting across wharfs |
 | Reflex | **Agility (AGI)** | stealth, quick‑draw, nimble escapes |
 | Intellect | **Scholarship (SCH)** | research, cryptography, forbidden rites |
@@ -34,9 +34,11 @@ In this skin, the Custodian is often called the **Keeper**.
 **Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
 
 ### Fate (Luck) tokens
+
 Tokens are yellowed ferry tickets kept in a silver case.
 
 When the Custodian calls for blind chance — “**Test your Fate**!” — roll under your **current tickets** (not your maximum).
+
 Spend tickets now to nudge rolls, but remember: fewer tickets means shakier Fate later.
 
 A short rest in safety restores **+1 ticket**; opium dreams or saintly relics may restore more.
@@ -45,8 +47,28 @@ A short rest in safety restores **+1 ticket**; opium dreams or saintly relics ma
 
 ---
 
+## GEAR & TAGS
+
+| Weapon | Edge |
+|---|--|
+| Blackjack, pocket‑knife | 0 |
+| .38 revolver, brass knuckles | +1 |
+| Coach gun (shotgun, close) | +2 |
+
+**Fatal tag (example):** point‑blank shotgun blast on a helpless target — **Fatal (counter: hard cover)**.
+
+| Wearable | Soak |
+|---|--|
+| Woollen coat | 0 |
+| WWI flak vest | 1 |
+
+(Dynamic soak: after a hit, reduce soak by **1 per full 4 points** of attacker margin; **nat 1 pierces all**.)
+
+> *“Somewhere beneath the hymn of the surf, a deeper cadence throbbed… like the slowed heart of a behemoth dreaming in pitch.”*
+
+---
+
 ## ELDRITCH RITES
-![](../assets/art/ss_whispers_forbidden_tome.png){.margin-right width=0.95in trim="342bp 96bp 182bp 132bp"}
 
 > *Spells and rituals are named effects tagged to a tier on discovery.*
 
@@ -57,6 +79,8 @@ A short rest in safety restores **+1 ticket**; opium dreams or saintly relics ma
 | **Invocation** | SCH (**Fate cannot aid**) | mark **+1 Insanity** anyway | mark **+2 Insanity** and Custodian backlash |
 | **Unspeakable** | SCH (**Fate cannot aid**) | the effect manifests (natural **1** = legend) | backlash **and** roll an Insanity crisis immediately (reset to **0**) |
 
+![](../assets/art/ss_whispers_forbidden_tome.png){.margin-right width=2in}
+
 *Example learns:* “Sign of Drowning — Rite (SCH)”, “Void‑Spawn Banishment — Invocation (SCH)”.
 
 **Unspeakable procedure:** mark **+2 Insanity**, then roll. On a natural **20**, the void answers (Keeper describes the worst plausible consequence).
@@ -64,80 +88,65 @@ A short rest in safety restores **+1 ticket**; opium dreams or saintly relics ma
 ---
 
 ## INSANITY TRACK (Pressure skin)
-![](../assets/art/ss_whispers_insanity_spiral.png){.margin-right width=0.95in trim="352bp 280bp 346bp 280bp"}
 
 Insanity is mental pressure. It runs **0–5**; at **5** you **Break**, trigger a crisis, then reset Insanity to **0**.
+
 The mind forgets the count; it does not forget the scar.
 
 | Step | Manifestation | Effect |
-|--|--|--|
-|0|Steady|—|
-|1|Agitation|cosmetic tremor, whispered tinnitus |
-|2|Deep unease|Disadvantage on your next **FRT** test to resist fear or coercion |
-|3|Fracture|Each **risky test** costs **1 Fate ticket** (spend before rolling) or marks **+1 Insanity** |
-|4|Night terrors|Disadvantage on all tests |
-|5 **Break (Crisis)**|Psychotic episode / possession|Roll Insanity crisis, reset to **0** |
+|--|---|-----|
+|0| Steady|—|
+|1| Agitation|cosmetic tremor, whispered tinnitus |
+|2| Deep unease|Disadvantage on your next **FRT** test to resist fear or coercion |
+|3| Fracture|Each **risky test** costs **1 Fate ticket** (spend before rolling) or marks **+1 Insanity** |
+|4| Night terrors|Disadvantage on all tests |
+|5 **Break (Crisis)**| Psychotic episode / possession|Roll Insanity crisis, reset to **0** |
+
+![](../assets/art/ss_whispers_insanity_spiral.png){.margin-left width=1.8in}
 
 _(A risky test is any roll where failure would materially change the situation: harm, loss, exposure, separation. Routine travel and careful talk need no roll.)_
 
 **Gain Insanity:** witnessing gore or cosmic horrors, failed rites, reading forbidden tomes.  
+
 **Purge:** a month in a sanitarium, costly hypnosis (spend **2 Fate tickets**), or a grounding ritual (marriage, Mass, a sober confession to someone you trust).
 
 **Insanity crisis (d6)**
 
-| d6 | Crisis |
-|---:|---|
-| 1 | Black‑out violence — you awaken holding a bloodied object (lose **1 STM**) |
-| 2 | Catalepsy — helpless for one scene |
-| 3 | Desolate vision — Disadvantage on all rolls next session |
-| 4 | Whispered truth — gain one crucial rumour clue; your next rest restores **no Fate** |
-| 5 | Public hysteria — NPCs fear or shun you; Disadvantage on **FRT** tests in polite society until resolved |
-| 6 | Roll twice; apply both |
+|d6| Crisis |
+|-|--------|
+|1| Black‑out violence — you awaken holding a bloodied object (lose **1 STM**) |
+|2| Catalepsy — helpless for one scene |
+|3| Desolate vision — Disadvantage on all rolls next session |
+|4| Whispered truth — gain one crucial rumour clue; your next rest restores **no Fate** |
+|5| Public hysteria — NPCs fear or shun you; Disadvantage on **FRT** tests in polite society until resolved |
+|6| Roll twice; apply both |
 
 > *“Eli’s match flared, briefly revealing a smear of wet footprints that began in the centre of the room and led nowhere.”*
 
 ---
 
 ## KNACKS (pick one)
+
 Each use costs: **spend 1 Fate ticket** or **mark +1 Insanity**.
 
 | Knack | Effect |
-|---|---|
+|---|--------|
 | **Occult Scholar** | Once per scene, turn a library/tomes search into an Advantage **SCH** test. |
 | **Detective Intuition** | Spend **1 Fate ticket** to ask the Custodian (Keeper) one yes/no clue question. |
 | **Veteran’s Nerves** | Once per scene, ignore an incoming **+1 Insanity** tick. |
 | **Silver Tongue** | Advantage on your first **FRT** (social) test with any new NPC. |
 
 ### Optional Expertise (choose one stat)
+
 Choose one stat as **Expertise** (marksman = AGI, doctor = SCH). When the task squarely fits, roll with Advantage.
 
 ---
 
-## GEAR & TAGS
-
-| Weapon | Edge |
-|---|---|
-| Blackjack, pocket‑knife | 0 |
-| .38 revolver, brass knuckles | +1 |
-| Coach gun (shotgun, close) | +2 |
-
-**Fatal tag (example):** point‑blank shotgun blast on a helpless target — **Fatal (counter: hard cover)**.
-
-| Wearable | Soak |
-|---|---|
-| Woollen coat | 0 |
-| WWI flak vest | 1 |
-
-(Dynamic soak: after a hit, reduce soak by **1 per full 4 points** of attacker margin; **nat 1 pierces all**.)
-
-> *“Somewhere beneath the hymn of the surf, a deeper cadence throbbed… like the slowed heart of a behemoth dreaming in pitch.”*
-
----
-
 ### Lantern & Battery (light tension, core‑aligned)
-![](../assets/art/ss_whispers_fog_lantern.png){.wrap-right width=1.25in trim="294bp 213bp 282bp 209bp"}
+![](../assets/art/ss_whispers_fog_lantern.png){.wrap-right width=2in}
 
 In this genre, light is safety. Darkness is a weapon.
+
 To keep resource tension without extra dice systems, track portable light as a small **clock**.
 
 - **Create a clock:** “Lantern” or “Battery” (default **4 ticks**).
@@ -152,9 +161,12 @@ Keeper guidance: you may keep the light clock **public** (for planning) or **hid
 
 ---
 
+\clearpage
+
 ## KEEPER’S QUILL (Custodian)
 
 ### Writing in weird‑horror tone
+
 - **Use archaisms sparingly.** One archaic verb per paragraph (‘betokened’, ‘antediluvian’) is perfume; a whole bouquet is parody.
 - **Layer sensory unease.** Sight‑smells‑sounds in quick succession: “salt‑reek, pulsing lavender glow, distant surf that pounded like vast respirations.”
 - **Imply the shape, deny the whole.** Describe edges, textures, odours — never the full anatomy of the horror. Let the cortex finish the sketch.
@@ -169,11 +181,13 @@ Keeper guidance: you may keep the light clock **public** (for planning) or **hid
 ---
 
 ### Flavour Palette (Keeper cues)
+
 - **Sights:** fog halos the gas‑lamps; moonlit marsh reeds sway like skeletal fingers.
 - **Sounds:** distant buoy bell, wet slither beneath floorboards, a church clock that skips the chime for two o’clock.
 - **Smells:** brackish tide‑mud, old books stained with vinegar, acrid cordite lingering after a single shot.
 
 **Keeper moves:**  
+
 - Church bell tolls backwards • Tidal surge floods cellar steps • Cultist chant echoes from crypt • A thin crack opens in the sky, showing alien stars.
 
 ---
@@ -193,22 +207,28 @@ Stylistic rule: pain is concrete, hope is whispered, knowledge always costs.
 
 ---
 
+\clearpage
+
 ## SAMPLE INQUIRERS
 
-![](../assets/art/ss_whispers_lydia.png){.wrap-right width=1.55in trim="54bp 105bp 0bp 128bp"}
+### Dr Lydia Harker — Folklore Professor
 
-**Dr Lydia Harker** — Folklore Professor  
+![](../assets/art/ss_whispers_lydia.png){.wrap-left width=1in}
+  
 Creation: standard budget (**6** build points; used **6**)  
 VIG 8 AGI 9 SCH 14 FRT 12 FAT 8/8 STM 4/4 Insanity 0/5  
 Knack: Occult Scholar.  
 Pocket‑knife 0, notebook & fountain pen, trunk of grimoires.
 
-![](../assets/art/ss_whispers_eli.png){.wrap-left width=1.55in trim="0bp 94bp 0bp 65bp"}
+### Elias “Eli” Graves — War‑weary P.I.
 
-**Elias “Eli” Graves** — War‑weary P.I.  
+![](../assets/art/ss_whispers_eli.png){.wrap-left width=1in}
+  
 Creation: standard budget (**6** build points; used **6**)  
 VIG 13 AGI 12 SCH 9 FRT 8 FAT 7/7 STM 6/6 Insanity 0/5  
 Knack: Veteran’s Nerves.  
 .38 revolver +1, blackjack 0, trench coat, hip flask (Advantage resisting cold).
+
+---
 
 > *Track Fate spent, Insanity gained, Stamina lost. Every candle gutter is a whisper from the void.*

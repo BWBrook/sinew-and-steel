@@ -127,8 +127,8 @@ Doom purge: cleric rite, sacrificial pyre, or grim personal cost.
 
 **Doom crisis (d6)**
 
-| d6 | Crisis |
-|-:|------|
+|d6| Crisis |
+|-|------|
 |1| Demon grip — lose control one scene |
 |2| Soul scar — -1 STM & gain eerie stigma |
 |3| Eldritch eruption — area damage |
@@ -145,6 +145,8 @@ Gain **Advantage**. If you succeed, you may either add **+1 edge** to the action
 Cost: **1 Fortune**.
 
 > *Ready your steel. The world kneels only to those who dare carve their saga.*
+
+---
 
 \clearpage
 

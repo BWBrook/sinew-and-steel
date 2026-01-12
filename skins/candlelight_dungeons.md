@@ -144,6 +144,8 @@ When the task squarely fits that expertise, roll with **Advantage** (no class la
 - **Lockpick satchel** — Advantage on **DEX** tests to open/disarm when you have access. On a natural **20**, the picks snap (spent).
 - **Holy symbol** — required focus for Turn Undead; shatters on **FTH** natural **20**.
 
+---
+
 \clearpage
 
 ## CHRONICLER’S LANTERN (Custodian)

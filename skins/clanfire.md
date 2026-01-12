@@ -71,6 +71,8 @@ A hunter totes six big items (spears, blade kit, hide water skin…). Extra gear
 
 > *Hold these laws close; the Ice drinks fools. The clan that masters flint and fate endures another dawn.*
 
+---
+
 \clearpage
 
 ## SHAMAN’S FIRE‑CIRCLE (Custodian)
@@ -123,7 +125,7 @@ Present 2-4 options in second‑person imperative, focused on protagonist. Inclu
 
 Ensure outcomes ripple—sharing meat with Sapiens may avert later spear‑fight.  
 
-![](../assets/art/ss_clanfire_vision_glass.png){.wrap-left width=1.25in trim="335bp 122bp 521bp 91bp"}
+![](../assets/art/ss_clanfire_vision_glass.png){.wrap-left width=1.5in trim="335bp 122bp 521bp 91bp"}
 
 **Vision Glass (omens, not do‑overs):** rare obsidian shards that show a fork of possible futures. In the firelight you glimpse a sign: a broken spear, fresh footprints, a sky‑fire glow.
 
@@ -133,8 +135,8 @@ Once per session, a hunter may **Test Instinct**; on success ask the Custodian *
 
 After a successful megafauna hunt, forging alliance, or surviving sky‑fire, award a Milestone:
 
-| d6 | Milestone Boon |
-|-:|------------------------------------------------------------|
+|d6| Milestone Boon |
+|-|------------------------------------------------------------|
 |1| Amber pendant (Adv once on SPR) |
 |2| Wolf pup (Beast Bond) |
 |3| Spirit scar (once per session, gain Advantage on one SPR roll to bargain with spirits; costs +1 Shadow) |

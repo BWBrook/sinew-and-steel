@@ -190,6 +190,8 @@ To keep “limited med‑supplies” tension without usage dice, track **Medkit 
 - At **4/4**, the kit is empty until resupplied in port.
 - On a natural **20**, the patient worsens (infection, shock, or a botched stitch): lose **1 STM** and mark **+1 Strain**.
 
+---
+
 \clearpage
 
 ## GUILDMASTER’S PROTOCOLS (Custodian)
@@ -230,8 +232,8 @@ If you want randomness, pick or roll d6 on your own table — but keep it fast a
 
 ### Sector events (pick or roll d6)
 
-| d6 | Crisis |
-|-:|------------------------------------------------------------|
+|d6| Crisis |
+|-|-------------------------------------------|
 |1| Pirate corsair shadows you — demand tribute or combat |
 |2| Local noble requests a jump courier — lucrative patron |
 |3| Solar flare: comms blackout; test DEX to protect sensors (failure marks +1 Strain) |
@@ -251,6 +253,8 @@ If you want randomness, pick or roll d6 on your own table — but keep it fast a
 ### Guildmaster moves
 
 Port fees double; lien threatens impound • Pirate corsair on scan • Misfuelled jump contaminates the drive • Patron offers time‑critical cargo • Lingering sickness on board.
+
+---
 
 \clearpage
 
