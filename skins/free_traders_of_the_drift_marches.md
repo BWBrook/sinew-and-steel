@@ -37,28 +37,11 @@ In this skin, the Custodian is often called the **Guildmaster**.
 Tokens are stamped credits kept in a battered cred‑clip.
 
 When the Custodian calls for blind chance — “**Test your Fate**!” — roll under your **current credits** (not your maximum).
-Spend credits now to nudge rolls, but remember: fewer tokens means shakier Fate later.
+Spend credits now to nudge rolls, but remember: fewer credits means shakier Fate later.
 
-A short rest in a safe berth restores **+1 token**; a restful week in port, high‑grade liquor, or a long sleep may restore more.
+A short rest in a safe berth restores **+1 Fate token**; a restful week in port, high‑grade liquor, or a long sleep may restore more.
 
 *“Jump‑shock rippled your fillings; the vox hummed with residual static.”*
-
-### Prior‑Service Knacks (choose one)
-
-Each use costs: **spend 1 Fate token** or **mark +1 Strain**.
-
-| Knack | Effect |
-|---|---------|
-| **Ex‑Marine** | Once per scene, treat one ranged attack as Advantage (ignore recoil/zero‑G). |
-| **Scout Surveyor** | Once per scene, test EDU for astrogation/survey with Advantage. |
-| **Merchant Broker** | Once per port call, reroll one trade test you just made (keep the new result). |
-| **Old Name** | Spend 1 Fate token to pull rank: Advantage on a SOC test with system officials. |
-| **Salvage Rat** | Once per scene, you automatically succeed on a zero‑G manoeuvre that would otherwise need a test. If you try this in gravity, mark **+1 Strain**. |
-
-### Optional Expertise (choose one stat)
-
-Choose one stat as **Expertise** — pilot (DEX), engineer (EDU), liaison (SOC).
-When a task squarely fits your expertise, roll with Advantage.
 
 ### Weapons & Edges
 
@@ -68,7 +51,7 @@ When a task squarely fits your expertise, roll with Advantage.
 | Snub‑pistol (gauss), shotgun | +1 |
 | Laser carbine, ACR | +2 |
 
-**Fatal (example):** laser carbine at point‑blank against an unarmoured target — **Fatal (counter: any armour or hard cover)**.
+**Fatal (example):** laser carbine at point‑blank against an unarmoured target. Counter: any armour or hard cover.
 
 ### Armour & Soak
 
@@ -82,7 +65,29 @@ When a task squarely fits your expertise, roll with Advantage.
 
 ---
 
-## SHIPBOARD PROCEDURE (core‑aligned)
+### Prior‑Service Knacks (choose one)
+
+Each use costs: **spend 1 Fate token** or **mark +1 Strain**.
+
+| Knack | Effect |
+|---|---------|
+| **Ex‑Marine** | Once per scene, make a ranged attack with Advantage (ignore recoil/zero‑G). |
+| **Scout Surveyor** | Once per scene, make an EDU test with Advantage for astrogation or survey. |
+| **Merchant Broker** | Once per port call, reroll one trade test you just made (keep the new result). |
+| **Old Name** | Spend 1 Fate token to pull rank: gain Advantage on a SOC test with system officials. |
+| **Salvage Rat** | Once per scene, you automatically succeed on a zero‑G manoeuvre that would otherwise need a test. If you try this in gravity, mark **+1 Strain**. |
+
+### Expertise (choose one stat)
+
+Choose one stat as **Expertise** — pilot (DEX), engineer (EDU), liaison (SOC).  
+
+When a task squarely fits your expertise, roll with Advantage.
+
+---
+
+\clearpage
+
+## SHIPBOARD PROCEDURE
 
 Space‑trader tension comes from logistics, debt, and bad odds — but you don’t need extra dice systems to get it.
 Use **clocks** plus a few decisive tests.
@@ -106,7 +111,7 @@ If a role is unfilled, treat it as a failure.
 |---|--|---|------|
 | **Astrogator** | EDU | clean emergence | mark **+1 Strain**; on natural **20**: **misjump** (tick Fuel +2, mark +1 Strain, arrive somewhere wrong) |
 | **Engineer** | EDU | no wear | mark **+1 Strain** and tick **Hull Damage +1** |
-| **Watch officer** | DEX or SOC | early warning (Advantage on first roll next encounter) | surprise encounter or red‑tape delay |
+| **Watch officer** | DEX or SOC | early warning (the crew has Advantage on the first test of the next encounter) | surprise encounter or red‑tape delay |
 
 ### Ship Shares (party pool)
 
@@ -120,18 +125,20 @@ If you want concrete numbers, treat **1 share ~ 10 000 credits** of “problem
 
 ---
 
-## STRAIN TRACK (Pressure skin)
+\clearpage
+
+## STRAIN (Pressure track)
 
 Strain is crew morale and systems load. It runs **0–5**; at **5** trigger a crisis, then reset Strain to **0**.
 
 | Step | Indicator | Effect |
-|-|---|-----|
+|--|---|-----|
 |0|Green board|—|
 |1|Amber caution|cosmetic: crew snappish, hull pings|
 |2|High load|Disadvantage on your next **EDU** or **SOC** test|
-|3|Over‑taxed|each **risky test** costs **1 Fate token** (spend before rolling) or marks **+1 Strain**|
+|3|Over‑taxed|each **risky test** costs **1 Fate token** (spend before rolling) or mark **+1 Strain**|
 |4|Red line|Disadvantage on all tests|
-|5 **Crisis**|Panic, mutiny, or hull crisis|trigger a crisis, reset Strain to **0**|
+|5 **Crisis**|Panic, mutiny, or hull crisis|Roll a Strain crisis, reset Strain to **0**|
 
 _(A risky test is any roll where failure would materially change the situation: harm, loss, exposure, separation. Routine talk and obvious chores need no roll.)_
 
@@ -141,14 +148,14 @@ _(A risky test is any roll where failure would materially change the situation: 
 
 **Strain crisis (pick or roll d6)**
 
-| d6 | Crisis |
-|-:|----------------------------------|
-| 1 | Core flash‑over — everyone loses **1 STM** |
-| 2 | Helm panic — veer into hazard (an encounter begins at Disadvantage) |
-| 3 | Mutiny spark — immediate social conflict; **SOC** tests at Disadvantage next session |
-| 4 | System lockdown — one ship function offline until port repair |
-| 5 | Debt call‑in — lose **1 Ship Share** immediately (or tick Debt +1 if at 0 shares) |
-| 6 | Roll twice; apply both |
+|d6 | Crisis |
+|-|---------------|
+|1| Core flash‑over — everyone loses **1 Stamina** |
+|2| Helm panic — veer into hazard (the encounter begins with Disadvantage on your first test) |
+|3| Mutiny spark — immediate social conflict; **SOC** tests are at Disadvantage next session |
+|4| System lockdown — one ship function offline until port repair |
+|5| Debt call‑in — lose **1 Ship Share** immediately (or tick Debt +1 if at 0 shares) |
+|6| Roll twice; apply both |
 
 Fate is personal risk. Strain is the ship’s mood, its wear, and the crew’s frayed nerves. Your courage may cost the ship its calm.
 
@@ -164,9 +171,9 @@ When you hit port, resolve money and trouble in one beat.
 
 Test **SOC** (broker it) or **EDU** (read the market).
 
-- **Success:** gain **+1 Ship Share**, or clear **−1 Debt tick**.
+- **Success:** gain **+1 Ship Share**, or clear **1 tick** from **Debt**.
 - **Failure:** mark **+1 Strain**, or tick **Debt +1** (Guildmaster chooses the more truthful consequence).
-- **Natural 20:** both — and someone notices (add a complication: audit, shakedown, or a patron with leverage).
+- **Natural 20 (worst):** mark **+1 Strain** and tick **Debt +1** — and someone notices (add a complication: audit, shakedown, or a patron with leverage).
 
 Merchant Broker lets you reroll this once per port call.
 
@@ -184,11 +191,11 @@ Offer 2–3 jobs. Each job should state:
 
 To keep “limited med‑supplies” tension without usage dice, track **Medkit Supplies (0/4)**.
 
-- Each time you treat a serious injury, tick Supplies **+1** and test **EDU**.
-  - Success: restore **+1 STM** (up to max).
+- Each time you treat a serious injury, tick Supplies **+1** and make an **EDU** test.
+  - Success: restore **+1 Stamina** (up to max).
   - Failure: no healing and mark **+1 Strain** (panic, infection risk, missing meds).
 - At **4/4**, the kit is empty until resupplied in port.
-- On a natural **20**, the patient worsens (infection, shock, or a botched stitch): lose **1 STM** and mark **+1 Strain**.
+- On a natural **20**, the patient worsens (infection, shock, or a botched stitch): lose **1 Stamina** and mark **+1 Strain**.
 
 ---
 
@@ -211,9 +218,9 @@ Use this when you want a fast dogfight without a tactical map.
   - **Turret edge** (+1 per turret; high‑energy laser +2)
 
 Each round:
-1. Both pilots test **DEX**. Winner gains Advantage on the gunner’s next attack.
+1. Both pilots test **DEX**. Winner grants their gunner Advantage on the next attack test this round.
 2. Gunner tests **DEX** (attack) vs defender pilot’s **DEX** (defend).
-3. On a hit, tick Hull Damage by **(1 + turret edge − effective soak)** (dynamic soak applies as normal).
+3. On a hit, tick Hull Damage by **(1 + turret edge − effective soak)** (minimum 0; dynamic soak applies as normal).
 4. At Hull Damage **6**, the drive is disabled: drift, board, or boom per fiction.
 
 Missiles (optional): one salvo per rack. Defender tests **EDU** to jam; on a failed jam, treat the missile as **edge +2** and tick Hull Damage.
@@ -223,25 +230,25 @@ Missiles (optional): one salvo per rack. Defender tests **EDU** to jam; on a fai
 When nameless crew accompany the PCs on a dangerous surface beat:
 
 - If the PCs **fail** the key risky test of the beat, the Guildmaster chooses a consequence:
-  - one support crewmate wounded (lose **1 STM**, needs treatment)
+  - one support crewmate wounded (lose **1 Stamina**, needs treatment)
   - one support crewmate killed
   - one support crewmate missing (later complication)
-  - stray hit: a PC loses **1 STM**
+  - stray hit: a PC loses **1 Stamina**
 
 If you want randomness, pick or roll d6 on your own table — but keep it fast and fair.
 
 ### Sector events (pick or roll d6)
 
 |d6| Crisis |
-|-|-------------------------------------------|
+|-|----------|
 |1| Pirate corsair shadows you — demand tribute or combat |
 |2| Local noble requests a jump courier — lucrative patron |
-|3| Solar flare: comms blackout; test DEX to protect sensors (failure marks +1 Strain) |
-|4| Scout Z-lancer drops war rumours on the next main; mark +1 Strain |
+|3| Solar flare: comms blackout; test DEX to protect sensors (on failure, mark **+1 Strain**) |
+|4| Scout Z-lancer drops war rumours on the next main; mark **+1 Strain** |
 |5| Merchant prince auctions rare jump fuel (bid Ship Shares or take Debt ticks) |
 |6| Derelict liner beacons: salvage claim vs rescue ethics |
 
-### Storyteller's Primer
+### Storyteller’s Primer
 
 - Technical brevity: “Class-B Cruiser *Peregrine*, 200‑ton.”
 - Sparse wonder: one vivid detail per scene (rings, aurora, hull frost).
@@ -267,7 +274,7 @@ Port fees double; lien threatens impound • Pirate corsair on scan • Misfuell
 Creation: standard budget (**6** build points; used **6**)  
 STR 8 DEX 12 EDU 14 SOC 8 FAT 8/8 STM 5/5 Strain 0/5  
 Knack: Scout Surveyor. Expertise: EDU (Astrogation).  
-Snub‑pistol +1, flight suit (soak 0), battered survey kit (Advantage on EDU field analysis when you have time).
+Snub‑pistol +1, flight suit (soak 0), battered survey kit (Advantage on EDU tests for field analysis when you have time).
 
 ### Harlan “Holo” Vesk — Free Trader deckhand
 
@@ -275,7 +282,7 @@ Snub‑pistol +1, flight suit (soak 0), battered survey kit (Advantage on EDU fi
 
 Creation: standard budget (**6** build points; used **6**)  
 STR 14 DEX 9 EDU 8 SOC 7 FAT 10/10 STM 7/7 Strain 0/5  
-Knack: Belter Rat. Expertise: STR (Cargo Handling).  
+Knack: Salvage Rat. Expertise: STR (Cargo Handling).  
 Blade 0, jack suit (soak 0), EVA clamps, a lucky spacer charm he swears he doesn’t believe in.
 
 ---

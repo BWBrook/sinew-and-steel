@@ -34,7 +34,7 @@ Suggested creation tone: **standard** (**6** build points).
 Tokens are battered **emergency chits** in a pocket case.
 
 When the Custodian calls for blind chance — “**Test your Resourcefulness**!” — roll under your **current chits** (not your maximum).
-Spend chits now to nudge rolls, but remember: fewer tokens means shakier Resourcefulness later.
+Spend chits now to nudge rolls, but remember: fewer chits means shakier Resourcefulness later.
 
 A short rest in quarters or the mess restores **+1 chit**; a focus drill or strong coffee may restore more.
 
@@ -60,29 +60,27 @@ A short rest in quarters or the mess restores **+1 chit**; a focus drill or stro
 
 ### Operations
 
-* **“Reroute!”** — once per scene declare a systems miracle; spend **1 RES** for Advantage on a SYS roll that patches power, re‑phases a shield segment, isolates a leak, etc.
-* **“Technobabble Buffer.”** Spend **2 RES** after a failed SYS roll to delay the consequence by one beat (gives the team time to react).
-  - If the problem still isn’t resolved by the next scene, mark **+1 Stress** and the delayed consequence lands.
-* **Cross‑Training Override** *(once per scene)*
-You’ve done time in other departments. Say which one, then take Advantage on the roll.
+- **“Reroute!”** *(once per scene)* — declare a systems miracle; spend **1 RES** for Advantage on a **SYS** test that patches power, re‑phases a shield segment, isolates a leak, etc.
+- **“Technobabble Buffer.”** — after a failed **SYS** test, spend **2 RES** to delay the consequence by one beat (gives the team time to react). If the problem still isn’t resolved by the next scene, mark **+1 Stress** and the delayed consequence lands.
+- **Cross‑Training Override** *(once per scene)* — you’ve done time in other departments. Choose one below, pay the cost, then take Advantage on the roll (and claim the narrative perk).
 
 | Department | Gain Advantage on… | Narrative perk | Cost |
 |--|----|----|---|
 | **Ops / Security** | MSC and REF tests to restrain, firefight, EVA repair | A locker sidearm is “conveniently nearby.” | +1 RES |
 | **Research / Medical** | SYS (analysis) or HAR (triage) | Custodian must reveal one hard data point about the anomaly. | +1 Stress |
-| **Command / Flight** | HAR (orders) or SYS (helm, shuttle) | You may shift **1 Stress** from yourself to the ship’s alert status (narrative only). | 1 RES *or* +1 Stress |
+| **Command / Flight** | HAR (orders) or SYS (helm, shuttle) | You may shift **1 Stress** from the crew to the ship’s alert status (fiction only). | +1 RES *or* +1 Stress |
 
-*Limits:* only one override per scene; can’t override at Stress 4 if out of RES.
+*Limits:* only one override per scene. If you’re at Stress 4, you can only pay costs with RES (not Stress).
 
 ### Scanner Protocol
 
 | Mode | How to use | What you get | Cost / Risk |
 |--|----|-----|----|
 | **Quick Scan** | Test **SYS** with Advantage | One concrete data point | none |
-| **Deep Scan** *(once per scene)* | Spend **1 RES** *or* mark **+1 Stress**, test SYS (normal) | Ask two yes/no questions the Custodian must answer truthfully | cost above |
-| **Overload Push** | If you roll a natural **20** on a scan (worst), you may spend **2 RES** to salvage a partial reading | Avoid total failure; the scanner fries until repaired (simple SYS) | 2 RES & device offline |
+| **Deep Scan** *(once per scene)* | Spend **1 RES** *or* mark **+1 Stress**, then test **SYS** (normal) | Ask two yes/no questions the Custodian must answer truthfully | cost above |
+| **Overload Push** | If you roll a natural **20** on a scan (worst), you may spend **2 RES** to salvage a partial reading | Avoid total failure; the scanner fries until repaired (simple **SYS** test) | **2 RES**; device offline |
 
-> (Safety regs: bypassing sensor interlocks without authorisation marks **+1 Stress**.)
+> Safety regs: bypassing sensor interlocks without authorisation marks **+1 Stress**.
 
 \clearpage
 
@@ -106,18 +104,18 @@ Rotate spotlight scenes across departments so “ship life” feels broad and li
 
 ## COMPUTER SYSTEMS (Showrunner Notes — Custodian)
 
-### **Stress** Track (Pressure skin)
+### Stress (Pressure track)
 
 Stress is shipboard pressure. It runs **0–5**; at **5** trigger a crisis, then reset Stress to **0**.
 
 | Step | Status hue | Shipboard effect |
 |--|---|------|
-|0|Blue‑calm|—|
-|1|Green blip|cosmetic: warning chimes, flickering panels|
-|2|Yellow|Disadvantage on time‑sensitive repairs|
-|3|Orange|section lockdowns, NPC suspicion|
-|4|High alert|each **risky test** costs **1 RES** (spend before rolling) or marks **+1 Stress**; senior staff glare|
-|5 **Crisis**|Breach klaxon|roll Stress crisis, reset to **0**|
+|0| Blue‑calm|—|
+|1| Green blip|cosmetic: warning chimes, flickering panels|
+|2| Yellow|Disadvantage on time‑sensitive repairs|
+|3| Orange|section lockdowns, NPC suspicion|
+|4| High alert|each **risky test** costs **1 RES** (spend before rolling) or marks **+1 Stress**; senior staff glare|
+|5 **Crisis**| Breach klaxon|Roll a Stress crisis, reset to **0**|
 
 ![](../assets/art/ss_service_ducts_klaxon_steam.png){.margin-left width=2in}
 
@@ -132,9 +130,9 @@ _(A risky test is any roll where failure would materially change the situation: 
 |d6 | Crisis |
 |-|------|
 |1| Reactor cascade — EVA scramble or emergency vent |
-|2| Containment loss — radiation burns: lose **1 STM** if you’re in the section |
-|3| Safety inquiry — Disadv social with command next session |
-|4| Nanite alarm — SYS roll or lose a key system |
+|2| Containment loss — radiation burns: lose **1 Stamina** if you’re in the section |
+|3| Safety inquiry — Disadvantage on social tests with Command next session |
+|4| Nanite alarm — test **SYS** or lose a key system until repaired |
 |5| Shipwide lockdown — travel restricted, timers tick |
 |6| Roll twice; apply both |
 
@@ -182,7 +180,7 @@ If you want a safety valve, use **logs** as clues: sensor records and captain’
 > Options:
 > 1. Close the manual cutoff — risk flash‑burn on a Muscle roll.
 > 2. Crawl deeper, hoping to reach the primary junction (Reflex).
-> 3. Bypass power through a jury‑rigged phase inverter (Systems, Adv if you spend “Reroute!”).
+> 3. Bypass power through a jury‑rigged phase inverter (Systems; Advantage if you spend “Reroute!”).
 > 4. Get everyone on the same page over comms — calm, coordinate, and keep the room from panicking (Harmony).
 
 *—How will the lower decks save the upper?*
@@ -199,7 +197,7 @@ If you want a safety valve, use **logs** as clues: sensor records and captain’
 
 Creation: standard budget (**6** build points; used **6**)  
 MSC 10 REF 12 SYS 11 HAR 8 RES 10/10 STM 6/6 Stress 0/5  
-Beam sidearm +1 (stun), spanner set, scanner (Adv SYS scans).
+Beam sidearm +1 (stun), spanner set, scanner (Advantage on SYS scans).
 
 ### Chief Ortiz — Maintenance Bosun
 
@@ -207,9 +205,9 @@ Beam sidearm +1 (stun), spanner set, scanner (Adv SYS scans).
 
 Creation: standard budget (**6** build points; used **6**)  
 MSC 11 REF 8 SYS 13 HAR 11 RES 8/8 STM 5/5 Stress 0/5  
-Tool satchel (Adv SYS repairs when you have access), stun baton 0, tactical vest soak 2.  
+Tool satchel (Advantage on SYS repairs when you have access), stun baton 0, tactical vest (soak 2).  
 Knows every duct crawlspace between the engine rooms.
 
 ---
 
-> _"Captain, engineering here. We don't know how long we can hold this bucket o' bolts together!"_
+> _“Captain, engineering here. We don’t know how long we can hold this bucket o’ bolts together!”_

@@ -357,7 +357,7 @@ Rename Wealth per skin (Coin / Dollars / Credits / Supplies / Influence / Cargo 
 ### Using this document
 Hand the two‑page **Quickstart Rules** to the table; keep this booklet behind the screen (or share it digitally for deeper guidance).  
 
-Trim, hack, translate — license is CC‑BY; credit & create.
+Trim, hack, translate — licence is CC‑BY; credit & create.
 
 ---
 

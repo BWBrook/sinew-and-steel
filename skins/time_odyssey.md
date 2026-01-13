@@ -8,14 +8,13 @@
 _(Use atop the Sinew & Steel rules; anything not listed here follows the core.)_
 
 Time Odyssey is a scientific romance skin: brass and ivory wonder, distant epochs, and the chill realisation that history does not care who you are.
-
 Expect hard choices, strange futures, and consequences that ripple across centuries.
 
 Suggested creation tone: **pulp** (**12** build points) suits daring chrononautics well.
 
 ---
 
-## CHRONONAUT'S CODEX (Adventurer)
+## CHRONONAUT’S CODEX (Adventurer)
 
 *A skin for excursions across the centuries*  
 
@@ -59,19 +58,19 @@ A short rest restores **+1 token**; paradoxical boons or esoteric rejuvenators m
 
 (Dynamic soak: after a hit, reduce soak by **1 per full 4 points** of attacker margin; **nat 1 pierces all**.)
 
-### Temporal Anomaly (Pressure skin)
+### Anomaly (Pressure track)
 
 ![](../assets/art/ss_time_odyssey_anomaly_crack.png){.margin-right width=2in}
 
-Meddling with history courts paradox.
+Meddling with history courts temporal paradox.
 
-Call for a Test when the outcome is uncertain and the stakes are historical: altering major events, meeting one’s past self, operating the machine under duress, or defying a fixed point.
+Call for an Anomaly test when the outcome is uncertain and the stakes are historical: altering major events, meeting one’s past self, operating the machine under duress, or defying a fixed point.
 
 - **Test INT** (reason, calculations) or **Test ING** (lateral insight, luck).
 - On failure, mark **+1 Anomaly**.
-- At **5**, trigger a crisis from the table — then reset Anomaly to **0**.
+- At **5 Anomaly**, trigger a crisis from the table — then reset Anomaly to **0**.
 
-> "There are three dimensions of space, but time is the fourth we now choose to explore!"
+> *“There are three dimensions of space, but time is the fourth we now choose to explore!”*
 
 #### Crisis Table (d6) or choose
 
@@ -79,26 +78,26 @@ Call for a Test when the outcome is uncertain and the stakes are historical: alt
 |-|------|
 |1| Memory fracture — forget the last scene until reminded |
 |2| Equipment sublimates — key item vanishes in glitter |
-|3| Rip current — party hurled d10×1000 years off‑target |
+|3| Rip current — party hurled d6×1000 years off‑target |
 |4| Temporal echo — hostile duplicate of PC appears |
 |5| Reality blur — Disadvantage on all rolls next session |
 |6| Roll twice; apply both |
 
-### Equipment & Burden nuance
+### Equipment & Burden
 
 ![](../assets/art/ss_time_odyssey_kit.png){.wrap-left width=1.5in}
 
-Six big items; your brass‑and‑crystal chronal engine is always off‑screen. 
+Six big items. Your brass‑and‑crystal chronal engine is always off‑screen.
 
-Currency shifts by era—bulky coinage invites thieves or customs scrutiny.
+Currency shifts by era — bulky coinage invites thieves or customs scrutiny.
 
 ### Advancement Boon Seeds
 
-After surviving a paradox cascade, cataloguing a prehistoric beast or shaping an epochal alliance, a **Milestone** and Boon might be awarded.  
+After surviving a paradox cascade, cataloguing a prehistoric beast, or shaping an epochal alliance, the Custodian may award a **Milestone** and a boon.  
 
-Future‑alloy blade (+1 edge) • Patent rights (wealth advantage) • Eocene amber sample (sell it: restore **+3 Ingenuity tokens**, up to max) • Sphinx guardian favour (Adv once on EMP).
+Future‑alloy blade (+1 edge) • Patent rights (wealth perk) • Eocene amber sample (sell it: restore **+3 Ingenuity tokens**, up to your maximum) • Sphinx guardian favour (once: Advantage on EMP).
 
-> *Ink these strictures upon vellum or etch them on a pocket brass plate—chrononauts who ignore them soon vanish into contradictory echoes.*  
+> *Ink these strictures upon vellum or etch them on a pocket brass plate — chrononauts who ignore them soon vanish into contradictory echoes.*  
 
 \clearpage
 
@@ -108,30 +107,30 @@ Future‑alloy blade (+1 edge) • Patent rights (wealth advantage) • Eocene a
 
 ### Narrative Tone
 
-Brisk reportage, lyrical awe, with undercurrent of unease. Mix brass rivets and cosmic foreboding:
+Brisk reportage, lyrical awe, with an undercurrent of unease. Mix brass rivets and cosmic foreboding:
 “Ultramarine suns shimmered over a crystal sea as the machine’s valves hissed with protest.”
 
 **Frame a beat:**
 
-> The lever shudders. The needles climb. Outside the frosted glass, the world turns—too fast, too smooth—until the sky is the wrong colour.
+> The lever shudders. The needles climb. Outside the frosted glass, the world turns — too fast, too smooth — until the sky is the wrong colour.
 
-Present 2-4 options in second‑person imperative, focused on protagonist. Include at least one hidden or risky path. Example:  
+Present 2–4 options in second‑person imperative, focused on the protagonist. Include at least one hidden or risky path. Example:  
 
 > 1. Descend into the ventilator shaft.  
 > 2. Retreat to the machine and recalibrate era coils.  
 > 3. Trust the pale child’s silent gesture.  
 
-Ensure consequences ripple across epochs—saving a single flower in a far‑future garden may cure a Victorian cholera outbreak.  
+Ensure consequences ripple across epochs — saving a single flower in a far‑future garden may cure a Victorian cholera outbreak.  
 
-Wrap the boon in story: a strange crystal implant grants **Advantage on one INT test per session**; a companion’s unwavering faith grants **one EMP reroll** (once).
+Wrap the boon in story: a strange crystal implant grants **Advantage on one INT test per session**; a companion’s unwavering faith lets you **reroll one EMP test** (once).
 
 ### Custodian moves
 
-Under‑tunnel ambush · Temporal storm blocks return · Rival chrononaut stakes claim · Faustian bargain: erase plague, gain +1 Anomaly.
+Under‑tunnel ambush · Temporal storm blocks return · Rival chrononaut stakes claim · Faustian bargain: erase a plague, mark +1 Anomaly.
 
 ### Luck (Ingenuity) Guidance
 
-Call for a **Test of Ingenuity** when blind chance or hidden quantum decides: which epoch‑rift opens, whether a stray bullet hits the machine.
+Call for “**Test your Ingenuity**!” when blind chance or hidden quantum decides: which epoch‑rift opens, whether a stray bullet hits the machine.
 
 Keep it to 1–2 per session.
 
@@ -141,7 +140,7 @@ Keep it to 1–2 per session.
 
 Track beats and parallel timelines with chronological tags (1890A, 9000B, 2MyrC…).
 
-Reward good record‑keeping: if players consult journals, maps, or diagrams, grant **Advantage** on INT/ING rolls to reconcile contradictions.
+Reward good record‑keeping: if players consult journals, maps, or diagrams, grant **Advantage** on INT or ING tests to reconcile contradictions.
 
 In this genre, the timeline doesn’t rewind — paradox is paid for in scars, loss, and **Anomaly**.
 
@@ -160,16 +159,16 @@ In this genre, the timeline doesn’t rewind — paradox is paid for in scars, l
 *Steam‑age inventor, boundless curiosity, dash of reckless courage.*  
 Creation: pulp budget (**12** build points; used **12**)  
 PRW 9 REF 11 INT 14 EMP 7 ING 13/13 STM 5/5 Anomaly 0/5  
-Pocket revolver +1 (close), brass goggles (Adv vision REF), notebook (Adv INT deduction), tool‑roll, mixed‑era coins  
+Pocket revolver +1 (close range), brass goggles (Advantage on sight‑based REF tests), notebook (Advantage on INT tests for deduction), tool‑roll, mixed‑era coins  
 
 ### Nyra — Far‑Future Companion
 
 ![](../assets/art/ss_time_nyra.png){.wrap-left width=1in}
 
-*Gentle child of a far future, embodies innocence and quiet resilience.*  
+*Gentle child of the far future, embodies innocence and quiet resilience.*  
 Creation: pulp budget (**12** build points; used **12**)  
 PRW 6 REF 11 INT 9 EMP 16 ING 12/12 STM 4/4 Anomaly 0/5  
-Wiltflower charm (Adv calming creatures), glow‑stone bead (light). Disadv in harsh industrial ages.
+Wiltflower charm (Advantage when calming creatures), glow‑stone bead (light). Disadvantage in harsh industrial ages.
 
 ---
 

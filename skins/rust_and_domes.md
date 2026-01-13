@@ -14,7 +14,7 @@ Suggested creation tone: **standard** (**6** build points) — gritty but capabl
 
 ---
 
-## COLONIST'S HANDBOOK (Adventurer)
+## COLONIST’S HANDBOOK (Adventurer)
 
 *A fast‑moving toolkit for dust‑choked sci‑fi adventure.*
 
@@ -35,7 +35,7 @@ Suggested creation tone: **standard** (**6** build points) — gritty but capabl
 Tokens are battered cred‑chits.
 
 When the Custodian calls for blind chance — “**Test your Luck**!” — roll under your **current cred‑chits** (not your maximum).
-Spend tokens now to nudge rolls, but remember: fewer tokens means shakier Luck later.
+Spend cred‑chits now to nudge rolls, but remember: fewer chits means shakier Luck later.
 
 A short rest in a safe hab restores **+1 cred‑chit**; stim packs or narrative boons may restore more.
 
@@ -62,7 +62,7 @@ A short rest in a safe hab restores **+1 cred‑chit**; stim packs or narrative 
 
 ![](../assets/art/ss_rust_domes_oxygen_gauge.png){.wrap-left width=1.5in}
 
-A short breather with clean water restores **+1 STM**; a full med‑bay cycle or expert field surgeon restores **+2 STM** (up to max).
+A short breather with clean water restores **+1 Stamina**; a full med‑bay cycle or expert field surgeon restores **+2 Stamina** (up to max).
 
 Critical injuries may require med‑gel, cybernetic grafts, or a night in the autodoc.
 
@@ -72,7 +72,9 @@ Six big items (long guns, bulky toolkits, sealed cargo). Extra load ⇒ Disadvan
 
 Flashing digi‑coin draws attention from Syndicate footpads and corp‑security alike.
 
-### Psionics (optional plug‑in)
+---
+
+### Psionics
 
 Hard vacuum, cobalt storms, and stray solar flux have coaxed a minority of colonists into weak **M‑field sensitives**.
 
@@ -82,8 +84,8 @@ Psionics ride **Mind (MND)** and slot in beside guns and hacks — no extra dice
 |--|------|
 | **Activate** | Test **MND**. Spend Luck to nudge as usual. |
 | **On success** | The effect manifests (see table). Extra margin means stronger, subtler, or broader — at the Custodian’s discretion. |
-| **On failure** | Your spike pings a scanner: mark **+1 Heat** and suffer Disadvantage on the next psionic test this scene. |
-| **Cost** | Each use costs **1 STM** (nosebleed, neural shock). You may instead spend **1 LCK token** to ignore the fatigue. |
+| **On failure** | Your spike pings a scanner: mark **+1 Heat** and suffer Disadvantage on your next psionic test this scene. |
+| **Cost** | Each use costs **1 Stamina** (nosebleed, neural shock). You may instead spend **1 Luck token** (a cred‑chit) to ignore the fatigue. |
 
 #### Quick Power Menu
 
@@ -94,13 +96,15 @@ Psionics ride **Mind (MND)** and slot in beside guns and hacks — no extra dice
 | **Neuro‑Veil** | For one minute, hide from basic sensors/cams; margin ≥ 6 cloaks an adjacent ally too. |
 | **Chrono‑Glitch** | Glimpse a likely outcome of the next beat (Custodian gives a one‑sentence omen). Margin ≥ 10 lets you ask a yes/no follow‑up. |
 
-Psionics can’t pierce psi‑mesh helmets (rare, expensive) and never alter natural **1s** or **20s**.
+Psionics can’t pierce psi‑mesh helmets (rare, expensive) and can’t alter natural **1s** or **20s** (those can’t be nudged).
 
 Because each miss spikes **Heat**, repeated misuse draws Corp‑Sec “mind‑scrub” squads in a hurry.
 
 Use sparingly; Mars already wants your mind.
 
-### Pressure Track — **Heat**
+---
+
+### Heat (Pressure track)
 
 Heat is Corporate and Syndicate scrutiny. It runs **0–5**; at **5** trigger a crisis, then reset Heat to **0**.
 
@@ -108,16 +112,16 @@ A **risky test** is any roll where failure would materially change the situation
 
 | Step | HUD colour | Custodian effects |
 |--|---|------|
-|0|Green|Clear |
-|1|Blue flicker|Cosmetic: rumours, routine scans |
-|2|Yellow|Minor Disadvantage on black‑market deals |
-|3|Orange|Bounty posted; NPC suspicion |
-|4|Red|Walls have eyes: each **risky test** you attempt marks **+1 Heat** (even on success). Habitats lock doors. |
-|5 Crisis|Crimson alert|Trigger Heat crisis, reset to **0** |
+|0| Green|Clear |
+|1| Blue flicker|Cosmetic: rumours, routine scans |
+|2| Yellow|Minor Disadvantage on black‑market deals |
+|3| Orange|Bounty posted; NPC suspicion |
+|4| Red|Walls have eyes: each **risky test** you attempt marks **+1 Heat** (even on success). Habitats lock doors. |
+|5 Crisis| Crimson alert|Trigger Heat crisis, reset to **0** |
 
 **Gain Heat:** failed covert tests, public gunfire, traced hacks, reckless media leaks.  
 
-**Clear Heat:** pay bribes (lose creds/item), lay low an entire session, or do a favour for the controlling corp.
+**Clear Heat:** pay bribes (lose creds/item), lie low for an entire session, or do a favour for the controlling corp.
 
 **Heat crisis (d6):**
 
@@ -132,13 +136,13 @@ A **risky test** is any roll where failure would materially change the situation
 
 ### Milestone Boon Seeds
 
-Salvage permit (once ignore **+1 Heat** from a single trigger) • Dome Elder favour (Advantage in one social scene) • Pre‑Collapse alloy blade (+1 edge) • Hidden cache (refill Luck pool mid‑run) • Scrambler code (Advantage on your next SKL hack).
+Salvage permit (once: ignore **+1 Heat** from a single trigger) • Dome Elder favour (once: Advantage on a social test) • Pre‑Collapse alloy blade (+1 edge) • Hidden cache (refill your Luck pool mid‑run) • Scrambler code (Advantage on your next SKL hack).
 
 ---
 
 \clearpage
 
-## CONTROLLER'S DOSSIER (Custodian)
+## CONTROLLER’S DOSSIER (Custodian)
 
 *An operational brief for weaving intrigue, peril, and dust‑choked wonder across the Red Frontier.*
 
@@ -146,7 +150,7 @@ In Rust & Domes, the Custodian is often called the **Controller** — the one wa
 
 ### Red‑Dust Tone
 
-Keep prose lean. Hardboiled noir on Olympus Mons: dust devils along the mag‑rail; jet exhaust etching rust into the sky.
+Keep prose lean. Hard‑boiled noir on Olympus Mons: dust devils along the mag‑rail; jet exhaust etching rust into the sky.
 Tech is rusting, corps are bloated carrion birds, and wonder haunts ghost domes.
 
 **Frame a beat:**
@@ -161,14 +165,14 @@ Death is for pathos, not arithmetic.
 
 ![](../assets/art/ss_rust_domes_dome_skyline.png){.wrap-right width=2in}
 
-If you want a ready map: four underground settlements:
+If you want a ready map, use four underground settlements:
 
 - Hearthwell (old)
 - Mirage Junction (new, crime‑ridden)
 - Cobalt Array (science station)
 - Gantry Point (outpost under construction: contact mysteriously lost).
 
-Colonies established by **Perihelion Mining Corporation (PMC)** after rich aresite strikes.
+Colonies were established by **Perihelion Mining Corporation (PMC)** after rich aresite strikes.
 
 ### Martian threats (quick bestiary seeds)
 
@@ -187,7 +191,7 @@ Open with a sensory hook (sand rasping against a visor, antiseptic med‑gel, th
 
 Tag nodes by dome/quadrant (HW‑01, MJ‑A2) and keep a short “job ledger”: objective, debts, Heat triggers, casualties.
 
-If you want an in‑fiction safety net, use **blackbox logs** as clues — footage doesn’t change what happened.
+If you want an in‑fiction safety net, use **black‑box logs** as clues — footage doesn’t change what happened.
 
 ### Tricks & Tactics
 
@@ -201,13 +205,13 @@ Reward ingenuity with Advantage or narrative leverage.
 
 Life‑support warning • Rail‑cannon test quake • Terraformer glitch kicks up storm • Corp auditor arrives • Nomads block the pass.
 
-After a heist concluded, a secret unearthed, or a dust‑storm crossing survived, grant a Milestone.
+After a heist concludes, a secret is unearthed, or a dust‑storm crossing is survived, grant a Milestone.
 
-When in doubt favour bold action but remember that every triumph on rust‑red soil comes smeared with dust and danger.
+When in doubt, favour bold action — but remember that every triumph on rust‑red soil comes smeared with dust and danger.
 
 ### Luck (LCK) Guidance
 
-Call Luck when chance, bureaucracy, or a random supply crate decides.
+Call for Luck when chance, bureaucracy, or a random supply crate decides.
 
 Keep it to 1–2 per session — Mars is harsh, but not roulette.
 
@@ -228,9 +232,8 @@ Keep it to 1–2 per session — Mars is harsh, but not roulette.
 Creation: standard budget (**6** build points; used **6**)  
 ATK 11 DEF 10 SKL 10 MND 13 LCK 9/9 STM 4/4 Heat 0/5
 
-Laser carbine (+2 edge at range; Disadvantage if used in melee), handgun +1, kevlar wrap (soak 1), omni‑tool (Advantage on SKL tests to repair or hack when you have access), mixed ammo, battered cred‑chits.
-Streetwise; Advantage on one MND test per session when dealing with criminals or dock‑bosses.
-Solvent enough to eat, broke enough to take risks.
+Laser carbine (+2 edge at range; Disadvantage on ATK if used in melee), handgun +1, kevlar wrap (soak 1), omni‑tool (Advantage on SKL tests to repair or hack when you have access), mixed ammo, battered cred‑chits.  
+Streetwise: once per session, Advantage on an MND test when dealing with criminals or dock‑bosses. Solvent enough to eat, broke enough to take risks.
 
 ### Miira Nix — Hacker
 
@@ -241,9 +244,9 @@ Solvent enough to eat, broke enough to take risks.
 Creation: standard budget (**6** build points; used **6**)  
 ATK 8 DEF 8 SKL 14 MND 12 LCK 8/8 STM 5/5 Heat 0/5
 
-Datapad & probes (Advantage on SKL tests to hack secured systems once you’re connected), light sidearm +1, work suit (soak 0), ration pack, hoarded cred‑sticks.
+Datapad & probes (Advantage on SKL tests to hack secured systems once you’re connected), light sidearm +1, work suit (soak 0), ration pack, hoarded cred‑chits.  
 Keeps a hidden crash‑pad in Hearthwell; prefers to avoid gunfights.
 
 ---
 
-> *Update Luck spent, Stamina lost, Heat gained. Red dust remembers every debt.*
+> *Track Luck spent, Stamina lost, Heat gained. Red dust remembers every debt.*

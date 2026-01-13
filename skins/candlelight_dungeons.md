@@ -15,7 +15,7 @@ If you want a meat‑grinder crawl, lower build points (standard **6** or grim *
 
 ---
 
-## DELVER'S KIT (Adventurer)
+## DELVER’S KIT (Adventurer)
 
 ### Attribute Labels
 
@@ -42,10 +42,18 @@ A short rest at a warm hearth restores **+1 coin**; dank caves do not.
 
 ### Common tests (defaults)
 
+Use these as quick defaults; if the approach changes, change the stat.
+
+- **STR:** force doors, grapple, haul, smash.
+- **DEX:** sneak, climb, pick locks, disarm traps, missile aim.
+- **LOR:** notice oddities, read runes, solve riddles, cast arcane spells.
+- **FTH:** steel your nerve, rally allies, petition saints, turn undead.
+- **FOR:** when no other stat fits — “Test your Fortune!”
+
 ### Weapons & Edges
 
 | Weapon | Edge |
-|---|---|
+|---|--|
 | Dagger, club | 0 |
 | Sword, spear, short bow | +1 |
 | Greataxe, heavy crossbow | +2 |
@@ -53,7 +61,7 @@ A short rest at a warm hearth restores **+1 coin**; dank caves do not.
 ### Armour & Soak
 
 | Protection | Soak |
-|---|---|
+|---|--|
 | Robes / common clothes | 0 |
 | Leather | 1 |
 | Chain shirt | 2 |
@@ -71,31 +79,35 @@ A short rest at a warm hearth restores **+1 coin**; dank caves do not.
 |--|---|-----|-----|
 | **Cantrip** | LOR or FTH | no cost | no cost |
 | **Spell** | LOR or FTH | choose: spend **1 FOR coin** *or* mark **+1 Fatigue** | mark **+1 Fatigue** |
-| **Greater** | LOR or FTH (**Fortune cannot aid**) | mark **+1 Fatigue** anyway | mark **+2 Fatigue** and Custodian backlash |
-| **Wyrd** | LOR or FTH (**Fortune cannot aid**) | the effect manifests (nat 1 = legend) | backlash **and** roll a Fatigue crisis immediately (reset to **0**) |
+| **Greater Spell** | LOR or FTH | spend **1 FOR coin** *and* mark **+1 Fatigue** | mark **+2 Fatigue** |
+| **Arcanum** | LOR or FTH (Cannot spend FOR coin to nudge this roll) | the effect manifests (nat 1 = legend), mark **+2 Fatigue** | suffer a Custodian-determined backlash **and** roll a Fatigue crisis immediately (reset to **0**) |
 
 ![](../assets/art/ss_candlelight_spell_backlash.png){.wrap-right width=1.5in}
 
 *Learn a spell by study, scroll, or blessing → agree its tier with the Custodian → note it: “**Sleep — Spell (LOR)**”.*
 
-**Wyrd procedure:** mark **+2 Fatigue**, then roll.
+Cantrips, Spells, and Greater Spells, can all be nudged by spending Fortune coins (in addition to any spell cost paid). Arcanums cannot.
 
-**Backlash snippet:** demon whisper (Disadvantage next cast) • mana flare (all torches snuff) • witch‑mark (your next rest restores **no** Fortune).
+**Arcanum procedure:** mark **+2 Fatigue**, then make the casting test. If Fatigue hits **5**, roll a Fatigue crisis once (do not roll twice).  
+
+**Backlash examples:** demon whisper (Disadvantage on your next cast) • mana flare (all torches gutter out) • witch‑mark (your next rest restores **no** Fortune).
 
 ---
 
-## FATIGUE TRACK (Pressure skin)
+\clearpage
+
+## FATIGUE (Pressure track)
 
 Fatigue is the dungeon’s hourglass. It runs **0–5**; at **5** trigger a crisis, then reset Fatigue to **0**.
 
-| Step | Portent | Effect |
+|Step | Portent | Effect |
 |--|----|--------|
-|0|Fresh|—|
-|1|Winded|cosmetic sweat, shaky torch |
-|2|Weary|Disadvantage on your next **STR** or **DEX** test |
-|3|Exhausted|Attacks against you have Advantage |
-|4|Ragged|Each **risky test** costs **1 FOR coin** (spend before rolling) or mark **+1 Fatigue** |
-|5 **Crisis**|Collapse / spell backlash|Roll Fatigue crisis, reset to **0** |
+|0| Fresh|—|
+|1| Winded|cosmetic sweat, shaky torch |
+|2| Weary|Disadvantage on your next **STR** or **DEX** test |
+|3| Exhausted|Attacks against you have Advantage |
+|4| Ragged|Each **risky test** costs **1 FOR coin** (spend before rolling) or mark **+1 Fatigue** |
+|5 **Crisis**| Collapse / spell backlash|Roll Fatigue crisis, reset to **0** |
 
 *Gain:* failed spells, forced marches, grave wounds, night without rest.  
 
@@ -104,7 +116,7 @@ Fatigue is the dungeon’s hourglass. It runs **0–5**; at **5** trigger a cris
 **Fatigue crisis (d6)**
 
 |d6 | Crisis |
-|-:|----------------------------------------------------------|
+|-|----------------------------------------------------------|
 |1| Collapse — drop what you’re holding; lose your next action |
 |2| Torch‑gutter — light falters; the next beat begins in dimness or dark |
 |3| Cramp — lose **1 STM**; you can’t run until you rest |
@@ -116,18 +128,22 @@ _(A risky test is any roll where failure would materially change the situation: 
 
 ---
 
+\clearpage
+
 ## KNACKS (choose one per PC)
 
 Once per scene, do a signature trick. Pay **1 Fortune coin** or mark **+1 Fatigue**.
 
 | Knack | Effect |
 |---|------------|
-| **Backstab** | If you strike from surprise, the hit is **Fatal (counter: awake or gorget helmet)**. |
-| **Turn Undead** | Test **FTH**. Success: lesser undead recoil for a beat; margin ≥ **8** destroys one lesser undead (or scatters the pack). Failure: mark **+1 Fatigue**. |
-| **Second Wind** | Regain **+1 STM** and shake off one Disadvantage affecting you. |
+| **Backstab** | If you strike from surprise, the hit is **Fatal** (counter: staying awake or wearing a gorget helmet). |
+| **Turn Undead** | Test **FTH**. Success: lesser undead recoil for a beat; margin ≥ **8** destroys one lesser undead (or scatters the pack). Failure: mark **+1 Fatigue** regardless. |
+| **Second Wind** | Regain **+1 Stamina** (up to max) and shake off one Disadvantage affecting you. |
 | **Arcane Flex** | Cast one **Spell**‑tier effect as if it were a **Cantrip** (no cost). Your next cast this scene is at Disadvantage. |
 | **Beast Tongue** | Auto‑succeed one attempt to calm, lure, or bargain with a natural creature (Custodian sets the terms). |
 | **Jack‑of‑Trades** | After you roll but before you spend Fortune to nudge, treat the roll as governed by a different stat. |
+
+*Note*: Some NPC monsters are immune to fatal backstab effects, as determined by the Custodian.
 
 ---
 
@@ -141,8 +157,8 @@ When the task squarely fits that expertise, roll with **Advantage** (no class la
 
 ## TOOLS & TAGS
 
-- **Lockpick satchel** — Advantage on **DEX** tests to open/disarm when you have access. On a natural **20**, the picks snap (spent).
-- **Holy symbol** — required focus for Turn Undead; shatters on **FTH** natural **20**.
+- **Lockpick satchel** — Advantage on **DEX** tests to open locks or disarm traps when you have access. On a natural **20**, the picks snap (spent).
+- **Holy symbol** — required focus for Turn Undead; shatters on a natural **20** on a Turn Undead test.
 
 ---
 
@@ -202,7 +218,7 @@ Hold that cadence and the ghosts of ’83 will nod in approval.
 
 ### Fatal tag (reminder)
 
-**Fatal** ignores Stamina and soak: a struck target drops to **0 STM** unless they possess the listed counter‑measure.
+**Fatal** ignores Stamina and soak: a struck target drops to **0 Stamina** unless they possess the listed counter‑measure or are immune to fatal strikes.
 
 Example: Assassin’s throat‑slit on a sleeping victim — **Fatal (counter: staying awake or wearing a gorget helmet while resting)**.
 

@@ -8,7 +8,6 @@
 _(Use atop the Sinew & Steel rules; anything not listed here follows the core.)_
 
 Whispers in the Fog is weird‑horror investigation: frail lantern‑light, forbidden books, polite conversations that turn sour, and truths that do not fit inside a human skull.
-
 Expect foreboding that rises by inches, sudden violence, and answers that feel like bargains.
 
 Suggested creation tone: **standard** (**6** build points) — capable investigators, fragile minds.
@@ -25,7 +24,7 @@ In this skin, the Custodian is often called the **Keeper**.
 
 | Core slot | Whispers label | Covers |
 |--|---|-----|
-| Might | **Vigor (VIG)** | brawling, forced doors, sprinting across wharfs |
+| Might | **Vigor (VIG)** | brawling, forced doors, sprinting across wharves |
 | Reflex | **Agility (AGI)** | stealth, quick‑draw, nimble escapes |
 | Intellect | **Scholarship (SCH)** | research, cryptography, forbidden rites |
 | Empathy | **Fortitude (FRT)** | composure, persuasion, mental resilience |
@@ -43,7 +42,7 @@ Spend tickets now to nudge rolls, but remember: fewer tickets means shakier Fate
 
 A short rest in safety restores **+1 ticket**; opium dreams or saintly relics may restore more.
 
->*“The salt wind carried a note of carrion‑sweetness that no earthly tide should bear.”*
+> *“The salt wind carried a note of carrion‑sweetness that no earthly tide should bear.”*
 
 ---
 
@@ -74,20 +73,20 @@ A short rest in safety restores **+1 ticket**; opium dreams or saintly relics ma
 
 | Tier | Cast with | On **success** | On **failure** |
 |---|---|---|---|
-| **Whisper** | SCH | no cost | no cost |
+| **Murmur** | SCH | no cost | no cost |
 | **Rite** | SCH | choose 1: spend **1 Fate ticket** *or* mark **+1 Insanity** | mark **+1 Insanity** |
-| **Invocation** | SCH (**Fate cannot aid**) | mark **+1 Insanity** anyway | mark **+2 Insanity** and Custodian backlash |
-| **Unspeakable** | SCH (**Fate cannot aid**) | the effect manifests (natural **1** = legend) | backlash **and** roll an Insanity crisis immediately (reset to **0**) |
+| **Incantation** | SCH (Fate cannot be spent to nudge this roll) | mark **+1 Insanity** anyway | mark **+2 Insanity** and Custodian backlash |
+| **Unspeakable** | SCH (Fate cannot be spent to nudge this roll) | the effect manifests (natural **1** = legend) | backlash **and** roll an Insanity crisis immediately (reset to **0**) |
 
 ![](../assets/art/ss_whispers_forbidden_tome.png){.margin-right width=2in}
 
-*Example learns:* “Sign of Drowning — Rite (SCH)”, “Void‑Spawn Banishment — Invocation (SCH)”.
+*Example learns:* “Sign of Drowning — Rite (SCH)”, “Void‑Spawn Banishment — Incantation (SCH)”.
 
-**Unspeakable procedure:** mark **+2 Insanity**, then roll. On a natural **20**, the void answers (Keeper describes the worst plausible consequence).
+**Unspeakable procedure:** mark **+2 Insanity**, then make the casting test. If this takes you to **5**, roll an Insanity crisis once after the rite resolves (do not roll twice). On a natural **20**, the void answers (Keeper describes the worst plausible consequence).
 
 ---
 
-## INSANITY TRACK (Pressure skin)
+## INSANITY (Pressure track)
 
 Insanity is mental pressure. It runs **0–5**; at **5** you **Break**, trigger a crisis, then reset Insanity to **0**.
 
@@ -100,7 +99,7 @@ The mind forgets the count; it does not forget the scar.
 |2| Deep unease|Disadvantage on your next **FRT** test to resist fear or coercion |
 |3| Fracture|Each **risky test** costs **1 Fate ticket** (spend before rolling) or marks **+1 Insanity** |
 |4| Night terrors|Disadvantage on all tests |
-|5 **Break (Crisis)**| Psychotic episode / possession|Roll Insanity crisis, reset to **0** |
+|5 **Break (Crisis)**| Psychotic episode / possession|Roll an Insanity crisis, reset to **0** |
 
 ![](../assets/art/ss_whispers_insanity_spiral.png){.margin-left width=1.8in}
 
@@ -114,9 +113,9 @@ _(A risky test is any roll where failure would materially change the situation: 
 
 |d6| Crisis |
 |-|--------|
-|1| Black‑out violence — you awaken holding a bloodied object (lose **1 STM**) |
+|1| Black‑out violence — you awaken holding a bloodied object (lose **1 Stamina**) |
 |2| Catalepsy — helpless for one scene |
-|3| Desolate vision — Disadvantage on all rolls next session |
+|3| Desolate vision — Disadvantage on all tests next session |
 |4| Whispered truth — gain one crucial rumour clue; your next rest restores **no Fate** |
 |5| Public hysteria — NPCs fear or shun you; Disadvantage on **FRT** tests in polite society until resolved |
 |6| Roll twice; apply both |
@@ -131,7 +130,7 @@ Each use costs: **spend 1 Fate ticket** or **mark +1 Insanity**.
 
 | Knack | Effect |
 |---|--------|
-| **Occult Scholar** | Once per scene, turn a library/tomes search into an Advantage **SCH** test. |
+| **Occult Scholar** | Once per scene, turn a library/tomes search into a **SCH** test with Advantage. |
 | **Detective Intuition** | Spend **1 Fate ticket** to ask the Custodian (Keeper) one yes/no clue question. |
 | **Veteran’s Nerves** | Once per scene, ignore an incoming **+1 Insanity** tick. |
 | **Silver Tongue** | Advantage on your first **FRT** (social) test with any new NPC. |
@@ -142,7 +141,7 @@ Choose one stat as **Expertise** (marksman = AGI, doctor = SCH). When the task s
 
 ---
 
-### Lantern & Battery (light tension, core‑aligned)
+### Lantern & Battery (tension clock)
 ![](../assets/art/ss_whispers_fog_lantern.png){.wrap-right width=2in}
 
 In this genre, light is safety. Darkness is a weapon.
@@ -227,7 +226,7 @@ Pocket‑knife 0, notebook & fountain pen, trunk of grimoires.
 Creation: standard budget (**6** build points; used **6**)  
 VIG 13 AGI 12 SCH 9 FRT 8 FAT 7/7 STM 6/6 Insanity 0/5  
 Knack: Veteran’s Nerves.  
-.38 revolver +1, blackjack 0, trench coat, hip flask (Advantage resisting cold).
+.38 revolver +1, blackjack 0, trench coat, hip flask (Advantage on tests to resist cold).
 
 ---
 

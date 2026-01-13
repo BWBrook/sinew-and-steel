@@ -1,6 +1,6 @@
 # **Sinew & Steel**
 
-*A razor-lean, setting-agnostic role-playing engine—designed to sing at the table and purr in the context of any reasoning AI.*
+*A lean, setting-agnostic role-playing engine—designed to sing at the table and purr in the context of any reasoning AI.*
 
 ---
 
@@ -14,7 +14,7 @@ Sinew & Steel works the other way round:
 * **Skin-agnostic.**  Swap the coat of paint and you’re in Bronze-Age Atlantis, a Martian dust storm, or the heat-death horizon.  
 * **AI-ready.**  The rules are easy for a language model to keep in short-term memory, so the “GM” can focus on story beats instead of chart-flipping.
 
-> *A lean chassis for messy stories. Everything else is skin and sparks.*
+> *A lean chassis for messy stories. Expansion skins for the sparks.*
 
 ---
 

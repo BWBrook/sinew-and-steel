@@ -39,7 +39,7 @@ Hope (HOP) is both a stat and a pool. Write it as **HOP current/max**.
 
 When the Lorekeeper calls for blind chance — “**Test your Hope**!” — roll under your **current Hope** (not your maximum).
 
-Spend Hope now to nudge rolls, but remember: fewer tokens means shakier Hope later.
+Spend Hope now to nudge rolls, but remember: fewer Hope tokens means shakier Hope later.
 
 A short rest by a safe fire restores **+1 Hope token**; a true sanctuary or a season of peace may restore more.
 
@@ -63,7 +63,7 @@ A short rest by a safe fire restores **+1 Hope token**; a true sanctuary or a se
 
 (Dynamic soak: after a hit, reduce soak by **1 per full 4 points** of attacker margin; **nat 1 pierces all**.)
 
-*Fatal tag (example):* Giant's club **Fatal (counter: heavy shield or dodge with Advantage)**.
+*Fatal tag (example):* Giant’s club **Fatal (counter: heavy shield or dodge with Advantage)**.
 
 ### Companionship pool (shared nudges only)
 
@@ -72,7 +72,7 @@ Companionship is a shared reserve the company leans on when one heart falters.
 - Start with **1 Companionship token per PC** (maximum = number of PCs).
 - **Once per scene, each PC may spend 1 token from Companionship** instead of spending their own Hope to **nudge a roll**.
 - Companionship tokens may be used **only** to nudge rolls (not to pay knack costs, rite costs, or other expenses).
-- When the pool reaches **0**, each PC immediately **marks +1 Dread**.
+- When the pool reaches **0**, each PC immediately marks **+1 Dread**.
 
 _(Note: this works cleanly as a campaign clock with `current/max`.)_
 
@@ -83,34 +83,36 @@ Each use costs: **spend 1 Hope token** or **mark +1 Dread**.
 
 | Culture | Knack | Effect |
 |---|---|--------|
-| **Halfling** | *Small & Quiet* | Once per scene, automatically succeed on a NIM stealth test against Big‑folk watchers. |
-| **Warden** | *Keen Eyes* | Once per scene, gain Advantage on one WIS scan in a wild place. |
+| **Halfling** | *Small & Quiet* | Once per scene, automatically succeed on a NIM test to move quietly past Big‑folk watchers. |
+| **Warden** | *Keen Eyes* | Once per scene, gain Advantage on one WIS test to scout a wild place. |
 | **Dwarf** | *Stout‑Heart* | Once per session, ignore an incoming +1 Dread mark you would take (fear, taint, betrayal). |
 | **Elf** | *Starlit Memory* | Once per scene, ask the Lorekeeper one yes/no lore truth about your current situation. |
 | **Trader** | *Plain Speech* | Once per scene, gain Advantage on one HRT test to barter, gossip, or calm folk in a settlement. |
 
 ---
 
-## SUBTLE MAGIC — Old Rites
+## SUBTLE MAGIC
 
-Rites do not hurl fire. They kindle courage, veil footsteps, and turn the will — softly, rarely, and with a price.
+Users of the arcane do not hurl fire. They kindle courage, veil footsteps, and turn the will — softly, rarely, and with a price.
 
 | Tier | Cast with | On success | On failure |
 |---|---|---|---|
-| **Whisper** | WIS | none | none |
-| **Rite** | WIS | choose: spend **1 Hope** *or* mark **+1 Dread** | mark **+1 Dread** |
-| **Invocation** | WIS *(no nudging)* | mark **+1 Dread** | mark **+2 Dread** and Lorekeeper backlash |
-| **Unspeakable** | mark **+2 Dread**, then roll | cost stands | **Break** (bout of despair) |
+| **Cant** | WIS | none | none |
+| **Oath** | WIS | choose: spend **1 Hope** *or* mark **+1 Dread** | mark **+1 Dread** |
+| **Invocation** | WIS (no nudging) | mark **+1 Dread** anyway | mark **+2 Dread** and Lorekeeper backlash |
+| **Reckoning** | WIS (mark **+2 Dread** first) | the rite manifests; the cost stands | **Break** (bout of despair) |
 
 ![](../assets/art/ss_twilight_rune_stone.png){.margin-right width=2in}
 
 **No nudging (Invocation):** you may not spend Hope or Companionship to nudge this roll.
 
+**Reckoning procedure:** mark **+2 Dread**, then make the casting test. If this takes you to **5**, roll a Dread crisis once after the rite resolves (do not roll twice).
+
 **Lorekeeper backlash (examples):** a cold wind answers; a wight’s attention turns your way; an oath‑mark burns; a black bird follows for days.
 
 **Break (bout of despair):** for the rest of the scene, you cannot spend Hope or Companionship to nudge rolls, and the Lorekeeper chooses (or offers you) an impulse: flee, freeze, lash out, or fall into grief.
 
-Examples: *Kindle Hearth‑Fire* (Rite), *Silence the Footfall* (Whisper), *Banish a Tomb‑Wight* (Invocation).
+Examples: *Kindle Hearth‑Fire* (Oath), *Silence the Footfall* (Cant), *Banish a Tomb‑Wight* (Invocation).
 
 ---
 
@@ -124,29 +126,29 @@ Track Fatigue per character: **0–5**.
 STR (rugged climb) • NIM (river ford) • WIS (navigation among ruins) • HRT (lead weary companions)
 
 - **Failure:** mark **+1 Fatigue** (for the character who failed; or for everyone, if the whole party blundered).
-- **At Fatigue 3+:** each **risky test during the travel** costs **1 Hope token** (spend before rolling) or marks **+1 Fatigue**.
+- **At Fatigue 3+:** each **risky test during the travel** costs **1 Hope token** (spend before rolling) or mark **+1 Fatigue**.
 - **At Fatigue 5:** you are **spent**. You cannot take another travel leg until you rest in true comfort; the Lorekeeper makes a hard travel move (separation, injury, pursuit, lost time).
 
-**Clear Fatigue:** a night in true comfort clears all Fatigue; a warm campfire and dry socks clear 1.
+**Clear Fatigue:** a night in true comfort clears all Fatigue; a warm campfire and dry socks clear **1 Fatigue**.
 
-**Song of Rest:** if a PC leads a song/story and passes **HRT**, each party member may either recover **+1 Hope token** or clear **1 Fatigue**.
+**Song of Rest:** if a PC leads a song/story and succeeds on an **HRT** test, each party member may either recover **+1 Hope token** or clear **1 Fatigue**.
 
 > “Cold stars mirrored on the tomb‑stones, yet none were as cold as the hush within.”
 
 ---
 
-## DREAD TRACK (Pressure)
+## DREAD (Pressure track)
 
 Dread is temptation, fear, and the slow creep of despair. It runs **0–5**; at **5** trigger a crisis, then reset Dread to **0**.
 
 | Step | Sign | Effect |
-|-|---|-----|
+|--|---|-----|
 |0| Bright spirit | — |
 |1| Gloom | cosmetic foreboding |
 |2| Weight of worry | Disadvantage on your next HRT test vs dread |
-|3| Dark whispers | each **risky test** costs **1 Hope token** (spend before rolling) or marks **+1 Dread** |
+|3| Dark whispers | each **risky test** costs **1 Hope token** (spend before rolling) or mark **+1 Dread** |
 |4| Twisted will | Disadvantage on all tests |
-|5 **Crisis**| Corruption, despair, or the enemy’s hand | roll Dread Crisis; reset Dread to **0** |
+|5 **Crisis**| Corruption, despair, or the enemy’s hand | Roll a Dread crisis, reset Dread to **0** |
 
 _(A risky test is any roll where failure would materially change the situation: harm, loss, exposure, separation, betrayal. Routine talk and obvious chores need no roll.)_
 
@@ -154,7 +156,7 @@ _(A risky test is any roll where failure would materially change the situation: 
 
 **Purge (rare):** set Dread to **0** after a true cleansing scene — song in a sanctuary, a grave confession to a wise mentor, or a gift freely given that costs you something.
 
-**Dread Crisis (pick or roll d6)**
+**Dread crisis (pick or roll d6)**
 
 |d6| Crisis |
 |-|---------|
@@ -179,7 +181,7 @@ Assign up to three roles on any travel leg longer than a day.
 |---|--|----|----|
 | **Guide** (navigates) | WIS | stay on course | each PC marks **+1 Fatigue** |
 | **Scout** (finds camps) | NIM | safe campsite; one PC clears **1 Fatigue** | random hazard encounter |
-| **Look‑out** (watches) | HRT | early warning (Advantage first roll next encounter) | ambush; foes gain Advantage |
+| **Look‑out** (watches) | HRT | early warning (the company has Advantage on the first test of the next encounter) | ambush; foes gain Advantage |
 
 If a role is unfilled, treat the test as an auto‑fail.
 
@@ -202,7 +204,7 @@ Use this only if you want a little road‑fantasy texture in combat without leav
 
 It adds three ideas:
 
-- **Combat Positions** = Get adv/disadv on attack or defence, but not both
+- **Combat Positions** = Gain Advantage/Disadvantage on attack or defence, but not both
 - **Resilience** = Stamina loss (ordinary hits wear you down).
 - **Injury** = significant lingering damage (e.g., a lacerating or crushing blow that gets through a defence).
 
@@ -214,7 +216,7 @@ It adds three ideas:
 
 At the start of each combat exchange (or “round”), each PC chooses a position in the line. 
 
-This influences their ability to inflict damage or limit STM loss:
+This influences their ability to inflict damage or limit Stamina loss:
 
 | Position | Attack | Defence | Notes |
 |---|----|----|------|
@@ -325,7 +327,7 @@ Knack seeds: *Second Snack* (once per session clear 1 Fatigue with a meal) • *
 Creation: heroic budget (**16** build points; used **16**)  
 STR 6 NIM 14 WIS 10 HRT 14 HOP 12/12 STM 5/5 Dread 0/5 Fatigue 0/5  
 Knack: Small & Quiet.  
-Sling 0, herb‑satchel (Advantage on WIS when identifying plants if you have time), fishing pole, pony “Chestnut”.
+Sling 0, herb‑satchel (Advantage on WIS tests to identify plants when you have time), fishing pole, pony “Chestnut”.
 
 ### Halvar of the Cobble Path — road‑guardian (Dwarf)
 
