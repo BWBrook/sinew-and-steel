@@ -1,7 +1,7 @@
 # **CLANFIRE — EMBERFALL**
 ## A “play tonight” starter scenario for Sinew & Steel
 
-**GM eyes only.** This is a short scenario designed to get a new table (or an AI Custodian) to a first satisfying scene, fast.
+**Custodian eyes only.** This is a short scenario designed to get a new table (or an AI Custodian) to a first satisfying scene, fast.
 
 ### In one sentence
 The clan’s hearth is dying in a hard winter, and the hunt that should save you is already being claimed by hungry things in the birch‑line.
@@ -12,9 +12,40 @@ If your group can run *this*, you can reskin Sinew & Steel to anything.
 
 ---
 
+## Player handout (copy/paste)
+_Player-safe and shareable. Give this to players as a one-page brief, or paste it into the chat._
+
+### The premise (one sentence)
+The clan’s hearth is dying in a hard winter, and the hunt that should save you is already being claimed by hungry things in the birch‑line.
+
+### What you know at the start
+- The fire is low. If it dies, the cold will get into the cave.
+- The clan needs meat and fat before the next hard snow.
+- Outside the birches, you hear a wet crunch: teeth on bone.
+
+### What to track (on your sheet)
+- **Instinct beads** (Luck tokens): spend to nudge; empty beads make “Test your Instinct” harder.
+- **Stamina**: hits and exhaustion.
+- **Shadow** (Pressure): rises when you break taboos, bungle rites, or stir hungry attention.
+
+### Fast-start characters (optional)
+- **Grak of Tall Cliffs** (Hunter): MGT 12 · FLT 11 · CUN 10 · SPR 8 · INS 8/8 · STM 7/7  
+  Stone spear (+1 edge), hand‑axe (+1 edge), hide cloak (soak 1)
+- **Tarra the Ember‑Singer** (Shaman): MGT 6 · FLT 8 · CUN 12 · SPR 14 · INS 11/11 · STM 3/3  
+  Bone flute (Advantage calming beasts), fire‑bow drill, herbs
+
+### First beat: what do you do?
+Pick an approach (or propose your own):
+1. Slip out and read the tracks downwind (Cunning).  
+2. Stalk the sound with spear ready (Fleetness).  
+3. Feed the fire and call to the spirits for an omen (Spirit; on a miss, +1 Shadow).  
+4. Wake the clan and bar the cave (no roll; time passes).
+
+---
+
 ## 1) What you need (minimum kit)
-- `rules/quickstart.md` (rules on two pages)
-- `skins/clanfire.md` (skin rules + Shadow track)
+- Quickstart rules (2 pages): `rules/quickstart.md`
+- Clanfire skin (including Shadow): `skins/clanfire.md`
 - A d20 (or a trusted roll tool)
 - Two PCs (recommended) or one PC (works fine)
 
@@ -42,19 +73,25 @@ If you only have one PC, run **Grak** solo and keep Tarra as an NPC ally.
 ---
 
 ## 3) Opening beat (read aloud or paraphrase)
-The hearth is down to embers.
-Frost beads on the cave mouth. Smoke crawls low and thin, as if it’s afraid to leave.
-
-Outside, birch trunks click together in the wind — but beneath that is another sound:
-**a soft, wet crunch**. Teeth on bone.
-
-Somewhere beyond the birches, something large exhales — slow, patient, hungry.
+> **Read aloud (opening beat):**  
+> The hearth is down to embers.  
+> Frost beads on the cave mouth. Smoke crawls low and thin, as if it’s afraid to leave.  
+>  
+> Outside, birch trunks click together in the wind — but beneath that is another sound:  
+> **a soft, wet crunch**. Teeth on bone.  
+>  
+> Somewhere beyond the birches, something large exhales — slow, patient, hungry.
 
 ### Offer 2–4 options (and accept freeform)
 1. **Slip out and read the tracks** downwind (CUN).  
 2. **Stalk the sound** with spear ready (FLT).  
 3. **Feed the fire and call to the spirits** for an omen (SPR; on a fail, +1 Shadow).  
-4. **Wake the clan** and bar the cave (no roll; but tick a clock: time passes).
+4. **Wake the clan** and bar the cave (no roll; but time passes — tick Hunger or Storm if you’re using clocks).
+
+If you need a default for failed rolls in this scenario, pick one cost and move on:
+- **+1 Shadow**, or
+- **tick a clock** (Hunger / Storm / Pack Learns), or
+- **lose time or position** (the wolf gets closer; the trail goes cold).
 
 ---
 
@@ -80,7 +117,7 @@ Use clocks only if you want extra tension beyond Shadow.
 - **Hunger (0/6):** ticks when time passes, you return empty‑handed, or you spend food.  
   - When full: the clan must migrate *now* (or someone is lost to starvation).
 - **Storm (0/6):** ticks on loud actions, long travel, or a bad miss in the open.  
-  - When full: whiteout. Visibility drops. Every risky test costs +1 INS bead *or* +1 Shadow (your choice).
+  - When full: whiteout. Visibility drops. Every risky test costs 1 **Instinct bead** *or* +1 Shadow (your choice).
 - **Pack Learns (0/4):** ticks when wolves spot you, smell blood, or you leave a kill unattended.  
   - When full: the pack surrounds the cave at night (a Shadow spike scene).
 
@@ -90,7 +127,7 @@ Use clocks only if you want extra tension beyond Shadow.
 
 ![](../../assets/art/ss_npc_card.png){.wrap-right width=1.7in}
 
-### Cave Wolf (Soldier 10; pack hunter)
+### Cave Wolf (Soldier-tier 10; pack hunter)
 - **Attack:** FLT 10 (pounce / bite) · **Edge +1**  
 - **Defend:** FLT 10 (dodge / weave)  
 - **Stamina:** 4 · **Soak:** 0  
@@ -121,8 +158,9 @@ Use this as a teaching exchange. It’s short, it shows the math, and it shows t
 ![](../../assets/art/ss_combat_sequence.png){.wrap-left width=1.9in}
 
 ### Setup
-The cave wolf slips between birches at the edge of firelight, hackles raised.
-It wants a meal, not a fair fight.
+> **Read aloud (the wolf shows itself):**  
+> The cave wolf slips between birches at the edge of firelight, hackles raised.  
+> It wants a meal, not a fair fight.
 
 **Declare intent:** Grak wants to **drive it back**; Tarra wants to **break its nerve** with flame and chant.
 
@@ -143,9 +181,9 @@ Result:
 Tarra’s method is not “stab”. It’s **presence, fear, omen**.
 
 - **Attacker:** Tarra rolls under **SPR 14** (chant + ember‑flare).
-- **Defender:** Wolf rolls under **SPR 8** (tier – 2: if you want a “fear check”), *or* keep it simple and defend with **FLT 10** (it tries to dart away from the flame).
+- **Defender:** Wolf rolls under **FLT 10** (it darts and snaps away from the flame).
 
-Example (simple defense):
+Example rolls:
 - Tarra rolls **9** → success (margin **+5**).
 - Wolf darts with **FLT** and rolls **9** → success (margin **+1**).
 
@@ -164,6 +202,11 @@ If Grak misses and Tarra’s chant falters:
 ## 8) Ending the first session (clean cliffhanger)
 End on one clear unanswered question:
 - “What’s making the birch‑line wrong?” (spirits? strangers? rival hunters?)
+
+> **Read aloud (closing hook):**  
+> Whatever you found in the birches, the air still carries a wrong note.  
+> The clan survives tonight — but something out there is learning you.  
+> **What’s making the birch‑line wrong?**
 
 Close with 2–4 options for next session:
 1. **Follow the wolf’s blood** toward the frozen stream (CUN).  
