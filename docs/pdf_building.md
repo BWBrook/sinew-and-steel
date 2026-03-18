@@ -46,6 +46,9 @@ sudo apt-get install -y libcairo2 libgdk-pixbuf-2.0-0 libpango-1.0-0 libpangoft2
 
 You’ll need a TeX distribution and a PDF engine (this repo typically uses `xelatex` for the “bookish” style).
 
+The default "bookish" font stack is chosen to work cleanly with a standard TeX
+Live / MacTeX install on both Linux and macOS.
+
 ---
 
 ## Ad-hoc PDFs (`tools/md_pdf.py`)
@@ -53,7 +56,7 @@ You’ll need a TeX distribution and a PDF engine (this repo typically uses `xel
 ### Build one file
 
 ```bash
-.venv/bin/python tools/md_pdf.py rules/quickstart.md \
+uv run python tools/md_pdf.py rules/quickstart.md \
   --backend weasyprint \
   --style bookish \
   --paper letter \
@@ -63,7 +66,7 @@ You’ll need a TeX distribution and a PDF engine (this repo typically uses `xel
 ### Build multiple files into one PDF
 
 ```bash
-.venv/bin/python tools/md_pdf.py --files "rules/quickstart.md skins/clanfire.md" \
+uv run python tools/md_pdf.py --files "rules/quickstart.md skins/clanfire.md" \
   --backend weasyprint \
   --toc \
   --style bookish \
@@ -158,7 +161,7 @@ This produces the “official” release outputs under `release/dist/` (and can 
 Run:
 
 ```bash
-.venv/bin/python tools/release_build.py --help
+uv run python tools/release_build.py --help
 ```
 
 If you’re iterating on art/layout, prefer `tools/md_pdf.py` until you’re happy, then roll changes into the release build.

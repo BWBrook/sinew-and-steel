@@ -22,6 +22,7 @@ from __future__ import annotations
 import argparse
 from datetime import datetime, timezone
 from pathlib import Path
+import platform
 import re
 import shlex
 import shutil
@@ -33,6 +34,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 _MD_IMAGE_LINK_RE = re.compile(r"!\[([^\]]*)\]\((\S+?)(\s+\"[^\"]*\")?\)")
 _MD_IMAGE_LINK_ANGLE_RE = re.compile(r"!\[([^\]]*)\]\(<([^>]+)>(\s+\"[^\"]*\")?\)")
+
+
+def default_bookish_fonts() -> tuple[str, str, str]:
+    if platform.system() == "Darwin":
+        return ("Palatino", "Helvetica", "Menlo")
+    return ("Linux Libertine O", "Linux Biolinum O", "JetBrains Mono")
 
 
 def load_text(path: Path) -> str:
@@ -307,12 +314,13 @@ def main() -> int:
         if args.style == "bookish":
             if pdf_engine is None:
                 pdf_engine = "xelatex"
+            default_mainfont, default_sansfont, default_monofont = default_bookish_fonts()
             if mainfont is None:
-                mainfont = "Linux Libertine O"
+                mainfont = default_mainfont
             if sansfont is None:
-                sansfont = "Linux Biolinum O"
+                sansfont = default_sansfont
             if monofont is None:
-                monofont = "JetBrains Mono"
+                monofont = default_monofont
             if fontsize is None:
                 fontsize = "11pt"
             if linestretch is None:
