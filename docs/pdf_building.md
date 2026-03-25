@@ -35,6 +35,12 @@ You’ll need the Python package plus a few system libraries.
 uv pip install weasyprint
 ```
 
+On macOS (Homebrew), install the image-loader library once:
+
+```bash
+brew install gdk-pixbuf
+```
+
 On Ubuntu you may need:
 
 ```bash
@@ -46,8 +52,10 @@ sudo apt-get install -y libcairo2 libgdk-pixbuf-2.0-0 libpango-1.0-0 libpangoft2
 
 You’ll need a TeX distribution and a PDF engine (this repo typically uses `xelatex` for the “bookish” style).
 
-The default "bookish" font stack is chosen to work cleanly with a standard TeX
-Live / MacTeX install on both Linux and macOS.
+The default "bookish" font stack is platform-aware:
+
+- Linux: `Linux Libertine O`, `Linux Biolinum O`, `JetBrains Mono`
+- macOS: `Palatino`, `Helvetica`, `Menlo`
 
 ---
 

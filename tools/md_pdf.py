@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import argparse
 from datetime import datetime, timezone
+import os
 from pathlib import Path
 import platform
 import re
@@ -60,12 +61,35 @@ def tex_engine_available(engine: str) -> bool:
 
 
 def weasyprint_available() -> bool:
+    configure_macos_weasyprint_runtime()
     try:
         import weasyprint  # noqa: F401
 
         return True
     except Exception:
         return False
+
+
+def configure_macos_weasyprint_runtime() -> None:
+    """
+    On Apple Silicon Macs, Homebrew libraries live under /opt/homebrew/lib.
+    WeasyPrint's CFFI loader doesn't always see that path by default, so expose
+    it before importing the backend.
+    """
+    if platform.system() != "Darwin":
+        return
+
+    brew_lib = Path("/opt/homebrew/lib")
+    if not brew_lib.exists():
+        return
+
+    current = os.environ.get("DYLD_FALLBACK_LIBRARY_PATH", "")
+    paths = [p for p in current.split(":") if p]
+    brew_lib_str = str(brew_lib)
+    if brew_lib_str not in paths:
+        os.environ["DYLD_FALLBACK_LIBRARY_PATH"] = (
+            f"{brew_lib_str}:{current}" if current else brew_lib_str
+        )
 
 
 def sanitize_for_pdflatex(text: str) -> str:
@@ -396,6 +420,8 @@ def main() -> int:
             except Exception:
                 pass
     else:
+        configure_macos_weasyprint_runtime()
+
         if not weasyprint_available():
             venv_python = ROOT / ".venv" / "bin" / "python"
             hint = ""
