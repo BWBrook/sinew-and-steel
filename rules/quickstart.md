@@ -40,13 +40,13 @@ Roll‑under, margin matters, Luck nudges, Pressure is the fuse.
   - Rest +1 token; milestone refills up to your Luck score (your max).
 - **Armour & dynamic soak.** Armour has **soak 1–3**.
   - After a hit, reduce soak by 1 per full 4 points of attacker margin; **nat 1 pierces all**.
-- **Carry limit.** Up to **6 big items**; extra load ⇒ Disadvantage on agility tasks (your Reflex / Fleetness‑type rolls).
+- **Carry limit.** Up to **6 big items**; extra load means Disadvantage on agility tasks (your Reflex / Fleetness‑type rolls).
 - **Money.** Usually abstract; if you want it tangible, use the optional **Wealth (0–4)** track (see the Custodian’s Almanac).
 - **Pressure track (0–5).** Skin defines its name and crisis. Hit **5**, trigger a crisis, then reset to **0**.
 
 **Example (check + nudge):** 
-REF 12, you roll **15** → fail (margin **–3**). 
-Spend **3 Luck** to nudge **15 → 12** → success (margin **0**).
+REF 12, you roll **15**: fail (margin **–3**). 
+Spend **3 Luck** to nudge **15 to 12**: success (margin **0**).
 
 **Example (opposed):** 
 Attacker MGT 12 rolls **8** (margin **+4**). 

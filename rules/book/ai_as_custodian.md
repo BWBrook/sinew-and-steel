@@ -35,7 +35,7 @@ There are a few things an AI Custodian is naturally strong at:
 
 AI weaknesses are real, and pretending otherwise makes sessions worse. The upside is that most weaknesses are predictable:
 
-- **Over-rolling.** Left alone, an AI will gamify everything into checks. The fix is the S&S stance: don’t roll by default; insist on intent → method → stakes, then roll only if uncertainty matters.
+- **Over-rolling.** Left alone, an AI will gamify everything into checks. The fix is the S&S stance: don’t roll by default; insist on intent, then method, then stakes, and only roll if uncertainty matters.
 - **Accidental railroading.** AIs sometimes “help” by converging everything back to a tidy plot. Correct it the same way you would with a human: restate intent, restate what’s true, demand options that genuinely diverge.
 - **Context constraints.** Even strong models forget details. Give the AI a spine of memory (a current sheet, a short recap, and a last checkpoint) and it becomes far more consistent.
 - **Dice integrity.** Treat dice as external truth: roll physically or with a trusted roller, and tell the AI the results.

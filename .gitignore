@@ -2,6 +2,9 @@ campaigns/*
 !campaigns/.gitignore
 !campaigns/README.md
 
+# macOS artifacts
+.DS_Store
+
 # Local release workspace (PDF builds, exports, checklists, etc.)
 release/*
 

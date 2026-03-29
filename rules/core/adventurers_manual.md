@@ -116,7 +116,7 @@ Baseline notes:
 - Attributes baseline at **10**.
 - Stamina baseline at **5**.
 
-Example: raising **STM 5 → 7** costs **4 build points**; raising **STM 3 → 5** costs **2 build points**.
+Example: raising **STM from 5 to 7** costs **4 build points**; raising **STM from 3 to 5** costs **2 build points**.
 
 > *Bump a stat up? Either pay double elsewhere… or pay build points.*
 
@@ -258,7 +258,7 @@ After a hit:
 **Example (soak erosion):**
 
 > You hit an NPC guard with margin +9 against soak 2.  
-> Full 4s = 2 → soak drops by 2 (to 0).  
+> Two full 4s, so soak drops by 2 (to 0).  
 > The armour is shredded at the penetration point; this hit takes full damage.
 
 ---

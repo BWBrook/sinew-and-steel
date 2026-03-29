@@ -255,7 +255,7 @@ It shifts capability while leaving core maths and pacing intact.
    - For **large beasts** add +2 Stamina; for a **boss** add +4 (or give them a second phase at 0).
    - Suggested weapon **edge**: Light +0 / Standard +1 / Brutal +2.
    - Suggested armour **soak**: Hide 1 / Shell 2 / Plate 3.
-3. **Give a hook:** one special move or rule that makes them feel distinct (“mind‑spike forces Luck test,” “web‑snare: failed Reflex ⇒ immobile until cut free,” “howl: on nat 20 targets mark +1 Pressure”).
+3. **Give a hook:** one special move or rule that makes them feel distinct (“mind‑spike forces Luck test,” “web‑snare: failed Reflex leaves the target immobile until cut free,” “howl: on nat 20 targets mark +1 Pressure”).
 
 Examples:
 
@@ -292,7 +292,7 @@ Why it works:
 - Solid cover (Dodge Adv.)
 - Has the high ground (Melee Adv.)
 - Blind firing (Ranged Dis.)
-- Exhausted (Stamina ≤ 2 ⇒ Dis. on physical)
+- Exhausted (Stamina ≤ 2: Dis. on physical)
 
 Add or prune per skin.
 
