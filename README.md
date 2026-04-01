@@ -50,6 +50,9 @@ That’s the chassis. Everything else is flavour‐text.
 
 Swap a few words and build your own skin in an afternoon.
 
+Optional sidecar:
+- `docs/candlelight_delvekit.md` — procedural dungeon support for Candlelight Dungeons (seeded prototypes, GM/player ASCII maps, keyed progression, factions, and trap-room guidance).
+
 ---
 
 ## Quick start (campaign + agent)

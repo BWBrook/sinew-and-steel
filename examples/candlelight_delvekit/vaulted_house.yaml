@@ -1,0 +1,499 @@
+schema_version: 1
+dungeon:
+  id: the_last_rite_of_dusty_scripture
+  name: The Last Rite of Dusty Scripture
+  style: reliquary
+  style_label: candlelit reliquary
+  style_pitch: a shrine-complex of ash, bells, relic metal, and bad devotion
+  subtheme: a candle vault where shrine silver vanished a century ago
+  skin: candlelight_dungeons
+  addon: candlelight_delvekit
+  size: medium
+  difficulty: medium
+  seed: 2150334
+  start_room: '1'
+  difficulty_knobs:
+    suggested_tone: standard
+    trap_room_prob: 0.55
+    solo_prob: 0.55
+    boss_prob: 0.7
+    faction_prob: 0.75
+    weird_npc_prob: 0.4
+    keyed_prob: 0.75
+    resource_pressure: meaningful
+    faction_pressure: active
+    zero_stamina: collapse is dangerous; monsters, traps, and bad positions can finish
+      the job
+    trap_severity: serious harm and real death risk if mishandled
+  hook_type: stop_rite
+  hook_summary: stop whatever is underway below
+  hook_target: a hidden tyrant
+  player_blurb: 'Below the chapel roads, someone once built for order. What remains
+    is Vaulted House. Every road into the place promises one kind of profit and another
+    kind of trouble. The true pressure comes from something that stalks the halls,
+    sealed ways and hidden inner doors, and locals already at knives'' edge. Long
+    enough to matter, short enough to think you can finish it. Proper old-school danger:
+    one bad turn will not always kill you, but it may own the rest of the night. Go
+    down now, because waiting is the same as helping them finish.'
+  character_motivation: Interrupt whatever is gathering strength in the black choir
+    before it gets worse.
+  pitch_skeleton:
+    patron:
+      name: Rhea Yarrow
+      role: lamp porter
+      full: Rhea Yarrow, a lamp porter
+      reward: a relic's worth in hard coin
+    public_place: the chapel roads
+    public_motifs:
+    - dusty scripture
+    - relics
+    hook_type: stop_rite
+    job: stop whatever is building below
+    setup: Rhea Yarrow, a lamp porter fears something below is building toward a bad
+      end.
+    reward: a relic's worth in hard coin
+    pressures:
+    - something that stalks the halls
+    - sealed ways and hidden inner doors
+    - locals already at knives' edge
+    - something worth carrying back out
+    title_cues:
+    - Before the Last Word Is Spoken
+    - Break the Work Below
+    - Stop the Night Service
+    - The Rite Before Dawn
+    - Cut the Prayer Short
+    - Before the Shrine Opens Its Mouth
+    - End the Work Under Stone
+    - Break the Chapel's Intention
+    - Before the Last Candle Falls
+    - Stop the Thing They Started
+    - The Last Service Underground
+    - Before the Work Finds a Voice
+    - The Last Rite of Dusty Scripture
+    - Before the Dark Wakes
+    - The Work Below
+    - The Last Bell Before Midnight
+    - Stop the Work Under Stone
+    - Night Prayer in the Pit
+    - Before the Chant Is Finished
+    - The Rite in the Dark
+    - The Last Hour of the Rite
+    - Cut the Candle Short
+    - What the Priests Began
+    - Before the Shrine Answers
+    - End the Work Below
+    - The Last Chant
+    - The Shrine Before Midnight
+    - Break the Rite
+    - What the Priests Want
+    - Kill the Ceremony
+    - Before the Bell Sounds
+    - End the Prayer in Blood
+    - The Final Offering Room
+    - The Rite Must Fail
+    - Silence the Lower Chapel
+    - The Last Service
+    spoiler_guard: Do not reveal exact monster names, exact faction names, room names,
+      lock items, or final treasure identities.
+  title_draft: The Last Rite of Dusty Scripture
+  player_blurb_draft: 'Below the chapel roads, someone once built for order. What
+    remains is Vaulted House. Every road into the place promises one kind of profit
+    and another kind of trouble. The true pressure comes from something that stalks
+    the halls, sealed ways and hidden inner doors, and locals already at knives''
+    edge. Long enough to matter, short enough to think you can finish it. Proper old-school
+    danger: one bad turn will not always kill you, but it may own the rest of the
+    night. Go down now, because waiting is the same as helping them finish.'
+rooms:
+- id: '1'
+  name: Pilgrim Descent
+  x: 0
+  y: 0
+  description: Pilgrim Descent is the threshold of the delve, marked by saint markers
+    turned inward as if they hide a route meant for clergy eyes only.
+  atmosphere: old brass gone cold in the dark
+  contents:
+  - saint markers turned inward as if they hide a route meant for clergy eyes only
+  exits:
+  - to: '7'
+    label: north passage
+  - to: '4'
+    label: south passage
+  - to: '2'
+    label: east passage
+  secret_exits: []
+  locks: []
+  trap_tags: []
+  puzzle_tags: []
+  faction_tags: []
+  solo_monster_tags: []
+  boss_tags: []
+  treasure_tags: []
+  role_tags:
+  - start
+  discovered:
+    room: true
+    visible_exits:
+    - '7'
+    - '4'
+    - '2'
+    secret_exits: []
+    notes:
+    - old brass gone cold in the dark
+- id: '2'
+  name: Forked Hall
+  x: 1
+  y: 0
+  description: 'Forked Hall is a decision room: offering bowls green with age, with
+    several ways onward.'
+  atmosphere: funeral flowers gone sweet with rot
+  contents:
+  - offering bowls green with age
+  exits:
+  - to: '1'
+    label: west passage
+  - to: '3'
+    label: north passage
+  - to: '8'
+    label: south passage
+  - to: '6'
+    label: east passage
+  secret_exits: []
+  locks: []
+  trap_tags: []
+  puzzle_tags: []
+  faction_tags: []
+  solo_monster_tags: []
+  boss_tags: []
+  treasure_tags: []
+  role_tags:
+  - hub
+  discovered:
+    room: false
+    visible_exits: []
+    secret_exits: []
+    notes: []
+- id: '3'
+  name: Collapsed Scriptorium
+  x: 1
+  y: -1
+  description: 'Collapsed Scriptorium is clearly claimed by Ratling Book: Ratling
+    Book sentries with relic cases worn as chest armor, signs of ash crows niche dwellers:
+    wax-smeared tracks across altar stone; they want the rekindling of an old saint-fire
+    and have arranged the room accordingly.'
+  atmosphere: bells trembling somewhere out of sight
+  contents:
+  - Ratling Book sentries with relic cases worn as chest armor
+  - 'signs of ash crows niche dwellers: wax-smeared tracks across altar stone'
+  exits:
+  - to: '7'
+    label: west passage
+  - to: '2'
+    label: south passage
+  - to: '5'
+    label: east passage
+    map_label: spoken seal
+  secret_exits: []
+  locks:
+  - id: 3_to_5_spoken_seal
+    type: spoken_seal
+    blocks_exit_to: '5'
+    requires: saint_phrase
+    map_label: spoken seal
+  trap_tags: []
+  puzzle_tags: []
+  faction_tags:
+  - ratling_book
+  solo_monster_tags: []
+  boss_tags: []
+  treasure_tags: []
+  role_tags: []
+  discovered:
+    room: false
+    visible_exits: []
+    secret_exits: []
+    notes: []
+- id: '4'
+  name: Choir Stalls
+  x: 0
+  y: 1
+  description: 'Choir Stalls is clearly claimed by Bier Fold: Bier Fold sentries with
+    processional poles crowbars and chipped mail, signs of relic leeches niche dwellers:
+    droppings mixed with candle scraps; they want the shrine stores beneath the lower
+    nave and have arranged the room accordingly.'
+  atmosphere: dusty prayer air and lamp smoke
+  contents:
+  - Bier Fold sentries with processional poles crowbars and chipped mail
+  - 'signs of relic leeches niche dwellers: droppings mixed with candle scraps'
+  exits:
+  - to: '1'
+    label: north passage
+  secret_exits:
+  - to: '8'
+    label: east passage
+    map_label: secret door
+  locks: []
+  trap_tags: []
+  puzzle_tags: []
+  faction_tags:
+  - bier_fold
+  solo_monster_tags: []
+  boss_tags: []
+  treasure_tags: []
+  role_tags: []
+  discovered:
+    room: false
+    visible_exits: []
+    secret_exits: []
+    notes: []
+- id: '5'
+  name: Upper Grate
+  x: 2
+  y: -1
+  description: 'Upper Grate is the sort of threshold a hunter would own: clear traces
+    of bier fold passage, A ash-marked lector that appears where the chants go wrong..'
+  atmosphere: cold stone rubbed smooth by processions
+  contents:
+  - clear traces of bier fold passage
+  - A ash-marked lector that appears where the chants go wrong.
+  exits:
+  - to: '3'
+    label: west passage
+    map_label: spoken seal
+  - to: '9'
+    label: north passage
+  - to: '6'
+    label: south passage
+  - to: '10'
+    label: east passage
+  secret_exits: []
+  locks: []
+  trap_tags: []
+  puzzle_tags: []
+  faction_tags:
+  - bier_fold
+  solo_monster_tags:
+  - ash_marked_lector
+  boss_tags: []
+  treasure_tags: []
+  role_tags:
+  - approach
+  discovered:
+    room: false
+    visible_exits: []
+    secret_exits: []
+    notes: []
+- id: '6'
+  name: Furnace Landing
+  x: 2
+  y: 0
+  description: Furnace Landing holds shrine fragments and cracked icons.
+  atmosphere: cold stone rubbed smooth by processions
+  contents:
+  - shrine fragments and cracked icons
+  exits:
+  - to: '2'
+    label: west passage
+  - to: '5'
+    label: north passage
+  secret_exits: []
+  locks: []
+  trap_tags: []
+  puzzle_tags: []
+  faction_tags: []
+  solo_monster_tags: []
+  boss_tags: []
+  treasure_tags: []
+  role_tags: []
+  discovered:
+    room: false
+    visible_exits: []
+    secret_exits: []
+    notes: []
+- id: '7'
+  name: Silver Locker
+  x: 0
+  y: -1
+  description: 'Silver Locker is clearly claimed by Bier Fold: gospel-bound votive
+    coffer, clear traces of bier fold passage; they want the shrine stores beneath
+    the lower nave and have arranged the room accordingly.'
+  atmosphere: bells trembling somewhere out of sight
+  contents:
+  - gospel-bound votive coffer
+  - clear traces of bier fold passage
+  exits:
+  - to: '1'
+    label: south passage
+  - to: '3'
+    label: east passage
+  secret_exits: []
+  locks: []
+  trap_tags: []
+  puzzle_tags: []
+  faction_tags:
+  - bier_fold
+  solo_monster_tags: []
+  boss_tags: []
+  treasure_tags:
+  - gospel_bound_votive_coffer
+  role_tags:
+  - treasure_room
+  discovered:
+    room: false
+    visible_exits: []
+    secret_exits: []
+    notes: []
+- id: '8'
+  name: Abbot's Chest
+  x: 1
+  y: 1
+  description: 'Abbot''s Chest is clearly claimed by Ratling Book: Saint Phrase, ember-cut
+    votive plate; they want the rekindling of an old saint-fire and have arranged
+    the room accordingly.'
+  atmosphere: wet limestone and candle ash
+  contents:
+  - Saint Phrase
+  - ember-cut votive plate
+  - clear traces of ratling book passage
+  exits:
+  - to: '2'
+    label: north passage
+  secret_exits:
+  - to: '4'
+    label: west passage
+    map_label: secret door
+  locks: []
+  trap_tags: []
+  puzzle_tags: []
+  faction_tags:
+  - ratling_book
+  solo_monster_tags: []
+  boss_tags: []
+  treasure_tags:
+  - saint_phrase
+  - ember_cut_votive_plate
+  role_tags:
+  - key_room
+  - treasure_room
+  discovered:
+    room: false
+    visible_exits: []
+    secret_exits: []
+    notes: []
+- id: '9'
+  name: The Last Shrine
+  x: 2
+  y: -2
+  description: 'The Last Shrine is the site''s deep chamber: saint statue array that
+    accepts weights of ash and bone, its rule seems to involve aligning icons to a
+    processional path, and the feel of a room built to end arguments badly.'
+  atmosphere: a hush broken only by chain and drip
+  contents:
+  - saint statue array that accepts weights of ash and bone
+  - its rule seems to involve aligning icons to a processional path
+  - clear traces of ratling book passage
+  - The Abbot Beneath the Lower Nave holds court here
+  exits:
+  - to: '5'
+    label: south passage
+  secret_exits: []
+  locks: []
+  trap_tags: []
+  puzzle_tags:
+  - icon_panel_rotation
+  faction_tags:
+  - ratling_book
+  solo_monster_tags: []
+  boss_tags:
+  - the_abbot_beneath_the_lower_nave
+  treasure_tags: []
+  role_tags:
+  - boss_room
+  - deep
+  - puzzle_room
+  discovered:
+    room: false
+    visible_exits: []
+    secret_exits: []
+    notes: []
+- id: '10'
+  name: Mask Chapel
+  x: 3
+  y: -1
+  description: Mask Chapel centers on funeral bier scale that accepts relic fragments
+    by rank; its rule seems to involve reading devotion as encoded workflow.
+  atmosphere: wet limestone and candle ash
+  contents:
+  - funeral bier scale that accepts relic fragments by rank
+  - its rule seems to involve reading devotion as encoded workflow
+  exits:
+  - to: '5'
+    label: west passage
+  secret_exits: []
+  locks: []
+  trap_tags: []
+  puzzle_tags:
+  - vestry_lock_chant
+  faction_tags: []
+  solo_monster_tags: []
+  boss_tags: []
+  treasure_tags: []
+  role_tags:
+  - puzzle_room
+  discovered:
+    room: false
+    visible_exits: []
+    secret_exits: []
+    notes: []
+keys:
+- id: saint_phrase
+  name: Saint Phrase
+  found_in: '8'
+  unlocks:
+  - 3_to_5_spoken_seal
+factions:
+- id: bier_fold
+  name: Bier Fold
+  wants: the shrine stores beneath the lower nave
+  holds:
+  - '4'
+  - '5'
+  - '7'
+  culture: starved candle-keepers turned territorial
+  loadout: processional poles crowbars and chipped mail
+  tactic: break line of sight with curtains smoke and side doors
+- id: ratling_book
+  name: Ratling Book
+  wants: the rekindling of an old saint-fire
+  holds:
+  - '3'
+  - '8'
+  - '9'
+  culture: grave opportunists hiding behind thin piety
+  loadout: relic cases worn as chest armor
+  tactic: split intruders with barred doors and lamp smoke
+monster_groups:
+- id: relic_leeches_niche_dwellers
+  name: relic leeches niche dwellers
+  trait: feed first on cloth
+  sign: droppings mixed with candle scraps
+- id: ash_crows_niche_dwellers
+  name: ash crows niche dwellers
+  trait: trail mourners by smell
+  sign: wax-smeared tracks across altar stone
+solo_monsters:
+- id: ash_marked_lector
+  name: Ash-Marked Lector
+  range:
+  - '5'
+bosses:
+- id: the_abbot_beneath_the_lower_nave
+  name: The Abbot Beneath the Lower Nave
+  lair: '9'
+weird_npcs: []
+player_map:
+  discovered_rooms:
+  - '1'
+  discovered_connections: []
+  discovered_secret_connections: []
+  current_room: '1'

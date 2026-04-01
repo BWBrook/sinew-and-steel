@@ -50,9 +50,14 @@ def collect_errors() -> list[str]:
     # Check skins
     skin_dir = ROOT / "skins"
     skin_files = {p.stem for p in skin_dir.glob("*.md")}
-    manifest_skins = set(manifest.get("skins", {}).keys())
+    skins_block = manifest.get("skins", {})
+    manifest_skins = set(skins_block.keys())
+    manifest_addon_slugs = set()
+    for skin_entry in skins_block.values():
+        for rel in skin_entry.get("addons", []) or []:
+            manifest_addon_slugs.add(Path(rel).stem)
 
-    missing_in_manifest = skin_files - manifest_skins
+    missing_in_manifest = skin_files - manifest_skins - manifest_addon_slugs
     missing_on_disk = manifest_skins - skin_files
 
     for slug in sorted(missing_in_manifest):

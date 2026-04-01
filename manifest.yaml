@@ -89,6 +89,8 @@ skins:
     name: Candlelight Dungeons
     file: skins/candlelight_dungeons.md
     pressure_track: Fatigue
+    addons:
+      - skins/candlelight_delvekit.md
     _gen:
       primary: STR
       min_steps: 2
@@ -171,9 +173,12 @@ prompts:
   starter: prompts/agent/starter_prompt.md
   hidden_scenario: prompts/chat/hidden_scenario_prompt.md
   chinese_room: prompts/chat/how_to_use_chinese_room.md
+  candlelight_delvekit_pitch_polish: prompts/chat/candlelight_delvekit_pitch_polish.md
+  candlelight_delvekit_adventure_polish: prompts/chat/candlelight_delvekit_adventure_polish.md
 templates:
   skin: templates/skin_template.md
   character_sheet: templates/character_sheet.yaml
   session_notes: templates/session_notes.md
   tracker: templates/tracker.yaml
   campaign: templates/campaign.yaml
+  candlelight_delvekit_dungeon: templates/candlelight_delvekit_dungeon.yaml

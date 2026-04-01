@@ -1,0 +1,375 @@
+schema_version: 1
+dungeon:
+  id: the_floor_that_chooses
+  name: The Floor That Chooses
+  style: caverns
+  style_label: flooded natural caverns
+  style_pitch: a wet cave site of sinkholes, pale fungus, slick ledges, and black
+    water
+  subtheme: a drowned ferry route beneath a sinkhole
+  skin: candlelight_dungeons
+  addon: candlelight_delvekit
+  size: tiny
+  difficulty: hard
+  seed: 5693482
+  start_room: '1'
+  difficulty_knobs:
+    suggested_tone: grim
+    trap_room_prob: 0.75
+    solo_prob: 0.7
+    boss_prob: 0.85
+    faction_prob: 0.85
+    weird_npc_prob: 0.45
+    keyed_prob: 0.85
+    resource_pressure: harsh
+    faction_pressure: aggressive
+    zero_stamina: collapse often becomes death unless allies intervene immediately
+    trap_severity: lethal rooms and ruthless follow-through
+  hook_type: trap_cross
+  hook_summary: survive the kill-room
+  hook_target: kill-room
+  player_blurb: Below the under-river cuts, someone once built for order. What remains
+    is Pale Warrens. Every road into the place promises one kind of profit and another
+    kind of trouble. If you go, plan around an old guardian that changes how you move,
+    old death-traps built to punish haste, and something worth carrying back out.
+    A compact delve, but not a harmless one. Openly lethal once the delvers stop paying
+    attention. Go down ready to beat the kill-room, or not at all.
+  character_motivation: Reach the far side of the worst room in the site without losing
+    the delver you brought in.
+  pitch_skeleton:
+    patron:
+      name: Varro Dane
+      role: eel trapper
+      full: Varro Dane, an eel trapper
+      reward: safe passage through the next customs watch
+    public_place: the under-river cuts
+    public_motifs:
+    - wet chains
+    - brackish wind
+    hook_type: trap_cross
+    job: cross the kill-room alive
+    setup: Varro Dane, an eel trapper wants what lies beyond a room that has buried
+      better delvers than you.
+    reward: safe passage through the next customs watch
+    pressures:
+    - an old guardian that changes how you move
+    - old death-traps built to punish haste
+    - something worth carrying back out
+    - locals already at knives' edge
+    title_cues:
+    - Across the Killing Room
+    - Past the Bad Floor
+    - The Door Beyond the Teeth
+    - The Last Safe Crossing
+    - Through the Murder Hall
+    - Crossing What Was Built to Kill
+    - The Room with No Mercy
+    - The Price of One More Step
+    - The Crossing That Hates You
+    - Pass the Trap Alive
+    - Under the Falling House
+    - The Hall That Chooses Victims
+    - Alive Through the Kill-Room
+    - Past the Killing Floor
+    - One Room Too Far
+    - The Price of Wet Chains
+    - Cross the Deadfall
+    - The Corridor That Hates You
+    - Past the Murder Door
+    - The Room Built to Win
+    - The Last Safe Step
+    - The Hall of Bad Decisions
+    - Crossing the Teeth
+    - Under the Falling Blades
+    - The Long Step Over Death
+    - The Room That Wins
+    - The Deadfall Road
+    - One Wrong Footfall
+    - Through the Teeth Alive
+    - Beat the Murder Room
+    - The Last Safe Crossing
+    - The Corridor of No Mercy
+    - The Cost of Bad Ground
+    - The Trap Floor Below
+    - Crossing the Kill Passage
+    - One Chamber from Death
+    spoiler_guard: Do not reveal exact monster names, exact faction names, room names,
+      lock items, or final treasure identities.
+  title_draft: The Floor That Chooses
+  player_blurb_draft: Below the under-river cuts, someone once built for order. What
+    remains is Pale Warrens. Every road into the place promises one kind of profit
+    and another kind of trouble. If you go, plan around an old guardian that changes
+    how you move, old death-traps built to punish haste, and something worth carrying
+    back out. A compact delve, but not a harmless one. Openly lethal once the delvers
+    stop paying attention. Go down ready to beat the kill-room, or not at all.
+rooms:
+- id: '1'
+  name: Drip Mouth
+  x: 0
+  y: 0
+  description: Drip Mouth is the threshold of the delve, marked by a narrow ledge
+    scarred by dragged cargo.
+  atmosphere: a low roar from water moving where you cannot see
+  contents:
+  - a narrow ledge scarred by dragged cargo
+  exits:
+  - to: '4'
+    label: north passage
+  - to: '2'
+    label: south passage
+  - to: '3'
+    label: east passage
+  secret_exits: []
+  locks: []
+  trap_tags: []
+  puzzle_tags: []
+  faction_tags: []
+  solo_monster_tags: []
+  boss_tags: []
+  treasure_tags: []
+  role_tags:
+  - hub
+  - start
+  discovered:
+    room: true
+    visible_exits:
+    - '4'
+    - '2'
+    - '3'
+    secret_exits: []
+    notes:
+    - a low roar from water moving where you cannot see
+- id: '2'
+  name: Drip Chamber
+  x: 0
+  y: 1
+  description: 'Drip Chamber is clearly claimed by Mooring Order: Mooring Order sentries
+    with short bows tarred knives and climbing claws; they want the old customs cache
+    and have arranged the room accordingly.'
+  atmosphere: a faint salt breeze from the wrong direction
+  contents:
+  - Mooring Order sentries with short bows tarred knives and climbing claws
+  exits:
+  - to: '1'
+    label: north passage
+  secret_exits: []
+  locks: []
+  trap_tags: []
+  puzzle_tags: []
+  faction_tags:
+  - mooring_order
+  solo_monster_tags: []
+  boss_tags: []
+  treasure_tags: []
+  role_tags: []
+  discovered:
+    room: false
+    visible_exits: []
+    secret_exits: []
+    notes: []
+- id: '3'
+  name: Underpool Walk
+  x: 1
+  y: 0
+  description: flood marks on the wall make no sense for the room's current shape
+    when too much light reaches the waterline the chamber wakes its oldest defense
+    the trap kills by making every rescue heavier and slower the best route afterward
+    may be the ugliest one
+  atmosphere: mildewed rope and old pitch
+  contents:
+  - warning plaques
+  - old bones in a bad place
+  - Mire Threshers sentries with harpoons split shields and cork-floats
+  - 'signs of silt leeches egg guards: shed skins stuck to wet stone'
+  - A warm-pool hydra that lurks where the cave pinches movement into one choice.
+  exits:
+  - to: '1'
+    label: west passage
+  - to: '7'
+    label: south passage
+  - to: '5'
+    label: east passage
+  secret_exits: []
+  locks: []
+  trap_tags:
+  - grimtooth_lethal_room
+  puzzle_tags: []
+  faction_tags:
+  - mire_threshers
+  solo_monster_tags:
+  - warm_pool_hydra
+  boss_tags: []
+  treasure_tags: []
+  role_tags:
+  - approach
+  - trap_room
+  discovered:
+    room: false
+    visible_exits: []
+    secret_exits: []
+    notes: []
+- id: '4'
+  name: Tide Wheel
+  x: 0
+  y: -1
+  description: Tide Wheel centers on tide wheel that accepts specific rope tensions;
+    its rule seems to involve treating the cave like a machine carved by water.
+  atmosphere: a low roar from water moving where you cannot see
+  contents:
+  - tide wheel that accepts specific rope tensions
+  - its rule seems to involve treating the cave like a machine carved by water
+  - netted trade seal
+  - barefoot night watchman with blood on one sleeve and none of it theirs
+  exits:
+  - to: '6'
+    label: north passage
+  - to: '1'
+    label: south passage
+  secret_exits: []
+  locks: []
+  trap_tags: []
+  puzzle_tags:
+  - underpool_breathing_holes
+  faction_tags: []
+  solo_monster_tags: []
+  boss_tags: []
+  treasure_tags:
+  - netted_trade_seal
+  role_tags:
+  - puzzle_room
+  - treasure_room
+  - weird_npc
+  discovered:
+    room: false
+    visible_exits: []
+    secret_exits: []
+    notes: []
+- id: '5'
+  name: Broken Ferry
+  x: 2
+  y: 0
+  description: 'Broken Ferry is clearly claimed by Mire Threshers: clear traces of
+    mire threshers passage; they want the old customs cache and have arranged the
+    room accordingly.'
+  atmosphere: a low roar from water moving where you cannot see
+  contents:
+  - clear traces of mire threshers passage
+  exits:
+  - to: '3'
+    label: west passage
+  secret_exits: []
+  locks: []
+  trap_tags: []
+  puzzle_tags: []
+  faction_tags:
+  - mire_threshers
+  solo_monster_tags: []
+  boss_tags: []
+  treasure_tags: []
+  role_tags: []
+  discovered:
+    room: false
+    visible_exits: []
+    secret_exits: []
+    notes: []
+- id: '6'
+  name: Salt Pocket
+  x: 0
+  y: -2
+  description: 'Salt Pocket is clearly claimed by Mooring Order: clear traces of mooring
+    order passage; they want the old customs cache and have arranged the room accordingly.'
+  atmosphere: air that smells of eel skin and wet leather
+  contents:
+  - clear traces of mooring order passage
+  exits:
+  - to: '4'
+    label: south passage
+  secret_exits: []
+  locks: []
+  trap_tags: []
+  puzzle_tags: []
+  faction_tags:
+  - mooring_order
+  solo_monster_tags: []
+  boss_tags: []
+  treasure_tags: []
+  role_tags: []
+  discovered:
+    room: false
+    visible_exits: []
+    secret_exits: []
+    notes: []
+- id: '7'
+  name: Maw Hollow
+  x: 1
+  y: 1
+  description: 'Maw Hollow is the site''s deep chamber: The Warder of the Drowned
+    Shelves holds court here, a final authority in the dark, and the feel of a room
+    built to end arguments badly.'
+  atmosphere: mildewed rope and old pitch
+  contents:
+  - The Warder of the Drowned Shelves holds court here
+  exits:
+  - to: '3'
+    label: north passage
+  secret_exits: []
+  locks: []
+  trap_tags: []
+  puzzle_tags: []
+  faction_tags: []
+  solo_monster_tags: []
+  boss_tags:
+  - the_warder_of_the_drowned_shelves
+  treasure_tags: []
+  role_tags:
+  - boss_room
+  - deep
+  discovered:
+    room: false
+    visible_exits: []
+    secret_exits: []
+    notes: []
+keys: []
+factions:
+- id: mooring_order
+  name: Mooring Order
+  wants: the old customs cache
+  holds:
+  - '2'
+  - '6'
+  culture: cave fishers with rules older than the town above
+  loadout: short bows tarred knives and climbing claws
+  tactic: feign retreat toward a crossing they already trapped
+- id: mire_threshers
+  name: Mire Threshers
+  wants: the old customs cache
+  holds:
+  - '3'
+  - '5'
+  culture: cave fishers with rules older than the town above
+  loadout: harpoons split shields and cork-floats
+  tactic: attack whoever carries the best light first
+monster_groups:
+- id: silt_leeches_egg_guards
+  name: silt leeches egg guards
+  trait: own the smallest cracks and worst footing
+  sign: shed skins stuck to wet stone
+solo_monsters:
+- id: warm_pool_hydra
+  name: Warm-Pool Hydra
+  range:
+  - '3'
+bosses:
+- id: the_warder_of_the_drowned_shelves
+  name: The Warder of the Drowned Shelves
+  lair: '7'
+weird_npcs:
+- id: barefoot_night_watchman_with_blood_on_one_sleeve_and_none_of_it_theirs
+  name: barefoot night watchman with blood on one sleeve and none of it theirs
+  room: '4'
+player_map:
+  discovered_rooms:
+  - '1'
+  discovered_connections: []
+  discovered_secret_connections: []
+  current_room: '1'

@@ -27,6 +27,10 @@ TOOLS = {
     "checkpoint": "checkpoint.py",
     "resume_pack": "resume_pack.py",
     "new_skin": "new_skin.py",
+    "delvekit_seed": "delvekit_seed.py",
+    "delvekit_map": "delvekit_map.py",
+    "delvekit_pitch": "delvekit_pitch.py",
+    "delvekit_adventure": "delvekit_adventure.py",
 }
 
 
