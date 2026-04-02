@@ -245,7 +245,7 @@ Delvekit generation should be treated as two steps:
 2. Run a short AI polish pass to turn that skeleton into a readable title and back-cover hook.
 
 The Python generator is responsible for structure, motif, and spoiler control.
-The final public prose should come from [prompts/chat/candlelight_delvekit_pitch_polish.md](/Users/zach/Desktop/Files/github/other/sinew-and-steel/prompts/chat/candlelight_delvekit_pitch_polish.md), usually via [tools/delvekit_pitch.py](/Users/zach/Desktop/Files/github/other/sinew-and-steel/tools/delvekit_pitch.py).
+The final public prose should come from [`prompts/chat/candlelight_delvekit_pitch_polish.md`](../prompts/chat/candlelight_delvekit_pitch_polish.md), usually via [`tools/delvekit_pitch.py`](../tools/delvekit_pitch.py).
 
 The polish pass should:
 
@@ -278,7 +278,7 @@ The same pattern can be used for the full adventure text. Delvekit can emit a la
 - room data
 - keys, factions, monsters, bosses, and weird NPCs
 
-That larger payload is intended for [prompts/chat/candlelight_delvekit_adventure_polish.md](/Users/zach/Desktop/Files/github/other/sinew-and-steel/prompts/chat/candlelight_delvekit_adventure_polish.md), usually via [tools/delvekit_adventure.py](/Users/zach/Desktop/Files/github/other/sinew-and-steel/tools/delvekit_adventure.py).
+That larger payload is intended for [`prompts/chat/candlelight_delvekit_adventure_polish.md`](../prompts/chat/candlelight_delvekit_adventure_polish.md), usually via [`tools/delvekit_adventure.py`](../tools/delvekit_adventure.py).
 
 Typical workflow:
 

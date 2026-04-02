@@ -42,9 +42,15 @@ def _parse_polish_text(text: str) -> tuple[str, str]:
             return title, blurb
 
     title_match = re.search(r"(?im)^\s*Title:\s*(.+?)\s*$", stripped)
-    blurb_match = re.search(r"(?ims)^\s*Blurb:\s*(.+?)\s*$", stripped)
-    if title_match and blurb_match:
-        return title_match.group(1).strip(), blurb_match.group(1).strip()
+    if title_match:
+        lines = stripped.splitlines()
+        for idx, line in enumerate(lines):
+            blurb_prefix = re.match(r"(?i)^\s*Blurb:\s*(.*)$", line)
+            if blurb_prefix:
+                blurb_lines = [blurb_prefix.group(1)] + lines[idx + 1 :]
+                blurb = "\n".join(blurb_lines).strip()
+                if blurb:
+                    return title_match.group(1).strip(), blurb
     raise SystemExit("error: could not parse polished output; expected JSON {title, blurb} or lines beginning with Title: and Blurb:")
 
 

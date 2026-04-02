@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+import json
 from pathlib import Path
 import sys
 
@@ -65,7 +66,7 @@ def main() -> int:
     if args.pitch_json_out:
         path = Path(args.pitch_json_out)
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(yaml.safe_dump(_delvekit.pitch_polish_payload(payload), sort_keys=False), encoding="utf-8")
+        path.write_text(json.dumps(_delvekit.pitch_polish_payload(payload), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     if args.adventure_prompt_out:
         manifest = _delvekit._sslib.load_yaml(Path(__file__).resolve().parent.parent / "manifest.yaml")
@@ -78,7 +79,7 @@ def main() -> int:
     if args.adventure_json_out:
         path = Path(args.adventure_json_out)
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(yaml.safe_dump(_delvekit.adventure_polish_payload(payload), sort_keys=False), encoding="utf-8")
+        path.write_text(json.dumps(_delvekit.adventure_polish_payload(payload), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     return 0
 
