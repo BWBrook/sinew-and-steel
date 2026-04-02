@@ -1,0 +1,79 @@
+schema_version: 1
+dungeon:
+  id: example_delve
+  name: Example Delve
+  style: reliquary
+  style_label: candlelit reliquary
+  subtheme: a shrine-complex of ash and broken vows
+  skin: candlelight_dungeons
+  addon: candlelight_delvekit
+  size: tiny
+  difficulty: medium
+  start_room: "1"
+  hook_type: artifact_heist
+  hook_summary: steal a single relic and get out alive
+  hook_target: the saint-bone lantern
+  pitch_skeleton:
+    patron:
+      full: Ketha Rowan, funeral factor
+      reward: 60 silver and first pick of portable relics
+    public_place: Bell House
+    public_motifs:
+      - bells
+      - soot
+    hook_type: artifact_heist
+    job: steal a saint-bone lantern
+    setup: Ketha Rowan swears the lantern is still below.
+    reward: 60 silver and first pick of portable relics
+    pressures:
+      - sealed ways and hidden inner doors
+      - feuding claimants
+      - something that stalks the halls
+    title_cues:
+      - The Bell House Job
+      - Silver Under Bell House
+    spoiler_guard: Do not reveal exact monster names, exact faction names, room names, lock items, or final treasure identities.
+  title_draft: The Bell House Job
+  player_blurb_draft: A draft player-facing pitch generated from the pitch skeleton.
+  player_blurb: A final polished player-facing pitch for the site.
+  character_motivation: A concrete reason a delver would brave the place.
+rooms:
+  - id: "1"
+    name: Entry Stairs
+    x: 0
+    y: 0
+    description: Cold steps descend into damp dark.
+    atmosphere: wet limestone and candle ash
+    contents:
+      - spent torches
+    exits:
+      - to: "2"
+        label: north passage
+    secret_exits: []
+    locks: []
+    trap_tags: []
+    puzzle_tags: []
+    faction_tags: []
+    solo_monster_tags: []
+    boss_tags: []
+    treasure_tags: []
+    role_tags:
+      - start
+    discovered:
+      room: true
+      visible_exits:
+        - "2"
+      secret_exits: []
+      notes:
+        - cold draught
+keys: []
+factions: []
+solo_monsters: []
+bosses: []
+weird_npcs: []
+player_map:
+  discovered_rooms:
+    - "1"
+  discovered_connections: []
+  discovered_secret_connections: []
+  current_room: "1"

@@ -44,6 +44,10 @@ def load_text(path: Path) -> str:
         sys.exit(1)
 
 
+def load_joined_text(paths: list[Path]) -> str:
+    return "\n\n".join(load_text(path).strip() for path in paths if path).strip()
+
+
 def load_manifest() -> dict:
     manifest_path = ROOT / "manifest.yaml"
     try:
@@ -119,7 +123,9 @@ def main() -> int:
     cust_path = ROOT / core.get("custodians_almanac", "")
 
     skin_entry = skins[skin_slug]
-    skin_path = ROOT / skin_entry.get("file", "")
+    skin_paths = [ROOT / skin_entry.get("file", "")]
+    for addon_rel in skin_entry.get("addons", []) or []:
+        skin_paths.append(ROOT / addon_rel)
 
     prompts = manifest.get("prompts", {})
     if args.mode == "chat":
@@ -133,7 +139,7 @@ def main() -> int:
     template = load_text(template_path)
     adv_text = load_text(adv_path)
     cust_text = load_text(cust_path)
-    skin_text = load_text(skin_path)
+    skin_text = load_joined_text(skin_paths)
 
     hidden_text = "[No hidden scenario provided.]"
     if args.hidden:
@@ -174,6 +180,7 @@ def main() -> int:
     payload = {
         "ok": True,
         "skin": skin_slug,
+        "skin_addons": skin_entry.get("addons", []) or [],
         "mode": args.mode,
         "campaign": args.campaign,
         "keep_art": bool(args.keep_art),

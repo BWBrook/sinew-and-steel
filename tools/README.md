@@ -26,6 +26,10 @@ Requires Python 3 and PyYAML (already present in most agent runtimes).
 - validate_repo.py: sanity checks for manifest and file layout.
 - release_build.py: build release bundles (markdown + optional PDFs via pandoc) into release/dist/.
 - md_pdf.py: build an ad-hoc PDF from arbitrary markdown file(s) for layout/art iteration.
+- delvekit_seed.py: generate a deterministic Candlelight Delvekit dungeon prototype as YAML and optional markdown/maps.
+- delvekit_map.py: render hidden GM maps and progressively revealed player maps from Delvekit YAML.
+- delvekit_pitch.py: prepare a Codex-facing pitch-polish prompt bundle and apply polished title/blurb text back into Delvekit YAML.
+- delvekit_adventure.py: prepare a Codex-facing adventure-polish bundle and write the finished module markdown.
 - suggest_trim.py: optional maintainer helper to suggest `trim="l b r t"` for spot-art PNGs (uses Pillow if installed).
 - ss.py: thin dispatcher (`python tools/ss.py <command> ...`) for single-command workflows.
 
@@ -68,6 +72,15 @@ python tools/ss.py beat --campaign ice_hunt --character grak check --stat-key SY
 python tools/checkpoint.py --campaign ice_hunt --show
 python tools/resume_pack.py --campaign ice_hunt --character grak
 python tools/resume_pack.py --campaign ice_hunt --character grak --public
+python tools/delvekit_seed.py --seed 42 --size tiny --difficulty hard --out /tmp/delve.yaml
+python tools/delvekit_map.py --file /tmp/delve.yaml --mode gm
+python tools/delvekit_seed.py --seed 42 --size medium --difficulty medium --out /tmp/delve.yaml --pitch-prompt-out /tmp/delve_pitch.md
+python tools/delvekit_seed.py --seed 42 --size medium --difficulty medium --out /tmp/delve.yaml --adventure-prompt-out /tmp/delve_adventure.md
+python tools/delvekit_pitch.py prepare --file /tmp/delve.yaml --out /tmp/delve_pitch.md --json-out /tmp/delve_pitch.json
+python tools/delvekit_pitch.py apply --file /tmp/delve.yaml --text-file /tmp/polished_pitch.txt --echo
+python tools/delvekit_adventure.py prepare --file /tmp/delve.yaml --out /tmp/delve_adventure.md --json-out /tmp/delve_adventure.json
+python tools/delvekit_adventure.py apply --out /tmp/delve_module.md --markdown-file /tmp/polished_module.md
+python tools/delvekit_map.py --file examples/candlelight_delvekit/pale_warrens.yaml --mode player --frontier --reveal-rooms 3,4 --position 4
 python tools/md_pdf.py rules/quickstart.md --out /tmp/quickstart.pdf --style bookish
 python tools/md_pdf.py rules/quickstart.md skins/clanfire.md --out /tmp/layout_test.pdf --toc --style bookish
 python tools/md_pdf.py --files \"rules/quickstart.md skins/clanfire.md\" --out /tmp/layout_test.pdf --toc --style bookish
