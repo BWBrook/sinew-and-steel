@@ -42,7 +42,7 @@ That’s the chassis. Everything else is flavour‐text.
 |Time Odyssey | Brass-and-crystal chrononautics. Ingenuity pool, Anomaly crises, epoch graphing. |
 |Briar & Benedictine | Medieval sleuthing. Divine providence, Sin and penance, murder mystery. |
 |Rust & Domes | Noir-tinged Red Planet frontier. Heat track, psionics, red-dust grime. |
-|Candlelight Dungeons | Old-school dungeon crawl. Fatigue clock, spell backlash, torchlit terror. |
+|Candlelight Dungeons | Old-school dungeon crawl. Fatigue clock, spell backlash, torchlit terror, plus an optional Delvekit sidecar for stricter procedural exploration. |
 |Service Duct Blues | Lower-decks starship drama. Resourcefulness pool, Stress track, system saves. |
 |Whispers in the Fog | Weird 1920s horror. Insanity track, fragile hope, occult terror. |
 |Free Traders of the Drift Marches | Starfreight drama. Ship Shares, Strain track, speculative cargo gambles. |
@@ -50,8 +50,15 @@ That’s the chassis. Everything else is flavour‐text.
 
 Swap a few words and build your own skin in an afternoon.
 
-Optional sidecar:
-- `docs/candlelight_delvekit.md` — procedural dungeon support for Candlelight Dungeons (seeded prototypes, GM/player ASCII maps, keyed progression, factions, and trap-room guidance).
+## Candlelight Fast Path
+
+If you want the repo's torchlit dungeon-crawl lane, start here:
+
+- Read `skins/candlelight_dungeons.md` for the base skin.
+- Add `skins/candlelight_delvekit.md` and `rules/appendices/candlelight_delvekit_quickref.md` when you want stricter exploration turns, keyed progression, hidden/player maps, and seeded site generation.
+- Use `python tools/build_prompt.py --skin candlelight_dungeons --mode agent --out /tmp/candlelight_prompt.md` for an agent-ready prompt. The current manifest wiring includes the Delvekit sidecar automatically for Candlelight prompt builds.
+- Use `python tools/delvekit_seed.py --seed 42 --size tiny --difficulty hard --out /tmp/delve.yaml` if you want a bounded dungeon prototype before play.
+- See `docs/candlelight_delvekit.md` for the full workflow and `examples/candlelight_delvekit/` for ready-to-read examples.
 
 ---
 
@@ -73,7 +80,7 @@ Start here if you want a Codex CLI or Claude Code agent to run the game from thi
    ```bash
    python tools/build_prompt.py --campaign ice_hunt --mode agent
    ```
-   (By default this strips PDF-only artwork tags from rules/skins to keep the prompt clean for LLM ingestion; use `--keep-art` if you want them included.)
+   (By default this strips PDF-only artwork tags from rules/skins to keep the prompt clean for LLM ingestion; use `--keep-art` if you want them included. For Candlelight Dungeons, the manifest currently pulls in the Delvekit sidecar automatically.)
 5. **Start play** using `campaigns/ice_hunt/prompt.md`, then track state with tools.
 
 Canonical guide: `skills/agent_dm_handbook.md`
@@ -107,7 +114,7 @@ If you have any questions, ask now. If not, print ONLY the checkpoint text and c
 ## Quick start (table / chat play)
 
 1. **Read `rules/quickstart.md`.**  
-2. Pick or clone a skin from `/skins/`.  
+2. Pick or clone a skin from `/skins/`. If you choose Candlelight Dungeons and want the stricter dungeon procedure, also read `skins/candlelight_delvekit.md`.  
 3. Hand the rules page to players; keep the skin doc behind your screen.  
 4. (Optional) paste the **Starter Prompt** in `/prompts/chat/` into ChatGPT or another LLM and hit enter.
 5. (Optional) use the **Hidden Scenario Prompt** in `/prompts/chat/` to generate a secret scenario/module! 
@@ -167,6 +174,7 @@ This repo includes an agent-focused harness to run sessions without API adapters
 * **`skills/`** — small, reusable instruction files for common tasks (prompt build, editor notes, dice, state updates).
 * **`tools/`** — CLI helpers for assembling prompts, rolling dice, and updating YAML sheets.
 * **`manifest.yaml`** — a machine-readable index of rules, skins, and prompts.
+* **`docs/candlelight_delvekit.md`** and **`examples/candlelight_delvekit/`** — the Candlelight Delvekit lane for seeded dungeon generation, map rendering, and module-polish workflows.
 * **`state/`** — private notes, trackers, and character sheets (local runtime data).
 * **`campaigns/`** — untracked per-campaign workspaces with their own state and logs.
 * **`skills/agent_dm_handbook.md`** — end-to-end guide for running sessions with the tools.
@@ -183,6 +191,7 @@ Key utilities for play:
 * `tools/checkpoint.py` for ironman save-and-quit checkpoints.
 * `tools/doctor.py` to validate repo + campaign in one command.
 * `tools/ss.py` for a single entry point (`python tools/ss.py beat ...`).
+* `tools/delvekit_seed.py`, `tools/delvekit_map.py`, `tools/delvekit_pitch.py`, and `tools/delvekit_adventure.py` for Candlelight Delvekit site generation, map rendering, and polish workflows.
 
 ---
 

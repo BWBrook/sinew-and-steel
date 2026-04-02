@@ -10,6 +10,16 @@ It adds a lean exploration procedure, a small dungeon-state schema, generated ex
 
 It does **not** replace Candlelight Dungeons, and it does **not** change core Sinew & Steel.
 
+## Start Here
+
+Choose the lane you want:
+
+- Plain Candlelight: read `skins/candlelight_dungeons.md` only.
+- Candlelight + Delvekit: read this file, `skins/candlelight_delvekit.md`, and `rules/appendices/candlelight_delvekit_quickref.md`.
+- Agent play: `python tools/build_prompt.py --skin candlelight_dungeons --mode agent --out /tmp/candlelight_prompt.md` embeds the Delvekit sidecar automatically via the manifest addon wiring.
+- Generated-site-first workflow: start with `python tools/delvekit_seed.py --seed 42 --size tiny --difficulty hard --out /tmp/delve.yaml`, then render maps or polish the hook/module text.
+- Example-first orientation: read `examples/candlelight_delvekit/pale_warrens.md`.
+
 ## What Is Included
 
 - `skins/candlelight_delvekit.md` — optional rules sidecar

@@ -40,6 +40,10 @@ Most mutators also accept `--dry-run` (no writes) and `--json` (machine-readable
 For tools with subcommands (roll/beat/trackers), global flags can appear before or after the subcommand.
 Random generation reads optional per-skin `_gen` defaults from manifest.yaml (override with CLI flags).
 
+Manifest-defined addons:
+- `build_prompt.py` embeds any addon files listed under a skin in `manifest.yaml`.
+- Today that means `python tools/build_prompt.py --skin candlelight_dungeons ...` includes `skins/candlelight_delvekit.md` automatically.
+
 Examples:
 
 ```bash
@@ -48,6 +52,7 @@ python tools/build_prompt.py --skin clanfire --mode agent --out /tmp/ss_prompt.m
 # Note: build_prompt strips artwork image tags by default (for LLM prompt cleanliness).
 # Use --keep-art if you explicitly want the `![](...){...}` artwork markers included.
 python tools/build_prompt.py --skin clanfire --mode chat --out /tmp/ss_prompt_chat.md
+python tools/build_prompt.py --skin candlelight_dungeons --mode agent --out /tmp/candlelight_prompt.md
 python tools/build_prompt.py --campaign ice_hunt --mode agent
 python tools/campaign_init.py --title \"Ice Hunt\" --skin clanfire --tone standard --random-character \"Grak\"
 python tools/char_builder.py --campaign ice_hunt --name \"Aveline\" --set HEW=6 --set FLT=8 --set LOR=10 --set MCY=13 --set PRV=10

@@ -105,6 +105,7 @@ python tools/session_log.py --campaign <slug> --role GM \
 ## Skin toggles
 - The manifest stores per-skin attributes, luck naming, and pressure track names.
 - Campaign initialization uses the skin to label trackers and sheets automatically.
+- The manifest can also define skin addons that are concatenated into prompt builds. At present, `candlelight_dungeons` automatically pulls in `skins/candlelight_delvekit.md` when you use `tools/build_prompt.py`.
 
 ## When to update state
 - After every roll: update sheet and tracker immediately.

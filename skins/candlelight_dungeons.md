@@ -10,6 +10,10 @@ _(Use atop the Sinew & Steel rules; anything not listed here follows the cor
 Candlelight Dungeons is old‑school dungeon‑crawl play: mapping by torchlight, hard bargains, traps that hurt, and monsters with motives.
 Expect heroic competence under grim pressure — the dungeon is mean, but you are not helpless.
 
+Optional sidecar:
+If you want stricter exploration turns, hidden/player maps, keyed progression, and seeded site support, also read `skins/candlelight_delvekit.md` and `rules/appendices/candlelight_delvekit_quickref.md`.
+If you want lighter, scene-first dungeon play, this file stands on its own.
+
 Suggested creation tone: **heroic** (**16** build points).
 If you want a meat‑grinder crawl, lower build points (standard **6** or grim **0**) without changing any other rules.
 
