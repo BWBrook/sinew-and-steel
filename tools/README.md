@@ -24,7 +24,7 @@ Requires Python 3 and PyYAML (already present in most agent runtimes).
 - validate_sheet.py: validate a character sheet against point-buy + manifest.
 - validate_campaign.py: validate a campaign scaffold and its state.
 - validate_repo.py: sanity checks for manifest and file layout.
-- release_build.py: build release bundles (markdown + optional PDFs via pandoc) into release/dist/.
+- release_build.py: build release bundles (markdown + optional PDFs via Pandoc + WeasyPrint/LaTeX) into release/dist/.
 - md_pdf.py: build an ad-hoc PDF from arbitrary markdown file(s) for layout/art iteration.
 - delvekit_seed.py: generate a deterministic Candlelight Delvekit dungeon prototype as YAML and optional markdown/maps.
 - delvekit_map.py: render hidden GM maps and progressively revealed player maps from Delvekit YAML.

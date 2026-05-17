@@ -68,7 +68,7 @@ Critical injuries may require med‑gel, cybernetic grafts, or a night in the au
 
 ### Equipment & Burden
 
-Six big items (long guns, bulky toolkits, sealed cargo). Extra load ⇒ Disadvantage on **DEF** tests.
+Six big items (long guns, bulky toolkits, sealed cargo). Extra load means Disadvantage on **DEF** tests.
 
 Flashing digi‑coin draws attention from Syndicate footpads and corp‑security alike.
 

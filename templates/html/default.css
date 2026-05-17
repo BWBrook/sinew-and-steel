@@ -17,6 +17,31 @@ body {
   line-height: 1.15;
 }
 
+nav#TOC {
+  break-after: page;
+  page-break-after: always;
+}
+
+nav#TOC ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav#TOC li li {
+  margin-left: 0.18in;
+}
+
+nav#TOC a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav#TOC a::after {
+  content: leader(".") " " target-counter(attr(href), page);
+  font-variant-numeric: tabular-nums;
+}
+
 img.wrap-left,
 img.margin-left {
   float: left;

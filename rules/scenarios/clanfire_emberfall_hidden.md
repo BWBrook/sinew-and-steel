@@ -20,9 +20,9 @@ The clan’s fire is dying, the hunt must succeed, and hungry things in the birc
 - Purge Shadow only via: sacrifice, dangerous ritual, great hunt, or story quest.
 
 ## Optional clocks (use only if useful)
-- Hunger (0/6): tick on time passing or empty return. Full ⇒ forced migration now.
-- Storm (0/6): tick on loud actions or long exposure. Full ⇒ whiteout; risky tests cost 1 Instinct bead or +1 Shadow.
-- Pack Learns (0/4): tick when wolves spot PCs or smell blood. Full ⇒ pack surrounds cave at night.
+- Hunger (0/6): tick on time passing or empty return. Full means forced migration now.
+- Storm (0/6): tick on loud actions or long exposure. Full means whiteout; risky tests cost 1 Instinct bead or +1 Shadow.
+- Pack Learns (0/4): tick when wolves spot PCs or smell blood. Full means pack surrounds cave at night.
 
 ## Threat: Cave Wolf (Soldier-tier 10)
 - Attack FLT 10 (edge +1 bite), Defend FLT 10, STM 4, soak 0.

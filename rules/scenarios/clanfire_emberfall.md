@@ -169,12 +169,12 @@ Use this as a teaching exchange. It’s short, it shows the math, and it shows t
 - **Defender:** Wolf rolls under **FLT 10** (dodge).
 
 Example rolls:
-- Grak rolls **7** → success (margin **+5**).
-- Wolf rolls **15** → fail (margin **–5**).
+- Grak rolls **7**: success (margin **+5**).
+- Wolf rolls **15**: fail (margin **–5**).
 
 Result:
 - Grak wins (only attacker succeeds).  
-- Damage = `1 + edge (+1) − soak (0)` = **2** → wolf STM **4 → 2**.  
+- Damage = `1 + edge (+1) − soak (0)` = **2**; wolf STM drops from **4 to 2**.
 - Fiction: the spear doesn’t “skewer it clean”; it *cuts it* and forces it to give ground.
 
 ### Beat 2 — Tarra turns fire into a weapon (attack with Spirit)
@@ -184,8 +184,8 @@ Tarra’s method is not “stab”. It’s **presence, fear, omen**.
 - **Defender:** Wolf rolls under **FLT 10** (it darts and snaps away from the flame).
 
 Example rolls:
-- Tarra rolls **9** → success (margin **+5**).
-- Wolf darts with **FLT** and rolls **9** → success (margin **+1**).
+- Tarra rolls **9**: success (margin **+5**).
+- Wolf darts with **FLT** and rolls **9**: success (margin **+1**).
 
 Result:
 - Both succeed; Tarra wins (higher margin).  

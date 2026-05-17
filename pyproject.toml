@@ -7,5 +7,10 @@ dependencies = [
   "pyyaml>=6.0",
 ]
 
+[project.optional-dependencies]
+pdf = [
+    "weasyprint>=68.1",
+]
+
 [tool.uv]
 # No dev dependencies yet.

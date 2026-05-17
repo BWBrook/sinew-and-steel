@@ -32,7 +32,7 @@ uv sync
 You’ll need the Python package plus a few system libraries.
 
 ```bash
-uv pip install weasyprint
+uv sync --extra pdf
 ```
 
 On macOS (Homebrew), install the image-loader library once:
@@ -64,17 +64,17 @@ The default "bookish" font stack is platform-aware:
 ### Build one file
 
 ```bash
-uv run python tools/md_pdf.py rules/quickstart.md \
+uv run --extra pdf python tools/md_pdf.py rules/quickstart.md \
   --backend weasyprint \
   --style bookish \
-  --paper letter \
+  --paper a4 \
   --out release/test/quickstart.pdf
 ```
 
 ### Build multiple files into one PDF
 
 ```bash
-uv run python tools/md_pdf.py --files "rules/quickstart.md skins/clanfire.md" \
+uv run --extra pdf python tools/md_pdf.py --files "rules/quickstart.md skins/clanfire.md" \
   --backend weasyprint \
   --toc \
   --style bookish \
@@ -83,7 +83,7 @@ uv run python tools/md_pdf.py --files "rules/quickstart.md skins/clanfire.md" \
 
 ### Common layout knobs
 
-- `--paper letter|a4`
+- `--paper a4|letter` (default: `a4`)
 - `--margin "0.6in 0.75in"`  
   CSS-style shorthand is supported:
   - `"<all>"` (e.g. `0.75in`)
@@ -99,7 +99,7 @@ uv run python tools/md_pdf.py --files "rules/quickstart.md skins/clanfire.md" \
 If you want your local pagination to match the repo’s default expectations for PDF iteration, use:
 
 ```bash
---backend weasyprint --style bookish --paper letter --margin "0.55in 0.75in" --fontsize 11.5
+--backend weasyprint --style bookish --paper a4 --margin "0.55in 0.75in" --fontsize 11.5
 ```
 
 > Quickstart note: if you are keeping the quickstart to *exactly two pages*, tweak `--margin`, `--fontsize`, and `--linestretch` first before cutting text.
@@ -140,16 +140,16 @@ The PDF tooling maps these appropriately for both backends.
 
 ### “WeasyPrint not installed”
 
-Make sure you’re running the repo’s venv Python:
+Make sure you installed the repo’s PDF extra and are running the repo’s venv Python:
 
 ```bash
-.venv/bin/python tools/md_pdf.py ... --backend weasyprint
+uv sync --extra pdf
 ```
 
-Or:
+Then build with:
 
 ```bash
-uv run python tools/md_pdf.py ... --backend weasyprint
+uv run --extra pdf python tools/md_pdf.py ... --backend weasyprint
 ```
 
 ### Render to PNG for fast visual diffing
@@ -164,7 +164,11 @@ pdftoppm -png -f 1 -singlefile release/test/quickstart.pdf /tmp/quickstart_page1
 
 ## Release bundles (`tools/release_build.py`)
 
-This produces the “official” release outputs under `release/dist/` (and can also build PDFs via Pandoc/LaTeX).
+This produces the “official” release outputs under `release/dist/`.
+
+PDF release builds default to the **WeasyPrint** backend, because that is the
+stable path for wrapped images and book-style layout. The LaTeX path is still
+available as a compatibility fallback.
 
 Run:
 
@@ -172,4 +176,23 @@ Run:
 uv run python tools/release_build.py --help
 ```
 
-If you’re iterating on art/layout, prefer `tools/md_pdf.py` until you’re happy, then roll changes into the release build.
+Build the full guided book:
+
+```bash
+uv run --extra pdf python tools/release_build.py --bundle full_book --pdf --style bookish
+```
+
+The same command can be written explicitly as:
+
+```bash
+uv run --extra pdf python tools/release_build.py --bundle full_book --pdf --backend weasyprint --style bookish
+```
+
+Use LaTeX only for comparison/debugging:
+
+```bash
+uv run python tools/release_build.py --bundle full_book --pdf --backend latex --style bookish
+```
+
+If you’re iterating on one or two chapters of art/layout, prefer `tools/md_pdf.py`
+until you’re happy, then roll changes into the release build.

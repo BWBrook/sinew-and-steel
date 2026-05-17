@@ -227,7 +227,7 @@ This influences their ability to inflict damage or limit Stamina loss:
 
 _(Defence is the defender’s opposed roll: usually NIM to dodge/cover, STR to parry with shield/weapon, or HRT to stand firm against fear‑driven threats — as fits the fiction.)_
 
-#### Injurious blows → lacerations, punctures, broken bones
+#### Injurious blows: lacerations, punctures, broken bones
 
 When you score a hit, first apply the normal Stamina loss and soak rules.
 
@@ -267,7 +267,7 @@ After a completed adventure, each PC picks **one** undertaking:
 
 ### Tainted & Sanctuary Ground
 
-- **Tainted** (old battlefield, tomb‑hill): each night spent here → mark **+1 Dread**.
+- **Tainted** (old battlefield, tomb‑hill): each night spent here marks **+1 Dread**.
 - **Sanctuary** (peaceful haven, holy hall): the first full night clears **1 Dread** and **1 Fatigue** for each PC.
 
 Travel choices acquire moral weight.

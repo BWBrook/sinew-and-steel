@@ -67,7 +67,7 @@ A tamed beast is a **3‑token Instinct pool** you may spend instead of your own
 
 ### Carry Limit flavour
 
-A hunter totes six big items (spears, blade kit, hide waterskin…). Extra gear → Disadvantage on Fleetness.
+A hunter totes six big items (spears, blade kit, hide waterskin...). Extra gear means Disadvantage on Fleetness.
 
 > *Hold these laws close; the Ice drinks fools. The clan that masters flint and fate endures another dawn.*
 

@@ -21,6 +21,92 @@ body {
   line-height: 1.05;
 }
 
+/* Table of contents
+ *
+ * Pandoc emits a plain nested list. WeasyPrint can resolve internal anchors to
+ * page numbers, so this turns that list into a conventional print TOC with
+ * dot leaders and a clearer chapter/section hierarchy.
+ */
+nav#TOC {
+  break-after: page;
+  page-break-after: always;
+  margin: 0.05in 0 0 0;
+  font-size: 0.94em;
+}
+
+nav#TOC::before {
+  content: "Contents";
+  display: block;
+  margin: 0 0 0.16in 0;
+  padding-bottom: 0.06in;
+  border-bottom: 1.5px solid #111;
+  font-size: 1.7em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+nav#TOC ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav#TOC > ul > li {
+  margin: 0.06in 0;
+}
+
+nav#TOC > ul > li > ul {
+  margin-top: 0.04in;
+}
+
+nav#TOC li li {
+  margin: 0.04in 0 0.025in 0.12in;
+  font-size: 0.93em;
+}
+
+nav#TOC li li li {
+  margin: 0.022in 0 0.022in 0.22in;
+  font-size: 0.95em;
+}
+
+nav#TOC a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav#TOC a::after {
+  content: leader(".") " " target-counter(attr(href), page);
+  font-variant-numeric: tabular-nums;
+}
+
+nav#TOC > ul > li > a {
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+nav#TOC li li > a {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+nav#TOC li li li > a {
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+nav#TOC li li a::after {
+  color: #555;
+}
+
+nav#TOC strong,
+nav#TOC em {
+  font-weight: inherit;
+  font-style: inherit;
+}
+
 /* Title block (Pandoc) */
 header#title-block-header {
   text-align: center;
@@ -47,18 +133,110 @@ header#title-block-header .date {
 
 /* Headings */
 h1 {
-  font-size: 1.45em;
-  margin: 0.2in 0 0.12in 0;
+  padding-bottom: 0.055in;
+  border-bottom: 1.5px solid #111;
+  font-size: 1.9em;
+  line-height: 1.05;
+  letter-spacing: 0.055em;
+  margin: 0.06in 0 0.18in 0;
+  text-align: center;
 }
 
 h2 {
-  font-size: 1.18em;
-  margin: 0.18in 0 0.1in 0;
+  padding-bottom: 0.035in;
+  border-bottom: 1px solid #777;
+  font-size: 1.36em;
+  line-height: 1.12;
+  letter-spacing: 0.045em;
+  margin: 0.18in 0 0.12in 0;
+  text-transform: uppercase;
 }
 
 h3 {
-  font-size: 1em;
-  margin: 0.15in 0 0.08in 0;
+  font-size: 1.16em;
+  line-height: 1.14;
+  margin: 0.16in 0 0.085in 0;
+  letter-spacing: 0.01em;
+}
+
+h4 {
+  font-size: 1.02em;
+  line-height: 1.14;
+  margin: 0.14in 0 0.065in 0;
+  font-weight: 700;
+}
+
+h5,
+h6 {
+  font-size: 0.98em;
+  line-height: 1.14;
+  margin: 0.11in 0 0.055in 0;
+  font-style: italic;
+}
+
+/* The standalone quickstart has to keep its literal promise: two pages.
+ * Give it denser heading and list rhythm without making the full book cramped.
+ */
+.ss-quickstart-standalone {
+  font-size: 10.45pt;
+  line-height: 1.0;
+}
+
+.ss-quickstart-standalone h1 {
+  font-size: 1.46em;
+  letter-spacing: 0.045em;
+  line-height: 0.98;
+  margin: 0.03in 0 0.08in 0;
+}
+
+.ss-quickstart-standalone h2 {
+  padding-bottom: 0.02in;
+  font-size: 1.06em;
+  letter-spacing: 0.01em;
+  margin: 0.09in 0 0.05in 0;
+  text-transform: none;
+}
+
+.ss-quickstart-standalone p {
+  margin: 0.06in 0;
+}
+
+.ss-quickstart-standalone ul,
+.ss-quickstart-standalone ol {
+  margin-top: 0.05in;
+  margin-bottom: 0.05in;
+}
+
+.ss-quickstart-standalone li {
+  margin: 0.012in 0;
+}
+
+.ss-back-cover-blurb {
+  min-height: 8.6in;
+  padding: 0.18in 0.28in;
+  border-top: 2px solid #111;
+  border-bottom: 2px solid #111;
+}
+
+.ss-back-cover-blurb h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.ss-back-cover-blurb p {
+  font-size: 1.04em;
+  line-height: 1.14;
+}
+
+.ss-back-cover-blurb ul {
+  margin-left: 0.24in;
+}
+
+.ss-back-cover-blurb > p:last-child {
+  margin-top: 0.22in;
+  text-align: center;
+  font-size: 1.14em;
+  font-weight: 700;
 }
 
 /* Paragraphs */
@@ -103,12 +281,19 @@ h6 {
 /* Lists */
 ul,
 ol {
-  margin: 0.08in 0 0.08in 0.25in;
+  margin: 0.07in 0 0.07in 0.2in;
   padding: 0;
 }
 
+li > ul,
+li > ol {
+  margin-top: 0.015in;
+  margin-bottom: 0.015in;
+  margin-left: 0.16in;
+}
+
 li {
-  margin: 0.03in 0;
+  margin: 0.02in 0;
 }
 
 /* Blockquotes */

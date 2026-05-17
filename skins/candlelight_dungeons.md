@@ -88,7 +88,7 @@ Use these as quick defaults; if the approach changes, change the stat.
 
 ![](../assets/art/ss_candlelight_spell_backlash.png){.wrap-right width=1.5in}
 
-*Learn a spell by study, scroll, or blessing → agree its tier with the Custodian → note it: “**Sleep — Spell (LOR)**”.*
+*Learn a spell by study, scroll, or blessing; agree its tier with the Custodian; note it: “**Sleep — Spell (LOR)**”.*
 
 Cantrips, Spells, and Greater Spells, can all be nudged by spending Fortune coins (in addition to any spell cost paid). Arcanums cannot.
 

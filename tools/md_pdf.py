@@ -268,7 +268,7 @@ def main() -> int:
     parser.add_argument("--monofont", default=None, help="PDF mono font (xelatex/lualatex).")
     parser.add_argument("--fontsize", default=None, help='PDF font size (e.g. "11pt").')
     parser.add_argument("--linestretch", type=float, default=None, help="PDF line stretch (e.g. 1.05).")
-    parser.add_argument("--paper", choices=["letter", "a4"], default="letter", help="Paper size (default: letter).")
+    parser.add_argument("--paper", choices=["letter", "a4"], default="a4", help="Paper size (default: a4).")
     parser.add_argument("--margin", default="1in", help='Page margin (geometry), e.g. "1in".')
     parser.add_argument("--documentclass", default="article", help='LaTeX document class (default: "article").')
     parser.add_argument("--no-wrapfig", action="store_true", help="Disable wrapfig Lua filter.")
@@ -429,12 +429,12 @@ def main() -> int:
                 hint = (
                     "\nIt looks like you're running system Python, but WeasyPrint may be installed in the repo venv.\n"
                     f"Try:\n  {venv_python} tools/md_pdf.py ... --backend weasyprint\n"
-                    "or:\n  uv run python tools/md_pdf.py ... --backend weasyprint\n"
+                    "or:\n  uv run --extra pdf python tools/md_pdf.py ... --backend weasyprint\n"
                 )
             print(
                 "error: WeasyPrint not installed (required for --backend weasyprint).\n\n"
                 "Install (suggested):\n"
-                "  uv pip install weasyprint\n\n"
+                "  uv sync --extra pdf\n\n"
                 "On Ubuntu you may need system deps (example):\n"
                 "  sudo apt-get update\n"
                 "  sudo apt-get install -y libpango-1.0-0 libpangoft2-1.0-0 libcairo2 libgdk-pixbuf-2.0-0\n",

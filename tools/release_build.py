@@ -2,6 +2,7 @@
 import argparse
 from dataclasses import dataclass
 from datetime import date, datetime, timezone
+import os
 from pathlib import Path
 import platform
 import re
@@ -28,6 +29,13 @@ def load_text(path: Path) -> str:
 def write_text(path: Path, content: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding="utf-8")
+
+
+def report_path(path: Path) -> str:
+    try:
+        return path.resolve().relative_to(ROOT).as_posix()
+    except ValueError:
+        return str(path)
 
 
 def load_manifest() -> dict:
@@ -66,6 +74,49 @@ def ensure_versions_match(manifest: dict, version: str) -> None:
 
 def pandoc_available() -> bool:
     return shutil.which("pandoc") is not None
+
+
+def tex_engine_available(engine: str) -> bool:
+    return shutil.which(engine) is not None
+
+
+def configure_macos_weasyprint_runtime() -> None:
+    """
+    On Apple Silicon Macs, Homebrew libraries live under /opt/homebrew/lib.
+    WeasyPrint's CFFI loader doesn't always see that path by default, so expose
+    it before importing the backend.
+    """
+    if platform.system() != "Darwin":
+        return
+
+    brew_lib = Path("/opt/homebrew/lib")
+    if not brew_lib.exists():
+        return
+
+    current = os.environ.get("DYLD_FALLBACK_LIBRARY_PATH", "")
+    paths = [p for p in current.split(":") if p]
+    brew_lib_str = str(brew_lib)
+    if brew_lib_str not in paths:
+        os.environ["DYLD_FALLBACK_LIBRARY_PATH"] = (
+            f"{brew_lib_str}:{current}" if current else brew_lib_str
+        )
+
+
+def weasyprint_available() -> bool:
+    configure_macos_weasyprint_runtime()
+    try:
+        import weasyprint  # noqa: F401
+
+        return True
+    except Exception:
+        return False
+
+
+def normalize_css_font_size(raw: str) -> str:
+    s = raw.strip()
+    if re.fullmatch(r"\d+(\.\d+)?", s):
+        return f"{s}pt"
+    return s
 
 
 def sanitize_for_pdflatex(text: str) -> str:
@@ -285,6 +336,19 @@ def rewrite_markdown_image_paths(*, text: str, source_path: Path) -> str:
 
 
 @dataclass(frozen=True)
+class BookChapter:
+    title: str
+    path: Path
+    strip_first_heading: bool = True
+
+
+@dataclass(frozen=True)
+class BookPart:
+    title: str
+    chapters: tuple[BookChapter, ...]
+
+
+@dataclass(frozen=True)
 class Bundle:
     key: str
     title: str
@@ -296,6 +360,10 @@ class Bundle:
     variants: tuple[str, ...] = ("pdf",)
     cover_image: Path | None = None
     suppress_title_block: bool = False
+    book_parts: tuple[BookPart, ...] = ()
+    end_matter_paths: tuple[Path, ...] = ()
+    toc_depth: int | None = None
+    content_class: str | None = None
 
 
 def render_front_matter(title: str, subtitle: str, version: str) -> str:
@@ -314,25 +382,123 @@ def render_front_matter(title: str, subtitle: str, version: str) -> str:
     )
 
 
+def prepare_release_markdown_source(path: Path) -> str:
+    text = load_text(path).strip()
+    try:
+        rel = path.resolve().relative_to(ROOT)
+    except Exception:
+        rel = None
+    if rel and rel.parts and rel.parts[0] == "skins" and path.suffix.lower() == ".md":
+        logo_rel = _preferred_logo_image_for_skin(path)
+        if logo_rel is not None:
+            text = inject_skin_maker_mark(text, logo_rel=logo_rel).strip()
+        text = inject_skin_section_pagebreaks(text).strip()
+    return rewrite_markdown_image_paths(text=text, source_path=path).strip()
+
+
+_MD_ATX_HEADING_RE = re.compile(r"^(?P<indent> {0,3})(?P<marks>#{1,6})(?P<space>[ \t]+)(?P<title>.*)$")
+_MD_FENCE_RE = re.compile(r"^ {0,3}(```+|~~~+)")
+
+
+def strip_first_markdown_heading(text: str) -> str:
+    lines = text.splitlines()
+    in_fence = False
+    for idx, line in enumerate(lines):
+        if _MD_FENCE_RE.match(line):
+            in_fence = not in_fence
+        if not in_fence and _MD_ATX_HEADING_RE.match(line):
+            del lines[idx]
+            while idx < len(lines) and lines[idx].strip() == "":
+                del lines[idx]
+            return "\n".join(lines).strip()
+    return text.strip()
+
+
+def normalize_book_body_headings(text: str) -> str:
+    """
+    The full book wraps standalone source files in the authored book hierarchy:
+    parts are h2 and chapters are h3. Source-internal headings are therefore
+    normalized to h4/h5 so they never leak into the top-level book TOC.
+    """
+
+    lines = text.splitlines()
+    out: list[str] = []
+    in_fence = False
+    for line in lines:
+        if _MD_FENCE_RE.match(line):
+            in_fence = not in_fence
+            out.append(line)
+            continue
+        match = _MD_ATX_HEADING_RE.match(line)
+        if not in_fence and match:
+            old_level = len(match.group("marks"))
+            new_level = 4 if old_level <= 2 else 5
+            out.append(
+                f'{match.group("indent")}{"#" * new_level}{match.group("space")}{match.group("title")}'
+            )
+        else:
+            out.append(line)
+    return "\n".join(out).strip()
+
+
+def prepare_book_chapter_markdown(chapter: BookChapter) -> str:
+    text = prepare_release_markdown_source(chapter.path)
+    if chapter.strip_first_heading:
+        text = strip_first_markdown_heading(text)
+    return normalize_book_body_headings(text).strip()
+
+
 def concatenate_markdown(paths: list[Path]) -> str:
     parts: list[str] = []
     for idx, path in enumerate(paths):
         if idx != 0:
             parts.append("\n\\newpage\n")
-        text = load_text(path).strip()
-        try:
-            rel = path.resolve().relative_to(ROOT)
-        except Exception:
-            rel = None
-        if rel and rel.parts and rel.parts[0] == "skins" and path.suffix.lower() == ".md":
-            logo_rel = _preferred_logo_image_for_skin(path)
-            if logo_rel is not None:
-                text = inject_skin_maker_mark(text, logo_rel=logo_rel).strip()
-            text = inject_skin_section_pagebreaks(text).strip()
-        text = rewrite_markdown_image_paths(text=text, source_path=path)
-        parts.append(text)
+        parts.append(prepare_release_markdown_source(path))
         parts.append("")
     return "\n".join(parts).rstrip() + "\n"
+
+
+def concatenate_book_parts(parts_spec: tuple[BookPart, ...]) -> str:
+    parts: list[str] = ["# SINEW & STEEL", ""]
+    for part_idx, part in enumerate(parts_spec):
+        if part_idx != 0:
+            parts.append("\n\\newpage\n")
+        parts.append(f"## {part.title}")
+        parts.append("")
+        for chapter_idx, chapter in enumerate(part.chapters):
+            if chapter_idx != 0:
+                parts.append("\n\\newpage\n")
+            parts.append(f"### {chapter.title}")
+            parts.append("")
+            body = prepare_book_chapter_markdown(chapter)
+            if body:
+                parts.append(body)
+                parts.append("")
+    return "\n".join(parts).rstrip() + "\n"
+
+
+def concatenate_end_matter(paths: tuple[Path, ...]) -> str:
+    parts: list[str] = []
+    for path in paths:
+        text = strip_first_markdown_heading(prepare_release_markdown_source(path))
+        if not text:
+            continue
+        parts.append("\n\\newpage\n")
+        parts.append("::: {.ss-back-cover-blurb}")
+        parts.append("")
+        parts.append("## Back Cover Blurb {.unlisted}")
+        parts.append("")
+        parts.append(text)
+        parts.append("")
+        parts.append(":::")
+        parts.append("")
+    return "\n".join(parts).rstrip() + ("\n" if parts else "")
+
+
+def wrap_markdown_div(content: str, class_name: str | None) -> str:
+    if not class_name:
+        return content
+    return f"::: {{.{class_name}}}\n\n{content.rstrip()}\n\n:::\n"
 
 
 def run_pandoc_md_to_pdf(
@@ -415,6 +581,142 @@ def run_pandoc_md_to_pdf(
     subprocess.run(cmd, cwd=ROOT, check=True)
 
 
+def cover_html_block(*, cover_rel: Path) -> str:
+    cover_posix = cover_rel.as_posix()
+    return "\n".join(
+        [
+            '<section class="ss-cover-page" aria-label="Cover">',
+            f'  <img src="{cover_posix}" alt="Sinew & Steel cover" />',
+            "</section>",
+            "",
+        ]
+    )
+
+
+def run_pandoc_md_to_weasyprint_pdf(
+    *,
+    md_path: Path,
+    pdf_path: Path,
+    toc: bool,
+    toc_depth: int,
+    number_sections: bool,
+    variant: str,
+    style: str,
+    paper: str,
+    margin: str,
+    fontsize: str | None,
+    linestretch: float | None,
+    suppress_title_block: bool,
+    include_before_body: Path | None = None,
+) -> None:
+    html_path = md_path.parent / f"{pdf_path.stem}.html"
+    cmd = [
+        "pandoc",
+        str(md_path),
+        "-o",
+        str(html_path),
+        "--from",
+        "markdown-blank_before_blockquote",
+        "--to",
+        "html5",
+        "--standalone",
+        f"--resource-path={md_path.parent}:{ROOT}",
+        "--metadata",
+        f"pagetitle={pdf_path.stem}",
+        "--lua-filter",
+        str(ROOT / "templates" / "pandoc" / "html_pagebreak.lua"),
+    ]
+
+    if suppress_title_block:
+        cmd += [
+            "--metadata",
+            "title=",
+            "--metadata",
+            "subtitle=",
+            "--metadata",
+            "author=",
+            "--metadata",
+            "date=",
+        ]
+    if include_before_body and include_before_body.exists():
+        cmd += ["--include-before-body", str(include_before_body)]
+    if toc:
+        cmd += ["--toc", f"--toc-depth={toc_depth}"]
+    if number_sections:
+        cmd += ["--number-sections"]
+
+    subprocess.run(cmd, cwd=ROOT, check=True)
+
+    configure_macos_weasyprint_runtime()
+    from weasyprint import CSS, HTML
+
+    css_dir = ROOT / "templates" / "html"
+    css_path = css_dir / ("bookish.css" if style == "bookish" else "default.css")
+
+    stylesheets: list[CSS] = []
+    if css_path.exists():
+        stylesheets.append(CSS(filename=str(css_path)))
+
+    font_overrides = ""
+    if fontsize:
+        font_size_css = normalize_css_font_size(fontsize)
+        font_overrides += f"body {{ font-size: {font_size_css} !important; }}\n"
+    if linestretch:
+        font_overrides += f"body {{ line-height: {linestretch} !important; }}\n"
+
+    link_css = ""
+    if variant == "screen":
+        link_css = "a { color: #2459a6; }\n"
+    elif variant == "print":
+        link_css = "a { color: inherit; text-decoration: none; }\n"
+
+    runtime_css = f"""
+@page {{
+  size: {paper};
+  margin: {margin};
+}}
+
+@page ss-cover {{
+  size: {paper};
+  margin: 0;
+}}
+
+{font_overrides}
+{link_css}
+
+section.ss-cover-page {{
+  page: ss-cover;
+  break-after: page;
+  page-break-after: always;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}}
+
+section.ss-cover-page img {{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}}
+
+div.pagebreak {{
+  break-before: page;
+  page-break-before: always;
+  clear: both;
+}}
+"""
+    stylesheets.append(CSS(string=runtime_css))
+
+    HTML(filename=str(html_path), base_url=str(ROOT)).write_pdf(
+        str(pdf_path),
+        stylesheets=stylesheets,
+    )
+
+
 def bundle_definitions(manifest: dict, version: str, out_dir: Path) -> dict[str, Bundle]:
     rules = manifest.get("rules", {})
     core = rules.get("core", {})
@@ -441,6 +743,98 @@ def bundle_definitions(manifest: dict, version: str, out_dir: Path) -> dict[str,
 
     bundles: dict[str, Bundle] = {}
 
+    def skin_path(slug: str) -> Path:
+        try:
+            rel = skins[slug]["file"]
+        except KeyError:
+            print(f"error: manifest missing skin '{slug}'", file=sys.stderr)
+            raise SystemExit(1)
+        if not rel:
+            print(f"error: manifest missing skins.{slug}.file", file=sys.stderr)
+            raise SystemExit(1)
+        return ROOT / rel
+
+    if quick:
+        full_book_parts = (
+            BookPart(
+                title="INTRODUCTION",
+                chapters=(
+                    BookChapter("1. Preface", ROOT / "rules" / "book" / "preface.md"),
+                    BookChapter("2. Quickstart", quick),
+                ),
+            ),
+            BookPart(
+                title="CORE RULES",
+                chapters=(
+                    BookChapter("3. The Adventurer", ROOT / "rules" / "book" / "the_adventurer.md"),
+                    BookChapter("4. Adventurers Manual", adv),
+                    BookChapter("5. The Custodian", ROOT / "rules" / "book" / "the_custodian.md"),
+                    BookChapter("6. Custodian’s Almanac", cust),
+                    BookChapter("7. Customisation", ROOT / "rules" / "book" / "customisation.md"),
+                    BookChapter("8. Clanfire (exemplar skin)", skin_path("clanfire")),
+                ),
+            ),
+            BookPart(
+                title="STARTER SCENARIO",
+                chapters=(
+                    BookChapter("9. Clanfire: Emberfall", ROOT / "rules" / "scenarios" / "clanfire_emberfall.md"),
+                    BookChapter(
+                        "10. Clanfire Player Handout",
+                        ROOT / "rules" / "scenarios" / "clanfire_emberfall_player_handout.md",
+                    ),
+                    BookChapter(
+                        "11. Clanfire Custodian Notes",
+                        ROOT / "rules" / "scenarios" / "clanfire_emberfall_custodian_notes.md",
+                    ),
+                ),
+            ),
+            BookPart(
+                title="EXPANSION SKINS",
+                chapters=(
+                    BookChapter("12. Iron and Ruin", skin_path("iron_and_ruin")),
+                    BookChapter("13. Time Odyssey", skin_path("time_odyssey")),
+                    BookChapter("14. Briar and Benedictine", skin_path("briar_benedictine")),
+                    BookChapter("15. Rust and Domes", skin_path("rust_and_domes")),
+                    BookChapter("16. Candlelight Dungeons", skin_path("candlelight_dungeons")),
+                    BookChapter("17. Service Duct Blues", skin_path("service_duct_blues")),
+                    BookChapter("18. Whispers in the Fog", skin_path("whispers_in_the_fog")),
+                    BookChapter(
+                        "19. Free Traders of the Drift Marches",
+                        skin_path("free_traders_of_the_drift_marches"),
+                    ),
+                    BookChapter("20. Twilight of the Northlands", skin_path("twilight_of_the_northlands")),
+                ),
+            ),
+            BookPart(
+                title="AI FOR SOLO PLAY",
+                chapters=(
+                    BookChapter("21. AI as Custodian", ROOT / "rules" / "book" / "ai_as_custodian.md"),
+                    BookChapter("22. AI Play Notes", ROOT / "rules" / "appendices" / "ai_play.md"),
+                ),
+            ),
+        )
+        full_book_input_paths = [
+            chapter.path for part in full_book_parts for chapter in part.chapters
+        ]
+        full_book_end_matter = (
+            ROOT / "rules" / "book" / "back_cover_blurb.md",
+        )
+
+        bundles["full_book"] = Bundle(
+            key="full_book",
+            title="Sinew & Steel",
+            subtitle="Core Rules, Skins & Starter Scenario",
+            input_paths=[*full_book_input_paths, *full_book_end_matter],
+            output_base=f"SinewAndSteel_FullBook_v{version}",
+            toc=True,
+            toc_depth=3,
+            number_sections=False,
+            variants=("screen", "print"),
+            cover_image=Path("assets/covers/ss_cover_book_a4.png"),
+            book_parts=full_book_parts,
+            end_matter_paths=full_book_end_matter,
+        )
+
     bundles["core_skins"] = Bundle(
         key="core_skins",
         title="Sinew & Steel",
@@ -464,6 +858,7 @@ def bundle_definitions(manifest: dict, version: str, out_dir: Path) -> dict[str,
             number_sections=False,
             variants=("pdf",),
             suppress_title_block=True,
+            content_class="ss-quickstart-standalone",
         )
 
     bundles["scenario_emberfall"] = Bundle(
@@ -522,16 +917,26 @@ def main() -> int:
     )
     parser.add_argument(
         "--bundle",
-        choices=["all", "core_skins", "quickstart", "scenario_emberfall", "ai_appendix", "layout_test"],
+        choices=["all", "full_book", "core_skins", "quickstart", "scenario_emberfall", "ai_appendix", "layout_test"],
         default="all",
         help="Which bundle(s) to build.",
     )
-    parser.add_argument("--pdf", action="store_true", help="Also build PDFs (requires pandoc + LaTeX).")
+    parser.add_argument(
+        "--pdf",
+        action="store_true",
+        help="Also build PDFs (requires pandoc + selected backend).",
+    )
+    parser.add_argument(
+        "--backend",
+        choices=["weasyprint", "latex"],
+        default="weasyprint",
+        help="PDF backend for --pdf (default: weasyprint).",
+    )
     parser.add_argument(
         "--pdf-engine",
         choices=["pdflatex", "xelatex", "lualatex"],
         default=None,
-        help="Pandoc PDF engine (default: depends on --style).",
+        help="Pandoc PDF engine for --backend latex (default: depends on --style).",
     )
     parser.add_argument(
         "--style",
@@ -557,7 +962,7 @@ def main() -> int:
         "--paper",
         choices=["letter", "a4"],
         default=None,
-        help="PDF paper size (default: letter).",
+        help="PDF paper size (default: a4).",
     )
     parser.add_argument(
         "--margin",
@@ -578,25 +983,26 @@ def main() -> int:
     parser.add_argument("--json", action="store_true", help="Output machine-readable JSON summary.")
     args = parser.parse_args()
 
+    pdf_backend = args.backend
     pdf_engine = args.pdf_engine
     mainfont = args.mainfont
     sansfont = args.sansfont
     monofont = args.monofont
     fontsize = args.fontsize
     linestretch = args.linestretch
-    paper = args.paper or "letter"
+    paper = args.paper or "a4"
     margin = args.margin
     documentclass = args.documentclass
 
     if args.style == "bookish":
-        if pdf_engine is None:
+        if pdf_backend == "latex" and pdf_engine is None:
             pdf_engine = "xelatex"
         default_mainfont, default_sansfont, default_monofont = default_bookish_fonts()
-        if mainfont is None:
+        if pdf_backend == "latex" and mainfont is None:
             mainfont = default_mainfont
-        if sansfont is None:
+        if pdf_backend == "latex" and sansfont is None:
             sansfont = default_sansfont
-        if monofont is None:
+        if pdf_backend == "latex" and monofont is None:
             monofont = default_monofont
         if fontsize is None:
             fontsize = "11pt"
@@ -607,7 +1013,7 @@ def main() -> int:
         if documentclass is None:
             documentclass = "article"
     else:
-        if pdf_engine is None:
+        if pdf_backend == "latex" and pdf_engine is None:
             pdf_engine = "pdflatex"
         if fontsize is None:
             fontsize = "11pt"
@@ -639,14 +1045,15 @@ def main() -> int:
         "version": version,
         "built_at": datetime.now(timezone.utc).isoformat(),
         "git_head": git_head(),
-        "out_dir": str(out_dir),
+        "out_dir": report_path(out_dir),
         "bundles": {},
         "pdf_requested": bool(args.pdf),
-        "pdf_engine": pdf_engine if args.pdf else None,
+        "pdf_backend": pdf_backend if args.pdf else None,
+        "pdf_engine": pdf_engine if args.pdf and pdf_backend == "latex" else None,
         "pdf_style": args.style if args.pdf else None,
-        "pdf_mainfont": mainfont if args.pdf else None,
-        "pdf_sansfont": sansfont if args.pdf else None,
-        "pdf_monofont": monofont if args.pdf else None,
+        "pdf_mainfont": mainfont if args.pdf and pdf_backend == "latex" else None,
+        "pdf_sansfont": sansfont if args.pdf and pdf_backend == "latex" else None,
+        "pdf_monofont": monofont if args.pdf and pdf_backend == "latex" else None,
         "pdf_fontsize": fontsize if args.pdf else None,
         "pdf_linestretch": linestretch if args.pdf else None,
         "pdf_paper": paper if args.pdf else None,
@@ -658,6 +1065,19 @@ def main() -> int:
     if args.pdf and not pandoc_available():
         print("error: pandoc not found in PATH; install pandoc or omit --pdf", file=sys.stderr)
         return 1
+    if args.pdf and pdf_backend == "weasyprint" and not weasyprint_available():
+        print(
+            "error: WeasyPrint not installed (required for --backend weasyprint).\n\n"
+            "Install (suggested):\n"
+            "  uv sync --extra pdf\n\n"
+            "On macOS, also ensure the image loader is installed:\n"
+            "  brew install gdk-pixbuf\n",
+            file=sys.stderr,
+        )
+        return 1
+    if args.pdf and pdf_backend == "latex" and pdf_engine and not tex_engine_available(pdf_engine):
+        print(f"error: LaTeX engine '{pdf_engine}' not found in PATH", file=sys.stderr)
+        return 1
 
     for key in targets:
         bundle = bundles[key]
@@ -667,61 +1087,62 @@ def main() -> int:
                 return 1
 
         md_path = intermediate_dir / f"{bundle.output_base}.md"
-        content = render_front_matter(bundle.title, bundle.subtitle, version) + concatenate_markdown(bundle.input_paths)
+        body = (
+            concatenate_book_parts(bundle.book_parts)
+            if bundle.book_parts
+            else concatenate_markdown(bundle.input_paths)
+        )
+        if bundle.end_matter_paths:
+            body = body.rstrip() + "\n" + concatenate_end_matter(bundle.end_matter_paths)
+        body = wrap_markdown_div(body, bundle.content_class)
+        content = render_front_matter(bundle.title, bundle.subtitle, version) + body
         write_text(md_path, content)
 
-        bundle_result: dict = {"md": str(md_path), "pdf": []}
+        effective_toc_depth = bundle.toc_depth if bundle.toc_depth is not None else args.toc_depth
+        bundle_result: dict = {
+            "md": report_path(md_path),
+            "pdf": [],
+            "toc_depth": effective_toc_depth if bundle.toc else None,
+        }
 
         if args.pdf:
             md_for_pdf = md_path
-            if pdf_engine == "pdflatex":
+            if pdf_backend == "latex" and pdf_engine == "pdflatex":
                 md_for_pdf = intermediate_dir / f"{bundle.output_base}_latex.md"
                 write_text(md_for_pdf, sanitize_for_pdflatex(content))
 
             extra_headers: list[Path] = []
-            if bundle.cover_image:
-                cover_abs = ROOT / bundle.cover_image
-                if cover_abs.exists():
-                    cover_header = intermediate_dir / f"{bundle.output_base}_cover.tex"
-                    write_text(cover_header, cover_header_tex(cover_rel=bundle.cover_image))
-                    extra_headers.append(cover_header)
+            if pdf_backend == "latex":
+                if bundle.cover_image:
+                    cover_abs = ROOT / bundle.cover_image
+                    if cover_abs.exists():
+                        cover_header = intermediate_dir / f"{bundle.output_base}_cover.tex"
+                        write_text(cover_header, cover_header_tex(cover_rel=bundle.cover_image))
+                        extra_headers.append(cover_header)
 
-            if bundle.suppress_title_block:
-                suppress_header = intermediate_dir / f"{bundle.output_base}_no_title.tex"
-                write_text(suppress_header, suppress_title_block_tex())
-                extra_headers.append(suppress_header)
+                if bundle.suppress_title_block:
+                    suppress_header = intermediate_dir / f"{bundle.output_base}_no_title.tex"
+                    write_text(suppress_header, suppress_title_block_tex())
+                    extra_headers.append(suppress_header)
+            else:
+                cover_include: Path | None = None
+                if bundle.cover_image and (ROOT / bundle.cover_image).exists():
+                    cover_include = intermediate_dir / f"{bundle.output_base}_cover.html"
+                    write_text(cover_include, cover_html_block(cover_rel=bundle.cover_image))
+                md_for_pdf = intermediate_dir / f"{bundle.output_base}_weasyprint.md"
+                write_text(md_for_pdf, content)
 
             if bundle.variants == ("pdf",):
                 pdf_path = out_dir / f"{bundle.output_base}.pdf"
-                run_pandoc_md_to_pdf(
-                    md_path=md_for_pdf,
-                    pdf_path=pdf_path,
-                    toc=bundle.toc,
-                    toc_depth=args.toc_depth,
-                    number_sections=bundle.number_sections,
-                    variant="screen",
-                    pdf_engine=pdf_engine,
-                    mainfont=mainfont,
-                    sansfont=sansfont,
-                    monofont=monofont,
-                    fontsize=fontsize,
-                    linestretch=linestretch,
-                    geometry=geometry,
-                    documentclass=documentclass,
-                    extra_header_paths=extra_headers,
-                )
-                bundle_result["pdf"].append(str(pdf_path))
-            else:
-                for variant in bundle.variants:
-                    pdf_path = out_dir / f"{bundle.output_base}_{variant}.pdf"
+                if pdf_backend == "latex":
                     run_pandoc_md_to_pdf(
                         md_path=md_for_pdf,
                         pdf_path=pdf_path,
                         toc=bundle.toc,
-                        toc_depth=args.toc_depth,
+                        toc_depth=effective_toc_depth,
                         number_sections=bundle.number_sections,
-                        variant=variant,
-                        pdf_engine=pdf_engine,
+                        variant="screen",
+                        pdf_engine=pdf_engine or "pdflatex",
                         mainfont=mainfont,
                         sansfont=sansfont,
                         monofont=monofont,
@@ -731,7 +1152,61 @@ def main() -> int:
                         documentclass=documentclass,
                         extra_header_paths=extra_headers,
                     )
-                    bundle_result["pdf"].append(str(pdf_path))
+                else:
+                    run_pandoc_md_to_weasyprint_pdf(
+                        md_path=md_for_pdf,
+                        pdf_path=pdf_path,
+                        toc=bundle.toc,
+                        toc_depth=effective_toc_depth,
+                        number_sections=bundle.number_sections,
+                        variant="screen",
+                        style=args.style,
+                        paper=paper,
+                        margin=margin or "1in",
+                        fontsize=fontsize,
+                        linestretch=linestretch,
+                        suppress_title_block=bool(bundle.cover_image or bundle.suppress_title_block),
+                        include_before_body=cover_include,
+                    )
+                bundle_result["pdf"].append(report_path(pdf_path))
+            else:
+                for variant in bundle.variants:
+                    pdf_path = out_dir / f"{bundle.output_base}_{variant}.pdf"
+                    if pdf_backend == "latex":
+                        run_pandoc_md_to_pdf(
+                            md_path=md_for_pdf,
+                            pdf_path=pdf_path,
+                            toc=bundle.toc,
+                            toc_depth=effective_toc_depth,
+                            number_sections=bundle.number_sections,
+                            variant=variant,
+                            pdf_engine=pdf_engine or "pdflatex",
+                            mainfont=mainfont,
+                            sansfont=sansfont,
+                            monofont=monofont,
+                            fontsize=fontsize,
+                            linestretch=linestretch,
+                            geometry=geometry,
+                            documentclass=documentclass,
+                            extra_header_paths=extra_headers,
+                        )
+                    else:
+                        run_pandoc_md_to_weasyprint_pdf(
+                            md_path=md_for_pdf,
+                            pdf_path=pdf_path,
+                            toc=bundle.toc,
+                            toc_depth=effective_toc_depth,
+                            number_sections=bundle.number_sections,
+                            variant=variant,
+                            style=args.style,
+                            paper=paper,
+                            margin=margin or "1in",
+                            fontsize=fontsize,
+                            linestretch=linestretch,
+                            suppress_title_block=bool(bundle.cover_image or bundle.suppress_title_block),
+                            include_before_body=cover_include,
+                        )
+                    bundle_result["pdf"].append(report_path(pdf_path))
 
         report["bundles"][key] = bundle_result
 
@@ -742,7 +1217,7 @@ def main() -> int:
 
         print(json.dumps(report, indent=2))
     else:
-        print(f"ok: built {len(targets)} bundle(s) in {out_dir}")
+        print(f"ok: built {len(targets)} bundle(s) in {report_path(out_dir)}")
     return 0
 
 
