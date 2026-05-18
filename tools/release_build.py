@@ -483,7 +483,10 @@ def concatenate_end_matter(paths: tuple[Path, ...]) -> str:
         text = strip_first_markdown_heading(prepare_release_markdown_source(path))
         if not text:
             continue
-        parts.append("\n\\newpage\n")
+        # The named page style below forces the back-cover blurb onto its own
+        # page in WeasyPrint; adding an explicit pagebreak as well creates a
+        # spare blank page before the back cover.
+        parts.append("")
         parts.append("::: {.ss-back-cover-blurb}")
         parts.append("")
         parts.append("## Back Cover Blurb {.unlisted}")
@@ -674,11 +677,51 @@ def run_pandoc_md_to_weasyprint_pdf(
 @page {{
   size: {paper};
   margin: {margin};
+
+  @top-center {{
+    content: "";
+    width: 100%;
+    height: 0.18in;
+    margin-bottom: 0.16in;
+    border-bottom: 0.35pt solid #c7c7c7;
+  }}
+
+  @bottom-center {{
+    content: counter(page);
+    width: 100%;
+    margin-top: 0.16in;
+    padding-top: 0.045in;
+    border-top: 0.35pt solid #c7c7c7;
+    color: #555;
+    font-size: 8.5pt;
+    font-variant-numeric: tabular-nums;
+  }}
 }}
 
 @page ss-cover {{
   size: {paper};
   margin: 0;
+
+  @top-center {{
+    content: none;
+  }}
+
+  @bottom-center {{
+    content: none;
+  }}
+}}
+
+@page ss-back-cover {{
+  size: {paper};
+  margin: {margin};
+
+  @top-center {{
+    content: none;
+  }}
+
+  @bottom-center {{
+    content: none;
+  }}
 }}
 
 {font_overrides}
@@ -707,6 +750,10 @@ div.pagebreak {{
   break-before: page;
   page-break-before: always;
   clear: both;
+}}
+
+.ss-back-cover-blurb {{
+  page: ss-back-cover;
 }}
 """
     stylesheets.append(CSS(string=runtime_css))
