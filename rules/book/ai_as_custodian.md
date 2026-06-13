@@ -1,14 +1,14 @@
 # AI as Custodian
 
-This is the worst an AI Custodian will ever be — and it’s already good.
+This is the worst an AI Custodian will ever be, and it is already useful.
 
-That sentence will date (everything does), but the point won’t: the capability curve is moving quickly, and the moment we’re in now is a genuine threshold. “GM‑less group” and “solo player” are no longer niche edge cases that require elaborate oracle engines to feel alive. A good AI can already do the central job of a Custodian: present a living world, offer meaningful choices, and push the fiction forward with consistent consequences.
+That sentence is meant to date. The point should not: AI capability is moving quickly, and the practical threshold has already been crossed. "GM-less group" and "solo player" are no longer edge cases that require elaborate oracle engines to feel alive. A capable AI can already do the central work of a Custodian: present a living world, offer meaningful choices, and push the fiction forward with consistent consequences.
 
-Sinew & Steel was written with that in mind, but AI is optional. The book is a complete tabletop RPG without it. Think of AI Custodian play as a new option that slots into the same rules, rather than a different game.
+Sinew & Steel was written with that possibility in mind, but AI is optional. This book is a complete tabletop RPG without it. Think of AI Custodian play as another way to use the same rules, not a different game.
 
 ## Full Custodian, not a novelty
 
-An AI can be used in lots of roles — co‑Custodian, assistant, brainstorm partner, NPC voice generator — and all of those are useful. But the most interesting use is also the simplest:
+An AI can be useful in many roles: co-Custodian, assistant, brainstorm partner, NPC voice generator. Those are all valid. The most interesting use is also the cleanest:
 
 **treat the AI as the full Custodian.**
 
@@ -17,53 +17,53 @@ Not as a toy. Not as a rules vending machine. Not as a text generator you consta
 If you want the most authentic S&S experience, bring the same social contract you would bring to a human Custodian:
 
 - respect the tone of the table,
-- accept consequences without turning every moment into a negotiation,
-- and assume good faith.
+- accept consequences without turning every ruling into a negotiation,
+- and assume good faith while correcting drift plainly.
 
-The AI isn’t infallible, but neither are people. The goal isn’t perfection; it’s momentum and coherence.
+The AI is not infallible, but neither are people. The goal is not perfection. The goal is momentum, coherence, and trust in the shared fiction.
 
 ## What AIs do unusually well
 
-There are a few things an AI Custodian is naturally strong at:
+There are a few things an AI Custodian is naturally good at:
 
 - **Vivid scene craft.** It can paint a place, sharpen a sensory detail, and keep the world feeling present without hours of prep.
-- **Options on demand.** It can offer 2–4 plausible paths forward without narrowing the world, and still accept freeform play.
+- **Options on demand.** It can offer 2-4 plausible paths forward without narrowing the world, and still accept freeform play.
 - **Character voice.** It can roleplay NPCs consistently when you give it a clear frame.
 - **Patience.** It will play whenever you want, for as long as you want, with the same enthusiasm.
 
 ## What AIs still do badly (and what to do about it)
 
-AI weaknesses are real, and pretending otherwise makes sessions worse. The upside is that most weaknesses are predictable:
+AI weaknesses are real, and pretending otherwise makes sessions worse. The useful thing is that most of those weaknesses are predictable:
 
-- **Over-rolling.** Left alone, an AI will gamify everything into checks. The fix is the S&S stance: don’t roll by default; insist on intent, then method, then stakes, and only roll if uncertainty matters.
-- **Accidental railroading.** AIs sometimes “help” by converging everything back to a tidy plot. Correct it the same way you would with a human: restate intent, restate what’s true, demand options that genuinely diverge.
-- **Context constraints.** Even strong models forget details. Give the AI a spine of memory (a current sheet, a short recap, and a last checkpoint) and it becomes far more consistent.
+- **Over-rolling.** Left alone, an AI may gamify everything into checks. The fix is the S&S stance: do not roll by default. Ask for intent, method, and stakes, then roll only if uncertainty matters.
+- **Accidental railroading.** An AI may "help" by converging everything back to a tidy plot. Correct it the same way you would with a human Custodian: restate intent, restate what is true, and ask for options that genuinely diverge.
+- **Context drift.** Even strong models forget details. Give the AI a spine of memory: a current sheet, a short recap, and a last checkpoint. It will become far more consistent.
 - **Dice integrity.** Treat dice as external truth: roll physically or with a trusted roller, and tell the AI the results.
 
 ## Secrets and the shape of a table
 
-There’s one hard truth worth stating plainly: if players can see everything the AI says, then secrets can’t exist in the same channel.
+There is one hard truth worth stating plainly: if players can see everything the AI says, secrets cannot exist in the same channel.
 
-That’s not a moral problem; it’s just information flow. If you want hidden motives, unseen clocks, or private scenario notes, give the AI a private Custodian channel (or keep secrets in human notes) and share only player‑safe narration/options.
+That is not a moral problem; it is just information flow. If you want hidden motives, unseen clocks, or private scenario notes, give the AI a private Custodian channel (or keep secrets in human notes) and share only player-safe narration and options.
 
 ## Why Sinew & Steel fits AI play
 
-Some RPGs are hard for an AI to run because the rules are exception‑heavy: too many bespoke subsystems, too many small modifiers, too many places for drift to creep in.
+Some RPGs are hard for an AI to run because the rules are exception-heavy: too many bespoke subsystems, too many small modifiers, too many places for drift to creep in.
 
-S&S is the opposite by design: one core resolution language, a small number of tracked resources, and consequences that can be narrated cleanly. That makes it easier for a model to stay consistent — and easier for a human table to correct it when it wobbles.
+S&S is the opposite by design: one core resolution language, a small number of tracked resources, and consequences that can be narrated cleanly. That makes it easier for a model to stay consistent, and easier for a human table to correct it when it wobbles.
 
 ## Three ways to use an AI (all valid)
 
-I see three common “AI Custodian” use cases, and all of them work:
+There are three common "AI Custodian" use cases, and all of them work:
 
 - **Solo play:** the AI is the world, and you are the party.
-- **GM‑less groups:** the AI runs the session so no one has to shoulder the GM role.
-- **Busy Custodians:** the AI is a co‑pilot — generating options, voicing NPCs, and keeping momentum when your energy is low.
+- **GM-less groups:** the AI runs the session so no one has to shoulder the GM role.
+- **Busy Custodians:** the AI is a co-pilot: generating options, voicing NPCs, and keeping momentum when your energy is low.
 
-Pick the one that fits your life. The rules don’t care.
+Pick the one that fits your life. The rules do not care.
 
 ## If you want the practical mechanics
 
-This chapter is intentionally narrative and future‑proofed: a stance, not a tool manual.
+This chapter is intentionally narrative and future-proofed: a stance, not a tool manual.
 
-If you want the practical workflow — how to structure prompts, how to keep secrets private, how to resume campaigns cleanly, and how to stop an AI from over-rolling — go to the **Mechanics of AI Play** appendix.
+For the practical workflow, go to **AI Play Notes**: how to structure prompts, keep secrets private, resume campaigns cleanly, and stop an AI from over-rolling.
