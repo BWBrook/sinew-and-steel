@@ -1,155 +1,119 @@
-# **CLANFIRE - EMBERFALL: CUSTODIAN NOTES**
+# Clanfire: Emberfall - Custodian Notes
+
 ## Running the starter scenario behind the screen
 
-This chapter is for the Custodian only. The player handout gives the table what the characters know; these notes give you the pressure underneath it.
+The previous chapter gives you the table-ready spine. Do not treat this chapter as more plot to prepare. Treat it as a short commentary on how to run Emberfall in the Sinew & Steel style.
 
-Emberfall is not a plot to protect. It is a small survival situation with teeth. The clan needs food, the fire is low, winter is closing, and something in the birch-line has learned that the edge of the light is weak.
+If **The Custodian** gives you the stance - situation first, real choices, fair consequences - Emberfall is the exercise that lets you practise it. If **Customisation** argues that every extra rule should create a decision or generate momentum, Clanfire is the proof-of-concept: Shadow, Instinct, taboo, and clocks matter only when they make the next choice sharper.
 
-Your job is to keep those truths alive, offer real choices, and let the consequences land.
+Your task is not to protect a story. Your task is to keep the situation alive.
 
-## What is really happening
+---
 
-Begin with three forces in motion:
+## Use the spine, then look underneath
 
-- **Hunger:** the clan needs meat and fat before the next hard snow.
-- **Predators:** a cave wolf is testing the cave, the hunters, and the dying fire.
-- **Wrongness:** something about the birch-line is off. The exact cause is yours to choose.
+The scenario spine tells you what to put in front of the players: the dying hearth, the sound beyond the birches, the immediate options, the cave wolf, the possible deeper truth.
 
-Pick one truth before play begins, or decide after the first few choices if the table points you somewhere better:
+Behind the screen, think less about sequence and more about pressure. Three forces are already moving:
 
-1. **Rival hunters** are trailing the same quarry and will steal the kill if the characters hesitate.
-2. **A spirit omen** is real: the prey is marked, and taking it demands a taboo cost.
-3. **Strangers on the ridge** are watching, leaving clean footprints where no clean tracks should be.
+- hunger wants the clan to take risks,
+- the wolf wants food and advantage,
+- the wrongness beyond the birch-line wants to be noticed, misunderstood, or paid for.
 
-Do not reveal the truth as exposition. Let it show as pressure: a second set of tracks, a bird falling silent, a scent on the wind, a rival spear point glittering between birches.
+When the characters act, ask which force changes. If they wait, hunger tightens. If they make noise, the wolf learns. If they call spirits, the wrongness answers. If they bargain well, one pressure may ease while another becomes personal.
 
-## How to run the opening
+That is the core Custodian pattern in miniature: prepare a situation, then let player choices bend it.
 
-The first beat should be immediate and concrete:
+---
 
-> The hearth is down to embers. Frost beads on the cave mouth. Outside, beneath the clicking birches, you hear a soft wet crunch: teeth on bone.
+## Reveal truth through signs
 
-Then ask what they do.
+The scenario asks you to choose a deeper truth, but that truth should not arrive as explanation. Let the players meet it through evidence they can interpret before it becomes a verdict.
 
-Offer options if the table hesitates, but keep freeform play open:
+For **rival hunters**, show human need before human malice: a cut thong on a branch, a half-covered track, a spear point glimpsed between trees, smoke from another shelter. They are hungry people first. They become enemies, allies, thieves, or kin by what happens next.
 
-1. Slip out and read the tracks downwind.
-2. Stalk the sound with spear ready.
-3. Feed the fire and call to the spirits.
-4. Wake the clan and bar the cave.
+For **the spirit omen**, make the demand concrete. A spirit that says "show respect" is vague. A spirit that wants the liver left for the fire, the prey unnamed before dawn, or one Instinct bead surrendered before the spear is thrown gives the table something real to accept, refuse, or twist.
 
-Each option should change the situation. Reading tracks may reveal the wolf early. Stalking may seize position but risk an ambush. Calling spirits may give an omen but raise Shadow on a miss. Barring the cave buys safety at the cost of time, hunger, and initiative.
+For **strangers on the ridge**, keep them distant. Their job in a first session is to make the world larger, not to explain themselves. Clean footprints in dirty snow is sufficient. A silhouette that is gone when the characters look twice is enough.
 
-That is the teaching purpose of the scenario: every choice should feel like a trade, not a menu button.
+Signs keep choice alive. Exposition closes doors too early.
 
-## Shadow and clocks
+---
 
-Use **Shadow** as Clanfire's pressure fuse. It rises when the characters stir forces that should have been left sleeping.
+## Make costs feel earned
 
-Good Shadow triggers:
+Emberfall is a good place to practise the S&S failure toolkit: time shifts, position worsens, resources drain, harm lands, Pressure rises, and clocks tick.
 
-- a taboo breach,
-- a failed risky rite,
-- bargaining with spirits,
-- noisy violence near the cave,
-- ignoring a clear omen,
-- taking safety at someone else's cost.
+The important move is to make each cost feel like it came from the fiction:
 
-Do not tick Shadow just because a roll failed. Tick it when the failure touches the clan's fear, taboo, spirits, or survival.
+- weak: "You fail. Mark Shadow."
+- sharper: "The chant catches, but it draws something cold through the smoke. You may still take the omen, but if you do, mark +1 Shadow."
+- weak: "The wolf attacks again."
+- sharper: "The wolf does not press the spear. It circles wide, finds the hanging meat, and now you have to choose: chase it into the dark or save what remains by the fire."
 
-If you want extra tension, use one or two clocks:
+This is where Emberfall connects back to **The Custodian**: you are not seeking to punish failure. Nor are you softening it away. You are letting the world answer.
 
-- **Hunger (0/6):** ticks when time passes, food is lost, or the hunt returns empty. When full, the clan must migrate now or lose someone to starvation.
-- **Storm (0/6):** ticks on long exposure, loud action, or delay in the open. When full, whiteout falls; risky tests cost 1 Instinct bead or +1 Shadow.
-- **Pack Learns (0/4):** ticks when wolves smell blood, spot weakness, or find an easy path. When full, the pack surrounds the cave at night.
+---
 
-Keep clocks visible if you want the table to feel the danger tightening. Keep them hidden if you want the danger to appear through signs first. Either approach is valid.
+## Let the skin do work
 
-## The wolf is not a boss fight
+Clanfire is intentionally close to the core rules. Its added pieces should feel like flavour only until they suddenly matter.
 
-The cave wolf wants food and advantage. It does not want honour, fairness, or a duel.
+Use **Instinct** when a miss is close and the choice has teeth. Spending a bead should feel like digging into luck, nerve, and clan-memory, not like correcting a close die roll.
 
-Use it like a living predator:
+Use **Shadow** when fear, taboo, spirits, desperation, or survival have been disturbed. Do not use it as a generic miss tax. A failed track-reading roll may only cost time; a failed rite that asks the dead for help may invite Shadow.
 
-- It tests the edge of firelight.
-- It circles downwind.
-- It snaps at the weak or isolated.
-- It retreats if hurt badly.
-- It returns if it has learned something useful.
+Use **clocks** only if they sharpen the scene. Hunger, Storm, and Pack Learns are not three mandatory homework tracks. Choose the one or two that make the table lean forward.
 
-Fast card:
+That is the Customisation bargain: every extra moving part must earn its place by creating a meaningful decision.
 
-- **Cave Wolf (Soldier-tier 10):** Attack FLT 10, defend FLT 10, Stamina 4, soak 0, edge +1 bite.
-- **Hook:** if it wins an opposed roll by margin 4 or more, it drags the target a few metres toward darkness.
-- **Tougher option:** make it Elite 12 with Stamina 5.
+---
 
-Driving the wolf off is a victory. Wounding it and following blood into the trees is a choice. Killing it may solve one problem and reveal another.
+## The wolf is a lesson in living opposition
 
-## Human pressure
+The wolf's stat card is in the scenario spine. What matters here is how you inhabit it.
 
-If you use rival hunters, keep them human. They are not villains unless play makes them so.
+The wolf is not a balanced encounter and not a boss fight. It wants meat, safety, and advantage. It tests the edge of firelight. It snaps at the isolated. It retreats if hurt badly. It returns if it has learned where the clan is weak.
 
-Give each one a simple want:
+This makes the combat engine visible without trapping the table in a fight to the death. Driving the wolf off is a win. Losing meat is a consequence. Following blood into the trees is a choice. Killing it may solve the immediate problem and expose the next one.
 
-- meat before their own fire dies,
-- honour in front of their people,
-- revenge for an old slight,
-- proof that the clan is weak.
+If the players learn that opponents have motives, fear, hunger, and exits, they have learned something central about S&S.
 
-They may bargain, steal, threaten, retreat, or return with allies. Let the characters change that relationship. A clever offer can turn enemies into a grudging hunting party. A public insult can turn a trade into a blood feud.
+---
 
-## Spirit pressure
+## Teach without pausing for lecture
 
-If you use the omen, make the spirit cost specific.
+Emberfall should teach the game by being played.
 
-Good taboo costs are concrete:
+Name a rule only when it becomes useful:
 
-- leave the liver for the fire,
-- carry no iron or bright stone past the old birch,
-- do not speak the prey's name before dawn,
-- give up one Instinct bead before the spear is thrown,
-- bring the first fat back to the oldest hearth.
+- "This matters, so let's roll."
+- "Say what you risk before the die hits."
+- "You missed by 1. Spend Instinct if you want to nudge fate."
+- "That failure does not mean nothing happens. The situation has changed..."
+- "The wolf is hurt. It looks ready to flee. Do you let it?"
 
-The cost should hurt a little, but it should not stop play. If the characters refuse it, do not punish them abstractly. Show the world changing: the wind turns, the tracks cross themselves, the wolf grows bold, Shadow rises.
+That is enough. The table does not need a seminar on margin, clocks, Pressure, and non-lethal endings. It needs to feel those ideas working.
 
-## Strangers on the ridge
+When in doubt, return to the Custodian basics: offer two to four plausible options, add "or anything else that makes sense", state the stakes, roll only when the outcome is uncertain and important, then let the consequence land cleanly.
 
-If you use strangers, keep them distant in the first session. Their job is to make the world larger.
+---
 
-Signs first:
+## After the first session
 
-- footprints too clean for snowmelt,
-- a cut thong tied in a pattern no clan uses,
-- a spearhead shaped differently from local stone,
-- a silhouette gone when the characters look twice.
+When the immediate danger has changed form, stop before every question is answered.
 
-They do not need names yet. A starter scenario works best when it ends with one strong unanswered question.
+Record only what matters for continuity:
 
-## Teaching Sinew & Steel through play
+- which deeper truth you chose,
+- current Shadow and any active clocks,
+- whether the wolf is dead, wounded, driven off, or still watching,
+- what the clan lost or gained,
+- which NPCs now matter,
+- what sign points toward the next session.
 
-Emberfall should demonstrate the core game without pausing for lecture:
-
-- **Roll only when stakes matter.** Let good choices work without dice.
-- **State the stakes before the roll.** Success changes position; failure costs time, Shadow, harm, or opportunity.
-- **Use margin visibly.** A large margin can reveal extra tracks, drive a wolf farther back, or reduce armour soak.
-- **Offer Luck nudges when the miss is close.** Make spending Instinct feel like a story choice.
-- **Let combat end before death.** Retreat, fear, bargains, and stolen meat all count as outcomes.
-
-If the table understands those five things by the end of Emberfall, the scenario has done its job.
-
-## Ending the first session
-
-End when the immediate danger has changed shape. The clan may have meat, the wolf may be bleeding, the storm may be rising, or a stranger's track may point into the dark.
-
-Close on one question:
+Then close on the question the scenario is built to leave behind:
 
 > What is making the birch-line wrong?
 
-Then offer the next few paths:
-
-1. Follow blood toward the frozen stream.
-2. Set a trap line before the storm turns.
-3. Perform a fire-circle omen and pay its cost.
-4. Wake the clan and migrate before dawn.
-
-Leave the table with enough closure to feel the first session mattered, and enough unease to make the next one inevitable.
+If the table wants to answer that, Emberfall has done its job.

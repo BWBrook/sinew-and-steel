@@ -1,215 +1,174 @@
-# **CLANFIRE — EMBERFALL**
-## A “play tonight” starter scenario for Sinew & Steel
+# Clanfire: Emberfall
 
-**Custodian eyes only.** This is a short scenario designed to get a new table (or an AI Custodian) to a first satisfying scene, fast.
+## A "play tonight" starter scenario for Sinew & Steel
+
+**Custodian-facing scenario spine.** Use this after reading the Clanfire skin. Give the next chapter, **Clanfire Player Handout**, to the players. Keep the **Clanfire Custodian Notes** behind the screen.
 
 ### In one sentence
-The clan’s hearth is dying in a hard winter, and the hunt that should save you is already being claimed by hungry things in the birch‑line.
+The clan's hearth is dying in a hard winter, and the hunt that should save them is already being claimed by hungry things in the birch-line.
 
-### Why Clanfire?
-Clanfire is the simplest skin: it’s close to pure core play (roll‑under, margin, Luck, Stamina, Pressure), with only a light genre overlay.
-If your group can run *this*, you can reskin Sinew & Steel to anything.
+### Why Emberfall?
+Clanfire is the cleanest demonstration skin: close to pure core play, but with enough flavour to make the rules feel alive. Emberfall teaches the basic S&S loop in one scene: real choice, sparse rolls, visible stakes, Luck/Instinct spending, Shadow, clocks, and combat that can end before death.
 
----
-
-## Player handout (copy/paste)
-_Player-safe and shareable. Give this to players as a one-page brief, or paste it into the chat._
-
-### The premise (one sentence)
-The clan’s hearth is dying in a hard winter, and the hunt that should save you is already being claimed by hungry things in the birch‑line.
-
-### What you know at the start
-- The fire is low. If it dies, the cold will get into the cave.
-- The clan needs meat and fat before the next hard snow.
-- Outside the birches, you hear a wet crunch: teeth on bone.
-
-### What to track (on your sheet)
-- **Instinct beads** (Luck tokens): spend to nudge; empty beads make “Test your Instinct” harder.
-- **Stamina**: hits and exhaustion.
-- **Shadow** (Pressure): rises when you break taboos, bungle rites, or stir hungry attention.
-
-### Fast-start characters (optional)
-- **Grak of Tall Cliffs** (Hunter): MGT 12 · FLT 11 · CUN 10 · SPR 8 · INS 8/8 · STM 7/7  
-  Stone spear (+1 edge), hand‑axe (+1 edge), hide cloak (soak 1)
-- **Tarra the Ember‑Singer** (Shaman): MGT 6 · FLT 8 · CUN 12 · SPR 14 · INS 11/11 · STM 3/3  
-  Bone flute (Advantage calming beasts), fire‑bow drill, herbs
-
-### First beat: what do you do?
-Pick an approach (or propose your own):
-1. Slip out and read the tracks downwind (Cunning).  
-2. Stalk the sound with spear ready (Fleetness).  
-3. Feed the fire and call to the spirits for an omen (Spirit; on a miss, +1 Shadow).  
-4. Wake the clan and bar the cave (no roll; time passes).
+This is not a complete adventure. The goal here is to get a first session moving in minutes and end with one strong unanswered question.
 
 ---
 
-## 1) What you need (minimum kit)
-- Quickstart rules (2 pages): `rules/quickstart.md`
-- Clanfire skin (including Shadow): `skins/clanfire.md`
-- A d20 (or a trusted roll tool)
-- Two PCs (recommended) or one PC (works fine)
+## What you need
+
+- The **Quickstart** rules.
+- The **Clanfire** skin.
+- The **Clanfire Player Handout**.
+- One or two player characters. Grak and Tarra are ready to use.
+- A d20, or a digital roll tool.
+
+If you only have one player, use **Grak** as the player character and keep **Tarra** as an NPC ally.
 
 ---
 
-## 2) Pre‑gen PCs (optional, but recommended)
-If you want to start in 60 seconds, use these two example clansfolk (from the Clanfire skin):
+## The situation
 
-### Grak of Tall Cliffs — Hunter
+Begin with three pressures already moving:
 
-![](../../assets/art/ss_clanfire_grak.png){.wrap-right width=1.55in}
+- **Hunger:** the clan needs meat and fat before the next hard snow.
+- **Predators:** a cave wolf is testing the rock shelter, the hunters, and the edge of the firelight.
+- **Wrongness:** something about the birch-line is off. The exact cause is yours to choose.
 
-MGT 12 · FLT 11 · CUN 10 · SPR 8 · **INS 8/8** · **STM 7/7** · Shadow 0/5  
-Stone spear (+1 edge), hand‑axe (+1 edge), hide cloak (soak 1), ochre pouch, sinew cord.
+Do not prepare a plot. Prepare these pressures, then let the players disturb them.
 
-### Tarra the Ember‑Singer — Shaman
+### Choose the deeper truth
 
-![](../../assets/art/ss_clanfire_tarra.png){.wrap-left width=1.55in}
+Pick one before play begins, or decide after the first few choices if the table points somewhere better:
 
-MGT 6 · FLT 8 · CUN 12 · SPR 14 · **INS 11/11** · **STM 3/3** · Shadow 0/5  
-Carved bone flute (Adv calming beasts), fire‑bow drill, herb bundle, scrap of strange cloth.
-
-If you only have one PC, run **Grak** solo and keep Tarra as an NPC ally.
-
----
-
-## 3) Opening beat (read aloud or paraphrase)
-> **Read aloud (opening beat):**  
-> The hearth is down to embers.  
-> Frost beads on the cave mouth. Smoke crawls low and thin, as if it’s afraid to leave.  
->  
-> Outside, birch trunks click together in the wind — but beneath that is another sound:  
-> **a soft, wet crunch**. Teeth on bone.  
->  
-> Somewhere beyond the birches, something large exhales — slow, patient, hungry.
-
-### Offer 2–4 options (and accept freeform)
-1. **Slip out and read the tracks** downwind (CUN).  
-2. **Stalk the sound** with spear ready (FLT).  
-3. **Feed the fire and call to the spirits** for an omen (SPR; on a fail, +1 Shadow).  
-4. **Wake the clan** and bar the cave (no roll; but time passes — tick Hunger or Storm if you’re using clocks).
-
-If you need a default for failed rolls in this scenario, pick one cost and move on:
-- **+1 Shadow**, or
-- **tick a clock** (Hunger / Storm / Pack Learns), or
-- **lose time or position** (the wolf gets closer; the trail goes cold).
-
----
-
-## 4) The truth (keep this behind the screen)
-This is not a “save the world” plot. It’s a tight survival problem with three pressures:
-
-1. **Hunger:** the clan needs meat and fat before the next hard snow.
-2. **Predators:** a **cave wolf** has learned the clan’s routine and is testing the edge of the light.
-3. **Signs:** the wind carries a wrong note — something is *off* in the birch‑line (spirits restless, strangers near, or both).
-
-Pick one twist to taste (or roll a d3):
-1. **Rival hunters** are trailing the same quarry and will steal the kill if you hesitate.
+1. **Rival hunters** are trailing the same quarry and will steal the kill if the characters hesitate.
 2. **A spirit omen** is real: the prey is marked, and taking it demands a taboo cost.
-3. **Strangers on the ridge**: distant watchers leave unnaturally clean footprints (not wolves).
+3. **Strangers on the ridge** are watching, leaving clean footprints where no such tracks should be.
+
+Reveal the truth through signs, not exposition: a second set of tracks, a bird falling silent, a scent on the wind, a rival spear point between birches.
 
 ---
 
-## 5) Optional clocks (clean, story-facing)
-Use clocks only if you want extra tension beyond Shadow.
+## Opening beat
+
+Read aloud or paraphrase:
+
+> The hearth is down to embers. Frost beads on the cave mouth. Smoke crawls low and thin, as if it is afraid to leave.
+>
+> Outside, birch trunks click together in the wind. Beneath that is another sound: a soft, wet crunch. Teeth on bone.
+>
+> Somewhere beyond the birches, something large exhales - slow, patient, hungry.
+
+Then ask:
+
+> What do you do?
+
+If the table hesitates, offer options and accept anything else that makes sense:
+
+1. **Slip out and read the tracks** downwind (Cunning).
+2. **Stalk the sound** with spear ready (Fleetness).
+3. **Feed the fire and call to the spirits** for an omen (Spirit; on a miss, +1 Shadow).
+4. **Wake the clan and bar the cave** (no roll; time passes).
+
+Each option should change the situation. Reading tracks may reveal the wolf early. Stalking may seize position but risk an ambush. Calling spirits may give an omen but raise Shadow on a miss. Barring the cave buys safety at the cost of time, hunger, and initiative.
+
+That is the teaching purpose of Emberfall: every choice should feel like a trade, not a menu button.
+
+---
+
+## Default costs
+
+When a roll fails, choose the cost that best fits the fiction:
+
+- mark **+1 Shadow**,
+- tick a clock,
+- lose time or position,
+- take Stamina damage,
+- spend or damage a useful item,
+- reveal a harder truth.
+
+Do not tick Shadow just because a roll failed. Tick it when the failure touches taboo, spirits, fear, desperation, or clan survival.
+
+---
+
+## Optional clocks
+
+Use clocks if you want extra tension beyond Shadow.
 
 ![](../../assets/art/ss_clocks.png){.wrap-right width=1.9in}
 
-- **Hunger (0/6):** ticks when time passes, you return empty‑handed, or you spend food.  
-  - When full: the clan must migrate *now* (or someone is lost to starvation).
-- **Storm (0/6):** ticks on loud actions, long travel, or a bad miss in the open.  
-  - When full: whiteout. Visibility drops. Every risky test costs 1 **Instinct bead** *or* +1 Shadow (your choice).
-- **Pack Learns (0/4):** ticks when wolves spot you, smell blood, or you leave a kill unattended.  
-  - When full: the pack surrounds the cave at night (a Shadow spike scene).
+- **Hunger (0/6):** ticks when time passes, food is lost, or the hunt returns empty. When full, the clan must migrate now or lose someone to starvation.
+- **Storm (0/6):** ticks on long exposure, loud action, or delay in the open. When full, whiteout falls; risky tests cost 1 Instinct bead or +1 Shadow.
+- **Pack Learns (0/4):** ticks when wolves smell blood, spot weakness, or find an easy path. When full, the pack surrounds the cave at night.
+
+Keep clocks visible if you want the table to feel danger tightening. Keep them hidden if you want danger to appear through signs first. Deploy them sparingly.
 
 ---
 
-## 6) Threats and NPCs (fast cards)
+## Threat card: Cave Wolf
 
 ![](../../assets/art/ss_npc_card.png){.wrap-right width=1.7in}
 
-### Cave Wolf (Soldier-tier 10; pack hunter)
-- **Attack:** FLT 10 (pounce / bite) · **Edge +1**  
-- **Defend:** FLT 10 (dodge / weave)  
-- **Stamina:** 4 · **Soak:** 0  
-- **Hook:** If the wolf wins an opposed roll by **margin ≥ 4**, it drags the target 2–3 metres toward darkness.
+**Cave Wolf (Soldier-tier 10; pack hunter)**
 
-*(If you want it tougher, make it Elite 12 and give it STM 5.)*
+- **Attack:** Fleetness 10 (pounce / bite), edge +1.
+- **Defend:** Fleetness 10 (dodge / weave).
+- **Stamina:** 4.
+- **Soak:** 0.
+- **Hook:** if the wolf wins an opposed roll by margin 4 or more, it drags the target a few metres toward darkness.
 
-### Old Hunter (NPC)
-Wants: meat without risk.  
-Tells: “The birch‑line is wrong. I have hunted here since my teeth were new.”  
-Breaks: refuses to leave the cave if Shadow is 3+.
+If you want it tougher, make it **Elite 12** and give it **Stamina 5**.
 
-### Young Scout (NPC)
-Wants: to prove worth.  
-Tells: saw “eyes like wet stones” near the frozen stream.  
-Breaks: bolts if a wolf is within arm’s reach.
-
-### Rival Pair (NPC threat)
-Wants: your kill.  
-Tells: “We saw it first.”  
-Breaks: if you shame them publicly, they return later with allies.
+The wolf wants food and advantage. It cares nothing for honour, fairness, and is uninterested in a duel. Driving it off is a victory. Wounding it and following blood into the trees is a choice. Killing it may solve one problem and reveal another.
 
 ---
 
-## 7) A combat example (Grak + Tarra vs a Cave Wolf)
-Use this as a teaching exchange. It’s short, it shows the math, and it shows that “combat” can be “drive it off”.
+## Teaching exchange: drive it off
 
-![](../../assets/art/ss_combat_sequence.png){.wrap-left width=1.9in}
+Use this if the table wants to see the combat engine in motion.
 
-### Setup
-> **Read aloud (the wolf shows itself):**  
-> The cave wolf slips between birches at the edge of firelight, hackles raised.  
-> It wants a meal, not a fair fight.
+### Round 1: Grak lunges
 
-**Declare intent:** Grak wants to **drive it back**; Tarra wants to **break its nerve** with flame and chant.
+Grak wants to drive the wolf back with a spear. The wolf wants to dodge and snap at the opening.
 
-### Beat 1 — Grak lunges (attack with Might)
-- **Attacker:** Grak rolls under **MGT 12** (spear thrust, forceful drive).
-- **Defender:** Wolf rolls under **FLT 10** (dodge).
+- **Grak:** roll under Might 12.
+- **Wolf:** roll under Fleetness 10.
 
-Example rolls:
-- Grak rolls **7**: success (margin **+5**).
-- Wolf rolls **15**: fail (margin **–5**).
+Example:
 
-Result:
-- Grak wins (only attacker succeeds).  
-- Damage = `1 + edge (+1) − soak (0)` = **2**; wolf STM drops from **4 to 2**.
-- Fiction: the spear doesn’t “skewer it clean”; it *cuts it* and forces it to give ground.
+- Grak rolls **7**: success, margin **+5**.
+- Wolf rolls **15**: fail, margin **-5**.
 
-### Beat 2 — Tarra turns fire into a weapon (attack with Spirit)
-Tarra’s method is not “stab”. It’s **presence, fear, omen**.
+Grak wins. Damage is `1 + edge 1 - soak 0` = **2**. The wolf drops from Stamina 4 to 2. In the fiction, the spear cuts it and forces it back; it is hurt, not pinned to the snow.
 
-- **Attacker:** Tarra rolls under **SPR 14** (chant + ember‑flare).
-- **Defender:** Wolf rolls under **FLT 10** (it darts and snaps away from the flame).
+### Round 2: Tarra turns fire into a weapon
 
-Example rolls:
-- Tarra rolls **9**: success (margin **+5**).
-- Wolf darts with **FLT** and rolls **9**: success (margin **+1**).
+Tarra wants to break the wolf's nerve with flame and chant. To attempt to do so, she levers presence, fear, and omen.
 
-Result:
-- Both succeed; Tarra wins (higher margin).  
-- Apply an agreed consequence instead of damage: **the wolf breaks and flees**, yelping.
-- Optional rider: if Tarra rolled a **natural 1**, the pack does not return this night.
+- **Tarra:** roll under Spirit 14.
+- **Wolf:** roll under Fleetness 10.
 
-### What if they fail?
-If Grak misses and Tarra’s chant falters:
-- The wolf bites (edge +1) and retreats with stolen meat.  
-- Tick **Hunger** or mark **+1 Shadow** (your choice).
+Example:
+
+- Tarra rolls **9**: success, margin **+5**.
+- Wolf rolls **9**: success, margin **+1**.
+
+Both succeed, but Tarra has the higher margin. Apply the agreed consequence instead of damage: **the wolf breaks and flees**, yelping. If Tarra rolled a natural 1, the pack does not return this night.
+
+If both characters fail, let the wolf bite, steal meat, or drag someone toward the dark. Then tick **Hunger**, mark **+1 Shadow**, or worsen position.
 
 ---
 
-## 8) Ending the first session (clean cliffhanger)
-End on one clear unanswered question:
-- “What’s making the birch‑line wrong?” (spirits? strangers? rival hunters?)
+## Ending the first session
 
-> **Read aloud (closing hook):**  
-> Whatever you found in the birches, the air still carries a wrong note.  
-> The clan survives tonight — but something out there is learning you.  
-> **What’s making the birch‑line wrong?**
+End when the immediate danger has changed form. The clan may have meat, the wolf may be bleeding, the storm may be rising, or a stranger's track may point into the dark.
 
-Close with 2–4 options for next session:
-1. **Follow the wolf’s blood** toward the frozen stream (CUN).  
-2. **Set a trap line** and retreat to the cave before the storm turns (CUN).  
-3. **Perform a fire‑circle omen** and accept the cost (SPR; fail = +1 Shadow).  
+Close on one clear question:
+
+> What is making the birch-line wrong?
+
+Offer next-session paths:
+
+1. **Follow the wolf's blood** toward the frozen stream (Cunning).
+2. **Set a trap line** and retreat before the storm turns (Cunning).
+3. **Perform a fire-circle omen** and pay its cost (Spirit; on a miss, +1 Shadow).
 4. **Wake the clan and migrate** before dawn (no roll; tick Hunger and Storm).
