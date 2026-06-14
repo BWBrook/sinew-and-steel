@@ -1,73 +1,72 @@
-# **WHISPERS IN THE FOG**
-### Skin add-on for the Sinew & Steel game system
+# Whispers in the Fog
+### Skin add-on for Sinew & Steel
 
 ![](../assets/covers/ss_logo_whispers_in_the_fog.png){.wrap-right width=2in}
 
-*Mournful New‑England shores, 1924. Gas‑lamps gutter, marsh‑mists coil, and nameless shapes lurk just beyond the churchyard wall.*
+*Mournful New England shores, 1924. Gas-lamps gutter, marsh-mists coil, and nameless shapes lurk just beyond the churchyard wall.*
 
-_(Use atop the Sinew & Steel rules; anything not listed here follows the core.)_
+Use this skin with the Sinew & Steel core rules. Anything not listed here follows the core.
 
-Whispers in the Fog is weird‑horror investigation: frail lantern‑light, forbidden books, polite conversations that turn sour, and truths that do not fit inside a human skull.
-Expect foreboding that rises by inches, sudden violence, and answers that feel like bargains.
+Whispers in the Fog is weird-horror investigation: frail lantern-light, forbidden books, polite conversations that turn sour, and truths that do not fit inside a human skull. Expect foreboding that rises by inches, sudden violence, and answers that feel like bargains.
 
-Suggested creation tone: **standard** (**6** build points) — capable investigators, fragile minds.
+Suggested creation tone: **standard** (**6** build points): capable investigators, fragile minds.
 
 In this skin, the Custodian is often called the **Keeper**.
 
-> The fog comes in like a living thing, as though the sea is exhaling. A buoy bell rings where it should not. Your lantern’s glass is filmed with salt — and something else.
+> The fog comes in like a living thing, as though the sea is exhaling. A buoy bell rings where it should not. Your lantern's glass is filmed with salt - and something else.
 
 ---
 
-## INQUIRER’S NOTES (Adventurer)
+## Inquirer's Notes (Adventurer-facing rules)
 
-### Attribute Labels
+### Attribute labels
 
 | Core slot | Whispers label | Covers |
 |--|---|-----|
 | Might | **Vigor (VIG)** | brawling, forced doors, sprinting across wharves |
-| Reflex | **Agility (AGI)** | stealth, quick‑draw, nimble escapes |
+| Reflex | **Agility (AGI)** | stealth, quick-draw, nimble escapes |
 | Intellect | **Scholarship (SCH)** | research, cryptography, forbidden rites |
 | Empathy | **Fortitude (FRT)** | composure, persuasion, mental resilience |
 | Luck | **Fate (FAT)** | uncanny chance **and** token pool |
 
 **Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
 
-### Fate (Luck) tokens
+### Fate (Luck)
 
 Tokens are yellowed ferry tickets kept in a silver case.
 
-When the Custodian calls for blind chance — “**Test your Fate**!” — roll under your **current tickets** (not your maximum).
+When the Custodian calls for blind chance, they say: **"Test your Fate."** Roll under your **current tickets** (not your maximum).
 
 Spend tickets now to nudge rolls, but remember: fewer tickets means shakier Fate later.
 
 A short rest in safety restores **+1 ticket**; opium dreams or saintly relics may restore more.
 
-> *“The salt wind carried a note of carrion‑sweetness that no earthly tide should bear.”*
+> *"The salt wind carried a note of carrion-sweetness that no earthly tide should bear."*
 
 ---
 
-## GEAR & TAGS
+## Gear and tags
 
 | Weapon | Edge |
 |---|--|
-| Blackjack, pocket‑knife | 0 |
+| Blackjack, pocket-knife | 0 |
 | .38 revolver, brass knuckles | +1 |
 | Coach gun (shotgun, close) | +2 |
 
-**Fatal tag (example):** point‑blank shotgun blast on a helpless target — **Fatal (counter: hard cover)**.
+**Fatal tag (example):** point-blank shotgun blast on a helpless target: **Fatal (counter: hard cover)**.
 
 | Wearable | Soak |
 |---|--|
 | Woollen coat | 0 |
 | WWI flak vest | 1 |
 
-(Dynamic soak: after a hit, reduce soak by **1 per full 4 points** of attacker margin; **nat 1 pierces all**.)
+Dynamic soak still applies: after a hit, reduce soak by **1 per full 4 points** of attacker margin; natural **1** pierces all.
 
-> *“Somewhere beneath the hymn of the surf, a deeper cadence throbbed… like the slowed heart of a behemoth dreaming in pitch.”*
+> *"Somewhere beneath the hymn of the surf, a deeper cadence throbbed... like the slowed heart of a behemoth dreaming in pitch."*
 
 ---
 
-## ELDRITCH RITES
+## Eldritch rites
 
 > *Spells and rituals are named effects tagged to a tier on discovery.*
 
@@ -80,32 +79,32 @@ A short rest in safety restores **+1 ticket**; opium dreams or saintly relics ma
 
 ![](../assets/art/ss_whispers_forbidden_tome.png){.margin-right width=2in}
 
-*Example learns:* “Sign of Drowning — Rite (SCH)”, “Void‑Spawn Banishment — Incantation (SCH)”.
+Example learns: **Sign of Drowning - Rite (SCH)**, **Void-Spawn Banishment - Incantation (SCH)**.
 
 **Unspeakable procedure:** mark **+2 Insanity**, then make the casting test. If this takes you to **5**, roll an Insanity crisis once after the rite resolves (do not roll twice). On a natural **20**, the void answers (Keeper describes the worst plausible consequence).
 
 ---
 
-## INSANITY (Pressure track)
+## Insanity track (Pressure)
 
-Insanity is mental pressure. It runs **0–5**; at **5** you **Break**, trigger a crisis, then reset Insanity to **0**.
+Insanity is mental pressure. It runs **0-5**; at **5**, you **Break**, trigger a crisis, then reset Insanity to **0**.
 
 The mind forgets the count; it does not forget the scar.
 
 | Step | Manifestation | Effect |
 |--|---|-----|
-|0| Steady|—|
-|1| Agitation|cosmetic tremor, whispered tinnitus |
-|2| Deep unease|Disadvantage on your next **FRT** test to resist fear or coercion |
-|3| Fracture|Each **risky test** costs **1 Fate ticket** (spend before rolling) or marks **+1 Insanity** |
-|4| Night terrors|Disadvantage on all tests |
-|5 **Break (Crisis)**| Psychotic episode / possession|Roll an Insanity crisis, reset to **0** |
+| 0 | Steady | None |
+| 1 | Agitation | cosmetic tremor, whispered tinnitus |
+| 2 | Deep unease | Disadvantage on your next **FRT** test to resist fear or coercion |
+| 3 | Fracture | each **risky test** costs **1 Fate ticket** before rolling or marks **+1 Insanity** |
+| 4 | Night terrors | Disadvantage on all tests |
+| 5 **Break (Crisis)** | Psychotic episode / possession | roll an Insanity crisis, then reset to **0** |
 
 ![](../assets/art/ss_whispers_insanity_spiral.png){.margin-left width=1.8in}
 
 _(A risky test is any roll where failure would materially change the situation: harm, loss, exposure, separation. Routine travel and careful talk need no roll.)_
 
-**Gain Insanity:** witnessing gore or cosmic horrors, failed rites, reading forbidden tomes.  
+**Gain Insanity:** witnessing gore or cosmic horrors, failed rites, or reading forbidden tomes.
 
 **Purge:** a month in a sanitarium, costly hypnosis (spend **2 Fate tickets**), or a grounding ritual (marriage, Mass, a sober confession to someone you trust).
 
@@ -113,18 +112,18 @@ _(A risky test is any roll where failure would materially change the situation: 
 
 |d6| Crisis |
 |-|--------|
-|1| Black‑out violence — you awaken holding a bloodied object (lose **1 Stamina**) |
-|2| Catalepsy — helpless for one scene |
-|3| Desolate vision — Disadvantage on all tests next session |
-|4| Whispered truth — gain one crucial rumour clue; your next rest restores **no Fate** |
-|5| Public hysteria — NPCs fear or shun you; Disadvantage on **FRT** tests in polite society until resolved |
-|6| Roll twice; apply both |
+| 1 | Black-out violence: you awaken holding a bloodied object; lose **1 Stamina**. |
+| 2 | Catalepsy: helpless for one scene. |
+| 3 | Desolate vision: Disadvantage on all tests next session. |
+| 4 | Whispered truth: gain one crucial rumour clue; your next rest restores **no Fate**. |
+| 5 | Public hysteria: NPCs fear or shun you; Disadvantage on **FRT** tests in polite society until resolved. |
+| 6 | Roll twice and apply both. |
 
-> *“Eli’s match flared, briefly revealing a smear of wet footprints that began in the centre of the room and led nowhere.”*
+> *"Eli's match flared, briefly revealing a smear of wet footprints that began in the centre of the room and led nowhere."*
 
 ---
 
-## KNACKS (pick one)
+## Knacks (pick one)
 
 Each use costs: **spend 1 Fate ticket** or **mark +1 Insanity**.
 
@@ -132,100 +131,99 @@ Each use costs: **spend 1 Fate ticket** or **mark +1 Insanity**.
 |---|--------|
 | **Occult Scholar** | Once per scene, turn a library/tomes search into a **SCH** test with Advantage. |
 | **Detective Intuition** | Spend **1 Fate ticket** to ask the Custodian (Keeper) one yes/no clue question. |
-| **Veteran’s Nerves** | Once per scene, ignore an incoming **+1 Insanity** tick. |
+| **Veteran's Nerves** | Once per scene, ignore an incoming **+1 Insanity** tick. |
 | **Silver Tongue** | Advantage on your first **FRT** (social) test with any new NPC. |
 
-### Optional Expertise (choose one stat)
+### Optional expertise (choose one stat)
 
 Choose one stat as **Expertise** (marksman = AGI, doctor = SCH). When the task squarely fits, roll with Advantage.
 
 ---
 
-### Lantern & Battery (tension clock)
+### Lantern and battery (tension clock)
 ![](../assets/art/ss_whispers_fog_lantern.png){.wrap-right width=2in}
 
 In this genre, light is safety. Darkness is a weapon.
 
 To keep resource tension without extra dice systems, track portable light as a small **clock**.
 
-- **Create a clock:** “Lantern” or “Battery” (default **4 ticks**).
+- **Create a clock:** "Lantern" or "Battery" (default **4 ticks**).
 - **Tick it** when light is stressed: knocked, doused, long exploration, running, fighting, thick fog, frantic climbing.
 - At **3/4**, the beam gutters: apply Disadvantage to the next **AGI** test that depends on sight.
 - At **4/4**, the light dies: mark **+1 Insanity** (fear spike) and play the next beat in darkness until a new light is lit.
 - Fresh fuel/batteries reset the clock to **0** in a safe moment.
 
-Keeper guidance: you may keep the light clock **public** (for planning) or **hidden** (for suspense). If hidden, telegraph it with flickers, smells of hot filament, or the oil’s last sputter.
+Keeper guidance: keep the light clock **public** if you want planning, or **hidden** if you want suspense. If hidden, telegraph it with flickers, smells of hot filament, or the oil's last sputter.
 
-> *“A lantern swung in the fog, tracing impossible angles—yet each swing returned to the same ghastly intersection of shadow.”*
-
----
+> *"A lantern swung in the fog, tracing impossible angles - yet each swing returned to the same ghastly intersection of shadow."*
 
 \clearpage
 
-## KEEPER’S QUILL (Custodian)
+## Keeper's Quill (Custodian-facing rules)
 
-### Writing in weird‑horror tone
+### Writing in weird-horror tone
 
-- **Use archaisms sparingly.** One archaic verb per paragraph (‘betokened’, ‘antediluvian’) is perfume; a whole bouquet is parody.
-- **Layer sensory unease.** Sight‑smells‑sounds in quick succession: “salt‑reek, pulsing lavender glow, distant surf that pounded like vast respirations.”
-- **Imply the shape, deny the whole.** Describe edges, textures, odours — never the full anatomy of the horror. Let the cortex finish the sketch.
-- **Cosmic scale through comparison.** “Its shadow swallowed the lighthouse as a gull swallows a grain of sand.”
-- **Use fragile narrators.** PCs mutter doubt, stumble on diction: ellipses, dashes, unfinished clauses mirror fraying psyche.
-- **Slow verbs, sudden violence.** Ten lines of oppressive hush, then one splintering gunshot or roof‑beam collapse.
+- **Use archaisms sparingly.** One archaic verb per paragraph ('betokened', 'antediluvian') is perfume; a whole bouquet is parody.
+- **Layer sensory unease.** Sight-smells-sounds in quick succession: "salt-reek, pulsing lavender glow, distant surf that pounded like vast respirations."
+- **Imply the shape, deny the whole.** Describe edges, textures, odours - never the full anatomy of the horror. Let the cortex finish the sketch.
+- **Cosmic scale through comparison.** "Its shadow swallowed the lighthouse as a gull swallows a grain of sand."
+- **Use fragile narrators.** PCs mutter doubt, stumble on diction, and leave sentences unfinished as the psyche frays.
+- **Slow verbs, sudden violence.** Ten lines of oppressive hush, then one splintering gunshot or roof-beam collapse.
 - **Finish scenes with foreboding, not triumph.** Even victories taste of spoiled brine and scorched vellum.
 - **Let knowledge hurt.** Reward Scholarship with answers that cost sanity; each new fact should feel like a bargain struck at midnight.
 
-> *“In the ledger’s margin, the ink had crusted to a curious verdigris, as though the word itself resented daylight.”*
+> *"In the ledger's margin, the ink had crusted to a curious verdigris, as though the word itself resented daylight."*
 
 ---
 
-### Flavour Palette (Keeper cues)
+### Flavour palette (Keeper cues)
 
-- **Sights:** fog halos the gas‑lamps; moonlit marsh reeds sway like skeletal fingers.
-- **Sounds:** distant buoy bell, wet slither beneath floorboards, a church clock that skips the chime for two o’clock.
-- **Smells:** brackish tide‑mud, old books stained with vinegar, acrid cordite lingering after a single shot.
+- **Sights:** fog halos the gas-lamps; moonlit marsh reeds sway like skeletal fingers.
+- **Sounds:** distant buoy bell, wet slither beneath floorboards, a church clock that skips the chime for two o'clock.
+- **Smells:** brackish tide-mud, old books stained with vinegar, acrid cordite lingering after a single shot.
 
-**Keeper moves:**  
+**Keeper moves:**
 
-- Church bell tolls backwards • Tidal surge floods cellar steps • Cultist chant echoes from crypt • A thin crack opens in the sky, showing alien stars.
+- church bell tolls backwards,
+- tidal surge floods cellar steps,
+- cultist chant echoes from the crypt,
+- a thin crack opens in the sky, showing alien stars.
 
 ---
 
-### Episode Structure (one‑shot model)
+### Episode structure (one-shot model)
 
-1. **Cold open.** Newspaper clipping or funeral sets the hook.  
-2. **Investigation web.** Three core locales (abandoned church, docks, upland woods).  
-3. **Rising unease.** Each locale threatens Insanity or physical harm.  
-4. **Clock.** Run a 4–6 tick clock: “Ritual at Midnight” (or “The Tide Turns”).  
-5. **Finale.** Banishment rite, dynamite collapse, or escape while the ancient thing feeds.  
+1. **Cold open.** Newspaper clipping or funeral sets the hook.
+2. **Investigation web.** Three core locales (abandoned church, docks, upland woods).
+3. **Rising unease.** Each locale threatens Insanity or physical harm.
+4. **Clock.** Run a 4-6 tick clock: "Ritual at Midnight" (or "The Tide Turns").
+5. **Finale.** Banishment rite, dynamite collapse, or escape while the ancient thing feeds.
 6. **Aftermath.** Survivors scarred; reputations tattered.
 
 Stylistic rule: pain is concrete, hope is whispered, knowledge always costs.
 
-> *“Knowledge is not a ladder but a pit; one descends, rung by foolish rung, until the sky is a memory.”*
-
----
+> *"Knowledge is not a ladder but a pit; one descends, rung by foolish rung, until the sky is a memory."*
 
 \clearpage
 
-## SAMPLE INQUIRERS
+## Sample inquirers
 
-### Dr Lydia Harker — Folklore Professor
+### Dr Lydia Harker - Folklore Professor
 
 ![](../assets/art/ss_whispers_lydia.png){.wrap-left width=1in}
-  
-Creation: standard budget (**6** build points; used **6**)  
-VIG 8 AGI 9 SCH 14 FRT 12 FAT 8/8 STM 4/4 Insanity 0/5  
-Knack: Occult Scholar.  
-Pocket‑knife 0, notebook & fountain pen, trunk of grimoires.
 
-### Elias “Eli” Graves — War‑weary P.I.
+Creation: standard budget (**6** build points; used **6**)<br>
+VIG 8 AGI 9 SCH 14 FRT 12 FAT 8/8 STM 4/4 Insanity 0/5<br>
+Knack: Occult Scholar.<br>
+Pocket-knife 0, notebook & fountain pen, trunk of grimoires.
+
+### Elias "Eli" Graves - War-weary P.I.
 
 ![](../assets/art/ss_whispers_eli.png){.wrap-left width=1in}
-  
-Creation: standard budget (**6** build points; used **6**)  
-VIG 13 AGI 12 SCH 9 FRT 8 FAT 7/7 STM 6/6 Insanity 0/5  
-Knack: Veteran’s Nerves.  
+
+Creation: standard budget (**6** build points; used **6**)<br>
+VIG 13 AGI 12 SCH 9 FRT 8 FAT 7/7 STM 6/6 Insanity 0/5<br>
+Knack: Veteran's Nerves.<br>
 .38 revolver +1, blackjack 0, trench coat, hip flask (Advantage on tests to resist cold).
 
 ---

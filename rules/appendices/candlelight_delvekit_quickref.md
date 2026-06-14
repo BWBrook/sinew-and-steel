@@ -2,7 +2,7 @@
 
 Use this only when the dungeon itself is the challenge.
 
-## Exploration Turn
+## Exploration turn
 
 One turn is one meaningful dungeon beat:
 
@@ -23,7 +23,7 @@ At the end of a risky or time-eating turn, the Custodian may:
 - move a solo monster sign or threat
 - update revealed map state
 
-## Reveal Rules
+## Reveal rules
 
 Add a room to the player map when the delvers:
 
@@ -37,9 +37,9 @@ Do not reveal:
 - concealed routes
 - one-way truths not yet understood
 
-## Difficulty Dials
+## Difficulty dials
 
-## Zero-Stamina Chances
+### Zero-stamina chances
 
 - `soft`: first two hits to `0 STM` may survive with a hard cost; the next time is death
 - `medium`: first hit to `0 STM` may survive with a hard cost; the next time is death
@@ -77,7 +77,7 @@ Hard costs should change the delve: forced retreat, lost gear, separation, maimi
 - a couple of bad decisions can end a character
 - `grim (0)` suggested
 
-## Good Dungeon Ingredients
+## Good dungeon ingredients
 
 Not every generated or hand-built site needs all of these.
 
@@ -90,7 +90,7 @@ Not every generated or hand-built site needs all of these.
 - 0-2 factions
 - at least one shortcut, loop, or secret
 
-## Trap-Room Rule of Thumb
+## Trap-room rule of thumb
 
 Most traps should maim, split, drain, or alarm.
 One room per delve may be a true Grimtooth-style killer.
@@ -99,7 +99,7 @@ Telegraph it.
 Let caution matter.
 If badly sprung, let it kill.
 
-## Faction Rule of Thumb
+## Faction rule of thumb
 
 For each faction, know:
 

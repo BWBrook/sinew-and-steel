@@ -95,7 +95,7 @@ skins:
           -> jagged lightning bolt. Minimal, clean, like a rules diagram.
       - key: idol_ruby_eyes
         suggested_file: assets/art/ss_iron_ruin_idol.png
-        description: "Cursed idol (for Chronicaler's Touchstone / vignette)."
+        description: "Cursed idol (for Chronicler's Touchstone / vignette)."
         suggested_placement: "skins/iron_and_ruin.md: near Custodian tone section"
         prompt: |
           Black-and-white pen-and-ink spot illustration. White background. No text.

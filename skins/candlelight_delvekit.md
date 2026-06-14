@@ -1,4 +1,5 @@
-# **CANDLELIGHT DELVEKIT**
+# Candlelight Delvekit
+
 ### Optional sidecar for Candlelight Dungeons
 
 *A lean referee kit for graph-paper dungeon exploration: hidden maps, revealed routes, old-school backtracking, and procedural danger.*
@@ -12,7 +13,7 @@ This is not a new combat engine. Keep fights fast, rulings clean, and danger sha
 
 ---
 
-## WHEN TO USE DELVEKIT
+## When to use Delvekit
 
 Use Delvekit when the delve itself is the challenge:
 
@@ -26,7 +27,7 @@ If the dungeon is mostly a backdrop for a few scenes, skip this file and run pla
 
 ---
 
-## DEFAULT TONE
+## Default tone
 
 Suggested creation tone by difficulty:
 
@@ -40,7 +41,7 @@ You may mix these as desired, but the pairings above are the intended defaults.
 
 ---
 
-## THE DELVE TURN
+## The delve turn
 
 When time, noise, and navigation matter, play in **exploration turns**.
 
@@ -71,14 +72,14 @@ Routine movement through already-secured space usually needs no roll, but it sti
 
 ---
 
-## MAPS: HIDDEN AND REVEALED
+## Maps: hidden and revealed
 
 Use two maps:
 
 - a **hidden GM map**
 - a **revealed player map**
 
-The hidden map is the truth. The player map is earned knowledge.
+The hidden map is the truth. The player map is hard-won knowledge.
 
 ### Revealing the player map
 
@@ -122,14 +123,14 @@ Avoid `#` / `.` field-fill maps. This add-on aims for keyed graph-paper clarity.
 
 ---
 
-## LOCKS, KEYS, SIGILS, AND BACKTRACKING
+## Locks, keys, sigils, and backtracking
 
 Delvekit wants revisits. An old dungeon should fold back on itself.
 
 Use blockers that are concrete and local:
 
 - iron key
-- saint’s seal
+- saint's seal
 - ember sigil
 - counterweight
 - spoken phrase
@@ -150,18 +151,18 @@ If the delvers have the right key, sigil, phrase, or solved condition, the obsta
 
 Roll only when the method itself is risky:
 
-- forcing a swollen stone door
+- forcing a swollen oaken door
 - picking a lock under threat
 - tracing a burning sigil incorrectly
 - lifting a gate before it slams back down
 
 Natural **20** remains catastrophic. On a bad forcing attempt, think broken picks, noise, pinched limbs, alarm, lost footing, or a triggered trap before inventing a new subsystem.
 
-Backtracking is not wasted play. It should cost time, light, and exposure.
+Backtracking is not wasted play, but should cost time, light, and exposure.
 
 ---
 
-## PUZZLES
+## Puzzles
 
 Use only one or two puzzle elements in a delve unless the whole site is built around them.
 
@@ -175,7 +176,7 @@ Good Candlelight puzzles are part of the dungeon itself:
 
 ### Puzzle handling
 
-Do not turn the game into a riddle contest.
+Avoid turning the game into a riddle contest.
 
 The Custodian should:
 
@@ -191,7 +192,7 @@ Puzzles should change access, safety, or leverage. They should not exist only to
 
 ---
 
-## FACTIONS
+## Factions
 
 Most good delves hold more than one appetite.
 
@@ -228,7 +229,7 @@ Do not build a new reputation economy.
 
 ---
 
-## DEADLY TRAP ROOMS
+## Deadly trap rooms
 
 Candlelight Dungeons already supports sharp danger. Delvekit concentrates that danger into a few memorable spaces.
 
@@ -240,6 +241,7 @@ Most traps should do one of these:
 - destroy gear
 - force retreat
 - mark **Fatigue**
+- be fatal (rare)
 
 At most one room per delve should be a true **Grimtooth-style lethal trap room**.
 
@@ -277,7 +279,7 @@ Hard mode should include at least one place where "we leave and come back better
 
 ---
 
-## ROAMING HORROR AND MAJOR BOSS
+## Roaming horror and major boss
 
 Each substantial delve benefits from:
 
@@ -314,7 +316,7 @@ Weapon edge, armour soak, Stamina, Fatigue, and good room design are enough.
 
 ---
 
-## DIFFICULTY LEVELS
+## Difficulty levels
 
 Difficulty should tune danger with a few explicit knobs, not a stack of sub-systems.
 
@@ -372,7 +374,7 @@ Death is a real possibility. Suggested build tone: **grim (0)**.
 - bosses punish frontal assault unless the party has prepared advantages
 - at **0 Stamina**, the delver dies on hard
 - hard should only tolerate a couple of bad decisions before a delver is dead, broken, or forced out
-- hard should also allow bad luck to finish a delver when the risk was honestly lethal
+- hard should also allow bad luck to finish a delver when the risk was obviously lethal
 
 Hard mode should reward scouting, baiting, splitting enemies, ambush, retreat, and bargaining.
 If the delvers fight every room head-on, they should not expect to survive.
@@ -390,7 +392,7 @@ Use these to tune a delve without adding a new combat layer:
 
 ---
 
-## QUICK CUSTODIAN PROCEDURE
+## Quick Custodian procedure
 
 When the delve is in focus:
 
@@ -406,7 +408,7 @@ That is the whole add-on.
 
 ---
 
-## FINAL PRINCIPLES
+## Final principles
 
 - Keep the map readable.
 - Keep the room keys short.

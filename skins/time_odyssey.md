@@ -1,54 +1,53 @@
-# **TIME ODYSSEY**
-### Skin add-on for the Sinew & Steel game system
+# Time Odyssey
+### Skin add-on for Sinew & Steel
 
 ![](../assets/covers/ss_logo_time_odyssey.png){.wrap-right width=2in}
 
 *Victorian chrononautics in the spirit of scientific romance and strange futures.*
 
-_(Use atop the Sinew & Steel rules; anything not listed here follows the core.)_
+Use this skin with the Sinew & Steel core rules. Anything not listed here follows the core.
 
-Time Odyssey is a scientific romance skin: brass and ivory wonder, distant epochs, and the chill realisation that history does not care who you are.
-Expect hard choices, strange futures, and consequences that ripple across centuries.
+Time Odyssey is scientific romance: brass and ivory wonder, distant epochs, and the chill realisation that history does not care who you are. Expect hard choices, strange futures, and consequences that ripple across centuries.
 
 Suggested creation tone: **pulp** (**12** build points) suits daring chrononautics well.
 
 ---
 
-## CHRONONAUT’S CODEX (Adventurer)
+## Chrononaut's Codex (Adventurer-facing rules)
 
-*A skin for excursions across the centuries*  
+*A skin for excursions across the centuries.*
 
----
+> *"There are three dimensions of space, but time is the fourth we now choose to explore!"*
 
-### Attribute Labels
+### Attribute labels
 
-| Core slot | Time Odyssey label | Covers |
+| Core slot | Time Odyssey label | Covers |
 |--|---|-----|
-| Might | **Prowess (PRW)** | grit, melee, heavy labour |
-| Reflex | **Reflex (REF)** | agility, evasive footwork, sleight |
-| Intellect | **Intellect (INT)** | science, deduction, engineering |
-| Empathy | **Empathy (EMP)** | persuasion, morale, reading motives |
-| Luck | **Ingenuity (ING)** | lateral insight **&** token pool |
+| Might | **Prowess (PRW)** | grit, melee, heavy labour |
+| Reflex | **Reflex (REF)** | agility, evasive footwork, sleight |
+| Intellect | **Intellect (INT)** | science, deduction, engineering |
+| Empathy | **Empathy (EMP)** | persuasion, morale, reading motives |
+| Luck | **Ingenuity (ING)** | lateral insight **&** token pool |
 
-### Ingenuity Pool flavour
+### Ingenuity (Luck)
 
 Tokens are brass cogs.
 
-When the Custodian calls for pure chance — “**Test your Ingenuity**!” — roll under your **current tokens**.
+When the Custodian calls for pure chance, they say: **"Test your Ingenuity."** Roll under your **current tokens**.
 
 A short rest restores **+1 token**; paradoxical boons or esoteric rejuvenators may restore more.
 
 **Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
 
-### Weapons & Edges (typical era)
+### Weapons and edge (typical era)
 
 | Weapon | Edge |
 |---|--|
 | Walking cane, punch | 0 |
 | Cavalry sabre, pocket revolver | +1 |
-| Arc‑rifle, pneumatic hammer | +2 |
+| Arc-rifle, pneumatic hammer | +2 |
 
-### Armour & Soak
+### Armour and soak
 
 | Protection | Soak |
 |---|--|
@@ -56,119 +55,119 @@ A short rest restores **+1 token**; paradoxical boons or esoteric rejuvenators m
 | Leather riding jacket | 1 |
 | Experimental alloy breastplate | 2 |
 
-(Dynamic soak: after a hit, reduce soak by **1 per full 4 points** of attacker margin; **nat 1 pierces all**.)
+Dynamic soak still applies: after a hit, reduce soak by **1 per full 4 points** of attacker margin; natural **1** pierces all.
 
-### Anomaly (Pressure track)
+### Anomaly track (Pressure)
 
 ![](../assets/art/ss_time_odyssey_anomaly_crack.png){.margin-right width=2in}
 
 Meddling with history courts temporal paradox.
 
-Call for an Anomaly test when the outcome is uncertain and the stakes are historical: altering major events, meeting one’s past self, operating the machine under duress, or defying a fixed point.
+Call for an Anomaly test when uncertainty meets historical stakes: altering major events, meeting one's past self, operating the machine under duress, or defying a fixed point.
 
 - **Test INT** (reason, calculations) or **Test ING** (lateral insight, luck).
 - On failure, mark **+1 Anomaly**.
-- At **5 Anomaly**, trigger a crisis from the table — then reset Anomaly to **0**.
+- At **5 Anomaly**, trigger a crisis from the table, then reset Anomaly to **0**.
 
-> *“There are three dimensions of space, but time is the fourth we now choose to explore!”*
-
-#### Crisis Table (d6) or choose
+#### Crisis table (d6)
 
 |d6| Crisis |
 |-|------|
-|1| Memory fracture — forget the last scene until reminded |
-|2| Equipment sublimates — key item vanishes in glitter |
-|3| Rip current — party hurled d6×1000 years off‑target |
-|4| Temporal echo — hostile duplicate of PC appears |
-|5| Reality blur — Disadvantage on all rolls next session |
-|6| Roll twice; apply both |
+| 1 | Memory fracture: forget the last scene until reminded. |
+| 2 | Equipment sublimates: a key item vanishes in glitter. |
+| 3 | Rip current: the party is hurled d6 x 1000 years off-target. |
+| 4 | Temporal echo: a hostile duplicate of a PC appears. |
+| 5 | Reality blur: Disadvantage on all rolls next session. |
+| 6 | Roll twice and apply both. |
 
-### Equipment & Burden
+### Equipment and burden
 
 ![](../assets/art/ss_time_odyssey_kit.png){.wrap-left width=1.5in}
 
-Six big items. Your brass‑and‑crystal chronal engine is always off‑screen.
+Six big items. Your brass-and-crystal chronal engine is always off-screen unless the current scene is about repairing, protecting, or losing it.
 
-Currency shifts by era — bulky coinage invites thieves or customs scrutiny.
+Currency shifts by era; bulky coinage invites thieves or customs scrutiny.
 
-### Advancement Boon Seeds
+### Advancement boon seeds
 
-After surviving a paradox cascade, cataloguing a prehistoric beast, or shaping an epochal alliance, the Custodian may award a **Milestone** and a boon.  
+After surviving a paradox cascade, cataloguing a prehistoric beast, or shaping an epochal alliance, the Custodian may award a **Milestone** and a boon.
 
-Future‑alloy blade (+1 edge) • Patent rights (wealth perk) • Eocene amber sample (sell it: restore **+3 Ingenuity tokens**, up to your maximum) • Sphinx guardian favour (once: Advantage on EMP).
-
-> *Ink these strictures upon vellum or etch them on a pocket brass plate — chrononauts who ignore them soon vanish into contradictory echoes.*  
+Examples: future-alloy blade (+1 edge), patent rights (wealth perk), Eocene amber sample (sell it to restore **+3 Ingenuity tokens**, up to your maximum), or Sphinx guardian favour (once: Advantage on EMP).
 
 \clearpage
 
-## CUSTODIAN MANUAL (Custodian)
+## Custodian Manual (Custodian-facing rules)
 
 *A guide for stewards of paradox, peril and Edwardian wonder*
 
-### Narrative Tone
+> *Chrononauts are needles in the fabric of time; you, Custodian, are the hand that stitches and snips. Keep the thread taut.*
 
-Brisk reportage, lyrical awe, with an undercurrent of unease. Mix brass rivets and cosmic foreboding:
-“Ultramarine suns shimmered over a crystal sea as the machine’s valves hissed with protest.”
+### Narrative tone
+
+Use brisk reportage and lyrical awe, with an undercurrent of unease. Mix brass rivets with cosmic foreboding:
+"Ultramarine suns shimmered over a crystal sea as the machine's valves hissed with protest."
 
 **Frame a beat:**
 
-> The lever shudders. The needles climb. Outside the frosted glass, the world turns — too fast, too smooth — until the sky is the wrong colour.
+> The lever shudders. The needles climb. Outside the frosted glass, the world turns too fast, too smooth, until the sky is the wrong colour.
 
-Present 2–4 options in second‑person imperative, focused on the protagonist. Include at least one hidden or risky path. Example:  
+Present 2-4 options in second person, focused on what the protagonist can actually do. Include at least one hidden or risky path. Example:
 
-> 1. Descend into the ventilator shaft.  
-> 2. Retreat to the machine and recalibrate era coils.  
-> 3. Trust the pale child’s silent gesture.  
+> 1. Descend into the ventilator shaft.
+> 2. Retreat to the machine and recalibrate era coils.
+> 3. Trust the pale child's silent gesture.
 
-Ensure consequences ripple across epochs — saving a single flower in a far‑future garden may cure a Victorian cholera outbreak.  
+Let consequences ripple across epochs. Saving a single flower in a far-future garden may cure a Victorian cholera outbreak.
 
-Wrap the boon in story: a strange crystal implant grants **Advantage on one INT test per session**; a companion’s unwavering faith lets you **reroll one EMP test** (once).
+Wrap the boon in story: a strange crystal implant grants **Advantage on one INT test per session**; a companion's unwavering faith lets you **reroll one EMP test** (once).
 
 ### Custodian moves
 
-Under‑tunnel ambush · Temporal storm blocks return · Rival chrononaut stakes claim · Faustian bargain: erase a plague, mark +1 Anomaly.
+Reliable Custodian moves:
 
-### Luck (Ingenuity) Guidance
+- under-tunnel ambush,
+- temporal storm blocks return,
+- rival chrononaut stakes a claim,
+- fixed point resists alteration,
+- Faustian bargain: erase a plague, mark +1 Anomaly.
 
-Call for “**Test your Ingenuity**!” when blind chance or hidden quantum decides: which epoch‑rift opens, whether a stray bullet hits the machine.
+### Ingenuity guidance
 
-Keep it to 1–2 per session.
+Call for **"Test your Ingenuity"** when blind chance or hidden quantum decides which epoch-rift opens, whether the machine takes the shot, or which impossible witness remembers the truth.
 
-### Epoch Graph
+Keep it to 1-2 per session.
+
+### Epoch graph
 
 ![](../assets/art/ss_time_odyssey_timeline.png){.wrap-right width=2in}
 
-Track beats and parallel timelines with chronological tags (1890A, 9000B, 2MyrC…).
+Track beats and parallel timelines with chronological tags: 1890A, 9000B, 2MyrC.
 
-Reward good record‑keeping: if players consult journals, maps, or diagrams, grant **Advantage** on INT or ING tests to reconcile contradictions.
+Reward good record-keeping: if players consult journals, maps, or diagrams, grant **Advantage** on INT or ING tests to reconcile contradictions.
 
-In this genre, the timeline doesn’t rewind — paradox is paid for in scars, loss, and **Anomaly**.
-
-> *Chrononauts are needles in the fabric of time; you, Custodian, are the hand that stitches and snips. Keep the thread taut.*
-
----
+In this genre, the timeline does not rewind. Paradox is paid for in scars, loss, and **Anomaly**.
 
 \clearpage
 
-## ACTIVE CHRONONAUTS
+## Active chrononauts
 
-### Galen — The Chrononaut
+### Galen - The Chrononaut
 
 ![](../assets/art/ss_time_galen.png){.wrap-left width=1in}
 
-*Steam‑age inventor, boundless curiosity, dash of reckless courage.*  
-Creation: pulp budget (**12** build points; used **12**)  
-PRW 9 REF 11 INT 14 EMP 7 ING 13/13 STM 5/5 Anomaly 0/5  
-Pocket revolver +1 (close range), brass goggles (Advantage on sight‑based REF tests), notebook (Advantage on INT tests for deduction), tool‑roll, mixed‑era coins  
+*Steam-age inventor, boundless curiosity, dash of reckless courage.*<br>
+Creation: pulp budget (**12** build points; used **12**)<br>
+PRW 9 REF 11 INT 14 EMP 7 ING 13/13 STM 5/5 Anomaly 0/5<br>
+Pocket revolver +1 (close range), brass goggles (Advantage on sight-based REF tests), notebook (Advantage on INT tests for deduction), tool-roll, mixed-era coins.
 
-### Nyra — Far‑Future Companion
+### Nyra - Far-Future Companion
 
 ![](../assets/art/ss_time_nyra.png){.wrap-left width=1in}
 
-*Gentle child of the far future, embodies innocence and quiet resilience.*  
-Creation: pulp budget (**12** build points; used **12**)  
-PRW 6 REF 11 INT 9 EMP 16 ING 12/12 STM 4/4 Anomaly 0/5  
-Wiltflower charm (Advantage when calming creatures), glow‑stone bead (light). Disadvantage in harsh industrial ages.
+*Gentle child of the far future, embodies innocence and quiet resilience.*<br>
+Creation: pulp budget (**12** build points; used **12**)<br>
+PRW 6 REF 11 INT 9 EMP 16 ING 12/12 STM 4/4 Anomaly 0/5<br>
+Wiltflower charm (Advantage when calming creatures), glow-stone bead (light). Disadvantage in harsh industrial ages.
 
 ---
 
