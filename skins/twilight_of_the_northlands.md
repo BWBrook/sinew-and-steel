@@ -7,7 +7,7 @@
 
 Use this skin with the Sinew & Steel core rules. Anything not listed here follows the core.
 
-Twilight of the Northlands is wanderer fantasy: long roads, hard choices, and small lights carried through large darkness. Expect travels, assemblies, songs in the cold, and moments where the enemy is fought as much in the heart as with the sword.
+Twilight of the Northlands is wanderer fantasy: long roads, hard choices, and small lights carried through large darkness. Expect travels, assemblies, songs in the cold, and moments where fear, hunger, and oath-breaking bite as hard as steel.
 
 Suggested creation tone: **heroic** (**16** build points).
 
@@ -108,7 +108,7 @@ Users of the arcane do not hurl fire. They kindle courage, veil footsteps, and t
 
 **Lorekeeper backlash (examples):** a cold wind answers; a wight's attention turns your way; an oath-mark burns; a black bird follows for days.
 
-**Break (bout of despair):** for the rest of the scene, you cannot spend Hope or Companionship to nudge rolls, and the Lorekeeper chooses (or offers you) an impulse: flee, freeze, lash out, or fall into grief.
+**Break (bout of despair):** for the rest of the scene, you cannot spend Hope or Companionship to nudge rolls. The Lorekeeper chooses an impulse for the player to portray: flee, freeze, lash out, or fall into grief.
 
 Examples: *Kindle Hearth-Fire* (Oath), *Silence the Footfall* (Cant), *Banish a Tomb-Wight* (Invocation).
 
@@ -271,7 +271,7 @@ Travel choices acquire moral weight.
 ![](../assets/art/ss_twilight_road_lantern.png){.wrap-right width=2in}
 
 - **Elevate but stay clear.** Plain words, with occasional high diction: "ere", "fell", "lo".
-- **Landscape as character.** Heather, hush of pines, stars wheeling above a ruined watch-hill.
+- **Make the road answer back.** Heather, hush of pines, stars wheeling above a ruined watch-hill.
 - **Hope amid sorrow.** Even bleak moments hold a glimmer: thrush-song, warm bread, a shared jest.
 - **Songs & lineage.** A couplet; a remembered name ("daughter of the river-wardens").
 - **Sudden turns.** Peril reaches its darkest pitch, then a sharp reversal: dawnlight, a horn, unexpected mercy.

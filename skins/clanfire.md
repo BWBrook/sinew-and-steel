@@ -1,4 +1,4 @@
-# **CLANFIRE: FLINT & FROST**
+# Clanfire: Flint & Frost
 ### Skin add-on for Sinew & Steel
 
 ![](../assets/covers/ss_logo_clanfire.png){.wrap-right width=2in}
@@ -77,7 +77,7 @@ Name the totem and show its sign in the fiction: breath smokes, eyes flash owl-g
 
 A bonded beast has a **3-token Instinct pool** you may spend instead of your own.
 
-Each intervention flips or marks one token. At 0 tokens, the animal flees, dies, turns feral, or demands costly care before it will help again.
+Each intervention spends one token. At 0 tokens, the animal flees, dies, turns feral, or demands costly care before it will help again.
 
 ### Carry limit
 

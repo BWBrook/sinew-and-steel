@@ -7,9 +7,9 @@
 
 Use this skin with the Sinew & Steel core rules. Anything not listed here follows the core.
 
-Time Odyssey is scientific romance: brass and ivory wonder, distant epochs, and the chill realisation that history does not care who you are. Expect hard choices, strange futures, and consequences that ripple across centuries.
+Time Odyssey is scientific romance: brass and ivory wonder, distant epochs, and the chill realisation that history does not care who you are. Expect hard choices, strange futures, and consequences that arrive centuries out of order.
 
-Suggested creation tone: **pulp** (**12** build points) suits daring chrononautics well.
+Suggested creation tone: **pulp** (**12** build points) suits reckless chrononautics well.
 
 ---
 
@@ -117,9 +117,9 @@ Present 2-4 options in second person, focused on what the protagonist can actual
 > 2. Retreat to the machine and recalibrate era coils.
 > 3. Trust the pale child's silent gesture.
 
-Let consequences ripple across epochs. Saving a single flower in a far-future garden may cure a Victorian cholera outbreak.
+Let consequences arrive in the wrong century. Saving a single flower in a far-future garden may cure a Victorian cholera outbreak.
 
-Wrap the boon in story: a strange crystal implant grants **Advantage on one INT test per session**; a companion's unwavering faith lets you **reroll one EMP test** (once).
+Wrap the boon in story: a strange crystal implant grants **Advantage on one INT test per session**; a companion's faith lets you **reroll one EMP test** (once).
 
 ### Custodian moves
 

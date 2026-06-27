@@ -2,20 +2,20 @@
 
 You are not the author of a pre-written plot. You are not the opponent. You are not a safety rail that stops anything bad from happening.
 
-Your job in Sinew & Steel is social before it is mechanical: **maintain momentum, narrate consequences, and adjudicate fairly**, while keeping player fun in view even when the outcome is not what they *want*.
+Your job in Sinew & Steel is social before it is mechanical: **maintain momentum, narrate consequences, and adjudicate fairly**, while keeping player fun in view even when the outcome is not what they hoped for.
 
 ## Momentum and real choice
 
-Good Custodian play offers alternatives without turning them into narrow gates.
+Good Custodian play gives alternatives without turning them into narrow gates.
 
-Players should feel free to surprise you. You should not need to protect "your plan", because ideally you do not have one in the first place: only a situation, a few pressures, and a sense of what the world wants.
+Players should be able to surprise you. You should not need to protect "your plan", because ideally you do not have one in the first place: only a pressured situation and a sense of what the world wants.
 
 When a player hesitates or asks “what are my options?”, the most useful response is rarely a single instruction. It’s usually:
 
 - 2-4 plausible options (and an explicit "or anything else that makes sense"), and
 - enough scene clarity that they can choose with confidence.
 
-"Real player choice" is not a slogan. It is a practical promise: different decisions should lead to genuinely different futures, and you should not quietly steer everything back to a pre-determined plot.
+"Real player choice" is not a slogan. Different decisions should lead to different futures, and you should not quietly steer everything back to a pre-determined plot.
 
 **Real choice:** "Do we bargain with the rival hunters, steal from them, or offer them a share, knowing each choice changes who hates us, who trusts us, and what happens when winter gets worse?"
 
@@ -27,9 +27,9 @@ Let it branch.
 
 You should not be creating "balanced encounters" or heroic plot armour. The world is what it is: dangerous, uneven, and indifferent.
 
-But indifference is not the same as gotchas. When something is lethal, unstable, or wildly beyond the party's weight, telegraph it **narratively and subtly**. Give attentive players enough to read the danger, ask sensible questions, and adapt. A good sting is reality catching up; a bad sting is contrived.
+But indifference is not the same as gotchas. When something is lethal, unstable, or wildly beyond the party's weight, telegraph it **through the fiction**. Give attentive players enough to read the danger and adapt. A good sting is reality catching up; a bad sting is contrived.
 
-The goal is not to protect players from risk. The goal is to make risk *legible* so their choices stay real.
+You are not protecting players from risk. You are making risk *legible* so their choices stay real.
 
 ## Don’t roll by default (Custodian edition)
 
@@ -47,14 +47,14 @@ When you do call for a roll, keep it to one meaningful roll; avoid a ladder of m
 
 There is no baked-in "failure always means X" sequence in S&S. That would become predictable, and predictability kills tension.
 
-Your consequence toolkit includes (at least): Pressure rises, time/position shifts, resources drain, harm lands, threats escalate, clocks tick, and scenes change shape.
+Your consequence toolkit includes (at least): Pressure rises, time or position shifts, resources drain, harm lands, threats escalate, clocks tick, and the scene changes.
 
-Choose the consequence that best fits the fiction, the tone, and the moment.
+Choose the consequence that best fits the fiction and the moment.
 
 If nothing obvious fits, make it explicit and fair:
 
 - offer two plausible consequences and pick one openly (a d6 is fine), or
-- ask the table which consequence feels most honest for the scene.
+- ask the table which consequence best fits the scene.
 
 ## Prep-light, situation-first
 
@@ -91,7 +91,7 @@ Animals want food and safety. People want status, revenge, coin, or survival. Mo
 
 ## What to avoid (without moralising)
 
-These are red flags to watch out for when acting as a Custodian:
+Watch for these red flags:
 
 - Over-warning (which often turns into railroading).
 - Fudging dice or quietly protecting the party with plot armour.
@@ -108,4 +108,4 @@ If you want a heroic game, you can absolutely run one. But it is better that it 
 > Later, when they return to the entry chamber, it is not empty anymore.<br>
 > The players don’t feel punished. They feel the dungeon breathing.
 
-That is S&S Custodian play exemplified: fair, sharp, and alive.
+That is S&S Custodian play in miniature: fair, sharp, and alive.

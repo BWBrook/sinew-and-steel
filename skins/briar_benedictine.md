@@ -98,13 +98,13 @@ Use the **Insight** plug-in as your unstick lever if the table stalls.
 
 > Cadoc scrapes blood from the altar cloth. Test **LOR**.
 > Success: "It is old blood, at least five days, and it reeks of yarrow."
-> Failure: "It is old blood... but your hands shake. Mark **+1 Sin**: prideful certainty can damn the innocent."
+> Failure: "It is old blood... but the yarrow stain smears under your thumb. Mark **+1 Sin**: prideful certainty can damn the innocent."
 
 ### Sin track (Pressure)
 
 Sin is the spiritual pressure of suspicion, pride, and proximity to evil. It runs **0-5**; at **5**, trigger a crisis, then reset Sin to **0**.
 
-| Step | Portent | Custodian leverage |
+| Step | Portent | Custodian pressure |
 |--|------|------|
 | 0 | Clear conscience | None |
 | 1 | Rumours in cloister | cosmetic whispers, doors close early |
@@ -169,7 +169,7 @@ Reliable Custodian moves:
 
 Tag scenes by location (CL-1 cloister, TW-2 town, WD-3 woodland). Keep a short case ledger: suspects, motives, alibis, and clue list.
 
-Investigations should be undertaken with care. Words cannot be unspoken, vows cannot be unbroken - only confession and atonement can change what comes next.
+Investigations should move with care. Words cannot be unspoken, vows cannot be unbroken - only confession and atonement can change what comes next.
 
 > *"Wax gutters in crooked rivulets; the effigy saints seem to weep."*
 

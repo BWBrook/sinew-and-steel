@@ -6,7 +6,7 @@ Some games buried the table in rules. Others were elegant until play put pressur
 
 My first RPG experiences weren’t massive hardbacks. They were gamebooks, solo adventures, and boxed-set play that got you moving quickly. You made decisions, took risks, bled for them, and the fictional worlds *remembered* what happened. That balance, *fast to start and infinite to extend*, is what I wanted again, but without the illogic and clutter.
 
-So this is my attempt to set down a lean design frame: a chassis with **intuitive, consistent mechanics** that lets players and Custodians focus on controlled narrative play without drift.
+So this book sets down the frame I wanted: a lean chassis with **intuitive, consistent mechanics**, visible odds, and enough structure to let the table improvise without the game wobbling.
 
 I don't claim this is the “right” way to play RPGs. It's just the way I like them most.
 
@@ -20,7 +20,7 @@ Sinew & Steel is built to make a few promises and keep them:
 - **Custom characters, real trade-offs, no build-optimisation culture.** You can tune a character without turning the numbers into a solved min-max.
 - **A flexible chassis.** Different genres get different skins, but the underlying logic remains the same.
 
-Underneath it all, S&S aims for momentum: a conversation-first table style where rulings are quick, stakes are clear, and mechanics appear exactly when they should.
+Underneath it all, S&S wants momentum: table talk first, clear stakes, and dice when they sharpen the moment, not when everyone already knows what happens.
 
 ## What this game is *not*
 
@@ -30,17 +30,17 @@ It’s worth saying plainly what I designed against:
 - If you prefer **exception-based design** (hundreds of bespoke sub-systems and special-case rules that override the core), S&S will feel too restrained.
 - If you want **a complete setting bible**, S&S will not provide that bulk. Skins set the frame; your table fills in the world.
 
-None of this is a judgement. Plenty of people love those styles, and they produce great campaigns. This book is simply built for a different taste: coherent, legible, and prep-light.
+None of this is a judgement. Plenty of people love those styles, and they produce great campaigns. This book is for a narrower taste: a game that stays legible and does not ask for much prep.
 
 ## Why these specific choices?
 
 You’ll see a few recurring design instincts throughout the book.
 
-**Roll-under d20 with margin** makes ability feel direct: you don’t translate a stat into a bonus and then hope the bonus matters. You have a target number you can see, and your closeness to it *means something*. That margin is already present in the roll, so S&S uses it to add narrative nuance rather than turning every outcome into a hard pass/fail line.
+**Roll-under d20 with margin** makes ability feel direct: you don’t translate a stat into a bonus and then hope the bonus matters. You have a target number you can see, and your closeness to it *means something*. That margin is already present in the roll, so S&S spends it on narrative nuance instead of treating every outcome as a hard pass/fail line.
 
 **Advantage/Disadvantage** is here because it adds texture without adding bloat. It is easy to remember, hard to abuse, and works as well for opposed tests as it does for simple checks.
 
-**Luck as both a stat and a spendable pool** is here for a very specific reason: it forces a trade-off between the now and the future. Spend Luck to twist a moment in your favour, and you’ve changed what the next “pure fortune” test feels like. It also makes sense in the fiction: fortune might always have a chance to smile, but you can’t demand it endlessly without cost.
+**Luck as score and spendable pool** is here for a very specific reason: it forces a trade-off between the now and the future. Spend Luck to twist a moment in your favour, and you’ve changed what the next “pure fortune” test feels like. It also makes sense in the fiction: fortune might always have a chance to smile, but you can’t demand it endlessly without cost.
 
 **Pressure as a short fuse** formalises something that often floats untracked in RPG play: accumulating strain. You can push, gamble, and keep going, but not forever. The result is a clear rhythm: rising tension, crisis, reset. The Custodian doesn't have to remember to be harsh; the game remembers for them.
 
@@ -48,7 +48,7 @@ You’ll see a few recurring design instincts throughout the book.
 
 I didn’t want a system that only sings in one genre. I also didn’t want ten separate rulebooks! Skins are my compromise: small, setting-forward overlays that change what the tension *means*, what the stats *represent*, and what kinds of consequences fit the fiction, without changing the underlying engine.
 
-If you’ve played widely, you’ll notice that several skins are love letters to specific traditions: dungeon-crawl austerity, fogbound horror, blue-book space commerce, wanderer fantasy elegy, and so on. I keep the nods subtle on purpose. The goal isn’t to recreate anyone else’s work. It is to capture a *play cadence*, the feel of the genre, on a coherent chassis.
+If you’ve played widely, you’ll notice that several skins are love letters to specific traditions: dungeon-crawl austerity, fogbound horror, blue-book space commerce, wanderer fantasy elegy, and so on. I keep the nods subtle on purpose. The goal isn’t to recreate anyone else’s work. It is to capture a *play cadence*, the feel of the genre, with the same dice under it.
 
 And if you want to build your own: the Customisation chapter is here to help you do it without accidentally reinventing a second game inside the first.
 
@@ -70,7 +70,7 @@ If you want to go deeper:
 
 ## A note on AI GMs (optional)
 
-Sinew & Steel is designed so an AI reasoning engine can run it consistently, which makes it unusually friendly to solo play and “GM-less” groups. AI is definitely not required, and nothing in the core rules depends on it. But if you’re curious, the **AI FOR SOLO PLAY** section offer practical guidance: how to keep secrets, how to prevent over-rolling, and how to make sure player choice remains real. It also provides a free, well-developed harness that your AI agent can leverage to run S&S, a bit like a light RPG simulator.
+Sinew & Steel is designed so an AI reasoning engine can run it consistently, which makes it unusually friendly to solo play and “GM-less” groups. AI is definitely not required, and nothing in the core rules depends on it. But if you’re curious, the **AI FOR SOLO PLAY** section covers the practical bits: keeping secrets, avoiding over-rolls, and making sure player choice remains real. The repo also includes a free harness an AI agent can use to run S&S, a bit like a light RPG simulator.
 
 ## An invitation
 

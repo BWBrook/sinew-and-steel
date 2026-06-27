@@ -111,7 +111,7 @@ If a role is unfilled, treat it as a failure.
 
 ### Ship shares (party pool)
 
-Ship Shares represent liquid breathing room: fuel bills paid, port fees smoothed, creditors delayed.
+Ship Shares are liquid breathing room: fuel bills paid, port fees smoothed, creditors delayed.
 
 - Start at **2 shares** (adjust to tone).
 - Spend 1 share to: pay fees, grease a bureaucrat, replace a lost cargo load, or clear **1 tick** from **Hull Damage**.
@@ -167,7 +167,7 @@ Test **SOC** (broker it) or **EDU** (read the market).
 
 - **Success:** gain **+1 Ship Share**, or clear **1 tick** from **Debt**.
 - **Failure:** mark **+1 Strain**, or tick **Debt +1** (Guildmaster chooses the more truthful consequence).
-- **Natural 20 (worst):** mark **+1 Strain** and tick **Debt +1**; someone notices. Add a complication: audit, shakedown, or a patron with leverage.
+- **Natural 20 (worst):** mark **+1 Strain** and tick **Debt +1**; someone notices. Add a complication: audit, shakedown, or a patron who now knows what you owe.
 
 Merchant Broker lets you reroll this once per port call.
 
@@ -258,7 +258,7 @@ Reliable Guildmaster moves:
 - lien threatens impound,
 - pirate corsair on scan,
 - misfuelled jump contaminates the drive,
-- patron offers time-critical cargo,
+- patron dangles time-critical cargo,
 - lingering sickness spreads on board.
 
 \clearpage

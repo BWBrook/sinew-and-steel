@@ -184,7 +184,7 @@ A purse of 50 silver keeps iron rations flowing; a ruby the size of a child's he
 Goblins barter for lamp oil, ghouls crave tales of grief, muck-ogres yearn for refuse. One motive line turns fodder into story.
 
 **6. Fatigue is the hourglass.**
-Every torch burned, every spell miscast, every wrong turn adds weight to shoulders. When Fatigue climbs, describe ringing ears and shaking knees - players will beg for daylight on their own.
+Every torch burned, every spell miscast, every wrong turn costs something visible: dropped packs, guttered lamps, corridors mislabelled on the map. When Fatigue climbs, players will beg for daylight on their own.
 
 **7. Danger at every threshold, death at few.**
 One lethal trap per session keeps courage taut; the rest should maim, scare, or split the party's purse. You want them limping, not quitting.
@@ -198,7 +198,7 @@ Sprinkle five-dollar words like saffron, never by the ladle: *miasma*, *balustra
 **10. Reward ingenuity with Advantage, hubris with peril.**
 Pole-tapping every slab should find hidden hinges; charging the idol deserves the hail of darts. Fairness is the forge of legend.
 
-> _"The candle guttered; the map stained with sweat. Ahead: a door iron-banded and warm to the touch. Choose, delvers."_
+> _"The candle gutters; the map curls at the edges. Ahead: a door iron-banded and warm to the touch. Choose, delvers."_
 
 Hold that cadence and the ghosts of 1983 will nod in approval.
 

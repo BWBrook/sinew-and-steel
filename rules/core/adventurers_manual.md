@@ -1,4 +1,4 @@
-# **SINEW & STEEL ADVENTURER'S MANUAL**
+# Sinew & Steel Adventurer's Manual
 
 ![](../../assets/art/ss_skin_overlay.png){.wrap-right width=2in}
 
@@ -10,7 +10,7 @@ For the two-page version, see **Quickstart Rules**.
 
 ---
 
-## 1. The Core Rule
+## 1. The core rule
 
 Roll **one d20**. If `roll <= attribute`, you succeed; if it is higher, you fail.
 Lower is better.
@@ -63,9 +63,9 @@ If failure would be boring, resolve it narratively.
 
 ---
 
-## 2. Building a Hero (player character)
+## 2. Building a hero (player character)
 
-### 2.1 Start from the baseline frame
+### 2.1 Start from the baseline
 
 Every character begins at:
 
@@ -94,7 +94,7 @@ If you need a default set (and for examples in this manual), use:
 
 ### 2.2 The point-buy economy (trade-offs and build points)
 
-You can customize your stats using the same economy in two equivalent ways:
+You can customise your stats using the same economy in two ways:
 
 ![](../../assets/art/ss_points_buy_economy.png){.wrap-right width=2in}
 
@@ -129,7 +129,7 @@ At creation, the Custodian chooses a starting budget for tone:
 - **12** (pulp competence)
 - **16** (heroic flair)
 
-### 2.4 Step-by-step creation (fast, reliable)
+### 2.4 Step-by-step creation
 
 1. Pick a skin (it names your five attributes and your Pressure track).
 2. Write the baseline frame: five 10s, Stamina 5.
@@ -142,14 +142,14 @@ At creation, the Custodian chooses a starting budget for tone:
 
 ### 2.5 Worked example (build points + trade-offs)
 
-You want a sharp-witted PC hero and you raise INT from 10 to 13 (**+3 above baseline**).
+You want a sharp-witted hero and raise INT from 10 to 13 (**+3 above baseline**).
 
 - Trade-off version: you must take **-6 total** across other scores (no build points required).
 - Build-point version: you can instead spend **6 build points** (2 per +1 above baseline) and keep the rest closer to baseline.
 
 ---
 
-## 3. Luck Pool (tokens)
+## 3. Luck pool (tokens)
 
 ![](../../assets/art/ss_luck_pool.png){.wrap-left width=2in}
 
@@ -175,7 +175,7 @@ Combat note:
 
 ---
 
-## 4. Stamina (Health) & Recovery
+## 4. Stamina (health) & recovery
 
 ![](../../assets/art/ss_stamina_recovery.png){.wrap-right width=2in}
 
@@ -191,7 +191,7 @@ The Custodian may warn you when the fiction implies lethal stakes beyond a norma
 
 ---
 
-## 5. Taking Action
+## 5. Taking action
 
 ### 5.1 Simple tests
 
@@ -265,7 +265,7 @@ After a hit:
 
 \clearpage
 
-## 7. Carry Limit
+## 7. Carry limit
 
 ![](../../assets/art/ss_item_carry_limit.png){.wrap-left width=2in}
 
@@ -277,7 +277,7 @@ Money does not count against carry limit. By default it is tracked loosely in th
 
 ---
 
-## 8. Pressure & Milestones (the pacing tools)
+## 8. Pressure & milestones (the pacing tools)
 
 Every skin uses a shared **Pressure track (0-5)**, renamed to fit genre (Doom, Fatigue, Sin, Heat, Stress, Strain, Dread, Insanity, Anomaly).
 
@@ -294,7 +294,7 @@ Pressure is the fuse: it rises with risk, blunders, bargains, and time.
 
 \clearpage
 
-## 9. Quick-Reference Tables
+## 9. Quick-reference tables
 
 ### 9.1 Chance to succeed at a task by score (single d20)
 

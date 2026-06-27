@@ -1,4 +1,4 @@
-# Clanfire: Emberfall (Player Handout)
+# Clanfire: Emberfall (player handout)
 
 ## A player-facing starter brief for Sinew & Steel
 

@@ -1,10 +1,10 @@
-# Clanfire: Emberfall - Custodian Notes
+# Clanfire: Emberfall - Custodian notes
 
 ## Running the starter scenario behind the screen
 
-The previous chapter gives you the table-ready spine. Do not treat this chapter as more plot to prepare. Treat it as a short commentary on how to run Emberfall in the Sinew & Steel style.
+The previous chapter gives you the table-ready spine. Use this one as a short commentary on how to run Emberfall in the Sinew & Steel style.
 
-If **The Custodian** gives you the stance - situation first, real choices, fair consequences - Emberfall is the exercise that lets you practise it. If **Customisation** argues that every extra rule should create a decision or generate momentum, Clanfire is the proof-of-concept: Shadow, Instinct, taboo, and clocks matter only when they make the next choice sharper.
+Read Emberfall beside **The Custodian**: situation first, real choices, fair consequences. Read Clanfire beside **Customisation**: Shadow, Instinct, taboo, and clocks earn their place only when they make the next choice sharper.
 
 Your task is not to protect a story. Your task is to keep the situation alive.
 
@@ -22,7 +22,7 @@ Behind the screen, think less about sequence and more about pressure. Three forc
 
 When the characters act, ask which force changes. If they wait, hunger tightens. If they make noise, the wolf learns. If they call spirits, the wrongness answers. If they bargain well, one pressure may ease while another becomes personal.
 
-That is the core Custodian pattern in miniature: prepare a situation, then let player choices bend it.
+At the table, prepare a situation and let player choices bend it.
 
 ---
 
@@ -34,7 +34,7 @@ For **rival hunters**, show human need before human malice: a cut thong on a bra
 
 For **the spirit omen**, make the demand concrete. A spirit that says "show respect" is vague. A spirit that wants the liver left for the fire, the prey unnamed before dawn, or one Instinct bead surrendered before the spear is thrown gives the table something real to accept, refuse, or twist.
 
-For **strangers on the ridge**, keep them distant. Their job in a first session is to make the world larger, not to explain themselves. Clean footprints in dirty snow is sufficient. A silhouette that is gone when the characters look twice is enough.
+For **strangers on the ridge**, keep them distant. In a first session they make the world larger; they do not need to explain themselves. Clean footprints in dirty snow do the work. So does a silhouette gone when the characters look twice.
 
 Signs keep choice alive. Exposition closes doors too early.
 
@@ -42,16 +42,16 @@ Signs keep choice alive. Exposition closes doors too early.
 
 ## Make costs feel earned
 
-Emberfall is a good place to practise the S&S failure toolkit: time shifts, position worsens, resources drain, harm lands, Pressure rises, and clocks tick.
+Use Emberfall to practise the S&S failure toolkit: time shifts, position worsens, resources drain, harm lands, Pressure rises, and clocks tick.
 
-The important move is to make each cost feel like it came from the fiction:
+Make each cost feel like it came from the fiction:
 
 - weak: "You fail. Mark Shadow."
 - sharper: "The chant catches, but it draws something cold through the smoke. You may still take the omen, but if you do, mark +1 Shadow."
 - weak: "The wolf attacks again."
 - sharper: "The wolf does not press the spear. It circles wide, finds the hanging meat, and now you have to choose: chase it into the dark or save what remains by the fire."
 
-This is where Emberfall connects back to **The Custodian**: you are not seeking to punish failure. Nor are you softening it away. You are letting the world answer.
+Do not punish failure or soften it away. Let the world answer.
 
 ---
 
@@ -65,11 +65,11 @@ Use **Shadow** when fear, taboo, spirits, desperation, or survival have been dis
 
 Use **clocks** only if they sharpen the scene. Hunger, Storm, and Pack Learns are not three mandatory homework tracks. Choose the one or two that make the table lean forward.
 
-That is the Customisation bargain: every extra moving part must earn its place by creating a meaningful decision.
+Customisation's bargain applies here: every extra moving part must earn its place by creating a meaningful decision.
 
 ---
 
-## The wolf is a lesson in living opposition
+## The wolf as living opposition
 
 The wolf's stat card is in the scenario spine. What matters here is how you inhabit it.
 
@@ -81,9 +81,9 @@ If the players learn that opponents have motives, fear, hunger, and exits, they 
 
 ---
 
-## Teach without pausing for lecture
+## Run, don't lecture
 
-Emberfall should teach the game by being played.
+Let the table learn by doing.
 
 Name a rule only when it becomes useful:
 
@@ -93,7 +93,7 @@ Name a rule only when it becomes useful:
 - "That failure does not mean nothing happens. The situation has changed..."
 - "The wolf is hurt. It looks ready to flee. Do you let it?"
 
-That is enough. The table does not need a seminar on margin, clocks, Pressure, and non-lethal endings. It needs to feel those ideas working.
+Enough. The table does not need a seminar on margin, clocks, Pressure, and non-lethal endings. It needs to feel those ideas working.
 
 When in doubt, return to the Custodian basics: offer two to four plausible options, add "or anything else that makes sense", state the stakes, roll only when the outcome is uncertain and important, then let the consequence land cleanly.
 
@@ -116,4 +116,4 @@ Then close on the question the scenario is built to leave behind:
 
 > What is making the birch-line wrong?
 
-If the table wants to answer that, Emberfall has done its job.
+If the table wants to answer that, stop there and bring the question back next time.

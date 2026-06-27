@@ -13,7 +13,7 @@ Suggested creation tone: **standard** (**6** build points): capable investigator
 
 In this skin, the Custodian is often called the **Keeper**.
 
-> The fog comes in like a living thing, as though the sea is exhaling. A buoy bell rings where it should not. Your lantern's glass is filmed with salt - and something else.
+> The fog comes in low and patient, dragging the sea smell over the road. A buoy bell rings where it should not. Your lantern's glass is filmed with salt - and something else.
 
 ---
 
@@ -94,7 +94,7 @@ The mind forgets the count; it does not forget the scar.
 | Step | Manifestation | Effect |
 |--|---|-----|
 | 0 | Steady | None |
-| 1 | Agitation | cosmetic tremor, whispered tinnitus |
+| 1 | Agitation | mislaid words, a whisper at the keyhole |
 | 2 | Deep unease | Disadvantage on your next **FRT** test to resist fear or coercion |
 | 3 | Fracture | each **risky test** costs **1 Fate ticket** before rolling or marks **+1 Insanity** |
 | 4 | Night terrors | Disadvantage on all tests |
@@ -115,7 +115,7 @@ _(A risky test is any roll where failure would materially change the situation: 
 | 1 | Black-out violence: you awaken holding a bloodied object; lose **1 Stamina**. |
 | 2 | Catalepsy: helpless for one scene. |
 | 3 | Desolate vision: Disadvantage on all tests next session. |
-| 4 | Whispered truth: gain one crucial rumour clue; your next rest restores **no Fate**. |
+| 4 | Whispered truth: gain one rumour clue the Keeper names; your next rest restores **no Fate**. |
 | 5 | Public hysteria: NPCs fear or shun you; Disadvantage on **FRT** tests in polite society until resolved. |
 | 6 | Roll twice and apply both. |
 
@@ -170,7 +170,7 @@ Keeper guidance: keep the light clock **public** if you want planning, or **hidd
 - **Use fragile narrators.** PCs mutter doubt, stumble on diction, and leave sentences unfinished as the psyche frays.
 - **Slow verbs, sudden violence.** Ten lines of oppressive hush, then one splintering gunshot or roof-beam collapse.
 - **Finish scenes with foreboding, not triumph.** Even victories taste of spoiled brine and scorched vellum.
-- **Let knowledge hurt.** Reward Scholarship with answers that cost sanity; each new fact should feel like a bargain struck at midnight.
+- **Let knowledge hurt.** Reward Scholarship with answers that cost sanity; each new fact comes priced like a bargain struck at midnight.
 
 > *"In the ledger's margin, the ink had crusted to a curious verdigris, as though the word itself resented daylight."*
 

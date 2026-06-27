@@ -86,7 +86,7 @@ Dynamic soak still applies: after a hit, reduce soak by **1 per full 4 points** 
 
 This skin is about the people who keep the ship alive while senior officers make speeches.
 
-Rotate spotlight scenes across departments so "ship life" feels broad and lived-in.
+Rotate spotlight scenes across departments so the ship has more than one corridor and one chain of command.
 
 - **Science specialist (lab / survey)** - you turn chaos into data. Default approach: **SYS** (analysis) and **HAR** (ethics, persuasion, de-escalation). Ask for clean procedures.
 - **Medical tech (sickbay / triage)** - you keep people breathing. Default approach: **HAR** (triage, bedside), sometimes **SYS** (diagnostics). Let failure mean hard choices, not "no healing."
@@ -136,11 +136,11 @@ _(A risky test is any roll where failure would materially change the situation: 
 2. **A-/B-plot rhythm.** Keep one technical crisis (grid overload) and one interpersonal thread (crew rivalry, a debt, a secret). Alternate scenes.
 3. **Dialogue first, dice second.** Let players propose plans; only roll when the grid might blow or a superior officer remains unconvinced.
 4. **Optimism with friction.** No grimdark - conflict is creative, not cruel. Even an antagonist might want out.
-5. **Montage beat.** Use one Systems roll plus Cross-Training Override to cover bypass-reroute-weld sequences; summarise sparks on bulkheads, sweat on brows.
+5. **Montage beat.** Use one Systems roll plus Cross-Training Override to cover bypass-reroute-weld sequences; summarise sparks on bulkheads, stripped conduits, and someone holding the access panel open with both boots.
 6. **Act-break cliffhangers.** Every 4-6 beats, hit: *"Reactor breach in 120 seconds"* or *"Captain on comm: 'Ensign, explain the sidearm discharge in Shuttle Bay 2.'"*
 7. **Stinger epilogue.** Show the repaired conduit humming; crew share ration-pie in the mess; one faint chirp hints at next episode.
 
-> *"The coolant flow stabilises, lights returning to cool blue. Ortiz exhales - then a proximity klaxon screams. Something massive drops in-system right atop their vector..."*
+> *"The coolant flow stabilises; lights return to cool blue. Ortiz lowers the spanner - then a proximity klaxon screams. Something massive drops in-system right atop their vector..."*
 
 **Spotlight the other 99% (episode anchors):**
 
@@ -154,7 +154,7 @@ _(A risky test is any roll where failure would materially change the situation: 
 * Coolant lines hum like distant thunder.
 * Medbay monitors pulse soft green over exhausted faces.
 * Corridor air tastes of ozone and burnt peach.
-* A single annunciator chirp can still hearts across ten decks.
+* A single annunciator chirp can silence ten decks.
 
 ### Custodian moves
 
@@ -176,7 +176,7 @@ If you want a safety valve, use **logs** as clues: sensor records and captain's 
 
 ### Scene seed
 
-> *The ship shudders as a gravimetric shear slams the hull. In Junction J-19 steam hisses from a ruptured conduit; crimson strobes wash the crawl-tube walls. Talara's scanner whines - grid flow spiking. Ortiz wipes condensation from his brow, voice tight over comms.*
+> *The ship shudders as a gravimetric shear slams the hull. In Junction J-19 steam hisses from a ruptured conduit; crimson strobes wash the crawl-tube walls. Talara's scanner whines - grid flow spiking. Ortiz braces one boot against the hatch-rim, voice tight over comms.*
 
 > Options:
 > 1. Close the manual cutoff - risk flash-burn on a Muscle roll.

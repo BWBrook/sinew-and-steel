@@ -2,7 +2,7 @@
 
 Sinew & Steel is deliberately lean. That makes it easy to customise, but also easy to overload.
 
-The right addition gives the game texture: a sharper genre, a stronger tone, a new kind of tension. The wrong addition does not create depth. It creates drag.
+The right addition gives the game texture: a sharper genre, a stronger tone, a new kind of tension. The wrong addition does not create depth; it creates drag.
 
 A simple test helps:
 
@@ -19,11 +19,11 @@ You can run pure core play with five generic attributes, Luck, Stamina, and Pres
 Skins exist to do two things:
 
 1. Rename the core so it feels natural in a genre.
-2. Add a small number of procedures that the genre genuinely needs.
+2. Add a small number of procedures the genre needs.
 
 ## What a skin actually is
 
-In S&S terms, a skin is a **framing layer**. It translates the core engine into a genre without rewriting that engine.
+In S&S terms, a skin is a **framing layer**. It translates the core engine into a genre without rewriting it.
 
 A skin can:
 
@@ -63,15 +63,15 @@ If you do those five things cleanly, most of the rest is optional seasoning.
 
 ## Safe ways to add texture
 
-If you want your skin to feel distinct without becoming complicated, these moves are reliable:
+If you want your skin to feel distinct without becoming complicated, start here:
 
 - Rename core terms so they match the genre's instincts.
 - Declare typical costs in fiction: "magic usually costs Pressure", "gunfights spike Pressure quickly".
 - Add story-facing clocks for long tension (patrols, storms, suspicion) when it helps.
-- Give concrete examples of Advantage/Disadvantage in the genre (home turf, leverage, ritual prep, cover).
+- Give concrete examples of Advantage/Disadvantage in the genre (home turf, ritual prep, cover).
 - Add gear and NPCs using existing tags (edge, soak, and simple tier + Stamina statlines) instead of inventing new numeric layers.
 
-The skins in this book show the range of what is possible, from light overlays to heavier genre modules.
+The skins in this book show the range: light overlays at one end, heavier genre modules at the other.
 
 ## Red flags (things that usually cause drift)
 
@@ -85,7 +85,7 @@ These are the moves that tend to bloat the game or distort the feel:
 
 ## Tags instead of skill lists
 
-If you want the feeling of skills without turning the game into a catalogue of niche rolls, use **tags**: small, named traits that grant a specific kind of edge.
+If you want the feel of skills without turning the game into a catalogue of niche rolls, use **tags**: small, named traits that grant a specific kind of edge.
 
 Keep them narrow, contextual, and sometimes limited to once per session so they stay punchy.
 
@@ -107,7 +107,7 @@ If you want to borrow rules from multiple skins, use one skin as the foundation 
 
 ## Writing new rules (the 8-12 line test)
 
-Keep new procedures small enough to be remembered. A useful constraint is: **can you write the rule in 8-12 lines without losing clarity?**
+Keep new procedures small enough to remember. A useful constraint is: **can you write the rule in 8-12 lines without losing clarity?**
 
 A good S&S procedure usually has this structure:
 

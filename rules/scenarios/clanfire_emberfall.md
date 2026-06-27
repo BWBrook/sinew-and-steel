@@ -1,6 +1,6 @@
 # Clanfire: Emberfall
 
-## A "play tonight" starter scenario for Sinew & Steel
+## A play-tonight starter scenario for Sinew & Steel
 
 **Custodian-facing scenario spine.** Use this after reading the Clanfire skin. Give the next chapter, **Clanfire Player Handout**, to the players. Keep the **Clanfire Custodian Notes** behind the screen.
 
@@ -8,9 +8,9 @@
 The clan's hearth is dying in a hard winter, and the hunt that should save them is already being claimed by hungry things in the birch-line.
 
 ### Why Emberfall?
-Clanfire is the cleanest demonstration skin: close to pure core play, but with enough flavour to make the rules feel alive. Emberfall teaches the basic S&S loop in one scene: real choice, sparse rolls, visible stakes, Luck/Instinct spending, Shadow, clocks, and combat that can end before death.
+Clanfire sits close to pure core play, but has enough flavour for the rules to bite. Emberfall puts the basic S&S loop on the table in one scene: real choice, sparse rolls, visible stakes, Instinct spending, Shadow, clocks, and combat that can end before death.
 
-This is not a complete adventure. The goal here is to get a first session moving in minutes and end with one strong unanswered question.
+Emberfall is a first-session fuse: quick to light, hard to leave alone, and built to end with one strong unanswered question.
 
 ---
 
@@ -71,7 +71,7 @@ If the table hesitates, offer options and accept anything else that makes sense:
 
 Each option should change the situation. Reading tracks may reveal the wolf early. Stalking may seize position but risk an ambush. Calling spirits may give an omen but raise Shadow on a miss. Barring the cave buys safety at the cost of time, hunger, and initiative.
 
-That is the teaching purpose of Emberfall: every choice should feel like a trade, not a menu button.
+Every choice should feel like a trade, not a menu button.
 
 ---
 
@@ -118,7 +118,7 @@ Keep clocks visible if you want the table to feel danger tightening. Keep them h
 
 If you want it tougher, make it **Elite 12** and give it **Stamina 5**.
 
-The wolf wants food and advantage. It cares nothing for honour, fairness, and is uninterested in a duel. Driving it off is a victory. Wounding it and following blood into the trees is a choice. Killing it may solve one problem and reveal another.
+The wolf wants food and advantage. It cares nothing for honour or fairness, and it has no interest in a duel. Driving it off is a victory. Wounding it and following blood into the trees is a choice. Killing it may solve one problem and reveal another.
 
 ---
 
@@ -142,7 +142,7 @@ Grak wins. Damage is `1 + edge 1 - soak 0` = **2**. The wolf drops from Stamina 
 
 ### Round 2: Tarra turns fire into a weapon
 
-Tarra wants to break the wolf's nerve with flame and chant. To attempt to do so, she levers presence, fear, and omen.
+Tarra wants to break the wolf's nerve with flame and chant. Roll Spirit for presence, fear, omen, and a voice held steady by the fire.
 
 - **Tarra:** roll under Spirit 14.
 - **Wolf:** roll under Fleetness 10.
@@ -154,7 +154,7 @@ Example:
 
 Both succeed, but Tarra has the higher margin. Apply the agreed consequence instead of damage: **the wolf breaks and flees**, yelping. If Tarra rolled a natural 1, the pack does not return this night.
 
-If both characters fail, let the wolf bite, steal meat, or drag someone toward the dark. Then tick **Hunger**, mark **+1 Shadow**, or worsen position.
+If both rolls fail, let the wolf bite, steal meat, or drag someone toward the dark. Then tick **Hunger**, mark **+1 Shadow**, or worsen position.
 
 ---
 

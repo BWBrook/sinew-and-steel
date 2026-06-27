@@ -82,7 +82,7 @@ Psionics ride **Mind (MND)** and slot in beside guns and hacks. They add pressur
 | Step | Rule |
 |--|------|
 | **Activate** | Test **MND**. Spend Luck to nudge as usual. |
-| **On success** | The effect manifests (see table). Extra margin means stronger, subtler, or broader, at the Custodian's discretion. |
+| **On success** | The effect manifests (see table). Extra margin means stronger, subtler, or wider-reaching, at the Custodian's discretion. |
 | **On failure** | Your spike pings a scanner: mark **+1 Heat** and suffer Disadvantage on your next psionic test this scene. |
 | **Cost** | Each use costs **1 Stamina** (nosebleed, neural shock). You may instead spend **1 Luck token** (a cred-chit) to ignore the fatigue. |
 
@@ -141,7 +141,7 @@ Examples: salvage permit (once: ignore **+1 Heat** from a single trigger), Dome 
 
 ## Controller's Dossier (Custodian-facing rules)
 
-*An operational brief for weaving intrigue, peril, and dust-choked wonder across the Red Frontier.*
+*A Controller brief for jobs, feuds, bad air, and dust-choked wonder across the Red Frontier.*
 
 In Rust & Domes, the Custodian is often called the **Controller** - the one watching the HUD and deciding what the system does next.
 
@@ -154,7 +154,7 @@ Tech is rusting, corps are bloated carrion birds, and wonder haunts ghost domes.
 
 > The airlock cycles with a cough. Red dust scuttles across the deck like insects. Somewhere in the dome, an alarm is trying not to panic.
 
-Defeat should twist the story rather than break it: prison work crews, debt, blackmail, a memory-wipe implant.
+Let defeat change the job: prison work crews, debt, blackmail, a memory-wipe implant.
 
 Death is for pathos, not arithmetic.
 
@@ -194,7 +194,7 @@ If you want an in-fiction safety net, use **black-box logs** as clues; footage d
 
 Creative stunts are encouraged. Fire-suppression foam may smother a plasma arc; a grappling drone can provide swift exfiltration.
 
-Reward ingenuity with Advantage or narrative leverage.
+Reward ingenuity with Advantage or a concrete opening.
 
 ### Controller moves
 
@@ -210,7 +210,7 @@ Reliable Controller moves:
 
 After a heist concludes, a secret is unearthed, or a dust-storm crossing is survived, grant a Milestone.
 
-When in doubt, favour bold action - but remember that every triumph on rust-red soil comes smeared with dust and danger.
+When in doubt, favour bold action. Every triumph on rust-red soil comes smeared with dust and danger.
 
 ### Luck guidance
 

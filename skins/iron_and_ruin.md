@@ -163,9 +163,9 @@ Keep rolls sparse. Heroes should triumph more than they fail, yet peril must fee
 
 ![](../assets/art/ss_iron_ruin_idol.png){.wrap-right width=2in}
 
-The voice should be lean and sinewed. Keep sentences short, verbs vivid, adjectives sparing but potent.
+The voice is lean and sinewed: short sentences, vivid verbs, few adjectives.
 
-Emphasise physical sensation: iron, sweat, blood, stone. Let sorcery feel foul and wondrous, as much curse as gift. Characters reveal themselves through deeds, not ruminations. Lift the register only for moments of foreboding or grandeur, using archaic diction sparingly ("eldritch", "abysmal", "thews").
+Work through physical sensation: iron, sweat, blood, stone. Let sorcery feel foul and wondrous, as much curse as gift. Characters reveal themselves through deeds, not ruminations. Lift the register only for moments of foreboding or grandeur, using archaic diction sparingly ("eldritch", "abysmal", "thews").
 
 Violence is sudden; wonder is sombre; civilisation is decadent; fate is grim but defied.
 
@@ -189,7 +189,7 @@ Offer Fortune when failure is within range; remind players they can also push ma
 
 ### Beat and graph
 
-The tale unfolds in vivid, kinetic beats. Mechanics serve pacing; pacing serves mood. When in doubt, cut to action, raise a question, or unveil a terrible wonder.
+The tale should move in hard, vivid beats. Mechanics serve pacing; pacing serves mood. When in doubt, cut to action, raise a question, or unveil a terrible wonder.
 
 Same core method: tag scenes by locale (Tomb A1, Bazaar B3) if it helps you track the crawl.
 In this genre, fate does not rewind. Scars, debts, curses, and grudges accumulate.

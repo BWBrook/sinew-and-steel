@@ -1,4 +1,4 @@
-# **SINEW & STEEL CUSTODIAN'S ALMANAC**
+# Sinew & Steel Custodian's Almanac
 
 A concise booklet for Custodians (GMs): pacing levers, adjudication guidance, and optional modules.
 
@@ -8,7 +8,7 @@ For player-facing rules, see **Quickstart Rules** and the **Adventurer's Manual*
 
 ---
 
-## Custodian's Almanac (GM Quick Guide)
+## Custodian's Almanac (GM quick guide)
 
 ### 1. The Custodian's job
 
@@ -147,7 +147,7 @@ If players stall, do not demand a roll "to do something". Move the world:
 
 ---
 
-*With these few notes, you are ready to run anything from mammoth hunts to starship mutinies.*
+*These few notes are enough to start: mammoth hunts, starship mutinies, whatever the skin demands.*
 
 ---
 
@@ -155,7 +155,7 @@ If players stall, do not demand a roll "to do something". Move the world:
 
 ### 8. Advice for AI game masters (optional)
 
-If you are running Sinew & Steel as an AI Custodian:
+For AI Custodian play:
 
 - Write scenes in **2-5 paragraphs**, ending on tension or uncertainty.
 - Offer **2-4 numbered options** (and always allow freeform play).
@@ -174,7 +174,7 @@ See the **AI for Solo Play** chapters for more on AI Custodian play and use of t
 
 \clearpage
 
-# **Custodian's Toolkit**
+# Custodian's Toolkit
 
 *Optional deep dive for designers, tinkerers, and busy Custodians who like tables.*
 
@@ -223,7 +223,7 @@ At character creation you may give each player build points to set tone:
 
 (Or pick any number that fits your table.)
 
-The pool lets heroes spike a signature strength or patch a weakness without repainting every stat.
+The pool lets heroes raise a signature strength or patch a weakness without repainting every stat.
 It shifts capability while leaving core maths and pacing intact.
 
 ### B. Luck test frequency
@@ -285,7 +285,7 @@ Why it works:
 
 - cinematic stakes without new maths
 - a single tag plus a counter clause
-- scaling across genres without rewriting combat
+- scales across genres without rewriting combat
 
 ### F. Advantage source list (example set)
 
@@ -315,7 +315,7 @@ Add or prune per skin.
 
 \clearpage
 
-### I. Wealth & Attention (optional money subsystem)
+### I. Wealth & attention (optional money subsystem)
 
 By default, Sinew & Steel does not count coins, credits, or rations.
 Money does not take inventory slots, but it can still matter in play.

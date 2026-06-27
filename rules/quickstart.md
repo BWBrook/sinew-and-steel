@@ -1,11 +1,11 @@
-# **SINEW & STEEL QUICKSTART (RULES ON TWO PAGES)**
+# Sinew & Steel quickstart (rules on two pages)
 
 Roll under, count the margin, spend Luck to nudge close calls, and watch Pressure climb.
 *Everything else is story fuel.*
 
 ---
 
-## 1. Core Engine (60-second digest)
+## 1. Core engine (60-second digest)
 
 - **Roll under the attribute.** Roll `d20`; if `roll <= attribute`, you succeed. Otherwise, you fail.
   - **Natural 1** = legendary success; **Natural 20** = catastrophic failure.
@@ -15,7 +15,7 @@ Roll under, count the margin, spend Luck to nudge close calls, and watch Pressur
   - If only one succeeds, that side wins.
   - If both succeed, higher **margin** wins; **ties favour the defender**.
   - If both fail, **the defender wins**. Nobody succeeds by accident.
-- **Scores at creation.** Start from the baseline frame:
+- **Scores at creation.** Start from this baseline:
   - Five attributes at **10** (range **6-16**).
   - **Stamina 5** (range **3-9**).
   - Standard creation gives **6 build points** (grim 0 / pulp 12 / heroic 16).
@@ -55,7 +55,7 @@ Both succeed; attacker wins (higher margin).
 
 ## 2. Skins (swap flavour, rename stats, recolour Pressure)
 
-Pick a skin to set tone and make small rules tweaks. It tells you the attribute names, which stat is **Luck** (the token pool), what **Pressure** represents, and which optional modules fit.
+Pick a skin for tone and small rule tweaks. It gives you the attribute names, which stat is **Luck** (the token pool), what **Pressure** represents, and which optional modules fit.
 
 **Example genres**:
 
@@ -68,9 +68,9 @@ Pick a skin to set tone and make small rules tweaks. It tells you the attribute 
 
 ---
 
-## 3. Custodian Quickstart (run a first session tonight)
+## 3. Custodian quickstart (run a first session tonight)
 
-Use this checklist to start play quickly.
+Use this when you want to start tonight.
 
 1. **Frame the scene** in concrete details. End on a hook.
 2. Ask: **“What do you do?”** Then listen for intent and method.
@@ -80,14 +80,14 @@ Use this checklist to start play quickly.
    - **Opposed** if someone actively resists.
 4. If a roll is needed, say the **stakes first**: what changes on success and failure.
 5. Give **2-4 options** when players hesitate; **at least one should be narrative** (no roll, just a trade-off).
-6. **Offer a Luck nudge** when failure is close and it would be fun to “pay for the win”.
+6. **Offer a Luck nudge** when failure is close and the price would be interesting.
 7. **Advance Pressure** for big blunders, dark bargains, noisy heroics, or time passing.
 8. **Milestone** every 3-4 *perilous* beats: **+2 build points** and a narrative boon.
 9. If play stalls, advance Pressure, change the weather, introduce a hard bargain, or reveal a threat.
 
 ---
 
-## 4. Example Character (Clanfire skin, standard build points)
+## 4. Example character (Clanfire skin, standard build points)
 ![](../assets/art/ss_clanfire_grak.png){.wrap-left width=0.5in}
 **Grak, Neanderthal Hunter**<br>
 MGT 12 | FLT 11 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7 | Shadow 0/5<br>

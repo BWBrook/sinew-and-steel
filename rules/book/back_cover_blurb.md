@@ -1,19 +1,17 @@
 # Back-cover blurb
 
-**Sinew & Steel** is a razor‑lean roleplaying engine built for momentum: fast rulings, real consequences, and stories that don’t drift.
+**Sinew & Steel** is a lean, fast-start RPG for sharp rulings, visible pressure, and consequences that stay on the table.
 
-At its core is a chassis you can hold in your head:
+The core fits in your head:
 
-- **Roll‑under d20**, where **margin matters**
-- **Five attributes**, plus **Luck tokens**, **Stamina**, and a **Pressure fuse (0–5)**
-- **Advantage/Disadvantage** for fictional positioning (no bonus stacking bloat)
+- **Roll under d20**; lower is better, margin matters
+- **Five attributes**, **Luck tokens**, **Stamina**, and a **Pressure fuse (0–5)**
+- **Advantage/Disadvantage** for fictional positioning, without modifier piles
 
-It’s designed to play cleanly at a physical table or in a chat window — no VTT required.
+The book teaches the game in layers: a two-page **Quickstart**, player and Custodian (GM) chapters, full core rules, the **Clanfire** exemplar skin, and **Emberfall**, a starter scenario built to teach by play.
 
-This book also includes **ten genre skins**, presented in a ladder of complexity: from Ice‑Age survival, through sword‑and‑sorcery, time‑odyssey science‑fantasy, medieval mystery, red‑planet noir, candlelit dungeon delving, shipboard drama, fogbound horror, space‑trader campaigns, and northern wanderer fantasy.
+From there, the same chassis runs ten genre skins: Ice-Age survival, sword-and-sorcery, time travel, monastic mystery, Martian noir, candlelit dungeons, lower-decks starship drama, fogbound horror, free-trader space opera, and northern wanderer fantasy.
 
-If you want to play tonight, you can: the **Quickstart** is two pages, and the starter scenario **Emberfall** is written to teach the chassis by play.
+Play at a table, in a chat window, solo, or with a GM-less group. The AI appendix is there if you want it; this is a game first, not a prompt product.
 
-AI is optional - but supported: Sinew & Steel includes a short appendix on using an AI as Custodian for solo play or GM-less groups, without turning the game into a prompt product.
-
-*A lean chassis for messy stories.*
+*Lean rules. Hard choices. Messy stories.*

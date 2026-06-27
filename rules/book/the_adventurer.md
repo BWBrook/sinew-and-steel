@@ -2,7 +2,7 @@
 
 Sinew & Steel asks something simple of you as a player: **make coherent narrative choices and commit to them.**
 
-Don't ask: “what would I do in this situation?”. Instead, consider carefully what *this person* (your role-played character) might do, right now, given their context, courage, habits, pride, and fear.
+Don't ask: “what would I do in this situation?” Ask what *this person* might do, right now, with their courage, habits, pride, fear, and bad information.
 
 The rules are lean on purpose: they’re meant to catch you when stakes matter, then get out of the way so the story keeps momentum.
 
@@ -10,7 +10,7 @@ The rules are lean on purpose: they’re meant to catch you when stakes matter, 
 
 You can tune a character in S&S, but it’s not built for “beating the game” through build optimisation, rules lawyering, or fishing for checks without narrative motivation. Those habits flatten play.
 
-A better posture is: **play to find out what your character becomes**. Failure is part of the fun, rather than mistake to avoid at all costs.
+A better posture is: **play to find out what your character becomes**. Failure is part of the fun, not a mistake to avoid at all costs.
 
 ## Momentum is a resource
 
@@ -20,7 +20,7 @@ When S&S shines, it feels like it’s happening in real time. Do your part to ke
 - Choose an approach quickly, even if it isn’t perfect.
 - If you hesitate, treat it as real in the fiction: time passes, attention shifts, danger closes.
 
-This is not to imply a need for reckless play. Just a reminder to treat events as an invitation to keep the night moving.
+That does not mean reckless play. It means treating events as an invitation to keep the night moving.
 
 ## Declare intent, method, risk
 
@@ -34,7 +34,7 @@ Example:
 
 > “I want the guard looking the other way, so I distract him with a joke and a quick question, but I’m concerned that he might recognise me.”
 
-Give the Custodian something vivid and coherent, and you will often get something useful in return: a clean narrative outcome, Advantage, or a failure cost that feels fair.
+Give the Custodian something vivid and coherent, and you will often get a cleaner ruling in return: a narrative outcome, Advantage, or a failure cost that feels fair.
 
 ## Don’t interrogate the future
 
@@ -52,11 +52,11 @@ Trust the Custodian to adjudicate in good faith.
 
 By default, the Custodian calls the stat. You may propose an alternative if it fits your approach better; give a one-line justification.
 
-If there is disagreement, the Custodian decides briefly and without drama. Nothing kills momentum like turning a tense beat into a courtroom. And it's disrespectful to the one trying to make the game fun for everyone.
+If there is disagreement, the Custodian decides briefly and without drama. Nothing kills momentum like turning a tense beat into a courtroom, and it asks too much of the person trying to keep the game fun for everyone.
 
 ## Sometimes you don’t roll at all
 
-You can earn roll-free outcomes by removing uncertainty: good prep, useful tools, strong positioning, clever plans, or an approach that makes success plausible without contest. This is the game rewarding coherent choices.
+You can earn roll-free outcomes by removing uncertainty: good prep, useful tools, strong positioning, clever plans, or an approach that makes success plausible without contest. That is one payoff for coherent choices.
 
 ## Spend Luck like a storyteller
 
@@ -69,7 +69,7 @@ When you nudge a die, narrate it. Say what it looks like: a lucky foothold, a su
 
 ## Failure is fuel
 
-Failure in S&S can mean a hard stop, a complication, progress at a cost, or success with collateral damage. All are valid.
+Failure in S&S can mean a hard stop, a complication, progress at a cost, or success with collateral damage. Failure should change the situation.
 
 If you never fail, you are probably not taking risks, and risk is where adventure lives. Still, “embrace failure” is not permission to sabotage the table: your character should want to live, and your choices should respect everyone’s fun.
 
@@ -77,7 +77,7 @@ If you never fail, you are probably not taking risks, and risk is where adventur
 
 Combat is dangerous, and “victory” means what the fiction says it means. The Custodian isn't keeping a kill sheet, and NPCs or monsters are not (usually) utterly reckless. They care about themselves as much as you care about your character.
 
-In short, you get rewarded for successfully navigating perilous beats, in whatever way you see fit. Useful instincts:
+In short, you get rewarded for navigating perilous beats, in whatever way makes sense at the table. Useful instincts:
 
 - Avoid fair fights; make them unfair in your favour.
 - Retreat is honourable; survival is a win condition.
@@ -88,7 +88,7 @@ In short, you get rewarded for successfully navigating perilous beats, in whatev
 
 - Share the spotlight; pull another character into your plan.
 - Say what you spend or risk (Luck, Stamina, Pressure) without hiding it like a gotcha.
-- Accept consequences without argument; embrace the roleplay opportunity.
+- Accept consequences without argument; use the roleplay opportunity.
 - Stay engaged; be ready when your moment arrives.
 
 ## An illustrative vignette: choosing danger on purpose (Iron & Ruin)
@@ -103,4 +103,4 @@ In the **Iron & Ruin** skin, sorcery is a bargain, not “free damage”.
 > The gate screams, warps, and splits. The party bolts through as the air turns cold.<br>
 > She marks +1 Doom and laughs as she wipes a trickle of blood from her lip, thrilled by the risk.
 
-That is the point: adventure is dangerous and it matters. The story gets richer when you choose the hard path with open eyes.
+Adventure should be dangerous enough to matter. The story gets sharper when you choose the hard path with open eyes.
