@@ -1,182 +1,82 @@
-# **Appendix — Playing Sinew & Steel with an AI Custodian**
+# AI Play Notes
 
-This appendix is for groups who want an AI to run Sinew & Steel as Custodian (GM).
-It covers two approaches:
+This appendix is not a tool manual.
 
-- **Copy/paste mode** (no tools): fast and casual.
-- **Repo harness mode** (recommended): reproducible campaigns, clean resumes, typo‑resistant state.
+The previous chapter explains the stance: an AI can act as Custodian, and Sinew & Steel is deliberately legible enough for that to work. These notes explain what the repository harness adds for readers who are curious, without requiring anyone to play that way.
 
-If you remember nothing else:
+You can play S&S perfectly well with paper, dice, and people at a table. The harness exists for a different case: solo play, GM-less play, or long-running AI-assisted campaigns where memory, secrecy, and consequence tracking matter.
 
-- Don’t roll by default.
-- State stakes before rolls.
-- Keep secrets private (and don’t “leak” trackers into the fiction).
-- Record what changed (what was spent; what ticked; what new threat appeared).
-
----
-
-## 1) The one rule that matters
-
-![](../../assets/art/ss_when_to_roll.png){.wrap-right width=1.6in}
-
-**Do not roll by default.** Roll only when the outcome is uncertain *and* it matters.
-
-An AI will often try to “gamify” everything into checks. Don’t let it.
-Use the conversation loop first: intent, method, stakes, then (maybe) a roll.
-
-If failure would be boring, resolve it narratively.
-
----
-
-## 2) Two ways to play
+## The problem the harness solves
 
 ![](../../assets/art/ss_public_private_notes.png){.wrap-right width=1.6in}
 
-### A) Copy/paste mode (no tools)
-Use this if you just want to play in a chat window.
+A plain chat window can run a scene beautifully. It can describe a torchlit door, voice a suspicious hunter, and offer a handful of choices. What it does less reliably is remember everything that should matter three sessions later.
 
-1. Choose one skin (e.g., Clanfire).
-2. Paste in (from the PDFs or the Markdown files):
-   - the quickstart rules (or the full core rules if you prefer),
-   - the skin text,
-   - (optional) a short scenario (e.g., Clanfire’s “Emberfall”).
-3. Tell the AI (in one short directive):
-   - “Be Custodian. Keep secrets private.”
-   - “Offer 2–4 numbered options each beat.”
-   - “State stakes before any roll (what changes on success vs failure).”
-4. Roll dice however you like (physical d20 works great).
+That is the first thing the harness does: it gives the AI a stable spine.
 
-This mode is fast, but less reliable: state can drift, and typos happen.
+- Character sheets live in structured files.
+- Pressure, clocks, and campaign state can be updated explicitly.
+- Public narration and private Custodian notes stay separate.
+- The last Custodian response can be checkpointed for clean resumes.
+- Prompt builders can reload the right rules, skin, scenario, and current state.
 
-### B) Repo harness mode (recommended)
-Use this if you want reproducible campaigns, clean resumes, and typo‑resistant state.
+The goal is not automation for its own sake. The goal is continuity.
 
-You’ll use:
-- `campaigns/<slug>/` for each game (gitignored)
-- CLI tools in `tools/` to roll, update sheets, track Pressure and other clocks, and resume
+## Two modes, one game
 
-**Secret handling (important):** If players can see the AI’s output, you cannot keep secrets in the same chat.
-Either (a) run the AI in a private Custodian chat and paste only public narration/options into the player channel, or (b) keep secrets in your own notes and only ask the AI for player‑facing text.
+There are two broad ways to use an AI Custodian.
 
----
+**In simple chat play**, you give the AI the relevant rules and tell it to act as Custodian. You roll dice yourself, keep a light note of current Stamina and Luck, and correct drift when it appears. This is fast and friendly. It is best for one-shots, experiments, and casual solo play.
 
-## 3) Repo harness: “play tonight” workflow
-_Note: Codex CLI or Claude Code can implement this for you, for a fully automated workflow._
+**In harness play**, the AI works inside the repository. The rules, skins, sheets, trackers, and campaign memory are files. The agent can build prompts, update sheets, tick clocks, record logs, and resume from a checkpoint. This is slower to set up, but much better for campaigns where consequences should accumulate.
 
-### 3.1 Setup (first time only)
-Recommended (reproducible installs):
+Both are Sinew & Steel. The difference is not rules; it is how much memory the table wants the machinery to carry.
 
-```bash
-uv venv
-uv sync
-python tools/validate_repo.py
-```
+## Secrets need a private place
 
-Read `AGENTS.md` once. It defines the repo’s “public vs private” conventions (especially `state/` and `campaigns/`).
+There is one practical truth that matters more than any prompt trick: if players can see everything the AI says, secrets cannot live in that same channel.
 
-### 3.2 Create a campaign
-```bash
-python tools/campaign_init.py --title "Emberfall" --skin clanfire --tone standard
-```
+This is not special to AI. A human Custodian also keeps notes behind the screen. The harness simply makes that boundary explicit. Hidden scenario notes, unseen clocks, and private consequences belong in files or a private Custodian channel. Player-facing narration should contain only what the characters could plausibly perceive.
 
-Optional: generate a random character:
-```bash
-python tools/campaign_init.py --title "Emberfall" --skin clanfire --tone standard --random-character "Grak"
-```
+If you want fair surprises, protect the information flow.
 
-### 3.3 (Optional) Add a hidden scenario module
-Fastest option (no copying): use the built-in module file directly:
-`rules/scenarios/clanfire_emberfall_hidden.md`
+## The play loop that keeps it honest
 
-If you want to customise the module per campaign, create:
-`campaigns/<slug>/state/memory/hidden_scenario.md`
+![](../../assets/art/ss_when_to_roll.png){.wrap-right width=1.6in}
 
-…then copy the contents of `rules/scenarios/clanfire_emberfall_hidden.md` into it and edit freely.
+AI Custodians tend to become better when the table insists on the same loop a good human Custodian would use:
 
-### 3.4 Build the full prompt
-Using the built-in module directly:
-```bash
-python tools/build_prompt.py --campaign <slug> --mode agent \
-  --hidden rules/scenarios/clanfire_emberfall_hidden.md
-```
+1. Ask what the character is trying to do.
+2. Clarify the method if it matters.
+3. State the stakes before the roll.
+4. Roll only if the outcome is uncertain and important.
+5. Apply the consequence immediately.
+6. Record what changed.
 
-Or, if you created a per-campaign module file:
-```bash
-python tools/build_prompt.py --campaign <slug> --mode agent \
-  --hidden campaigns/<slug>/state/memory/hidden_scenario.md
-```
+That last step is where the harness shines. A spent Luck token, a ticked Shadow track, a broken spear, a suspicious NPC, or a sealed passage should not evaporate because the context window moved on. It should become part of the next beat.
 
-By default, `tools/build_prompt.py` strips inline artwork image tags for prompt cleanliness; add `--keep-art` if you want them embedded.
+## Dice and trust
 
-Open `campaigns/<slug>/prompt.md` in your agent tool and begin play.
+Dice should feel external to the AI's preference for story shape.
 
----
+Use physical dice, a trusted roller, or a local tool. Surface the roll, the margin, and any Luck-spend offer plainly. Once the result is known, let the fiction answer it. Do not ask the AI to rescue every bad roll with a softer twist.
 
-## 4) During play (the minimal tool loop)
+S&S works because consequence is light enough to track and sharp enough to matter.
 
-The core loop is:
+## What the harness feels like in play
 
-- Roll only when uncertainty + stakes.
-- Apply consequences immediately (sheets, Pressure, and other clocks).
-- Record a short private recap and a public log entry.
+At its best, harness-assisted play should not feel technical.
 
-Roll a check:
-```bash
-python tools/roll.py check --stat 12
-```
+The player sees a scene, makes a choice, rolls when it matters, and watches the world respond. Behind the screen, the AI has a better memory than a bare chat: the current character sheet, the private scenario notes, the pressure clocks, the last checkpoint, and the campaign log.
 
-Update a sheet (example: spend 1 Luck token):
-```bash
-python tools/update_sheet.py --campaign <slug> --character <name> --inc pools.luck.current=-1
-```
+That gives AI play a different texture from an oracle table. The world can surprise you, but it can also remember you.
 
-Tick Pressure or clocks:
-```bash
-python tools/trackers.py --campaign <slug> pressure --inc 1 --clamp
-```
+## Where the tool details live
 
-Capture private memory (summary + threads):
-```bash
-python tools/recap.py --campaign <slug> --summary "Beat recap…" --scene-inc 1
-```
+This book keeps the promise light: AI is optional, supported, and playable without turning Sinew & Steel into a prompt product.
 
-Append public log text:
-```bash
-python tools/session_log.py --campaign <slug> --role GM --text "Public narration…"
-```
+If you are using the repository harness, the exact commands and workflow live in the repo documentation, not here. Start with:
 
----
+`docs/ai_play_harness.md`
 
-## 5) Save and quit (ironman checkpoint)
-
-![](../../assets/art/ss_checkpoint_overwrite.png){.wrap-right width=1.6in}
-
-Sinew & Steel campaigns are designed to be “ironman”: no branching, no rewind.
-
-To resume cleanly in a fresh agent context, save **only the last GM message** (overwrite the prior checkpoint).
-Do this after any GM response you might want to resume from.
-
-```bash
-cat /tmp/last_gm.md | python tools/checkpoint.py --campaign <slug>
-python tools/checkpoint.py --campaign <slug> --show
-```
-
----
-
-## 6) Resume fast (fresh context)
-Use the resume pack to rebuild context quickly:
-
-```bash
-python tools/resume_pack.py --campaign <slug> --character <name>
-python tools/resume_pack.py --campaign <slug> --character <name> --public
-```
-
-Use `--public` any time you are sharing a resume pack with players: it skips private memory/secrets and keeps only logs + checkpoint.
-
----
-
-## 7) Troubleshooting (keep the AI useful)
-
-- **The AI rolls too much:** remind it “one roll per meaningful uncertainty”, and require stakes before rolls (“If we fail, what changes?”). If failure would be boring, narrate success and move on.
-- **The AI forgets state:** in repo mode, regenerate context using `python tools/resume_pack.py --campaign <slug> --character <name>` (or run `python tools/summary.py --campaign <slug>` mid-session). In copy/paste mode, keep a small “current state” block and re-paste it occasionally.
-- **Secrets keep leaking:** use a private Custodian chat (or repo mode with hidden files), and only share player‑safe text. When in doubt, share `resume_pack --public`, not raw `state/memory/` content.
+If you are not using the repository, keep the core advice and ignore the machinery: preserve secrets, roll only when it matters, state stakes, and record what changed.

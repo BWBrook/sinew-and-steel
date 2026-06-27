@@ -14,7 +14,6 @@ This book also includes **ten genre skins**, presented in a ladder of complexity
 
 If you want to play tonight, you can: the **Quickstart** is two pages, and the starter scenario **Emberfall** is written to teach the chassis by play.
 
-AI is optional — but supported: Sinew & Steel includes a practical appendix on using an AI as Custodian for solo play or GM‑less groups, without turning the game into a “prompt product”.
+AI is optional - but supported: Sinew & Steel includes a short appendix on using an AI as Custodian for solo play or GM-less groups, without turning the game into a prompt product.
 
 *A lean chassis for messy stories.*
-

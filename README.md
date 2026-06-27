@@ -162,7 +162,9 @@ The repo’s `/prompts/chat/` folder contains:
 
 No plugins needed for reasoning engines with tool use — `random.randint(1,20)` and short, punchy prose carry the night.
 
-Appendix (AI play): `rules/appendices/ai_play.md`
+Book appendix (AI play): `rules/appendices/ai_play.md`
+
+Practical harness workflow: `docs/ai_play_harness.md`
 
 ---
 
@@ -174,6 +176,7 @@ This repo includes an agent-focused harness to run sessions without API adapters
 * **`skills/`** — small, reusable instruction files for common tasks (prompt build, editor notes, dice, state updates).
 * **`tools/`** — CLI helpers for assembling prompts, rolling dice, and updating YAML sheets.
 * **`manifest.yaml`** — a machine-readable index of rules, skins, and prompts.
+* **`docs/ai_play_harness.md`** — practical workflow for AI Custodian campaigns using the repo harness.
 * **`docs/candlelight_delvekit.md`** and **`examples/candlelight_delvekit/`** — the Candlelight Delvekit lane for seeded dungeon generation, map rendering, and module-polish workflows.
 * **`state/`** — private notes, trackers, and character sheets (local runtime data).
 * **`campaigns/`** — untracked per-campaign workspaces with their own state and logs.

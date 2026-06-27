@@ -62,8 +62,8 @@ There are three common "AI Custodian" use cases, and all of them work:
 
 Pick the one that fits your life. The rules do not care.
 
-## If you want the practical mechanics
+## If you want the next layer
 
 This chapter is intentionally narrative and future-proofed: a stance, not a tool manual.
 
-For the practical workflow, go to **AI Play Notes**: how to structure prompts, keep secrets private, resume campaigns cleanly, and stop an AI from over-rolling.
+For the next layer, go to **AI Play Notes**: a light overview of what the repository harness adds, why secrets need a private channel, and how to keep AI-assisted play grounded in real consequences. The exact commands live in the repo documentation.
