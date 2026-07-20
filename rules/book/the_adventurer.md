@@ -2,15 +2,15 @@
 
 Sinew & Steel asks something simple of you as a player: **make coherent narrative choices and commit to them.**
 
-Don't ask: “what would I do in this situation?” Ask what *this person* might do, right now, with their courage, habits, pride, fear, and bad information.
+Think as *this person*, right now, with their courage, habits, pride, fear, and bad information.
 
 The rules are lean on purpose: they’re meant to catch you when stakes matter, then get out of the way so the story keeps momentum.
 
 ## Play the person, not the puzzle
 
-You can tune a character in S&S, but it’s not built for “beating the game” through build optimisation, rules lawyering, or fishing for checks without narrative motivation. Those habits flatten play.
+You can tune a character in S&S. Build optimisation, rules lawyering, and fishing for mechanically convenient checks will still flatten play.
 
-A better posture is: **play to find out what your character becomes**. Failure is part of the fun, not a mistake to avoid at all costs.
+The better posture is: **play to find out what your character becomes**. Failure belongs to the adventure.
 
 ## Momentum is a resource
 
@@ -20,7 +20,7 @@ When S&S shines, it feels like it’s happening in real time. Do your part to ke
 - Choose an approach quickly, even if it isn’t perfect.
 - If you hesitate, treat it as real in the fiction: time passes, attention shifts, danger closes.
 
-That does not mean reckless play. It means treating events as an invitation to keep the night moving.
+Purposeful choices keep that pace. Treat each event as an invitation to move the night forward.
 
 ## Declare intent, method, risk
 
@@ -36,15 +36,15 @@ Example:
 
 Give the Custodian something vivid and coherent, and you will often get a cleaner ruling in return: a narrative outcome, Advantage, or a failure cost that feels fair.
 
-## Don’t interrogate the future
+## Commit before the future is certain
 
 In some games it’s normal to ask “what happens if I fail?” before rolling. In S&S, that can become a soft cheat: it turns uncertainty into negotiation, and it invites railroading.
 
 Try this instead:
 
 - Ask in-fiction questions (“How thick is the ice?” “Do I smell smoke?”).
-- Ask for clarity of situation, not certainty of outcome.
-- Or commit and accept that you don’t get to see around corners.
+- Ask for clarity about the situation while leaving the outcome uncertain.
+- Or commit, knowing the corner may hide a surprise.
 
 Trust the Custodian to adjudicate in good faith.
 
@@ -52,11 +52,11 @@ Trust the Custodian to adjudicate in good faith.
 
 By default, the Custodian calls the stat. You may propose an alternative if it fits your approach better; give a one-line justification.
 
-If there is disagreement, the Custodian decides briefly and without drama. Nothing kills momentum like turning a tense beat into a courtroom, and it asks too much of the person trying to keep the game fun for everyone.
+If there is disagreement, the Custodian decides briefly and calmly. A tense beat goes flat once it becomes a courtroom, and that asks too much of the person trying to keep the game fun for everyone.
 
-## Sometimes you don’t roll at all
+## Some actions resolve in the fiction
 
-You can earn roll-free outcomes by removing uncertainty: good prep, useful tools, strong positioning, clever plans, or an approach that makes success plausible without contest. That is one payoff for coherent choices.
+You can earn roll-free outcomes by removing uncertainty: good prep, useful tools, strong positioning, clever plans, or an approach that makes success plainly plausible. That is one payoff for coherent choices.
 
 ## Spend Luck like a storyteller
 
@@ -71,13 +71,13 @@ When you nudge a die, narrate it. Say what it looks like: a lucky foothold, a su
 
 Failure in S&S can mean a hard stop, a complication, progress at a cost, or success with collateral damage. Failure should change the situation.
 
-If you never fail, you are probably not taking risks, and risk is where adventure lives. Still, “embrace failure” is not permission to sabotage the table: your character should want to live, and your choices should respect everyone’s fun.
+Adventure lives in risk, and risk sometimes ends in failure. Play your character’s instinct to survive, and make choices that respect everyone’s fun.
 
-## Fighting is a kind of scene (not a points system)
+## Fighting is a kind of scene
 
-Combat is dangerous, and “victory” means what the fiction says it means. The Custodian isn't keeping a kill sheet, and NPCs or monsters are not (usually) utterly reckless. They care about themselves as much as you care about your character.
+Combat is dangerous, and “victory” means what the fiction says it means. NPCs and monsters usually value their own lives, and the Custodian plays those motives through the scene.
 
-In short, you get rewarded for navigating perilous beats, in whatever way makes sense at the table. Useful instincts:
+You get rewarded for navigating perilous beats in whatever way makes sense at the table. Useful instincts:
 
 - Avoid fair fights; make them unfair in your favour.
 - Retreat is honourable; survival is a win condition.
@@ -87,13 +87,13 @@ In short, you get rewarded for navigating perilous beats, in whatever way makes 
 ## Table habits that help
 
 - Share the spotlight; pull another character into your plan.
-- Say what you spend or risk (Luck, Stamina, Pressure) without hiding it like a gotcha.
-- Accept consequences without argument; use the roleplay opportunity.
+- Say openly what you spend or risk (Luck, Stamina, Pressure).
+- Accept consequences and use the roleplay opportunity.
 - Stay engaged; be ready when your moment arrives.
 
-## An illustrative vignette: choosing danger on purpose (Iron & Ruin)
+## A vignette: choosing danger on purpose (Iron & Ruin)
 
-In the **Iron & Ruin** skin, sorcery is a bargain, not “free damage”.
+In the **Iron & Ruin** skin, sorcery is a bargain whose price keeps climbing.
 
 > The cultists are closing and the iron gate won’t budge.<br>
 > “You can try to lift it,” the Custodian says, “but not before they reach you.”<br>

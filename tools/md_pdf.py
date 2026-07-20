@@ -348,7 +348,7 @@ def main() -> int:
             if fontsize is None:
                 fontsize = "11pt"
             if linestretch is None:
-                linestretch = 1.05
+                linestretch = 1.12
         else:
             if pdf_engine is None:
                 pdf_engine = "pdflatex"

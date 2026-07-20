@@ -5,7 +5,7 @@
 
 *Gritty exploits on a colonised Red Planet, circa 2205 AE.*
 
-Use this skin with the Sinew & Steel core rules. Anything not listed here follows the core.
+Use this skin with the Sinew & Steel core rules. The core governs everything else.
 
 Rust & Domes is hard-sci-fi frontier play: dust and domes, corporate rot, and people who will sell you oxygen. Expect salvage, heists, mag-rail runs, life-support scares, and hard choices made under cameras.
 
@@ -77,7 +77,7 @@ Flashing digi-coin draws attention from Syndicate footpads and corp-security ali
 
 Hard vacuum, cobalt storms, and stray solar flux have coaxed a minority of colonists into weak **M-field sensitives**.
 
-Psionics ride **Mind (MND)** and slot in beside guns and hacks. They add pressure, not extra dice.
+Psionics ride **Mind (MND)** and slot in beside guns and hacks. They use the existing dice and add pressure.
 
 | Step | Rule |
 |--|------|
@@ -107,7 +107,7 @@ Use sparingly; Mars already wants your mind.
 
 Heat is Corporate and Syndicate scrutiny. It runs **0-5**; at **5**, trigger a crisis, then reset Heat to **0**.
 
-A **risky test** is any roll where failure would materially change the situation (harm, loss, alarm, exposure). Routine travel and obvious chores need no roll.
+A **risky test** is any roll where failure would materially change the situation (harm, loss, alarm, exposure). Routine travel and obvious chores resolve in the fiction.
 
 | Step | HUD colour | Custodian effects |
 |--|---|------|
@@ -156,7 +156,7 @@ Tech is rusting, corps are bloated carrion birds, and wonder haunts ghost domes.
 
 Let defeat change the job: prison work crews, debt, blackmail, a memory-wipe implant.
 
-Death is for pathos, not arithmetic.
+Reserve death for pathos.
 
 ### Default Martian kit (optional setting spine)
 
@@ -173,7 +173,7 @@ Colonies were established by **Perihelion Mining Corporation (PMC)** after rich 
 
 ### Martian threats (quick bestiary seeds)
 
-If you want fast, punchy threats that feel *Martian* without needing a long bestiary, start with:
+For fast, punchy threats that feel *Martian*, start with:
 
 - **Crusher** - bipedal brute; armoured hide; hits like a piledriver.
 - **Dust Slug** - burrows under the sand; erupts beneath boots and vehicles.
@@ -188,7 +188,7 @@ Open with a sensory hook (sand rasping against a visor, antiseptic med-gel, the 
 
 Tag nodes by dome/quadrant (HW-01, MJ-A2) and keep a short job ledger: objective, debts, Heat triggers, casualties.
 
-If you want an in-fiction safety net, use **black-box logs** as clues; footage does not change what happened.
+For an in-fiction safety net, use **black-box logs** to preserve what happened and supply clues.
 
 ### Tricks and tactics
 

@@ -5,7 +5,7 @@
 
 *Out along the drift routes between the stars: jump-flashes bloom in the dark, patrons wave low-credit cargo chits, and a worn free trader hauls dreams through the long night.*
 
-Use this skin with the Sinew & Steel core rules. Anything not listed here follows the core.
+Use this skin with the Sinew & Steel core rules. The core governs everything else.
 
 Free Traders of the Drift Marches is old-school space adventure: debt, fuel, patron jobs, hard vacuum, and the quiet terror of a jump that comes out wrong. Expect clipped comms, messy morality, ports that smile with teeth, and runs where profit and survival are the same problem.
 
@@ -86,7 +86,7 @@ When a task squarely fits your expertise, roll with Advantage.
 
 ## Shipboard procedure
 
-Space-trader tension comes from logistics, debt, and bad odds. You do not need extra dice systems to get it. Use **clocks** plus a few decisive tests.
+Space-trader tension comes from logistics, debt, and bad odds. **Clocks** and a few decisive tests carry that weight.
 
 ### Recommended ship clocks
 
@@ -117,7 +117,7 @@ Ship Shares are liquid breathing room: fuel bills paid, port fees smoothed, cred
 - Spend 1 share to: pay fees, grease a bureaucrat, replace a lost cargo load, or clear **1 tick** from **Hull Damage**.
 - If the pool hits **0**, everyone marks **+1 Strain** immediately.
 
-If you want concrete numbers, treat **1 share** as roughly **10,000 credits** of problem-solving money. This is optional, not required.
+If you want concrete numbers, treat **1 share** as roughly **10,000 credits** of problem-solving money. The conversion is optional.
 
 \clearpage
 
@@ -134,7 +134,7 @@ Strain is crew morale and systems load. It runs **0-5**; at **5**, trigger a cri
 | 4 | Red line | Disadvantage on all tests |
 | 5 **Crisis** | Panic, mutiny, or hull crisis | roll a Strain crisis, then reset Strain to **0** |
 
-_(A risky test is any roll where failure would materially change the situation: harm, loss, exposure, separation. Routine talk and obvious chores need no roll.)_
+_(A risky test is any roll where failure would materially change the situation: harm, loss, exposure, separation. Routine talk and obvious chores resolve in the fiction.)_
 
 **Gain Strain:** combat hits, jump failures, overdue loans, or empty Ship Shares.
 
@@ -184,11 +184,11 @@ Offer 2-3 jobs. Each job should state:
 ## Medical aid (supplies clock)
 ![](../assets/art/ss_free_traders_med_supplies.png){.wrap-right width=1.5in}
 
-To keep limited-med-supplies tension without usage dice, track **Medkit Supplies (0/4)**.
+Track limited medical supplies with a **Medkit Supplies (0/4)** clock.
 
 - Each time you treat a serious injury, tick Supplies **+1** and make an **EDU** test.
 - **Success:** restore **+1 Stamina** (up to max).
-- **Failure:** no healing and mark **+1 Strain**: panic, infection risk, missing meds.
+- **Failure:** restore 0 Stamina and mark **+1 Strain**: panic, infection risk, missing meds.
 - At **4/4**, the kit is empty until resupplied in port.
 - On a natural **20**, the patient worsens (infection, shock, or a botched stitch): lose **1 Stamina** and mark **+1 Strain**.
 
@@ -200,7 +200,7 @@ To keep limited-med-supplies tension without usage dice, track **Medkit Supplies
 
 ### Ship-to-ship combat (quick module)
 
-Use this when you want a fast dogfight without a tactical map.
+Use this for a fast, mapless dogfight.
 
 ![](../assets/art/ss_free_traders_jump_arc.png){.wrap-right width=1.5in}
 
@@ -219,7 +219,7 @@ Each round:
 
 Missiles (optional): one salvo per rack. Defender tests **EDU** to jam; on a failed jam, treat the missile as **edge +2** and tick Hull Damage.
 
-### Away-team support crew rule (no bookkeeping)
+### Quick away-team support crew rule
 
 When nameless crew accompany the PCs on a dangerous surface beat, a failed key test lets the Guildmaster choose one consequence:
 
@@ -245,7 +245,7 @@ If you want randomness, pick or roll d6 on your own table, but keep it fast and 
 
 - Technical brevity: "Class-B Cruiser *Peregrine*, 200-ton."
 - Sparse wonder: one vivid detail per scene (rings, aurora, hull frost).
-- Understated danger: pirates transmit terse ultimatums; they do not cackle.
+- Understated danger: pirates transmit terse ultimatums and cut comms.
 - Economic motive drives plot: debt, fuel, speculative cargo. The crew feels every credit.
 - Staccato comms: clipped phrases. End transmissions with "Out."
 - Chart references: sprinkle coordinates. Worlds get a short "profile line", then one evocative sentence.

@@ -5,7 +5,7 @@
 
 *Neanderthal Europe at the edge of extinction, about 40,000 BP.*
 
-Use this skin with the Sinew & Steel core rules. Anything not listed here follows the core.
+Use this skin with the Sinew & Steel core rules. The core governs everything else.
 
 Clanfire is for survival stories in a cold land where hunger, weather, beasts, spirits, and strangers all bite. The hearth matters as much as the spear. Expect hunts, migration, taboo, hard bargains, and uneasy encounters with Sapiens.
 
@@ -56,7 +56,7 @@ Dynamic soak still applies: after a hit, reduce soak by **1 per full 4 points** 
 
 ### Recovery
 
-A short rest with fire and water restores **+1 Stamina**. Deep shelter, herbs, and patient care restore **+2 Stamina**. Neither can raise Stamina above its maximum.
+A short rest with fire and water restores **+1 Stamina**. Deep shelter, herbs, and patient care restore **+2 Stamina**, up to the character’s maximum.
 
 Grave wounds need shaman craft, clan protection, and time somewhere the cold cannot reach.
 

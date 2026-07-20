@@ -340,6 +340,7 @@ class BookChapter:
     title: str
     path: Path
     strip_first_heading: bool = True
+    content_class: str | None = None
 
 
 @dataclass(frozen=True)
@@ -468,11 +469,17 @@ def concatenate_book_parts(parts_spec: tuple[BookPart, ...]) -> str:
         for chapter_idx, chapter in enumerate(part.chapters):
             if chapter_idx != 0:
                 parts.append("\n\\newpage\n")
+            if chapter.content_class:
+                parts.append(f"::: {{.{chapter.content_class}}}")
+                parts.append("")
             parts.append(f"### {chapter.title}")
             parts.append("")
             body = prepare_book_chapter_markdown(chapter)
             if body:
                 parts.append(body)
+                parts.append("")
+            if chapter.content_class:
+                parts.append(":::")
                 parts.append("")
     return "\n".join(parts).rstrip() + "\n"
 
@@ -807,7 +814,7 @@ def bundle_definitions(manifest: dict, version: str, out_dir: Path) -> dict[str,
                 title="INTRODUCTION",
                 chapters=(
                     BookChapter("1. Preface", ROOT / "rules" / "book" / "preface.md"),
-                    BookChapter("2. Quickstart", quick),
+                    BookChapter("2. Quickstart", quick, content_class="ss-quickstart-standalone"),
                 ),
             ),
             BookPart(
@@ -1054,7 +1061,7 @@ def main() -> int:
         if fontsize is None:
             fontsize = "11pt"
         if linestretch is None:
-            linestretch = 1.05
+            linestretch = 1.12
         if margin is None:
             margin = "1in"
         if documentclass is None:

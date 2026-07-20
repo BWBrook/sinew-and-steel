@@ -34,7 +34,7 @@ Begin with three pressures already moving:
 - **Predators:** a cave wolf is testing the rock shelter, the hunters, and the edge of the firelight.
 - **Wrongness:** something about the birch-line is off. The exact cause is yours to choose.
 
-Do not prepare a plot. Prepare these pressures, then let the players disturb them.
+Prepare these pressures, then let the players disturb them.
 
 ### Choose the deeper truth
 
@@ -44,7 +44,7 @@ Pick one before play begins, or decide after the first few choices if the table 
 2. **A spirit omen** is real: the prey is marked, and taking it demands a taboo cost.
 3. **Strangers on the ridge** are watching, leaving clean footprints where no such tracks should be.
 
-Reveal the truth through signs, not exposition: a second set of tracks, a bird falling silent, a scent on the wind, a rival spear point between birches.
+Reveal the truth through signs: a second set of tracks, a bird falling silent, a scent on the wind, a rival spear point between birches.
 
 ---
 
@@ -67,11 +67,11 @@ If the table hesitates, offer options and accept anything else that makes sense:
 1. **Slip out and read the tracks** downwind (Cunning).
 2. **Stalk the sound** with spear ready (Fleetness).
 3. **Feed the fire and call to the spirits** for an omen (Spirit; on a miss, +1 Shadow).
-4. **Wake the clan and bar the cave** (no roll; time passes).
+4. **Wake the clan and bar the cave** (resolve in the fiction; time passes).
 
 Each option should change the situation. Reading tracks may reveal the wolf early. Stalking may seize position but risk an ambush. Calling spirits may give an omen but raise Shadow on a miss. Barring the cave buys safety at the cost of time, hunger, and initiative.
 
-Every choice should feel like a trade, not a menu button.
+Every choice should carry a trade.
 
 ---
 
@@ -86,7 +86,7 @@ When a roll fails, choose the cost that best fits the fiction:
 - spend or damage a useful item,
 - reveal a harder truth.
 
-Do not tick Shadow just because a roll failed. Tick it when the failure touches taboo, spirits, fear, desperation, or clan survival.
+Reserve Shadow for failures that touch taboo, spirits, fear, desperation, or clan survival.
 
 ---
 
@@ -118,7 +118,7 @@ Keep clocks visible if you want the table to feel danger tightening. Keep them h
 
 If you want it tougher, make it **Elite 12** and give it **Stamina 5**.
 
-The wolf wants food and advantage. It cares nothing for honour or fairness, and it has no interest in a duel. Driving it off is a victory. Wounding it and following blood into the trees is a choice. Killing it may solve one problem and reveal another.
+The wolf wants food and advantage. It circles for isolated prey and retreats from costly resistance. Driving it off is a victory. Wounding it and following blood into the trees is a choice. Killing it may solve one problem and reveal another.
 
 ---
 
@@ -138,7 +138,7 @@ Example:
 - Grak rolls **7**: success, margin **+5**.
 - Wolf rolls **15**: fail, margin **-5**.
 
-Grak wins. Damage is `1 + edge 1 - soak 0` = **2**. The wolf drops from Stamina 4 to 2. In the fiction, the spear cuts it and forces it back; it is hurt, not pinned to the snow.
+Grak wins. Damage is `1 + edge 1 - soak 0` = **2**. The wolf drops from Stamina 4 to 2. In the fiction, the spear cuts it and forces it back, hurt and free to flee.
 
 ### Round 2: Tarra turns fire into a weapon
 
@@ -152,7 +152,7 @@ Example:
 - Tarra rolls **9**: success, margin **+5**.
 - Wolf rolls **9**: success, margin **+1**.
 
-Both succeed, but Tarra has the higher margin. Apply the agreed consequence instead of damage: **the wolf breaks and flees**, yelping. If Tarra rolled a natural 1, the pack does not return this night.
+Both succeed, but Tarra has the higher margin. Apply the agreed consequence instead of damage: **the wolf breaks and flees**, yelping. If Tarra rolled a natural 1, the pack stays away this night.
 
 If both rolls fail, let the wolf bite, steal meat, or drag someone toward the dark. Then tick **Hunger**, mark **+1 Shadow**, or worsen position.
 
@@ -171,4 +171,4 @@ Offer next-session paths:
 1. **Follow the wolf's blood** toward the frozen stream (Cunning).
 2. **Set a trap line** and retreat before the storm turns (Cunning).
 3. **Perform a fire-circle omen** and pay its cost (Spirit; on a miss, +1 Shadow).
-4. **Wake the clan and migrate** before dawn (no roll; tick Hunger and Storm).
+4. **Wake the clan and migrate** before dawn (resolve in the fiction; tick Hunger and Storm).

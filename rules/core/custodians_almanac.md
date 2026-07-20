@@ -18,13 +18,13 @@ You do three things, on repeat:
 
 1. **Frame the fiction** (concrete details, a hook, a pressure point).
 2. **Ask for intent and method** ("What do you do, and how?").
-3. **Adjudicate** (no roll / roll-under / opposed), then apply consequences.
+3. **Adjudicate** (narrative / roll-under / opposed), then apply consequences.
 
 The rules exist to support momentum. If you are forcing dice every sentence, you are probably over-rolling.
 
 ---
 
-### 2. When to roll (and when not to)
+### 2. When to roll
 
 Call for a roll only when:
 
@@ -35,7 +35,7 @@ Call for a roll only when:
 
 If the player’s approach is plausible and failure would be boring, resolve it narratively.
 
-**Good non-roll outcomes:**
+**Good narrative outcomes:**
 
 - **Yes, and...** clean success with an extra perk.
 - **Yes, but...** success with a cost: time, noise, +1 Pressure, a lost item.
@@ -47,7 +47,7 @@ If the player’s approach is plausible and failure would be boring, resolve it 
 
 ![](../../assets/art/ss_luck_test.png){.wrap-left width=2in}
 
-Call for players to "Test your Luck!" (or the skin's equivalent) when **no attribute reasonably applies** or when pure chance decides:
+Call for players to "Test your Luck!" (or the skin's equivalent) when pure chance alone decides:
 rockfalls, blind picks, patrol timings, “did the guard step away for a second?”
 
 Use Luck tests sparingly. One or two per dozen beats is plenty.
@@ -75,7 +75,7 @@ A universal **0-5 fuse** shared by all skins. When it hits **5**, a crisis trigg
 
 - Add **+1 Pressure** for: desperate bargains, taboo acts, noisy heroics, risky rituals, big blunders, time passing under threat.
 - Remove points by: sacrifice, cleansing rites, story quests, cash burn, hard-won safety.
-- A crisis should be a **dramatic twist**, not a punishment; it resets the fuse so play keeps moving.
+- A crisis is a **dramatic twist** that resets the fuse and keeps play moving.
 
 ---
 
@@ -93,19 +93,19 @@ Alongside Pressure, you may also run one or more **clocks**: named progress mete
 
 - A clock is usually **4-8 ticks** (but any size works).
 - When a clock fills, **something happens** (“guards arrive,” “the storm closes the pass,” “the cult completes the rite,” “the ship jumps to red alert”).
-- You can **tick** a clock when time passes, after failures, or when players stall. It is a clean way to apply pressure without demanding a roll.
+- You can **tick** a clock when time passes, after failures, or when players stall. It applies pressure while keeping the dice quiet.
 - Clocks can be **public** (“Reinforcements: 3/6”) or **hidden** (revealed only as signs and consequences).
 
 **Pressure vs clocks**
 
 - **Pressure** is universal, abstract, and short-cycle: it hits 5, triggers a crisis, then resets to 0.
-- **Clocks** are specific, story-facing, and long-cycle: they track one concrete danger or countdown and do not reset unless you choose to reset them in the fiction.
+- **Clocks** are specific, story-facing, and long-cycle: they track one concrete danger or countdown and reset only when the fiction calls for it.
 
 ---
 
 \clearpage
 
-### 5. Milestones & boons (progress without grind)
+### 5. Milestones & boons
 
 ![](../../assets/art/ss_milestone_bonus.png){.wrap-right width=2in}
 
@@ -114,7 +114,7 @@ Every 3-4 *perilous* beats or combat encounters, award:
 - **+2 build points**, and
 - **a narrative boon** (rare item, ally favour, mystic scar, access, safe refuge).
 
-Boons do not break the maths; they sit outside the economy. Progress is narrative, not numeric grind.
+Boons sit outside the maths and turn progress into changes in the fiction.
 
 ---
 
@@ -122,7 +122,7 @@ Boons do not break the maths; they sit outside the economy. Progress is narrativ
 
 ![](../../assets/art/ss_act_now.png){.wrap-right width=2in}
 
-If players stall, do not demand a roll "to do something". Move the world:
+If players stall, move the world:
 
 - advance Pressure or a clock
 - reveal an omen
@@ -138,7 +138,7 @@ If players stall, do not demand a roll "to do something". Move the world:
 
 ---
 
-### 7. Optional plugins (use only what you need)
+### 7. Optional plugins (choose what you need)
 
 - **Totem / Feat:** once per session, gain Advantage on a roll at a cost of 1 Luck or +1 Pressure.
 - **Allies / Pets:** treat as a temporary 3-token Luck pool that depletes on use.
@@ -223,7 +223,7 @@ At character creation you may give each player build points to set tone:
 
 (Or pick any number that fits your table.)
 
-The pool lets heroes raise a signature strength or patch a weakness without repainting every stat.
+The pool lets heroes raise a signature strength or patch a weakness while leaving the other stats in place.
 It shifts capability while leaving core maths and pacing intact.
 
 ### B. Luck test frequency
@@ -249,7 +249,7 @@ It shifts capability while leaving core maths and pacing intact.
      - one "best" attribute at **tier**
      - one "worst" attribute at **tier - 4**
      - treat anything else as **tier - 2** (or just improvise per fiction).
-   - NPC stats may fall below player-character creation floors; that is fine. They are not built on the same ledger.
+   - NPCs use a freer ledger, so their stats may fall below player-character creation floors.
 2. **Assign Stamina, edge & soak:**
    - Suggested **Stamina** by tier (human scale): Peasant 3, Soldier 4, Elite 5, Monster 6, Nemesis 7.
    - For **large beasts** add +2 Stamina; for a **boss** add +4 (or give them a second phase at 0).
@@ -283,9 +283,9 @@ Use it sparingly, flag it clearly, and state the counter up front.
 
 Why it works:
 
-- cinematic stakes without new maths
+- cinematic stakes using the existing maths
 - a single tag plus a counter clause
-- scales across genres without rewriting combat
+- the same combat procedure across genres
 
 ### F. Advantage source list (example set)
 
@@ -317,10 +317,10 @@ Add or prune per skin.
 
 ### I. Wealth & attention (optional money subsystem)
 
-By default, Sinew & Steel does not count coins, credits, or rations.
-Money does not take inventory slots, but it can still matter in play.
+By default, Sinew & Steel tracks coins, credits, and rations loosely in the fiction.
+Money rides outside inventory slots while still mattering in play.
 
-If you want money to have table weight without bookkeeping, track a single **Wealth** score per party or per character:
+If you want money to have table weight, track a single **Wealth** score per party or per character:
 
 | Wealth | Name   | What it means (examples) |
 | -- | ---- | --------- |
@@ -337,10 +337,10 @@ If you want money to have table weight without bookkeeping, track a single **Wea
 - **Trivial costs:** ignore them.
 - When a purchase matters, assign a **cost tier** (0-4).
   - If Wealth **meets or exceeds tier**, they can afford it.
-  - If it is a meaningful spend, **reduce Wealth by 1** (to a minimum of 0; do not do this for every meal).
+  - For a meaningful spend, **reduce Wealth by 1** (to a minimum of 0); reserve this for purchases that matter.
 - If Wealth is **below tier**, call for a **Luck test**:
   - **Success:** they scrape it together, but Wealth drops by 1 (to a minimum of 0) *or* they take a complication (debt, favour owed, suspicious seller).
-  - **Failure:** they cannot afford it unless they pay a hard cost (Debt clock, +Pressure, dangerous favour).
+  - **Failure:** affording it requires a hard cost (Debt clock, +Pressure, dangerous favour).
 
 **Attention rule (turn riches into story):**
 When Wealth is **3+** and they flash it in public (big bribes, rare purchases, loud luxury), expect consequences:
@@ -348,7 +348,7 @@ When Wealth is **3+** and they flash it in public (big bribes, rare purchases, l
 - tick **Pressure** (+1), **or**
 - start/tick a **Heat/Threat** clock.
 
-Rename Wealth per skin (Coin / Dollars / Credits / Supplies / Influence / Cargo Scrip) without changing the procedure.
+Rename Wealth per skin (Coin / Dollars / Credits / Supplies / Influence / Cargo Scrip) and keep the procedure.
 
 ### Using this document
 Hand the two-page **Quickstart Rules** to the table; keep this booklet behind the screen (or share it digitally for deeper guidance).

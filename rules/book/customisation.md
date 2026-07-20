@@ -2,19 +2,17 @@
 
 Sinew & Steel is deliberately lean. That makes it easy to customise, but also easy to overload.
 
-The right addition gives the game texture: a sharper genre, a stronger tone, a new kind of tension. The wrong addition does not create depth; it creates drag.
+The right addition gives the game texture: a sharper genre, a stronger tone, a new kind of tension. The wrong one adds drag.
 
 A simple test helps:
 
-> **If it does not create a decision or generate momentum, it is clutter.**
+> **A rule earns its place by creating a decision or generating momentum.**
 
 That is the bargain of a small chassis: every extra moving part has to earn its place.
 
 ## Skins are optional
 
-This is worth stating plainly: in S&S, a **skin is not required**.
-
-You can run pure core play with five generic attributes, Luck, Stamina, and Pressure, and let your campaign discover its own voice as you play.
+Pure core play is complete with five generic attributes, Luck, Stamina, and Pressure. Your campaign can discover its own voice as you play.
 
 Skins exist to do two things:
 
@@ -23,7 +21,7 @@ Skins exist to do two things:
 
 ## What a skin actually is
 
-In S&S terms, a skin is a **framing layer**. It translates the core engine into a genre without rewriting it.
+In S&S terms, a skin is a **framing layer**. It translates the core engine into a genre while leaving the resolution engine intact.
 
 A skin can:
 
@@ -32,7 +30,7 @@ A skin can:
 - define recovery flavour,
 - add one or two procedures that reinforce the genre.
 
-But you should avoid a skin becoming a second game hiding inside the first.
+Keep it as that framing layer.
 
 ## The invariants (what to protect)
 
@@ -41,15 +39,14 @@ If you want your custom work to still feel like Sinew & Steel, keep these intact
 - **Resolution stays d20 roll-under**, and margin matters.
 - The chassis is still **five attributes + Luck tokens + Stamina + Pressure (0-5)**.
 - **Pressure** is a short fuse: when it hits 5, something breaks, then it resets.
-- **Advantage/Disadvantage** remains the primary way fictional positioning changes the odds.
-- **No additive modifier stacking** as a new normal.
-- **If you need a new dice type, you are probably solving the wrong problem.**
+- **Advantage/Disadvantage** remains the primary way fictional positioning changes the odds; additive modifiers stay exceptional.
+- Reach for the existing d20 tools before adding another dice type.
 
-You can bend these at your private table, of course. But be aware that if you bend too many, you are no longer reskinning S&S. You are designing a new system.
+You can bend these at your private table, of course. Bend too many and you are designing a new system.
 
 ## The minimum a skin should define
 
-If you write a new skin, try to make it runnable by someone who has never played your genre before.
+If you write a new skin, make it runnable by a newcomer to the genre.
 
 At minimum, a skin should answer:
 
@@ -63,13 +60,13 @@ If you do those five things cleanly, most of the rest is optional seasoning.
 
 ## Safe ways to add texture
 
-If you want your skin to feel distinct without becoming complicated, start here:
+To make your skin distinct while keeping it simple, start here:
 
 - Rename core terms so they match the genre's instincts.
 - Declare typical costs in fiction: "magic usually costs Pressure", "gunfights spike Pressure quickly".
 - Add story-facing clocks for long tension (patrols, storms, suspicion) when it helps.
 - Give concrete examples of Advantage/Disadvantage in the genre (home turf, ritual prep, cover).
-- Add gear and NPCs using existing tags (edge, soak, and simple tier + Stamina statlines) instead of inventing new numeric layers.
+- Add gear and NPCs with existing tags: edge, soak, and simple tier + Stamina statlines.
 
 The skins in this book show the range: light overlays at one end, heavier genre modules at the other.
 
@@ -77,15 +74,15 @@ The skins in this book show the range: light overlays at one end, heavier genre 
 
 These are the moves that tend to bloat the game or distort the feel:
 
-- The skin implies constant rolling ("roll to travel", "roll every interaction") instead of using stakes and uncertainty.
-- You start stacking situational bonuses ("+1 here, +2 there") instead of using fictional positioning and Advantage/Disadvantage.
+- The skin calls for a roll during every journey or interaction, regardless of stakes and uncertainty.
+- Situational bonuses accumulate until they displace fictional positioning and Advantage/Disadvantage.
 - A "helpful" skill list becomes prescriptive ("always roll X for Y"), and suddenly the character sheet is a menu.
 - You add a second universal meta-track that behaves like Pressure in every scene, unless it is clearly optional.
-- The skin changes what success means ("success still costs you most of the time") without naming it as a deliberate genre dial.
+- Success carries a default cost, yet the skin leaves that genre dial unnamed.
 
-## Tags instead of skill lists
+## Tags
 
-If you want the feel of skills without turning the game into a catalogue of niche rolls, use **tags**: small, named traits that grant a specific kind of edge.
+For the feel of skills in a compact form, use **tags**: small, named traits that grant a specific kind of edge.
 
 Keep them narrow, contextual, and sometimes limited to once per session so they stay punchy.
 
@@ -94,9 +91,9 @@ Examples (in the spirit of the pregens in this book):
 - *Streetwise:* once per session, Advantage on a test when dealing with criminals or dock-bosses.
 - *Bone-Singer:* Advantage when calming beasts with chant, but only if the chant is voiced in the fiction.
 
-Tags give players identity and competence without turning the table into "which of my 27 skills applies here?"
+Tags give players identity and competence while keeping the character sheet out of every ruling.
 
-## Mixing skins (without overload)
+## Mixing skins cleanly
 
 If you want to borrow rules from multiple skins, use one skin as the foundation and treat everything else as seasoning.
 
@@ -107,7 +104,7 @@ If you want to borrow rules from multiple skins, use one skin as the foundation 
 
 ## Writing new rules (the 8-12 line test)
 
-Keep new procedures small enough to remember. A useful constraint is: **can you write the rule in 8-12 lines without losing clarity?**
+Keep new procedures small enough to remember. A useful constraint is: **can you state the rule clearly in 8-12 lines?**
 
 A good S&S procedure usually has this structure:
 
@@ -119,4 +116,4 @@ A good S&S procedure usually has this structure:
 
 If a new subsystem pulls you toward new dice, nested tables, or a page of edge cases, step back and ask two questions: what decision is this meant to create, and what momentum is it meant to generate?
 
-If you cannot answer, it is probably clutter.
+A clear answer earns the subsystem its place.

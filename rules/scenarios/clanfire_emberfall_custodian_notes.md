@@ -6,7 +6,7 @@ The previous chapter gives you the table-ready spine. Use this one as a short co
 
 Read Emberfall beside **The Custodian**: situation first, real choices, fair consequences. Read Clanfire beside **Customisation**: Shadow, Instinct, taboo, and clocks earn their place only when they make the next choice sharper.
 
-Your task is not to protect a story. Your task is to keep the situation alive.
+Keep the situation alive and let its course change.
 
 ---
 
@@ -28,13 +28,13 @@ At the table, prepare a situation and let player choices bend it.
 
 ## Reveal truth through signs
 
-The scenario asks you to choose a deeper truth, but that truth should not arrive as explanation. Let the players meet it through evidence they can interpret before it becomes a verdict.
+Let the deeper truth arrive through evidence the players can interpret before it becomes a verdict.
 
 For **rival hunters**, show human need before human malice: a cut thong on a branch, a half-covered track, a spear point glimpsed between trees, smoke from another shelter. They are hungry people first. They become enemies, allies, thieves, or kin by what happens next.
 
 For **the spirit omen**, make the demand concrete. A spirit that says "show respect" is vague. A spirit that wants the liver left for the fire, the prey unnamed before dawn, or one Instinct bead surrendered before the spear is thrown gives the table something real to accept, refuse, or twist.
 
-For **strangers on the ridge**, keep them distant. In a first session they make the world larger; they do not need to explain themselves. Clean footprints in dirty snow do the work. So does a silhouette gone when the characters look twice.
+For **strangers on the ridge**, keep them distant. In a first session they make the world larger. Clean footprints in dirty snow do the work. So does a silhouette gone when the characters look twice.
 
 Signs keep choice alive. Exposition closes doors too early.
 
@@ -49,9 +49,9 @@ Make each cost feel like it came from the fiction:
 - weak: "You fail. Mark Shadow."
 - sharper: "The chant catches, but it draws something cold through the smoke. You may still take the omen, but if you do, mark +1 Shadow."
 - weak: "The wolf attacks again."
-- sharper: "The wolf does not press the spear. It circles wide, finds the hanging meat, and now you have to choose: chase it into the dark or save what remains by the fire."
+- sharper: "The wolf gives way before the spear, circles wide, and finds the hanging meat. Now you have to choose: chase it into the dark or save what remains by the fire."
 
-Do not punish failure or soften it away. Let the world answer.
+Let the world answer at the level the fiction has earned.
 
 ---
 
@@ -59,11 +59,11 @@ Do not punish failure or soften it away. Let the world answer.
 
 Clanfire is intentionally close to the core rules. Its added pieces should feel like flavour only until they suddenly matter.
 
-Use **Instinct** when a miss is close and the choice has teeth. Spending a bead should feel like digging into luck, nerve, and clan-memory, not like correcting a close die roll.
+Use **Instinct** when a miss is close and the choice has teeth. Spending a bead should feel like digging into luck, nerve, and clan-memory.
 
-Use **Shadow** when fear, taboo, spirits, desperation, or survival have been disturbed. Do not use it as a generic miss tax. A failed track-reading roll may only cost time; a failed rite that asks the dead for help may invite Shadow.
+Use **Shadow** when fear, taboo, spirits, desperation, or survival have been disturbed. A failed track-reading roll may only cost time; a failed rite that asks the dead for help may invite Shadow.
 
-Use **clocks** only if they sharpen the scene. Hunger, Storm, and Pack Learns are not three mandatory homework tracks. Choose the one or two that make the table lean forward.
+Use **clocks** only if they sharpen the scene. Choose the one or two among Hunger, Storm, and Pack Learns that make the table lean forward.
 
 Customisation's bargain applies here: every extra moving part must earn its place by creating a meaningful decision.
 
@@ -73,15 +73,15 @@ Customisation's bargain applies here: every extra moving part must earn its plac
 
 The wolf's stat card is in the scenario spine. What matters here is how you inhabit it.
 
-The wolf is not a balanced encounter and not a boss fight. It wants meat, safety, and advantage. It tests the edge of firelight. It snaps at the isolated. It retreats if hurt badly. It returns if it has learned where the clan is weak.
+The wolf wants meat, safety, and advantage. It tests the edge of firelight. It snaps at the isolated. It retreats if hurt badly. It returns if it has learned where the clan is weak.
 
-This makes the combat engine visible without trapping the table in a fight to the death. Driving the wolf off is a win. Losing meat is a consequence. Following blood into the trees is a choice. Killing it may solve the immediate problem and expose the next one.
+This teaches the combat engine through a fight that may end in retreat, lost meat, pursuit, or death. Driving the wolf off is a win. Losing meat is a consequence. Following blood into the trees is a choice. Killing it may solve the immediate problem and expose the next one.
 
-If the players learn that opponents have motives, fear, hunger, and exits, they have learned something central about S&S.
+Opponents with motives, fear, hunger, and exits are central to S&S.
 
 ---
 
-## Run, don't lecture
+## Teach through play
 
 Let the table learn by doing.
 
@@ -90,10 +90,10 @@ Name a rule only when it becomes useful:
 - "This matters, so let's roll."
 - "Say what you risk before the die hits."
 - "You missed by 1. Spend Instinct if you want to nudge fate."
-- "That failure does not mean nothing happens. The situation has changed..."
+- "That failure changes the situation..."
 - "The wolf is hurt. It looks ready to flee. Do you let it?"
 
-Enough. The table does not need a seminar on margin, clocks, Pressure, and non-lethal endings. It needs to feel those ideas working.
+Enough. The table learns margin, clocks, Pressure, and non-lethal endings by feeling those ideas work.
 
 When in doubt, return to the Custodian basics: offer two to four plausible options, add "or anything else that makes sense", state the stakes, roll only when the outcome is uncertain and important, then let the consequence land cleanly.
 

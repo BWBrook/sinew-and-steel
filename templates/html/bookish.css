@@ -18,7 +18,7 @@ body {
   color: #111;
   font-family: "Linux Libertine O", "Libertine", "Times New Roman", serif;
   font-size: 11pt;
-  line-height: 1.05;
+  line-height: 1.12;
 }
 
 /* Table of contents
@@ -174,22 +174,24 @@ h6 {
   font-style: italic;
 }
 
-/* The standalone quickstart has to keep its literal promise: two pages.
- * Give it denser heading and list rhythm without making the full book cramped.
+/* The quickstart has to keep its literal promise: two pages.
+ * Give it denser heading and list rhythm without making the rest of the book cramped.
  */
 .ss-quickstart-standalone {
   font-size: 10.45pt;
   line-height: 1.0;
 }
 
-.ss-quickstart-standalone h1 {
+.ss-quickstart-standalone h1,
+.ss-quickstart-standalone h3 {
   font-size: 1.46em;
   letter-spacing: 0.045em;
   line-height: 0.98;
   margin: 0.03in 0 0.08in 0;
 }
 
-.ss-quickstart-standalone h2 {
+.ss-quickstart-standalone h2,
+.ss-quickstart-standalone h4 {
   padding-bottom: 0.02in;
   font-size: 1.06em;
   letter-spacing: 0.01em;
@@ -241,7 +243,7 @@ h6 {
 
 /* Paragraphs */
 p {
-  margin: 0.08in 0;
+  margin: 0.06in 0;
 }
 
 /* Inline spot art (float inside the text block, never in the page margin). */

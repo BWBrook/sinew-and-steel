@@ -5,12 +5,12 @@
 
 *A Benedictine abbey, England, winter of 1142. Murder, heresy, civil war and siege swirl beyond the cloister walls.*
 
-Use this skin with the Sinew & Steel core rules. Anything not listed here follows the core.
+Use this skin with the Sinew & Steel core rules. The core governs everything else.
 
 Briar & Benedictine is monastic mystery: investigation under vows, secrets behind stone, and the spiritual cost of prying into darkness. Expect interrogation-by-confession, forensic herbs, whispered politics, Mediæval morals, and violence that is rare but final.
 
 Suggested creation tone: **grim** (**0** build points): frail bodies, sharp minds, hard choices.
-If you want a more capable party, raise build points (to standard **6**) without changing any other rules.
+For a more capable party, raise build points to standard **6**; the other rules stay the same.
 
 ---
 
@@ -43,12 +43,12 @@ A short rest in quiet prayer restores **+1 bead**; vigil at a martyr's shrine (o
 
 ### Common tests (defaults)
 
-Pick the attribute that matches the approach (not "the correct stat").
+The approach determines the attribute.
 
 - **HEW:** force a door, grapple a soldier, hold a gate.
 - **FLT:** slip past novices, eavesdrop, flee through cloisters.
 - **LOR:** inks, herbs, forensics, scripture, law.
-- **MCY:** calm a witness, read motives, extract truth without cruelty.
+- **MCY:** calm a witness, read motives, draw out truth with compassion.
 - **PRV:** omens, coincidence, the one-in-a-thousand break.
 
 ### Weapons and edge
@@ -74,7 +74,7 @@ Dynamic soak still applies: after a hit, reduce soak by **1 per full 4 points** 
 ### Optional plug-ins (use sparingly)
 
 - **Insight (once per scene).** After you succeed on a **LOR** or **MCY** test while pursuing the case, you may spend **1 Providence bead** to ask the Custodian one **yes/no** question. The answer is truthful, but only within what the character could plausibly infer.
-- **Herbal poultice.** The healer loses **1 Stamina**, then tests **LOR**. Success restores **+1 Stamina** to another character, up to max. Failure restores nothing and marks **+1 Sin** for prideful meddling.
+- **Herbal poultice.** The healer loses **1 Stamina**, then tests **LOR**. Success restores **+1 Stamina** to another character, up to max. Failure restores 0 Stamina and marks **+1 Sin** for prideful meddling.
 - **Vow-break.** Violence on church grounds marks **+1 Sin** (no roll).
 
 > *"A candle gutters; for an instant the scriptorium smells of brimstone."*
@@ -89,7 +89,7 @@ Dynamic soak still applies: after a hit, reduce soak by **1 per full 4 points** 
 
 This skin is a medieval monastic mystery. Keep it moving with two table rules:
 
-- **Clues are never gated by rolls.** A test decides clarity, speed, and cost, not whether the clue exists. Success makes the clue clear. Failure still gives a clue, but you pay: mark **Sin**, tick a clock, lose **Stamina**, or draw suspicion.
+- **Every clue reaches the players.** A test decides clarity, speed, and cost. Success makes the clue clear. Failure still gives a clue, but you pay: mark **Sin**, tick a clock, lose **Stamina**, or draw suspicion.
 - **Three leads, always.** Any conclusion you want the players to reach should have at least **three** clues pointing toward it, in different places or mouths.
 
 Use the **Insight** plug-in as your unstick lever if the table stalls.
@@ -169,7 +169,7 @@ Reliable Custodian moves:
 
 Tag scenes by location (CL-1 cloister, TW-2 town, WD-3 woodland). Keep a short case ledger: suspects, motives, alibis, and clue list.
 
-Investigations should move with care. Words cannot be unspoken, vows cannot be unbroken - only confession and atonement can change what comes next.
+Investigations should move with care. Words endure and broken vows stay broken; confession and atonement change what comes next.
 
 > *"Wax gutters in crooked rivulets; the effigy saints seem to weep."*
 

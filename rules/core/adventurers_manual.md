@@ -43,7 +43,7 @@ Both sides roll under their relevant attribute.
 - If only one side succeeds, that side wins.
 - If both succeed, compare **margins**. Higher margin wins.
 - **Ties favour the defender.**
-- If both fail, the defender wins. Nobody succeeds by accident.
+- If both fail, the defender wins.
 
 ### 1.5 When to roll
 
@@ -102,7 +102,7 @@ You can customise your stats using the same economy in two ways:
 Every **+1** you push **above baseline** must be paid for by **-2 total** below baseline across other scores, including Stamina.
 
 **B) Build points (the tone dial):**
-Build points let you raise stats without taking as many trade-offs.
+Build points cover some of those trade-offs directly.
 
 You can mix these: take some trade-offs, spend some build points; they are two ways of paying into the same economy.
 
@@ -185,7 +185,7 @@ Combat note:
 - Short rest: **+1 Stamina** (up to your max).
 - Good care: **+2 Stamina** (up to your max).
 
-Stamina is not a promise of immortality: falls, fire, vacuum, and guillotines can be instantly fatal.
+Stamina covers ordinary injury. Falls, fire, vacuum, and guillotines can still kill instantly.
 
 The Custodian may warn you when the fiction implies lethal stakes beyond a normal wound.
 
@@ -223,13 +223,13 @@ Both roll.
    - **Cover / positioning** (angles, terrain, timing): usually **INT**.
    - **Luck** (sheer chance: a ricochet, a misfire, a loose plank): sometimes **LCK**.
    - **Composure / resolve** (keep your head, accept a surrender, resist intimidation): sometimes **EMP**.
-   - If there is no plausible **defence** (surprised, pinned, helpless), the Custodian can skip the defence roll, or call for Luck if fate alone might spare you.
+   - When **defence is impossible** (surprised, pinned, helpless), the Custodian can skip the defence roll, or call for Luck if fate alone might spare you.
 3. On a hit: damage = **1 + weapon edge - effective soak** (soak after erosion).
 4. **Natural 1** or **margin >= 10** adds **+1 damage**.
 
-If your goal is not harm (disarm, drive off, talk down), use the same opposed roll, but apply the agreed consequence instead of damage.
+For goals such as disarming, driving off, or talking down, use the same opposed roll and apply the agreed consequence in place of damage.
 
-**Examples (conflict without extra rules):**
+**Examples (other conflict goals):**
 
 > One-in-a-million: you fire a last-ditch ricochet shot (attack with **LCK**) to sever a hanging rope. On success, the portcullis drops; on failure, it stays up and Pressure rises.
 > 
@@ -273,7 +273,7 @@ Six substantial items ride comfortably; more invites Disadvantage on agility tas
 
 Tiny trinkets are free.
 
-Money does not count against carry limit. By default it is tracked loosely in the fiction. If your table wants it tangible, use the optional **Wealth (0-4)** track (see the Custodian’s Almanac).
+Money rides outside the carry limit and is tracked loosely in the fiction by default. If your table wants it tangible, use the optional **Wealth (0-4)** track (see the Custodian’s Almanac).
 
 ---
 

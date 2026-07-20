@@ -5,9 +5,9 @@
 
 *Victorian chrononautics in the spirit of scientific romance and strange futures.*
 
-Use this skin with the Sinew & Steel core rules. Anything not listed here follows the core.
+Use this skin with the Sinew & Steel core rules. The core governs everything else.
 
-Time Odyssey is scientific romance: brass and ivory wonder, distant epochs, and the chill realisation that history does not care who you are. Expect hard choices, strange futures, and consequences that arrive centuries out of order.
+Time Odyssey is scientific romance: brass and ivory wonder, distant epochs, and the chill realisation that history is indifferent to you. Expect hard choices, strange futures, and consequences that arrive centuries out of order.
 
 Suggested creation tone: **pulp** (**12** build points) suits reckless chrononautics well.
 
@@ -145,7 +145,7 @@ Track beats and parallel timelines with chronological tags: 1890A, 9000B, 2MyrC.
 
 Reward good record-keeping: if players consult journals, maps, or diagrams, grant **Advantage** on INT or ING tests to reconcile contradictions.
 
-In this genre, the timeline does not rewind. Paradox is paid for in scars, loss, and **Anomaly**.
+In this genre, the timeline runs one way. Paradox is paid for in scars, loss, and **Anomaly**.
 
 \clearpage
 

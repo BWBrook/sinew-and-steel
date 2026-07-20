@@ -5,9 +5,9 @@
 
 *Torchlit delves in the warrens of a dying principality, inspired by classic 1980s dungeon-crawl play.*
 
-Use this skin with the Sinew & Steel core rules. Anything not listed here follows the core.
+Use this skin with the Sinew & Steel core rules. The core governs everything else.
 
-Candlelight Dungeons is old-school dungeon-crawl play: mapping by torchlight, hard bargains, traps that hurt, and monsters with motives. Expect heroic competence under grim pressure. The dungeon is mean, but you are not helpless.
+Candlelight Dungeons is old-school dungeon-crawl play: mapping by torchlight, hard bargains, traps that hurt, and monsters with motives. Expect heroic competence under grim pressure. The dungeon is mean; the delvers are capable.
 
 Optional sidecar:
 If you want stricter exploration turns, hidden/player maps, keyed progression, and seeded site support, use the Candlelight Delvekit sidecar and quick reference in the online repository.
@@ -15,7 +15,7 @@ If you want stricter exploration turns, hidden/player maps, keyed progression, a
 If you want lighter, scene-first dungeon play, this skin stands on its own.
 
 Suggested creation tone: **heroic** (**16** build points).
-If you want a meat-grinder crawl, lower build points to standard **6** or grim **0** without changing any other rules.
+For a meat-grinder crawl, lower build points to standard **6** or grim **0**; the other rules stay the same.
 
 ---
 
@@ -42,7 +42,7 @@ Tokens are tarnished silver coins.
 When the Custodian calls for blind chance, they say: **"Test your Fortune."** Roll under your **current coins** (not your maximum).
 Spend coins now to nudge rolls, but remember: fewer coins means shakier Fortune later.
 
-A short rest at a warm hearth restores **+1 coin**; dank caves do not.
+Only a short rest at a warm hearth restores **+1 coin**.
 
 ### Common tests (defaults)
 
@@ -52,7 +52,7 @@ Use these as quick defaults; if the approach changes, change the stat.
 - **DEX:** sneak, climb, pick locks, disarm traps, missile aim.
 - **LOR:** notice oddities, read runes, solve riddles, cast arcane spells.
 - **FTH:** steel your nerve, rally allies, petition saints, turn undead.
-- **FOR:** when no other stat fits: "Test your Fortune."
+- **FOR:** when sheer chance decides: "Test your Fortune."
 
 ### Weapons and edge
 
@@ -126,7 +126,7 @@ Fatigue is the dungeon's hourglass. It runs **0-5**; at **5**, trigger a crisis,
 | 5 | Backlash: if magic was used this scene, it twists; otherwise, a trap triggers late. |
 | 6 | Roll twice and apply both. |
 
-_(A risky test is any roll where failure would materially change the situation: harm, loss, alarm, separation. Routine mapping and careful talk need no roll.)_
+_(A risky test is any roll where failure would materially change the situation: harm, loss, alarm, separation. Routine mapping and careful talk resolve in the fiction.)_
 
 \clearpage
 
@@ -151,7 +151,7 @@ Once per scene, do a signature trick. Pay **1 Fortune coin** or mark **+1 Fatigu
 
 Pick one stat as your **Expertise**.
 
-When the task squarely fits that expertise, roll with **Advantage** (no class labels needed).
+When the task squarely fits that expertise, roll with **Advantage**. Expertise replaces class labels.
 
 ---
 
@@ -168,7 +168,7 @@ Custodian guidance in the spirit of classic dungeon-crawl refereeing.
 
 ![](../assets/art/ss_candlelight_torch_sconce.png){.wrap-left width=2in}
 
-**1. Open with the torch, not the rulebook.**
+**1. Open with the torch.**
 Give mossy flagstones, a draught that smells of old iron, the scrape of scaled hide on stone. Roll only when the next step could maim or enrich.
 
 **2. Map behind the screen, mystery before it.**
@@ -178,7 +178,7 @@ Keep a scratch grid of rooms, traps, and wandering signs. Let fear be earned by 
 When a delver tries the unexpected - pouring oil down a murder-hole, bargaining with a skeleton - judge it cleanly, call for a single test at most, and let the tale run.
 
 **4. Treasure is tempo.**
-A purse of 50 silver keeps iron rations flowing; a ruby the size of a child's heart funds the next delve. Tie milestones to discoveries, not body counts.
+A purse of 50 silver keeps iron rations flowing; a ruby the size of a child's heart funds the next delve. Tie milestones to discoveries and daring.
 
 **5. Monsters want something.**
 Goblins barter for lamp oil, ghouls crave tales of grief, muck-ogres yearn for refuse. One motive line turns fodder into story.
@@ -187,7 +187,7 @@ Goblins barter for lamp oil, ghouls crave tales of grief, muck-ogres yearn for r
 Every torch burned, every spell miscast, every wrong turn costs something visible: dropped packs, guttered lamps, corridors mislabelled on the map. When Fatigue climbs, players will beg for daylight on their own.
 
 **7. Danger at every threshold, death at few.**
-One lethal trap per session keeps courage taut; the rest should maim, scare, or split the party's purse. You want them limping, not quitting.
+One lethal trap per session keeps courage taut; the rest should maim, scare, or split the party's purse. Send them home limping.
 
 **8. End each beat on a hook.**
 "Beyond the door lies laughter... or weeping." Offer two or three choices: one should sparkle with gold, one should reek of doom, one should whisper old lore.
@@ -224,7 +224,7 @@ Example: Assassin's throat-slit on a sleeping victim - **Fatal (counter: staying
 
 If Candlelight is the torchlit mood, Delvekit is the machinery under the floor.
 
-Use it when repeated dungeon play should care about hidden maps, player-map reveal, keyed loops, faction movement, and generated sites. It does not add a new combat engine. It makes the dungeon remember where the delvers have been, what they have stirred, and what waits behind doors they have not yet earned.
+Use it when repeated dungeon play should care about hidden maps, player-map reveal, keyed loops, faction movement, and generated sites. It keeps the existing combat engine and makes the dungeon remember where the delvers have been, what they have stirred, and what waits behind doors still sealed against them.
 
 For AI Agent repo play, start with the Delvekit guide in `docs/`. For table play, keep the quick reference beside this skin.
 

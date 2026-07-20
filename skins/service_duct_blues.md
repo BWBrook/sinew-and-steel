@@ -5,7 +5,7 @@
 
 *Life below decks on a frontier starship, starbase, or deep-space platform, Shift 17.*
 
-Use this skin with the Sinew & Steel core rules. Anything not listed here follows the core.
+Use this skin with the Sinew & Steel core rules. The core governs everything else.
 
 Service Duct Blues is lower-decks starship drama: miracles under deadlines, competence under scrutiny, and optimism under stress. Expect coolant leaks, anomalous readings, personal frictions, and episodes where the real victory is keeping everyone alive and keeping the ship's conscience intact.
 
@@ -89,8 +89,8 @@ This skin is about the people who keep the ship alive while senior officers make
 Rotate spotlight scenes across departments so the ship has more than one corridor and one chain of command.
 
 - **Science specialist (lab / survey)** - you turn chaos into data. Default approach: **SYS** (analysis) and **HAR** (ethics, persuasion, de-escalation). Ask for clean procedures.
-- **Medical tech (sickbay / triage)** - you keep people breathing. Default approach: **HAR** (triage, bedside), sometimes **SYS** (diagnostics). Let failure mean hard choices, not "no healing."
-- **Security / Ops crew (corridors / brig / away team)** - you keep order without becoming the villain. Default approach: **REF** (cover, timing), **MSC** (restraint), **HAR** (talk someone down).
+- **Medical tech (sickbay / triage)** - you keep people breathing. Default approach: **HAR** (triage, bedside), sometimes **SYS** (diagnostics). On failure, offer hard choices while care still helps.
+- **Security / Ops crew (corridors / brig / away team)** - you keep order and preserve trust. Default approach: **REF** (cover, timing), **MSC** (restraint), **HAR** (talk someone down).
 - **Shuttle / flight deck** - you survive docking, debris, and crossfire. Default approach: **SYS** (helm, nav) and **REF** (evasive timing).
 - **Service crew (mess / hydroponics / quarters)** - you keep morale and routines intact. Default approach: **HAR** (crew cohesion) with **RES** when supply lines fail.
 
@@ -113,7 +113,7 @@ Stress is shipboard pressure. It runs **0-5**; at **5**, trigger a crisis, then 
 
 ![](../assets/art/ss_service_ducts_klaxon_steam.png){.margin-left width=2in}
 
-_(A risky test is any roll where failure would materially change the situation: injuries, disciplinary fallout, alarms, lockdowns, or escalating danger. Routine movement and obvious chores need no roll.)_
+_(A risky test is any roll where failure would materially change the situation: injuries, disciplinary fallout, alarms, lockdowns, or escalating danger. Routine movement and obvious chores resolve in the fiction.)_
 
 **Gain Stress:** failed covert repairs, sidearm discharge in public corridors, ignoring safety interlocks, or Technobabble Buffer overrun.
 
@@ -135,7 +135,7 @@ _(A risky test is any roll where failure would materially change the situation: 
 1. **Cold-open hook (150 words or fewer).** A duct conduit ruptures, a quantum echo hums, or an irate passenger demands a plasma shower. End on the breach klaxon.
 2. **A-/B-plot rhythm.** Keep one technical crisis (grid overload) and one interpersonal thread (crew rivalry, a debt, a secret). Alternate scenes.
 3. **Dialogue first, dice second.** Let players propose plans; only roll when the grid might blow or a superior officer remains unconvinced.
-4. **Optimism with friction.** No grimdark - conflict is creative, not cruel. Even an antagonist might want out.
+4. **Optimism with friction.** Keep the tone hopeful and the conflict creative. Even an antagonist might want out.
 5. **Montage beat.** Use one Systems roll plus Cross-Training Override to cover bypass-reroute-weld sequences; summarise sparks on bulkheads, stripped conduits, and someone holding the access panel open with both boots.
 6. **Act-break cliffhangers.** Every 4-6 beats, hit: *"Reactor breach in 120 seconds"* or *"Captain on comm: 'Ensign, explain the sidearm discharge in Shuttle Bay 2.'"*
 7. **Stinger epilogue.** Show the repaired conduit humming; crew share ration-pie in the mess; one faint chirp hints at next episode.

@@ -5,9 +5,9 @@
 
 *Mournful New England shores, 1924. Gas-lamps gutter, marsh-mists coil, and nameless shapes lurk just beyond the churchyard wall.*
 
-Use this skin with the Sinew & Steel core rules. Anything not listed here follows the core.
+Use this skin with the Sinew & Steel core rules. The core governs everything else.
 
-Whispers in the Fog is weird-horror investigation: frail lantern-light, forbidden books, polite conversations that turn sour, and truths that do not fit inside a human skull. Expect foreboding that rises by inches, sudden violence, and answers that feel like bargains.
+Whispers in the Fog is weird-horror investigation: frail lantern-light, forbidden books, polite conversations that turn sour, and truths too large for a human skull. Expect foreboding that rises by inches, sudden violence, and answers that feel like bargains.
 
 Suggested creation tone: **standard** (**6** build points): capable investigators, fragile minds.
 
@@ -102,7 +102,7 @@ The mind forgets the count; it does not forget the scar.
 
 ![](../assets/art/ss_whispers_insanity_spiral.png){.margin-left width=1.8in}
 
-_(A risky test is any roll where failure would materially change the situation: harm, loss, exposure, separation. Routine travel and careful talk need no roll.)_
+_(A risky test is any roll where failure would materially change the situation: harm, loss, exposure, separation. Routine travel and careful talk resolve in the fiction.)_
 
 **Gain Insanity:** witnessing gore or cosmic horrors, failed rites, or reading forbidden tomes.
 
@@ -145,7 +145,7 @@ Choose one stat as **Expertise** (marksman = AGI, doctor = SCH). When the task s
 
 In this genre, light is safety. Darkness is a weapon.
 
-To keep resource tension without extra dice systems, track portable light as a small **clock**.
+Keep resource tension with a small **clock** for portable light.
 
 - **Create a clock:** "Lantern" or "Battery" (default **4 ticks**).
 - **Tick it** when light is stressed: knocked, doused, long exploration, running, fighting, thick fog, frantic climbing.
@@ -165,11 +165,11 @@ Keeper guidance: keep the light clock **public** if you want planning, or **hidd
 
 - **Use archaisms sparingly.** One archaic verb per paragraph ('betokened', 'antediluvian') is perfume; a whole bouquet is parody.
 - **Layer sensory unease.** Sight-smells-sounds in quick succession: "salt-reek, pulsing lavender glow, distant surf that pounded like vast respirations."
-- **Imply the shape, deny the whole.** Describe edges, textures, odours - never the full anatomy of the horror. Let the cortex finish the sketch.
+- **Imply the shape.** Describe only edges, textures, and odours. Let the cortex finish the sketch.
 - **Cosmic scale through comparison.** "Its shadow swallowed the lighthouse as a gull swallows a grain of sand."
 - **Use fragile narrators.** PCs mutter doubt, stumble on diction, and leave sentences unfinished as the psyche frays.
 - **Slow verbs, sudden violence.** Ten lines of oppressive hush, then one splintering gunshot or roof-beam collapse.
-- **Finish scenes with foreboding, not triumph.** Even victories taste of spoiled brine and scorched vellum.
+- **Finish scenes with foreboding.** Even victories taste of spoiled brine and scorched vellum.
 - **Let knowledge hurt.** Reward Scholarship with answers that cost sanity; each new fact comes priced like a bargain struck at midnight.
 
 > *"In the ledger's margin, the ink had crusted to a curious verdigris, as though the word itself resented daylight."*
@@ -202,7 +202,7 @@ Keeper guidance: keep the light clock **public** if you want planning, or **hidd
 
 Stylistic rule: pain is concrete, hope is whispered, knowledge always costs.
 
-> *"Knowledge is not a ladder but a pit; one descends, rung by foolish rung, until the sky is a memory."*
+> *"Knowledge is a pit; one descends, rung by foolish rung, until the sky is a memory."*
 
 \clearpage
 

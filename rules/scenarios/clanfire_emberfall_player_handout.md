@@ -2,7 +2,7 @@
 
 ## A player-facing starter brief for Sinew & Steel
 
-This handout contains no secrets. Your clan's hearth is dying in a hard winter, and the hunt that should save you is already being claimed by hungry things in the birch-line.
+Everything below is known to the players. Your clan's hearth is dying in a hard winter, and the hunt that should save you is already being claimed by hungry things in the birch-line.
 
 ---
 
@@ -37,4 +37,4 @@ Pick an approach, or propose your own:
 1. **Read the tracks** downwind (Cunning).
 2. **Stalk the sound** with spear ready (Fleetness).
 3. **Call to the spirits** for an omen (Spirit; on a miss, +1 Shadow).
-4. **Wake the clan** and bar the cave (no roll; time passes).
+4. **Wake the clan** and bar the cave (resolve in the fiction; time passes).

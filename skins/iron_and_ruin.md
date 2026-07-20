@@ -5,7 +5,7 @@
 
 *Grim sword-and-sorcery in the spirit of pulp adventure.*
 
-Use this skin with the Sinew & Steel core rules. Anything not listed here follows the core.
+Use this skin with the Sinew & Steel core rules. The core governs everything else.
 
 Iron & Ruin is for tales of iron and ash: barbarian courage, decadent cities, and sorcery that always exacts a price. Heroes can defy fate, but the gods, the cults, and the old powers keep ledgers.
 
@@ -54,12 +54,12 @@ Fists and blackjacks are usually non-lethal: at **0 Stamina (0 STM)** the target
 
 Dynamic soak still applies: after a hit, reduce soak by **1 per full 4 points** of attacker margin; natural **1** pierces all.
 
-A draught of wine by the fire restores **+1 STM** after a calm scene; a full bed and ministrations restore **+2** (never above max).
+A draught of wine by the fire restores **+1 STM** after a calm scene; a full bed and ministrations restore **+2**, up to your maximum.
 Severe wounds need a healer's skill, potent herbs, or time.
 
 ### Equipment and burden
 
-A character may carry up to six substantial items: armour, weapons, bundles, or large tools. Trinkets and small gear ride in pouches and do not count against the limit.
+A character may carry up to six substantial items: armour, weapons, bundles, or large tools. Trinkets and small gear ride in pouches outside that limit.
 Coin is an inconvenient necessity; carry too much, and brigands will smell it.
 
 ### Sorcery
@@ -157,7 +157,7 @@ Use terse, muscular prose. Violence is sudden; sorcery is foul or uncanny. Civil
 
 > The idol's eyes are rubies. The chamber reeks of old incense and newer blood. Somewhere beyond the lintel, a priest begins to chant your name.
 
-Keep rolls sparse. Heroes should triumph more than they fail, yet peril must feel real. Use Advantage to reward cunning gambits and Disadvantage to punish hubris. Fortune is precious; recover it slowly so its last flickers feel desperate. Hand out Doom sparingly, then make its consequences unforgettable. Milestones should follow story logic, not the crude arithmetic of beat successes.
+Keep rolls sparse. Heroes should triumph more than they fail, yet peril must feel real. Use Advantage to reward cunning gambits and Disadvantage to punish hubris. Fortune is precious; recover it slowly so its last flickers feel desperate. Hand out Doom sparingly, then make its consequences unforgettable. Award milestones at decisive turns in the story.
 
 ### Storyteller's primer
 
@@ -165,7 +165,7 @@ Keep rolls sparse. Heroes should triumph more than they fail, yet peril must fee
 
 The voice is lean and sinewed: short sentences, vivid verbs, few adjectives.
 
-Work through physical sensation: iron, sweat, blood, stone. Let sorcery feel foul and wondrous, as much curse as gift. Characters reveal themselves through deeds, not ruminations. Lift the register only for moments of foreboding or grandeur, using archaic diction sparingly ("eldritch", "abysmal", "thews").
+Work through physical sensation: iron, sweat, blood, stone. Let sorcery feel foul and wondrous, as much curse as gift. Reveal characters through deeds. Lift the register only for moments of foreboding or grandeur, using archaic diction sparingly ("eldritch", "abysmal", "thews").
 
 Violence is sudden; wonder is sombre; civilisation is decadent; fate is grim but defied.
 
@@ -192,9 +192,9 @@ Offer Fortune when failure is within range; remind players they can also push ma
 The tale should move in hard, vivid beats. Mechanics serve pacing; pacing serves mood. When in doubt, cut to action, raise a question, or unveil a terrible wonder.
 
 Same core method: tag scenes by locale (Tomb A1, Bazaar B3) if it helps you track the crawl.
-In this genre, fate does not rewind. Scars, debts, curses, and grudges accumulate.
+In this genre, fate collects. Scars, debts, curses, and grudges accumulate.
 
-Failure should reshape the world, not halt the story. Death is meaningful only if it closes an arc or opens a darker one. Otherwise, maim, curse, or impoverish.
+Failure should reshape the world and keep the story moving. Reserve death for closing an arc or opening a darker one; otherwise, maim, curse, or impoverish.
 
 \clearpage
 

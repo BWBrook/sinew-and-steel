@@ -90,7 +90,7 @@ uv run --extra pdf python tools/md_pdf.py --files "rules/quickstart.md skins/cla
   - `"<top/bottom> <left/right>"` (e.g. `"0.6in 0.8in"`)
   - `"<top> <right> <bottom> <left>"` (e.g. `"0.6in 0.85in 0.6in 0.85in"`)
 - `--fontsize 9.5` (WeasyPrint + LaTeX)
-- `--linestretch 1.0` (WeasyPrint + LaTeX)
+- `--linestretch 1.12` (WeasyPrint + LaTeX)
 - `--style bookish|default`
 - `--toc --toc-depth 2`
 
@@ -99,7 +99,7 @@ uv run --extra pdf python tools/md_pdf.py --files "rules/quickstart.md skins/cla
 If you want your local pagination to match the repo’s default expectations for PDF iteration, use:
 
 ```bash
---backend weasyprint --style bookish --paper a4 --margin "0.55in 0.75in" --fontsize 11.5
+--backend weasyprint --style bookish --paper a4 --margin "0.55in 0.75in" --fontsize 11.5 --linestretch 1.12
 ```
 
 > Quickstart note: if you are keeping the quickstart to *exactly two pages*, tweak `--margin`, `--fontsize`, and `--linestretch` first before cutting text.

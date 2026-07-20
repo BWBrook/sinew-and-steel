@@ -5,7 +5,7 @@
 
 *The Northlands, late in a fading age. The Wardens keep lonely watch, dread gathers in forgotten tombs, and humble folk cherish hearth-fires against the returning dark.*
 
-Use this skin with the Sinew & Steel core rules. Anything not listed here follows the core.
+Use this skin with the Sinew & Steel core rules. The core governs everything else.
 
 Twilight of the Northlands is wanderer fantasy: long roads, hard choices, and small lights carried through large darkness. Expect travels, assemblies, songs in the cold, and moments where fear, hunger, and oath-breaking bite as hard as steel.
 
@@ -91,7 +91,7 @@ Each use costs: **spend 1 Hope token** or **mark +1 Dread**.
 
 ## Subtle magic
 
-Users of the arcane do not hurl fire. They kindle courage, veil footsteps, and turn the will softly, rarely, and with a price.
+Arcane magic kindles courage, veils footsteps, and turns the will softly, rarely, and with a price.
 
 | Tier | Cast with | On success | On failure |
 |---|---|---|---|
@@ -148,7 +148,7 @@ Dread is temptation, fear, and the slow creep of despair. It runs **0-5**; at **
 | 4 | Twisted will | Disadvantage on all tests |
 | 5 **Crisis** | Corruption, despair, or the enemy's hand | roll a Dread crisis, then reset Dread to **0** |
 
-_(A risky test is any roll where failure would materially change the situation: harm, loss, exposure, separation, betrayal. Routine talk and obvious chores need no roll.)_
+_(A risky test is any roll where failure would materially change the situation: harm, loss, exposure, separation, betrayal. Routine talk and obvious chores resolve in the fiction.)_
 
 **Gain Dread:** witnessing true evil, oath-breaking, tainted ground, hoarding while others starve, failing Invocations, spending Companionship down to 0.
 
@@ -188,15 +188,15 @@ When the company must sway a high commissioner, an innkeeper, or a clan lord:
 - Set an **Assembly threshold** (3 for a petty lord, 5 for a great lord).
 - Each speaking PC rolls **HRT** once. Success counts as **+1**, failure as **+0**, natural **1** as **+2**, and natural **20** as **-1**.
 - PCs may spend Hope to nudge rolls as usual; Companionship tokens may also be spent **only** for nudging.
-- If the company reaches the threshold: favour granted. If not: partial help, conditions, or refusal.
+- At or above the threshold: favour granted. Below it: partial help, conditions, or refusal.
 
 ### Optional combat module: tactical positions and injurious blows
 
-Use this only if you want a little road-fantasy texture in combat without leaving the Sinew & Steel chassis.
+Use this only if you want a little road-fantasy texture in combat within the Sinew & Steel chassis.
 
 It adds three ideas:
 
-- **Combat Positions** = Gain Advantage/Disadvantage on attack or defence, but not both.
+- **Combat Positions** = Choose whether Advantage/Disadvantage affects attack or defence.
 - **Resilience** = Stamina loss (ordinary hits wear you down).
 - **Injury** = significant lingering damage (e.g., a lacerating or crushing blow that gets through a defence).
 
@@ -243,7 +243,7 @@ If you **fail**, you gain the condition **Injured**.
 - While Injured: Disadvantage on **STR** and **NIM** tests, and you cannot take **Vanguard** stance.
 - If you are Injured and you gain another injury: you drop to **0 Stamina** immediately (taken out). Whether you die, are carried off, or are saved becomes the scene's stake.
 
-**Healing Injuries (slow):** an Injury does not clear on a short rest.
+**Healing Injuries (slow):** an Injury persists through a short rest.
 It clears after a Companionship Phase **Healing Rest** undertaking, or after a true sanctuary recovery (healer's hall, long rest in safety).
 
 ### Companionship phase (downtime undertakings)
@@ -282,7 +282,7 @@ Travel choices acquire moral weight.
 - **Let names carry history.** "This blade was forged before the kingdom broke."
 - **Reward clever combat.** One giant > five raiders. Flooded ford, flaming brand, falling stones.
 - **Dread is a choice engine.** Offer treasure with a whisper; offer redemption by renunciation.
-- **Weather is drama.** A watch-hill squall can impose Disadvantage on missile fire or swell Fatigue - no monster needed.
+- **Weather is drama.** A watch-hill squall alone can impose Disadvantage on missile fire or swell Fatigue.
 
 ---
 
