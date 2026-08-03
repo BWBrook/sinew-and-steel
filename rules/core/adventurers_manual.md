@@ -204,6 +204,7 @@ Both roll.
 - If only one side succeeds, that side wins.
 - If both succeed, compare **margins**. Higher margin wins.
 - **Ties favour the defender.**
+- If both fail, the defender wins.
 
 ---
 
