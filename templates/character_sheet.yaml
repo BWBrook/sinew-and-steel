@@ -26,12 +26,6 @@ pools:
     current: 5
     max: 5
 
-tracks:
-  pressure:
-    name: "Pressure"
-    current: 0
-    max: 5
-
 inventory:
   big_items: []
   small_items: []

@@ -52,36 +52,31 @@ def resolve_opposed(
     attacker_roll = resolve_check(attacker, adv=adv_attacker, dis=dis_attacker)
     defender_roll = resolve_check(defender, adv=adv_defender, dis=dis_defender)
 
-    outcome = {
-        "winner": None,
-        "reason": None,
-    }
-
-    if attacker_roll["success"] and not defender_roll["success"]:
-        outcome["winner"] = "attacker"
-        outcome["reason"] = "attacker_success_only"
-    elif defender_roll["success"] and not attacker_roll["success"]:
-        outcome["winner"] = "defender"
-        outcome["reason"] = "defender_success_only"
-    elif attacker_roll["success"] and defender_roll["success"]:
-        if attacker_roll["margin"] > defender_roll["margin"]:
-            outcome["winner"] = "attacker"
-            outcome["reason"] = "higher_margin"
-        elif defender_roll["margin"] > attacker_roll["margin"]:
-            outcome["winner"] = "defender"
-            outcome["reason"] = "higher_margin"
-        else:
-            outcome["winner"] = "defender"
-            outcome["reason"] = "tie_margins_defender"
-    else:
-        outcome["winner"] = "defender"
-        outcome["reason"] = "both_failed_defender"
-
     return {
         "attacker": attacker_roll,
         "defender": defender_roll,
-        "outcome": outcome,
+        "outcome": resolve_opposed_outcome(attacker_roll, defender_roll),
     }
+
+
+def resolve_opposed_outcome(attacker_roll: dict[str, Any], defender_roll: dict[str, Any]) -> dict[str, str]:
+    """Resolve an opposed result from two already-finalised checks."""
+    attacker_success = bool(attacker_roll.get("success", attacker_roll.get("final_success")))
+    defender_success = bool(defender_roll.get("success", defender_roll.get("final_success")))
+    attacker_margin = int(attacker_roll.get("margin", attacker_roll.get("final_margin", 0)))
+    defender_margin = int(defender_roll.get("margin", defender_roll.get("final_margin", 0)))
+
+    if attacker_success and not defender_success:
+        return {"winner": "attacker", "reason": "attacker_success_only"}
+    if defender_success and not attacker_success:
+        return {"winner": "defender", "reason": "defender_success_only"}
+    if attacker_success and defender_success:
+        if attacker_margin > defender_margin:
+            return {"winner": "attacker", "reason": "higher_margin"}
+        if defender_margin > attacker_margin:
+            return {"winner": "defender", "reason": "higher_margin"}
+        return {"winner": "defender", "reason": "tie_margins_defender"}
+    return {"winner": "defender", "reason": "both_failed_defender"}
 
 
 def apply_nudge_to_check(check: dict[str, Any], nudge: int) -> dict[str, Any]:

@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 import argparse
-from datetime import datetime, timezone
 import json
 from pathlib import Path
-import re
 import sys
 from typing import Any
 
@@ -11,9 +9,8 @@ import yaml
 
 import _dice
 import _sslib
-
-SESSION_MD_RE = re.compile(r"session_(\d{3})\.md$")
-SESSION_YAML_RE = re.compile(r"session_(\d{3})\.ya?ml$")
+import recap
+import session_log
 
 
 def is_int(value) -> bool:
@@ -32,88 +29,6 @@ def parse_value(value: str):
         return yaml.safe_load(value)
     except Exception:
         return value
-
-
-def ensure_list(value) -> list[str]:
-    if value is None:
-        return []
-    if isinstance(value, list):
-        return [str(v) for v in value]
-    if isinstance(value, str):
-        if value.strip() == "":
-            return []
-        return [value]
-    return [str(value)]
-
-
-def latest_session_md(logs_dir: Path) -> Path:
-    logs_dir.mkdir(parents=True, exist_ok=True)
-    latest = None
-    latest_num = -1
-    for p in logs_dir.glob("session_*.md"):
-        match = SESSION_MD_RE.search(p.name)
-        if not match:
-            continue
-        num = int(match.group(1))
-        if num > latest_num:
-            latest_num = num
-            latest = p
-    if latest:
-        return latest
-    return logs_dir / "session_001.md"
-
-
-def latest_session_yaml(memory_dir: Path) -> Path:
-    memory_dir.mkdir(parents=True, exist_ok=True)
-    latest = None
-    latest_num = -1
-    for p in memory_dir.glob("session_*.yaml"):
-        match = SESSION_YAML_RE.search(p.name)
-        if not match:
-            continue
-        num = int(match.group(1))
-        if num > latest_num:
-            latest_num = num
-            latest = p
-    if latest:
-        return latest
-    return memory_dir / "session_001.yaml"
-
-
-def append_log(log_path: Path, role: str | None, text: str) -> None:
-    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%SZ")
-    header_parts = [timestamp]
-    if role:
-        header_parts.append(role)
-    header = " - ".join(header_parts)
-
-    entry = text.rstrip() + "\n"
-    block = f"## {header}\n\n{entry}\n"
-
-    log_path.parent.mkdir(parents=True, exist_ok=True)
-    with log_path.open("a", encoding="utf-8") as handle:
-        handle.write(block)
-
-
-def append_recap(memory_path: Path, summary_lines: list[str], threads: list[str], npcs: list[str], secrets: list[str]) -> None:
-    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    data = {}
-    if memory_path.exists():
-        data = yaml.safe_load(memory_path.read_text(encoding="utf-8")) or {}
-
-    if "schema_version" not in data:
-        data["schema_version"] = 1
-
-    summaries = ensure_list(data.get("summary"))
-    for line in summary_lines:
-        summaries.append(f"[{timestamp}] {line}")
-
-    data["summary"] = summaries
-    data["threads"] = ensure_list(data.get("threads")) + threads
-    data["npcs"] = ensure_list(data.get("npcs")) + npcs
-    data["secrets"] = ensure_list(data.get("secrets")) + secrets
-
-    _sslib.save_yaml(memory_path, data)
 
 
 def format_check_log(label: str | None, check: dict[str, Any]) -> str:
@@ -138,39 +53,168 @@ def format_check_log(label: str | None, check: dict[str, Any]) -> str:
     return base
 
 
-def opposed_outcome(attacker: dict[str, Any], defender: dict[str, Any]) -> dict[str, str]:
-    def final(check):
-        return {
-            "success": bool(check.get("success", check.get("final_success"))),
-            "margin": int(check.get("margin", check.get("final_margin"))),
-        }
+def resolve_roll(args, sheet: dict[str, Any]) -> tuple[dict[str, Any], bool]:
+    if args.command == "check":
+        if args.adv and args.dis:
+            raise ValueError("choose only one of --adv or --dis")
 
-    a = final(attacker)
-    d = final(defender)
+        stat_value = args.stat
+        if stat_value is None and args.stat_key:
+            attrs = sheet.get("attributes")
+            if not isinstance(attrs, dict) or args.stat_key not in attrs:
+                raise ValueError(f"stat-key not found on sheet: {args.stat_key}")
+            stat_value = int(attrs[args.stat_key])
+        if stat_value is None:
+            raise ValueError("provide --stat or --stat-key")
 
-    outcome = {"winner": None, "reason": None}
+        check_roll = _dice.resolve_check(stat_value, adv=args.adv, dis=args.dis)
+        if args.nudge:
+            check_roll = _dice.apply_nudge_to_check(check_roll, args.nudge)
+        check_roll["label"] = args.label
+        check_roll["stat_key"] = args.stat_key
+        return check_roll, bool(check_roll.get("success", check_roll.get("final_success")))
 
-    if a["success"] and not d["success"]:
-        outcome["winner"] = "attacker"
-        outcome["reason"] = "attacker_success_only"
-    elif d["success"] and not a["success"]:
-        outcome["winner"] = "defender"
-        outcome["reason"] = "defender_success_only"
-    elif a["success"] and d["success"]:
-        if a["margin"] > d["margin"]:
-            outcome["winner"] = "attacker"
-            outcome["reason"] = "higher_margin"
-        elif d["margin"] > a["margin"]:
-            outcome["winner"] = "defender"
-            outcome["reason"] = "higher_margin"
-        else:
-            outcome["winner"] = "defender"
-            outcome["reason"] = "tie_margins_defender"
+    if args.adv_attacker and args.dis_attacker:
+        raise ValueError("choose only one of --adv-attacker or --dis-attacker")
+    if args.adv_defender and args.dis_defender:
+        raise ValueError("choose only one of --adv-defender or --dis-defender")
+
+    attacker_value = args.attacker
+    if attacker_value is None and args.attacker_key:
+        attrs = sheet.get("attributes")
+        if not isinstance(attrs, dict) or args.attacker_key not in attrs:
+            raise ValueError(f"attacker-key not found on sheet: {args.attacker_key}")
+        attacker_value = int(attrs[args.attacker_key])
+    if attacker_value is None:
+        raise ValueError("provide --attacker or --attacker-key")
+
+    roll_payload = _dice.resolve_opposed(
+        attacker_value,
+        args.defender,
+        adv_attacker=args.adv_attacker,
+        dis_attacker=args.dis_attacker,
+        adv_defender=args.adv_defender,
+        dis_defender=args.dis_defender,
+    )
+    if args.nudge:
+        target = args.nudge_target
+        roll_payload[target] = _dice.apply_nudge_to_check(roll_payload[target], args.nudge)
+    roll_payload["outcome"] = _dice.resolve_opposed_outcome(
+        roll_payload["attacker"], roll_payload["defender"]
+    )
+    roll_payload["label"] = args.label
+    roll_payload["attacker_key"] = args.attacker_key
+    roll_payload["as"] = args.as_role
+    return roll_payload, roll_payload["outcome"]["winner"] == args.as_role
+
+
+def spend_luck(args, sheet: dict[str, Any], roll_payload: dict[str, Any]) -> None:
+    if not args.nudge:
+        return
+
+    if args.nudge_spend == "none":
+        spend_side = None
+    elif args.nudge_spend == "as":
+        spend_side = "attacker" if args.command == "check" else args.as_role
     else:
-        outcome["winner"] = "defender"
-        outcome["reason"] = "both_failed_defender"
+        spend_side = args.nudge_spend
 
-    return outcome
+    if args.command == "check" and spend_side == "defender":
+        raise ValueError("--nudge-spend defender is invalid for check rolls")
+    if spend_side is not None and args.command == "opposed" and spend_side != args.as_role:
+        print(
+            f"warning: nudge spend side '{spend_side}' does not match your role '{args.as_role}'; "
+            "no luck spent",
+            file=sys.stderr,
+        )
+        roll_payload["nudge_spend"] = spend_side
+        return
+
+    if spend_side is not None:
+        luck_cost = abs(args.nudge)
+        pools = sheet.get("pools")
+        if not isinstance(pools, dict):
+            raise KeyError("pools missing from sheet")
+        luck = pools.get("luck")
+        if not isinstance(luck, dict):
+            raise KeyError("pools.luck missing from sheet")
+        current_luck = luck.get("current")
+        if not is_int(current_luck):
+            raise TypeError("pools.luck.current is not int")
+        if current_luck < luck_cost:
+            raise ValueError(f"not enough luck tokens: need {luck_cost}, have {current_luck}")
+        luck["current"] = current_luck - luck_cost
+        roll_payload["luck_spent"] = luck_cost
+    roll_payload["nudge_spend"] = spend_side or "none"
+
+
+def parse_operations(items: list[str]) -> list[tuple[str, Any]]:
+    operations = []
+    for item in items:
+        key, value = parse_kv(item)
+        operations.append((key, parse_value(value)))
+    return operations
+
+
+def apply_state_changes(args, sheet: dict[str, Any], tracker: dict[str, Any], success: bool) -> tuple[list[str], list[str]]:
+    if success:
+        sheet_sets = parse_operations(args.success_sheet_set)
+        sheet_incs = parse_operations(args.success_sheet_inc)
+        tracker_sets = parse_operations(args.success_tracker_set)
+        tracker_incs = parse_operations(args.success_tracker_inc)
+    else:
+        sheet_sets = parse_operations(args.failure_sheet_set)
+        sheet_incs = parse_operations(args.failure_sheet_inc)
+        tracker_sets = parse_operations(args.failure_tracker_set)
+        tracker_incs = parse_operations(args.failure_tracker_inc)
+
+    sheet_changed: list[str] = []
+    tracker_changed: list[str] = []
+    allow_new = bool(args.allow_new)
+    for key, value in sheet_sets:
+        _sslib.set_path(sheet, key, value, allow_new=allow_new, allow_clock=False)
+        sheet_changed.append(key)
+    for key, delta in sheet_incs:
+        if not isinstance(delta, (int, float)):
+            raise TypeError(f"delta for {key} is not numeric")
+        _sslib.inc_path(sheet, key, int(delta), allow_new=allow_new, allow_clock=False)
+        sheet_changed.append(key)
+
+    for key, value in tracker_sets:
+        _sslib.set_path(tracker, key, value, allow_new=allow_new, allow_clock=True)
+        tracker_changed.append(key)
+    for key, delta in tracker_incs:
+        if not isinstance(delta, (int, float)):
+            raise TypeError(f"delta for {key} is not numeric")
+        _sslib.inc_path(tracker, key, int(delta), allow_new=allow_new, allow_clock=True)
+        tracker_changed.append(key)
+
+    if args.scene_inc:
+        tracker["scene"] = int(tracker.get("scene", 0)) + args.scene_inc
+        tracker_changed.append("scene")
+    if args.pressure_inc:
+        _sslib.inc_path(
+            tracker,
+            "clocks.pressure.current",
+            int(args.pressure_inc),
+            allow_new=False,
+            allow_clock=True,
+        )
+        tracker_changed.append("clocks.pressure.current")
+    for item in args.clock_inc:
+        name, value = parse_kv(item)
+        _sslib.inc_path(
+            tracker,
+            f"clocks.{name}.current",
+            int(value),
+            allow_new=False,
+            allow_clock=True,
+        )
+        tracker_changed.append(f"clocks.{name}.current")
+
+    _sslib.clamp_currents(sheet, sheet_changed)
+    _sslib.clamp_currents(tracker, tracker_changed)
+    return sheet_changed, tracker_changed
 
 
 def main() -> int:
@@ -273,210 +317,16 @@ def main() -> int:
     sheet = _sslib.load_yaml(sheet_path)
     tracker = _sslib.load_yaml(tracker_path)
 
-    # Roll
-    roll_payload: dict[str, Any]
-
-    if args.command == "check":
-        if args.adv and args.dis:
-            print("error: choose only one of --adv or --dis", file=sys.stderr)
-            return 1
-
-        stat_value = args.stat
-        if stat_value is None and args.stat_key:
-            attrs = sheet.get("attributes")
-            if not isinstance(attrs, dict) or args.stat_key not in attrs:
-                print(f"error: stat-key not found on sheet: {args.stat_key}", file=sys.stderr)
-                return 1
-            stat_value = int(attrs[args.stat_key])
-
-        if stat_value is None:
-            print("error: provide --stat or --stat-key", file=sys.stderr)
-            return 1
-
-        check_roll = _dice.resolve_check(stat_value, adv=args.adv, dis=args.dis)
-
-        if args.nudge:
-            try:
-                check_roll = _dice.apply_nudge_to_check(check_roll, args.nudge)
-            except ValueError as exc:
-                print(f"error: {exc}", file=sys.stderr)
-                return 1
-
-        success = bool(check_roll.get("success", check_roll.get("final_success")))
-        roll_payload = check_roll
-        roll_payload["label"] = args.label
-        roll_payload["stat_key"] = args.stat_key
-
-    else:
-        if args.adv_attacker and args.dis_attacker:
-            print("error: choose only one of --adv-attacker or --dis-attacker", file=sys.stderr)
-            return 1
-        if args.adv_defender and args.dis_defender:
-            print("error: choose only one of --adv-defender or --dis-defender", file=sys.stderr)
-            return 1
-
-        attacker_value = args.attacker
-        if attacker_value is None and args.attacker_key:
-            attrs = sheet.get("attributes")
-            if not isinstance(attrs, dict) or args.attacker_key not in attrs:
-                print(f"error: attacker-key not found on sheet: {args.attacker_key}", file=sys.stderr)
-                return 1
-            attacker_value = int(attrs[args.attacker_key])
-
-        if attacker_value is None:
-            print("error: provide --attacker or --attacker-key", file=sys.stderr)
-            return 1
-
-        roll_payload = _dice.resolve_opposed(
-            attacker_value,
-            args.defender,
-            adv_attacker=args.adv_attacker,
-            dis_attacker=args.dis_attacker,
-            adv_defender=args.adv_defender,
-            dis_defender=args.dis_defender,
-        )
-
-        if args.nudge:
-            target = args.nudge_target
-            try:
-                roll_payload[target] = _dice.apply_nudge_to_check(roll_payload[target], args.nudge)
-            except ValueError as exc:
-                print(f"error: {exc}", file=sys.stderr)
-                return 1
-
-        roll_payload["outcome"] = opposed_outcome(roll_payload["attacker"], roll_payload["defender"])
-        roll_payload["label"] = args.label
-        roll_payload["attacker_key"] = args.attacker_key
-
-        success = roll_payload["outcome"]["winner"] == args.as_role
-        roll_payload["as"] = args.as_role
-
-    roll_payload["schema_version"] = 1
-    roll_payload["tool_version"] = _sslib.repo_version(root)
-
-    # Spend luck for nudge
-    if args.nudge:
-        if args.nudge_spend == "none":
-            spend_side = None
-        elif args.nudge_spend == "as":
-            spend_side = "attacker" if args.command == "check" else args.as_role
-        else:
-            spend_side = args.nudge_spend
-
-        if args.command == "check" and spend_side == "defender":
-            print("error: --nudge-spend defender is invalid for check rolls", file=sys.stderr)
-            return 1
-
-        if spend_side is not None:
-            if args.command == "opposed" and spend_side != args.as_role:
-                print(
-                    f"warning: nudge spend side '{spend_side}' does not match your role '{args.as_role}'; "
-                    "no luck spent",
-                    file=sys.stderr,
-                )
-            else:
-                luck_cost = abs(args.nudge)
-                try:
-                    pools = sheet.get("pools")
-                    if not isinstance(pools, dict):
-                        raise KeyError("pools missing from sheet")
-                    luck = pools.get("luck")
-                    if not isinstance(luck, dict):
-                        raise KeyError("pools.luck missing from sheet")
-                    current_luck = luck.get("current")
-                    if not is_int(current_luck):
-                        raise TypeError("pools.luck.current is not int")
-                    if current_luck < luck_cost:
-                        raise ValueError(f"not enough luck tokens: need {luck_cost}, have {current_luck}")
-                    luck["current"] = current_luck - luck_cost
-                    roll_payload["luck_spent"] = luck_cost
-                except (KeyError, TypeError, ValueError) as exc:
-                    print(f"error: {exc}", file=sys.stderr)
-                    return 1
-
-        roll_payload["nudge_spend"] = spend_side or "none"
-
-    # Apply scripted ops
-    def parse_list(items):
-        out = []
-        for item in items:
-            key, value = parse_kv(item)
-            out.append((key, parse_value(value)))
-        return out
-
-    if success:
-        sheet_sets = parse_list(args.success_sheet_set)
-        sheet_incs = parse_list(args.success_sheet_inc)
-        tracker_sets = parse_list(args.success_tracker_set)
-        tracker_incs = parse_list(args.success_tracker_inc)
-    else:
-        sheet_sets = parse_list(args.failure_sheet_set)
-        sheet_incs = parse_list(args.failure_sheet_inc)
-        tracker_sets = parse_list(args.failure_tracker_set)
-        tracker_incs = parse_list(args.failure_tracker_inc)
-
-    sheet_changed: list[str] = []
-    tracker_changed: list[str] = []
-    allow_new = bool(args.allow_new)
     try:
-        for key, value in sheet_sets:
-            _sslib.set_path(sheet, key, value, allow_new=allow_new, allow_clock=False)
-            sheet_changed.append(key)
-        for key, delta in sheet_incs:
-            if not isinstance(delta, (int, float)):
-                raise TypeError(f"delta for {key} is not numeric")
-            _sslib.inc_path(sheet, key, int(delta), allow_new=allow_new, allow_clock=False)
-            sheet_changed.append(key)
-
-        for key, value in tracker_sets:
-            _sslib.set_path(tracker, key, value, allow_new=allow_new, allow_clock=True)
-            tracker_changed.append(key)
-        for key, delta in tracker_incs:
-            if not isinstance(delta, (int, float)):
-                raise TypeError(f"delta for {key} is not numeric")
-            _sslib.inc_path(tracker, key, int(delta), allow_new=allow_new, allow_clock=True)
-            tracker_changed.append(key)
-
-    except (KeyError, TypeError) as exc:
+        roll_payload, success = resolve_roll(args, sheet)
+        roll_payload["schema_version"] = 1
+        roll_payload["tool_version"] = _sslib.repo_version(root)
+        roll_payload["seed"] = args.seed
+        spend_luck(args, sheet, roll_payload)
+        sheet_changed, tracker_changed = apply_state_changes(args, sheet, tracker, success)
+    except (KeyError, TypeError, ValueError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
-
-    # Tracker increments
-    if args.scene_inc:
-        tracker["scene"] = int(tracker.get("scene", 0)) + args.scene_inc
-
-    if args.pressure_inc:
-        try:
-            _sslib.inc_path(
-                tracker,
-                "clocks.pressure.current",
-                int(args.pressure_inc),
-                allow_new=False,
-                allow_clock=True,
-            )
-            tracker_changed.append("clocks.pressure.current")
-        except (KeyError, TypeError) as exc:
-            print(f"error: {exc}", file=sys.stderr)
-            return 1
-
-    for item in args.clock_inc:
-        name, value = parse_kv(item)
-        delta = int(value)
-        try:
-            _sslib.inc_path(
-                tracker,
-                f"clocks.{name}.current",
-                delta,
-                allow_new=False,
-                allow_clock=True,
-            )
-            tracker_changed.append(f"clocks.{name}.current")
-        except (KeyError, TypeError) as exc:
-            print(f"error: {exc}", file=sys.stderr)
-            return 1
-
-    _sslib.clamp_currents(sheet, sheet_changed)
-    _sslib.clamp_currents(tracker, tracker_changed)
 
     if not args.dry_run:
         _sslib.save_yaml(sheet_path, sheet)
@@ -484,7 +334,8 @@ def main() -> int:
 
     # Logging / recap
     if args.log and not args.dry_run:
-        log_path = latest_session_md(_sslib.campaign_logs_dir(args.campaign, root=root))
+        logs_dir = _sslib.campaign_logs_dir(args.campaign, root=root)
+        log_path = session_log.find_latest_log(logs_dir) or session_log.next_log_path(logs_dir)
         if args.command == "check":
             log_line = format_check_log(args.label, roll_payload)
         else:
@@ -493,11 +344,12 @@ def main() -> int:
             out = roll_payload.get("outcome", {})
             log_line = (args.label + ": " if args.label else "") + a_line + " | " + d_line
             log_line += f" | outcome={out.get('winner')} ({out.get('reason')})"
-        append_log(log_path, args.log_role, log_line)
+        session_log.append_log(log_path, args.log_role, log_line)
 
     if (args.recap or args.thread or args.npc or args.secret) and not args.dry_run:
-        memory_path = latest_session_yaml(_sslib.campaign_memory_dir(args.campaign, root=root))
-        append_recap(memory_path, args.recap, args.thread, args.npc, args.secret)
+        memory_dir = _sslib.campaign_memory_dir(args.campaign, root=root)
+        memory_path = recap.find_latest_session(memory_dir) or recap.next_session_path(memory_dir)
+        recap.append_recap(memory_path, args.recap, args.thread, args.npc, args.secret)
 
     # Output
     if args.out_roll and not args.dry_run:

@@ -1,29 +1,25 @@
 #!/usr/bin/env python3
 import argparse
-from datetime import date
 import json
 from pathlib import Path
 import sys
 import yaml
 
+import _characters
 import _sslib
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def load_manifest() -> dict:
-    manifest_path = ROOT / "manifest.yaml"
-    if not manifest_path.exists():
-        print(f"error: missing manifest: {manifest_path}", file=sys.stderr)
-        sys.exit(1)
-    return yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
+    return _sslib.load_manifest(ROOT)
 
 
 def load_campaign(campaign_slug: str) -> dict:
-    campaign_path = ROOT / "campaigns" / campaign_slug / "campaign.yaml"
+    campaign_path = _sslib.campaign_file(campaign_slug, root=ROOT)
     if not campaign_path.exists():
         print(f"error: campaign not found: {campaign_path}", file=sys.stderr)
         sys.exit(1)
-    return yaml.safe_load(campaign_path.read_text(encoding="utf-8")) or {}
+    return _sslib.load_yaml(campaign_path)
 
 
 def parse_kv(item: str):
@@ -48,7 +44,7 @@ def main() -> int:
         "--stamina",
         type=int,
         default=5,
-        help="Stamina score (default 5; participates in point-buy). Prefer --set STM=... for clarity (STA also accepted).",
+        help="Stamina score (default 5; participates in point-buy). Prefer --set STM=... for clarity.",
     )
     parser.add_argument(
         "--build-points",
@@ -117,14 +113,14 @@ def main() -> int:
         print("error: --build-points must be >= 0", file=sys.stderr)
         return 1
 
-    # Build stats from baseline 10 (Stamina baseline is 5 and participates in the ledger)
+    # Build stats from baseline 10; Stamina uses its own baseline of 5.
     stats = {key: 10 for key in attrs.keys()}
     stamina_value = int(args.stamina)
 
     try:
         for item in args.delta:
             key, value = parse_kv(item)
-            if key in ("STM", "STA"):
+            if key == "STM":
                 stamina_value += int(value)
                 continue
             if key not in stats:
@@ -134,7 +130,7 @@ def main() -> int:
 
         for item in args.set:
             key, value = parse_kv(item)
-            if key in ("STM", "STA"):
+            if key == "STM":
                 stamina_value = int(value)
                 continue
             if key not in stats:
@@ -187,43 +183,17 @@ def main() -> int:
         print("error: luck_key not found in attributes", file=sys.stderr)
         return 1
 
-    luck_value = stats[luck_key]
-
-    sheet = {
-        "schema_version": 1,
-        "name": args.name,
-        "skin": skin_slug,
-        "player": args.player,
-        "created": date.today().isoformat(),
-        "creation": {
-            "build_points_budget": build_points_budget,
-            "build_points_used": needed,
-        },
-        "attributes": stats,
-        "pools": {
-            "luck": {
-                "name": skin.get("luck_name", luck_key),
-                "current": luck_value,
-                "max": luck_value,
-            },
-            "stamina": {
-                "current": stamina_value,
-                "max": stamina_value,
-            },
-        },
-        "tracks": {
-            "pressure": {
-                "name": skin.get("pressure_track", "Pressure"),
-                "current": 0,
-                "max": 5,
-            }
-        },
-        "inventory": {
-            "big_items": [],
-            "small_items": [],
-        },
-        "notes": args.note,
-    }
+    sheet = _characters.build_sheet(
+        skin_slug=skin_slug,
+        skin=skin,
+        name=args.name,
+        player=args.player,
+        attributes=stats,
+        stamina=stamina_value,
+        build_points_budget=build_points_budget,
+        build_points_used=needed,
+        notes=args.note,
+    )
 
     output = yaml.safe_dump(sheet, sort_keys=False)
 

@@ -5,6 +5,8 @@ from pathlib import Path
 import sys
 
 import _delvekit
+import _delvekit_output
+import _sslib
 import yaml
 
 
@@ -43,43 +45,43 @@ def main() -> int:
     if args.markdown_out:
         path = Path(args.markdown_out)
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(_delvekit.dungeon_to_markdown(payload), encoding="utf-8")
+        path.write_text(_delvekit_output.dungeon_to_markdown(payload), encoding="utf-8")
 
     if args.gm_map_out:
         path = Path(args.gm_map_out)
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(_delvekit.render_map(payload, mode="gm"), encoding="utf-8")
+        path.write_text(_delvekit_output.render_map(payload, mode="gm"), encoding="utf-8")
 
     if args.player_map_out:
         path = Path(args.player_map_out)
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(_delvekit.render_map(payload, mode="player", frontier=True), encoding="utf-8")
+        path.write_text(_delvekit_output.render_map(payload, mode="player", frontier=True), encoding="utf-8")
 
     if args.pitch_prompt_out:
-        manifest = _delvekit._sslib.load_yaml(Path(__file__).resolve().parent.parent / "manifest.yaml")
+        manifest = _sslib.load_manifest()
         prompt_rel = manifest.get("prompts", {}).get("candlelight_delvekit_pitch_polish", "prompts/chat/candlelight_delvekit_pitch_polish.md")
         prompt_text = (Path(__file__).resolve().parent.parent / prompt_rel).read_text(encoding="utf-8")
         path = Path(args.pitch_prompt_out)
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(_delvekit.render_pitch_polish_prompt(payload, prompt_text), encoding="utf-8")
+        path.write_text(_delvekit_output.render_pitch_polish_prompt(payload, prompt_text), encoding="utf-8")
 
     if args.pitch_json_out:
         path = Path(args.pitch_json_out)
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(_delvekit.pitch_polish_payload(payload), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        path.write_text(json.dumps(_delvekit_output.pitch_polish_payload(payload), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     if args.adventure_prompt_out:
-        manifest = _delvekit._sslib.load_yaml(Path(__file__).resolve().parent.parent / "manifest.yaml")
+        manifest = _sslib.load_manifest()
         prompt_rel = manifest.get("prompts", {}).get("candlelight_delvekit_adventure_polish", "prompts/chat/candlelight_delvekit_adventure_polish.md")
         prompt_text = (Path(__file__).resolve().parent.parent / prompt_rel).read_text(encoding="utf-8")
         path = Path(args.adventure_prompt_out)
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(_delvekit.render_adventure_polish_prompt(payload, prompt_text), encoding="utf-8")
+        path.write_text(_delvekit_output.render_adventure_polish_prompt(payload, prompt_text), encoding="utf-8")
 
     if args.adventure_json_out:
         path = Path(args.adventure_json_out)
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(_delvekit.adventure_polish_payload(payload), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        path.write_text(json.dumps(_delvekit_output.adventure_polish_payload(payload), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     return 0
 

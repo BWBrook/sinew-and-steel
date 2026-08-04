@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 import argparse
-from datetime import date
 import json
 from pathlib import Path
 import random
 import sys
 import yaml
 
+import _characters
 import _sslib
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,19 +19,15 @@ MAX_STAMINA = 9
 
 
 def load_manifest() -> dict:
-    manifest_path = ROOT / "manifest.yaml"
-    if not manifest_path.exists():
-        print(f"error: missing manifest: {manifest_path}", file=sys.stderr)
-        sys.exit(1)
-    return yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
+    return _sslib.load_manifest(ROOT)
 
 
 def load_campaign(campaign_slug: str) -> dict:
-    campaign_path = ROOT / "campaigns" / campaign_slug / "campaign.yaml"
+    campaign_path = _sslib.campaign_file(campaign_slug, root=ROOT)
     if not campaign_path.exists():
         print(f"error: campaign not found: {campaign_path}", file=sys.stderr)
         sys.exit(1)
-    return yaml.safe_load(campaign_path.read_text(encoding="utf-8")) or {}
+    return _sslib.load_yaml(campaign_path)
 
 
 def apply_double_debit_steps(keys, steps: int, primary: str | None = None) -> dict:
@@ -246,55 +242,25 @@ def build_sheet(skin_entry: dict, name: str, player: str):
         print("error: luck_key not found in attributes", file=sys.stderr)
         sys.exit(1)
 
-    luck_value = stats[luck_key]
-
-    sheet = {
-        "schema_version": 1,
-        "name": name,
-        "skin": skin_entry.get("slug", ""),
-        "player": player,
-        "created": date.today().isoformat(),
-        "creation": {
+    return _characters.build_sheet(
+        skin_slug=skin_entry.get("slug", ""),
+        skin=skin_entry,
+        name=name,
+        player=player,
+        attributes=stats,
+        stamina=stamina_value,
+        build_points_budget=build_points_budget,
+        build_points_used=needed,
+        generated={
+            "method": "double_debit",
+            "steps": gen.get("steps"),
+            "min_steps": gen.get("min_steps", 2),
+            "max_steps": gen.get("max_steps", 6),
+            "primary": gen.get("primary"),
             "build_points_budget": build_points_budget,
-            "build_points_used": needed,
+            "build_points_unspent": int(remaining),
         },
-        "meta": {
-            "generated": {
-                "method": "double_debit",
-                "steps": gen.get("steps"),
-                "min_steps": gen.get("min_steps", 2),
-                "max_steps": gen.get("max_steps", 6),
-                "primary": gen.get("primary"),
-                "build_points_budget": build_points_budget,
-                "build_points_unspent": int(remaining),
-            }
-        },
-        "attributes": stats,
-        "pools": {
-            "luck": {
-                "name": skin_entry.get("luck_name", luck_key),
-                "current": luck_value,
-                "max": luck_value,
-            },
-            "stamina": {
-                "current": stamina_value,
-                "max": stamina_value,
-            },
-        },
-        "tracks": {
-            "pressure": {
-                "name": skin_entry.get("pressure_track", "Pressure"),
-                "current": 0,
-                "max": 5,
-            }
-        },
-        "inventory": {
-            "big_items": [],
-            "small_items": [],
-        },
-        "notes": [],
-    }
-    return sheet
+    )
 
 
 def main() -> int:
@@ -392,6 +358,8 @@ def main() -> int:
             args.name,
             args.player,
         )
+        if args.seed is not None:
+            sheet.setdefault("meta", {}).setdefault("generated", {})["seed"] = args.seed
     except (RuntimeError, ValueError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1

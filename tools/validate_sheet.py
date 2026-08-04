@@ -23,10 +23,8 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
     warnings: list[str] = []
 
     schema_version = sheet.get("schema_version")
-    if schema_version is None:
-        warnings.append("sheet missing schema_version")
-    elif not isinstance(schema_version, int):
-        warnings.append(f"sheet schema_version is not int: {schema_version}")
+    if schema_version != 1:
+        errors.append(f"sheet schema_version must be 1 (got {schema_version!r})")
 
     skin_slug = sheet.get("skin")
     if not skin_slug or not isinstance(skin_slug, str):
@@ -110,7 +108,7 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
                 )
 
     stamina = pools.get("stamina")
-    stamina_max_for_ledger = None
+    stamina_max_for_validation = None
     if not isinstance(stamina, dict):
         errors.append("missing or invalid pools.stamina")
     else:
@@ -126,7 +124,7 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
                 errors.append(f"pools.stamina.max out of range (3-9): {max_value}")
             if cur_value < 0 or cur_value > max_value:
                 errors.append(f"pools.stamina.current out of range (0-{max_value}): {cur_value}")
-            stamina_max_for_ledger = max_value
+            stamina_max_for_validation = max_value
 
     # Build points validation (attributes baseline 10; stamina baseline 5).
     # Economy: +1 above baseline costs 2 build points; +1 below baseline costs 1 build point.
@@ -161,9 +159,9 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
         baselines = {key: 10 for key in stats.keys()}
         values = dict(stats)
         baselines["STM"] = 5
-        if stamina_max_for_ledger is None:
+        if stamina_max_for_validation is None:
             raise ValueError("missing stamina max for point-buy validation")
-        values["STM"] = stamina_max_for_ledger
+        values["STM"] = stamina_max_for_validation
 
         needed, increases, decreases, required, slack = _sslib.build_points_needed_mixed(values, baselines)
         if needed > int(build_points_budget):
@@ -179,38 +177,6 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
             )
     except Exception as exc:
         errors.append(f"failed to compute point-buy validation: {exc}")
-
-    # Tracks
-    tracks = sheet.get("tracks")
-    if not isinstance(tracks, dict):
-        errors.append("missing or invalid sheet.tracks")
-    else:
-        extra_track_keys = sorted(set(tracks.keys()) - {"pressure"})
-        if extra_track_keys:
-            warnings.append(f"unexpected tracks keys: {', '.join(extra_track_keys)}")
-        pressure = tracks.get("pressure")
-        if not isinstance(pressure, dict):
-            errors.append("missing or invalid tracks.pressure")
-        else:
-            extra_pressure_keys = sorted(set(pressure.keys()) - {"name", "current", "max"})
-            if extra_pressure_keys:
-                warnings.append(f"unexpected tracks.pressure keys: {', '.join(extra_pressure_keys)}")
-            max_value = pressure.get("max")
-            cur_value = pressure.get("current")
-            if not is_int(max_value) or not is_int(cur_value):
-                errors.append("tracks.pressure.current and tracks.pressure.max must be ints")
-            else:
-                if max_value != 5:
-                    warnings.append(f"tracks.pressure.max expected 5 (got {max_value})")
-                if cur_value < 0 or cur_value > max_value:
-                    errors.append(f"tracks.pressure.current out of range (0-{max_value}): {cur_value}")
-
-            expected_pressure_name = skin.get("pressure_track")
-            actual_pressure_name = pressure.get("name")
-            if expected_pressure_name and actual_pressure_name and expected_pressure_name != actual_pressure_name:
-                warnings.append(
-                    f"tracks.pressure.name '{actual_pressure_name}' != expected '{expected_pressure_name}' for skin"
-                )
 
     # Inventory warnings
     inv = sheet.get("inventory")

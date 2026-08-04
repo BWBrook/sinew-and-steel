@@ -65,7 +65,7 @@ def main() -> int:
 
     campaign = load_yaml_optional(cfile)
     skin_slug = campaign.get("skin")
-    campaign_title = campaign.get("title") or campaign.get("name") or args.campaign
+    campaign_title = campaign.get("title") or args.campaign
     skins = manifest.get("skins", {})
     skin = skins.get(skin_slug, {})
 

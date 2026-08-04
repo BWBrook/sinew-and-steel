@@ -79,6 +79,7 @@ def main() -> int:
 
     data["schema_version"] = 1
     data["tool_version"] = _sslib.repo_version()
+    data["seed"] = args.seed
 
     if args.pretty:
         print(json.dumps(data, indent=2))

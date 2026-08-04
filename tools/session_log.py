@@ -33,6 +33,18 @@ def next_log_path(logs_dir: Path) -> Path:
     return logs_dir / f"session_{num + 1:03d}.md"
 
 
+def append_log(log_path: Path, role: str | None, text: str) -> None:
+    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%SZ")
+    header_parts = [timestamp]
+    if role:
+        header_parts.append(role)
+    header = " - ".join(header_parts)
+    entry = f"## {header}\n\n{text.rstrip()}\n\n"
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    with log_path.open("a", encoding="utf-8") as handle:
+        handle.write(entry)
+
+
 def read_text_from_stdin() -> str:
     return sys.stdin.read()
 
@@ -41,7 +53,6 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Append public narration or roll results to a session log.")
     parser.add_argument("--campaign", help="Campaign slug under campaigns/")
     parser.add_argument("--file", help="Log file path to append")
-    parser.add_argument("--new", action="store_true", help="Create a new session log")
     parser.add_argument("--role", help="Role label (GM, Player, System)")
     parser.add_argument("--text", help="Text to append")
     parser.add_argument("--text-file", help="Read text from file")
@@ -66,10 +77,7 @@ def main() -> int:
         logs_dir = campaign_dir / "state" / "logs"
         logs_dir.mkdir(parents=True, exist_ok=True)
         if log_path is None:
-            if args.new:
-                log_path = next_log_path(logs_dir)
-            else:
-                log_path = find_latest_log(logs_dir) or next_log_path(logs_dir)
+            log_path = find_latest_log(logs_dir) or next_log_path(logs_dir)
 
     if not log_path:
         print("error: provide --campaign or --file", file=sys.stderr)

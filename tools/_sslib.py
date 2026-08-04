@@ -111,14 +111,6 @@ class ValidationResult:
         return not self.errors
 
 
-def validate_double_debit(stats: dict[str, Any], baseline: int = 10) -> tuple[int, int, int, int]:
-    increases = sum(max(0, int(v) - baseline) for v in stats.values())
-    decreases = sum(max(0, baseline - int(v)) for v in stats.values())
-    required_decreases = 2 * increases
-    slack = decreases - required_decreases
-    return increases, decreases, required_decreases, slack
-
-
 def validate_double_debit_mixed(
     values: dict[str, Any],
     baselines: dict[str, int],

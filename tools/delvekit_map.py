@@ -4,6 +4,7 @@ from pathlib import Path
 import sys
 
 import _delvekit
+import _delvekit_output
 
 
 def _csv_list(value: str | None) -> list[str]:
@@ -29,7 +30,7 @@ def main() -> int:
     args = parser.parse_args()
 
     payload = _delvekit.load_dungeon(args.file)
-    text = _delvekit.render_map(
+    text = _delvekit_output.render_map(
         payload,
         mode=args.mode,
         frontier=args.frontier,

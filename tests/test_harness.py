@@ -1,0 +1,82 @@
+import json
+import subprocess
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+
+import _characters
+import _dice
+import _delvekit
+import _delvekit_output
+import _pdf_common
+import _sslib
+import recap
+import validate_sheet
+
+
+class HarnessTests(unittest.TestCase):
+    def test_opposed_resolution_keeps_defender_on_double_failure(self):
+        attacker = {"success": False, "margin": -3}
+        defender = {"success": False, "margin": -7}
+        self.assertEqual(
+            _dice.resolve_opposed_outcome(attacker, defender),
+            {"winner": "defender", "reason": "both_failed_defender"},
+        )
+
+    def test_canonical_sheet_has_no_pressure_ledger(self):
+        manifest = _sslib.load_manifest(ROOT)
+        skin = {**manifest["skins"]["clanfire"], "slug": "clanfire"}
+        sheet = _characters.build_sheet(
+            skin_slug="clanfire",
+            skin=skin,
+            name="Test Hero",
+            attributes={"MGT": 11, "FLT": 11, "CUN": 10, "SPR": 10, "INS": 10},
+            stamina=5,
+            build_points_budget=6,
+            build_points_used=4,
+        )
+        self.assertNotIn("tracks", sheet)
+        self.assertTrue(validate_sheet.validate_sheet(sheet, manifest).ok())
+
+    def test_delvekit_generated_data_validates_and_renders(self):
+        data = _delvekit.generate_dungeon(seed=42, size="tiny", difficulty="hard")
+        self.assertIs(_delvekit.validate_dungeon(data), data)
+        self.assertIn("Connector Notes", _delvekit_output.render_map(data))
+        self.assertIn("## Room Key", _delvekit_output.dungeon_to_markdown(data))
+
+    def test_seed_is_part_of_roll_receipt(self):
+        command = [
+            sys.executable,
+            str(ROOT / "tools" / "roll.py"),
+            "--seed",
+            "42",
+            "check",
+            "--stat",
+            "12",
+        ]
+        result = subprocess.run(command, check=True, capture_output=True, text=True)
+        self.assertEqual(json.loads(result.stdout)["seed"], 42)
+
+    def test_recap_reports_scene_changes(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            tracker_path = Path(temp_dir) / "session.yaml"
+            tracker_path.write_text("schema_version: 1\nscene: 2\nclocks: {}\n", encoding="utf-8")
+            _, changed = recap.update_tracker(tracker_path, 1, None, [], [], clamp=True)
+            self.assertIn("scene", changed)
+
+    def test_image_rewrite_preserves_angle_link_syntax(self):
+        text = '![art](<../assets/art.png> "caption")'
+        rewritten = _pdf_common.rewrite_markdown_image_paths(
+            text=text,
+            source_path=Path("rules/book/example.md"),
+        )
+        self.assertEqual(rewritten, '![art](<rules/assets/art.png> "caption")')
+
+
+if __name__ == "__main__":
+    unittest.main()

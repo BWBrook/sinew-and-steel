@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 from datetime import datetime, timezone
+import os
 from pathlib import Path
 import sys
 
@@ -37,36 +38,31 @@ def write_checkpoint(
     if not dry_run:
         cdir.mkdir(parents=True, exist_ok=True)
 
-        # Ironman behavior: keep exactly one checkpoint per campaign.
-        # Always overwrite last.md and last.yaml; delete any older archived files.
-        for pattern in ("checkpoint_*.md", "checkpoint_*.yaml", "last_*.md", "last_*.yaml"):
-            for path in cdir.glob(pattern):
-                try:
-                    path.unlink()
-                except OSError:
-                    pass
-
-    def write_pair(markdown_path: Path) -> None:
-        if dry_run:
-            return
-        markdown_path.write_text(text, encoding="utf-8")
+    base = cdir / "last.md"
+    metadata_path = base.with_suffix(".yaml")
+    if not dry_run:
         meta = {
             "schema_version": 1,
             "campaign": campaign,
             "created": timestamp,
         }
-        markdown_path.with_suffix(".yaml").write_text(
-            yaml.safe_dump(meta, sort_keys=False),
-            encoding="utf-8",
-        )
+        markdown_tmp = base.with_suffix(".md.tmp")
+        metadata_tmp = metadata_path.with_suffix(".yaml.tmp")
+        try:
+            markdown_tmp.write_text(text, encoding="utf-8")
+            metadata_tmp.write_text(yaml.safe_dump(meta, sort_keys=False), encoding="utf-8")
+            os.replace(markdown_tmp, base)
+            os.replace(metadata_tmp, metadata_path)
+        finally:
+            markdown_tmp.unlink(missing_ok=True)
+            metadata_tmp.unlink(missing_ok=True)
 
-    written = []
-
-    base = cdir / "last.md"
-    write_pair(base)
-    written.append(str(base))
-
-    return {"campaign": campaign, "written": written, "created": timestamp, "dry_run": bool(dry_run)}
+    return {
+        "campaign": campaign,
+        "written": [str(base), str(metadata_path)],
+        "created": timestamp,
+        "dry_run": bool(dry_run),
+    }
 
 
 def show_checkpoint(*, campaign: str, root: Path) -> int:

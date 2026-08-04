@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 
 import _delvekit
+import _delvekit_output
 import _sslib
 
 
@@ -57,8 +58,8 @@ def _parse_polish_text(text: str) -> tuple[str, str]:
 def cmd_prepare(args: argparse.Namespace) -> int:
     data = _delvekit.load_dungeon(args.file)
     prompt_text = _manifest_prompt_path().read_text(encoding="utf-8")
-    bundle = _delvekit.render_pitch_polish_prompt(data, prompt_text)
-    payload_json = json.dumps(_delvekit.pitch_polish_payload(data), indent=2, ensure_ascii=False) + "\n"
+    bundle = _delvekit_output.render_pitch_polish_prompt(data, prompt_text)
+    payload_json = json.dumps(_delvekit_output.pitch_polish_payload(data), indent=2, ensure_ascii=False) + "\n"
 
     if args.out:
         path = Path(args.out)
@@ -81,7 +82,7 @@ def cmd_apply(args: argparse.Namespace) -> int:
     else:
         text = _load_text(args.text_file or args.json_file, stdin_fallback=True)
         title, blurb = _parse_polish_text(text)
-    _delvekit.apply_polished_pitch(data, title=title, blurb=blurb)
+    _delvekit_output.apply_polished_pitch(data, title=title, blurb=blurb)
     target = Path(args.out or args.file)
     target.parent.mkdir(parents=True, exist_ok=True)
     _delvekit.save_dungeon(target, data)

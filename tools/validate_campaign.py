@@ -37,10 +37,8 @@ def validate_campaign(campaign_slug: str, manifest: dict) -> _sslib.ValidationRe
         return _sslib.ValidationResult(errors, warnings)
 
     schema_version = campaign.get("schema_version")
-    if schema_version is None:
-        warnings.append("campaign.yaml missing schema_version")
-    elif not isinstance(schema_version, int):
-        warnings.append(f"campaign.yaml schema_version is not int: {schema_version}")
+    if schema_version != 1:
+        errors.append(f"campaign.yaml schema_version must be 1 (got {schema_version!r})")
 
     build_points_budget = campaign.get("build_points_budget")
     if build_points_budget is None:
@@ -50,12 +48,11 @@ def validate_campaign(campaign_slug: str, manifest: dict) -> _sslib.ValidationRe
     elif int(build_points_budget) < 0:
         errors.append(f"campaign.yaml build_points_budget must be >= 0 (got {build_points_budget})")
 
-    name_field = campaign.get("name")
-    slug_field = campaign.get("slug") or name_field
-    if slug_field and slug_field != campaign_slug:
-        warnings.append(f"campaign.yaml slug '{slug_field}' != folder '{campaign_slug}'")
-    if campaign.get("slug") and name_field and campaign.get("slug") != name_field:
-        warnings.append(f"campaign.yaml name '{name_field}' != slug '{campaign.get('slug')}'")
+    slug_field = campaign.get("slug")
+    if not isinstance(slug_field, str) or not slug_field:
+        errors.append("campaign.yaml missing slug")
+    elif slug_field != campaign_slug:
+        errors.append(f"campaign.yaml slug '{slug_field}' != folder '{campaign_slug}'")
 
     skins = manifest.get("skins", {})
     skin = skins.get(skin_slug)
@@ -81,10 +78,8 @@ def validate_campaign(campaign_slug: str, manifest: dict) -> _sslib.ValidationRe
     else:
         tracker = yaml.safe_load(tracker_path.read_text(encoding="utf-8")) or {}
         tracker_schema = tracker.get("schema_version")
-        if tracker_schema is None:
-            warnings.append("tracker missing schema_version")
-        elif not is_int(tracker_schema):
-            warnings.append(f"tracker schema_version is not int: {tracker_schema}")
+        if tracker_schema != 1:
+            errors.append(f"tracker schema_version must be 1 (got {tracker_schema!r})")
 
         extra_tracker_keys = sorted(set(tracker.keys()) - {"schema_version", "name", "scene", "clocks", "notes"})
         if extra_tracker_keys:
@@ -138,18 +133,6 @@ def validate_campaign(campaign_slug: str, manifest: dict) -> _sslib.ValidationRe
                         f"tracker clocks.pressure.name '{actual_name}' != expected '{expected_name}' for skin"
                     )
 
-    tracker_pressure = None
-    if tracker_path.exists():
-        try:
-            tracker_data = yaml.safe_load(tracker_path.read_text(encoding="utf-8")) or {}
-            tracker_pressure = (
-                tracker_data.get("clocks", {}).get("pressure", {}).get("current")
-                if isinstance(tracker_data.get("clocks"), dict)
-                else None
-            )
-        except Exception:
-            tracker_pressure = None
-
     # Characters
     chars_dir = _sslib.campaign_characters_dir(campaign_slug, root=root)
     sheets = sorted(chars_dir.glob("*.yaml"))
@@ -168,24 +151,6 @@ def validate_campaign(campaign_slug: str, manifest: dict) -> _sslib.ValidationRe
         for w in sheet_result.warnings:
             warnings.append(f"{sheet_path.name}: {w}")
 
-        # Cross-check tracker vs sheet pressure (if present)
-        try:
-            sheet_tracks = sheet.get("tracks") if isinstance(sheet.get("tracks"), dict) else {}
-            sheet_pressure = None
-            if isinstance(sheet_tracks, dict):
-                pressure = sheet_tracks.get("pressure")
-                if isinstance(pressure, dict):
-                    sheet_pressure = pressure.get("current")
-            if tracker_pressure is not None and sheet_pressure is not None:
-                if is_int(tracker_pressure) and is_int(sheet_pressure):
-                    if int(tracker_pressure) != int(sheet_pressure):
-                        warnings.append(
-                            f"{sheet_path.name}: tracks.pressure.current ({sheet_pressure}) != "
-                            f"tracker clocks.pressure.current ({tracker_pressure})"
-                        )
-        except Exception:
-            pass
-
     # Memory
     memory_dir = _sslib.campaign_memory_dir(campaign_slug, root=root)
     if memory_dir.exists():
@@ -195,10 +160,8 @@ def validate_campaign(campaign_slug: str, manifest: dict) -> _sslib.ValidationRe
         for mem_path in memory_files:
             mem = yaml.safe_load(mem_path.read_text(encoding="utf-8")) or {}
             mem_schema = mem.get("schema_version")
-            if mem_schema is None:
-                warnings.append(f"{mem_path.name}: missing schema_version")
-            elif not is_int(mem_schema):
-                warnings.append(f"{mem_path.name}: schema_version is not int: {mem_schema}")
+            if mem_schema != 1:
+                errors.append(f"{mem_path.name}: schema_version must be 1 (got {mem_schema!r})")
             for key in ("summary", "threads", "npcs", "secrets"):
                 if key not in mem:
                     continue

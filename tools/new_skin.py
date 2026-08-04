@@ -63,10 +63,10 @@ def main() -> int:
 
     template = template_path.read_text(encoding="utf-8")
     content = template.replace("SKIN NAME", name)
-    skin_path.write_text(content, encoding="utf-8")
+    manifest = None
+    manifest_path = ROOT / "manifest.yaml"
 
     if args.register:
-        manifest_path = ROOT / "manifest.yaml"
         manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
         skins = manifest.setdefault("skins", {})
         if slug in skins:
@@ -103,7 +103,9 @@ def main() -> int:
                 "luck_key": luck_key,
                 "luck_name": luck_name,
             }
-            manifest_path.write_text(yaml.safe_dump(manifest, sort_keys=False), encoding="utf-8")
+    skin_path.write_text(content, encoding="utf-8")
+    if manifest is not None:
+        manifest_path.write_text(yaml.safe_dump(manifest, sort_keys=False), encoding="utf-8")
 
     print(f"created {skin_path}")
     return 0

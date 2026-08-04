@@ -93,32 +93,14 @@ def collect_errors() -> list[str]:
             if not (ROOT / rel).exists():
                 errors.append(f"missing file: {rel}")
 
-    # Check tools we rely on
-    for rel in (
-        "tools/_sslib.py",
-        "tools/_dice.py",
-        "tools/build_prompt.py",
-        "tools/roll.py",
-        "tools/recap.py",
-        "tools/session_log.py",
-        "tools/apply_roll.py",
-        "tools/beat.py",
-        "tools/doctor.py",
-        "tools/release_build.py",
-        "tools/ss.py",
-        "tools/checkpoint.py",
-        "tools/resume_pack.py",
-        "tools/summary.py",
-        "tools/new_session.py",
-        "tools/gen_character.py",
-        "tools/char_builder.py",
-        "tools/recalc_sheet.py",
-        "tools/campaign_init.py",
-        "tools/validate_sheet.py",
-        "tools/validate_campaign.py",
-    ):
-        if not (ROOT / rel).exists():
-            errors.append(f"missing file: {rel}")
+    # Every Python tool is part of the checked-in harness surface.
+    tools_dir = ROOT / "tools"
+    if not tools_dir.exists():
+        errors.append("missing tools directory")
+    else:
+        for path in sorted(tools_dir.glob("*.py")):
+            if not path.is_file():
+                errors.append(f"missing file: {path.relative_to(ROOT)}")
 
     return errors
 

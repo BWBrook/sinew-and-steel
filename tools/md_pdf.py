@@ -21,164 +21,26 @@ from __future__ import annotations
 
 import argparse
 from datetime import datetime, timezone
-import os
 from pathlib import Path
-import platform
-import re
 import shlex
-import shutil
 import subprocess
 import sys
 from typing import Literal
 
+from _pdf_common import (
+    configure_macos_weasyprint_runtime,
+    default_bookish_fonts,
+    load_text,
+    normalize_css_font_size,
+    pandoc_available,
+    rewrite_markdown_image_paths,
+    sanitize_for_pdflatex,
+    tex_engine_available,
+    weasyprint_available,
+    write_text,
+)
+
 ROOT = Path(__file__).resolve().parents[1]
-
-_MD_IMAGE_LINK_RE = re.compile(r"!\[([^\]]*)\]\((\S+?)(\s+\"[^\"]*\")?\)")
-_MD_IMAGE_LINK_ANGLE_RE = re.compile(r"!\[([^\]]*)\]\(<([^>]+)>(\s+\"[^\"]*\")?\)")
-
-
-def default_bookish_fonts() -> tuple[str, str, str]:
-    if platform.system() == "Darwin":
-        return ("Palatino", "Helvetica", "Menlo")
-    return ("Linux Libertine O", "Linux Biolinum O", "JetBrains Mono")
-
-
-def load_text(path: Path) -> str:
-    return path.read_text(encoding="utf-8")
-
-
-def write_text(path: Path, content: str) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(content, encoding="utf-8")
-
-
-def pandoc_available() -> bool:
-    return shutil.which("pandoc") is not None
-
-
-def tex_engine_available(engine: str) -> bool:
-    return shutil.which(engine) is not None
-
-
-def weasyprint_available() -> bool:
-    configure_macos_weasyprint_runtime()
-    try:
-        import weasyprint  # noqa: F401
-
-        return True
-    except Exception:
-        return False
-
-
-def configure_macos_weasyprint_runtime() -> None:
-    """
-    On Apple Silicon Macs, Homebrew libraries live under /opt/homebrew/lib.
-    WeasyPrint's CFFI loader doesn't always see that path by default, so expose
-    it before importing the backend.
-    """
-    if platform.system() != "Darwin":
-        return
-
-    brew_lib = Path("/opt/homebrew/lib")
-    if not brew_lib.exists():
-        return
-
-    current = os.environ.get("DYLD_FALLBACK_LIBRARY_PATH", "")
-    paths = [p for p in current.split(":") if p]
-    brew_lib_str = str(brew_lib)
-    if brew_lib_str not in paths:
-        os.environ["DYLD_FALLBACK_LIBRARY_PATH"] = (
-            f"{brew_lib_str}:{current}" if current else brew_lib_str
-        )
-
-
-def sanitize_for_pdflatex(text: str) -> str:
-    # pdflatex is less forgiving of Unicode than lualatex/xelatex.
-    replacements = {
-        "\u00a0": " ",  # nbsp
-        "\u2002": " ",  # en space
-        "\u2003": " ",  # em space
-        "\u2009": " ",  # thin space
-        "\u202f": " ",  # narrow no-break space
-        "≤": "<=",
-        "≥": ">=",
-        "→": "->",
-        "⇒": "=>",
-        "•": "-",
-        "—": "--",
-        "–": "-",
-        "‑": "-",
-        "−": "-",
-        "≈": "~",
-    }
-    for src, dst in replacements.items():
-        text = text.replace(src, dst)
-    return text
-
-
-def normalize_css_font_size(raw: str) -> str:
-    """
-    Normalize a CLI font size argument to something CSS understands.
-
-    Accepts values like:
-      - "11pt" (passed through)
-      - "10"   (interpreted as "10pt" for convenience)
-      - "0.95em", "12px" (passed through)
-    """
-    s = raw.strip()
-    if re.fullmatch(r"\d+(\.\d+)?", s):
-        return f"{s}pt"
-    return s
-
-
-def rewrite_markdown_image_paths(*, text: str, source_path: Path) -> str:
-    """
-    Rewrite markdown image links so they resolve from repo root.
-
-    Without this, concatenating multiple markdown files breaks relative images,
-    because paths become relative to the *combined* temp file instead of each
-    source file.
-    """
-
-    def rewrite_path(raw: str) -> str:
-        if raw.startswith(("http://", "https://", "data:")):
-            return raw
-        if raw.startswith("#"):
-            return raw
-
-        path_part, sep, fragment = raw.partition("#")
-        suffix = f"{sep}{fragment}" if sep else ""
-
-        # Support GitHub-style root links like `/assets/...` by treating them as
-        # repo-root relative.
-        if path_part.startswith("/"):
-            candidate = (ROOT / path_part.lstrip("/")).resolve()
-        else:
-            candidate = (source_path.parent / path_part).resolve()
-
-        try:
-            rel = candidate.relative_to(ROOT)
-        except ValueError:
-            # If the image resolves outside the repo, leave it unchanged.
-            return raw
-
-        return rel.as_posix() + suffix
-
-    def repl_paren(match: re.Match) -> str:
-        alt = match.group(1)
-        path = match.group(2)
-        title = match.group(3) or ""
-        return f"![{alt}]({rewrite_path(path)}{title})"
-
-    def repl_angle(match: re.Match) -> str:
-        alt = match.group(1)
-        path = match.group(2)
-        title = match.group(3) or ""
-        return f"![{alt}](<{rewrite_path(path)}>{title})"
-
-    text = _MD_IMAGE_LINK_ANGLE_RE.sub(repl_angle, text)
-    text = _MD_IMAGE_LINK_RE.sub(repl_paren, text)
-    return text
 
 
 def render_front_matter(title: str | None, subtitle: str | None) -> str:
@@ -220,6 +82,206 @@ def concatenate_markdown(
         parts.append("")
     return "\n".join(parts).rstrip() + "\n"
 
+
+def build_latex_pdf(
+    args,
+    combined_text: str,
+    combined_md: Path,
+    out_path: Path,
+    intermediate_dir: Path,
+) -> bool:
+    combined_md_for_pdf = intermediate_dir / "combined_latex.md"
+
+    pdf_engine = args.pdf_engine
+    mainfont = args.mainfont
+    sansfont = args.sansfont
+    monofont = args.monofont
+    fontsize = args.fontsize
+    linestretch = args.linestretch
+    documentclass = args.documentclass
+
+    if args.style == "bookish":
+        if pdf_engine is None:
+            pdf_engine = "xelatex"
+        default_mainfont, default_sansfont, default_monofont = default_bookish_fonts()
+        if mainfont is None:
+            mainfont = default_mainfont
+        if sansfont is None:
+            sansfont = default_sansfont
+        if monofont is None:
+            monofont = default_monofont
+        if fontsize is None:
+            fontsize = "11pt"
+        if linestretch is None:
+            linestretch = 1.12
+    else:
+        if pdf_engine is None:
+            pdf_engine = "pdflatex"
+        if fontsize is None:
+            fontsize = "11pt"
+        if linestretch is None:
+            linestretch = None
+
+    if pdf_engine and not tex_engine_available(pdf_engine):
+        print(f"error: LaTeX engine '{pdf_engine}' not found in PATH", file=sys.stderr)
+        return 1
+
+    md_for_pdf = combined_md
+    if pdf_engine == "pdflatex":
+        write_text(combined_md_for_pdf, sanitize_for_pdflatex(combined_text))
+        md_for_pdf = combined_md_for_pdf
+
+    cmd: list[str] = [
+        "pandoc",
+        str(md_for_pdf),
+        "-o",
+        str(out_path),
+        # Keep behavior consistent with repo release builds.
+        "--from",
+        "markdown-blank_before_blockquote",
+        f"--resource-path={md_for_pdf.parent}:{ROOT}",
+        f"--pdf-engine={pdf_engine}",
+        "-V",
+        f"documentclass={documentclass}",
+        "-V",
+        f"fontsize={fontsize}",
+        "-V",
+        f"geometry:{'letterpaper' if args.paper == 'letter' else 'a4paper'}",
+        "-V",
+        f"geometry:margin={args.margin}",
+    ]
+
+    if linestretch:
+        cmd += ["-V", f"linestretch={linestretch}"]
+    if mainfont:
+        cmd += ["-V", f"mainfont={mainfont}"]
+    if sansfont:
+        cmd += ["-V", f"sansfont={sansfont}"]
+    if monofont:
+        cmd += ["-V", f"monofont={monofont}"]
+
+    if not args.no_headers:
+        header_images = ROOT / "templates" / "pandoc" / "header_images.tex"
+        if header_images.exists():
+            cmd += ["--include-in-header", str(header_images)]
+        if args.toc:
+            header_toc = ROOT / "templates" / "pandoc" / "header_toc_pagebreak.tex"
+            if header_toc.exists():
+                cmd += ["--include-in-header", str(header_toc)]
+
+    if not args.no_wrapfig:
+        wrapfig_filter = ROOT / "templates" / "pandoc" / "wrapfig.lua"
+        if wrapfig_filter.exists():
+            cmd += ["--lua-filter", str(wrapfig_filter)]
+
+    if args.toc:
+        cmd += ["--toc", f"--toc-depth={args.toc_depth}"]
+
+    subprocess.run(cmd, cwd=ROOT, check=True)
+
+    if not args.keep_md:
+        try:
+            combined_md_for_pdf.unlink(missing_ok=True)
+        except Exception:
+            pass
+    return True
+
+def build_weasyprint_pdf(
+    args,
+    combined_md: Path,
+    out_path: Path,
+    intermediate_dir: Path,
+) -> bool:
+    configure_macos_weasyprint_runtime()
+
+    if not weasyprint_available():
+        venv_python = ROOT / ".venv" / "bin" / "python"
+        hint = ""
+        if venv_python.exists() and str(venv_python) not in sys.executable:
+            hint = (
+                "\nIt looks like you're running system Python, but WeasyPrint may be installed in the repo venv.\n"
+                f"Try:\n  {venv_python} tools/md_pdf.py ... --backend weasyprint\n"
+                "or:\n  uv run --extra pdf python tools/md_pdf.py ... --backend weasyprint\n"
+            )
+        print(
+            "error: WeasyPrint not installed (required for --backend weasyprint).\n\n"
+            "Install (suggested):\n"
+            "  uv sync --extra pdf\n\n"
+            "On Ubuntu you may need system deps (example):\n"
+            "  sudo apt-get update\n"
+            "  sudo apt-get install -y libpango-1.0-0 libpangoft2-1.0-0 libcairo2 libgdk-pixbuf-2.0-0\n",
+            file=sys.stderr,
+        )
+        if hint:
+            print(hint, file=sys.stderr)
+        return False
+
+    html_out = intermediate_dir / "combined.html"
+    cmd = [
+        "pandoc",
+        str(combined_md),
+        "-o",
+        str(html_out),
+        "--from",
+        "markdown-blank_before_blockquote",
+        "--to",
+        "html5",
+        "--standalone",
+        f"--resource-path={combined_md.parent}:{ROOT}",
+        "--metadata",
+        f"pagetitle={out_path.stem}",
+        "--lua-filter",
+        str(ROOT / "templates" / "pandoc" / "html_pagebreak.lua"),
+    ]
+    if args.toc:
+        cmd += ["--toc", f"--toc-depth={args.toc_depth}"]
+
+    subprocess.run(cmd, cwd=ROOT, check=True)
+
+    from weasyprint import CSS, HTML
+
+    css_dir = ROOT / "templates" / "html"
+    css_path = css_dir / ("bookish.css" if args.style == "bookish" else "default.css")
+
+    stylesheets: list[CSS] = []
+    if css_path.exists():
+        stylesheets.append(CSS(filename=str(css_path)))
+
+    page_size: Literal["letter", "a4"] = args.paper
+    font_overrides = ""
+    if args.fontsize:
+        font_size_css = normalize_css_font_size(args.fontsize)
+        # Pandoc's default HTML template sets a `@media print { body { font-size: 12pt; } }`
+        # rule, so we must override `body` (not just `html`) for WeasyPrint PDFs.
+        font_overrides += f"body {{ font-size: {font_size_css} !important; }}\n"
+    if args.linestretch:
+        font_overrides += f"body {{ line-height: {args.linestretch} !important; }}\n"
+
+    runtime_css = f"""
+@page {{
+  size: {page_size};
+  margin: {args.margin};
+}}
+
+{font_overrides}
+
+/* Ensure our concatenation marker always breaks pages and clears floats. */
+div.pagebreak {{
+  break-before: page;
+  page-break-before: always;
+  clear: both;
+}}
+"""
+    stylesheets.append(CSS(string=runtime_css))
+
+    HTML(filename=str(html_out), base_url=str(ROOT)).write_pdf(str(out_path), stylesheets=stylesheets)
+
+    if not args.keep_md:
+        try:
+            html_out.unlink(missing_ok=True)
+        except Exception:
+            pass
+    return True
 
 def main() -> int:
     parser = argparse.ArgumentParser(
@@ -325,191 +387,11 @@ def main() -> int:
     write_text(combined_md, combined_text)
 
     if args.backend == "latex":
-        combined_md_for_pdf = intermediate_dir / "combined_latex.md"
-
-        pdf_engine = args.pdf_engine
-        mainfont = args.mainfont
-        sansfont = args.sansfont
-        monofont = args.monofont
-        fontsize = args.fontsize
-        linestretch = args.linestretch
-        documentclass = args.documentclass
-
-        if args.style == "bookish":
-            if pdf_engine is None:
-                pdf_engine = "xelatex"
-            default_mainfont, default_sansfont, default_monofont = default_bookish_fonts()
-            if mainfont is None:
-                mainfont = default_mainfont
-            if sansfont is None:
-                sansfont = default_sansfont
-            if monofont is None:
-                monofont = default_monofont
-            if fontsize is None:
-                fontsize = "11pt"
-            if linestretch is None:
-                linestretch = 1.12
-        else:
-            if pdf_engine is None:
-                pdf_engine = "pdflatex"
-            if fontsize is None:
-                fontsize = "11pt"
-            if linestretch is None:
-                linestretch = None
-
-        if pdf_engine and not tex_engine_available(pdf_engine):
-            print(f"error: LaTeX engine '{pdf_engine}' not found in PATH", file=sys.stderr)
+        if not build_latex_pdf(args, combined_text, combined_md, out_path, intermediate_dir):
             return 1
-
-        md_for_pdf = combined_md
-        if pdf_engine == "pdflatex":
-            write_text(combined_md_for_pdf, sanitize_for_pdflatex(combined_text))
-            md_for_pdf = combined_md_for_pdf
-
-        cmd: list[str] = [
-            "pandoc",
-            str(md_for_pdf),
-            "-o",
-            str(out_path),
-            # Keep behavior consistent with repo release builds.
-            "--from",
-            "markdown-blank_before_blockquote",
-            f"--resource-path={md_for_pdf.parent}:{ROOT}",
-            f"--pdf-engine={pdf_engine}",
-            "-V",
-            f"documentclass={documentclass}",
-            "-V",
-            f"fontsize={fontsize}",
-            "-V",
-            f"geometry:{'letterpaper' if args.paper == 'letter' else 'a4paper'}",
-            "-V",
-            f"geometry:margin={args.margin}",
-        ]
-
-        if linestretch:
-            cmd += ["-V", f"linestretch={linestretch}"]
-        if mainfont:
-            cmd += ["-V", f"mainfont={mainfont}"]
-        if sansfont:
-            cmd += ["-V", f"sansfont={sansfont}"]
-        if monofont:
-            cmd += ["-V", f"monofont={monofont}"]
-
-        if not args.no_headers:
-            header_images = ROOT / "templates" / "pandoc" / "header_images.tex"
-            if header_images.exists():
-                cmd += ["--include-in-header", str(header_images)]
-            if args.toc:
-                header_toc = ROOT / "templates" / "pandoc" / "header_toc_pagebreak.tex"
-                if header_toc.exists():
-                    cmd += ["--include-in-header", str(header_toc)]
-
-        if not args.no_wrapfig:
-            wrapfig_filter = ROOT / "templates" / "pandoc" / "wrapfig.lua"
-            if wrapfig_filter.exists():
-                cmd += ["--lua-filter", str(wrapfig_filter)]
-
-        if args.toc:
-            cmd += ["--toc", f"--toc-depth={args.toc_depth}"]
-
-        subprocess.run(cmd, cwd=ROOT, check=True)
-
-        if not args.keep_md:
-            try:
-                combined_md_for_pdf.unlink(missing_ok=True)
-            except Exception:
-                pass
     else:
-        configure_macos_weasyprint_runtime()
-
-        if not weasyprint_available():
-            venv_python = ROOT / ".venv" / "bin" / "python"
-            hint = ""
-            if venv_python.exists() and str(venv_python) not in sys.executable:
-                hint = (
-                    "\nIt looks like you're running system Python, but WeasyPrint may be installed in the repo venv.\n"
-                    f"Try:\n  {venv_python} tools/md_pdf.py ... --backend weasyprint\n"
-                    "or:\n  uv run --extra pdf python tools/md_pdf.py ... --backend weasyprint\n"
-                )
-            print(
-                "error: WeasyPrint not installed (required for --backend weasyprint).\n\n"
-                "Install (suggested):\n"
-                "  uv sync --extra pdf\n\n"
-                "On Ubuntu you may need system deps (example):\n"
-                "  sudo apt-get update\n"
-                "  sudo apt-get install -y libpango-1.0-0 libpangoft2-1.0-0 libcairo2 libgdk-pixbuf-2.0-0\n",
-                file=sys.stderr,
-            )
-            if hint:
-                print(hint, file=sys.stderr)
+        if not build_weasyprint_pdf(args, combined_md, out_path, intermediate_dir):
             return 1
-
-        html_out = intermediate_dir / "combined.html"
-        cmd = [
-            "pandoc",
-            str(combined_md),
-            "-o",
-            str(html_out),
-            "--from",
-            "markdown-blank_before_blockquote",
-            "--to",
-            "html5",
-            "--standalone",
-            f"--resource-path={combined_md.parent}:{ROOT}",
-            "--metadata",
-            f"pagetitle={out_path.stem}",
-            "--lua-filter",
-            str(ROOT / "templates" / "pandoc" / "html_pagebreak.lua"),
-        ]
-        if args.toc:
-            cmd += ["--toc", f"--toc-depth={args.toc_depth}"]
-
-        subprocess.run(cmd, cwd=ROOT, check=True)
-
-        from weasyprint import CSS, HTML
-
-        css_dir = ROOT / "templates" / "html"
-        css_path = css_dir / ("bookish.css" if args.style == "bookish" else "default.css")
-
-        stylesheets: list[CSS] = []
-        if css_path.exists():
-            stylesheets.append(CSS(filename=str(css_path)))
-
-        page_size: Literal["letter", "a4"] = args.paper
-        font_overrides = ""
-        if args.fontsize:
-            font_size_css = normalize_css_font_size(args.fontsize)
-            # Pandoc's default HTML template sets a `@media print { body { font-size: 12pt; } }`
-            # rule, so we must override `body` (not just `html`) for WeasyPrint PDFs.
-            font_overrides += f"body {{ font-size: {font_size_css} !important; }}\n"
-        if args.linestretch:
-            font_overrides += f"body {{ line-height: {args.linestretch} !important; }}\n"
-
-        runtime_css = f"""
-@page {{
-  size: {page_size};
-  margin: {args.margin};
-}}
-
-{font_overrides}
-
-/* Ensure our concatenation marker always breaks pages and clears floats. */
-div.pagebreak {{
-  break-before: page;
-  page-break-before: always;
-  clear: both;
-}}
-"""
-        stylesheets.append(CSS(string=runtime_css))
-
-        HTML(filename=str(html_out), base_url=str(ROOT)).write_pdf(str(out_path), stylesheets=stylesheets)
-
-        if not args.keep_md:
-            try:
-                html_out.unlink(missing_ok=True)
-            except Exception:
-                pass
-
     if not args.keep_md:
         try:
             combined_md.unlink(missing_ok=True)

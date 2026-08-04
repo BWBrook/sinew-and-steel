@@ -153,33 +153,40 @@ def main() -> int:
         if tracker_path is None and need_tracker:
             tracker_path = _sslib.campaign_trackers_dir(args.campaign, root=root) / "session.yaml"
 
+    updated_files = []
     if need_sheet:
         if not sheet_path or not sheet_path.exists():
             print(f"error: sheet not found: {sheet_path}", file=sys.stderr)
             return 1
-        update_file(
+        sheet_data = update_file(
             sheet_path,
             sheet_sets,
             sheet_incs,
             clamp=args.clamp,
             allow_new=args.allow_new,
             allow_clock=False,
-            dry_run=args.dry_run,
+            dry_run=True,
         )
+        updated_files.append((sheet_path, sheet_data))
 
     if need_tracker:
         if not tracker_path or not tracker_path.exists():
             print(f"error: tracker not found: {tracker_path}", file=sys.stderr)
             return 1
-        update_file(
+        tracker_data = update_file(
             tracker_path,
             tracker_sets,
             tracker_incs,
             clamp=args.clamp,
             allow_new=args.allow_new,
             allow_clock=True,
-            dry_run=args.dry_run,
+            dry_run=True,
         )
+        updated_files.append((tracker_path, tracker_data))
+
+    if not args.dry_run:
+        for path, data in updated_files:
+            _sslib.save_yaml(path, data)
 
     if args.json:
         payload = {

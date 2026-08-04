@@ -68,6 +68,7 @@ rooms:
         - cold draught
 keys: []
 factions: []
+monster_groups: []
 solo_monsters: []
 bosses: []
 weird_npcs: []

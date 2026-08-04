@@ -58,6 +58,27 @@ def ensure_list(value):
     return [value]
 
 
+def append_recap(
+    memory_path: Path,
+    summary_lines: list[str],
+    threads: list[str],
+    npcs: list[str],
+    secrets: list[str],
+) -> None:
+    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    data = load_yaml(memory_path)
+    if data and data.get("schema_version") != 1:
+        raise ValueError("memory schema_version must be 1")
+    data.setdefault("schema_version", 1)
+    summaries = ensure_list(data.get("summary"))
+    summaries.extend(f"[{timestamp}] {line}" for line in summary_lines)
+    data["summary"] = summaries
+    data["threads"] = ensure_list(data.get("threads")) + threads
+    data["npcs"] = ensure_list(data.get("npcs")) + npcs
+    data["secrets"] = ensure_list(data.get("secrets")) + secrets
+    _sslib.save_yaml(memory_path, data)
+
+
 def update_tracker(
     tracker_path: Path,
     scene_inc: int | None,
@@ -73,6 +94,7 @@ def update_tracker(
         if not isinstance(scene, int):
             raise ValueError("tracker scene is not an integer")
         data["scene"] = scene + scene_inc
+        changed_paths.append("scene")
 
     clocks = data.setdefault("clocks", {})
 
@@ -117,7 +139,6 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Append a session recap to memory and update trackers.")
     parser.add_argument("--campaign", help="Campaign slug under campaigns/")
     parser.add_argument("--memory", help="Memory YAML file to update")
-    parser.add_argument("--new", action="store_true", help="Create a new session file")
 
     parser.add_argument("--summary", action="append", default=[], help="Summary line (repeatable)")
     parser.add_argument("--thread", action="append", default=[], help="Open thread (repeatable)")
@@ -150,12 +171,10 @@ def main() -> int:
             print(f"error: campaign not found: {campaign_dir}", file=sys.stderr)
             return 1
         memory_dir = campaign_dir / "state" / "memory"
-        memory_dir.mkdir(parents=True, exist_ok=True)
+        if not args.dry_run:
+            memory_dir.mkdir(parents=True, exist_ok=True)
         if memory_path is None:
-            if args.new:
-                memory_path = next_session_path(memory_dir)
-            else:
-                memory_path = find_latest_session(memory_dir) or next_session_path(memory_dir)
+            memory_path = find_latest_session(memory_dir) or next_session_path(memory_dir)
 
         tracker_path = campaign_dir / "state" / "trackers" / "session.yaml"
 
@@ -169,8 +188,10 @@ def main() -> int:
         return 1
 
     data = load_yaml(memory_path)
-    if "schema_version" not in data:
-        data["schema_version"] = 1
+    if data and data.get("schema_version") != 1:
+        print("error: memory schema_version must be 1", file=sys.stderr)
+        return 1
+    data.setdefault("schema_version", 1)
 
     summaries = ensure_list(data.get("summary"))
     threads = ensure_list(data.get("threads"))
@@ -189,9 +210,6 @@ def main() -> int:
     data["threads"] = threads
     data["npcs"] = npcs
     data["secrets"] = secrets
-
-    if not args.dry_run:
-        save_yaml(memory_path, data)
 
     clock_incs = []
     for item in args.clock_inc:
@@ -220,6 +238,9 @@ def main() -> int:
 
         if not args.dry_run:
             save_yaml(tracker_path, tracker_data)
+
+    if not args.dry_run:
+        save_yaml(memory_path, data)
 
     if args.json:
         import json

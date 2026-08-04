@@ -10,21 +10,12 @@ import _sslib
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def load_manifest() -> dict:
-    manifest_path = ROOT / "manifest.yaml"
-    if not manifest_path.exists():
-        print(f"error: missing manifest: {manifest_path}", file=sys.stderr)
-        sys.exit(1)
-    return yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
-
-
 def write_yaml(path: Path, data: dict):
     path.write_text(yaml.safe_dump(data, sort_keys=False), encoding="utf-8")
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Initialize a campaign folder with state scaffolding.")
-    parser.add_argument("--name", help="Campaign slug (folder name) (deprecated; use --slug/--title)")
     parser.add_argument("--slug", help="Campaign slug (folder name)")
     parser.add_argument("--title", help="Campaign title (used to derive slug if --slug not provided)")
     parser.add_argument("--skin", required=True, help="Skin slug from manifest.yaml")
@@ -46,18 +37,15 @@ def main() -> int:
 
     args = parser.parse_args()
 
-    manifest = load_manifest()
+    manifest = _sslib.load_manifest(ROOT)
     skins = manifest.get("skins", {})
     if args.skin not in skins:
         print(f"error: unknown skin '{args.skin}'", file=sys.stderr)
         return 1
 
-    if not args.slug and not args.name and not args.title:
-        print("error: provide --slug or --title (or legacy --name)", file=sys.stderr)
+    if not args.slug and not args.title:
+        print("error: provide --slug or --title", file=sys.stderr)
         return 1
-
-    if args.name:
-        print("warning: --name is deprecated; use --slug or --title", file=sys.stderr)
 
     if args.tone and args.build_points is not None:
         print("error: provide only one of --tone or --build-points", file=sys.stderr)
@@ -75,7 +63,7 @@ def main() -> int:
         print("error: --build-points must be >= 0", file=sys.stderr)
         return 1
 
-    slug = args.slug or args.name or _sslib.slugify(args.title, fallback="campaign")
+    slug = args.slug or _sslib.slugify(args.title, fallback="campaign")
     title = args.title or slug
 
     base_dir = Path(args.base_dir)

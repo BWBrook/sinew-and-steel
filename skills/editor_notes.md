@@ -175,7 +175,7 @@ Use this as a “lint list” whenever you add or revise anything in skins/*.md 
 
   - python tools/validate_repo.py
   - Create a throwaway campaign with that skin and a random character, then validate:
-      - python tools/campaign_init.py --name skin_smoke --skin <skin_slug> --random-character "Smoke"
+      - python tools/campaign_init.py --slug skin_smoke --skin <skin_slug> --random-character "Smoke"
       - python tools/validate_campaign.py --campaign skin_smoke
       - python tools/build_prompt.py --campaign skin_smoke
 

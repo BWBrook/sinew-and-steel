@@ -5,6 +5,7 @@ import sys
 from pathlib import Path
 
 import _delvekit
+import _delvekit_output
 import _sslib
 
 
@@ -29,7 +30,7 @@ def _load_text(path: str | None, stdin_fallback: bool = False) -> str:
 def cmd_prepare(args: argparse.Namespace) -> int:
     data = _delvekit.load_dungeon(args.file)
     prompt_text = _manifest_prompt_path().read_text(encoding="utf-8")
-    bundle = _delvekit.render_adventure_polish_prompt(data, prompt_text)
+    bundle = _delvekit_output.render_adventure_polish_prompt(data, prompt_text)
     if args.out:
         path = Path(args.out)
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -39,7 +40,7 @@ def cmd_prepare(args: argparse.Namespace) -> int:
     if args.json_out:
         path = Path(args.json_out)
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(_delvekit.adventure_polish_payload(data), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        path.write_text(json.dumps(_delvekit_output.adventure_polish_payload(data), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return 0
 
 
