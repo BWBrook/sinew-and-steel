@@ -6,7 +6,7 @@ This module is for AI Custodian prompts or private Custodian notes. Do not show 
 The clan's fire is dying, the hunt must succeed, and hungry things in the birch-line are already claiming the edge of the light.
 
 ## Default PCs
-- Grak (Hunter): MGT 12 | FLT 11 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7.
+- Grak (Hunter): MGT 12 | FLT 10 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7. Tag: Megafauna tracker.
 - Tarra (Shaman): MGT 6 | FLT 8 | CUN 12 | SPR 14 | INS 11/11 | STM 3/3.
 
 ## Truth: pick one twist

@@ -75,6 +75,12 @@ def main() -> int:
         print(f"error: failed to compute build points: {exc}", file=sys.stderr)
         return 1
 
+    tags = data.get("tags") or []
+    if not isinstance(tags, list):
+        print("error: tags must be a list", file=sys.stderr)
+        return 1
+    needed += _sslib.tag_cost(tags)
+
     creation = data.get("creation")
     if not isinstance(creation, dict):
         creation = {}
@@ -99,6 +105,7 @@ def main() -> int:
             "decreases": int(decreases),
             "required_decreases": int(required_decreases),
             "slack": int(slack),
+            "tags": len(tags),
         },
         "dry_run": bool(args.dry_run),
     }

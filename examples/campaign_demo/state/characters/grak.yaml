@@ -17,7 +17,7 @@ meta:
     build_points_unspent: 0
 attributes:
   MGT: 12
-  FLT: 11
+  FLT: 10
   CUN: 10
   SPR: 8
   INS: 8
@@ -43,5 +43,6 @@ inventory:
   small_items:
   - Ochre pouch
   - Sinew cord
-notes:
-- Advantage when tracking megafauna.
+tags:
+- Megafauna tracker (Advantage when tracking big game)
+notes: []

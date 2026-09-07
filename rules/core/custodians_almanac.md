@@ -114,7 +114,7 @@ Every 3-4 *perilous* beats or combat encounters, award:
 - **+2 build points**, and
 - **a narrative boon** (rare item, ally favour, mystic scar, access, safe refuge).
 
-Build points buy on the creation ledger and never push a score past its ceiling (attributes 16, Stamina 9); unspent points carry over. Boons sit outside the maths and turn progress into changes in the fiction.
+Build points buy on the creation ledger (a score, or a tag at 2 points) and never push a score past its ceiling (attributes 16, Stamina 9); unspent points carry over. Boons sit outside the maths and turn progress into changes in the fiction.
 
 ---
 
@@ -207,6 +207,12 @@ These examples assume **6 build points** plus any necessary stat trade-offs; adj
 | Scholar       | 7      | 10  | **14** | 10     | **11** | 4   |
 | Iron Brute    | **15** | 7   | 6      | 7      | 10  | **8** |
 | Silver-tongue | 8      | 10  | **11** | **13** | 10  | 5   |
+
+---
+
+### D. Why the defender wins ties
+
+In an opposed test, ties and double failures go to the defender, so at equal scores the attacker wins about a third of exchanges (Table 9.2). This is deliberate. The defender is whoever holds the current position, and changing a position should take a clear win. In a fight both sides attack in turn, so the rule slows the exchange for everyone rather than favouring one side. Low scores make contests whiffy and high scores make them decisive, and a fair fight is a poor bet at every level. Tell players so: it is why ambush, numbers, and position matter.
 
 ---
 

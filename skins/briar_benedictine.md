@@ -201,8 +201,8 @@ Satchel of salves (once per day: Advantage on an LOR diagnosis), hand staff (edg
 
 ![](../assets/art/ss_benedictine_aveline.png){.wrap-left width=1in}
 Creation: grim budget (**0** build points; used **0**)<br>
-HEW 6 FLT 9 LOR 11 MCY 13 PRV 9/9 STM 3/3 Sin 0/5<br>
-Wax tablets, dagger +1 (kept hidden), empathic gaze (Advantage on the first MCY test per session).
+HEW 6 FLT 9 LOR 10 MCY 13 PRV 9/9 STM 3/3 Sin 0/5<br>
+Wax tablets, dagger +1 (kept hidden). Tag: **Empathic gaze** (Advantage on MCY tests to read a person face to face).
 
 ---
 

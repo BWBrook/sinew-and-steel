@@ -82,14 +82,14 @@ These are the moves that tend to bloat the game or distort the feel:
 
 ## Tags
 
-For the feel of skills in a compact form, use **tags**: small, named traits that grant a specific kind of edge.
+Tags are a core rule (Adventurer's Manual 2.6): a named niche, 2 build points, Advantage when the fiction squarely fits. A skin can shape them without changing the price:
 
-Keep them narrow, contextual, and sometimes limited to once per session so they stay punchy.
+- name a **menu** that fits the genre (*Streetwise*, *Bone-Singer*, *Salvage Rat*),
+- attach a **cost per use** and call them knacks (spend a Luck token or mark Pressure), which lets a knack do something sharper than Advantage,
+- call a broad one an **Expertise** (one stat's specialty),
+- grant one **free** at creation if the genre wants competent heroes, and say so plainly.
 
-Examples (in the spirit of the pregens in this book):
-
-- *Streetwise:* once per session, Advantage on a test when dealing with criminals or dock-bosses.
-- *Bone-Singer:* Advantage when calming beasts with chant, but only if the chant is voiced in the fiction.
+Keep tags narrow and contextual. *Streetwise* helps with dock-bosses, not with every conversation. *Bone-Singer* calms beasts only if the chant is voiced in the fiction.
 
 Tags give players identity and competence while keeping the character sheet out of every ruling.
 

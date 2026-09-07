@@ -30,15 +30,15 @@ print("=" * 78)
 print("2. DO THE BOOK'S PUBLISHED BUILDS OBEY THE LEDGER?")
 print("=" * 78)
 BUILDS = [
-    ("Scholar (Almanac)",        [7, 10, 14, 10, 11], 4),
-    ("Iron Brute (Almanac)",     [15, 7, 6, 7, 10], 8),
-    ("Silver-tongue (Almanac)",  [8, 10, 11, 13, 10], 5),
-    ("Grak (Clanfire)",          [12, 11, 10, 8, 8], 7),
-    ("Tarra (Clanfire)",         [6, 8, 12, 14, 11], 3),
+    ("Scholar (Almanac)",        [7, 10, 14, 10, 11], 4, 0),
+    ("Iron Brute (Almanac)",     [15, 7, 6, 7, 10], 8, 0),
+    ("Silver-tongue (Almanac)",  [8, 10, 11, 13, 10], 5, 0),
+    ("Grak (Clanfire)",          [12, 10, 10, 8, 8], 7, 1),
+    ("Tarra (Clanfire)",         [6, 8, 12, 14, 11], 3, 0),
 ]
 allgood = True
-for name, attrs, stm in BUILDS:
-    c = build_cost(attrs, stm)
+for name, attrs, stm, tags in BUILDS:
+    c = build_cost(attrs, stm) + 2 * tags
     if c != 6:
         allgood = False
     print(f"  {name:<26} {attrs} STM {stm}: cost {c:>2}  "

@@ -24,6 +24,8 @@ Costs:
 - **+1 above baseline costs 2 build points.**
 - **+1 below baseline costs 1 build point** (so **2 build points** can restore **+2** below baseline).
 
+A **tag** (a named niche; Advantage when the fiction squarely fits) costs **2 build points**. Add one with `--tag "Megafauna tracker"`.
+
 Default starting budget is **6 build points** (“standard”), but you can run:
 - `--tone grim` (0), `--tone standard` (6), `--tone pulp` (12), `--tone heroic` (16)
 - or `--build-points N` for an explicit budget.
@@ -58,6 +60,7 @@ python tools/char_builder.py --campaign <slug> --name "Name" --set STAT1=12 --se
   - Ranges: attributes 6–16, `STM` 3–9.
   - Build points budget (default 6, or campaign.yaml `build_points_budget` in campaign mode).
 - Stamina participates in the same economy, but uses a baseline of **5**.
+- Tags cost 2 build points each and live under `tags:` on the sheet; `validate_sheet.py` and `recalc_sheet.py` count them.
 - Use `--strict` to disallow extra decreases (voluntary weakness below baseline).
 - Use `--delta STAT=+2` to adjust from baseline (10 for attributes; 5 for `STM`), then `--set` to override.
 - If you edit a sheet by hand, run `python tools/recalc_sheet.py --file <sheet.yaml>` to refresh `creation.build_points_used`.

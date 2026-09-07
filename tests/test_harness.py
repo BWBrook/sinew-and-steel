@@ -43,6 +43,22 @@ class HarnessTests(unittest.TestCase):
         self.assertNotIn("tracks", sheet)
         self.assertTrue(validate_sheet.validate_sheet(sheet, manifest).ok())
 
+    def test_tag_costs_two_build_points(self):
+        manifest = _sslib.load_manifest(ROOT)
+        skin = {**manifest["skins"]["clanfire"], "slug": "clanfire"}
+        kwargs = dict(
+            skin_slug="clanfire",
+            skin=skin,
+            name="Tagged Hero",
+            attributes={"MGT": 12, "FLT": 10, "CUN": 10, "SPR": 10, "INS": 10},
+            stamina=5,
+            build_points_budget=6,
+        )
+        one_tag = _characters.build_sheet(**kwargs, build_points_used=6, tags=["Megafauna tracker"])
+        self.assertTrue(validate_sheet.validate_sheet(one_tag, manifest).ok())
+        two_tags = _characters.build_sheet(**kwargs, build_points_used=8, tags=["Megafauna tracker", "Steady hands"])
+        self.assertFalse(validate_sheet.validate_sheet(two_tags, manifest).ok())
+
     def test_delvekit_generated_data_validates_and_renders(self):
         data = _delvekit.generate_dungeon(seed=42, size="tiny", difficulty="hard")
         self.assertIs(_delvekit.validate_dungeon(data), data)

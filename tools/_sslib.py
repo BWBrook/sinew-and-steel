@@ -131,6 +131,14 @@ def validate_double_debit_mixed(
     return increases, decreases, required_decreases, slack
 
 
+TAG_COST = 2
+
+
+def tag_cost(tags: Any) -> int:
+    """Build-point cost of a sheet's tags: 2 each."""
+    return TAG_COST * len(tags or [])
+
+
 def build_points_needed_mixed(
     values: dict[str, Any],
     baselines: dict[str, int],

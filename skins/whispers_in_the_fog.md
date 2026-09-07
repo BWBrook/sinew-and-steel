@@ -127,6 +127,8 @@ _(A risky test is any roll where failure would materially change the situation: 
 
 Each use costs: **spend 1 Fate ticket** or **mark +1 Insanity**.
 
+Knacks are tags (Adventurer's Manual 2.6) with a cost per use; every PC gets one free at creation.
+
 | Knack | Effect |
 |---|--------|
 | **Occult Scholar** | Once per scene, turn a library/tomes search into a **SCH** test with Advantage. |
@@ -134,9 +136,9 @@ Each use costs: **spend 1 Fate ticket** or **mark +1 Insanity**.
 | **Veteran's Nerves** | Once per scene, ignore an incoming **+1 Insanity** tick. |
 | **Silver Tongue** | Advantage on your first **FRT** (social) test with any new NPC. |
 
-### Optional expertise (choose one stat)
+### Optional expertise (a tag)
 
-Choose one stat as **Expertise** (marksman = AGI, doctor = SCH). When the task squarely fits, roll with Advantage.
+An **Expertise** is an ordinary tag (2 build points) naming one stat's specialty (marksman = AGI, doctor = SCH). When the task squarely fits, roll with Advantage.
 
 ---
 

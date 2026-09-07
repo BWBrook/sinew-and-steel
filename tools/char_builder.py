@@ -56,6 +56,7 @@ def main() -> int:
         choices=["grim", "standard", "pulp", "heroic"],
         help="Shortcut for build-point budgets: grim=0, standard=6, pulp=12, heroic=16.",
     )
+    parser.add_argument("--tag", action="append", default=[], help="Add a tag (2 build points each)")
     parser.add_argument("--note", action="append", default=[], help="Add note to sheet")
     parser.add_argument(
         "--strict",
@@ -152,12 +153,13 @@ def main() -> int:
     except Exception as exc:
         errors.append(f"failed to compute point-buy validation: {exc}")
         needed = increases = decreases = required_decreases = slack = 0
+    needed += _sslib.tag_cost(args.tag)
 
     if needed > build_points_budget:
         errors.append(
             "build points exceeded: "
             f"needed={needed} budget={build_points_budget} "
-            f"(increases={increases} decreases={decreases})"
+            f"(increases={increases} decreases={decreases} tags={len(args.tag)})"
         )
 
     for key, value in stats.items():
@@ -192,6 +194,7 @@ def main() -> int:
         stamina=stamina_value,
         build_points_budget=build_points_budget,
         build_points_used=needed,
+        tags=args.tag,
         notes=args.note,
     )
 

@@ -141,7 +141,7 @@ At creation, the Custodian chooses a starting budget for tone:
    - take matching trade-offs (-2 total per +1 above baseline), **or**
    - spend build points to avoid (some of) those reductions.
 5. Set your **Luck pool**: your skin tells you which attribute is Luck.
-6. Write 3-6 items of gear and (optionally) one small perk.
+6. Write 3-6 items of gear and, if you like, buy a tag (2.6).
 
 ### 2.5 Worked example (build points + trade-offs)
 
@@ -149,6 +149,17 @@ You want a sharp-witted hero and raise INT from 10 to 13 (**+3 above baseline**)
 
 - Trade-off version: you must take **-6 total** across other scores (no build points required).
 - Build-point version: you can instead spend **6 build points** (2 per +1 above baseline) and keep the rest closer to baseline.
+
+### 2.6 Tags (optional)
+
+A **tag** is a small, named trait that gives you an edge in one niche: *Megafauna tracker*, *Streetwise*, *Steady hands*.
+
+- A tag costs **2 build points**, the same price as +1 to a score at or above baseline.
+- When the fiction squarely fits the tag, roll with **Advantage**. The Custodian rules on fit and may ration it.
+- Skins may shape tags: a menu of **knacks** with a cost per use, an **Expertise** (a broad tag naming one stat's specialty), or a free tag at creation. The skin says so.
+- Gear that grants Advantage is inventory, not a tag. It is the Custodian's call, and it can be lost.
+
+Tags give identity without a skill list. Keep each to a few words.
 
 ---
 
@@ -254,7 +265,7 @@ For goals such as disarming, driving off, or talking down, use the same opposed 
 | Mail / kevlar            | 2 |
 | Plate / powered carapace | 3 |
 
-Soak subtracts from damage point for point. Margin fights back: every full 5 points of attacker margin adds +1 damage before soak is applied.
+Soak subtracts from damage point for point. Margin pushes the other way: every full 5 points of attacker margin adds +1 damage before soak is applied.
 
 - A winning attack always deals **at least 1 damage**. Armour blunts a blow; it never makes you untouchable.
 - **Natural 1 ignores all soak.**
@@ -291,7 +302,7 @@ Pressure is the fuse: it rises with risk, blunders, bargains, and time.
 
 - When Pressure hits **5**, a **crisis** triggers; then Pressure **resets to 0**.
 - Milestones happen every 3-4 *perilous* beats:
-  - **+2 build points**, spent on the same ledger as creation
+  - **+2 build points**, spent on the same ledger as creation (+1 to a score, or a new tag)
   - and a narrative boon (ally, relic, favour, scar, access)
 - No score ever passes its ceiling (attributes 16, Stamina 9). Points you cannot spend yet carry over.
 

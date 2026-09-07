@@ -14,6 +14,7 @@ def build_sheet(
     stamina: int,
     build_points_budget: int,
     build_points_used: int,
+    tags: list[str] | None = None,
     notes: list[str] | None = None,
     generated: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
@@ -51,6 +52,7 @@ def build_sheet(
             "big_items": [],
             "small_items": [],
         },
+        "tags": list(tags or []),
         "notes": list(notes or []),
     }
     if generated is not None:

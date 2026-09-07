@@ -164,10 +164,15 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
         values["STM"] = stamina_max_for_validation
 
         needed, increases, decreases, required, slack = _sslib.build_points_needed_mixed(values, baselines)
+        tags = sheet.get("tags") or []
+        if not isinstance(tags, list) or not all(isinstance(t, str) for t in tags):
+            errors.append("tags must be a list of strings")
+            tags = []
+        needed += _sslib.tag_cost(tags)
         if needed > int(build_points_budget):
             errors.append(
                 f"build points exceeded: needed={needed} budget={build_points_budget} "
-                f"(increases={increases} decreases={decreases})"
+                f"(increases={increases} decreases={decreases} tags={len(tags)})"
             )
         if slack > 0:
             warnings.append(f"extra decreases below baseline: slack={slack} (voluntary weakness)")

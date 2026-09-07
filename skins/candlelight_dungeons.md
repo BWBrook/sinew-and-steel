@@ -134,6 +134,8 @@ _(A risky test is any roll where failure would materially change the situation: 
 
 Once per scene, do a signature trick. Pay **1 Fortune coin** or mark **+1 Fatigue**.
 
+Knacks and Expertise are tags (Adventurer's Manual 2.6). This skin grants every PC one Knack and one Expertise free at creation; further tags cost 2 build points as usual.
+
 | Knack | Effect |
 |---|------------|
 | **Backstab** | If you strike from surprise, the edge is +2; if the opponent is helpless, the hit is **Fatal** (counter: specialised protection, e.g., gorget helmet). |
@@ -149,7 +151,7 @@ Once per scene, do a signature trick. Pay **1 Fortune coin** or mark **+1 Fatigu
 
 ## Expertise (choose one stat)
 
-Pick one stat as your **Expertise**.
+Pick one stat as your **Expertise**: a broad tag naming that stat's specialty.
 
 When the task squarely fits that expertise, roll with **Advantage**. Expertise replaces class labels.
 
@@ -238,7 +240,8 @@ For AI Agent repo play, start with the Delvekit guide in `docs/`. For table play
 
 Creation: heroic budget (**16** build points; used **16**)<br>
 STR 16 DEX 11 LOR 9 FTH 9 FOR 10/10 STM 7/7 Fatigue 0/5<br>
-Knack: Second Wind. Sword +1, shield, chain shirt (soak 2).<br>
+Knack: Second Wind. Expertise: STR.<br>
+Sword +1, shield, chain shirt (soak 2).<br>
 
 ### Lirae Willow-Tongue - Hedge Mage
 
@@ -246,7 +249,7 @@ Knack: Second Wind. Sword +1, shield, chain shirt (soak 2).<br>
 
 Creation: heroic budget (**16** build points; used **16**)<br>
 STR 8 DEX 10 LOR 16 FTH 11 FOR 12/12 STM 5/5 Fatigue 0/5<br>
-Knack: Arcane Flex.<br>
+Knack: Arcane Flex. Expertise: LOR.<br>
 Spells: *Sleep* - Spell (LOR), *Flickerlight* - Cantrip (LOR), *Minor Ward* - Spell (FTH).<br>
 Dagger 0, robes (soak 0), spellbook (Advantage on LOR tests to recall ritual details).
 

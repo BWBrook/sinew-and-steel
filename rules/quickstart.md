@@ -21,6 +21,7 @@ Roll under, count the margin, spend Luck to nudge close calls, and watch Pressur
   - Standard creation gives 6 build points (grim 0 / pulp 12 / heroic 16).
     - +1 above baseline costs 2 build points (or "pay" by taking -2 total elsewhere).
     - +1 below baseline costs 1 build point (to climb back).
+    - A tag (Advantage when one named niche squarely fits) costs 2 build points.
 
   ![](../assets/art/ss_core_mechanic.png){.wrap-right width=2in}
 
@@ -90,5 +91,5 @@ Use this when you want to start tonight.
 ## 4. Example character (Clanfire skin, standard build points)
 ![](../assets/art/ss_clanfire_grak.png){.wrap-left width=0.5in}
 **Grak, Neanderthal Hunter**<br>
-MGT 12 | FLT 11 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7 | Shadow 0/5<br>
-Stone spear (edge +1) | Hand-axe (edge +1) | Hide cloak (soak 1) | Advantage: tracking megafauna
+MGT 12 | FLT 10 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7 | Shadow 0/5<br>
+Stone spear (edge +1) | Hand-axe (edge +1) | Hide cloak (soak 1) | Tag: Megafauna tracker

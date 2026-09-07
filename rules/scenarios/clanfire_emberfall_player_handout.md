@@ -23,7 +23,7 @@ Everything below is known to the players. Your clan's hearth is dying in a hard 
 
 ## Fast-start characters
 
-- **Grak of Tall Cliffs (Hunter):** MGT 12 | FLT 11 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7 | Shadow 0/5. Stone spear (+1), hand-axe (+1), hide cloak (soak 1), ochre pouch, sinew cord.
+- **Grak of Tall Cliffs (Hunter):** MGT 12 | FLT 10 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7 | Shadow 0/5. Tag: Megafauna tracker. Stone spear (+1), hand-axe (+1), hide cloak (soak 1), ochre pouch, sinew cord.
 - **Tarra the Ember-Singer (Shaman):** MGT 6 | FLT 8 | CUN 12 | SPR 14 | INS 11/11 | STM 3/3 | Shadow 0/5. Bone flute (Advantage calming beasts), fire-bow drill, herbs, strange cloth.
 
 ---

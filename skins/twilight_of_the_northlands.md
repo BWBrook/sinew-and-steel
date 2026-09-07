@@ -79,6 +79,8 @@ _(Note: this works cleanly as a campaign clock with `current/max`.)_
 Each use costs: **spend 1 Hope token** or **mark +1 Dread**.
 (You cannot pay this cost with Companionship; it must be personal.)
 
+Knacks are tags (Adventurer's Manual 2.6) with a cost per use; every PC gets one free at creation.
+
 | Culture | Knack | Effect |
 |---|---|--------|
 | **Halfling** | *Small & Quiet* | Once per scene, automatically succeed on a NIM test to move quietly past Big-folk watchers. |

@@ -191,8 +191,8 @@ Reliable Custodian moves:
 
 *Sturdy hunter, bearer of granite confidence.*<br>
 Creation: standard budget (**6** build points).<br>
-MGT 12 | FLT 11 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7 | Shadow 0/5<br>
-Advantage on megafauna tracking; wary fascination with Sapiens antler blades.<br>
+MGT 12 | FLT 10 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7 | Shadow 0/5<br>
+Tag: **Megafauna tracker** (Advantage when tracking big game). Wary fascination with Sapiens antler blades.<br>
 Stone spear +1 (thrown or thrust), hand-axe +1 (strike), hide cloak (soak 1).<br>
 Ochre pouch (ritual mark), sinew cord.
 

@@ -103,6 +103,13 @@ go to the defender) and the tone dial gating breadth rather than peak. The
 full book was rebuilt after the change: 115 pages, Quickstart on pages 6-7.
 Rebuild after any further rules change and re-check that constraint.
 
+Second tranche, same day: tags became a core rule (Adventurer's Manual 2.6,
+2 build points, Advantage when the niche squarely fits, Custodian rations).
+Skin knacks and Expertise are tags; the four knack skins state their free
+grants; Grak, Tom Calder and Sister Aveline were re-priced. Sheets carry a
+`tags:` list and the builder, validator and recalc tool count it. The Almanac
+Toolkit now states why the defender wins ties (kept as a design choice).
+
 ## Useful commands and code map
 
 Run from the repository root. `docs/pdf_building.md` explains the workflows.

@@ -68,6 +68,8 @@ Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natura
 
 Each use costs: **spend 1 Fate token** or **mark +1 Strain**.
 
+Knacks and Expertise are tags (Adventurer's Manual 2.6). This skin grants every PC one Knack and one Expertise free at creation; further tags cost 2 build points as usual.
+
 | Knack | Effect |
 |---|---------|
 | **Ex-Marine** | Once per scene, make a ranged attack with Advantage (ignore recoil/zero-G). |
@@ -78,7 +80,7 @@ Each use costs: **spend 1 Fate token** or **mark +1 Strain**.
 
 ### Expertise (choose one stat)
 
-Choose one stat as **Expertise**: pilot (DEX), engineer (EDU), liaison (SOC).
+Choose one stat as **Expertise**, a broad tag naming its specialty: pilot (DEX), engineer (EDU), liaison (SOC).
 
 When a task squarely fits your expertise, roll with Advantage.
 

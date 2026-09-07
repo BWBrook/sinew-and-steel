@@ -5,6 +5,8 @@
 - Opposed tests: both dice are read before anyone spends Luck. NPCs have no Luck pool unless a hook grants one.
 - Advancement ceiling stated: attributes 16 and Stamina 9 hold for the life of the character; unspent build points carry over.
 - Skins, Quickstart, README, the Emberfall teaching exchange, the demo prompt and log updated to the new wording; `tools/analysis/` re-encoded and re-verified.
+- Tags are a core rule (Adventurer's Manual 2.6): a named niche for 2 build points, Advantage when the fiction squarely fits. Skin knacks and Expertise are tags; the four knack skins now state their free grants. Grak, Tom Calder and Sister Aveline re-priced to carry their tag inside budget. Sheets gain a `tags:` list; builder, validator and recalc count them.
+- Almanac Toolkit gains "Why the defender wins ties", stating the opposed-test asymmetry as a design choice.
 
 ## 0.3.1 - 2025-12-22
 - Stamina now participates in the point-buy ledger (baseline 5), with build-point budgets integrated across rules, builders, validators, and sample builds.

@@ -23,7 +23,7 @@ Sinew & Steel works the other way round:
 | Pillar | One-line summary |
 |---|---|
 | **Roll-under d20** | ≤ attribute = succeed.  Natural 1 legendary, 20 catastrophic. |
-| **Scores** | Attributes baseline 10 (6–16) and Stamina baseline 5 (3–9). Standard play starts with **6 build points** (grim 0, pulp 12, heroic 16): +1 above baseline costs 2 points; +1 below baseline costs 1 point. |
+| **Scores** | Attributes baseline 10 (6–16) and Stamina baseline 5 (3–9). Standard play starts with **6 build points** (grim 0, pulp 12, heroic 16): +1 above baseline costs 2 points; +1 below baseline costs 1 point; a **tag** (Advantage in one named niche) costs 2. |
 | **Luck = tokens** | Spend to nudge dice; pool size *is* the score. |
 | **Stamina** | Baseline at 5; nudge with build points.  Hits deal 1 + weapon edge + 1 per full 5 margin, minus soak (min 1).  0 = collapse. |
 | **Pressure track** | 0-5 fuse.  Colour changes by skin (Doom, Shadow, Sin, Heat, Fatigue, Stress, Strain, Dread, Insanity, Anomaly…). |
