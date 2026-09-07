@@ -20,4 +20,4 @@ uv run python tools/gen_character.py --skin <skin> --name "Name" --out state/cha
 - Per-skin generator defaults live under manifest `skins.<slug>._gen` (override with `--primary`, `--min-steps`, `--max-steps`).
 - Use --seed for reproducible generation.
 - Use `--tone grim|standard|pulp|heroic` (or `--build-points N`) to control starting power.
-- Generated sheets carry no tags. Add one by hand under `tags:` (2 build points each) and rerun `uv run python tools/recalc_sheet.py`, or build with `char_builder.py --tag`.
+- Add tags with `--tag "Name"` (repeatable). Each reserves 2 build points before scores are bought; the sheet lists them under `tags:`.

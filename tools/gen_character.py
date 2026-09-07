@@ -193,7 +193,8 @@ def sample_stats(keys, steps: int | None, min_steps: int, max_steps: int, primar
     raise RuntimeError("Failed to generate a specialized character after 200 attempts")
 
 
-def build_sheet(skin_entry: dict, name: str, player: str):
+def build_sheet(skin_entry: dict, name: str, player: str, tags: list[str] | None = None):
+    tags = list(tags or [])
     attrs = skin_entry.get("attributes", {})
     if len(attrs) != 5:
         print("error: skin attributes missing or incomplete", file=sys.stderr)
@@ -215,11 +216,16 @@ def build_sheet(skin_entry: dict, name: str, player: str):
     maxs["STM"] = MAX_STAMINA
 
     build_points_budget = int(gen.get("build_points_budget", 6))
+    tag_points = _sslib.tag_cost(tags)
+    if tag_points > build_points_budget:
+        raise ValueError(
+            f"{len(tags)} tag(s) cost {tag_points} build points, more than the budget of {build_points_budget}"
+        )
     remaining = spend_build_points(
         stats,
         baselines,
         maxs,
-        points=build_points_budget,
+        points=build_points_budget - tag_points,
         primary=gen.get("primary"),
     )
 
@@ -230,6 +236,7 @@ def build_sheet(skin_entry: dict, name: str, player: str):
         {**stats, "STM": stamina_value},
         {**{k: BASELINE for k in attrs.keys()}, "STM": STAMINA_BASELINE},
     )
+    needed += tag_points
     if needed > build_points_budget:
         raise RuntimeError(
             f"internal error: generated build exceeds budget (needed={needed} budget={build_points_budget})"
@@ -251,6 +258,7 @@ def build_sheet(skin_entry: dict, name: str, player: str):
         stamina=stamina_value,
         build_points_budget=build_points_budget,
         build_points_used=needed,
+        tags=tags,
         generated={
             "method": "double_debit",
             "steps": gen.get("steps"),
@@ -259,6 +267,7 @@ def build_sheet(skin_entry: dict, name: str, player: str):
             "primary": gen.get("primary"),
             "build_points_budget": build_points_budget,
             "build_points_unspent": int(remaining),
+            "tags_cost": tag_points,
         },
     )
 
@@ -277,6 +286,12 @@ def main() -> int:
     parser.add_argument("--min-steps", type=int, help="Min steps when --steps not provided (default: skin _gen or 2)")
     parser.add_argument("--max-steps", type=int, help="Max steps when --steps not provided (default: skin _gen or 6)")
     parser.add_argument("--primary", help="Bias stat increases toward this stat key (default: skin _gen)")
+    parser.add_argument(
+        "--tag",
+        action="append",
+        default=[],
+        help="Add a tag (2 build points each, reserved before scores are bought). Repeatable.",
+    )
     parser.add_argument(
         "--build-points",
         type=int,
@@ -357,6 +372,7 @@ def main() -> int:
             },
             args.name,
             args.player,
+            tags=args.tag,
         )
         if args.seed is not None:
             sheet.setdefault("meta", {}).setdefault("generated", {})["seed"] = args.seed

@@ -6,7 +6,7 @@ Requires Python 3 and PyYAML (already present in most agent runtimes).
 - build_prompt.py: assemble a full prompt from rules + skin + optional hidden notes.
 - campaign_init.py: create a per-campaign state scaffold (untracked).
 - char_builder.py: build a character sheet with point-buy validation.
-- gen_character.py: generate a random character sheet for a skin (spends the build-point budget on scores; it never buys tags, so add those with char_builder.py --tag or by hand and rerun recalc_sheet.py).
+- gen_character.py: generate a random character sheet for a skin; `--tag` reserves 2 build points per tag before the rest is spent on scores.
 - recalc_sheet.py: recompute build_points_used on a sheet after manual edits.
 - new_skin.py: create a skin from templates and optionally register it in the manifest.
 - roll.py: d20 rolls for checks and opposed tests.
@@ -56,7 +56,7 @@ uv run python tools/build_prompt.py --skin candlelight_dungeons --mode agent --o
 uv run python tools/build_prompt.py --campaign ice_hunt --mode agent
 uv run python tools/campaign_init.py --title "Ice Hunt" --skin clanfire --tone standard --random-character "Grak"
 uv run python tools/char_builder.py --campaign ice_hunt --name "Grak" --set MGT=12 --set SPR=8 --set INS=8 --set STM=7 --tag "Megafauna tracker"
-uv run python tools/gen_character.py --skin clanfire --tone standard --name "Tarra" --out /tmp/tarra.yaml
+uv run python tools/gen_character.py --skin clanfire --tone standard --name "Tarra" --tag "Ember-singer" --out /tmp/tarra.yaml
 uv run python tools/new_skin.py --slug skyfarer   # writes skins/skyfarer.md and edits manifest.yaml
 uv run python tools/roll.py check --stat 12 --adv --pretty
 uv run python tools/beat.py --campaign ice_hunt --character grak --log check --stat-key MGT --adv --nudge -1

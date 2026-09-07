@@ -147,8 +147,8 @@ prompts under `campaigns/` (gitignored) still carry the pre-revision damage
 rule; regenerate them with `build_prompt.py --campaign <slug> --mode agent`.
 Barry then approved cutting **0.4.0** and removing the LaTeX PDF backend with
 its pandoc templates; WeasyPrint is the only renderer and `--backend` no longer
-exists on `release_build.py` or `md_pdf.py`. Remaining candidate not acted on:
-`gen_character.py` never buys tags.
+exists on `release_build.py` or `md_pdf.py`. `gen_character.py` then gained `--tag`, so generated
+characters can carry tags inside budget.
 
 ## Useful commands and code map
 

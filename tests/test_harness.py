@@ -59,6 +59,20 @@ class HarnessTests(unittest.TestCase):
         two_tags = _characters.build_sheet(**kwargs, build_points_used=8, tags=["Megafauna tracker", "Steady hands"])
         self.assertFalse(validate_sheet.validate_sheet(two_tags, manifest).ok())
 
+    def test_generated_character_with_tag_stays_on_budget(self):
+        command = [
+            sys.executable, str(ROOT / "tools" / "gen_character.py"),
+            "--skin", "clanfire", "--name", "Tagged", "--seed", "7",
+            "--tag", "Megafauna tracker", "--dry-run", "--json",
+        ]
+        result = subprocess.run(command, check=True, capture_output=True, text=True, cwd=ROOT)
+        sheet = json.loads(result.stdout)["sheet"]
+        manifest = _sslib.load_manifest(ROOT)
+        self.assertEqual(sheet["tags"], ["Megafauna tracker"])
+        self.assertLessEqual(sheet["creation"]["build_points_used"], 6)
+        self.assertEqual(sheet["meta"]["generated"]["tags_cost"], 2)
+        self.assertTrue(validate_sheet.validate_sheet(sheet, manifest).ok())
+
     def test_every_cli_tool_prints_help(self):
         scripts = sorted(
             p for p in (ROOT / "tools").glob("*.py")

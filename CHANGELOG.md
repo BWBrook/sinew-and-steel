@@ -1,7 +1,7 @@
 # Changelog
 
 ## Unreleased
-- TBD
+- `gen_character.py --tag` (repeatable) reserves 2 build points per tag before the rest of the budget is spent on scores, and refuses tags the budget cannot cover.
 
 ## 0.4.0 - 2026-09-07
 - Ruleset revision (7 September 2026, alpha): damage is now `1 + edge + 1 per full 5 points of margin - soak`, minimum 1; natural 1 ignores soak and adds +1. Replaces per-4 soak erosion and the separate +1 at margin 10, removing the hard zero against armour and the attribute-11 step.
