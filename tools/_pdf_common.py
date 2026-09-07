@@ -15,11 +15,6 @@ _MD_IMAGE_LINK_RE = re.compile(r"!\[([^\]]*)\]\(([^<\s]\S*?)(\s+\"[^\"]*\")?\)")
 _MD_IMAGE_LINK_ANGLE_RE = re.compile(r"!\[([^\]]*)\]\(<([^>]+)>(\s+\"[^\"]*\")?\)")
 
 
-def default_bookish_fonts() -> tuple[str, str, str]:
-    if platform.system() == "Darwin":
-        return ("Palatino", "Helvetica", "Menlo")
-    return ("Linux Libertine O", "Linux Biolinum O", "JetBrains Mono")
-
 
 def load_text(path: Path) -> str:
     return path.read_text(encoding="utf-8")
@@ -33,9 +28,6 @@ def write_text(path: Path, content: str) -> None:
 def pandoc_available() -> bool:
     return shutil.which("pandoc") is not None
 
-
-def tex_engine_available(engine: str) -> bool:
-    return shutil.which(engine) is not None
 
 
 def configure_macos_weasyprint_runtime() -> None:
@@ -72,29 +64,6 @@ def normalize_css_font_size(raw: str) -> str:
         return f"{value}pt"
     return value
 
-
-def sanitize_for_pdflatex(text: str) -> str:
-    """Replace common Unicode punctuation unsupported by pdflatex."""
-    replacements = {
-        "\u00a0": " ",
-        "\u2002": " ",
-        "\u2003": " ",
-        "\u2009": " ",
-        "\u202f": " ",
-        "≤": "<=",
-        "≥": ">=",
-        "→": "->",
-        "⇒": "=>",
-        "•": "-",
-        "—": "--",
-        "–": "-",
-        "‑": "-",
-        "−": "-",
-        "≈": "~",
-    }
-    for source, replacement in replacements.items():
-        text = text.replace(source, replacement)
-    return text
 
 
 def rewrite_markdown_image_paths(*, text: str, source_path: Path) -> str:

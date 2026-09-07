@@ -98,10 +98,11 @@ Use this as a “lint list” whenever you add or revise anything in skins/*.md 
   - Resolution stays d20 roll-under (and margin matters); no new dice systems or additive modifiers layered on top.
   - The game still runs on five attributes + Stamina + Luck tokens + Pressure (0–5); no extra stats, derived stats, or “sub-attributes.”
   - Pressure is universal 0–5 and when it hits 5 it triggers a crisis, then resets to 0 (skins can rename it: Shadow/Heat/Doom/etc.).
-  - Stamina participates in the creation ledger with baseline 5, range 3–9 (attributes baseline 10, range 6–16).
+  - Stamina participates in the creation ledger with baseline 5, range 3–9 (attributes baseline 10, range 6–16). Those ceilings hold for life; milestone points cannot pass them.
   - Build points remain the same rules:
       - Default creation budget 6 (grim 0 / pulp 12 / heroic 16).
       - Spend rule: +1 costs 2 points above baseline, +1 costs 1 point below baseline (Stamina baseline 5; attributes baseline 10).
+      - A tag costs 2 build points (Adventurer's Manual 2.6). Skin knacks and Expertise are tags; if the skin grants any free, it must say so in one sentence.
   - Luck remains dual-purpose:
       - Luck tokens are a pool you spend to nudge.
       - Luck tests roll ≤ current tokens (not max); spending now makes later Luck tests harder.
@@ -134,7 +135,7 @@ Use this as a “lint list” whenever you add or revise anything in skins/*.md 
   - Declaring typical costs in-fiction (“spells usually cost +1 Pressure or 1 Luck”; “gunfights tend to spike Pressure fast”).
   - Providing recommended clocks (Heat, Threat, Patrol, Storm, Suspicion) with tick triggers—these are story-facing timers, not new mechanics.
   - Declaring canonical examples of Advantage/Disadvantage in this genre (cover, leverage, rituals prepared, home turf, etc.).
-  - Adding equipment lists using existing tags (edge, soak, fatal, tools-as-advantage) rather than inventing new numeric layers.
+  - Adding equipment lists using the existing descriptors (edge, soak, Fatal, gear that grants Advantage at the Custodian's call) rather than inventing new numeric layers. Gear is inventory, not a tag.
   - Adding a small bestiary/NPC page using the tier-score method (tier + STM + edge/soak + 1 hook).
 
   4) Red Flags (Skin Drift Smells) — Fix These Immediately When You See Them
@@ -146,7 +147,7 @@ Use this as a “lint list” whenever you add or revise anything in skins/*.md 
   - The skin changes the meaning of a “success” (e.g., “success still costs you most of the time”) without flagging it as a genre dial (and explaining why).
   - Any example character violates:
       - the Stamina-in-ledger rule,
-      - the build points rules,
+      - the build points rules (including 2 points per tag not covered by a stated free grant),
       - the attribute ranges (6–16) / STM range (3–9).
 
   5) Clarity for Humans + Agents (Formatting Discipline That Prevents Misreads)
@@ -173,10 +174,10 @@ Use this as a “lint list” whenever you add or revise anything in skins/*.md 
   7) Quick Mechanical Smoke Tests for Any Skin Edit (Recommended Practice)
   After editing a skin, run a tiny end-to-end loop to catch “I renamed something but forgot the manifest” errors:
 
-  - python tools/validate_repo.py
+  - uv run python tools/validate_repo.py
   - Create a throwaway campaign with that skin and a random character, then validate:
-      - python tools/campaign_init.py --slug skin_smoke --skin <skin_slug> --random-character "Smoke"
-      - python tools/validate_campaign.py --campaign skin_smoke
-      - python tools/build_prompt.py --campaign skin_smoke
+      - uv run python tools/campaign_init.py --slug skin_smoke --skin <skin_slug> --random-character "Smoke"
+      - uv run python tools/validate_campaign.py --campaign skin_smoke
+      - uv run python tools/build_prompt.py --campaign skin_smoke
 
   If all of that passes, you’ve proven the skin works mechanically with the harness.

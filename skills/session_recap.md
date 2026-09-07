@@ -24,7 +24,7 @@ Populate:
 
 ## Commands
 ```bash
-python tools/trackers.py --file state/trackers/session.yaml pressure --inc 1 --clamp
-python tools/update_sheet.py --file state/characters/<name>.yaml --inc pools.luck.current=-1
-python tools/recap.py --campaign <slug> --summary "Beat recap" --pressure-inc 1 --scene-inc 1
+uv run python tools/trackers.py --campaign <slug> pressure --inc 1 --clamp
+uv run python tools/update_sheet.py --campaign <slug> --character <name> --inc pools.luck.current=-1
+uv run python tools/recap.py --campaign <slug> --summary "Beat recap" --pressure-inc 1 --scene-inc 1
 ```

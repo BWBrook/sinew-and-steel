@@ -2,19 +2,15 @@
 """
 md_pdf.py
 
-Build an ad-hoc PDF from one or more Markdown files, using the same Pandoc
-settings and Lua filters as the release build (wrapfig, headers, etc.).
-
-Also supports an HTML/CSS backend (WeasyPrint) intended to make "text wraps
-around image" behavior more predictable than LaTeX wrapfig for complex documents.
-
-This is intended for rapid iteration on layout/art placement, without Fauceting
-everything through a fixed "bundle" definition.
+Build an ad-hoc PDF from one or more Markdown files with pandoc and WeasyPrint,
+using the same stylesheet and page-break filter as the release build. Intended
+for rapid iteration on layout and art placement without going through a bundle
+definition.
 
 Examples:
-  python tools/md_pdf.py rules/quickstart.md --out /tmp/quickstart.pdf --style bookish
-  python tools/md_pdf.py rules/quickstart.md skins/clanfire.md --out /tmp/test.pdf --toc --style bookish
-  python tools/md_pdf.py --files "rules/quickstart.md skins/clanfire.md" --out /tmp/test.pdf
+  uv run --extra pdf python tools/md_pdf.py rules/quickstart.md --out /tmp/quickstart.pdf
+  uv run --extra pdf python tools/md_pdf.py rules/quickstart.md skins/clanfire.md --out /tmp/test.pdf --toc
+  uv run --extra pdf python tools/md_pdf.py --files "rules/quickstart.md skins/clanfire.md" --out /tmp/test.pdf
 """
 
 from __future__ import annotations
@@ -29,13 +25,10 @@ from typing import Literal
 
 from _pdf_common import (
     configure_macos_weasyprint_runtime,
-    default_bookish_fonts,
     load_text,
     normalize_css_font_size,
     pandoc_available,
     rewrite_markdown_image_paths,
-    sanitize_for_pdflatex,
-    tex_engine_available,
     weasyprint_available,
     write_text,
 )
@@ -83,109 +76,6 @@ def concatenate_markdown(
     return "\n".join(parts).rstrip() + "\n"
 
 
-def build_latex_pdf(
-    args,
-    combined_text: str,
-    combined_md: Path,
-    out_path: Path,
-    intermediate_dir: Path,
-) -> bool:
-    combined_md_for_pdf = intermediate_dir / "combined_latex.md"
-
-    pdf_engine = args.pdf_engine
-    mainfont = args.mainfont
-    sansfont = args.sansfont
-    monofont = args.monofont
-    fontsize = args.fontsize
-    linestretch = args.linestretch
-    documentclass = args.documentclass
-
-    if args.style == "bookish":
-        if pdf_engine is None:
-            pdf_engine = "xelatex"
-        default_mainfont, default_sansfont, default_monofont = default_bookish_fonts()
-        if mainfont is None:
-            mainfont = default_mainfont
-        if sansfont is None:
-            sansfont = default_sansfont
-        if monofont is None:
-            monofont = default_monofont
-        if fontsize is None:
-            fontsize = "11pt"
-        if linestretch is None:
-            linestretch = 1.12
-    else:
-        if pdf_engine is None:
-            pdf_engine = "pdflatex"
-        if fontsize is None:
-            fontsize = "11pt"
-        if linestretch is None:
-            linestretch = None
-
-    if pdf_engine and not tex_engine_available(pdf_engine):
-        print(f"error: LaTeX engine '{pdf_engine}' not found in PATH", file=sys.stderr)
-        return 1
-
-    md_for_pdf = combined_md
-    if pdf_engine == "pdflatex":
-        write_text(combined_md_for_pdf, sanitize_for_pdflatex(combined_text))
-        md_for_pdf = combined_md_for_pdf
-
-    cmd: list[str] = [
-        "pandoc",
-        str(md_for_pdf),
-        "-o",
-        str(out_path),
-        # Keep behavior consistent with repo release builds.
-        "--from",
-        "markdown-blank_before_blockquote",
-        f"--resource-path={md_for_pdf.parent}:{ROOT}",
-        f"--pdf-engine={pdf_engine}",
-        "-V",
-        f"documentclass={documentclass}",
-        "-V",
-        f"fontsize={fontsize}",
-        "-V",
-        f"geometry:{'letterpaper' if args.paper == 'letter' else 'a4paper'}",
-        "-V",
-        f"geometry:margin={args.margin}",
-    ]
-
-    if linestretch:
-        cmd += ["-V", f"linestretch={linestretch}"]
-    if mainfont:
-        cmd += ["-V", f"mainfont={mainfont}"]
-    if sansfont:
-        cmd += ["-V", f"sansfont={sansfont}"]
-    if monofont:
-        cmd += ["-V", f"monofont={monofont}"]
-
-    if not args.no_headers:
-        header_images = ROOT / "templates" / "pandoc" / "header_images.tex"
-        if header_images.exists():
-            cmd += ["--include-in-header", str(header_images)]
-        if args.toc:
-            header_toc = ROOT / "templates" / "pandoc" / "header_toc_pagebreak.tex"
-            if header_toc.exists():
-                cmd += ["--include-in-header", str(header_toc)]
-
-    if not args.no_wrapfig:
-        wrapfig_filter = ROOT / "templates" / "pandoc" / "wrapfig.lua"
-        if wrapfig_filter.exists():
-            cmd += ["--lua-filter", str(wrapfig_filter)]
-
-    if args.toc:
-        cmd += ["--toc", f"--toc-depth={args.toc_depth}"]
-
-    subprocess.run(cmd, cwd=ROOT, check=True)
-
-    if not args.keep_md:
-        try:
-            combined_md_for_pdf.unlink(missing_ok=True)
-        except Exception:
-            pass
-    return True
-
 def build_weasyprint_pdf(
     args,
     combined_md: Path,
@@ -200,11 +90,10 @@ def build_weasyprint_pdf(
         if venv_python.exists() and str(venv_python) not in sys.executable:
             hint = (
                 "\nIt looks like you're running system Python, but WeasyPrint may be installed in the repo venv.\n"
-                f"Try:\n  {venv_python} tools/md_pdf.py ... --backend weasyprint\n"
-                "or:\n  uv run --extra pdf python tools/md_pdf.py ... --backend weasyprint\n"
+                "Try:\n  uv run --extra pdf python tools/md_pdf.py ...\n"
             )
         print(
-            "error: WeasyPrint not installed (required for --backend weasyprint).\n\n"
+            "error: WeasyPrint not installed (uv sync --extra pdf).\n\n"
             "Install (suggested):\n"
             "  uv sync --extra pdf\n\n"
             "On Ubuntu you may need system deps (example):\n"
@@ -308,33 +197,15 @@ def main() -> int:
     parser.add_argument("--toc", action="store_true", help="Include a table of contents.")
     parser.add_argument("--toc-depth", type=int, default=2, help="TOC depth (default: 2).")
     parser.add_argument(
-        "--backend",
-        choices=["latex", "weasyprint"],
-        default="latex",
-        help="PDF backend (default: latex).",
-    )
-    parser.add_argument(
         "--style",
         choices=["default", "bookish"],
         default="bookish",
         help="Layout preset (default: bookish).",
     )
-    parser.add_argument(
-        "--pdf-engine",
-        choices=["pdflatex", "xelatex", "lualatex"],
-        default=None,
-        help="Pandoc PDF engine (LaTeX backend only; default: depends on --style).",
-    )
-    parser.add_argument("--mainfont", default=None, help="PDF main font (xelatex/lualatex).")
-    parser.add_argument("--sansfont", default=None, help="PDF sans font (xelatex/lualatex).")
-    parser.add_argument("--monofont", default=None, help="PDF mono font (xelatex/lualatex).")
     parser.add_argument("--fontsize", default=None, help='PDF font size (e.g. "11pt").')
     parser.add_argument("--linestretch", type=float, default=None, help="PDF line stretch (e.g. 1.05).")
     parser.add_argument("--paper", choices=["letter", "a4"], default="a4", help="Paper size (default: a4).")
-    parser.add_argument("--margin", default="1in", help='Page margin (geometry), e.g. "1in".')
-    parser.add_argument("--documentclass", default="article", help='LaTeX document class (default: "article").')
-    parser.add_argument("--no-wrapfig", action="store_true", help="Disable wrapfig Lua filter.")
-    parser.add_argument("--no-headers", action="store_true", help="Disable header include files.")
+    parser.add_argument("--margin", default="1in", help='Page margin, e.g. "1in" or "0.6in 0.8in".')
     parser.add_argument(
         "--keep-md",
         action="store_true",
@@ -377,7 +248,7 @@ def main() -> int:
     intermediate_dir.mkdir(parents=True, exist_ok=True)
     combined_md = intermediate_dir / "combined.md"
 
-    pagebreak_marker = "\n\\newpage\n" if args.backend == "latex" else "\n<div class=\"pagebreak\"></div>\n"
+    pagebreak_marker = "\n<div class=\"pagebreak\"></div>\n"
     combined_text = concatenate_markdown(
         input_paths,
         title=args.title,
@@ -386,12 +257,8 @@ def main() -> int:
     )
     write_text(combined_md, combined_text)
 
-    if args.backend == "latex":
-        if not build_latex_pdf(args, combined_text, combined_md, out_path, intermediate_dir):
-            return 1
-    else:
-        if not build_weasyprint_pdf(args, combined_md, out_path, intermediate_dir):
-            return 1
+    if not build_weasyprint_pdf(args, combined_md, out_path, intermediate_dir):
+        return 1
     if not args.keep_md:
         try:
             combined_md.unlink(missing_ok=True)

@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+- TBD
+
+## 0.4.0 - 2026-09-07
 - Ruleset revision (7 September 2026, alpha): damage is now `1 + edge + 1 per full 5 points of margin - soak`, minimum 1; natural 1 ignores soak and adds +1. Replaces per-4 soak erosion and the separate +1 at margin 10, removing the hard zero against armour and the attribute-11 step.
 - Opposed tests: both dice are read before anyone spends Luck. NPCs have no Luck pool unless a hook grants one.
 - Advancement ceiling stated: attributes 16 and Stamina 9 hold for the life of the character; unspent build points carry over.
@@ -8,6 +11,9 @@
 - Tags are a core rule (Adventurer's Manual 2.6): a named niche for 2 build points, Advantage when the fiction squarely fits. Skin knacks and Expertise are tags; the four knack skins now state their free grants. Grak, Tom Calder and Sister Aveline re-priced to carry their tag inside budget. Sheets gain a `tags:` list; builder, validator and recalc count them.
 - Almanac Toolkit gains "Why the defender wins ties", stating the opposed-test asymmetry as a design choice.
 - Editorial pass over the whole book: removed repeated one-line maxims that restated the section, morals appended to the two vignettes, grandiose sign-off flourishes on every skin, and spaced hyphens doing em-dash work in prose. Rules text unchanged.
+- Release pipeline: the screen and print PDFs now differ in substance. Screen downsamples images to 150 dpi (full book 36 MB to 2 MB); print keeps 300 dpi lossless (6 MB). Both carry real PDF metadata (title, author, subject, keywords) instead of the file stem.
+- Removed the dead trim pipeline (`suggest_trim.py`, `apply_trim_suggestions.py`): no `trim=` attributes remain in the book. Removed the LaTeX PDF backend and its pandoc templates; WeasyPrint is the only renderer. `validate_repo.py` gained argparse so `--help` no longer runs a validation. Added a smoke test that runs `--help` on every CLI tool, and a `CLAUDE.md` that points Claude Code at `AGENTS.md`.
+- Documentation audit: every quoted command now matches the tools' argparse. Fixed backslash-escaped quotes and skin-mismatched stat keys in `tools/README.md`, a missing tracker path in the recap skill, a broken image link in the PDF doc, and standardised every invocation on `uv run python tools/...`. Ancillary files (README, editor lint list, dice and character skills, starter prompts, example and seed sheets, the demo prompt) now carry the tags, lifetime-ceiling and opposed-test Luck-timing rules.
 
 ## 0.3.1 - 2025-12-22
 - Stamina now participates in the point-buy ledger (baseline 5), with build-point budgets integrated across rules, builders, validators, and sample builds.

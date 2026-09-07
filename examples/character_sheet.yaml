@@ -10,7 +10,7 @@ creation:
 
 attributes:
   MGT: 12
-  FLT: 12
+  FLT: 11
   CUN: 9
   SPR: 8
   INS: 9
@@ -40,5 +40,7 @@ inventory:
     - Ochre pouch
     - Sinew cord
 
-notes:
-  - Advantage when tracking megafauna in fresh snow.
+tags:
+  - Megafauna tracker (Advantage when tracking big game)
+
+notes: []

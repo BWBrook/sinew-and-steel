@@ -18,14 +18,14 @@ Keep durable, private session data for the agent: sheets, trackers, memory, and 
 Use the updater for consistent changes to character sheets, but keep **pressure** in trackers (campaign-wide clock).
 
 ```bash
-python tools/update_sheet.py --campaign <slug> --character <name> --inc pools.luck.current=-1
+uv run python tools/update_sheet.py --campaign <slug> --character <name> --inc pools.luck.current=-1
 ```
 
 For trackers and scene counters:
 
 ```bash
-python tools/trackers.py --campaign <slug> scene --inc 1
-python tools/trackers.py --campaign <slug> pressure --inc 1 --clamp
+uv run python tools/trackers.py --campaign <slug> scene --inc 1
+uv run python tools/trackers.py --campaign <slug> pressure --inc 1 --clamp
 ```
 
 ## Notes

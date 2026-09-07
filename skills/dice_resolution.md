@@ -12,26 +12,27 @@ Resolve roll-under checks and opposed tests with reproducible, parseable output.
 Single check:
 
 ```bash
-python tools/roll.py check --stat 12
-python tools/roll.py check --stat 12 --adv
-python tools/roll.py check --stat 12 --dis
-python tools/roll.py check --stat 12 --nudge -1
+uv run python tools/roll.py check --stat 12
+uv run python tools/roll.py check --stat 12 --adv
+uv run python tools/roll.py check --stat 12 --dis
+uv run python tools/roll.py check --stat 12 --nudge -1
 ```
 
 Apply roll to state (example):
 
 ```bash
-python tools/apply_roll.py --campaign <slug> --character <name> --roll /tmp/roll.json --success-sheet-inc pools.stamina.current=-1
+uv run python tools/apply_roll.py --campaign <slug> --character <name> --roll /tmp/roll.json --success-sheet-inc pools.stamina.current=-1
 ```
 
 Opposed check:
 
 ```bash
-python tools/roll.py opposed --attacker 12 --defender 10
-python tools/roll.py opposed --attacker 12 --defender 10 --adv-attacker
+uv run python tools/roll.py opposed --attacker 12 --defender 10
+uv run python tools/roll.py opposed --attacker 12 --defender 10 --adv-attacker
 ```
 
 ## Notes
 - The output is JSON; record key results in state notes.
 - Use `--seed` when you need deterministic replay.
 - Natural 1 and 20 are flagged in the JSON as `crit`.
+- In an opposed test, show both dice before offering a Luck nudge; the rules read both first.

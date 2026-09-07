@@ -9,8 +9,8 @@ description: Assemble a complete GM prompt from rules, skin, and optional hidden
 Create a single prompt file containing core rules, the chosen skin, and optional hidden scenario notes.
 
 ## Steps
-1. List available skins: `python tools/build_prompt.py --list-skins`.
-2. Build a prompt: `python tools/build_prompt.py --skin <slug> --out /tmp/ss_prompt.md`.
+1. List available skins: `uv run python tools/build_prompt.py --list-skins`.
+2. Build a prompt: `uv run python tools/build_prompt.py --skin <slug> --out /tmp/ss_prompt.md`.
 3. (Optional) Include a hidden scenario: `--hidden path/to/notes.md`.
 
 ## Notes

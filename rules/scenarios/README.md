@@ -22,7 +22,7 @@ This folder contains short, table-ready scenarios for Sinew & Steel.
 If you’re using the agent harness, look for a matching `*_hidden.md` module and pass it to `tools/build_prompt.py`:
 
 ```bash
-python tools/build_prompt.py --skin <skin> --mode agent \
+uv run python tools/build_prompt.py --skin <skin> --mode agent \
   --hidden rules/scenarios/<scenario>_hidden.md \
   --out /tmp/prompt.md
 ```

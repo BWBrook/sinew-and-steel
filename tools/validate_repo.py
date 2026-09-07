@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import argparse
 from pathlib import Path
 import sys
 import yaml
@@ -106,6 +107,10 @@ def collect_errors() -> list[str]:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(
+        description="Sanity-check manifest.yaml, prompt templates, skins, templates and the tools/ layout."
+    )
+    parser.parse_args()
     errors = collect_errors()
     return report(errors)
 

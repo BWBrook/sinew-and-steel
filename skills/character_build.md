@@ -10,7 +10,7 @@ Create a legal character sheet for a chosen skin, either random or point-buy.
 
 ## Random generation
 ```bash
-python tools/gen_character.py --skin <skin> --name "Name" --out state/characters/name.yaml
+uv run python tools/gen_character.py --skin <skin> --name "Name" --out state/characters/name.yaml
 ```
 
 ## Point-buy build (manual)
@@ -31,28 +31,28 @@ Default starting budget is **6 build points** (“standard”), but you can run:
 - or `--build-points N` for an explicit budget.
 
 ```bash
-python tools/char_builder.py --skin <skin> --name "Name" \
+uv run python tools/char_builder.py --skin service_duct_blues --name "Name" \
   --set MSC=12 --set REF=8 --set SYS=8 --set HAR=10 --set RES=10
 ```
 
 Example that trades Stamina down to pay for a spike:
 
 ```bash
-python tools/char_builder.py --skin <skin> --name "Name" \
+uv run python tools/char_builder.py --skin service_duct_blues --name "Name" \
   --set MSC=10 --set REF=10 --set SYS=14 --set HAR=10 --set RES=7 --set STM=3
 ```
 
 Example using a heroic budget to raise the floor while still specializing:
 
 ```bash
-python tools/char_builder.py --skin <skin> --tone heroic --name "Name" \
+uv run python tools/char_builder.py --skin service_duct_blues --tone heroic --name "Name" \
   --set MSC=13 --set REF=10 --set SYS=10 --set HAR=10 --set RES=10 --set STM=6
 ```
 
 Use campaign mode to write directly into campaigns/<slug>/state/characters/:
 
 ```bash
-python tools/char_builder.py --campaign <slug> --name "Name" --set STAT1=12 --set STAT2=10 --set STAT3=8 --set STAT4=9 --set STAT5=11
+uv run python tools/char_builder.py --campaign <slug> --name "Name" --set STAT1=12 --set STAT2=10 --set STAT3=8 --set STAT4=9 --set STAT5=11
 ```
 
 ## Notes
@@ -63,4 +63,4 @@ python tools/char_builder.py --campaign <slug> --name "Name" --set STAT1=12 --se
 - Tags cost 2 build points each and live under `tags:` on the sheet; `validate_sheet.py` and `recalc_sheet.py` count them.
 - Use `--strict` to disallow extra decreases (voluntary weakness below baseline).
 - Use `--delta STAT=+2` to adjust from baseline (10 for attributes; 5 for `STM`), then `--set` to override.
-- If you edit a sheet by hand, run `python tools/recalc_sheet.py --file <sheet.yaml>` to refresh `creation.build_points_used`.
+- If you edit a sheet by hand, run `uv run python tools/recalc_sheet.py --file <sheet.yaml>` to refresh `creation.build_points_used`.

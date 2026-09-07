@@ -124,22 +124,48 @@ momentum, coherent. Optional flourishes left for Barry's call: the Almanac's
 closing "pocket atlas" epigraph, the in-voice quotes inside skins, and the
 "Expect X, Y, Z" pitch sentence that opens every skin.
 
+## Machinery sweep, 7 September 2026
+
+With the book parked for an Astra pass, Barry asked for a developer sweep of the
+harness, docs and release tooling. Findings and actions: the print and screen
+PDFs were byte-identical apart from link colour, so the variants now differ in
+image handling (screen 150 dpi, print 300 dpi lossless) and both carry proper
+metadata; pandoc's HTML line-wrapping was leaking a newline into the PDF title,
+fixed with `--wrap=none`. The trim-hint tools were dead code and are gone. A
+CLI smoke test covers every tool's `--help`. `docs/pdf_building.md` now says
+which typeface each backend actually uses (WeasyPrint renders Times New Roman
+on this Mac, not Palatino). DriveThruRPG: there is no listing or checklist in
+the repo; the screen PDF is the product to upload, and a print-on-demand file
+would still need bleed, a separate wrap-around cover and a PDF/X check, which
+is deliberately out of scope until Barry decides on POD.
+
+The documentation audit found no wrong flags in the docs, only presentation
+errors (escaped quotes, Service Duct stat keys under a generic skin placeholder,
+one dead tracker path, one dead image link) and a three-way split in invocation
+style, now standardised on `uv run python tools/...`. Barry's private campaign
+prompts under `campaigns/` (gitignored) still carry the pre-revision damage
+rule; regenerate them with `build_prompt.py --campaign <slug> --mode agent`.
+Barry then approved cutting **0.4.0** and removing the LaTeX PDF backend with
+its pandoc templates; WeasyPrint is the only renderer and `--backend` no longer
+exists on `release_build.py` or `md_pdf.py`. Remaining candidate not acted on:
+`gen_character.py` never buys tags.
+
 ## Useful commands and code map
 
 Run from the repository root. `docs/pdf_building.md` explains the workflows.
 
 ```sh
 uv sync --extra pdf
-uv run --extra pdf python tools/release_build.py --bundle full_book --pdf --backend weasyprint --style bookish
+uv run --extra pdf python tools/release_build.py --bundle full_book --pdf --style bookish
 ```
 
-Outputs: `release/dist/SinewAndSteel_FullBook_v0.3.1_screen.pdf` and
-`release/dist/SinewAndSteel_FullBook_v0.3.1_print.pdf`.
+Outputs: `release/dist/SinewAndSteel_FullBook_v0.4.0_screen.pdf` and
+`release/dist/SinewAndSteel_FullBook_v0.4.0_print.pdf`.
 
 For an individual section:
 
 ```sh
-uv run --extra pdf python tools/md_pdf.py rules/book/the_adventurer.md --backend weasyprint --style bookish --paper a4 --out release/test/the_adventurer.pdf
+uv run --extra pdf python tools/md_pdf.py rules/book/the_adventurer.md --style bookish --paper a4 --out release/test/the_adventurer.pdf
 ```
 
 Shared styles live in `templates/html/bookish.css`; runtime overrides also

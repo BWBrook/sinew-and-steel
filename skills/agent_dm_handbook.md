@@ -40,7 +40,7 @@ Examples of non-roll resolutions:
 
 ### 1) Initialize a campaign
 ```bash
-python tools/campaign_init.py --title "My Campaign" --skin <skin> --tone standard --random-character "Name"
+uv run python tools/campaign_init.py --title "My Campaign" --skin <skin> --tone standard --random-character "Name"
 ```
 This creates:
 - campaigns/<slug>/campaign.yaml
@@ -52,7 +52,7 @@ Campaign tone:
 
 ### 2) Build the full prompt
 ```bash
-python tools/build_prompt.py --campaign <slug> --mode agent
+uv run python tools/build_prompt.py --campaign <slug> --mode agent
 ```
 This writes campaigns/<slug>/prompt.md using the campaign skin.
 
@@ -72,8 +72,8 @@ Choice design (avoid dice spam):
 
 Examples:
 ```bash
-python tools/roll.py check --stat 12 --adv > /tmp/roll.json
-python tools/apply_roll.py --roll /tmp/roll.json \
+uv run python tools/roll.py check --stat 12 --adv > /tmp/roll.json
+uv run python tools/apply_roll.py --roll /tmp/roll.json \
   --sheet campaigns/<slug>/state/characters/hero.yaml \
   --success-sheet-inc pools.stamina.current=-1
 ```
@@ -81,8 +81,8 @@ python tools/apply_roll.py --roll /tmp/roll.json \
 One-command alternative (roll + optional nudge + updates + logging):
 
 ```bash
-python tools/beat.py --campaign <slug> --character hero --log \
-  check --stat-key SYS --adv --nudge -1
+uv run python tools/beat.py --campaign <slug> --character hero --log \
+  check --stat-key <STAT> --adv --nudge -1
 ```
 
 ### 5) Capture memory and logs
@@ -91,10 +91,10 @@ python tools/beat.py --campaign <slug> --character hero --log \
 
 Examples:
 ```bash
-python tools/recap.py --campaign <slug> \
+uv run python tools/recap.py --campaign <slug> \
   --summary "Beat 1: the bridge collapses" --pressure-inc 1 --scene-inc 1
 
-python tools/session_log.py --campaign <slug> --role GM \
+uv run python tools/session_log.py --campaign <slug> --role GM \
   --text "The bridge sways, ropes snapping in the storm."
 ```
 
@@ -113,26 +113,26 @@ python tools/session_log.py --campaign <slug> --role GM \
 - At session end: summarize unresolved threads.
 
 ## Troubleshooting
-- Run `python tools/validate_repo.py` if tools or paths break.
+- Run `uv run python tools/validate_repo.py` if tools or paths break.
 - Use `tools/build_prompt.py --list-skins` to verify skin slugs.
 - If a campaign is missing, re-run campaign_init.
-- Use `python tools/validate_campaign.py --campaign <slug>` to check campaign scaffolding/state.
-- Use `python tools/summary.py --campaign <slug>` for a quick snapshot (scene, clocks, pools).
-- Use `python tools/doctor.py --campaign <slug>` for a single diagnostic pass.
+- Use `uv run python tools/validate_campaign.py --campaign <slug>` to check campaign scaffolding/state.
+- Use `uv run python tools/summary.py --campaign <slug>` for a quick snapshot (scene, clocks, pools).
+- Use `uv run python tools/doctor.py --campaign <slug>` for a single diagnostic pass.
 
 ## Save and quit (ironman checkpoint)
 If you need to stop mid-beat and later resume with a fresh context window, save the *exact* last GM message text.
 This is separate from the deliberately summarized memory and the session log, and is **not** intended as a branch-point rewind.
 
 - Save (overwrites the prior checkpoint for that campaign):
-  `cat /tmp/last_gm.md | python tools/checkpoint.py --campaign <slug>`
+  `cat /tmp/last_gm.md | uv run python tools/checkpoint.py --campaign <slug>`
 - Restore (prints the exact text):
-  `python tools/checkpoint.py --campaign <slug> --show`
+  `uv run python tools/checkpoint.py --campaign <slug> --show`
 
 ### Recommended discipline (do this every GM message)
 To avoid “where were we?” drift when resuming in a fresh context window:
 - After you send a GM response to the player, immediately write that exact text into `/tmp/last_gm.md` (or any temp file).
-- Then run: `cat /tmp/last_gm.md | python tools/checkpoint.py --campaign <slug>`
+- Then run: `cat /tmp/last_gm.md | uv run python tools/checkpoint.py --campaign <slug>`
 
 This keeps one authoritative “last GM output” checkpoint per campaign with no checkpoint bloat.
 

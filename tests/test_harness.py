@@ -59,6 +59,20 @@ class HarnessTests(unittest.TestCase):
         two_tags = _characters.build_sheet(**kwargs, build_points_used=8, tags=["Megafauna tracker", "Steady hands"])
         self.assertFalse(validate_sheet.validate_sheet(two_tags, manifest).ok())
 
+    def test_every_cli_tool_prints_help(self):
+        scripts = sorted(
+            p for p in (ROOT / "tools").glob("*.py")
+            if not p.name.startswith("_")
+        )
+        self.assertGreater(len(scripts), 20)
+        for script in scripts:
+            with self.subTest(tool=script.name):
+                result = subprocess.run(
+                    [sys.executable, str(script), "--help"],
+                    capture_output=True, text=True, cwd=ROOT,
+                )
+                self.assertEqual(result.returncode, 0, result.stderr[-400:])
+
     def test_delvekit_generated_data_validates_and_renders(self):
         data = _delvekit.generate_dungeon(seed=42, size="tiny", difficulty="hard")
         self.assertIs(_delvekit.validate_dungeon(data), data)

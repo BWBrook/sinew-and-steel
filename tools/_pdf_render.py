@@ -1,4 +1,4 @@
-"""PDF renderer used by the release build."""
+"""WeasyPrint PDF renderer used by the release build."""
 
 from __future__ import annotations
 
@@ -8,85 +8,6 @@ import subprocess
 from _pdf_common import configure_macos_weasyprint_runtime, normalize_css_font_size
 
 ROOT = Path(__file__).resolve().parents[1]
-
-def run_pandoc_md_to_pdf(
-    *,
-    md_path: Path,
-    pdf_path: Path,
-    toc: bool,
-    toc_depth: int,
-    number_sections: bool,
-    variant: str,
-    pdf_engine: str,
-    mainfont: str | None,
-    sansfont: str | None,
-    monofont: str | None,
-    fontsize: str | None,
-    linestretch: float | None,
-    geometry: list[str],
-    documentclass: str | None,
-    extra_header_paths: list[Path] | None = None,
-) -> None:
-    cmd = [
-        "pandoc",
-        str(md_path),
-        "-o",
-        str(pdf_path),
-        f"--resource-path={md_path.parent}:{ROOT}",
-        # Pandoc enables `blank_before_blockquote` by default, which means a
-        # line starting with `>` will NOT start a blockquote if it immediately
-        # follows a paragraph. That’s a common authoring “papercut” (especially
-        # for patterns like `**Micro‑vignette:**` followed by a quote).
-        #
-        # Disable it so `>` behaves like most people expect.
-        "--from",
-        "markdown-blank_before_blockquote",
-        f"--pdf-engine={pdf_engine}",
-    ]
-
-    header_images = ROOT / "templates" / "pandoc" / "header_images.tex"
-    if header_images.exists():
-        cmd += ["--include-in-header", str(header_images)]
-
-    wrapfig_filter = ROOT / "templates" / "pandoc" / "wrapfig.lua"
-    if wrapfig_filter.exists():
-        cmd += ["--lua-filter", str(wrapfig_filter)]
-
-    if extra_header_paths:
-        for header in extra_header_paths:
-            if header.exists():
-                cmd += ["--include-in-header", str(header)]
-
-    if toc:
-        header_path = ROOT / "templates" / "pandoc" / "header_toc_pagebreak.tex"
-        if header_path.exists():
-            cmd += ["--include-in-header", str(header_path)]
-        cmd += ["--toc", f"--toc-depth={toc_depth}"]
-    if number_sections:
-        cmd += ["--number-sections"]
-
-    if documentclass:
-        cmd += ["-V", f"documentclass={documentclass}"]
-    if fontsize:
-        cmd += ["-V", f"fontsize={fontsize}"]
-    if linestretch:
-        cmd += ["-V", f"linestretch={linestretch}"]
-    if mainfont:
-        cmd += ["-V", f"mainfont={mainfont}"]
-    if sansfont:
-        cmd += ["-V", f"sansfont={sansfont}"]
-    if monofont:
-        cmd += ["-V", f"monofont={monofont}"]
-    for opt in geometry:
-        cmd += ["-V", f"geometry:{opt}"]
-
-    # Keep variants simple for now; we can refine templates later.
-    if variant == "screen":
-        cmd += ["-V", "colorlinks=true", "-V", "linkcolor=blue", "-V", "urlcolor=blue"]
-    elif variant == "print":
-        cmd += ["-V", "colorlinks=false"]
-
-    subprocess.run(cmd, cwd=ROOT, check=True)
 
 def run_pandoc_md_to_weasyprint_pdf(
     *,
@@ -103,7 +24,19 @@ def run_pandoc_md_to_weasyprint_pdf(
     linestretch: float | None,
     suppress_title_block: bool,
     include_before_body: Path | None = None,
+    doc_title: str | None = None,
+    author: str | None = None,
+    description: str | None = None,
+    keywords: str | None = None,
 ) -> None:
+    """Render Markdown to PDF via pandoc HTML and WeasyPrint.
+
+    The ``variant`` sets how images are embedded. ``screen`` downsamples to
+    150 dpi and JPEG-encodes for a small download; ``print`` keeps 300 dpi
+    lossless images for print-on-demand. Document metadata (title, author,
+    description, keywords) is written into the PDF so distributors and
+    readers see the book's name rather than the file stem.
+    """
     html_path = md_path.parent / f"{pdf_path.stem}.html"
     cmd = [
         "pandoc",
@@ -115,21 +48,29 @@ def run_pandoc_md_to_weasyprint_pdf(
         "--to",
         "html5",
         "--standalone",
+        "--wrap=none",
         f"--resource-path={md_path.parent}:{ROOT}",
         "--metadata",
-        f"pagetitle={pdf_path.stem}",
+        f"pagetitle={doc_title or pdf_path.stem}",
         "--lua-filter",
         str(ROOT / "templates" / "pandoc" / "html_pagebreak.lua"),
     ]
+    if author:
+        cmd += ["--metadata", f"author={author}"]
+    if description:
+        cmd += ["--metadata", f"description={description}"]
+    if keywords:
+        cmd += ["--metadata", f"keywords={keywords}"]
 
     if suppress_title_block:
+        # Pandoc's HTML template only renders the visible title block when
+        # `title` is set, so blanking title/subtitle/date hides it while the
+        # author still reaches <meta name="author"> for PDF metadata.
         cmd += [
             "--metadata",
             "title=",
             "--metadata",
             "subtitle=",
-            "--metadata",
-            "author=",
             "--metadata",
             "date=",
         ]
@@ -250,7 +191,14 @@ div.pagebreak {{
 """
     stylesheets.append(CSS(string=runtime_css))
 
+    pdf_options: dict = {}
+    if variant == "screen":
+        pdf_options = {"optimize_images": True, "jpeg_quality": 85, "dpi": 150}
+    elif variant == "print":
+        pdf_options = {"optimize_images": True, "dpi": 300}
+
     HTML(filename=str(html_path), base_url=str(ROOT)).write_pdf(
         str(pdf_path),
         stylesheets=stylesheets,
+        **pdf_options,
     )

@@ -4,12 +4,11 @@ layout_lab.py
 
 Run a small "lab bench" for Markdown → PDF layout behavior.
 
-This builds each fixture in `examples/layout_lab/fixtures/` using one or more
-backends (currently: `latex`, and optionally `weasyprint`), and can render PDFs
-to PNGs for easy visual inspection.
+This builds each fixture in `examples/layout_lab/fixtures/` with tools/md_pdf.py
+(pandoc + WeasyPrint) and can render the PDFs to PNGs for visual inspection.
 
 Example:
-  python tools/layout_lab.py --out release/test/layout_lab --render-png
+  uv run --extra pdf python tools/layout_lab.py --out release/test/layout_lab --render-png
 """
 
 from __future__ import annotations
@@ -25,21 +24,6 @@ ROOT = Path(__file__).resolve().parents[1]
 def _run(cmd: list[str]) -> None:
     subprocess.run(cmd, cwd=ROOT, check=True)
 
-def _preferred_python() -> str:
-    """
-    Prefer the repo venv Python if present.
-
-    This avoids a common footgun where a user installs optional PDF backends
-    (like WeasyPrint) into `.venv`, but invokes the lab with system `python`,
-    causing imports to fail inside the child processes.
-    """
-
-    venv_python = ROOT / ".venv" / "bin" / "python"
-    if venv_python.exists():
-        return str(venv_python)
-    return sys.executable
-
-
 def _fixture_paths() -> list[Path]:
     fixtures_dir = ROOT / "examples" / "layout_lab" / "fixtures"
     return sorted(p for p in fixtures_dir.glob("*.md") if p.is_file())
@@ -51,11 +35,6 @@ def main() -> int:
         "--out",
         default="release/test/layout_lab",
         help="Output directory (default: release/test/layout_lab).",
-    )
-    parser.add_argument(
-        "--backends",
-        default="latex,weasyprint",
-        help='Comma-separated backends to try (default: "latex,weasyprint").',
     )
     parser.add_argument("--style", choices=["default", "bookish"], default="bookish", help="Style preset.")
     parser.add_argument("--paper", choices=["letter", "a4"], default="letter", help="Paper size.")
@@ -74,53 +53,41 @@ def main() -> int:
         out_root = (ROOT / out_root).resolve()
     out_root.mkdir(parents=True, exist_ok=True)
 
-    backends = [b.strip() for b in args.backends.split(",") if b.strip()]
-    if not backends:
-        print("error: --backends was empty", file=sys.stderr)
-        return 1
-
     failures: list[str] = []
-    python_exec = _preferred_python()
+    pdf_dir = out_root / "pdf"
+    png_dir = out_root / "png"
+    pdf_dir.mkdir(parents=True, exist_ok=True)
+    if args.render_png:
+        png_dir.mkdir(parents=True, exist_ok=True)
 
-    for backend in backends:
-        pdf_dir = out_root / backend / "pdf"
-        png_dir = out_root / backend / "png"
-        pdf_dir.mkdir(parents=True, exist_ok=True)
+    for fixture in fixtures:
+        rel = fixture.relative_to(ROOT).as_posix()
+        out_pdf = pdf_dir / f"{fixture.stem}.pdf"
+        cmd = [
+            sys.executable,
+            "tools/md_pdf.py",
+            rel,
+            "--out",
+            str(out_pdf),
+            "--style",
+            args.style,
+            "--paper",
+            args.paper,
+            "--margin",
+            args.margin,
+        ]
+        try:
+            _run(cmd)
+        except subprocess.CalledProcessError:
+            failures.append(fixture.name)
+            continue
+
         if args.render_png:
-            png_dir.mkdir(parents=True, exist_ok=True)
-
-        for fixture in fixtures:
-            rel = fixture.relative_to(ROOT).as_posix()
-            out_pdf = pdf_dir / f"{fixture.stem}.pdf"
-
-            cmd = [
-                python_exec,
-                "tools/md_pdf.py",
-                rel,
-                "--out",
-                str(out_pdf),
-                "--backend",
-                backend,
-                "--style",
-                args.style,
-                "--paper",
-                args.paper,
-                "--margin",
-                args.margin,
-            ]
-
+            prefix = (png_dir / fixture.stem).as_posix()
             try:
-                _run(cmd)
+                _run(["pdftoppm", "-png", "-r", str(args.ppi), str(out_pdf), prefix])
             except subprocess.CalledProcessError:
-                failures.append(f"{backend}:{fixture.name}")
-                continue
-
-            if args.render_png:
-                prefix = (png_dir / fixture.stem).as_posix()
-                try:
-                    _run(["pdftoppm", "-png", "-r", str(args.ppi), str(out_pdf), prefix])
-                except subprocess.CalledProcessError:
-                    failures.append(f"{backend}:{fixture.name}:pdftoppm")
+                failures.append(f"{fixture.name}:pdftoppm")
 
     if failures:
         print("Some builds failed:", file=sys.stderr)

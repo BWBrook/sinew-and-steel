@@ -1,6 +1,6 @@
 # **Sinew & Steel**
 
-*A lean, setting-agnostic role-playing engine—designed to sing at the table and purr in the context of any reasoning AI.*
+*A lean, setting-agnostic role-playing engine for the table, and for any reasoning AI in the Custodian's chair.*
 
 ---
 
@@ -10,7 +10,7 @@ Because most RPG rulebooks ask you to memorise a phone-book of subsystems before
 Sinew & Steel works the other way round:
 
 * **One d20. Five stats. Luck tokens. Stamina. Pressure.**  
-* **Friction where it matters:**  Burning Luck, shaving armour with margin, riding peril tracks.  
+* **Friction where it matters:**  Burning Luck, pushing damage through armour with margin, riding the Pressure fuse.  
 * **Skin-agnostic.**  Swap the coat of paint and you’re in Bronze-Age Atlantis, a Martian dust storm, or the heat-death horizon.  
 * **AI-ready.**  The rules are easy for a language model to keep in short-term memory, so the “GM” can focus on story beats instead of chart-flipping.
 
@@ -22,9 +22,9 @@ Sinew & Steel works the other way round:
 
 | Pillar | One-line summary |
 |---|---|
-| **Roll-under d20** | ≤ attribute = succeed.  Natural 1 legendary, 20 catastrophic. |
-| **Scores** | Attributes baseline 10 (6–16) and Stamina baseline 5 (3–9). Standard play starts with **6 build points** (grim 0, pulp 12, heroic 16): +1 above baseline costs 2 points; +1 below baseline costs 1 point; a **tag** (Advantage in one named niche) costs 2. |
-| **Luck = tokens** | Spend to nudge dice; pool size *is* the score. |
+| **Roll-under d20** | ≤ attribute = succeed.  Natural 1 legendary (ignores soak, +1 damage), 20 catastrophic. |
+| **Scores** | Attributes baseline 10 (6–16) and Stamina baseline 5 (3–9), ceilings for life. Standard play starts with **6 build points** (grim 0, pulp 12, heroic 16): +1 above baseline costs 2 points; +1 below baseline costs 1 point; a **tag** (Advantage in one named niche) costs 2. |
+| **Luck = tokens** | Spend to nudge dice after seeing them (both dice, in an opposed test); pool size *is* the score. |
 | **Stamina** | Baseline at 5; nudge with build points.  Hits deal 1 + weapon edge + 1 per full 5 margin, minus soak (min 1).  0 = collapse. |
 | **Pressure track** | 0-5 fuse.  Colour changes by skin (Doom, Shadow, Sin, Heat, Fatigue, Stress, Strain, Dread, Insanity, Anomaly…). |
 | **Armour** | Soak 1-3 subtracts from damage; a winning hit always deals at least 1. |
@@ -56,8 +56,8 @@ If you want the repo's torchlit dungeon-crawl lane, start here:
 
 - Read `skins/candlelight_dungeons.md` for the base skin.
 - Add `skins/candlelight_delvekit.md` and `rules/appendices/candlelight_delvekit_quickref.md` when you want stricter exploration turns, keyed progression, hidden/player maps, and seeded site generation.
-- Use `python tools/build_prompt.py --skin candlelight_dungeons --mode agent --out /tmp/candlelight_prompt.md` for an agent-ready prompt. The current manifest wiring includes the Delvekit sidecar automatically for Candlelight prompt builds.
-- Use `python tools/delvekit_seed.py --seed 42 --size tiny --difficulty hard --out /tmp/delve.yaml` if you want a bounded dungeon prototype before play.
+- Use `uv run python tools/build_prompt.py --skin candlelight_dungeons --mode agent --out /tmp/candlelight_prompt.md` for an agent-ready prompt. The current manifest wiring includes the Delvekit sidecar automatically for Candlelight prompt builds.
+- Use `uv run python tools/delvekit_seed.py --seed 42 --size tiny --difficulty hard --out /tmp/delve.yaml` if you want a bounded dungeon prototype before play.
 - See `docs/candlelight_delvekit.md` for the full workflow and `examples/candlelight_delvekit/` for ready-to-read examples.
 
 ---
@@ -71,14 +71,14 @@ Start here if you want a Codex CLI or Claude Code agent to run the game from thi
    uv venv
    uv sync
    ```
-2. **List skins:** `python tools/build_prompt.py --list-skins`
+2. **List skins:** `uv run python tools/build_prompt.py --list-skins`
 3. **Create a campaign + character:**
    ```bash
-   python tools/campaign_init.py --title "Ice Hunt" --skin clanfire --tone standard --random-character "Grak"
+   uv run python tools/campaign_init.py --title "Ice Hunt" --skin clanfire --tone standard --random-character "Grak"
    ```
 4. **Build the agent prompt:**
    ```bash
-   python tools/build_prompt.py --campaign ice_hunt --mode agent
+   uv run python tools/build_prompt.py --campaign ice_hunt --mode agent
    ```
    (By default this strips PDF-only artwork tags from rules/skins to keep the prompt clean for LLM ingestion; use `--keep-art` if you want them included. For Candlelight Dungeons, the manifest currently pulls in the Delvekit sidecar automatically.)
 5. **Start play** using `campaigns/ice_hunt/prompt.md`, then track state with tools.
@@ -94,7 +94,7 @@ Starter scenario (Clanfire, “play tonight”):
 If you’re resuming a campaign in a new agent context, use the resume pack:
 
 ```bash
-python tools/resume_pack.py --campaign <slug> --character <name>
+uv run python tools/resume_pack.py --campaign <slug> --character <name>
 ```
 Add `--public` to redact private memory/secrets when you need player-safe output.
 
@@ -103,7 +103,7 @@ Or read: `skills/agent_bootstrap.md` for the shortest possible “get playing”
 Example player directive (fresh Codex resume):
 ```
 You’re resuming a Sinew & Steel campaign. Read only AGENTS.md and skills/agent_dm_handbook.md.
-Then run: python tools/resume_pack.py --campaign <campaign_slug> --character <character_slug>
+Then run: uv run python tools/resume_pack.py --campaign <campaign_slug> --character <character_slug>
 Use that output for your internal context only (do not show memory/secrets/log to me).
 If you have any questions, ask now. If not, print ONLY the checkpoint text and continue play from there.
 ```
@@ -147,9 +147,7 @@ If you want print-ready PDFs (for release packaging or home printing), see:
 
 - `docs/pdf_building.md`
 
-The recommended backend for **inline wrapped images** is WeasyPrint via:
-
-- `tools/md_pdf.py --backend weasyprint`
+PDFs are rendered with pandoc + WeasyPrint; `tools/md_pdf.py` builds one-off files for layout checks.
 
 ---
 
@@ -193,7 +191,7 @@ Key utilities for play:
 * `tools/resume_pack.py` (or `--public`) for fast context resumes.
 * `tools/checkpoint.py` for ironman save-and-quit checkpoints.
 * `tools/doctor.py` to validate repo + campaign in one command.
-* `tools/ss.py` for a single entry point (`python tools/ss.py beat ...`).
+* `tools/ss.py` for a single entry point (`uv run python tools/ss.py beat ...`).
 * `tools/delvekit_seed.py`, `tools/delvekit_map.py`, `tools/delvekit_pitch.py`, and `tools/delvekit_adventure.py` for Candlelight Delvekit site generation, map rendering, and polish workflows.
 
 ---

@@ -21,11 +21,11 @@ Run a branching RPG session with clear separation between public narration and p
 - When you do roll, update sheets with tools/update_sheet.py (or tools/apply_roll.py / tools/beat.py).
 - Advance pressure tracks and clocks when fiction demands (tools/trackers.py).
 - After each GM response, checkpoint the exact text (ironman resume):
-  `cat /tmp/last_gm.md | python tools/checkpoint.py --campaign <slug>`
+  `cat /tmp/last_gm.md | uv run python tools/checkpoint.py --campaign <slug>`
 
 ## End of session
 - Write a short memory summary in state/memory/.
 - Capture unresolved threads in state/trackers/ or state/memory/.
-- To keep memory/log numbering aligned, create the next pair with `python tools/new_session.py --campaign <slug>`.
+- To keep memory/log numbering aligned, create the next pair with `uv run python tools/new_session.py --campaign <slug>`.
 - Optional “save and quit”: write the last exact GM response to a checkpoint file, separate from logs/memory:
-  `cat /tmp/last_gm.md | python tools/checkpoint.py --campaign <slug>`
+  `cat /tmp/last_gm.md | uv run python tools/checkpoint.py --campaign <slug>`

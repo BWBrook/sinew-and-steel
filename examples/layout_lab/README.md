@@ -19,8 +19,6 @@ We want Markdown documents to render to PDF such that:
 The lab runner builds PDFs for each fixture and optionally renders them to PNGs.
 
 ```bash
-.venv/bin/python tools/layout_lab.py --out release/test/layout_lab --render-png
+uv run --extra pdf python tools/layout_lab.py --out release/test/layout_lab --render-png
 ```
 
-If you have multiple PDF backends configured, the runner will build each fixture with each
-backend so you can compare results quickly.

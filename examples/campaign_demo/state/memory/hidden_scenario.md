@@ -4,7 +4,7 @@ This file is an example of where a private scenario/module can live for a campai
 It can be included in an agent prompt via:
 
 ```bash
-python tools/build_prompt.py --campaign <slug> --mode agent --hidden campaigns/<slug>/state/memory/hidden_scenario.md
+uv run python tools/build_prompt.py --campaign <slug> --mode agent --hidden campaigns/<slug>/state/memory/hidden_scenario.md
 ```
 
 The contents below are copied from `rules/scenarios/clanfire_emberfall_hidden.md`.

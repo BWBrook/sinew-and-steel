@@ -32,7 +32,7 @@ RPG Style: Punchy second-person adventure prose. Short scenes, strong sensory de
   - `tools/trackers.py` / `tools/recap.py` for clocks and memory.
   - `tools/session_log.py` for public log text.
 - Keep private notes in campaign memory files; never reveal them unless asked.
-- Show roll result + margin when you roll; offer Luck nudges when relevant.
+- Show roll result + margin when you roll; offer Luck nudges when relevant, after both dice are shown in an opposed test.
 
 ---
 

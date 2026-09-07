@@ -1,6 +1,7 @@
 """Task 1 & 6: verify the book's published tables; adv/dis natural rates."""
 from fractions import Fraction
 from engine import (
+    margin_bonus,
     DIE, MODES, die_dist, p_success, p_attacker_wins, opposed_outcomes,
     mean_margin_on_success, margin_dist_on_success,
 )
@@ -96,18 +97,18 @@ for s in range(6, 17):
 
 print()
 print("=" * 74)
-print("MARGIN SCALES WITH ATTRIBUTE  (the soak-erosion driver)")
+print("MARGIN SCALES WITH ATTRIBUTE  (the damage-bonus driver)")
 print("=" * 74)
 print(f"{'Score':>5} | {'P(success)':>10} | {'E[margin|success]':>18} | "
-      f"{'E[soak eroded|success]':>22} | {'P(margin>=10|succ)':>19}")
+      f"{'E[margin bonus|success]':>23} | {'P(bonus>=1|succ)':>17}")
 print("-" * 88)
 for s in range(6, 17):
     mm = mean_margin_on_success(s)
     md = margin_dist_on_success(s)
-    e_erode = sum((m // 4) * p for m, p in md.items())
-    p_big = sum(p for m, p in md.items() if m >= 10)
+    e_bonus = sum(margin_bonus(m) * p for m, p in md.items())
+    p_any = sum(p for m, p in md.items() if margin_bonus(m) >= 1)
     print(f"{s:>5} | {pct(p_success(s)):9.2f}% | {float(mm):18.3f} | "
-          f"{float(e_erode):22.3f} | {pct(p_big):18.2f}%")
+          f"{float(e_bonus):23.3f} | {pct(p_any):16.2f}%")
 
 print()
 print("=" * 74)
