@@ -7,6 +7,7 @@
 - Skins, Quickstart, README, the Emberfall teaching exchange, the demo prompt and log updated to the new wording; `tools/analysis/` re-encoded and re-verified.
 - Tags are a core rule (Adventurer's Manual 2.6): a named niche for 2 build points, Advantage when the fiction squarely fits. Skin knacks and Expertise are tags; the four knack skins now state their free grants. Grak, Tom Calder and Sister Aveline re-priced to carry their tag inside budget. Sheets gain a `tags:` list; builder, validator and recalc count them.
 - Almanac Toolkit gains "Why the defender wins ties", stating the opposed-test asymmetry as a design choice.
+- Editorial pass over the whole book: removed repeated one-line maxims that restated the section, morals appended to the two vignettes, grandiose sign-off flourishes on every skin, and spaced hyphens doing em-dash work in prose. Rules text unchanged.
 
 ## 0.3.1 - 2025-12-22
 - Stamina now participates in the point-buy ledger (baseline 5), with build-point budgets integrated across rules, builders, validators, and sample builds.

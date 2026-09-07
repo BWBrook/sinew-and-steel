@@ -20,7 +20,7 @@ Sinew & Steel is built to make a few promises and keep them:
 - Custom characters, real trade-offs. Every strength leaves a cost somewhere else.
 - A flexible chassis. Different genres get different skins, but the underlying logic remains the same.
 
-Underneath it all, S&S wants momentum: table talk first, clear stakes, and dice reserved for moments they can sharpen.
+Underneath it all, S&S wants momentum: table talk first, clear stakes, and dice only where they add something.
 
 ## A narrower taste
 
@@ -74,6 +74,6 @@ Sinew & Steel is designed so an AI reasoning engine can run it consistently, whi
 
 ## An invitation
 
-Everything here is deliberately carved lean because *bloat* adds dead weight. The chassis is coherent, and coherence is fragile, but it is also hackable. House-rule freely. Combine skins. Write your own. Just do it with intention, and keep an eye on what you trade away when you add weight.
+Everything here is cut lean on purpose, because bloat is dead weight. The chassis is coherent, and coherence is fragile, but it is also hackable. House-rule freely. Combine skins. Write your own. Just do it with intention, and keep an eye on what you trade away when you add weight.
 
 If this book gives you a system that gets out of the way until it matters, and then matters in a way you can feel, it has done its job.

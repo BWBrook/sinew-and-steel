@@ -71,8 +71,6 @@ Pick a skin for tone and small rule tweaks. It gives you the attribute names, wh
 
 ## 3. Custodian quickstart (run a first session tonight)
 
-Use this when you want to start tonight.
-
 1. Frame the scene in concrete details. End on a hook.
 2. Ask: “What do you do?” Then listen for intent and method.
 3. Choose resolution:

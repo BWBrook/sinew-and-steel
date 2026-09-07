@@ -56,10 +56,8 @@ S&S gives the model one core resolution language and a short list of resources t
 - **GM-less groups:** the AI carries the GM role for the table.
 - **Busy Custodians:** the AI is a co-pilot: generating options, voicing NPCs, and keeping momentum when your energy is low.
 
-Pick the one that fits your life. Each uses the same rules.
+Each uses the same rules.
 
 ## If you want the next layer
-
-This chapter sets the stance.
 
 For the next layer, go to **AI Play Notes**: a light overview of what the repository harness adds, why secrets need a private channel, and how to keep AI-assisted play grounded in real consequences. The command-level workflow lives in the repo documentation.

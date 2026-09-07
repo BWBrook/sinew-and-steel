@@ -100,8 +100,6 @@ Examples: future-alloy blade (+1 edge), patent rights (wealth perk), Eocene ambe
 
 *A guide for stewards of paradox, peril and Edwardian wonder*
 
-> *Chrononauts are needles in the fabric of time; you, Custodian, are the hand that stitches and snips. Keep the thread taut.*
-
 ### Narrative tone
 
 Use brisk reportage and lyrical awe, with an undercurrent of unease. Mix brass rivets with cosmic foreboding:
@@ -171,4 +169,4 @@ Wiltflower charm (Advantage when calming creatures), glow-stone bead (light). Di
 
 ---
 
-> *Track Ingenuity spent, Stamina lost, Anomaly gained. Each scar may echo through centuries.*
+> *Track Ingenuity spent, Stamina lost, Anomaly gained.*

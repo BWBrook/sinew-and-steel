@@ -159,8 +159,8 @@ When the task squarely fits that expertise, roll with **Advantage**. Expertise r
 
 ## Tools and tags
 
-- **Lockpick satchel** - Advantage on **DEX** tests to open locks or disarm traps when you have access. On a natural **20**, the picks snap (spent).
-- **Holy symbol** - required focus for Turn Undead; shatters on a natural **20** on a Turn Undead test.
+- **Lockpick satchel:** Advantage on **DEX** tests to open locks or disarm traps when you have access. On a natural **20**, the picks snap (spent).
+- **Holy symbol:** required focus for Turn Undead; shatters on a natural **20** on a Turn Undead test.
 
 \clearpage
 
@@ -177,7 +177,7 @@ Give mossy flagstones, a draught that smells of old iron, the scrape of scaled h
 Keep a scratch grid of rooms, traps, and wandering signs. Let fear be earned by the choice of corridor.
 
 **3. Rulings over rules, always.**
-When a delver tries the unexpected - pouring oil down a murder-hole, bargaining with a skeleton - judge it cleanly, call for a single test at most, and let the tale run.
+When a delver tries the unexpected, pouring oil down a murder-hole or bargaining with a skeleton, judge it cleanly, call for a single test at most, and let the tale run.
 
 **4. Treasure is tempo.**
 A purse of 50 silver keeps iron rations flowing; a ruby the size of a child's heart funds the next delve. Tie milestones to discoveries and daring.
@@ -195,20 +195,18 @@ One lethal trap per session keeps courage taut; the rest should maim, scare, or 
 "Beyond the door lies laughter... or weeping." Offer two or three choices: one should sparkle with gold, one should reek of doom, one should whisper old lore.
 
 **9. Keep the lexicon vivid but lean.**
-Sprinkle five-dollar words like saffron, never by the ladle: *miasma*, *balustrade*, *chthonic*. Let action carry the prose.
+A few rare words go a long way: *miasma*, *balustrade*, *chthonic*. Let action carry the prose.
 
 **10. Reward ingenuity with Advantage, hubris with peril.**
-Pole-tapping every slab should find hidden hinges; charging the idol deserves the hail of darts. Fairness is the forge of legend.
+Pole-tapping every slab should find hidden hinges; charging the idol deserves the hail of darts.
 
 > _"The candle gutters; the map curls at the edges. Ahead: a door iron-banded and warm to the touch. Choose, delvers."_
-
-Hold that cadence and the ghosts of 1983 will nod in approval.
 
 ### Chronicler flavour bullets
 
 - Sweat drips into guttering sconces; fat spatters like rain on hot stone.
 - The corridor air tastes of copper and mildew.
-- A single rat squeals, then silence - too complete.
+- A single rat squeals, then a silence too complete.
 
 - **Sensory kick-starters:** wet limestone drip; torch oil hisses; waft of grave rosemary.
 - **Moves:** loose flagstone drops to pit; goblin horn echoes; mould spores force **STR** test (mark **+1 Fatigue** on failure).
@@ -220,7 +218,7 @@ Hold that cadence and the ghosts of 1983 will nod in approval.
 
 **Fatal** ignores Stamina and soak: a struck target drops to **0 Stamina** unless they possess the listed counter-measure or are immune to fatal strikes.
 
-Example: Assassin's throat-slit on a sleeping victim - **Fatal (counter: staying awake or wearing a gorget helmet while resting)**.
+Example: Assassin's throat-slit on a sleeping victim: **Fatal (counter: staying awake or wearing a gorget helmet while resting)**.
 
 ### Delvekit coda
 
@@ -255,4 +253,4 @@ Dagger 0, robes (soak 0), spellbook (Advantage on LOR tests to recall ritual det
 
 ---
 
-*Track Fortune, Fatigue, Stamina, and scars. Every torch stub is another foot of legend.*
+*Track Fortune, Fatigue, Stamina, and scars.*

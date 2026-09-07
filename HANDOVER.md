@@ -110,6 +110,20 @@ grants; Grak, Tom Calder and Sister Aveline were re-priced. Sheets carry a
 `tags:` list and the builder, validator and recalc tool count it. The Almanac
 Toolkit now states why the defender wins ties (kept as a design choice).
 
+## Editorial pass, 7 September 2026
+
+Barry asked for a full prose pass against his `audit-ai-writing` skill before any
+further visual work; he also plans to run the book past OpenAI's Astra model. The
+scanner mostly flags Markdown structure, which a rulebook needs; the real tells
+were repeated one-line maxims closing sections, morals appended to vignettes,
+grandiose sign-off lines on every skin ("Fairness is the forge of legend"), the
+"X is Y" bullet heads, and spaced hyphens as em dashes. Those were cut or
+plainly reworded; rules text and section headings were not touched (the
+assembler keys on skin headings). House words still frequent by design: lean,
+momentum, coherent. Optional flourishes left for Barry's call: the Almanac's
+closing "pocket atlas" epigraph, the in-voice quotes inside skins, and the
+"Expect X, Y, Z" pitch sentence that opens every skin.
+
 ## Useful commands and code map
 
 Run from the repository root. `docs/pdf_building.md` explains the workflows.

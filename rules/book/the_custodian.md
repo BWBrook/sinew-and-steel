@@ -21,15 +21,9 @@ Real player choice changes what happens next. Let it branch.
 
 **Fake choice:** "Pick one of three paths through the forest" when all three paths converge on the same prepared scene, with the same outcome in a different cloak.
 
-Let it branch.
-
 ## Telegraph danger like the real world does
 
-Build encounters from the fiction. The world is dangerous, uneven, and indifferent to heroic plot armour.
-
-An indifferent world still telegraphs lethal, unstable, or overwhelming danger **through the fiction**. Give attentive players enough to read the danger and adapt. A good sting is reality catching up; a bad sting is contrived.
-
-Make risk *legible* so the players’ choices stay real.
+Build encounters from the fiction. The world is dangerous, uneven, and indifferent to plot armour, but it still telegraphs. Give attentive players enough to read the danger and adapt. A good sting is reality catching up; a bad sting is contrived.
 
 ## Roll only for stakes
 
@@ -108,4 +102,4 @@ If you want a heroic game, let heroism come from brave players facing an indiffe
 > Later, when they return to the entry chamber, something is waiting.<br>
 > The players feel the dungeon breathing.
 
-That small exchange captures the Custodian's role. Time passed, and the dungeon answered.
+Time passed, and the dungeon answered.

@@ -61,8 +61,6 @@ Dice should sit outside whatever the AI thinks would make a satisfying story.
 
 Use physical dice, a trusted roller, or a local tool. Surface the roll, the margin, and any Luck-spend offer plainly. Once the result is known, let the fiction answer it. Let bad rolls keep their edge.
 
-S&S works because consequence is light enough to track and sharp enough to matter.
-
 ## What the harness feels like in play
 
 During play, the harness should disappear.

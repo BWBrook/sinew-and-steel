@@ -4,11 +4,11 @@ Sinew & Steel asks something simple of you as a player: **make coherent narrativ
 
 Think as *this person*, right now, with their courage, habits, pride, fear, and bad information.
 
-The rules are lean on purpose: they’re meant to catch you when stakes matter, then get out of the way so the story keeps momentum.
+The rules are short on purpose. They catch you when the stakes matter, then get out of the way.
 
 ## Play the person, not the puzzle
 
-You can tune a character in S&S. Build optimisation, rules lawyering, and fishing for mechanically convenient checks will still flatten play.
+You can tune a character in S&S, but build optimisation, rules lawyering, and fishing for a convenient check flatten play.
 
 The better posture is: **play to find out what your character becomes**. Failure belongs to the adventure.
 
@@ -20,11 +20,9 @@ When S&S shines, it feels like it’s happening in real time. Do your part to ke
 - Choose an approach quickly, even if it isn’t perfect.
 - If you hesitate, treat it as real in the fiction: time passes, attention shifts, danger closes.
 
-Purposeful choices keep that pace. Treat each event as an invitation to move the night forward.
-
 ## Declare intent, method, risk
 
-The most useful declarations in S&S might go something like:
+The most useful declarations in S&S sound like this:
 
 - **I want** ___ (intent)
 - **by doing** ___ (method)
@@ -56,7 +54,7 @@ If there is disagreement, the Custodian decides briefly and calmly. A tense beat
 
 ## Some actions resolve in the fiction
 
-You can earn roll-free outcomes by removing uncertainty: good prep, useful tools, strong positioning, clever plans, or an approach that makes success plainly plausible. That is one payoff for coherent choices.
+You can earn roll-free outcomes by removing uncertainty: good prep, useful tools, strong positioning, clever plans, or an approach that makes success plainly plausible.
 
 ## Spend Luck like a storyteller
 
@@ -69,19 +67,19 @@ When you nudge a die, narrate it. Say what it looks like: a lucky foothold, a su
 
 ## Failure is fuel
 
-Failure in S&S can mean a hard stop, a complication, progress at a cost, or success with collateral damage. Failure should change the situation.
+Failure in S&S can mean a hard stop, a complication, progress at a cost, or success with collateral damage. Whatever form it takes, it changes the situation.
 
-Adventure lives in risk, and risk sometimes ends in failure. Play your character’s instinct to survive, and make choices that respect everyone’s fun.
+Your character wants to survive. Play that, and let the failures land.
 
 ## Fighting is a kind of scene
 
 Combat is dangerous, and “victory” means what the fiction says it means. NPCs and monsters usually value their own lives, and the Custodian plays those motives through the scene.
 
-You get rewarded for navigating perilous beats in whatever way makes sense at the table. Useful instincts:
+The game rewards you for getting through perilous beats, not for winning fights. Useful instincts:
 
 - Avoid fair fights; make them unfair in your favour.
 - Retreat is honourable; survival is a win condition.
-- Threats, bargains, bribes, ambushes, avoidance and misdirection are all potentially valid tactics.
+- Threats, bargains, bribes, ambushes, and simply not being there all count.
 - Driving something off can be as decisive as killing it.
 
 ## Table habits that help
@@ -102,5 +100,3 @@ In the **Iron & Ruin** skin, sorcery is a bargain whose price keeps climbing.
 > She doesn’t ask what failure looks like. She speaks the forbidden name anyway.<br>
 > The gate screams, warps, and splits. The party bolts through as the air turns cold.<br>
 > She marks +1 Doom and laughs as she wipes a trickle of blood from her lip, thrilled by the risk.
-
-Adventure should be dangerous enough to matter. The story gets sharper when you choose the hard path with open eyes.

@@ -164,7 +164,6 @@ Reliable Custodian moves:
 |5| The infirmary leech-jar is missing; patients worsen. | An apothecary in town pays double for rare blood elixir. |
 |6| A parchment map to a Saxon tomb appears in Cadoc's cell. | The handwriting matches the Prior - dead these ten years. |
 
-
 ### Investigation map (keep it simple)
 
 Tag scenes by location (CL-1 cloister, TW-2 town, WD-3 woodland). Keep a short case ledger: suspects, motives, alibis, and clue list.
@@ -207,4 +206,3 @@ Wax tablets, dagger +1 (kept hidden). Tag: **Empathic gaze** (Advantage on MCY t
 ---
 
 *Track Providence spent, Stamina lost, Sin accrued.*
-_Each ink blot tells a chapter of salvation - or damnation._

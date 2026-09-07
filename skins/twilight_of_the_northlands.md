@@ -13,7 +13,7 @@ Suggested creation tone: **heroic** (**16** build points).
 
 In this skin, the Custodian is often called the **Lorekeeper**.
 
-> The Old Road lies empty. The wind smells of rain and old stone. Somewhere beyond the next rise, a black bird cries - and the sound echoes like a question.
+> The Old Road lies empty. The wind smells of rain and old stone. Somewhere beyond the next rise, a black bird cries, and the sound echoes like a question.
 
 ---
 
@@ -154,7 +154,7 @@ _(A risky test is any roll where failure would materially change the situation: 
 
 **Gain Dread:** witnessing true evil, oath-breaking, tainted ground, hoarding while others starve, failing Invocations, spending Companionship down to 0.
 
-**Purge (rare):** set Dread to **0** after a true cleansing scene - song in a sanctuary, a grave confession to a wise mentor, or a gift freely given that costs you something.
+**Purge (rare):** set Dread to **0** after a true cleansing scene: song in a sanctuary, a grave confession to a wise mentor, or a gift freely given that costs you something.
 
 **Dread crisis (pick or roll d6)**
 
@@ -264,8 +264,6 @@ After a completed adventure, each PC picks **one** undertaking:
 - **Tainted** (old battlefield, tomb-hill): each night spent here marks **+1 Dread**.
 - **Sanctuary** (peaceful haven, holy hall): the first full night clears **1 Dread** and **1 Fatigue** for each PC.
 
-Travel choices acquire moral weight.
-
 ---
 
 ## Narrating in Northland saga style
@@ -283,8 +281,8 @@ Travel choices acquire moral weight.
 - **Season the calendar.** Harvest moons, first frosts, the memory of a fell winter.
 - **Let names carry history.** "This blade was forged before the kingdom broke."
 - **Reward clever combat.** One giant > five raiders. Flooded ford, flaming brand, falling stones.
-- **Dread is a choice engine.** Offer treasure with a whisper; offer redemption by renunciation.
-- **Weather is drama.** A watch-hill squall alone can impose Disadvantage on missile fire or swell Fatigue.
+- **Dread drives choices.** Offer treasure with a whisper; offer redemption by renunciation.
+- **Use the weather.** A watch-hill squall alone can impose Disadvantage on missile fire or swell Fatigue.
 
 ---
 
@@ -332,4 +330,4 @@ War-axe +2, riveted mail (soak 1), pipe of dried leaf, a worn map of the old roa
 
 ---
 
-*Track Hope, Dread, Fatigue, and Companionship tokens. May your road lead onward - beneath a sun that shines on deeds worth the singing.*
+*Track Hope, Dread, Fatigue, and Companionship tokens.*

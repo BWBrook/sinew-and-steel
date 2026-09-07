@@ -98,7 +98,7 @@ These are story-facing meters. Make them **public** if you want planning, **hidd
 - **Hull Damage (0/6):** tick when the ship is hit or the drive strains. At **6**, the drive is disabled: drift, board, or die.
 - **Debt (0/6):** tick when fees, bribes, or patron penalties land. Clear ticks when you get paid. At **6**, repo attempt, impound, or creditor crisis.
 
-> *"Dockmaster's grin didn't reach his eyes - even money smells desperate this far rimward."*
+> *"Dockmaster's grin didn't reach his eyes. Even money smells desperate this far rimward."*
 
 ### Jump leg (one travel beat)
 

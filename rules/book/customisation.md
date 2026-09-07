@@ -30,8 +30,6 @@ A skin can:
 - define recovery flavour,
 - add one or two procedures that reinforce the genre.
 
-Keep it as that framing layer.
-
 ## The invariants (what to protect)
 
 If you want your custom work to still feel like Sinew & Steel, keep these intact:
@@ -116,4 +114,4 @@ A good S&S procedure usually has this structure:
 
 If a new subsystem pulls you toward new dice, nested tables, or a page of edge cases, step back and ask two questions: what decision is this meant to create, and what momentum is it meant to generate?
 
-A clear answer earns the subsystem its place.
+If you can answer both, keep it.

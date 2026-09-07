@@ -13,7 +13,7 @@ Suggested creation tone: **standard** (**6** build points): capable investigator
 
 In this skin, the Custodian is often called the **Keeper**.
 
-> The fog comes in low and patient, dragging the sea smell over the road. A buoy bell rings where it should not. Your lantern's glass is filmed with salt - and something else.
+> The fog comes in low and patient, dragging the sea smell over the road. A buoy bell rings where it should not. Your lantern's glass is filmed with salt, and something else.
 
 ---
 
@@ -157,7 +157,7 @@ Keep resource tension with a small **clock** for portable light.
 
 Keeper guidance: keep the light clock **public** if you want planning, or **hidden** if you want suspense. If hidden, telegraph it with flickers, smells of hot filament, or the oil's last sputter.
 
-> *"A lantern swung in the fog, tracing impossible angles - yet each swing returned to the same ghastly intersection of shadow."*
+> *"A lantern swung in the fog, tracing impossible angles, yet each swing returned to the same ghastly intersection of shadow."*
 
 \clearpage
 
@@ -230,4 +230,4 @@ Knack: Veteran's Nerves.<br>
 
 ---
 
-> *Track Fate spent, Insanity gained, Stamina lost. Every candle gutter is a whisper from the void.*
+> *Track Fate spent, Insanity gained, Stamina lost.*

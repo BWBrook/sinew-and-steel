@@ -10,7 +10,7 @@ The clan's hearth is dying in a hard winter, and the hunt that should save them 
 ### Why Emberfall?
 Clanfire sits close to pure core play, but has enough flavour for the rules to bite. Emberfall puts the basic S&S loop on the table in one scene: real choice, sparse rolls, visible stakes, Instinct spending, Shadow, clocks, and combat that can end before death.
 
-Emberfall is a first-session fuse: quick to light, hard to leave alone, and built to end with one strong unanswered question.
+Emberfall is built for a first session: quick to start, and it ends on one unanswered question.
 
 ---
 
@@ -56,7 +56,7 @@ Read aloud or paraphrase:
 >
 > Outside, birch trunks click together in the wind. Beneath that is another sound: a soft, wet crunch. Teeth on bone.
 >
-> Somewhere beyond the birches, something large exhales - slow, patient, hungry.
+> Somewhere beyond the birches, something large exhales: slow, patient, hungry.
 
 Then ask:
 
@@ -70,8 +70,6 @@ If the table hesitates, offer options and accept anything else that makes sense:
 4. **Wake the clan and bar the cave** (resolve in the fiction; time passes).
 
 Each option should change the situation. Reading tracks may reveal the wolf early. Stalking may seize position but risk an ambush. Calling spirits may give an omen but raise Shadow on a miss. Barring the cave buys safety at the cost of time, hunger, and initiative.
-
-Every choice should carry a trade.
 
 ---
 
@@ -100,7 +98,7 @@ Use clocks if you want extra tension beyond Shadow.
 - **Storm (0/6):** ticks on long exposure, loud action, or delay in the open. When full, whiteout falls; risky tests cost 1 Instinct bead or +1 Shadow.
 - **Pack Learns (0/4):** ticks when wolves smell blood, spot weakness, or find an easy path. When full, the pack surrounds the cave at night.
 
-Keep clocks visible if you want the table to feel danger tightening. Keep them hidden if you want danger to appear through signs first. Deploy them sparingly.
+Keep clocks visible if you want the table to feel danger tightening. Keep them hidden if you want danger to appear through signs first. Run one or two, not all three.
 
 ---
 

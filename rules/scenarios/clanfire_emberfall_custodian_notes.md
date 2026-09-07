@@ -4,9 +4,7 @@
 
 The previous chapter gives you the table-ready spine. Use this one as a short commentary on how to run Emberfall in the Sinew & Steel style.
 
-Read Emberfall beside **The Custodian**: situation first, real choices, fair consequences. Read Clanfire beside **Customisation**: Shadow, Instinct, taboo, and clocks earn their place only when they make the next choice sharper.
-
-Keep the situation alive and let its course change.
+Read it beside **The Custodian** for the stance, and beside **Customisation** for why Shadow, Instinct, taboo, and clocks are there at all.
 
 ---
 
@@ -14,15 +12,13 @@ Keep the situation alive and let its course change.
 
 The scenario spine tells you what to put in front of the players: the dying hearth, the sound beyond the birches, the immediate options, the cave wolf, the possible deeper truth.
 
-Behind the screen, think less about sequence and more about pressure. Three forces are already moving:
+Behind the screen, track pressure rather than sequence. Three forces are already moving:
 
 - hunger wants the clan to take risks,
 - the wolf wants food and advantage,
 - the wrongness beyond the birch-line wants to be noticed, misunderstood, or paid for.
 
 When the characters act, ask which force changes. If they wait, hunger tightens. If they make noise, the wolf learns. If they call spirits, the wrongness answers. If they bargain well, one pressure may ease while another becomes personal.
-
-At the table, prepare a situation and let player choices bend it.
 
 ---
 
@@ -35,8 +31,6 @@ For **rival hunters**, show human need before human malice: a cut thong on a bra
 For **the spirit omen**, make the demand concrete. A spirit that says "show respect" is vague. A spirit that wants the liver left for the fire, the prey unnamed before dawn, or one Instinct bead surrendered before the spear is thrown gives the table something real to accept, refuse, or twist.
 
 For **strangers on the ridge**, keep them distant. In a first session they make the world larger. Clean footprints in dirty snow do the work. So does a silhouette gone when the characters look twice.
-
-Signs keep choice alive. Exposition closes doors too early.
 
 ---
 
@@ -51,8 +45,6 @@ Make each cost feel like it came from the fiction:
 - weak: "The wolf attacks again."
 - sharper: "The wolf gives way before the spear, circles wide, and finds the hanging meat. Now you have to choose: chase it into the dark or save what remains by the fire."
 
-Let the world answer at the level the fiction has earned.
-
 ---
 
 ## Let the skin do work
@@ -63,9 +55,7 @@ Use **Instinct** when a miss is close and the choice has teeth. Spending a bead 
 
 Use **Shadow** when fear, taboo, spirits, desperation, or survival have been disturbed. A failed track-reading roll may only cost time; a failed rite that asks the dead for help may invite Shadow.
 
-Use **clocks** only if they sharpen the scene. Choose the one or two among Hunger, Storm, and Pack Learns that make the table lean forward.
-
-Customisation's bargain applies here: every extra moving part must earn its place by creating a meaningful decision.
+Use **clocks** only if they tighten the scene. Choose the one or two among Hunger, Storm, and Pack Learns that make the table lean forward.
 
 ---
 
@@ -77,13 +67,9 @@ The wolf wants meat, safety, and advantage. It tests the edge of firelight. It s
 
 This teaches the combat engine through a fight that may end in retreat, lost meat, pursuit, or death. Driving the wolf off is a win. Losing meat is a consequence. Following blood into the trees is a choice. Killing it may solve the immediate problem and expose the next one.
 
-Opponents with motives, fear, hunger, and exits are central to S&S.
-
 ---
 
 ## Teach through play
-
-Let the table learn by doing.
 
 Name a rule only when it becomes useful:
 
@@ -93,7 +79,7 @@ Name a rule only when it becomes useful:
 - "That failure changes the situation..."
 - "The wolf is hurt. It looks ready to flee. Do you let it?"
 
-Enough. The table learns margin, clocks, Pressure, and non-lethal endings by feeling those ideas work.
+That is enough. Players learn margin, clocks, Pressure, and non-lethal endings by watching them work.
 
 When in doubt, return to the Custodian basics: offer two to four plausible options, add "or anything else that makes sense", state the stakes, roll only when the outcome is uncertain and important, then let the consequence land cleanly.
 

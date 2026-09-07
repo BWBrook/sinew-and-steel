@@ -143,8 +143,6 @@ Gain **Advantage** on the roll. If you succeed, you may either add **+1 edge** t
 
 Cost: **1 Fortune token**.
 
-> *Ready your steel. The world kneels only to those who dare carve their saga.*
-
 \clearpage
 
 ## Chronicler's Touchstone (Custodian-facing rules)
@@ -166,8 +164,6 @@ Keep rolls sparse. Heroes should triumph more than they fail, yet peril must fee
 The voice is lean and sinewed: short sentences, vivid verbs, few adjectives.
 
 Work through physical sensation: iron, sweat, blood, stone. Let sorcery feel foul and wondrous, as much curse as gift. Reveal characters through deeds. Lift the register only for moments of foreboding or grandeur, using archaic diction sparingly ("eldritch", "abysmal", "thews").
-
-Violence is sudden; wonder is sombre; civilisation is decadent; fate is grim but defied.
 
 ### Custodian moves
 
@@ -191,10 +187,10 @@ Offer Fortune when failure is within range; remind players they can also push ma
 
 The tale should move in hard, vivid beats. Mechanics serve pacing; pacing serves mood. When in doubt, cut to action, raise a question, or unveil a terrible wonder.
 
-Same core method: tag scenes by locale (Tomb A1, Bazaar B3) if it helps you track the crawl.
+Tag scenes by locale (Tomb A1, Bazaar B3) if it helps you keep track.
 In this genre, fate collects. Scars, debts, curses, and grudges accumulate.
 
-Failure should reshape the world and keep the story moving. Reserve death for closing an arc or opening a darker one; otherwise, maim, curse, or impoverish.
+Failure changes the world and keeps the story moving. Reserve death for closing an arc or opening a darker one; otherwise, maim, curse, or impoverish.
 
 \clearpage
 
@@ -221,4 +217,4 @@ Ritual dagger (brandish: on an opponent's failed WIL test, they take Disadvantag
 
 ---
 
-> *Track Fortune spent, Stamina lost, Doom gained. Scars and bargains write the saga.*
+> *Track Fortune spent, Stamina lost, Doom gained.*

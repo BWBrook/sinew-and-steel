@@ -143,7 +143,7 @@ Examples: salvage permit (once: ignore **+1 Heat** from a single trigger), Dome 
 
 *A Controller brief for jobs, feuds, bad air, and dust-choked wonder across the Red Frontier.*
 
-In Rust & Domes, the Custodian is often called the **Controller** - the one watching the HUD and deciding what the system does next.
+In Rust & Domes, the Custodian is often called the **Controller**: the one watching the HUD and deciding what the system does next.
 
 ### Red-dust tone
 
@@ -175,12 +175,12 @@ Colonies were established by **Perihelion Mining Corporation (PMC)** after rich 
 
 For fast, punchy threats that feel *Martian*, start with:
 
-- **Crusher** - bipedal brute; armoured hide; hits like a piledriver.
-- **Dust Slug** - burrows under the sand; erupts beneath boots and vehicles.
-- **Sand Snatcher** - huge predator with jaws like a mining clamp; stalks the edge of light.
-- **Shockcrab** - alien crustacean; emits a gut-turning psionic shockwave when threatened.
-- **Spine Urchin** - spined crawler; poisonous barbs; can "shoot" spines at close range.
-- **Thresher** - lank, whipping-armed horror that closes fast in tight corridors.
+- **Crusher:** bipedal brute; armoured hide; hits like a piledriver.
+- **Dust Slug:** burrows under the sand; erupts beneath boots and vehicles.
+- **Sand Snatcher:** huge predator with jaws like a mining clamp; stalks the edge of light.
+- **Shockcrab:** alien crustacean; emits a gut-turning psionic shockwave when threatened.
+- **Spine Urchin:** spined crawler; poisonous barbs; can "shoot" spines at close range.
+- **Thresher:** lank, whipping-armed horror that closes fast in tight corridors.
 
 ### Beat and graph notes
 
@@ -210,7 +210,7 @@ Reliable Controller moves:
 
 After a heist concludes, a secret is unearthed, or a dust-storm crossing is survived, grant a Milestone.
 
-When in doubt, favour bold action. Every triumph on rust-red soil comes smeared with dust and danger.
+When in doubt, favour bold action.
 
 ### Luck guidance
 
@@ -218,7 +218,7 @@ Call for Luck when chance, bureaucracy, or a random supply crate decides.
 
 Keep it to 1-2 per session. Mars is harsh, but not roulette.
 
-> *Use this dossier like a smuggler's map - spill coffee on it, cross out old threats, ink in new ones. Mars is alive, merciless, and waiting.*
+> *Use this dossier like a smuggler's map: spill coffee on it, cross out old threats, ink in new ones.*
 
 \clearpage
 
@@ -250,4 +250,4 @@ Keeps a hidden crash-pad in Hearthwell; prefers to avoid gunfights.
 
 ---
 
-> *Track Luck spent, Stamina lost, Heat gained. Red dust remembers every debt.*
+> *Track Luck spent, Stamina lost, Heat gained.*

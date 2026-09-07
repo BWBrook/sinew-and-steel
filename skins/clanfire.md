@@ -209,4 +209,4 @@ Carved bone flute (Advantage when calming beasts), fire-bow drill, herb bundle, 
 
 ---
 
-> *Track Instinct beads, Stamina loss, and Shadow gains. Scars will etch the cavern walls.*
+> *Track Instinct beads, Stamina loss, and Shadow gains.*
