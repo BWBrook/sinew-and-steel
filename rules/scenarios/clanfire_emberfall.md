@@ -135,10 +135,10 @@ Grak wants to drive the wolf back with a spear. The wolf wants to dodge and snap
 
 Example:
 
-- Grak rolls **7**: success, margin **+5**.
+- Grak rolls **8**: success, margin **+4**.
 - Wolf rolls **15**: fail, margin **-5**.
 
-Grak wins. Damage is `1 + edge 1 - soak 0` = **2**. The wolf drops from Stamina 4 to 2. In the fiction, the spear cuts it and forces it back, hurt and free to flee.
+Grak wins. Damage is `1 + edge 1 + 0 (margin under 5) - soak 0` = **2**. The wolf drops from Stamina 4 to 2. In the fiction, the spear cuts it and forces it back, hurt and free to flee.
 
 ### Round 2: Tarra turns fire into a weapon
 

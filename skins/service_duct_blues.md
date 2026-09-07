@@ -54,7 +54,7 @@ A short rest in quarters or the mess restores **+1 chit**; a focus drill or stro
 | Tactical vest | 2 |
 | Personal shield belt | 3 |
 
-Dynamic soak still applies: after a hit, reduce soak by **1 per full 4 points** of attacker margin; natural **1** pierces all.
+Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natural **1** ignores soak and adds +1.
 
 ### Operations
 

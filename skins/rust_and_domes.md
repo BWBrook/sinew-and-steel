@@ -55,7 +55,7 @@ A short rest in a safe hab restores **+1 cred-chit**; stim packs or narrative bo
 | Composite plate / powered hardsuit | 2 |
 | Carbite battlearmour | 3 |
 
-Dynamic soak still applies: after a hit, reduce soak by **1 per full 4 points** of attacker margin; natural **1** pierces all.
+Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natural **1** ignores soak and adds +1.
 
 ### Recovery
 

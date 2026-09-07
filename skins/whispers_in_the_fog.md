@@ -60,7 +60,7 @@ A short rest in safety restores **+1 ticket**; opium dreams or saintly relics ma
 | Woollen coat | 0 |
 | WWI flak vest | 1 |
 
-Dynamic soak still applies: after a hit, reduce soak by **1 per full 4 points** of attacker margin; natural **1** pierces all.
+Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natural **1** ignores soak and adds +1.
 
 > *"Somewhere beneath the hymn of the surf, a deeper cadence throbbed... like the slowed heart of a behemoth dreaming in pitch."*
 

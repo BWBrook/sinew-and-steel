@@ -55,7 +55,7 @@ A short rest restores **+1 token**; paradoxical boons or esoteric rejuvenators m
 | Leather riding jacket | 1 |
 | Experimental alloy breastplate | 2 |
 
-Dynamic soak still applies: after a hit, reduce soak by **1 per full 4 points** of attacker margin; natural **1** pierces all.
+Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natural **1** ignores soak and adds +1.
 
 ### Anomaly track (Pressure)
 

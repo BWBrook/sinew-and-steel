@@ -52,7 +52,7 @@ Fists and blackjacks are usually non-lethal: at **0 Stamina (0 STM)** the target
 | Ring mail / hide coat | 2 |
 | Steel plate & shield | 3 |
 
-Dynamic soak still applies: after a hit, reduce soak by **1 per full 4 points** of attacker margin; natural **1** pierces all.
+Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natural **1** ignores soak and adds +1.
 
 A draught of wine by the fire restores **+1 STM** after a calm scene; a full bed and ministrations restore **+2**, up to your maximum.
 Severe wounds need a healer's skill, potent herbs, or time.

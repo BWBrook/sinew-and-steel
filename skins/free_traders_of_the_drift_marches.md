@@ -60,7 +60,7 @@ A short rest in a safe berth restores **+1 Fate token**; a restful week in port,
 | Combat cloth | 1 |
 | Battle dress | 2 |
 
-Dynamic soak still applies: after a hit, reduce soak by **1 per full 4 points** of attacker margin; natural **1** pierces all.
+Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natural **1** ignores soak and adds +1.
 
 ---
 
@@ -214,7 +214,7 @@ Treat each ship as an NPC with:
 Each round:
 1. Both pilots test **DEX**. Winner grants their gunner Advantage on the next attack test this round.
 2. Gunner tests **DEX** (attack) vs defender pilot's **DEX** (defend).
-3. On a hit, tick Hull Damage by **(1 + turret edge - effective soak)** (minimum 0; dynamic soak applies as normal).
+3. On a hit, tick Hull Damage as for any hit: **1 + turret edge + 1 per full 5 points of margin - screens soak**, minimum 1.
 4. At Hull Damage **6**, the drive is disabled: drift, board, or boom per fiction.
 
 Missiles (optional): one salvo per rack. Defender tests **EDU** to jam; on a failed jam, treat the missile as **edge +2** and tick Hull Damage.

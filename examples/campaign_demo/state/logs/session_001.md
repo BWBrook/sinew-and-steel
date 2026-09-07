@@ -17,9 +17,9 @@ Options:
 ## System
 
 Mechanics (example combat beat):
-- Grak attacks with MGT 12 → rolled 7 → success (margin +5)
+- Grak attacks with MGT 12 → rolled 8 → success (margin +4)
 - Cave wolf defends with FLT 10 → rolled 15 → fail (margin –5)
-- Hit. Damage = 1 + edge(+1) − soak(0) = 2 → wolf STM 4 → 2
+- Hit. Damage = 1 + edge(+1) + 0 (margin under 5) − soak(0) = 2 → wolf STM 4 → 2
 - Tarra attacks with SPR 14 → rolled 9 → success (margin +5)
 - Cave wolf defends with FLT 10 → rolled 9 → success (margin +1)
 - Both succeed; Tarra wins → consequence: the wolf breaks and flees (no further damage)

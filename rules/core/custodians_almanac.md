@@ -114,7 +114,7 @@ Every 3-4 *perilous* beats or combat encounters, award:
 - **+2 build points**, and
 - **a narrative boon** (rare item, ally favour, mystic scar, access, safe refuge).
 
-Boons sit outside the maths and turn progress into changes in the fiction.
+Build points buy on the creation ledger and never push a score past its ceiling (attributes 16, Stamina 9); unspent points carry over. Boons sit outside the maths and turn progress into changes in the fiction.
 
 ---
 
@@ -191,7 +191,7 @@ A tight economy stops power creep yet still allows extremes to emerge.
 ### B. Burning Luck: when it matters
 
 - **Save the day:** flip a miss into a glancing hit to avoid disaster.
-- **Penetrate armour:** spend extra tokens after a success to deepen margin and shred soak.
+- **Deepen a hit:** spend tokens after a winning attack to reach the next full 5 points of margin for +1 damage.
 - **Turn the plot:** burn your last 3 Luck on a vital opposed roll, knowing future Luck tests are now long shots.
 
 > **Guideline:** a pool under 4 tokens means "walk gingerly"; under 2 means "pray for milestone".
@@ -224,7 +224,7 @@ At character creation you may give each player build points to set tone:
 (Or pick any number that fits your table.)
 
 The pool lets heroes raise a signature strength or patch a weakness while leaving the other stats in place.
-It shifts capability while leaving core maths and pacing intact.
+It shifts capability while leaving core maths and pacing intact. The 16 ceiling still binds: a heroic budget buys breadth, not a taller spike.
 
 ### B. Luck test frequency
 
@@ -250,6 +250,7 @@ It shifts capability while leaving core maths and pacing intact.
      - one "worst" attribute at **tier - 4**
      - treat anything else as **tier - 2** (or just improvise per fiction).
    - NPCs use a freer ledger, so their stats may fall below player-character creation floors.
+   - NPCs have no Luck pool unless a hook grants one, so in opposed tests only the player decides whether to nudge.
 2. **Assign Stamina, edge & soak:**
    - Suggested **Stamina** by tier (human scale): Peasant 3, Soldier 4, Elite 5, Monster 6, Nemesis 7.
    - For **large beasts** add +2 Stamina; for a **boss** add +4 (or give them a second phase at 0).

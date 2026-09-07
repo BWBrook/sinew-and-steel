@@ -59,7 +59,7 @@ A short rest by a safe fire restores **+1 Hope token**; a true sanctuary or a se
 | Riveted mail | 1 |
 | Hauberk & shield | 2 |
 
-Dynamic soak still applies: after a hit, reduce soak by **1 per full 4 points** of attacker margin; natural **1** pierces all.
+Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natural **1** ignores soak and adds +1.
 
 **Fatal tag (example):** giant's club: **Fatal (counter: heavy shield or dodge with Advantage)**.
 

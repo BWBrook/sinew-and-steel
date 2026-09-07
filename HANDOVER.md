@@ -90,6 +90,19 @@ current official submission requirements when that work becomes active.
 Earlier referenced DriveThru plan/listing drafts are absent locally; do not
 assume a completed release checklist exists.
 
+## Ruleset revision, 7 September 2026
+
+Barry reopened the mechanics work with explicit permission to iterate (alpha
+testing; the engine should work at every tier, not only when tuned). Changes
+landed in the rules text, all skins, Quickstart, README, the Emberfall teaching
+exchange, the demo prompt and log, and `tools/analysis/`: see `CHANGELOG.md`
+(Unreleased). The damage rule is now one formula with a minimum of 1; Luck
+timing in opposed tests and a lifetime score ceiling are stated. Left open on
+purpose: attacker disadvantage in symmetric opposed tests (both-fail and ties
+go to the defender) and the tone dial gating breadth rather than peak. The
+full book was rebuilt after the change: 115 pages, Quickstart on pages 6-7.
+Rebuild after any further rules change and re-check that constraint.
+
 ## Useful commands and code map
 
 Run from the repository root. `docs/pdf_building.md` explains the workflows.

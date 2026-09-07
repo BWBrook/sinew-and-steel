@@ -69,7 +69,7 @@ The approach determines the attribute.
 | Quilted gambeson | 1 |
 | Mail shirt & nasal helm | 2 |
 
-Dynamic soak still applies: after a hit, reduce soak by **1 per full 4 points** of attacker margin; natural **1** pierces all.
+Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natural **1** ignores soak and adds +1.
 
 ### Optional plug-ins (use sparingly)
 

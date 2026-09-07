@@ -71,7 +71,7 @@ Use these as quick defaults; if the approach changes, change the stat.
 | Chain shirt | 2 |
 | Plate & shield | 3 |
 
-Dynamic soak still applies: after a hit, reduce soak by **1 per full 4 points** of attacker margin; natural **1** pierces all.
+Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natural **1** ignores soak and adds +1.
 
 ---
 

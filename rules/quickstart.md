@@ -16,8 +16,8 @@ Roll under, count the margin, spend Luck to nudge close calls, and watch Pressur
   - If both succeed, higher margin wins; ties favour the defender.
   - If both fail, the defender wins.
 - *Scores at creation.* Start from this baseline:
-  - Five attributes at 10 (range 6-16).
-  - Stamina 5 (range 3-9).
+  - Five attributes at 10 (range 6-16, for life).
+  - Stamina 5 (range 3-9, for life).
   - Standard creation gives 6 build points (grim 0 / pulp 12 / heroic 16).
     - +1 above baseline costs 2 build points (or "pay" by taking -2 total elsewhere).
     - +1 below baseline costs 1 build point (to climb back).
@@ -35,10 +35,10 @@ Roll under, count the margin, spend Luck to nudge close calls, and watch Pressur
   - Recovery: short rest +1 STM; good care +2 (up to max).
 - *Luck pool (tokens).* Your Luck score *is* your token count.
   - When sheer chance decides, test current Luck tokens; spending tokens makes later Luck rolls harder.
-  - Spend tokens after a roll to nudge the die +/-1 per token (natural 1/20 are locked).
+  - Spend tokens after a roll (after both dice, if opposed) to nudge it +/-1 per token; natural 1/20 are locked.
   - Rest +1 token; milestone refills up to your Luck score (your max).
-- *Armour & dynamic soak.* Armour has soak 1-3.
-  - After a hit, reduce soak by 1 per full 4 points of attacker margin; natural 1 pierces all.
+- *Damage & soak.* On a hit: 1 + edge + 1 per full 5 points of margin, minus armour soak (1-3); minimum 1.
+  - Natural 1 ignores soak and adds +1 damage.
 - *Carry limit.* Up to 6 big items; extra load gives Disadvantage on agility tasks (usually Reflex / Fleetness).
 - *Money.* Usually abstract; if you want it tangible, use the optional Wealth (0-4) track (see the Custodian’s Almanac).
 - *Pressure track (0-5).* Skin defines its name and crisis. At 5, trigger the crisis, then reset to 0.

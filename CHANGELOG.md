@@ -1,7 +1,10 @@
 # Changelog
 
 ## Unreleased
-- TBD
+- Ruleset revision (7 September 2026, alpha): damage is now `1 + edge + 1 per full 5 points of margin - soak`, minimum 1; natural 1 ignores soak and adds +1. Replaces per-4 soak erosion and the separate +1 at margin 10, removing the hard zero against armour and the attribute-11 step.
+- Opposed tests: both dice are read before anyone spends Luck. NPCs have no Luck pool unless a hook grants one.
+- Advancement ceiling stated: attributes 16 and Stamina 9 hold for the life of the character; unspent build points carry over.
+- Skins, Quickstart, README, the Emberfall teaching exchange, the demo prompt and log updated to the new wording; `tools/analysis/` re-encoded and re-verified.
 
 ## 0.3.1 - 2025-12-22
 - Stamina now participates in the point-buy ledger (baseline 5), with build-point budgets integrated across rules, builders, validators, and sample builds.

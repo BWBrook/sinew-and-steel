@@ -46,6 +46,15 @@ def mc_opposed(att, dfn, n=N):
     return wins / n
 
 
+def book_damage(a, ma, edge, soak):
+    # "1 + edge + 1 per full 5 points of margin - soak, minimum 1;
+    #  natural 1 ignores soak and adds +1"
+    bonus = ma // 5 if ma > 0 else 0
+    if a == 1:
+        return 1 + edge + bonus + 1
+    return max(1, 1 + edge + bonus - soak)
+
+
 def mc_damage(att, dfn, edge, soak, n=N):
     tot = 0
     for _ in range(n):
@@ -54,8 +63,7 @@ def mc_damage(att, dfn, edge, soak, n=N):
         ma, md = att - a, dfn - d
         if not ((ao and not do) or (ao and do and ma > md)):
             continue
-        eff = 0 if a == 1 else max(0, soak - (ma // 4))
-        tot += max(0, 1 + edge - eff) + (1 if (a == 1 or ma >= 10) else 0)
+        tot += book_damage(a, ma, edge, soak)
     return tot / n
 
 
@@ -70,8 +78,7 @@ def mc_exchanges(stamina, att, dfn, edge, soak, n=200_000):
             ma, md = att - a, dfn - d
             if not ((ao and not do) or (ao and do and ma > md)):
                 continue
-            eff = 0 if a == 1 else max(0, soak - (ma // 4))
-            s -= max(0, 1 + edge - eff) + (1 if (a == 1 or ma >= 10) else 0)
+            s -= book_damage(a, ma, edge, soak)
         tot += k
     return tot / n
 

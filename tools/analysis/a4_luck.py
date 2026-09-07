@@ -2,7 +2,7 @@
 from fractions import Fraction
 from engine import (
     DIE, ONE, die_dist, is_success, p_success, nudge_policy, luck_test,
-    effective_soak,
+    damage_for, MARGIN_STEP,
 )
 
 
@@ -67,22 +67,20 @@ for score in (6, 8, 10, 12):
 
 print()
 print("=" * 78)
-print("4. NUDGING FOR ARMOUR PENETRATION (the Almanac's combat note)")
+print("4. NUDGING TO DEEPEN A HIT (the Almanac's combat note)")
 print("=" * 78)
-print("Each 4 points of margin strips one point of soak, so how many tokens")
-print("actually buy one extra point of damage?")
+print(f"Every full {MARGIN_STEP} points of margin adds +1 damage, so how many tokens")
+print("buy one extra point of damage after a winning roll?")
 print()
-for soak in (1, 2, 3):
+for soak in (0, 1, 2, 3):
     for edge in (0, 1, 2):
         gains = []
-        for r in range(2, DIE):
-            attr = 12
-            if r > attr:
-                continue
+        attr = 12
+        for r in range(2, attr + 1):
             m = attr - r
-            base = max(0, 1 + edge - effective_soak(soak, r, m))
-            need = 4 * ((m // 4) + 1) - m
-            after = max(0, 1 + edge - effective_soak(soak, r, m + need))
+            base = damage_for(r, m, edge, soak)
+            need = MARGIN_STEP * ((m // MARGIN_STEP) + 1) - m
+            after = damage_for(r, m + need, edge, soak)
             if after > base:
                 gains.append(need)
         if gains:
@@ -91,10 +89,11 @@ for soak in (1, 2, 3):
                   f"{sum(gains) / len(gains):.1f} tokens")
         else:
             print(f"  soak {soak}, edge {edge:+d}, attr 12: no winning roll can "
-                  f"buy extra damage with tokens")
+                  f"reach the next step within the attribute (floor damage only)")
 print()
-print("Against 1 token to convert a near-miss into a hit, 2.5-3 tokens for one")
-print("point of damage is the worst use of the pool in the game.")
+print("Against 1 token to convert a near-miss into a hit, ~3 tokens for one point")
+print("of damage is still the dearest use of the pool, but it now works against")
+print("any target: heavy soak no longer swallows the extra margin.")
 
 print()
 print("=" * 78)

@@ -44,6 +44,7 @@ Both sides roll under their relevant attribute.
 - If both succeed, compare **margins**. Higher margin wins.
 - **Ties favour the defender.**
 - If both fail, the defender wins.
+- Both dice are rolled and read before anyone spends Luck.
 
 ### 1.5 When to roll
 
@@ -74,10 +75,12 @@ Every character begins at:
 - **Five attributes at 10** (skins rename these to fit genre).
 - **Stamina 5** (STM: your health).
 
-Legal ranges at creation:
+Legal ranges, at creation and for the life of the character:
 
 - Attributes: **6-16**
 - Stamina: **3-9**
+
+The ceiling is deliberate: at 16, a roll of 17-19 still fails, so the dice keep a say in every test.
 
 _Abbreviation note: PC = player character, NPC = non-player character_
 
@@ -165,13 +168,14 @@ Spend for the moment, but remember you will feel it later, when the Custodian as
 
 - After you see a roll, spend any number of tokens to **nudge** the die **+/-1 per token**.
   - **Natural 1 and 20 are locked** (cannot be nudged).
+  - In an opposed test, both dice are read before you decide.
 - Luck tests succeed on `roll <= current tokens` (not your maximum).
 - A short rest restores **+1 token**.
 - At a milestone, you refill back up to your Luck score (your max).
 
 Combat note:
 
-> *You may spend Luck after a successful attack to deepen your margin and chew through armour soak.*
+> *You may spend Luck after a winning attack to deepen your margin: every full 5 points adds +1 damage.*
 
 ---
 
@@ -225,8 +229,8 @@ Both roll.
    - **Luck** (sheer chance: a ricochet, a misfire, a loose plank): sometimes **LCK**.
    - **Composure / resolve** (keep your head, accept a surrender, resist intimidation): sometimes **EMP**.
    - When **defence is impossible** (surprised, pinned, helpless), the Custodian can skip the defence roll, or call for Luck if fate alone might spare you.
-3. On a hit: damage = **1 + weapon edge - effective soak** (soak after erosion).
-4. **Natural 1** or **margin >= 10** adds **+1 damage**.
+3. On a hit: damage = **1 + weapon edge + 1 per full 5 points of margin - soak**, minimum **1**.
+4. **Natural 1** ignores soak and adds **+1 damage**.
 
 For goals such as disarming, driving off, or talking down, use the same opposed roll and apply the agreed consequence in place of damage.
 
@@ -242,25 +246,24 @@ For goals such as disarming, driving off, or talking down, use the same opposed 
 - Blade / spear / handgun **+1**
 - Great-axe / rifle / plasma **+2**
 
-### 6.2 Armour & dynamic soak
+### 6.2 Armour & soak
 
-| Armour | Base soak |
+| Armour | Soak |
 | ----- | -- |
 | Hide / leather           | 1 |
 | Mail / kevlar            | 2 |
 | Plate / powered carapace | 3 |
 
-After a hit:
+Soak subtracts from damage point for point. Margin fights back: every full 5 points of attacker margin adds +1 damage before soak is applied.
 
-- Reduce soak by **1 for every full 4 points of attacker margin** (round down).
-- Any remaining soak reduces damage normally.
+- A winning attack always deals **at least 1 damage**. Armour blunts a blow; it never makes you untouchable.
 - **Natural 1 ignores all soak.**
 
-**Example (soak erosion):**
+**Example (margin against soak):**
 
-> You hit an NPC guard with margin +9 against soak 2.<br>
-> Two full 4s, so soak drops by 2 (to 0).<br>
-> The armour is shredded at the penetration point; this hit takes full damage.
+> You hit an NPC guard with a blade (edge +1) at margin +9 against mail (soak 2).<br>
+> One full 5, so damage is 1 + 1 + 1 - 2 = **1**.<br>
+> At margin +10 it would have been 2. A weak jab at margin +2 still deals the minimum 1.
 
 ---
 
@@ -288,8 +291,9 @@ Pressure is the fuse: it rises with risk, blunders, bargains, and time.
 
 - When Pressure hits **5**, a **crisis** triggers; then Pressure **resets to 0**.
 - Milestones happen every 3-4 *perilous* beats:
-  - **+2 build points**
+  - **+2 build points**, spent on the same ledger as creation
   - and a narrative boon (ally, relic, favour, scar, access)
+- No score ever passes its ceiling (attributes 16, Stamina 9). Points you cannot spend yet carry over.
 
 ---
 

@@ -11,10 +11,8 @@ Rules encoded (from rules/core/adventurers_manual.md, v0.3.1):
   * advantage = 2d20 keep lower; disadvantage = 2d20 keep higher
   * opposed: only-one-succeeds wins; both succeed -> higher margin;
     ties favour the defender; both fail -> defender
-  * damage = 1 + edge - effective soak
-  * effective soak = soak - floor(attacker margin / 4), min 0
-  * natural 1 ignores all soak
-  * natural 1 or margin >= 10 adds +1 damage
+  * damage = 1 + edge + floor(margin / 5) - soak, minimum 1
+  * natural 1 ignores all soak and adds +1 damage
 """
 
 from __future__ import annotations
@@ -149,32 +147,22 @@ def p_attacker_wins(
 # Combat damage
 # ---------------------------------------------------------------------------
 
-def effective_soak(soak: int, att_roll: int, att_margin: int) -> int:
-    if att_roll == 1:  # natural 1 ignores all soak
-        return 0
-    erosion = att_margin // 4 if att_margin >= 0 else 0
-    return max(0, soak - erosion)
+MARGIN_STEP = 5  # every full MARGIN_STEP points of margin adds +1 damage
 
 
-def damage_for(
-    att_roll: int,
-    att_margin: int,
-    edge: int,
-    soak: int,
-    bonus_after_soak: bool = True,
-) -> int:
+def margin_bonus(att_margin: int) -> int:
+    return att_margin // MARGIN_STEP if att_margin > 0 else 0
+
+
+def damage_for(att_roll: int, att_margin: int, edge: int, soak: int) -> int:
     """Damage from a winning attack.
 
-    bonus_after_soak toggles the two readings of "natural 1 or margin >= 10
-    adds +1 damage":
-      True  -> damage = max(0, 1 + edge - eff_soak) + 1
-      False -> damage = max(0, 1 + edge + 1 - eff_soak)
+    damage = 1 + edge + margin_bonus - soak, minimum 1.
+    A natural 1 ignores soak and adds +1.
     """
-    eff = effective_soak(soak, att_roll, att_margin)
-    bonus = 1 if (att_roll == 1 or att_margin >= 10) else 0
-    if bonus_after_soak:
-        return max(0, 1 + edge - eff) + bonus
-    return max(0, 1 + edge + bonus - eff)
+    if att_roll == 1:
+        return 1 + edge + margin_bonus(att_margin) + 1
+    return max(1, 1 + edge + margin_bonus(att_margin) - soak)
 
 
 def damage_dist(
@@ -184,7 +172,6 @@ def damage_dist(
     soak: int,
     att_mode: str = "straight",
     dfn_mode: str = "straight",
-    bonus_after_soak: bool = True,
 ) -> Dict[int, Fraction]:
     """Distribution of damage dealt in one exchange (0 includes misses)."""
     a_dist = die_dist(att_mode)
@@ -196,7 +183,7 @@ def damage_dist(
             a_ok, d_ok = is_success(a, att), is_success(d, dfn)
             ma, md = att - a, dfn - d
             attacker_wins = (a_ok and not d_ok) or (a_ok and d_ok and ma > md)
-            dmg = damage_for(a, ma, edge, soak, bonus_after_soak) if attacker_wins else 0
+            dmg = damage_for(a, ma, edge, soak) if attacker_wins else 0
             out[dmg] = out.get(dmg, Fraction(0)) + p
     return out
 
@@ -213,14 +200,13 @@ def expected_exchanges_to_drop(
     soak: int,
     att_mode: str = "straight",
     dfn_mode: str = "straight",
-    bonus_after_soak: bool = True,
 ):
     """Expected exchanges to take a target from `stamina` to 0.
 
     Solves E[s] = (1 + sum_{d>=1} P(d) E[s-d]) / (1 - P(0)).
     Returns None if no damage is ever possible.
     """
-    dd = damage_dist(att, dfn, edge, soak, att_mode, dfn_mode, bonus_after_soak)
+    dd = damage_dist(att, dfn, edge, soak, att_mode, dfn_mode)
     p_zero = dd.get(0, Fraction(0))
     if p_zero == 1:
         return None

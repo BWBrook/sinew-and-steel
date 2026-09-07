@@ -1,4 +1,4 @@
-"""Combat model -- soak erosion, damage, grind rates, time-to-kill by tier."""
+"""Combat model -- damage by attribute and soak, the no-hard-zero check, time-to-kill by tier."""
 from fractions import Fraction
 from engine import (
     damage_dist, expected_damage, expected_exchanges_to_drop, p_attacker_wins,
@@ -18,27 +18,21 @@ def fmt(f, nd=3) -> str:
 
 print("=" * 78)
 print("EXPECTED DAMAGE PER EXCHANGE   (edge +1, defender attribute 10)")
-print("Both readings of 'natural 1 or margin >= 10 adds +1 damage'")
 print("=" * 78)
-print(f"{'Att':>4} | {'P(win)':>7} |" + "".join(f"{'soak ' + str(s):>22}" for s in SOAKS))
-print(f"{'':>4} | {'':>7} |" + "".join(f"{'bonus-after / before':>22}" for _ in SOAKS))
-print("-" * 100)
+print(f"{'Att':>4} | {'P(win)':>7} |" + "".join(f"{'soak ' + str(s):>10}" for s in SOAKS)
+      + f"{'plate/none':>12}")
+print("-" * 70)
 for a in SCORES:
-    cells = []
-    for s in SOAKS:
-        e_after = expected_damage(a, 10, 1, s, bonus_after_soak=True)
-        e_before = expected_damage(a, 10, 1, s, bonus_after_soak=False)
-        cells.append(f"{fmt(e_after)} / {fmt(e_before)}")
+    row = [expected_damage(a, 10, 1, s) for s in SOAKS]
     print(f"{a:>4} | {pct(p_attacker_wins(a, 10)):6.2f}% |"
-          + "".join(f"{c:>22}" for c in cells))
+          + "".join(f"{fmt(x):>10}" for x in row) + f"{float(row[3] / row[0]):>12.2f}")
 print()
-print("The two readings coincide throughout: the +1 only fires once erosion has")
-print("already opened the armour, so soak never exceeds the base hit when it")
-print("applies. They would diverge only at soak 4 or higher.")
+print("Expected damage rises smoothly with attribute at every soak. Plate takes")
+print("roughly half the damage of an unarmoured target across the whole range.")
 
 print()
 print("=" * 78)
-print("THE GRIND RATE   P(exchange deals 0 damage), edge +1, defender 10")
+print("NO HARD ZERO   P(exchange deals 0 damage) == P(miss), edge +1, defender 10")
 print("=" * 78)
 print(f"{'Att':>4} |" + "".join(f"{'soak ' + str(s):>12}" for s in SOAKS)
       + f"{'  P(miss)':>12}")
@@ -46,16 +40,11 @@ print("-" * 66)
 for a in SCORES:
     dd0 = [damage_dist(a, 10, 1, s).get(0, Fraction(0)) for s in SOAKS]
     miss = 1 - p_attacker_wins(a, 10)
+    assert all(z == miss for z in dd0), "a winning hit dealt 0 damage"
     print(f"{a:>4} |" + "".join(f"{pct(z):11.2f}%" for z in dd0)
           + f"{pct(miss):11.2f}%")
 print()
-print("Share of zero-damage outcomes that are 'hit but fully soaked':")
-for a in SCORES:
-    row = []
-    for s in SOAKS:
-        z = damage_dist(a, 10, 1, s).get(0, Fraction(0))
-        row.append(f"soak {s}: {pct(z - (1 - p_attacker_wins(a, 10))):5.2f}%")
-    print(f"  att {a:2d}:  " + "  ".join(row))
+print("Every winning hit deals at least 1: the only zero-damage exchange is a miss.")
 
 print()
 print("=" * 78)
@@ -63,7 +52,7 @@ print("EFFECT OF ADVANTAGE IN COMBAT (edge +1, defender 10, soak 2)")
 print("=" * 78)
 print("Advantage multiplies expected damage by more than it multiplies hit rate,")
 print("because keeping the lower die nearly doubles the natural-1 rate (soak")
-print("bypass + bonus damage) and deepens margin.")
+print("bypass + bonus damage) and deepens margin, which now adds damage directly.")
 print()
 for a in SCORES:
     sd = expected_damage(a, 10, 1, 2)

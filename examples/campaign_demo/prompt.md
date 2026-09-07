@@ -182,8 +182,8 @@ Both roll. If only one succeeds, that side wins. If both succeed, compare margin
    - **Composure / resolve** (keep your head, accept a surrender, resist intimidation): sometimes **EMP**.
 
    If there’s no plausible defense (surprised, pinned, helpless), the Custodian can skip the defense roll — or call for Luck if fate alone might spare you.
-3. On a hit: damage = **1 + weapon edge − effective soak**.
-4. **Natural 1** or **margin ≥ 10** adds **+1 damage**.
+3. On a hit: damage = **1 + weapon edge + 1 per full 5 points of margin − soak**, minimum **1**.
+4. **Natural 1** ignores soak and adds **+1 damage**.
    If your goal isn’t harm (disarm, drive off, talk down), use the same opposed roll — but apply the agreed consequence instead of damage.
 
 **Tiny examples (conflict without extra rules):**
@@ -195,22 +195,21 @@ Both roll. If only one succeeds, that side wins. If both succeed, compare margin
 - Blade / spear / handgun **+1**
 - Great‑axe / rifle / plasma **+2**
 
-### 6.2 Armour & dynamic soak
-| Armour                   | Base soak |
+### 6.2 Armour & soak
+| Armour                   | Soak |
 | ------------------------ | --------: |
 | Hide / leather           |        1 |
 | Mail / kevlar            |        2 |
 | Plate / powered carapace |        3 |
 
-After a hit:
-- Reduce soak by **1 for every full 4 points of attacker margin** (round down).
-- Any remaining soak reduces damage normally.
+Soak subtracts from damage point for point. Every full 5 points of attacker margin adds +1 damage before soak is applied.
+- A winning attack always deals **at least 1 damage**.
 - **Natural 1 ignores all soak.**
 
-**Micro‑example (soak erosion):**
-> You hit with margin +9 against soak 2.  
-> Full 4s = 2 → soak drops by 2 (to 0).  
-> The armour is shredded at the penetration point; this hit takes full damage.
+**Micro‑example (margin against soak):**
+> You hit with a blade (edge +1) at margin +9 against mail (soak 2).  
+> One full 5 → damage is 1 + 1 + 1 − 2 = **1**.  
+> At margin +10 it would have been 2; a weak jab still deals the minimum 1.
 
 ---
 
@@ -581,7 +580,7 @@ When the Custodian calls for pure chance or gut‑feeling — “**Test your Ins
 | Hide / Fur cloak | 1 |
 | Leather + bone splints | 2 |
 
-(Dynamic soak: after a hit, reduce soak by **1 per full 4 points** of attacker margin; **nat 1 pierces all**.)
+(Damage is **1 + edge + 1 per full 5 points of margin − soak**, minimum 1; **nat 1** ignores soak and adds +1.)
 
 ### Recovery
 A short rest with fire and water restores **+1 Stamina**; deep shelter and herbs **+2** (never above max). Grave wounds need shaman craft.
