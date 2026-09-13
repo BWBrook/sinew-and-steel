@@ -22,9 +22,18 @@ published tables can be checked to the last decimal.
 | `a3_penetration.py` | Armour under the unified damage rule: exhaustive check that no winning hit deals 0, the attribute needed for each margin step, and what each point of soak is worth against each tier. |
 | `a4_luck.py` | Luck token economics: the nudge cost curve, the opportunity cost of a token, the armour-nudge clause, and the blind-vs-informed spending gap in opposed tests. |
 | `a5_ledger.py` | Ledger consistency, the published sample builds, the min-max frontier over all 26,246 legal 6-point builds, the tone dial, and the Luck-dump analysis. |
+| `atlas.py` | The full sweep: every interaction, eleven figures and twenty tables written to `docs/engine_atlas/`. Needs matplotlib (`uv sync --extra analysis`). Commentary in `docs/engine_atlas.md`. |
 | `a6_verify.py` | Independent Monte Carlo cross-check. The rules are re-implemented from the book text so a shared bug cannot hide. ~25 s. |
 
 ## Running
+
+The atlas (figures plus tables) is the entry point for a design review:
+
+```bash
+uv run --extra analysis python tools/analysis/atlas.py
+```
+
+The individual scripts below are the older, narrower checks and need no extra dependencies.
 
 ```bash
 cd tools/analysis

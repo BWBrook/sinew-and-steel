@@ -11,6 +11,9 @@ dependencies = [
 pdf = [
     "weasyprint>=68.1",
 ]
+analysis = [
+    "matplotlib>=3.9",
+]
 
 [tool.uv]
 # No dev dependencies yet.

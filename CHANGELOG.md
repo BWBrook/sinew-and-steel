@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Engine atlas: `tools/analysis/atlas.py` sweeps every interaction in the engine (success, margin, opposed tests, damage, time to drop, survival, parties, Luck economy, creation economy, advancement, Pressure fuse, skin procedures) into `docs/engine_atlas/` figures and tables, with commentary and a ranked findings list in `docs/engine_atlas.md`. New optional dependency group `analysis` (matplotlib).
 - `gen_character.py --tag` (repeatable) reserves 2 build points per tag before the rest of the budget is spent on scores, and refuses tags the budget cannot cover.
 
 ## 0.4.0 - 2026-09-07
