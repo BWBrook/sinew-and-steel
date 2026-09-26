@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+- Independent engine review: exact creation, resolution, Luck and Pressure calculations; 1.48 million coupled combat simulations; all ten skins; matched Delvekit generation. Methods, figures, limitations and decisions are in `docs/independent_engine/README.md`. Keep the damage engine, Twilight stances and creation ledger; the observed specialist advantage is conditional on the adventure's demands.
+- Rules and skins clarify attempt/recovery cadence, attribute/tag scope, initiative, current-Luck targets, cost reservation, Pressure sequencing, trade stakes, scans, travel roles, assemblies and Knack costs. Book layout is deferred.
+- Harness fixes enforce natural outcomes, cancelling Advantage/Disadvantage, bounded nudges and correct sheet ownership/current Luck. Soft tiny Delvekit variety fill no longer forces traps or roaming monsters. Added 18 regression tests; 27 tests pass in total.
 - Engine atlas: `tools/analysis/atlas.py` sweeps every interaction in the engine (success, margin, opposed tests, damage, time to drop, survival, parties, Luck economy, creation economy, advancement, Pressure fuse, skin procedures) into `docs/engine_atlas/` figures and tables, with commentary and a ranked findings list in `docs/engine_atlas.md`. New optional dependency group `analysis` (matplotlib).
 - `gen_character.py --tag` (repeatable) reserves 2 build points per tag before the rest of the budget is spent on scores, and refuses tags the budget cannot cover.
 

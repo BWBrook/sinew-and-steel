@@ -69,6 +69,8 @@ Call for an Anomaly test when uncertainty meets historical stakes: altering majo
 - On failure, mark **+1 Anomaly**.
 - At **5 Anomaly**, trigger a crisis from the table, then reset Anomaly to **0**.
 
+One test settles one historical intervention. A failed intervention cannot be retried until materially new information, a new method, or a new opportunity changes the situation; repeating the same calculations or pulling the same lever does not create another test.
+
 #### Crisis table (d6)
 
 |d6| Crisis |

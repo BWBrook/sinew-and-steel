@@ -10,6 +10,7 @@ Run from the repo root:
 from __future__ import annotations
 
 from fractions import Fraction
+from functools import lru_cache
 from itertools import product
 from pathlib import Path
 import sys
@@ -220,25 +221,97 @@ def survival_curve(stamina: int, att: int, dfn: int, edge: int, soak: int, n_max
     return alive
 
 
-def party_rounds(n_pcs: int, stamina: int, att: int, dfn: int, edge: int, soak: int):
-    """Expected rounds for n attackers (identical) to drop a target; exact via n-fold convolution."""
-    single = damage_dist(att, dfn, edge, soak)
-    conv = {0: Fraction(1)}
-    for _ in range(n_pcs):
-        nxt: dict[int, Fraction] = {}
-        for a, p in conv.items():
-            for b, q in single.items():
-                nxt[a + b] = nxt.get(a + b, Fraction(0)) + p * q
-        conv = nxt
-    p0 = conv.get(0, Fraction(0))
-    E: dict[int, Fraction] = {s: Fraction(0) for s in range(-60, 1)}
-    for s in range(1, stamina + 1):
-        acc = Fraction(1)
-        for d, p in conv.items():
-            if d >= 1:
-                acc += p * E[max(s - d, -60)]
-        E[s] = acc / (1 - p0)
-    return E[stamina]
+def duel(pc, npc, pc_first: bool = True) -> Fraction:
+    """Exact P(PC wins) in alternating exchanges.
+
+    pc and npc are (attack, defence, edge, soak, stamina). A round in which
+    neither side deals damage returns to the same state, so the recursion
+    divides by (1 - P(self-loop)) rather than recursing into it.
+    """
+    pa, pd_, pe, ps, pstm = pc
+    na, nd, ne, ns, nstm = npc
+    A = damage_dist(pa, nd, pe, ns)
+    B = damage_dist(na, pd_, ne, ps)
+
+    @lru_cache(None)
+    def W(p: int, n: int) -> Fraction:
+        if n <= 0:
+            return Fraction(1)
+        if p <= 0:
+            return Fraction(0)
+        acc, self_p = Fraction(0), Fraction(0)
+        if pc_first:
+            for d1, q1 in A.items():
+                n2 = max(0, n - d1)
+                if n2 <= 0:
+                    acc += q1
+                    continue
+                for d2, q2 in B.items():
+                    p2 = max(0, p - d2)
+                    if d1 == 0 and d2 == 0:
+                        self_p += q1 * q2
+                        continue
+                    acc += q1 * q2 * (Fraction(0) if p2 <= 0 else W(p2, n2))
+        else:
+            for d2, q2 in B.items():
+                p2 = max(0, p - d2)
+                if p2 <= 0:
+                    continue
+                for d1, q1 in A.items():
+                    n2 = max(0, n - d1)
+                    if d1 == 0 and d2 == 0:
+                        self_p += q1 * q2
+                        continue
+                    acc += q1 * q2 * (Fraction(1) if n2 <= 0 else W(p2, n2))
+        return acc / (1 - self_p)
+
+    return W(pstm, nstm)
+
+
+def party_duel(n_pcs: int, npc, pc=(12, 12, 1, 1, 5)):
+    """n identical PCs against one NPC. Each round every standing PC attacks,
+    then the NPC hits the most wounded standing PC. Returns (P(party wins),
+    E[PCs dropped]). Exact; identical PCs, no Luck, no retreat."""
+    pa, pd_, pe, ps, pstm = pc
+    na, nd, ne, ns, nstm = npc
+    A = damage_dist(pa, nd, pe, ns)
+    B = damage_dist(na, pd_, ne, ps)
+
+    @lru_cache(None)
+    def S(pcs: tuple, n: int):
+        alive = [x for x in pcs if x > 0]
+        if n <= 0:
+            return Fraction(1), Fraction(len(pcs) - len(alive))
+        if not alive:
+            return Fraction(0), Fraction(len(pcs))
+        conv = {0: Fraction(1)}
+        for _ in alive:
+            nxt: dict[int, Fraction] = {}
+            for a, p in conv.items():
+                for b, q in A.items():
+                    nxt[a + b] = nxt.get(a + b, Fraction(0)) + p * q
+            conv = nxt
+        pw, pdrop, self_p = Fraction(0), Fraction(0), Fraction(0)
+        target = min(alive)
+        idx = list(pcs).index(target)
+        for dmg, p in conv.items():
+            n2 = max(0, n - dmg)
+            if n2 <= 0:
+                pw += p
+                pdrop += p * (len(pcs) - len(alive))
+                continue
+            for d, q in B.items():
+                if dmg == 0 and d == 0:
+                    self_p += p * q
+                    continue
+                new = list(pcs)
+                new[idx] = max(0, target - d)
+                w, dr = S(tuple(sorted(new)), n2)
+                pw += p * q * w
+                pdrop += p * q * dr
+        return pw / (1 - self_p), pdrop / (1 - self_p)
+
+    return S(tuple([pstm] * n_pcs), nstm)
 
 
 def section_ttk() -> None:
@@ -260,8 +333,11 @@ def section_ttk() -> None:
     for name, score, stm, edge, soak in TIERS:
         pc = expected_exchanges_to_drop(stm, 12, score - 2, 1, soak)
         npc = expected_exchanges_to_drop(5, score, 12, edge, 1)
-        rows.append([name, f(pc), f(npc), f(pc / npc)])
-    table("Race: PC (att 12, edge +1, STM 5, soak 1) vs tier; ratio > 1 means the NPC wins", ["tier", "PC needs", "NPC needs", "ratio"], rows)
+        w1 = duel((12, 12, 1, 1, 5), (score, score - 2, edge, soak, stm), True)
+        w2 = duel((12, 12, 1, 1, 5), (score, score - 2, edge, soak, stm), False)
+        rows.append([name, f(pc), f(npc), f(pc / npc), pct(w1), pct(w2)])
+    table("Duel: PC (att 12, edge +1, STM 5, soak 1) vs tier. Exchanges each side needs, and the exact chance the PC wins",
+          ["tier", "PC needs", "NPC needs", "ratio", "P(PC wins), PC first", "NPC first"], rows)
 
     # survival curves
     fig, ax = plt.subplots(figsize=(6.5, 3.4))
@@ -275,11 +351,11 @@ def section_ttk() -> None:
     for n in (1, 2, 3, 4):
         row = [str(n)]
         for name, score, stm, edge, soak in TIERS[2:]:
-            rounds = party_rounds(n, stm, 12, score - 2, 1, soak)
-            dealt = rounds * expected_damage(score, 10, edge, 1)
-            row.append(f"{f(rounds)} rounds, {f(dealt)} STM taken")
+            w, dr = party_duel(n, (score, score - 2, edge, soak, stm))
+            row.append(f"{pct(w, 0)} win, {f(dr)} PCs dropped")
         rows.append(row)
-    table("Party of N (att 12, edge +1, soak 1) vs Elite / Monster / Nemesis: expected rounds and party Stamina lost",
+    table("Party of N (att 12, edge +1, soak 1, STM 5) vs Elite / Monster / Nemesis: exact win chance and expected PCs dropped "
+          "(PCs act first; NPC hits the most wounded; identical PCs, no Luck, no retreat)",
           ["PCs", "Elite", "Monster", "Nemesis"], rows)
 
 
@@ -539,6 +615,63 @@ def section_skins() -> None:
     table("Free Traders jump leg with one crew member filling both Astrogator and Engineer roles",
           ["EDU", "P(fail a role)", "E[Strain] per jump", "P(misjump) (natural 20)", "E[Hull ticks] per jump"], rows)
 
+    # Twilight stances: damage exchange, survival under fire, duel odds
+    def survive_k(k: int, dmode: str) -> Fraction:
+        dd = damage_dist(12, 12, 1, 1, dfn_mode=dmode)
+        st = {5: Fraction(1)}
+        for _ in range(k):
+            nx: dict[int, Fraction] = {}
+            for s_, p in st.items():
+                if s_ <= 0:
+                    nx[0] = nx.get(0, Fraction(0)) + p
+                    continue
+                for d, q in dd.items():
+                    nx[max(0, s_ - d)] = nx.get(max(0, s_ - d), Fraction(0)) + p * q
+            st = nx
+        return sum(p for s_, p in st.items() if s_ > 0)
+
+    def stance_duel(am: str, dm: str, taken_plus: int = 0):
+        A = damage_dist(12, 12, 1, 1, att_mode=am)
+        B0 = damage_dist(12, 12, 1, 1, dfn_mode=dm)
+        B: dict[int, Fraction] = {}
+        for d, p in B0.items():
+            k = d + taken_plus if d > 0 else 0
+            B[k] = B.get(k, Fraction(0)) + p
+
+        @lru_cache(None)
+        def W(p: int, n: int) -> Fraction:
+            if n <= 0:
+                return Fraction(1)
+            if p <= 0:
+                return Fraction(0)
+            acc, self_p = Fraction(0), Fraction(0)
+            for d1, q1 in A.items():
+                n2 = max(0, n - d1)
+                if n2 <= 0:
+                    acc += q1
+                    continue
+                for d2, q2 in B.items():
+                    p2 = max(0, p - d2)
+                    if d1 == 0 and d2 == 0:
+                        self_p += q1 * q2
+                        continue
+                    acc += q1 * q2 * (Fraction(0) if p2 <= 0 else W(p2, n2))
+            return acc / (1 - self_p)
+
+        return W(5, 5), sum(d * p for d, p in A.items()), sum(d * p for d, p in B.items())
+
+    rows = []
+    for name, am, dm, plus in (("Vanguard", "advantage", "disadvantage", 0), ("Steady", "straight", "straight", 0),
+                               ("Watchful", "disadvantage", "advantage", 0),
+                               ("Vanguard alt (defence normal, hits vs you +1)", "advantage", "straight", 1),
+                               ("Watchful alt (Adv defence, no attack cost)", "straight", "advantage", 0)):
+        w, dealt, taken = stance_duel(am, dm, plus)
+        rows.append([name, f(dealt, 3), f(taken, 3), pct(w), pct(survive_k(3, dm)), pct(survive_k(6, dm)),
+                     pct(p_attacker_wins(12, 12, "straight", dm))])
+    table("Twilight stances: PC 12 (edge +1, soak 1, STM 5) vs a Steady Elite 12. Damage per round, duel win chance, "
+          "survival after 3 and 6 exchanges taken, and how often a hit lands (the Injury trigger)",
+          ["stance", "dealt", "taken", "P(win duel)", "standing after 3", "after 6", "hit lands"], rows)
+
     # Fatal tag reach: how often does a tier land a hit at all (that is the Fatal trigger rate)
     rows = []
     for name, score, stm, edge, soak in TIERS:
@@ -562,6 +695,7 @@ def section_cliffs() -> None:
         ["Luck test", "roll <= current tokens", "each token spent = -5 pp on later Luck tests", "smooth, but pool 0-1 both give 5% (natural 1 only)"],
         ["attribute ceiling 16", "lifetime", "P(success) caps at 80%", "advancement then spreads sideways"],
         ["Stamina ceiling 9", "lifetime", "an Elite needs ~1.8x the exchanges vs STM 5", "see advancement table"],
+        ["Advantage on defence is the weak lever", "opposed tests", "att Adv +20 pp, def Adv -9 pp at 10 v 10", "a stance or boon built on defence Advantage is worth about half one built on attack Advantage"],
         ["tag price", "2 points flat", "worth more when the stat is low", "see tag parity table: parity at ~5 stat rolls per niche roll at 10, ~3 at 16"],
     ]
     table("Cliff scan: every discrete threshold, where it sits, how big it is", ["threshold", "where", "size", "note"], rows)

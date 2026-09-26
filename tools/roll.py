@@ -60,21 +60,12 @@ def main() -> int:
         random.seed(args.seed)
 
     if args.command == "check":
-        if args.adv and args.dis:
-            print("error: choose only one of --adv or --dis", file=sys.stderr)
-            return 1
         try:
             data = command_check(args)
         except ValueError as exc:
             print(f"error: {exc}", file=sys.stderr)
             return 1
     else:
-        if args.adv_attacker and args.dis_attacker:
-            print("error: choose only one of --adv-attacker or --dis-attacker", file=sys.stderr)
-            return 1
-        if args.adv_defender and args.dis_defender:
-            print("error: choose only one of --adv-defender or --dis-defender", file=sys.stderr)
-            return 1
         data = command_opposed(args)
 
     data["schema_version"] = 1

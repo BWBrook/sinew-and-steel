@@ -36,13 +36,16 @@ Give the Custodian something vivid and coherent, and you will often get a cleane
 
 ## Commit before the future is certain
 
-In some games it’s normal to ask “what happens if I fail?” before rolling. In S&S, that can become a soft cheat: it turns uncertainty into negotiation, and it invites railroading.
+Ask what your character can reasonably know about the stakes before rolling.
+The Custodian states the likely cost of failure; hidden causes and later
+complications can remain a surprise. Once the stakes and method are clear,
+commit before seeing the dice.
 
-Try this instead:
+Useful questions:
 
 - Ask in-fiction questions (“How thick is the ice?” “Do I smell smoke?”).
-- Ask for clarity about the situation while leaving the outcome uncertain.
-- Or commit, knowing the corner may hide a surprise.
+- Ask what a failed attempt could cost in time, harm, resources, or exposure.
+- Accept that the corner may still hide a surprise.
 
 Trust the Custodian to adjudicate in good faith.
 

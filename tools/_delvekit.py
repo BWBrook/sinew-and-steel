@@ -1394,7 +1394,9 @@ def _ensure_tiny_feature_budget(
     preferred_solo.append(farthest)
     while sum(1 for present in _feature_flags(data).values() if present) < target:
         flags = _feature_flags(data)
-        missing = [name for name, present in flags.items() if not present]
+        # Soft's variety floor adds texture, not a forced trap or roaming foe.
+        missing = [name for name, present in flags.items() if not present
+                   and not (difficulty == "soft" and name in {"trap", "solo"})]
         if not missing:
             break
         rng.shuffle(missing)

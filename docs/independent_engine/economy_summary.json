@@ -1,0 +1,106 @@
+{
+  "controls": "passed",
+  "labelled_space": 1127357,
+  "resolution_cells": 1452,
+  "creation_counts": [
+    {
+      "budget": 0,
+      "tags": 0,
+      "labelled_legal_builds": 98944,
+      "attack16_stamina9": 0
+    },
+    {
+      "budget": 0,
+      "tags": 1,
+      "labelled_legal_builds": 0,
+      "attack16_stamina9": 0
+    },
+    {
+      "budget": 0,
+      "tags": 2,
+      "labelled_legal_builds": 0,
+      "attack16_stamina9": 0
+    },
+    {
+      "budget": 0,
+      "tags": 3,
+      "labelled_legal_builds": 0,
+      "attack16_stamina9": 0
+    },
+    {
+      "budget": 6,
+      "tags": 0,
+      "labelled_legal_builds": 228944,
+      "attack16_stamina9": 15
+    },
+    {
+      "budget": 6,
+      "tags": 1,
+      "labelled_legal_builds": 178503,
+      "attack16_stamina9": 1
+    },
+    {
+      "budget": 6,
+      "tags": 2,
+      "labelled_legal_builds": 135121,
+      "attack16_stamina9": 0
+    },
+    {
+      "budget": 6,
+      "tags": 3,
+      "labelled_legal_builds": 98944,
+      "attack16_stamina9": 0
+    },
+    {
+      "budget": 12,
+      "tags": 0,
+      "labelled_legal_builds": 415989,
+      "attack16_stamina9": 399
+    },
+    {
+      "budget": 12,
+      "tags": 1,
+      "labelled_legal_builds": 348723,
+      "attack16_stamina9": 194
+    },
+    {
+      "budget": 12,
+      "tags": 2,
+      "labelled_legal_builds": 285971,
+      "attack16_stamina9": 70
+    },
+    {
+      "budget": 12,
+      "tags": 3,
+      "labelled_legal_builds": 228944,
+      "attack16_stamina9": 15
+    },
+    {
+      "budget": 16,
+      "tags": 0,
+      "labelled_legal_builds": 557896,
+      "attack16_stamina9": 1068
+    },
+    {
+      "budget": 16,
+      "tags": 1,
+      "labelled_legal_builds": 486275,
+      "attack16_stamina9": 687
+    },
+    {
+      "budget": 16,
+      "tags": 2,
+      "labelled_legal_builds": 415989,
+      "attack16_stamina9": 399
+    },
+    {
+      "budget": 16,
+      "tags": 3,
+      "labelled_legal_builds": 348723,
+      "attack16_stamina9": 194
+    }
+  ],
+  "luck_cases": 108,
+  "pacing_cases": 36,
+  "rule_of_thumb": "Conditional means and hypothetical utility functions are not playtest win rates."
+}

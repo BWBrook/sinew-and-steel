@@ -35,6 +35,10 @@ Call for a roll only when:
 
 If the player’s approach is plausible and failure would be boring, resolve it narratively.
 
+Settle one declared attempt with one test. Another roll needs changed
+circumstances or a meaningful new cost. Repeated safe chores, rest declarations,
+or deliberately manufactured hazards do not earn milestones.
+
 **Good narrative outcomes:**
 
 - **Yes, and...** clean success with an extra perk.
@@ -59,6 +63,16 @@ You can season recovery by fiction: a sacred rite adds +3 tokens; a night on Mar
 ### 4. Pressure track (Doom / Heat / Strain / Dread / Anomaly) and clocks (countdowns)
 
 A universal **0-5 fuse** shared by all skins. When it hits **5**, a crisis triggers; then it resets to **0**.
+
+Apply a multi-point gain together. At 5 or above, resolve one crisis and reset
+to 0; excess points do not carry over. An immediate crisis from the same action
+does not add a second crisis. The crisis is a real consequence, not a free way
+to clear danger; state what is at stake before offering a Pressure cost.
+
+Use the Pressure level at declaration to determine the action's penalties and
+surcharges. Pay each listed cost once, resolve the action, then resolve its
+crisis and reset. A surcharge does not trigger itself again; separately listed
+failure costs or backlash still apply.
 
 | Step | Mood | Custodian levers |
 | -- | --- | ------ |
@@ -115,6 +129,10 @@ Every 3-4 *perilous* beats or combat encounters, award:
 - **a narrative boon** (rare item, ally favour, mystic scar, access, safe refuge).
 
 Build points buy on the creation ledger (a score, or a tag at 2 points) and never push a score past its ceiling (attributes 16, Stamina 9); unspent points carry over. Boons sit outside the maths and turn progress into changes in the fiction.
+
+A signature attribute starting at 12 reaches 16 after four milestones if every
+point goes there. Further points can improve other attributes, Stamina or tags;
+the character's overall effectiveness need not stop growing.
 
 ---
 
@@ -302,6 +320,11 @@ Why it works:
 - Exhausted (Stamina 2 or less: Dis. on physical)
 
 Add or prune per skin.
+
+Advantage changes more than hit chance: a lower attack die also deepens damage
+margin. At equal scores of 10, attack Advantage raises the chance to hit from
+36% to 56%; defence Advantage lowers it to 27%. These are different benefits.
+Sources never stack; Advantage and Disadvantage together cancel to one die.
 
 ### G. Milestone boon bank (d6): mixed examples
 

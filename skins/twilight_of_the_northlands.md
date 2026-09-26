@@ -76,18 +76,17 @@ _(Note: this works cleanly as a campaign clock with `current/max`.)_
 
 ### Cultural knacks (pick one)
 
-Each use costs: **spend 1 Hope token** or **mark +1 Dread**.
-(You cannot pay this cost with Companionship; it must be personal.)
-
 Knacks are tags (Adventurer's Manual 2.6) with a cost per use; every PC gets one free at creation.
 
-| Culture | Knack | Effect |
-|---|---|--------|
-| **Halfling** | *Small & Quiet* | Once per scene, automatically succeed on a NIM test to move quietly past Big-folk watchers. |
-| **Warden** | *Keen Eyes* | Once per scene, gain Advantage on one WIS test to scout a wild place. |
-| **Dwarf** | *Stout-Heart* | Once per session, ignore an incoming +1 Dread mark you would take (fear, taint, betrayal). |
-| **Elf** | *Starlit Memory* | Once per scene, ask the Lorekeeper one yes/no lore truth about your current situation. |
-| **Trader** | *Plain Speech* | Once per scene, gain Advantage on one HRT test to barter, gossip, or calm folk in a settlement. |
+Each entry states its whole use cost. Costs are personal and cannot be paid from Companionship.
+
+| Culture | Knack | Cost | Effect |
+|---|---|---|--------|
+| **Halfling** | *Small & Quiet* | spend **1 Hope** or mark **+1 Dread** | Once per scene, automatically succeed on a NIM test to move quietly past Big-folk watchers. |
+| **Warden** | *Keen Eyes* | spend **1 Hope** or mark **+1 Dread** | Once per scene, gain Advantage on one WIS test to scout a wild place. |
+| **Dwarf** | *Stout-Heart* | spend **1 Hope** | Once per session, ignore an incoming +1 Dread mark you would take (fear, taint, betrayal). |
+| **Elf** | *Starlit Memory* | spend **1 Hope** or mark **+1 Dread** | Once per scene, ask the Lorekeeper one yes/no lore truth about your current situation. |
+| **Trader** | *Plain Speech* | spend **1 Hope** or mark **+1 Dread** | Once per scene, gain Advantage on one HRT test to barter, gossip, or calm folk in a settlement. |
 
 ---
 
@@ -106,7 +105,7 @@ Arcane magic kindles courage, veils footsteps, and turns the will softly, rarely
 
 **No nudging (Invocation):** you may not spend Hope or Companionship to nudge this roll.
 
-**Reckoning procedure:** mark **+2 Dread**, then make the casting test. If this takes you to **5**, roll a Dread crisis once after the rite resolves (do not roll twice).
+**Reckoning procedure:** use starting Dread for penalties, mark **+2 Dread** once, then test. After the rite, resolve one crisis if the gain reaches 5, then reset to 0 with no remainder. A failed test causes the listed Break whether or not a crisis also occurs.
 
 **Lorekeeper backlash (examples):** a cold wind answers; a wight's attention turns your way; an oath-mark burns; a black bird follows for days.
 
@@ -122,8 +121,7 @@ Fatigue measures road-wear: wet boots, empty bellies, and too many miles under a
 
 Track Fatigue per character: **0-5**.
 
-**Each travel leg** (longer than a day) calls for one test chosen by the Guide:
-STR (rugged climb), NIM (river ford), WIS (navigation among ruins), or HRT (lead weary companions).
+For each travel leg longer than a day, the Lorekeeper states the main danger before roles are assigned. A normal leg calls for one matching test: STR (rugged climb), NIM (river ford), WIS (navigation among ruins), or HRT (lead weary companions). A perilous leg may call for up to three tests only when it presents separate, clearly stated dangers.
 
 - **Failure:** mark **+1 Fatigue** (for the character who failed; or for everyone, if the whole party blundered).
 - **At Fatigue 3+:** each **risky test during the travel** costs **1 Hope token** (spend before rolling) or mark **+1 Fatigue**.
@@ -131,7 +129,7 @@ STR (rugged climb), NIM (river ford), WIS (navigation among ruins), or HRT (lead
 
 **Clear Fatigue:** a night in true comfort clears all Fatigue; a warm campfire and dry socks clear **1 Fatigue**.
 
-**Song of Rest:** if a PC leads a song/story and succeeds on an **HRT** test, each party member may either recover **+1 Hope token** or clear **1 Fatigue**.
+**Song of Rest (once per camp or night for the whole company; no retry):** one PC may lead a song or story and test **HRT**. On success, each party member may either recover **+1 Hope token** or clear **1 Fatigue**.
 
 > "Cold stars mirrored on the tomb-stones, yet none were as cold as the hush within."
 
@@ -173,7 +171,7 @@ _(A risky test is any roll where failure would materially change the situation: 
 
 ### Travel roles
 
-Assign up to three roles on any travel leg longer than a day.
+After stating the active danger, assign the one role that addresses it. Assign up to three roles only when a perilous leg contains separate dangers that make those roles relevant.
 
 | Role | Test each leg | On success | On failure |
 |---|--|----|----|
@@ -181,16 +179,22 @@ Assign up to three roles on any travel leg longer than a day.
 | **Scout** (finds camps) | NIM | safe campsite; one PC clears **1 Fatigue** | random hazard encounter |
 | **Look-out** (watches) | HRT | early warning (the company has Advantage on the first test of the next encounter) | ambush; foes gain Advantage |
 
-If a role is unfilled, treat the test as a failure.
+An unfilled role grants no success benefit, but it is not an automatic failure. Resolve only the dangers declared active before roles were assigned.
+
+A PC may cover more than one active role. Leaving a stated danger unaddressed
+does not remove its consequence; agree how the company will face or avoid it.
 
 ### Assemblies and entreaties
 
 When the company must sway a high commissioner, an innkeeper, or a clan lord:
 
-- Set an **Assembly threshold** (3 for a petty lord, 5 for a great lord).
-- Each speaking PC rolls **HRT** once. Success counts as **+1**, failure as **+0**, natural **1** as **+2**, and natural **20** as **-1**.
-- PCs may spend Hope to nudge rolls as usual; Companionship tokens may also be spent **only** for nudging.
-- At or above the threshold: favour granted. Below it: partial help, conditions, or refusal.
+- Choose one spokesperson and state the favour sought, the argument, and the stakes.
+- Test **HRT** once. Hope or Companionship may nudge the roll as usual.
+- Grant Advantage for concrete preparation or leverage: a gift, fulfilled service, respected introduction, useful secret, or evidence that answers the listener's concern.
+- Apply Disadvantage for open hostility, broken trust, insulting terms, or speaking without standing. Advantage and Disadvantage cancel as normal.
+- On success, the favour is granted. On failure, offer partial help, conditions, refusal, or a changed relationship as the stated stakes require.
+
+Other PCs help through preparation and the fiction; they do not add extra assembly rolls.
 
 ### Optional combat module: tactical positions and injurious blows
 

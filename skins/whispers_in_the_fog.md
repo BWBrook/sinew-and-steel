@@ -81,7 +81,7 @@ Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natura
 
 Example learns: **Sign of Drowning - Rite (SCH)**, **Void-Spawn Banishment - Incantation (SCH)**.
 
-**Unspeakable procedure:** mark **+2 Insanity**, then make the casting test. If this takes you to **5**, roll an Insanity crisis once after the rite resolves (do not roll twice). On a natural **20**, the void answers (Keeper describes the worst plausible consequence).
+**Unspeakable procedure:** use starting Insanity for penalties, mark **+2 Insanity** once, then test. After the rite, resolve one crisis if the gain reaches 5 or the test fails; reset to 0 with no remainder. Failure still brings backlash; on a natural **20**, the Keeper describes the void's worst plausible answer.
 
 ---
 
@@ -125,16 +125,16 @@ _(A risky test is any roll where failure would materially change the situation: 
 
 ## Knacks (pick one)
 
-Each use costs: **spend 1 Fate ticket** or **mark +1 Insanity**.
-
 Knacks are tags (Adventurer's Manual 2.6) with a cost per use; every PC gets one free at creation.
 
-| Knack | Effect |
-|---|--------|
-| **Occult Scholar** | Once per scene, turn a library/tomes search into a **SCH** test with Advantage. |
-| **Detective Intuition** | Spend **1 Fate ticket** to ask the Custodian (Keeper) one yes/no clue question. |
-| **Veteran's Nerves** | Once per scene, ignore an incoming **+1 Insanity** tick. |
-| **Silver Tongue** | Advantage on your first **FRT** (social) test with any new NPC. |
+Each entry states its whole use cost. Pay only that cost unless the entry explicitly says **additional**.
+
+| Knack | Cost | Effect |
+|---|---|--------|
+| **Occult Scholar** | spend **1 Fate** or mark **+1 Insanity** | Once per scene, turn a library/tomes search into a **SCH** test with Advantage. |
+| **Detective Intuition** | spend **1 Fate** | Once per scene, ask the Custodian (Keeper) one yes/no clue question. |
+| **Veteran's Nerves** | spend **1 Fate** | Once per scene, ignore an incoming **+1 Insanity** tick. |
+| **Silver Tongue** | spend **1 Fate** or mark **+1 Insanity** | Gain Advantage on your first **FRT** (social) test with any new NPC. |
 
 ### Optional expertise (a tag)
 

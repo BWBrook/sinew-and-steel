@@ -1,6 +1,6 @@
 # Sinew & Steel: successor handover
 
-Updated 7 September 2026. Start here, then read `AGENTS.md` and the files needed
+Updated 26 September 2026. Start here, then read `AGENTS.md` and the files needed
 for Barry's next request. This is a working snapshot; the live files and Barry's
 current direction take precedence.
 
@@ -11,13 +11,33 @@ a guided book for DriveThruRPG, and a Python harness for agents to run faithful,
 reproducible sessions. The flagship is the guided book. A smaller starter pack
 (core rules, Quickstart, probably two skins) follows once the book is ready.
 
-The book has had extensive, author-approved prose revision. The tooling has
-also completed a substantial simplification pass. Our publication work is now
-at the visual review stage: the full book was rebuilt and handed to Barry for
-inspection. Resume from his feedback. Further mechanics changes, a fresh
-editorial sweep, and another architecture audit need a specific reason.
+Barry requested an independent mathematical and adversarial engine review, with
+justified repairs across the core and skins. The resulting analysis and changes
+are recorded in this commit, based on `a77d476`; no release was made. Barry
+authorised committing and pushing this tranche on 26 September, leaving Fable's
+concurrent Preface refinement uncommitted and untouched.
+Start with `docs/independent_engine/README.md` and its verification record.
 
-## Live state at handover
+The review covers 1.48 million coupled fights, exact creation/resolution/resource
+calculations, all ten skins and matched Delvekit seeds. It repairs procedures and
+harness discrepancies while retaining damage, Twilight stances and the creation
+ledger. Extreme specialisation has a large conditional combat advantage; a
+refund cap is an unadopted option requiring mixed-adventure play evidence.
+
+All 27 tests, repository validation and all ten generated sheet/prompt checks
+passed on 20 September; the 27 tests and repository validator passed again on
+26 September. This commit also preserves the earlier atlas corrections in
+`docs/engine_atlas.md`, `docs/engine_atlas/tables.md` and
+`tools/analysis/atlas.py`. The independent models
+do not import that atlas, although Astra had already seen its conclusions.
+The completion digest is correspondence thread 46, message 429 (Astra). The
+board was not rechecked during the 26 September Git closeout.
+
+Barry's layout direction remains: “Don't worry about book layout right now. We'll
+fix all of that once the core is fully revised: just focus on the markdown for
+now :)” Markdown is the review surface; defer further PDF/layout work.
+
+## Earlier release snapshot (7 September; historical)
 
 - The last tooling baseline is `2a153b2` ("Simplify harness and release tooling").
   Barry then requested a bundled commit and push of this handover and the

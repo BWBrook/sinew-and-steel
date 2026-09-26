@@ -110,6 +110,14 @@ The minimal loop is:
 5. Record what changed.
 6. Checkpoint the last Custodian message.
 
+Resolve an attempt once; repeated commands are not permission to reroll it.
+Use `trackers.py pressure --inc N --clamp` for a Pressure gain. At 5 the tools
+retain its value so the consequence is not silently lost: narrate and record
+the crisis, then use `pressure --set 0`. The generic clock editor does not
+automatically enforce or narrate crises.
+Apply the core timing rule to multi-point costs; do not charge a spell's upfront
+cost again because it also appears in its outcome table.
+
 Roll a check:
 
 ```bash

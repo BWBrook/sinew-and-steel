@@ -10,7 +10,7 @@ Roll under, count the margin, spend Luck to nudge close calls, and watch Pressur
 - *Roll under the attribute.* Roll `d20`; if `roll <= attribute`, you succeed. Otherwise, you fail.
   - Natural 1 = legendary success; Natural 20 = catastrophic failure.
 - *Margin* = `attribute - roll`: positive is how well; negative is how badly.
-- *Advantage / Disadvantage.* Roll 2d20; keep the lower / higher result.
+- *Advantage / Disadvantage.* Roll 2d20; keep the lower / higher result. Sources do not stack; both together cancel to one die.
 - *Opposed tests.* Both sides roll.
   - If only one succeeds, that side wins.
   - If both succeed, higher margin wins; ties favour the defender.
@@ -33,10 +33,10 @@ Roll under, count the margin, spend Luck to nudge close calls, and watch Pressur
     - `LCK`: Luck (tokens; also used when pure fate decides)
 - *Stamina (health).* Damage reduces Stamina. At 0 STM you collapse.
   - Typical weapons add edge: 0 / +1 / +2.
-  - Recovery: short rest +1 STM; good care +2 (up to max).
+  - Recovery once per safe pause: short rest +1 STM; good care replaces this with +2 (up to max).
 - *Luck pool (tokens).* Your Luck score *is* your token count.
-  - When sheer chance decides, test current Luck tokens; spending tokens makes later Luck rolls harder.
-  - Spend tokens after a roll (after both dice, if opposed) to nudge it +/-1 per token; natural 1/20 are locked.
+  - When sheer chance decides, test the tokens held before rolling; spending makes later Luck rolls harder.
+  - Spend after a roll (both dice, if opposed) to nudge either die +/-1 per token within 1-20; natural 1/20 are locked and cannot be created by nudging.
   - Rest +1 token; milestone refills up to your Luck score (your max).
 - *Damage & soak.* On a hit: 1 + edge + 1 per full 5 points of margin, minus armour soak (1-3); minimum 1.
   - Natural 1 ignores soak and adds +1 damage.

@@ -29,6 +29,9 @@ Lower is better.
 - **Natural 1:** legendary success.
 - **Natural 20:** disastrous failure.
 
+These override the target, even at 0 Luck. In an opposed test a natural 1
+succeeds, but the usual margin comparison still decides who wins.
+
 ### 1.2 Margin (how well / how badly)
 
 **Margin** = `attribute - roll`.
@@ -42,6 +45,9 @@ Roll twice; keep one die.
 
 - **Advantage:** roll 2d20, keep the **lower**.
 - **Disadvantage:** roll 2d20, keep the **higher**.
+
+Sources do not stack. If both apply, they cancel: roll one d20, however many
+sources there are on either side.
 
 ### 1.4 Opposed rolls
 
@@ -58,6 +64,11 @@ Both sides roll under their relevant attribute.
 Roll only when **the outcome is uncertain** *and* **it matters**.
 
 If failure would be boring, resolve it narratively.
+
+One test settles the declared attempt. Repeating the same method in unchanged
+circumstances keeps that result; a new attempt needs a changed approach,
+opportunity, or stated cost. Declare the attribute from what the character
+actually does, before rolling.
 
 ---
 
@@ -158,7 +169,7 @@ You want a sharp-witted hero and raise INT from 10 to 13 (**+3 above baseline**)
 A **tag** is a small, named trait that gives you an edge in one niche: *Megafauna tracker*, *Streetwise*, *Steady hands*.
 
 - A tag costs **2 build points**, the same price as +1 to a score at or above baseline.
-- When the fiction squarely fits the tag, roll with **Advantage**. The Custodian rules on fit and may ration it.
+- When the fiction squarely fits the tag, roll with **Advantage**. Agree its scope when it is bought; use it whenever that scope fits. A tag names a specialty, not every use of an attribute. Overlapping tags do not stack.
 - Skins may shape tags: a menu of **knacks** with a cost per use, an **Expertise** (a broad tag naming one stat's specialty), or a free tag at creation. The skin says so.
 - Gear that grants Advantage is inventory, not a tag. It is the Custodian's call, and it can be lost.
 
@@ -181,7 +192,9 @@ Spend for the moment, but remember you will feel it later, when the Custodian as
 - After you see a roll, spend any number of tokens to **nudge** the die **+/-1 per token**.
   - **Natural 1 and 20 are locked** (cannot be nudged).
   - In an opposed test, both dice are read before you decide.
-- Luck tests succeed on `roll <= current tokens` (not your maximum).
+  - You may change either die, paying from your own pool. Adjusted results stay within **1-20**; reaching 1 or 20 by spending does not create a natural result.
+- Luck tests use **current tokens before the roll**, not your maximum; spending on that roll does not change its target retroactively.
+- You cannot spend tokens you lack. Reserve any mandatory ability cost before deciding how many tokens to nudge with; pay a success-only cost only on success.
 - A short rest restores **+1 token**.
 - At a milestone, you refill back up to your Luck score (your max).
 
@@ -198,6 +211,11 @@ Combat note:
 - At **0 Stamina**, you collapse; details follow the fiction.
 - Short rest: **+1 Stamina** (up to your max).
 - Good care: **+2 Stamina** (up to your max).
+
+A recovery pause needs time and suitable safety; the Custodian states any cost
+or advancing threat first. Gain each rest benefit once per pause, not once per
+declared minute or repeated treatment. Good care replaces the +1 Stamina of
+that rest with +2. Longer recovery follows the fiction or the skin's downtime rules.
 
 Stamina covers ordinary injury. Falls, fire, vacuum, and guillotines can still kill instantly.
 
@@ -239,6 +257,13 @@ Both roll.
    - When **defence is impossible** (surprised, pinned, helpless), the Custodian can skip the defence roll, or call for Luck if fate alone might spare you.
 3. On a hit: damage = **1 + weapon edge + 1 per full 5 points of margin - soak**, minimum **1**.
 4. **Natural 1** ignores soak and adds **+1 damage**.
+
+The attack's actual threat determines which defences are possible: a weapon
+can parry a blade, but not a collapsing ceiling or an unseen shot. Rephrasing
+an action does not make a favourite attribute applicable. When order matters,
+use an established advantage such as an ambush; otherwise roll one d20 for
+each side, higher first, reroll ties. Each able combatant acts once per round;
+a combatant dropped before their turn loses that action. Defence is a reaction.
 
 For goals such as disarming, driving off, or talking down, use the same opposed roll and apply the agreed consequence in place of damage.
 
@@ -294,6 +319,8 @@ Every skin uses a shared **Pressure track (0-5)**, renamed to fit genre (Doom, F
 Pressure is the fuse: it rises with risk, blunders, bargains, and time.
 
 - When Pressure hits **5**, a **crisis** triggers; then Pressure **resets to 0**.
+- Apply a multi-point gain together: reaching or passing 5 triggers one crisis, then resets to 0 with no remainder. A skin's immediate-crisis rule replaces, rather than duplicates, that crisis for the same action.
+- Use Pressure at the start of the action for penalties and surcharges. Pay each cost once; resolve the action before its crisis. Separate failure costs and backlash still apply.
 - Milestones happen every 3-4 *perilous* beats:
   - **+2 build points**, spent on the same ledger as creation (+1 to a score, or a new tag)
   - and a narrative boon (ally, relic, favour, scar, access)
@@ -364,6 +391,10 @@ Call for a roll only when:
 
 If the player’s approach is plausible and failure would be boring, resolve it narratively.
 
+Settle one declared attempt with one test. Another roll needs changed
+circumstances or a meaningful new cost. Repeated safe chores, rest declarations,
+or deliberately manufactured hazards do not earn milestones.
+
 **Good narrative outcomes:**
 
 - **Yes, and...** clean success with an extra perk.
@@ -386,6 +417,16 @@ You can season recovery by fiction: a sacred rite adds +3 tokens; a night on Mar
 ### 4. Pressure track (Doom / Heat / Strain / Dread / Anomaly) and clocks (countdowns)
 
 A universal **0-5 fuse** shared by all skins. When it hits **5**, a crisis triggers; then it resets to **0**.
+
+Apply a multi-point gain together. At 5 or above, resolve one crisis and reset
+to 0; excess points do not carry over. An immediate crisis from the same action
+does not add a second crisis. The crisis is a real consequence, not a free way
+to clear danger; state what is at stake before offering a Pressure cost.
+
+Use the Pressure level at declaration to determine the action's penalties and
+surcharges. Pay each listed cost once, resolve the action, then resolve its
+crisis and reset. A surcharge does not trigger itself again; separately listed
+failure costs or backlash still apply.
 
 | Step | Mood | Custodian levers |
 | -- | --- | ------ |
@@ -436,6 +477,10 @@ Every 3-4 *perilous* beats or combat encounters, award:
 - **a narrative boon** (rare item, ally favour, mystic scar, access, safe refuge).
 
 Build points buy on the creation ledger (a score, or a tag at 2 points) and never push a score past its ceiling (attributes 16, Stamina 9); unspent points carry over. Boons sit outside the maths and turn progress into changes in the fiction.
+
+A signature attribute starting at 12 reaches 16 after four milestones if every
+point goes there. Further points can improve other attributes, Stamina or tags;
+the character's overall effectiveness need not stop growing.
 
 ---
 
@@ -619,6 +664,11 @@ Why it works:
 - Exhausted (Stamina 2 or less: Dis. on physical)
 
 Add or prune per skin.
+
+Advantage changes more than hit chance: a lower attack die also deepens damage
+margin. At equal scores of 10, attack Advantage raises the chance to hit from
+36% to 56%; defence Advantage lowers it to 27%. These are different benefits.
+Sources never stack; Advantage and Disadvantage together cancel to one die.
 
 ### G. Milestone boon bank (d6): mixed examples
 

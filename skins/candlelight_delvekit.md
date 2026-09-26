@@ -70,6 +70,11 @@ At the end of a risky or time-eating turn, the Custodian may do one or more of t
 
 Routine movement through already-secured space usually needs no roll, but it still spends time.
 
+A brief rest spends a turn and advances a relevant light, resource, faction or
+threat clock when the site is still dangerous; state that consequence first.
+One uninterrupted pause gives each applicable recovery benefit once. Candlelight's warm-hearth
+requirement for recovering Fortune still applies.
+
 ---
 
 ## Maps: hidden and revealed
@@ -321,6 +326,9 @@ Weapon edge, armour soak, Stamina, Fatigue, and good room design are enough.
 Difficulty should tune danger with a few explicit knobs, not a stack of sub-systems.
 
 Choose one for the whole delve.
+
+For the survival count below, a delve is one expedition from a settlement or
+sanctuary until the delvers return there. Stepping outside a door does not reset it.
 
 Use one simple zero-stamina ladder:
 

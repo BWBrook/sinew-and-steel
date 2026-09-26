@@ -53,17 +53,26 @@ def format_check_log(label: str | None, check: dict[str, Any]) -> str:
     return base
 
 
+def sheet_stat(sheet: dict[str, Any], key: str) -> int:
+    attrs = sheet.get("attributes")
+    if not isinstance(attrs, dict) or key not in attrs:
+        raise ValueError(f"stat-key not found on sheet: {key}")
+    skin = _sslib.load_manifest()["skins"].get(sheet.get("skin"), {})
+    if key == skin.get("luck_key"):
+        # Snapshot the available tokens before the roll and any subsequent spend.
+        value = sheet["pools"]["luck"]["current"]
+    else:
+        value = attrs[key]
+    if not is_int(value):
+        raise TypeError(f"stat value is not int: {key}")
+    return value
+
+
 def resolve_roll(args, sheet: dict[str, Any]) -> tuple[dict[str, Any], bool]:
     if args.command == "check":
-        if args.adv and args.dis:
-            raise ValueError("choose only one of --adv or --dis")
-
         stat_value = args.stat
         if stat_value is None and args.stat_key:
-            attrs = sheet.get("attributes")
-            if not isinstance(attrs, dict) or args.stat_key not in attrs:
-                raise ValueError(f"stat-key not found on sheet: {args.stat_key}")
-            stat_value = int(attrs[args.stat_key])
+            stat_value = sheet_stat(sheet, args.stat_key)
         if stat_value is None:
             raise ValueError("provide --stat or --stat-key")
 
@@ -74,23 +83,24 @@ def resolve_roll(args, sheet: dict[str, Any]) -> tuple[dict[str, Any], bool]:
         check_roll["stat_key"] = args.stat_key
         return check_roll, bool(check_roll.get("success", check_roll.get("final_success")))
 
-    if args.adv_attacker and args.dis_attacker:
-        raise ValueError("choose only one of --adv-attacker or --dis-attacker")
-    if args.adv_defender and args.dis_defender:
-        raise ValueError("choose only one of --adv-defender or --dis-defender")
-
     attacker_value = args.attacker
     if attacker_value is None and args.attacker_key:
-        attrs = sheet.get("attributes")
-        if not isinstance(attrs, dict) or args.attacker_key not in attrs:
-            raise ValueError(f"attacker-key not found on sheet: {args.attacker_key}")
-        attacker_value = int(attrs[args.attacker_key])
+        if args.as_role != "attacker":
+            raise ValueError("--attacker-key requires --as attacker (the owning sheet)")
+        attacker_value = sheet_stat(sheet, args.attacker_key)
     if attacker_value is None:
         raise ValueError("provide --attacker or --attacker-key")
+    defender_value = args.defender
+    if defender_value is None and args.defender_key:
+        if args.as_role != "defender":
+            raise ValueError("--defender-key requires --as defender (the owning sheet)")
+        defender_value = sheet_stat(sheet, args.defender_key)
+    if defender_value is None:
+        raise ValueError("provide --defender or --defender-key")
 
     roll_payload = _dice.resolve_opposed(
         attacker_value,
-        args.defender,
+        defender_value,
         adv_attacker=args.adv_attacker,
         dis_attacker=args.dis_attacker,
         adv_defender=args.adv_defender,
@@ -104,6 +114,7 @@ def resolve_roll(args, sheet: dict[str, Any]) -> tuple[dict[str, Any], bool]:
     )
     roll_payload["label"] = args.label
     roll_payload["attacker_key"] = args.attacker_key
+    roll_payload["defender_key"] = args.defender_key
     roll_payload["as"] = args.as_role
     return roll_payload, roll_payload["outcome"]["winner"] == args.as_role
 
@@ -122,13 +133,10 @@ def spend_luck(args, sheet: dict[str, Any], roll_payload: dict[str, Any]) -> Non
     if args.command == "check" and spend_side == "defender":
         raise ValueError("--nudge-spend defender is invalid for check rolls")
     if spend_side is not None and args.command == "opposed" and spend_side != args.as_role:
-        print(
-            f"warning: nudge spend side '{spend_side}' does not match your role '{args.as_role}'; "
-            "no luck spent",
-            file=sys.stderr,
+        raise ValueError(
+            f"nudge spend side '{spend_side}' does not match your role '{args.as_role}'; "
+            "this command can only spend the owning character's luck"
         )
-        roll_payload["nudge_spend"] = spend_side
-        return
 
     if spend_side is not None:
         luck_cost = abs(args.nudge)
@@ -237,7 +245,7 @@ def main() -> int:
         "--nudge-spend",
         choices=["as", "attacker", "defender", "none"],
         default="as",
-        help="Which side pays luck for a nudge (default: as_role). Use 'none' to skip spending.",
+        help="Pay from the owning character (default: as_role). 'none' leaves accounting to the caller.",
     )
 
     global_parser.add_argument("--scene-inc", type=int, default=0, help="Increment tracker scene counter")
@@ -271,15 +279,16 @@ def main() -> int:
 
     check = subparsers.add_parser("check", help="Single roll-under check")
     check.add_argument("--stat", type=int, help="Stat value")
-    check.add_argument("--stat-key", help="Stat key to read from sheet attributes")
+    check.add_argument("--stat-key", help="Sheet stat key (Luck uses current tokens)")
     check.add_argument("--adv", action="store_true")
     check.add_argument("--dis", action="store_true")
 
     opposed = subparsers.add_parser("opposed", help="Opposed roll-under check")
     opposed.add_argument("--as", dest="as_role", choices=["attacker", "defender"], default="attacker")
     opposed.add_argument("--attacker", type=int, help="Attacker stat")
-    opposed.add_argument("--attacker-key", help="Attacker stat key from sheet")
-    opposed.add_argument("--defender", type=int, required=True, help="Defender stat")
+    opposed.add_argument("--attacker-key", help="Attacker sheet stat key (--as attacker; Luck uses current tokens)")
+    opposed.add_argument("--defender", type=int, help="Defender stat")
+    opposed.add_argument("--defender-key", help="Defender sheet stat key (--as defender; Luck uses current tokens)")
     opposed.add_argument("--adv-attacker", action="store_true")
     opposed.add_argument("--dis-attacker", action="store_true")
     opposed.add_argument("--adv-defender", action="store_true")

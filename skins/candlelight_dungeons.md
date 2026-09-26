@@ -92,7 +92,7 @@ Learn a spell by study, scroll, or blessing; agree its tier with the Custodian; 
 
 Cantrips, Spells, and Greater Spells can all be nudged by spending Fortune coins, in addition to any spell cost paid. Arcanums cannot.
 
-**Arcanum procedure:** mark **+2 Fatigue**, then make the casting test. If Fatigue hits **5**, roll a Fatigue crisis once (do not roll twice).
+**Arcanum procedure:** use starting Fatigue for penalties, mark **+2 Fatigue** once, then cast. This is the table's +2 cost, not a second payment on success. Resolve one crisis after casting if the gain reaches 5 or the cast fails; reset to 0 with no remainder. Failure also brings the listed backlash.
 
 **Backlash examples:** demon whisper (Disadvantage on your next cast), mana flare (all torches gutter out), witch-mark (your next rest restores **no** Fortune).
 
@@ -132,18 +132,18 @@ _(A risky test is any roll where failure would materially change the situation: 
 
 ## Knacks (choose one per PC)
 
-Once per scene, do a signature trick. Pay **1 Fortune coin** or mark **+1 Fatigue**.
-
 Knacks and Expertise are tags (Adventurer's Manual 2.6). This skin grants every PC one Knack and one Expertise free at creation; further tags cost 2 build points as usual.
 
-| Knack | Effect |
-|---|------------|
-| **Backstab** | If you strike from surprise, the edge is +2; if the opponent is helpless, the hit is **Fatal** (counter: specialised protection, e.g., gorget helmet). |
-| **Turn Undead** | Test **FTH**. Success: lesser undead recoil for a beat; margin **8 or more** destroys one lesser undead (or scatters the pack). Failure: mark **+1 Fatigue** regardless. |
-| **Second Wind** | Regain **+1 Stamina** (up to max) and shake off one Disadvantage affecting you. |
-| **Arcane Flex** | Cast one **Spell**-tier effect as if it were a **Cantrip** (no cost). Your next cast this scene is at Disadvantage. |
-| **Beast Tongue** | Auto-succeed one attempt to calm, lure, or bargain with a natural creature (Custodian sets the terms). |
-| **Jack-of-Trades** | After you roll but before you spend Fortune to nudge, treat the roll as governed by a different stat. |
+Each Knack is usable once per scene and states its whole use cost. Pay only that cost unless the entry explicitly says **additional**.
+
+| Knack | Cost | Effect |
+|---|---|------------|
+| **Backstab** | spend **1 Fortune** or mark **+1 Fatigue** | If you strike from surprise, the edge is +2; if the opponent is helpless, the hit is **Fatal** (counter: specialised protection, e.g., gorget helmet). |
+| **Turn Undead** | spend **1 Fortune** or mark **+1 Fatigue** | Test **FTH**. Success: lesser undead recoil for a beat; margin **8 or more** destroys one lesser undead (or scatters the pack). Failure: mark an **additional +1 Fatigue**. |
+| **Second Wind** | spend **1 Fortune** or mark **+1 Fatigue** | Regain **+1 Stamina** (up to max) and shake off one Disadvantage affecting you. |
+| **Arcane Flex** | spend **1 Fortune** or mark **+1 Fatigue** | Cast one **Spell**-tier effect as if it were a **Cantrip** (no cost). Your next cast this scene is at Disadvantage. |
+| **Beast Tongue** | spend **1 Fortune** or mark **+1 Fatigue** | Auto-succeed one attempt to calm, lure, or bargain with a natural creature (Custodian sets the terms). |
+| **Jack-of-Trades** | spend **1 Fortune** or mark **+1 Fatigue** | After you roll but before you spend Fortune to nudge, treat the roll as governed by a different stat. |
 
 *Note:* some NPC monsters are immune to fatal backstab effects, as determined by the Custodian.
 

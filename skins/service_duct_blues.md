@@ -74,9 +74,11 @@ Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natura
 
 | Mode | How to use | What you get | Cost / Risk |
 |--|----|-----|----|
-| **Quick Scan** | Test **SYS** with Advantage | One concrete data point | none |
-| **Deep Scan** *(once per scene)* | Spend **1 RES** *or* mark **+1 Stress**, then test **SYS** (normal) | Ask two yes/no questions the Custodian must answer truthfully | cost above |
+| **Quick Scan** *(one free use per scene)* | Test **SYS** with Advantage | One concrete data point available to the sensors | none for the first use |
+| **Deep Scan** *(once per scene)* | Name one target; spend **1 RES** *or* mark **+1 Stress**, then test **SYS** (normal) | Ask two targeted yes/no questions about it; the Custodian answers truthfully within the sensors' reach | cost above |
 | **Overload Push** | If you roll a natural **20** on a scan (worst), you may spend **2 RES** to salvage a partial reading | Avoid total failure; the scanner fries until repaired (simple **SYS** test) | **2 RES**; device offline |
+
+A scan cannot reveal evidence the available instruments could not detect. After a Quick Scan, another scan of the same situation needs materially new information, access, equipment, or method. Before that extra scan, the Custodian states the time or risk it will incur. Quick Scan gives breadth; Deep Scan spends resources for targeted depth.
 
 > Safety regs: bypassing sensor interlocks without authorisation marks **+1 Stress**.
 

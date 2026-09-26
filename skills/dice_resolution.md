@@ -35,4 +35,8 @@ uv run python tools/roll.py opposed --attacker 12 --defender 10 --adv-attacker
 - The output is JSON; record key results in state notes.
 - Use `--seed` when you need deterministic replay.
 - Natural 1 and 20 are flagged in the JSON as `crit`.
+- Natural results override the target, including zero Luck; a nudged endpoint is not natural.
+- Advantage and Disadvantage cancel; sources do not stack.
+- Use current Luck tokens as the target, fixed before rolling. `beat.py --stat-key` does this automatically for the skin's Luck key.
+- Nudges stay within 1-20 and spend the owning character's tokens, even when changing an opponent's die. Explicit `--nudge-spend none` leaves that accounting to the caller.
 - In an opposed test, show both dice before offering a Luck nudge; the rules read both first.

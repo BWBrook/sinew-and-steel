@@ -66,17 +66,17 @@ Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natura
 
 ### Prior-service knacks (choose one)
 
-Each use costs: **spend 1 Fate token** or **mark +1 Strain**.
-
 Knacks and Expertise are tags (Adventurer's Manual 2.6). This skin grants every PC one Knack and one Expertise free at creation; further tags cost 2 build points as usual.
 
-| Knack | Effect |
-|---|---------|
-| **Ex-Marine** | Once per scene, make a ranged attack with Advantage (ignore recoil/zero-G). |
-| **Scout Surveyor** | Once per scene, make an EDU test with Advantage for astrogation or survey. |
-| **Merchant Broker** | Once per port call, reroll one trade test you just made (keep the new result). |
-| **Old Name** | Spend 1 Fate token to pull rank: gain Advantage on a SOC test with system officials. |
-| **Salvage Rat** | Once per scene, you automatically succeed on a zero-G manoeuvre that would otherwise need a test. If you try this in gravity, mark **+1 Strain**. |
+Each entry states its whole use cost. Pay only that cost unless the entry explicitly says **additional**.
+
+| Knack | Cost | Effect |
+|---|---|---------|
+| **Ex-Marine** | spend **1 Fate** or mark **+1 Strain** | Once per scene, make a ranged attack with Advantage (ignore recoil/zero-G). |
+| **Scout Surveyor** | spend **1 Fate** or mark **+1 Strain** | Once per scene, make an EDU test with Advantage for astrogation or survey. |
+| **Merchant Broker** | spend **1 Fate** or mark **+1 Strain** | Once per port call, reroll one trade test you just made (keep the new result). |
+| **Old Name** | spend **1 Fate** | Pull rank: gain Advantage on a SOC test with system officials. |
+| **Salvage Rat** | spend **1 Fate** or mark **+1 Strain** | Once per scene, automatically succeed on a zero-G manoeuvre that would otherwise need a test. In gravity, also mark an **additional +1 Strain**. |
 
 ### Expertise (choose one stat)
 
@@ -102,8 +102,12 @@ These are story-facing meters. Make them **public** if you want planning, **hidd
 
 ### Jump leg (one travel beat)
 
-When you make a jump (or cross a week of hard travel) and the stakes matter, resolve the leg with up to three tests.
-If a role is unfilled, treat it as a failure.
+When you make a jump (or cross a week of hard travel) and the stakes matter, the Guildmaster states the active hazard before roles are assigned. A normal leg uses the one role test that addresses its main hazard. A leg with separate, clearly stated hazards may use up to three role tests.
+
+An unfilled role grants no success benefit, but it is not an automatic failure. Resolve only the hazards declared active for this leg.
+
+One PC may cover more than one active role. An unaddressed hazard still has its
+stated consequence; agree how the crew will face or avoid it.
 
 | Role | Test | On success | On failure |
 |---|--|---|------|
@@ -116,7 +120,7 @@ If a role is unfilled, treat it as a failure.
 Ship Shares are liquid breathing room: fuel bills paid, port fees smoothed, creditors delayed.
 
 - Start at **2 shares** (adjust to tone).
-- Spend 1 share to: pay fees, grease a bureaucrat, replace a lost cargo load, or clear **1 tick** from **Hull Damage**.
+- Spend 1 share to: pay fees, grease a bureaucrat, replace a lost cargo load, or clear **1 tick** from **Hull Damage** during a dedicated repair scene with tools, access, and time. Shares cannot clear Hull Damage during a combat exchange.
 - If the pool hits **0**, everyone marks **+1 Strain** immediately.
 
 If you want concrete numbers, treat **1 share** as roughly **10,000 credits** of problem-solving money. The conversion is optional.
@@ -164,6 +168,12 @@ When you hit port, resolve money and trouble in one beat.
 ### Trade test (one per port call)
 
 ![](../assets/art/ss_free_traders_cargo_manifest.png){.wrap-right width=1.5in}
+
+A trade test requires a concrete stake: a cargo lot, a completed patron job, a salvage claim, or another asset the crew can actually sell or use to settle an account. Resolve each stake only once at a port. An empty hold cannot generate Ship Shares or clear Debt.
+
+A successful sale consumes the stake; mark a job or claim as paid. It cannot
+pay out again at another port. Agree any acquisition costs before taking the job
+or cargo; the trade result is the net reward after those costs.
 
 Test **SOC** (broker it) or **EDU** (read the market).
 

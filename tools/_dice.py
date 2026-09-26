@@ -9,6 +9,8 @@ def roll_d20() -> int:
 
 
 def resolve_check(stat: int, adv: bool = False, dis: bool = False) -> dict[str, Any]:
+    # Sources do not stack; any advantage and disadvantage cancel out.
+    adv, dis = bool(adv and not dis), bool(dis and not adv)
     rolls = [roll_d20()]
     if adv or dis:
         rolls.append(roll_d20())
@@ -20,7 +22,7 @@ def resolve_check(stat: int, adv: bool = False, dis: bool = False) -> dict[str, 
     else:
         chosen = rolls[0]
 
-    success = chosen <= stat
+    success = chosen == 1 or (chosen != 20 and chosen <= stat)
     margin = stat - chosen
     crit = None
     if chosen == 1:
@@ -109,10 +111,8 @@ def apply_nudge_to_check(check: dict[str, Any], nudge: int) -> dict[str, Any]:
         raise ValueError("invalid check data")
 
     final_result = raw_result + nudge
-    if final_result < 1:
-        final_result = 1
-    if final_result > 20:
-        final_result = 20
+    if not 1 <= final_result <= 20:
+        raise ValueError("nudge must leave the die result between 1 and 20")
 
     final_success = final_result <= stat
     final_margin = stat - final_result

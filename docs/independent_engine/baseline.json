@@ -1,0 +1,38 @@
+{
+  "baseline_commit": "a77d476f492368fd444b42f96a7bd1660539563e",
+  "rules_sha256": {
+    "rules/appendices/ai_play.md": "cb03c45e71ab917a60d6bdfff3d353bf16121c58ed6a73e1ba6980f99ca2cb7a",
+    "rules/appendices/candlelight_delvekit_quickref.md": "4f3e40b2fa525c5062a8883f901908d937afa15b07f7a061f736dde32bcecc25",
+    "rules/book/ai_as_custodian.md": "0f9315c9a710afb827516665a92dc6614f32e14073bb921fa019cc2020c82bc3",
+    "rules/book/back_cover_blurb.md": "8964ef8c5a212babbb47aa66509b2d976edddc65ebf3ad30916dcdbf6bce91af",
+    "rules/book/customisation.md": "b9389ef0c05cc6591217e57b1deae820b2d97f333d8c9d512d6c29eeeaec09e1",
+    "rules/book/preface.md": "115fc3f966bf837670e27570de553efe72e94589e1836055b417a42a2871bc69",
+    "rules/book/the_adventurer.md": "e7fb09467c4073fbf6a57d947ce4926dd703846ca1d477570caf283df06c696f",
+    "rules/book/the_custodian.md": "046d7085a58c2da47429b8ba6e853c3b45184b13653e35a4107d86b030f9b901",
+    "rules/core/adventurers_manual.md": "1a474adf94ee5ba689ec8e103ae3c390faf57aeaacfef43992be1c5f5750aad1",
+    "rules/core/custodians_almanac.md": "ba9bf1a5650aff0a2ff51fd007d1cf38448a733c3d779a9a2c5db8786400e32c",
+    "rules/quickstart.md": "ccbc280ba0cecf51137c5c4a47dd7b28fbde7727eeebbc0a1b4f968fbf709bf2",
+    "rules/scenarios/README.md": "482ab4b7810f925c523026361ee45758e6a4b689f1931f6b242dcc2b8aa2e229",
+    "rules/scenarios/clanfire_emberfall.md": "951b660e9f1a16081213d4fadd3f1c69fff07e6fca52f63d2d589df08abfea0f",
+    "rules/scenarios/clanfire_emberfall_custodian_notes.md": "28f73fb3b0720d7c24e1492aa1868b1e015b5f42b9b2fa7ebdcd74504b7c2937",
+    "rules/scenarios/clanfire_emberfall_hidden.md": "c57dca65ad0e494211ececae27235d94f9e0ae2c49991c97393b8eb9bda3fe07",
+    "rules/scenarios/clanfire_emberfall_player_handout.md": "b049f899ef12bb8635332fa4242cdb4f72f1401a72a05c6d11874704d2f5f96e",
+    "skins/briar_benedictine.md": "8c746998bb5a267728a181f58fa0aa5ef3f9d819e3be3efe577b471b2e395d6c",
+    "skins/candlelight_delvekit.md": "fe7f20d33b50b3a5ca8f3bfa1921165cba80ac576f3f6d286a2f3b25783dbbe5",
+    "skins/candlelight_dungeons.md": "2f021c8b40fcf4f19afc56a2bcae3b8adf1ec6ca20ad192ba0f7ba1bfb5265c9",
+    "skins/clanfire.md": "a5ab787a547df1f0adc1c9f8955a92b55d98baaa3b8240dae61fc7be9e8c0e3c",
+    "skins/free_traders_of_the_drift_marches.md": "70421624207421b15a876c3cfc53d957532e04bf324230a366c9b101b16a1e0d",
+    "skins/iron_and_ruin.md": "3f601d9f7751d881357b6b97ef3851964ef41c5266350ae5994719eedc10fb02",
+    "skins/rust_and_domes.md": "3124b57d6d39eff9188eb11b6325250f6b9d0145804574eb54bde1f38d1c424d",
+    "skins/service_duct_blues.md": "a313cd78d3595c86753295a0e2fc00f14a17f754ebfe30b241d981c47c281bd6",
+    "skins/time_odyssey.md": "6e8c9de4134fb4e180042775e1145226b113dbd0e1134c3a18c084521c71922d",
+    "skins/twilight_of_the_northlands.md": "8edcf9a46273152db5d69d1d50a74d64fa45f5165560ec2315ed35df424c4cea",
+    "skins/whispers_in_the_fog.md": "fe4da253d760ec3f24f33e9d483315a28430743b13c70d29d8639281e39f5b00"
+  },
+  "preexisting_dirty_files": [
+    "docs/engine_atlas.md",
+    "docs/engine_atlas/tables.md",
+    "tools/analysis/atlas.py"
+  ],
+  "independence": "New models derive from rules text and do not import previous analysis. Astra has read previous conclusions; this is implementation independence, not a blinded study."
+}

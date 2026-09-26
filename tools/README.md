@@ -40,6 +40,13 @@ Most mutators also accept `--dry-run` (no writes) and `--json` (machine-readable
 For tools with subcommands (roll/beat/trackers), global flags can appear before or after the subcommand.
 Random generation reads optional per-skin `_gen` defaults from manifest.yaml (override with CLI flags).
 
+For `beat.py`, sheet stat keys belong to the character selected by `--as`:
+use `--attacker-key` as attacker or `--defender-key` as defender. A skin's Luck
+key reads current tokens, with the target fixed before spending. Nudging either
+die spends the selected character's tokens; `--nudge-spend none` explicitly
+leaves that accounting to the caller. Natural faces are locked, adjusted faces
+stay within 1–20, and simultaneous Advantage/Disadvantage cancel.
+
 Manifest-defined addons:
 - `build_prompt.py` embeds any addon files listed under a skin in `manifest.yaml`.
 - Today that means `uv run python tools/build_prompt.py --skin candlelight_dungeons ...` includes `skins/candlelight_delvekit.md` automatically.

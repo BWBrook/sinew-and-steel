@@ -91,7 +91,7 @@ Steel is trustworthy; spells are treacherous. Any feat is *theoretically* possib
 ![](../assets/art/ss_iron_ruin_sorcery_tiers.png){.margin-right width=1.5in}
 
 1. Declare the effect and its **tier**.
-2. If the tier demands an upfront cost (e.g. Wyrd's automatic Doom), pay it; then Test **WIL** (Fortune nudges only when allowed).
+2. Determine penalties from starting Doom. Pay any upfront cost (such as Wyrd's +3 Doom) once, then Test **WIL** (Fortune nudges only when allowed). Resolve a crisis from that gain after the action, resetting Doom to 0 with no remainder; the tier's separate backlash still applies.
 3. Apply costs and consequences from the table.
 4. Narrate untamed fallout; increase the Doom track as required.
 
