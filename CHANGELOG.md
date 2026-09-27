@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Prose pass with the author, section by section in reading order (in progress). Preface and Quickstart: fewer reveal colons and emphasis italics, stock phrases and restating summary lines removed, terms matched to the Manual. The Preface now explains Custodian and S&S at first use and gives the public repository address. The Quickstart names all ten skins, shows a worked damage result, and still prints on exactly two facing pages (pp. 6-7).
 - Independent engine review: exact creation, resolution, Luck and Pressure calculations; 1.48 million coupled combat simulations; all ten skins; matched Delvekit generation. Methods, figures, limitations and decisions are in `docs/independent_engine/README.md`. Keep the damage engine, Twilight stances and creation ledger; the observed specialist advantage is conditional on the adventure's demands.
 - Rules and skins clarify attempt/recovery cadence, attribute/tag scope, initiative, current-Luck targets, cost reservation, Pressure sequencing, trade stakes, scans, travel roles, assemblies and Knack costs. Book layout is deferred.
 - Harness fixes enforce natural outcomes, cancelling Advantage/Disadvantage, bounded nudges and correct sheet ownership/current Luck. Soft tiny Delvekit variety fill no longer forces traps or roaming monsters. Added 18 regression tests; 27 tests pass in total.

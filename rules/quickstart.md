@@ -1,14 +1,13 @@
 # Sinew & Steel quickstart (rules on two pages)
 
 Roll under, count the margin, spend Luck to nudge close calls, and watch Pressure climb.
-*Everything else is story fuel.*
 
 ---
 
-## 1. Core engine (60-second digest)
+## 1. Core engine
 
-- *Roll under the attribute.* Roll `d20`; if `roll <= attribute`, you succeed. Otherwise, you fail.
-  - Natural 1 = legendary success; Natural 20 = catastrophic failure.
+- *Roll under the attribute.* Roll a d20; if `roll <= attribute`, you succeed, otherwise you fail.
+  - A natural 1 is a legendary success; a natural 20 is a disastrous failure.
 - *Margin* = `attribute - roll`: positive is how well; negative is how badly.
 - *Advantage / Disadvantage.* Roll 2d20; keep the lower / higher result. Sources do not stack; both together cancel to one die.
 - *Opposed tests.* Both sides roll.
@@ -19,7 +18,7 @@ Roll under, count the margin, spend Luck to nudge close calls, and watch Pressur
   - Five attributes at 10 (range 6-16, for life).
   - Stamina 5 (range 3-9, for life).
   - Standard creation gives 6 build points (grim 0 / pulp 12 / heroic 16).
-    - +1 above baseline costs 2 build points (or "pay" by taking -2 total elsewhere).
+    - +1 above baseline costs 2 build points (or lower other scores by 2 in total).
     - +1 below baseline costs 1 build point (to climb back).
     - A tag (Advantage when one named niche squarely fits) costs 2 build points.
 
@@ -33,16 +32,16 @@ Roll under, count the margin, spend Luck to nudge close calls, and watch Pressur
     - `LCK`: Luck (tokens; also used when pure fate decides)
 - *Stamina (health).* Damage reduces Stamina. At 0 STM you collapse.
   - Typical weapons add edge: 0 / +1 / +2.
-  - Recovery once per safe pause: short rest +1 STM; good care replaces this with +2 (up to max).
-- *Luck pool (tokens).* Your Luck score *is* your token count.
-  - When sheer chance decides, test the tokens held before rolling; spending makes later Luck rolls harder.
-  - Spend after a roll (both dice, if opposed) to nudge either die +/-1 per token within 1-20; natural 1/20 are locked and cannot be created by nudging.
-  - Rest +1 token; milestone refills up to your Luck score (your max).
-- *Damage & soak.* On a hit: 1 + edge + 1 per full 5 points of margin, minus armour soak (1-3); minimum 1.
+  - Once per safe pause, a short rest restores 1 STM, or good care restores 2 (up to max).
+- *Luck pool (tokens).* Your Luck score is the size of your token pool.
+  - When sheer chance decides, roll under your current tokens, counted before any spending on that roll; every token spent makes later Luck tests harder.
+  - Spend tokens after seeing the roll (both dice, if opposed) to nudge either die by 1 per token, within 1-20. Natural 1s and 20s are locked, and nudging cannot create them.
+  - A short rest restores 1 token; a milestone refills you to your Luck score.
+- *Damage & soak.* An attack is an opposed test. A winning attack deals 1 + edge + 1 per full 5 points of margin, minus armour soak (1-3); minimum 1.
   - Natural 1 ignores soak and adds +1 damage.
-- *Carry limit.* Up to 6 big items; extra load gives Disadvantage on agility tasks (usually Reflex / Fleetness).
-- *Money.* Usually abstract; if you want it tangible, use the optional Wealth (0-4) track (see the Custodian’s Almanac).
-- *Pressure track (0-5).* Skin defines its name and crisis. At 5, trigger the crisis, then reset to 0.
+- *Carry limit.* Up to 6 big items; more gives Disadvantage on agility tasks (usually Reflex).
+- *Money.* Kept abstract unless you use the optional Wealth track (0-4) from the Custodian’s Almanac.
+- *Pressure track (0-5).* Each skin names the track and its crises. At 5 a crisis triggers, then the track resets to 0.
 
 *Example (check + nudge):* REF 12, you roll 15: fail (margin -3).
 Spend 3 Luck to nudge 15 to 12: success (margin 0).
@@ -50,44 +49,49 @@ Spend 3 Luck to nudge 15 to 12: success (margin 0).
 *Example (opposed):*<br>
 Attacker MGT 12 rolls 8 (margin +4).<br>
 Defender REF 10 rolls 9 (margin +1).<br>
-Both succeed; attacker wins (higher margin). 
+Both succeed; the attacker wins on margin. A spear (edge +1) against no armour deals 2 damage.
 
 ---
 
-## 2. Skins (swap flavour, rename stats, recolour Pressure)
+## 2. Skins
 
-Pick a skin for tone and small rule tweaks. It gives you the attribute names, which stat is Luck (the token pool), what Pressure represents, and which optional modules fit.
+Pick a skin for tone and small rule tweaks. It gives you the attribute names, which stat is Luck, what Pressure represents, and which optional modules fit.
 
-*Example genres*:
+The core book’s ten skins:
 
-- Ice Age survival: Shadow track; totems and beast bonds.
-- Pulp sword and sorcery: Doom track; bargains and bad magic.
-- Chrononautics: Anomaly crises; epoch mapping.
-- Red planet noir: Heat track; pressure, dust, hard choices.
-- Classic dungeon crawl: Fatigue track; torchlight and spell backlash.
-- Cosmic horror: Insanity track; fragile hope and occult terror.
+- Clanfire (Ice Age survival): Shadow track; totems and beast bonds.
+- Iron & Ruin (pulp sword and sorcery): Doom track; bargains and bad magic.
+- Time Odyssey (Victorian time travel): Anomaly track; paradox and epoch mapping.
+- Briar & Benedictine (monastic mystery): Sin track; clues and confession.
+- Rust & Domes (red planet noir): Heat track; psionics and corporate scrutiny.
+- Candlelight Dungeons (classic dungeon crawl): Fatigue track; torchlight and spell backlash.
+- Service Duct Blues (lower-decks starship drama): Stress track; scans and miracle repairs.
+- Whispers in the Fog (1920s horror): Insanity track; forbidden rites and a failing lantern.
+- Free Traders of the Drift Marches (space trade): Strain track; jumps and debt.
+- Twilight of the Northlands (wanderer fantasy): Dread track; hard roads and companionship.
 
 ---
 
-## 3. Custodian quickstart (run a first session tonight)
+## 3. For the Custodian
 
 1. Frame the scene in concrete details. End on a hook.
 2. Ask: “What do you do?” Then listen for intent and method.
-3. Choose resolution:
-   - Resolve narratively if success is plausible and failure lacks interest.
-   - Roll under if uncertainty and stakes demand it.
-   - Opposed if someone actively resists.
+3. Choose how to resolve it:
+   - Resolve narratively if the approach is plausible and failure would be boring.
+   - Roll if the outcome is uncertain and it matters.
+   - Roll opposed if someone actively resists.
 4. If a roll is needed, say the stakes first: what changes on success and failure.
-5. Give 2-4 options when players hesitate; at least one should be a direct trade-off resolved in the fiction.
-6. Offer a Luck nudge when failure is close and the price would be interesting.
+5. Give 2-4 options when players hesitate, including at least one trade-off that needs no roll.
+6. Offer a Luck nudge when a roll just misses and the cost would be interesting.
 7. Advance Pressure for big blunders, dark bargains, noisy heroics, or time passing.
-8. Milestone every 3-4 *perilous* beats: +2 build points and a narrative boon.
+8. Award a milestone every 3-4 perilous beats: +2 build points and a narrative boon.
 9. If play stalls, advance Pressure, change the weather, introduce a hard bargain, or reveal a threat.
 
 ---
 
-## 4. Example character (Clanfire skin, standard build points)
-![](../assets/art/ss_clanfire_grak.png){.wrap-left width=0.5in}
-**Grak, Neanderthal Hunter**<br>
+## 4. Example character
+![](../assets/art/ss_clanfire_grak.png){.wrap-left width=1in}
+**Grak, Neanderthal Hunter** (Clanfire skin, 6 build points)<br>
 MGT 12 | FLT 10 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7 | Shadow 0/5<br>
-Stone spear (edge +1) | Hand-axe (edge +1) | Hide cloak (soak 1) | Tag: Megafauna tracker
+Stone spear (edge +1) | Hand-axe (edge +1) | Hide cloak (soak 1)<br>
+Tag: Megafauna tracker
