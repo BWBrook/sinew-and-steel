@@ -1,95 +1,83 @@
 # The Custodian
 
-You present a pressured world, play its people honestly, and let the players change its course.
+You present a world under pressure, play its people honestly, and let the players change its course.
 
-Your job in Sinew & Steel is social before it is mechanical: **maintain momentum, narrate consequences, and adjudicate fairly**, while keeping player fun in view when outcomes turn against them.
+The job is social before it is mechanical: keep the game moving, rule fairly, and make consequences land. When outcomes turn against the characters, keep the players’ fun in view.
 
-## Momentum and real choice
+## Offer real choices
 
-Good Custodian play names useful alternatives while leaving room beyond them.
+Prepare a situation that is already in motion and a sense of what the world wants, then let the players surprise you.
 
-Prepare a pressured situation and a sense of what the world wants. Players then have room to surprise you.
+When a player hesitates or asks “what are my options?”, a single instruction is rarely the best answer. Offer instead:
 
-When a player hesitates or asks “what are my options?”, the most useful response is rarely a single instruction. It’s usually:
+- 2-4 plausible options, plus an explicit “or anything else that makes sense”, and
+- enough clarity about the scene that they can choose with confidence.
 
-- 2-4 plausible options (and an explicit "or anything else that makes sense"), and
-- enough scene clarity that they can choose with confidence.
+A real choice changes what happens next, so let the story branch.
 
-Real player choice changes what happens next. Let it branch.
+**Real choice:** “Do we bargain with the rival hunters, steal from them, or offer them a share, knowing each choice changes who hates us, who trusts us, and what happens when winter gets worse?”
 
-**Real choice:** "Do we bargain with the rival hunters, steal from them, or offer them a share, knowing each choice changes who hates us, who trusts us, and what happens when winter gets worse?"
-
-**Fake choice:** "Pick one of three paths through the forest" when all three paths converge on the same prepared scene, with the same outcome in a different cloak.
+**Fake choice:** “Pick one of three paths through the forest” when all three converge on the same prepared scene, with the same outcome in a different cloak.
 
 ## Telegraph danger like the real world does
 
-Build encounters from the fiction. The world is dangerous, uneven, and indifferent to plot armour, but it still telegraphs. Give attentive players enough to read the danger and adapt. A good sting is reality catching up; a bad sting is contrived.
+Build encounters from the fiction. The world is dangerous, uneven, and indifferent to plot armour, but it still telegraphs. Give attentive players enough to read the danger (fresh tracks, a sudden silence, a local’s warning) and adapt. A good sting is reality catching up; a bad sting is contrived.
 
 ## Roll only for stakes
 
-S&S gets worse if you turn everything into checks. Roll when uncertainty meets meaningful stakes.
+S&S gets worse when everything becomes a roll. Roll only when the outcome is uncertain and it matters, and before anyone rolls, say what is at stake: what success gets and what failure is likely to cost.
 
-Resolve these narratively in most scenes:
+Most of the time, resolve these without dice:
 
-- most conversational roleplay: let people talk; roll only when it truly matters,
-- low-risk tasks with time to repeat them: success is often cleanest,
-- trivial group efforts: three people heaving together will usually manage it.
+- Conversation: let people talk, and roll only when a single moment could change the story.
+- Low-risk tasks with time to try again: let them succeed.
+- Easy group efforts: three people heaving together will usually manage it.
 
-When you do call for a roll, keep it to one meaningful roll; avoid a ladder of micro-checks.
+When you do call for a roll, one roll should settle the moment. Avoid a ladder of small rolls.
 
-## Failure is a toolkit
+## When a roll fails
 
-S&S leaves the consequence of failure open to the fiction. A fixed sequence soon becomes predictable, and predictability kills tension.
+S&S leaves the consequence of failure to the fiction. A fixed sequence of penalties soon becomes predictable, and predictable failure loses its tension.
 
-Your consequence toolkit includes (at least): Pressure rises, time or position shifts, resources drain, harm lands, threats escalate, clocks tick, and the scene changes.
+Common consequences: Pressure rises, time passes or position worsens, resources drain, harm lands, threats escalate, a clock ticks, or the scene changes. Pick the one that best fits the fiction and the moment.
 
-Choose the consequence that best fits the fiction and the moment.
+When several fit, make the choice openly and fairly:
 
-When several consequences fit, make the choice explicit and fair:
+- offer two plausible consequences and pick one in the open (a d6 is fine), or
+- ask the table which fits the scene best.
 
-- offer two plausible consequences and pick one openly (a d6 is fine), or
-- ask the table which consequence best fits the scene.
+## Keep prep light
 
-## Prep-light, situation-first
+In practice, you need to know three things:
 
-Your prep can stay light and local.
+- the PCs (their stats and current state),
+- what is true right now (the immediate situation and what is about to happen), and
+- what wants something (one or two forces with simple motives), and what happens if the PCs do nothing.
 
-In practice, “little to no prep” looks like this:
-
-- Know the PCs (stats and current state).
-- Know what is true *right now* (the immediate situation and what’s about to happen next).
-- Know what wants something (one or two forces with simple motives), and what happens if the PCs do nothing.
-
-A written module becomes runnable once you know the next beat and the forces in motion. The rest can be found at the table.
+A written module becomes runnable once you know the next beat and the forces in motion. You can find the rest at the table.
 
 ## Rulings when rules are silent
 
-When the rules leave a question open, make a judgement (briefly explained) or roll openly between a couple of plausible outcomes. Either way, keep the fiction coherent and the table moving.
+When the rules leave a question open, make a quick judgement and say why, or roll openly between a couple of plausible outcomes. Whichever you choose, stay consistent with it next time and keep the table moving.
 
 ## Indecision is still a choice
 
-Give players room to think. Once indecision becomes stalling, treat time as real.
-
-Gentle “time passes” techniques that keep agency intact:
+Give players room to think. Once indecision becomes stalling, treat time as real. Gentle ways to let time pass without taking the choice away:
 
 - the tension fuse quietly burns (Pressure rises, a clock ticks),
 - the world changes (patrols return, rooms repopulate, trouble arrives).
 
-Players soon learn that indecision passes time and the world moves around them.
-
 ## Combat: play motives
 
-Your stance on combat should be simple: make it realistic, in the sense of *motivated*.
-
-Animals want food and safety. People want status, revenge, coin, or survival. Most opponents seek advantage, and many retreat once the cost stops making sense. This keeps the world feeling real and gives players more ways to win: by driving something off, bargaining, bribing, intimidating, outsmarting, or escaping.
+Keep combat realistic in one specific sense: everyone in it wants something. Animals want food and safety. People want status, revenge, coin, or survival. Most opponents look for an advantage, and many retreat once the cost stops making sense. Motives keep the world believable and give players more ways to win: driving something off, bargaining, bribing, intimidating, outsmarting, or escaping.
 
 ## Red flags
 
-Watch for these red flags:
+Watch for:
 
-- Over-warning (which often turns into railroading).
-- Fudging dice or quietly protecting the party with plot armour.
-- Sacrificing world fidelity just to keep the heroes feeling heroic.
+- over-warning, which often turns into railroading,
+- fudging dice or quietly protecting the party with plot armour,
+- sacrificing the world’s logic just to keep the heroes feeling heroic.
 
 If you want a heroic game, let heroism come from brave players facing an indifferent world.
 
@@ -98,8 +86,6 @@ If you want a heroic game, let heroism come from brave players facing an indiffe
 > The party has the map, the torch, and the door half-open.<br>
 > They argue for three minutes about whether to go left or right.<br>
 > The Custodian waits; the torch sputters and stone scrapes in the distance.<br>
-> When the party finally chooses, the Custodian says, "Good. Mark time passing."<br>
+> When the party finally chooses, the Custodian says, “Good. Mark time passing.”<br>
 > Later, when they return to the entry chamber, something is waiting.<br>
 > The players feel the dungeon breathing.
-
-Time passed, and the dungeon answered.
