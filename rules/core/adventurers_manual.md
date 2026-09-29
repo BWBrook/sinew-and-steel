@@ -123,7 +123,7 @@ At creation, the Custodian chooses a starting budget to set the tone:
 
 ### 2.4 Step-by-step creation
 
-1. Pick a skin. It names your five attributes, tells you which one is Luck, and names your Pressure track.
+1. Pick a skin, or play the core with the default names. A skin names your five attributes, tells you which one is Luck, and names the party's Pressure track.
 2. Write the baseline: five attributes at 10, Stamina 5.
 3. Choose a signature strength and raise it.
 4. Pay for your choices. Spend build points on raises and tags, and cover any further raises by lowering other scores (-2 for each extra +1). Keep every score in range: attributes 6-16, Stamina 3-9.
@@ -293,11 +293,12 @@ Money does not count toward the limit and is tracked loosely in the fiction. If 
 
 Every skin uses the same Pressure track (0-5) under its own name: Shadow, Doom, Anomaly, Sin, Heat, Fatigue, Stress, Insanity, Strain or Dread.
 
-Pressure is the fuse: it rises with risk, blunders, bargains, and time.
+Pressure is the fuse: it rises with risk, blunders, bargains, and time. The whole party shares one track, so one hero's gamble shortens everyone's fuse.
 
 ![](../../assets/art/ss_pressure_fuse.png){.wrap-right width=2in}
 
 - When Pressure reaches 5, a crisis hits, then the track resets to 0.
+- If a crisis falls on one character, it falls on the one whose action tipped the track, unless the fiction points elsewhere.
 - If one action adds several points, add them together. Reaching or passing 5 causes one crisis, and the track resets to 0 with nothing carried over. If the skin’s own rule already triggers a crisis for that action, that is the same crisis, not a second one.
 - Penalties and extra costs from Pressure use its level at the start of the action. Pay each cost once, resolve the action, then resolve any crisis it caused. Separate costs for failing, and skin backlashes, still apply.
 - The Custodian awards a milestone every 3-4 perilous beats (dangerous scenes you come through). Each milestone brings:

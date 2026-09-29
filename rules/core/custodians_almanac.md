@@ -57,7 +57,7 @@ Let the fiction adjust recovery: a sacred rite might restore 3 tokens, and a nig
 
 ### 4. Pressure and clocks
 
-Pressure is a 0-5 fuse shared by every skin. When it reaches 5, a crisis triggers and the track resets to 0.
+Every skin runs the same 0-5 Pressure fuse, and the whole party shares one track. When it reaches 5, a crisis triggers and the track resets to 0.
 
 | Step | Mood | Custodian levers |
 | -- | --- | ------ |
@@ -77,6 +77,7 @@ Pressure is a 0-5 fuse shared by every skin. When it reaches 5, a crisis trigger
 
 **Running the fuse**
 
+- If a crisis falls on one character, it falls on the one whose action tipped the track, unless the fiction points elsewhere.
 - Add up the points from one action. Reaching or passing 5 causes one crisis, then the track resets to 0 with nothing carried over. If a skin already triggers a crisis for that action, it is the same crisis.
 - Penalties and surcharges use the Pressure level at the start of the action. Charge each cost once and resolve the action, then its crisis. Paying a surcharge does not trigger another one, but separate failure costs and backlashes still apply.
 - Make every crisis a dramatic twist with real consequences, never a free way to clear the track. State what is at stake before you offer Pressure as a cost.
@@ -149,7 +150,7 @@ If players stall, move the world:
 
 - **Totem / Feat:** once per session, gain Advantage on a roll at a cost of 1 Luck or +1 Pressure.
 - **Allies / Pets:** treat as a temporary 3-token Luck pool that depletes on use.
-- **Condition Tracks:** Fear, Radiation, and Madness are extra 0-5 fuses like Pressure, each tied to one specific hazard. Use them only when you want a second escalation axis besides Pressure; otherwise use clocks.
+- **Condition Tracks:** Fear, Radiation, and Madness are extra 0-5 fuses like Pressure, but each is tied to one specific hazard and tracked per character. Use them only when you want a second escalation axis besides Pressure; otherwise use clocks.
 - **Wealth & Attention:** optional 0-4 money track; big spends drop it; flashing wealth draws trouble (Toolkit, Part II H).
 
 ---

@@ -22,8 +22,8 @@ Your clan's hearth is dying in a hard winter, and the hunt that should save you 
 
 ## Fast-start characters
 
-- **Grak of Tall Cliffs (Hunter):** MGT 12 | FLT 10 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7 | Shadow 0/5. Tag: Megafauna tracker (Advantage when tracking big game). Stone spear (+1), hand-axe (+1), hide cloak (soak 1), ochre pouch, sinew cord.
-- **Tarra the Ember-Singer (Shaman):** MGT 6 | FLT 8 | CUN 12 | SPR 14 | INS 11/11 | STM 3/3 | Shadow 0/5. Bone flute (Advantage calming beasts), fire-bow drill, herbs, strange cloth.
+- **Grak of Tall Cliffs (Hunter):** MGT 12 | FLT 10 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7. Tag: Megafauna tracker (Advantage when tracking big game). Stone spear (+1), hand-axe (+1), hide cloak (soak 1), ochre pouch, sinew cord.
+- **Tarra the Ember-Singer (Shaman):** MGT 6 | FLT 8 | CUN 12 | SPR 14 | INS 11/11 | STM 3/3. Bone flute (Advantage calming beasts), fire-bow drill, herbs, strange cloth.
 
 ---
 

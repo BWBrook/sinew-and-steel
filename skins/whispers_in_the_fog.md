@@ -114,7 +114,7 @@ _(A risky test is any roll where failure would materially change the situation: 
 |-|--------|
 | 1 | Black-out violence: you awaken holding a bloodied object; lose **1 Stamina**. |
 | 2 | Catalepsy: helpless for one scene. |
-| 3 | Desolate vision: Disadvantage on all tests next session. |
+| 3 | Desolate vision: Disadvantage on the key roll of the next perilous beat, chosen by the Custodian. |
 | 4 | Whispered truth: gain one rumour clue the Keeper names; your next rest restores **no Fate**. |
 | 5 | Public hysteria: NPCs fear or shun you; Disadvantage on **FRT** tests in polite society until resolved. |
 | 6 | Roll twice and apply both. |
@@ -215,7 +215,7 @@ Stylistic rule: pain is concrete, hope is whispered, knowledge always costs.
 ![](../assets/art/ss_whispers_lydia.png){.wrap-left width=1in}
 
 Creation: standard budget (**6** build points; used **6**)<br>
-VIG 8 AGI 9 SCH 14 FRT 12 FAT 8/8 STM 4/4 Insanity 0/5<br>
+VIG 8 AGI 9 SCH 14 FRT 12 FAT 8/8 STM 4/4<br>
 Knack: Occult Scholar.<br>
 Pocket-knife 0, notebook & fountain pen, trunk of grimoires.
 
@@ -224,7 +224,7 @@ Pocket-knife 0, notebook & fountain pen, trunk of grimoires.
 ![](../assets/art/ss_whispers_eli.png){.wrap-left width=1in}
 
 Creation: standard budget (**6** build points; used **6**)<br>
-VIG 13 AGI 12 SCH 9 FRT 8 FAT 7/7 STM 6/6 Insanity 0/5<br>
+VIG 13 AGI 12 SCH 9 FRT 8 FAT 7/7 STM 6/6<br>
 Knack: Veteran's Nerves.<br>
 .38 revolver +1, blackjack 0, trench coat, hip flask (Advantage on tests to resist cold).
 

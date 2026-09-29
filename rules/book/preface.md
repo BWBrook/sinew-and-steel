@@ -64,7 +64,7 @@ If you want to go deeper:
 
 - Players: read The Adventurer preamble, then the Adventurer’s Manual.
 - Custodians: read The Custodian preamble, then the Custodian’s Almanac.
-- When you want another genre, pick the skin that suits your mood. The skins are arranged in order of complexity, so you can also work through them in sequence.
+- Skins are optional: the core rules are a complete game on their own. When you want another genre, pick the skin that suits your mood. The skins are arranged in order of complexity, so you can also work through them in sequence.
 
 ## A note on AI Custodians
 

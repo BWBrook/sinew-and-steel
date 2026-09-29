@@ -237,7 +237,7 @@ For AI Agent repo play, start with the Delvekit guide in `docs/`. For table play
 ![](../assets/art/ss_candlelight_durn.png){.wrap-left width=1in}
 
 Creation: heroic budget (**16** build points; used **16**)<br>
-STR 16 DEX 11 LOR 9 FTH 9 FOR 10/10 STM 7/7 Fatigue 0/5<br>
+STR 16 DEX 11 LOR 9 FTH 9 FOR 10/10 STM 7/7<br>
 Knack: Second Wind. Expertise: STR.<br>
 Sword +1, shield, chain shirt (soak 2).<br>
 
@@ -246,7 +246,7 @@ Sword +1, shield, chain shirt (soak 2).<br>
 ![](../assets/art/ss_candlelight_lirae.png){.wrap-left width=1in}
 
 Creation: heroic budget (**16** build points; used **16**)<br>
-STR 8 DEX 10 LOR 16 FTH 11 FOR 12/12 STM 5/5 Fatigue 0/5<br>
+STR 8 DEX 10 LOR 16 FTH 11 FOR 12/12 STM 5/5<br>
 Knack: Arcane Flex. Expertise: LOR.<br>
 Spells: *Sleep* - Spell (LOR), *Flickerlight* - Cantrip (LOR), *Minor Ward* - Spell (FTH).<br>
 Dagger 0, robes (soak 0), spellbook (Advantage on LOR tests to recall ritual details).

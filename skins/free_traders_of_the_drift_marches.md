@@ -121,7 +121,7 @@ Ship Shares are liquid breathing room: fuel bills paid, port fees smoothed, cred
 
 - Start at **2 shares** (adjust to tone).
 - Spend 1 share to: pay fees, grease a bureaucrat, replace a lost cargo load, or clear **1 tick** from **Hull Damage** during a dedicated repair scene with tools, access, and time. Shares cannot clear Hull Damage during a combat exchange.
-- If the pool hits **0**, everyone marks **+1 Strain** immediately.
+- If the pool hits **0**, mark **+1 Strain** immediately.
 
 If you want concrete numbers, treat **1 share** as roughly **10,000 credits** of problem-solving money. The conversion is optional.
 
@@ -152,7 +152,7 @@ _(A risky test is any roll where failure would materially change the situation: 
 |-|---------------|
 | 1 | Core flash-over: everyone loses **1 Stamina**. |
 | 2 | Helm panic: veer into hazard; the encounter begins with Disadvantage on your first test. |
-| 3 | Mutiny spark: immediate social conflict; **SOC** tests are at Disadvantage next session. |
+| 3 | Mutiny spark: immediate social conflict; Disadvantage on the next key **SOC** test, chosen by the Custodian. |
 | 4 | System lockdown: one ship function offline until port repair. |
 | 5 | Debt call-in: lose **1 Ship Share** immediately, or tick Debt +1 if at 0 shares. |
 | 6 | Roll twice and apply both. |
@@ -282,7 +282,7 @@ Reliable Guildmaster moves:
 ![](../assets/art/ss_free_traders_mara.png){.wrap-left width=1in}
 
 Creation: standard budget (**6** build points; used **6**)<br>
-STR 8 DEX 12 EDU 14 SOC 8 FAT 8/8 STM 5/5 Strain 0/5<br>
+STR 8 DEX 12 EDU 14 SOC 8 FAT 8/8 STM 5/5<br>
 Knack: Scout Surveyor. Expertise: EDU (Astrogation).<br>
 Snub-pistol +1, flight suit (soak 0), battered survey kit (Advantage on EDU tests for field analysis when you have time).
 
@@ -291,7 +291,7 @@ Snub-pistol +1, flight suit (soak 0), battered survey kit (Advantage on EDU test
 ![](../assets/art/ss_free_traders_holo.png){.wrap-left width=1in}
 
 Creation: standard budget (**6** build points; used **6**)<br>
-STR 14 DEX 9 EDU 8 SOC 7 FAT 10/10 STM 7/7 Strain 0/5<br>
+STR 14 DEX 9 EDU 8 SOC 7 FAT 10/10 STM 7/7<br>
 Knack: Salvage Rat. Expertise: STR (Cargo Handling).<br>
 Blade 0, jack suit (soak 0), EVA clamps, a lucky spacer charm he swears he does not believe in.
 

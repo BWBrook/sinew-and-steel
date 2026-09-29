@@ -184,6 +184,20 @@ milestones by design; NPC design lacks party-size guidance; one crisis per
 session corresponds to a Pressure tick rate near one beat in three. None of
 these were acted on in the rules, which stay frozen for Astra.
 
+## Prose pass, from 24 September 2026
+
+Barry and Fable are revising the book section by section in reading order,
+removing generic AI phrasing and checking every rule against the core. Done
+through Briar & Benedictine; next are Rust & Domes, Candlelight Dungeons and
+Service Duct Blues. Rulings made along the way, all now in the text: Pressure
+is one track for the whole party (a crisis that falls on one character falls
+on whoever tipped the track), so statlines no longer carry it; optional
+condition tracks stay per character; trade-offs never pay for tags, so a
+grim-budget character earns tags at milestones; skins are optional and the
+core plays with the default names; crisis results cost one key roll, never a
+whole session; Iron & Ruin lets Fortune nudge Whispers and Weaves only.
+Astra's next review waits for the end of the pass.
+
 ## Useful commands and code map
 
 Run from the repository root. `docs/pdf_building.md` explains the workflows.

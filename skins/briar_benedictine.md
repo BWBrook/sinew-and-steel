@@ -7,10 +7,10 @@
 
 Use this skin with the Sinew & Steel core rules. The core governs everything else.
 
-Briar & Benedictine is monastic mystery: investigation under vows, secrets behind stone, and the spiritual cost of prying into darkness. Expect interrogation-by-confession, forensic herbs, whispered politics, Mediæval morals, and violence that is rare but final.
+Briar & Benedictine is monastic mystery: investigation under vows, secrets behind stone, and the spiritual cost of prying into darkness. Expect interrogation-by-confession, forensic herbs, whispered politics, medieval morals, and violence that is rare but final.
 
-Suggested creation tone: **grim** (**0** build points): frail bodies, sharp minds, hard choices.
-For a more capable party, raise build points to standard **6**; the other rules stay the same.
+Suggested creation tone: grim (0 build points): frail bodies, sharp minds, hard choices.
+For a more capable party, raise build points to standard 6; the other rules stay the same.
 
 ---
 
@@ -21,35 +21,24 @@ For a more capable party, raise build points to standard **6**; the other rules 
 | Core slot | Abbey label | Governs |
 |--|---|------|
 | Might | **Hew (HEW)** | heaving stones, wrestling soldiers, cracking doors |
-| Reflex | **Fleet (FLT)** | stealth in cloisters, quick footing, sleight |
-| Intellect | **Lore (LOR)** | herbalism, forensics, Latin, canon law |
+| Reflex | **Fleet (FLT)** | stealth in cloisters, eavesdropping, quick footing, sleight |
+| Intellect | **Lore (LOR)** | herbalism, inks, forensics, Latin, canon law |
 | Empathy | **Mercy (MCY)** | soothing souls, interrogation, reading hearts |
-| Luck | **Providence (PRV)** | divine fortune **and** token pool |
+| Luck | **Providence (PRV)** | divine fortune, omens, coincidence, and the token pool |
 
 **Rules reminder:** a natural 1 always succeeds and a natural 20 always fails, whatever the target; neither can be nudged.
 
 ### Providence (Luck)
 
-Tokens are carved hazel beads on a rosary.
+Tokens are carved hazel beads on a rosary, spent exactly as Luck tokens.
 
 ![](../assets/art/ss_benedictine_confessional.png){.wrap-left width=1.5in}
 
-When the Custodian calls for blind chance, they say: **"Test your Providence."** Roll under your **current beads** (not your maximum).
-Spend beads now to nudge rolls, but remember: fewer beads means shakier Providence later.
+When the Custodian calls for blind chance, they say: **"Test your Providence."** Roll under your current beads, not your maximum. Every bead you spend on a nudge makes Providence shakier later.
 
-A short rest in quiet prayer restores **+1 bead**; vigil at a martyr's shrine (or true absolution) may restore more.
+A short rest in quiet prayer restores 1 bead, and a milestone refills the rosary; vigil at a martyr's shrine (or true absolution) may restore more.
 
 > *"Tenebrae non comprehenderunt lucem."*<br>_The darkness grasped not the light._
-
-### Common tests (defaults)
-
-The approach determines the attribute.
-
-- **HEW:** force a door, grapple a soldier, hold a gate.
-- **FLT:** slip past novices, eavesdrop, flee through cloisters.
-- **LOR:** inks, herbs, forensics, scripture, law.
-- **MCY:** calm a witness, read motives, draw out truth with compassion.
-- **PRV:** omens, coincidence, the one-in-a-thousand break.
 
 ### Weapons and edge
 
@@ -59,7 +48,7 @@ The approach determines the attribute.
 | Cudgel, short sword | +1 |
 | Crossbow bolt, poleaxe | +2 *(rare; militia only)* |
 
-> *"Cold iron bells toll terce - crows answer from the graveyard yew."*
+> *"Cold iron bells toll terce; crows answer from the graveyard yew."*
 
 ### Armour and soak
 
@@ -69,13 +58,13 @@ The approach determines the attribute.
 | Quilted gambeson | 1 |
 | Mail shirt & nasal helm | 2 |
 
-Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natural **1** ignores soak and adds +1.
+Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; a natural 1 ignores soak and adds +1.
 
 ### Optional plug-ins (use sparingly)
 
-- **Insight (once per scene).** After you succeed on a **LOR** or **MCY** test while pursuing the case, you may spend **1 Providence bead** to ask the Custodian one **yes/no** question. The answer is truthful, but only within what the character could plausibly infer.
-- **Herbal poultice.** The healer loses **1 Stamina**, then tests **LOR**. Success restores **+1 Stamina** to another character, up to max. Failure restores 0 Stamina and marks **+1 Sin** for prideful meddling.
-- **Vow-break.** Violence on church grounds marks **+1 Sin** (no roll).
+- **Insight (once per scene).** After you succeed on a LOR or MCY test while pursuing the case, you may spend 1 Providence bead to ask the Custodian one yes/no question. The answer is truthful, but only within what the character could plausibly infer.
+- **Herbal poultice.** The healer loses 1 Stamina, then tests LOR. Success restores 1 Stamina to another character, up to their maximum. Failure restores nothing and marks +1 Sin for prideful meddling.
+- **Vow-break.** Violence on church grounds marks +1 Sin (no roll).
 
 > *"A candle gutters; for an instant the scriptorium smells of brimstone."*
 
@@ -87,55 +76,55 @@ Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natura
 
 ![](../assets/art/ss_benedictine_reliquary_key.png){.wrap-right width=1.8in}
 
-This skin is a medieval monastic mystery. Keep it moving with two table rules:
+Keep the mystery moving with two table rules:
 
-- **Every clue reaches the players.** A test decides clarity, speed, and cost. Success makes the clue clear. Failure still gives a clue, but you pay: mark **Sin**, tick a clock, lose **Stamina**, or draw suspicion.
-- **Three leads, always.** Any conclusion you want the players to reach should have at least **three** clues pointing toward it, in different places or mouths.
+- **Every clue reaches the players.** A test decides clarity, speed, and cost. Success makes the clue clear. Failure still gives a clue, but at a cost: mark +1 Sin, tick a clock, lose Stamina, or draw suspicion.
+- **Three leads, always.** Any conclusion you want the players to reach should have at least three clues pointing toward it, in different places or mouths.
 
-Use the **Insight** plug-in as your unstick lever if the table stalls.
+Use the Insight plug-in as your unstick lever if the table stalls.
 
 **Example (how to run a clue):**
 
-> Cadoc scrapes blood from the altar cloth. Test **LOR**.
-> Success: "It is old blood, at least five days, and it reeks of yarrow."
-> Failure: "It is old blood... but the yarrow stain smears under your thumb. Mark **+1 Sin**: prideful certainty can damn the innocent."
+> Cadoc scrapes blood from the altar cloth. Test LOR.<br>
+> Success: "It is old blood, at least five days, and it reeks of yarrow."<br>
+> Failure: "It is old blood... but the yarrow stain smears under your thumb. Mark +1 Sin: prideful certainty can damn the innocent."
 
 ### Sin track (Pressure)
 
-Sin is the spiritual pressure of suspicion, pride, and proximity to evil. It runs **0-5**; at **5**, trigger a crisis, then reset Sin to **0**.
+Sin is the spiritual pressure of suspicion, pride, and proximity to evil. It runs 0-5; at 5, trigger a crisis, then reset Sin to 0.
 
 | Step | Portent | Custodian pressure |
 |--|------|------|
 | 0 | Clear conscience | None |
-| 1 | Rumours in cloister | cosmetic whispers, doors close early |
-| 2 | Brother's doubt | Disadvantage on **MCY** tests with clergy NPCs |
-| 3 | Official censure | The Abbot or Prior forbids inquiry; open defiance costs either **1 PRV bead** before rolling or **+1 Sin**. |
-| 4 | Dark night of soul | **Test your Providence** at Disadvantage |
-| 5 **Crisis** | Ecclesiastical trial / demonic visitation | roll on the crisis table, then reset Sin to **0** |
+| 1 | Rumours in cloister | Cosmetic whispers; doors close early |
+| 2 | Brother's doubt | Disadvantage on MCY tests with clergy NPCs |
+| 3 | Official censure | The Abbot or Prior forbids inquiry; open defiance costs 1 Providence bead before rolling, or +1 Sin |
+| 4 | Dark night of the soul | Providence tests at Disadvantage |
+| 5 **Crisis** | Ecclesiastical trial / demonic visitation | Roll on the crisis table, then reset Sin to **0** |
 
-**Gain Sin:** lie under oath, break a vow of peace, disturb a sanctified grave, or use Insight on sacred matters for petty ends.
+**Gain +1 Sin** for lying under oath, breaking a vow of peace, disturbing a sanctified grave, or using Insight on sacred matters for petty ends.
 
-**Purge Sin:** public confession (lose a favoured item), week-long fast, or hazardous pilgrimage.
+**Purge Sin** through public confession (lose a favoured item), a week-long fast, or a hazardous pilgrimage.
 
 \clearpage
 
-**Crisis table (d6)**
+#### Crisis table (d6)
 
 |d6 | Crisis |
 |-|------------------------------------------------------------|
-| 1 | Public scourging: lose **1 Stamina**; the penance resets Sin to **0**. |
-| 2 | Possessed by pride: the Custodian controls the PC for one scene. |
-| 3 | Devil's whisper: your next **MCY** test against a suspect is at Disadvantage. |
+| 1 | Public scourging: lose 1 Stamina as penance. |
+| 2 | Possessed by pride: the Custodian controls one PC for a scene. |
+| 3 | Devil's whisper: your next MCY test against a suspect is at Disadvantage. |
 | 4 | Lost reliquary: a key piece of evidence vanishes. |
-| 5 | Chapter trial: Disadvantage on all rolls next session. |
+| 5 | Chapter trial: Disadvantage on the key roll of the next perilous beat, chosen by the Custodian. |
 | 6 | Roll twice and apply both. |
 
 ### Tone
 
 ![](../assets/art/ss_benedictine_wax_seal.png){.wrap-right width=1.4in}
 
-Keep the voice lean and sensory: "Iron brazier hisses as herbs crack; the air stinks of blood and rosemary." Violence is rare but final.
-"The devil prowls like a wolf among lambs - yet wolves leave tracks."
+Keep the voice lean and sensory: "Iron brazier hisses as herbs crack; the air stinks of blood and rosemary."
+"The devil prowls like a wolf among lambs, yet wolves leave tracks."
 
 > *"Quis custodiet ipsos custodes?"*
 
@@ -149,28 +138,26 @@ Reliable Custodian moves:
 - a skeleton is unearthed under the nave,
 - a confession implicates the wrong person.
 
-> **GRIM PORTENT**
-> A parchment seal pops in the warming brazier, disgorging blackened petals onto the refectory table.
-> All present test **MCY**; on failure, mark **+1 Sin** from fear.
+> **GRIM PORTENT**<br>
+> A parchment seal pops in the warming brazier, disgorging blackened petals onto the refectory table.<br>
+> All present test MCY; if anyone fails, mark +1 Sin from fear.
 
 ### d6 Quick mystery seeds
 
 |d6 | Hook | Twist |
 |-|------|------|
 |1| A novice vanishes after night-office. | His sandal prints stop at the sealed reliquary vault. |
-|2| A blood-spattered missal is found on the high altar. | Ink tests reveal the blood is **five days old** - Mass was said yesterday. |
+|2| A blood-spattered missal is found on the high altar. | Ink tests reveal the blood is five days old, yet Mass was said yesterday. |
 |3| A travelling minstrel collapses, raving of a silver stag. | His purse holds a coin minted two centuries hence. |
-|4| Siege engines rumble outside; the Abbot's ring is stolen. | The culprit left a scrap of *royal* livery, not rebel colours. |
+|4| Siege engines rumble outside; the Abbot's ring is stolen. | The culprit left a scrap of royal livery, not rebel colours. |
 |5| The infirmary leech-jar is missing; patients worsen. | An apothecary in town pays double for rare blood elixir. |
-|6| A parchment map to a Saxon tomb appears in Cadoc's cell. | The handwriting matches the Prior - dead these ten years. |
+|6| A parchment map to a Saxon tomb appears in Cadoc's cell. | The handwriting matches the Prior, dead these ten years. |
 
-### Investigation map (keep it simple)
+### Investigation map
 
-Tag scenes by location (CL-1 cloister, TW-2 town, WD-3 woodland). Keep a short case ledger: suspects, motives, alibis, and clue list.
+Label scenes by location (CL-1 cloister, TW-2 town, WD-3 woodland). Keep a short case ledger: suspects, motives, alibis, and clue list.
 
-Investigations should move with care. Words endure and broken vows stay broken; confession and atonement change what comes next.
-
-> *"Wax gutters in crooked rivulets; the effigy saints seem to weep."*
+Words endure, and broken vows stay broken; confession and atonement change what comes next.
 
 ---
 
@@ -189,20 +176,20 @@ Roll or pick to ground any scene in seconds.
 
 ## Example monastics
 
-### Brother Cadoc - Herbalist-Inquisitor
+### Brother Cadoc (Herbalist-Inquisitor)
 
 ![](../assets/art/ss_benedictine_cadoc.png){.wrap-left width=1in}
-Creation: grim budget (**0** build points; used **0**)<br>
-HEW 8 FLT 7 LOR 14 MCY 10 PRV 8/8 STM 4/4 Sin 0/5<br>
+Creation: grim budget (0 build points; used 0)<br>
+HEW 8 | FLT 7 | LOR 14 | MCY 10 | PRV 8/8 | STM 4/4<br>
 Satchel of salves (once per day: Advantage on an LOR diagnosis), hand staff (edge 0), vellum notebook.
 
-### Sister Aveline - Lay Scribe
+### Sister Aveline (Lay Scribe)
 
 ![](../assets/art/ss_benedictine_aveline.png){.wrap-left width=1in}
-Creation: grim budget (**0** build points; used **0**)<br>
-HEW 6 FLT 9 LOR 10 MCY 13 PRV 9/9 STM 3/3 Sin 0/5<br>
-Wax tablets, dagger +1 (kept hidden). Tag: **Empathic gaze** (Advantage on MCY tests to read a person face to face).
+Creation: grim budget (0 build points; used 0)<br>
+HEW 6 | FLT 9 | LOR 11 | MCY 13 | PRV 9/9 | STM 3/3<br>
+Wax tablets, dagger +1 (kept hidden). At the grim budget, tags are earned, not bought: her first milestone is meant for *Empathic gaze* (Advantage on MCY tests to read a person face to face).
 
 ---
 
-*Track Providence spent, Stamina lost, Sin accrued.*
+> *Track Providence spent, Stamina lost, Sin accrued.*

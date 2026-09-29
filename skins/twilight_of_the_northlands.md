@@ -70,7 +70,7 @@ Companionship is a shared reserve the company leans on when one heart falters.
 - Start with **1 Companionship token per PC** (maximum = number of PCs).
 - **Once per scene, each PC may spend 1 token from Companionship** instead of spending their own Hope to **nudge a roll**.
 - Companionship tokens may be used **only** to nudge rolls (not to pay knack costs, rite costs, or other expenses).
-- When the pool reaches **0**, each PC immediately marks **+1 Dread**.
+- When the pool reaches **0**, mark **+1 Dread** immediately.
 
 _(Note: this works cleanly as a campaign clock with `current/max`.)_
 
@@ -266,7 +266,7 @@ After a completed adventure, each PC picks **one** undertaking:
 ### Tainted and sanctuary ground
 
 - **Tainted** (old battlefield, tomb-hill): each night spent here marks **+1 Dread**.
-- **Sanctuary** (peaceful haven, holy hall): the first full night clears **1 Dread** and **1 Fatigue** for each PC.
+- **Sanctuary** (peaceful haven, holy hall): the first full night clears **1 Dread**, and **1 Fatigue** for each PC.
 
 ---
 
@@ -319,7 +319,7 @@ Knack seeds: *Second Snack* (once per session clear 1 Fatigue with a meal); *Cur
 ![](../assets/art/ss_twilight_tolly.png){.wrap-left width=1in}
 
 Creation: heroic budget (**16** build points; used **16**)<br>
-STR 6 NIM 14 WIS 10 HRT 14 HOP 12/12 STM 5/5 Dread 0/5 Fatigue 0/5<br>
+STR 6 NIM 14 WIS 10 HRT 14 HOP 12/12 STM 5/5 Fatigue 0/5<br>
 Knack: Small & Quiet.<br>
 Sling 0, herb-satchel (Advantage on WIS tests to identify plants when you have time), fishing pole, pony "Chestnut".
 
@@ -328,7 +328,7 @@ Sling 0, herb-satchel (Advantage on WIS tests to identify plants when you have t
 ![](../assets/art/ss_twilight_halvar.png){.wrap-left width=1in}
 
 Creation: heroic budget (**16** build points; used **16**)<br>
-STR 14 NIM 8 WIS 11 HRT 10 HOP 12/12 STM 7/7 Dread 0/5 Fatigue 0/5<br>
+STR 14 NIM 8 WIS 11 HRT 10 HOP 12/12 STM 7/7 Fatigue 0/5<br>
 Knack: Stout-Heart.<br>
 War-axe +2, riveted mail (soak 1), pipe of dried leaf, a worn map of the old road.
 

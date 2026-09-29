@@ -189,7 +189,7 @@ Reliable Custodian moves:
 
 *Sturdy hunter, bearer of granite confidence.*<br>
 Creation: standard budget (6 build points).<br>
-MGT 12 | FLT 10 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7 | Shadow 0/5<br>
+MGT 12 | FLT 10 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7<br>
 Tag: *Megafauna tracker* (Advantage when tracking big game). Wary fascination with Sapiens antler blades.<br>
 Stone spear +1 (thrown or thrust), hand-axe +1 (strike), hide cloak (soak 1).<br>
 Ochre pouch (ritual mark), sinew cord.
@@ -200,7 +200,7 @@ Ochre pouch (ritual mark), sinew cord.
 
 *Clan shaman, voice between worlds.*<br>
 Creation: standard budget (6 build points).<br>
-MGT 6 | FLT 8 | CUN 12 | SPR 14 | INS 11/11 | STM 3/3 | Shadow 0/5<br>
+MGT 6 | FLT 8 | CUN 12 | SPR 14 | INS 11/11 | STM 3/3<br>
 Ritual *Ember Dream*: when a rite's outcome is uncertain, Test Spirit; on failure, mark +1 Shadow.<br>
 Can sense weather shifts hours ahead; Disadvantage when forced into raw melee.<br>
 Carved bone flute (Advantage when calming beasts), fire-bow drill, herb bundle, scrap of strange cloth from southern strangers.

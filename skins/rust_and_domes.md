@@ -130,7 +130,7 @@ A **risky test** is any roll where failure would materially change the situation
 | 2 | Syndicate kidnaps an ally. |
 | 3 | Bounty hunters strike en route. |
 | 4 | Bio-sensor lockout: habitat denies life support. |
-| 5 | Universal arrest warrant: Disadvantage on all social tests next session. |
+| 5 | Universal arrest warrant: Disadvantage on the next key social test, chosen by the Custodian. |
 | 6 | Roll twice and apply both. |
 
 ### Milestone boon seeds
@@ -231,7 +231,7 @@ Keep it to 1-2 per session. Mars is harsh, but not roulette.
 *Roguish spacer marooned on the Red Frontier, silver tongue masking weary pragmatism.*
 
 Creation: standard budget (**6** build points; used **6**)<br>
-ATK 10 DEF 10 SKL 10 MND 13 LCK 9/9 STM 4/4 Heat 0/5<br>
+ATK 10 DEF 10 SKL 10 MND 13 LCK 9/9 STM 4/4<br>
 
 Laser carbine (+2 edge at range; Disadvantage on ATK if used in melee), handgun +1, kevlar wrap (soak 1), omni-tool (Advantage on SKL tests to repair or hack when you have access), mixed ammo, battered cred-chits.
 Tag: **Streetwise** (Advantage on MND tests with criminals and dock-bosses). Solvent enough to eat, broke enough to take risks.
@@ -243,7 +243,7 @@ Tag: **Streetwise** (Advantage on MND tests with criminals and dock-bosses). Sol
 *Composed hacker steeped in Martian network lore, preferring code to gun-smoke.*
 
 Creation: standard budget (**6** build points; used **6**)<br>
-ATK 8 DEF 8 SKL 14 MND 12 LCK 8/8 STM 5/5 Heat 0/5<br>
+ATK 8 DEF 8 SKL 14 MND 12 LCK 8/8 STM 5/5<br>
 
 Datapad & probes (Advantage on SKL tests to hack secured systems once connected), light sidearm +1, work suit (soak 0), ration pack, hoarded cred-chits.
 Keeps a hidden crash-pad in Hearthwell; prefers to avoid gunfights.

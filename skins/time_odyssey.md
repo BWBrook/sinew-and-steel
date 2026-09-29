@@ -9,13 +9,11 @@ Use this skin with the Sinew & Steel core rules. The core governs everything els
 
 Time Odyssey is scientific romance: brass and ivory wonder, distant epochs, and the chill realisation that history is indifferent to you. Expect hard choices, strange futures, and consequences that arrive centuries out of order.
 
-Suggested creation tone: **pulp** (**12** build points) suits reckless chrononautics well.
+Suggested creation tone: pulp (12 build points), which suits reckless chrononautics.
 
 ---
 
 ## Chrononaut's Codex (Adventurer-facing rules)
-
-*A skin for excursions across the centuries.*
 
 > *"There are three dimensions of space, but time is the fourth we now choose to explore!"*
 
@@ -27,15 +25,15 @@ Suggested creation tone: **pulp** (**12** build points) suits reckless chrononau
 | Reflex | **Reflex (REF)** | agility, evasive footwork, sleight |
 | Intellect | **Intellect (INT)** | science, deduction, engineering |
 | Empathy | **Empathy (EMP)** | persuasion, morale, reading motives |
-| Luck | **Ingenuity (ING)** | lateral insight **&** token pool |
+| Luck | **Ingenuity (ING)** | lateral insight, and the token pool |
 
 ### Ingenuity (Luck)
 
-Tokens are brass cogs.
+Tokens are brass cogs, spent exactly as Luck tokens.
 
-When the Custodian calls for pure chance, they say: **"Test your Ingenuity."** Roll under your **current tokens**.
+When the Custodian calls for pure chance, they say: **"Test your Ingenuity."** Roll under your current tokens.
 
-A short rest restores **+1 token**; paradoxical boons or esoteric rejuvenators may restore more.
+A short rest restores 1 token, and a milestone refills them; paradoxical boons or esoteric rejuvenators may restore more.
 
 **Rules reminder:** a natural 1 always succeeds and a natural 20 always fails, whatever the target; neither can be nudged.
 
@@ -51,11 +49,11 @@ A short rest restores **+1 token**; paradoxical boons or esoteric rejuvenators m
 
 | Protection | Soak |
 |---|--|
-| Tweed Coat | 0 |
+| Tweed coat | 0 |
 | Leather riding jacket | 1 |
 | Experimental alloy breastplate | 2 |
 
-Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natural **1** ignores soak and adds +1.
+Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; a natural 1 ignores soak and adds +1.
 
 ### Anomaly track (Pressure)
 
@@ -65,11 +63,11 @@ Meddling with history courts temporal paradox.
 
 Call for an Anomaly test when uncertainty meets historical stakes: altering major events, meeting one's past self, operating the machine under duress, or defying a fixed point.
 
-- **Test INT** (reason, calculations) or **Test ING** (lateral insight, luck).
-- On failure, mark **+1 Anomaly**.
-- At **5 Anomaly**, trigger a crisis from the table, then reset Anomaly to **0**.
+- Test INT for reason and calculation, or Ingenuity for a lateral leap (under your current tokens, like any Luck test).
+- On a failure, mark +1 Anomaly.
+- At 5 Anomaly, trigger a crisis from the table, then reset Anomaly to 0.
 
-One test settles one historical intervention. A failed intervention cannot be retried until materially new information, a new method, or a new opportunity changes the situation; repeating the same calculations or pulling the same lever does not create another test.
+One test settles one intervention. Rerunning the same calculations or pulling the same lever again changes nothing; only new information, a new method, or a new opportunity earns another test.
 
 #### Crisis table (d6)
 
@@ -79,28 +77,20 @@ One test settles one historical intervention. A failed intervention cannot be re
 | 2 | Equipment sublimates: a key item vanishes in glitter. |
 | 3 | Rip current: the party is hurled d6 x 1000 years off-target. |
 | 4 | Temporal echo: a hostile duplicate of a PC appears. |
-| 5 | Reality blur: Disadvantage on all rolls next session. |
+| 5 | Reality blur: Disadvantage on the key roll of the next perilous beat, chosen by the Custodian. |
 | 6 | Roll twice and apply both. |
 
 ### Equipment and burden
 
 ![](../assets/art/ss_time_odyssey_kit.png){.wrap-left width=1.5in}
 
-Six big items. Your brass-and-crystal chronal engine is always off-screen unless the current scene is about repairing, protecting, or losing it.
+You can carry six big items; more gives Disadvantage on Reflex tests. Your brass-and-crystal chronal engine is always off-screen unless the current scene is about repairing, protecting, or losing it.
 
 Currency shifts by era; bulky coinage invites thieves or customs scrutiny.
-
-### Advancement boon seeds
-
-After surviving a paradox cascade, cataloguing a prehistoric beast, or shaping an epochal alliance, the Custodian may award a **Milestone** and a boon.
-
-Examples: future-alloy blade (+1 edge), patent rights (wealth perk), Eocene amber sample (sell it to restore **+3 Ingenuity tokens**, up to your maximum), or Sphinx guardian favour (once: Advantage on EMP).
 
 \clearpage
 
 ## Custodian Manual (Custodian-facing rules)
-
-*A guide for stewards of paradox, peril and Edwardian wonder*
 
 ### Narrative tone
 
@@ -119,7 +109,13 @@ Present 2-4 options in second person, focused on what the protagonist can actual
 
 Let consequences arrive in the wrong century. Saving a single flower in a far-future garden may cure a Victorian cholera outbreak.
 
-Wrap the boon in story: a strange crystal implant grants **Advantage on one INT test per session**; a companion's faith lets you **reroll one EMP test** (once).
+### Milestone boon seeds
+
+Milestones come at the usual pace, every 3-4 perilous beats. Let them land after a paradox cascade survived, a prehistoric beast catalogued, or an epochal alliance shaped.
+
+Examples: future-alloy blade (+1 edge), patent rights (wealth perk), Eocene amber sample (sell it to restore 3 Ingenuity tokens, up to your maximum), or Sphinx guardian favour (once: Advantage on EMP).
+
+Wrap each boon in story: a strange crystal implant grants Advantage on one INT test per session; a companion's faith lets you reroll one EMP test (once).
 
 ### Custodian moves
 
@@ -133,7 +129,7 @@ Reliable Custodian moves:
 
 ### Ingenuity guidance
 
-Call for **"Test your Ingenuity"** when blind chance or hidden quantum decides which epoch-rift opens, whether the machine takes the shot, or which impossible witness remembers the truth.
+Call for "Test your Ingenuity" when blind chance or hidden quantum decides which epoch-rift opens, whether the machine takes the shot, or which impossible witness remembers the truth.
 
 Keep it to 1-2 per session.
 
@@ -141,32 +137,32 @@ Keep it to 1-2 per session.
 
 ![](../assets/art/ss_time_odyssey_timeline.png){.wrap-right width=2in}
 
-Track beats and parallel timelines with chronological tags: 1890A, 9000B, 2MyrC.
+Track beats and parallel timelines with chronological labels: 1890A, 9000B, 2MyrC.
 
-Reward good record-keeping: if players consult journals, maps, or diagrams, grant **Advantage** on INT or ING tests to reconcile contradictions.
+Reward good record-keeping: if players consult journals, maps, or diagrams, grant Advantage on INT or Ingenuity tests to reconcile contradictions.
 
-In this genre, the timeline runs one way. Paradox is paid for in scars, loss, and **Anomaly**.
+In this genre, the timeline runs one way. Paradox is paid for in scars, loss, and Anomaly.
 
 \clearpage
 
 ## Active chrononauts
 
-### Galen - The Chrononaut
+### Galen (Chrononaut)
 
 ![](../assets/art/ss_time_galen.png){.wrap-left width=1in}
 
 *Steam-age inventor, boundless curiosity, dash of reckless courage.*<br>
-Creation: pulp budget (**12** build points; used **12**)<br>
-PRW 9 REF 11 INT 14 EMP 7 ING 13/13 STM 5/5 Anomaly 0/5<br>
+Creation: pulp budget (12 build points; used 12)<br>
+PRW 9 | REF 11 | INT 14 | EMP 7 | ING 13/13 | STM 5/5<br>
 Pocket revolver +1 (close range), brass goggles (Advantage on sight-based REF tests), notebook (Advantage on INT tests for deduction), tool-roll, mixed-era coins.
 
-### Nyra - Far-Future Companion
+### Nyra (Far-Future Companion)
 
 ![](../assets/art/ss_time_nyra.png){.wrap-left width=1in}
 
 *Gentle child of the far future, embodies innocence and quiet resilience.*<br>
-Creation: pulp budget (**12** build points; used **12**)<br>
-PRW 6 REF 11 INT 9 EMP 16 ING 12/12 STM 4/4 Anomaly 0/5<br>
+Creation: pulp budget (12 build points; used 12)<br>
+PRW 6 | REF 11 | INT 9 | EMP 16 | ING 12/12 | STM 4/4<br>
 Wiltflower charm (Advantage when calming creatures), glow-stone bead (light). Disadvantage in harsh industrial ages.
 
 ---

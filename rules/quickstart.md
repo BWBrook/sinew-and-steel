@@ -41,7 +41,7 @@ Roll under, count the margin, spend Luck to nudge close calls, and watch Pressur
   - Natural 1 ignores soak and adds +1 damage.
 - *Carry limit.* Up to 6 big items; more gives Disadvantage on agility tasks (usually Reflex).
 - *Money.* Kept abstract unless you use the optional Wealth track (0-4) from the Custodian’s Almanac.
-- *Pressure track (0-5).* Each skin names the track and its crises. At 5 a crisis triggers, then the track resets to 0.
+- *Pressure track (0-5).* The whole party shares one track. Each skin names it and its crises; with no skin, the Custodian does. At 5 a crisis triggers, then the track resets to 0.
 
 *Example (check + nudge):* REF 12, you roll 15: fail (margin -3).
 Spend 3 Luck to nudge 15 to 12: success (margin 0).
@@ -55,7 +55,7 @@ Both succeed; the attacker wins on margin. A spear (edge +1) against no armour d
 
 ## 2. Skins
 
-Pick a skin for tone and small rule tweaks. It gives you the attribute names, which stat is Luck, what Pressure represents, and which optional modules fit.
+A skin is optional: the core plays as it stands, with the default names above. A skin sets the tone and supplies the attribute names, which stat is Luck, what Pressure represents, and which optional modules fit.
 
 The core book’s ten skins:
 
@@ -92,6 +92,6 @@ The core book’s ten skins:
 ## 4. Example character
 ![](../assets/art/ss_clanfire_grak.png){.wrap-left width=1in}
 **Grak, Neanderthal Hunter** (Clanfire skin, 6 build points)<br>
-MGT 12 | FLT 10 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7 | Shadow 0/5<br>
+MGT 12 | FLT 10 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7<br>
 Stone spear (edge +1) | Hand-axe (edge +1) | Hide cloak (soak 1)<br>
 Tag: Megafauna tracker

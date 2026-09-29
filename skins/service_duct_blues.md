@@ -127,7 +127,7 @@ _(A risky test is any roll where failure would materially change the situation: 
 |-|------|
 | 1 | Reactor cascade: EVA scramble or emergency vent. |
 | 2 | Containment loss: radiation burns; lose **1 Stamina** if you are in the section. |
-| 3 | Safety inquiry: Disadvantage on social tests with Command next session. |
+| 3 | Safety inquiry: Disadvantage on the next key social test with Command, chosen by the Custodian. |
 | 4 | Nanite alarm: test **SYS** or lose a key system until repaired. |
 | 5 | Shipwide lockdown: travel restricted, timers tick. |
 | 6 | Roll twice and apply both. |
@@ -197,7 +197,7 @@ If you want a safety valve, use **logs** as clues: sensor records and captain's 
 ![](../assets/art/ss_service_duct_talara.png){.wrap-left width=1in}
 
 Creation: standard budget (**6** build points; used **6**)<br>
-MSC 10 REF 12 SYS 11 HAR 8 RES 10/10 STM 6/6 Stress 0/5<br>
+MSC 10 REF 12 SYS 11 HAR 8 RES 10/10 STM 6/6<br>
 Beam sidearm +1 (stun), spanner set, scanner (Advantage on SYS scans).
 
 ### Chief Ortiz - Maintenance Bosun
@@ -205,7 +205,7 @@ Beam sidearm +1 (stun), spanner set, scanner (Advantage on SYS scans).
 ![](../assets/art/ss_service_duct_ortiz.png){.wrap-left width=1in}
 
 Creation: standard budget (**6** build points; used **6**)<br>
-MSC 11 REF 8 SYS 13 HAR 11 RES 8/8 STM 5/5 Stress 0/5<br>
+MSC 11 REF 8 SYS 13 HAR 11 RES 8/8 STM 5/5<br>
 Tool satchel (Advantage on SYS repairs when you have access), stun baton 0, tactical vest (soak 2).
 Knows every duct crawlspace between the engine rooms.
 

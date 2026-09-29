@@ -126,7 +126,7 @@ At creation, the Custodian chooses a starting budget to set the tone:
 
 ### 2.4 Step-by-step creation
 
-1. Pick a skin. It names your five attributes, tells you which one is Luck, and names your Pressure track.
+1. Pick a skin, or play the core with the default names. A skin names your five attributes, tells you which one is Luck, and names the party's Pressure track.
 2. Write the baseline: five attributes at 10, Stamina 5.
 3. Choose a signature strength and raise it.
 4. Pay for your choices. Spend build points on raises and tags, and cover any further raises by lowering other scores (-2 for each extra +1). Keep every score in range: attributes 6-16, Stamina 3-9.
@@ -288,9 +288,10 @@ Money does not count toward the limit and is tracked loosely in the fiction. If 
 
 Every skin uses the same Pressure track (0-5) under its own name: Shadow, Doom, Anomaly, Sin, Heat, Fatigue, Stress, Insanity, Strain or Dread.
 
-Pressure is the fuse: it rises with risk, blunders, bargains, and time.
+Pressure is the fuse: it rises with risk, blunders, bargains, and time. The whole party shares one track, so one hero's gamble shortens everyone's fuse.
 
 - When Pressure reaches 5, a crisis hits, then the track resets to 0.
+- If a crisis falls on one character, it falls on the one whose action tipped the track, unless the fiction points elsewhere.
 - If one action adds several points, add them together. Reaching or passing 5 causes one crisis, and the track resets to 0 with nothing carried over. If the skin’s own rule already triggers a crisis for that action, that is the same crisis, not a second one.
 - Penalties and extra costs from Pressure use its level at the start of the action. Pay each cost once, resolve the action, then resolve any crisis it caused. Separate costs for failing, and skin backlashes, still apply.
 - The Custodian awards a milestone every 3-4 perilous beats (dangerous scenes you come through). Each milestone brings:
@@ -386,7 +387,7 @@ Let the fiction adjust recovery: a sacred rite might restore 3 tokens, and a nig
 
 ### 4. Pressure and clocks
 
-Pressure is a 0-5 fuse shared by every skin. When it reaches 5, a crisis triggers and the track resets to 0.
+Every skin runs the same 0-5 Pressure fuse, and the whole party shares one track. When it reaches 5, a crisis triggers and the track resets to 0.
 
 | Step | Mood | Custodian levers |
 | -- | --- | ------ |
@@ -404,6 +405,7 @@ Pressure is a 0-5 fuse shared by every skin. When it reaches 5, a crisis trigger
 
 **Running the fuse**
 
+- If a crisis falls on one character, it falls on the one whose action tipped the track, unless the fiction points elsewhere.
 - Add up the points from one action. Reaching or passing 5 causes one crisis, then the track resets to 0 with nothing carried over. If a skin already triggers a crisis for that action, it is the same crisis.
 - Penalties and surcharges use the Pressure level at the start of the action. Charge each cost once and resolve the action, then its crisis. Paying a surcharge does not trigger another one, but separate failure costs and backlashes still apply.
 - Make every crisis a dramatic twist with real consequences, never a free way to clear the track. State what is at stake before you offer Pressure as a cost.
@@ -470,7 +472,7 @@ If players stall, move the world:
 
 - **Totem / Feat:** once per session, gain Advantage on a roll at a cost of 1 Luck or +1 Pressure.
 - **Allies / Pets:** treat as a temporary 3-token Luck pool that depletes on use.
-- **Condition Tracks:** Fear, Radiation, and Madness are extra 0-5 fuses like Pressure, each tied to one specific hazard. Use them only when you want a second escalation axis besides Pressure; otherwise use clocks.
+- **Condition Tracks:** Fear, Radiation, and Madness are extra 0-5 fuses like Pressure, but each is tied to one specific hazard and tracked per character. Use them only when you want a second escalation axis besides Pressure; otherwise use clocks.
 - **Wealth & Attention:** optional 0-4 money track; big spends drop it; flashing wealth draws trouble (Toolkit, Part II H).
 
 ---
@@ -843,7 +845,7 @@ Reliable Custodian moves:
 
 *Sturdy hunter, bearer of granite confidence.*<br>
 Creation: standard budget (6 build points).<br>
-MGT 12 | FLT 10 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7 | Shadow 0/5<br>
+MGT 12 | FLT 10 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7<br>
 Tag: *Megafauna tracker* (Advantage when tracking big game). Wary fascination with Sapiens antler blades.<br>
 Stone spear +1 (thrown or thrust), hand-axe +1 (strike), hide cloak (soak 1).<br>
 Ochre pouch (ritual mark), sinew cord.
@@ -852,7 +854,7 @@ Ochre pouch (ritual mark), sinew cord.
 
 *Clan shaman, voice between worlds.*<br>
 Creation: standard budget (6 build points).<br>
-MGT 6 | FLT 8 | CUN 12 | SPR 14 | INS 11/11 | STM 3/3 | Shadow 0/5<br>
+MGT 6 | FLT 8 | CUN 12 | SPR 14 | INS 11/11 | STM 3/3<br>
 Ritual *Ember Dream*: when a rite's outcome is uncertain, Test Spirit; on failure, mark +1 Shadow.<br>
 Can sense weather shifts hours ahead; Disadvantage when forced into raw melee.<br>
 Carved bone flute (Advantage when calming beasts), fire-bow drill, herb bundle, scrap of strange cloth from southern strangers.
