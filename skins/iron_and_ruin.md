@@ -32,7 +32,7 @@ Tokens are wolf-tooth talismans.
 When the Custodian calls for pure chance, they say: **"Test your Fortune."** Roll under your **current tokens**.
 A rest by a safe hearth restores **+1 token**; priestly blessings or stolen relics may restore more.
 
-**Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
+**Rules reminder:** a natural 1 always succeeds and a natural 20 always fails, whatever the target; neither can be nudged.
 
 ### Weapons and edge
 

@@ -37,7 +37,7 @@ When the Custodian calls for pure chance, they say: **"Test your Ingenuity."** R
 
 A short rest restores **+1 token**; paradoxical boons or esoteric rejuvenators may restore more.
 
-**Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
+**Rules reminder:** a natural 1 always succeeds and a natural 20 always fails, whatever the target; neither can be nudged.
 
 ### Weapons and edge (typical era)
 

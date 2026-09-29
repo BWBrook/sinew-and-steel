@@ -29,7 +29,7 @@ In this skin, the Custodian is often called the **Lorekeeper**.
 | Empathy | **Heart (HRT)** | courage, persuasion, resisting dread |
 | Luck | **Hope (HOP)** | fate-tokens **and** inner light |
 
-**Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
+**Rules reminder:** a natural 1 always succeeds and a natural 20 always fails, whatever the target; neither can be nudged.
 
 ### Hope (Luck)
 
@@ -61,7 +61,7 @@ A short rest by a safe fire restores **+1 Hope token**; a true sanctuary or a se
 
 Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natural **1** ignores soak and adds +1.
 
-**Fatal tag (example):** giant's club: **Fatal (counter: heavy shield or dodge with Advantage)**.
+**Fatal harm (example):** giant's club: **Fatal (counter: heavy shield or dodge with Advantage)**.
 
 ### Companionship pool (shared nudges only)
 

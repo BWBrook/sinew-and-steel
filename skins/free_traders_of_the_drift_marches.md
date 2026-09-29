@@ -29,7 +29,7 @@ In this skin, the Custodian is often called the **Guildmaster**.
 | Empathy | **Social (SOC)** | rank, bureaucracy, haggling, morale |
 | Luck | **Fate (FAT)** | uncanny breaks **and** token pool |
 
-**Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
+**Rules reminder:** a natural 1 always succeeds and a natural 20 always fails, whatever the target; neither can be nudged.
 
 ### Fate (Luck)
 
@@ -50,7 +50,7 @@ A short rest in a safe berth restores **+1 Fate token**; a restful week in port,
 | Snub-pistol (gauss), shotgun | +1 |
 | Laser carbine, ACR | +2 |
 
-**Fatal tag (example):** laser carbine at point-blank against an unarmoured target: **Fatal (counter: any armour or hard cover)**.
+**Fatal harm (example):** laser carbine at point-blank against an unarmoured target: **Fatal (counter: any armour or hard cover)**.
 
 ### Armour and soak
 

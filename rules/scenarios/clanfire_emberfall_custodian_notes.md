@@ -1,10 +1,10 @@
-# Clanfire: Emberfall - Custodian notes
+# Clanfire: Emberfall (Custodian notes)
 
 ## Running the starter scenario behind the screen
 
-The previous chapter gives you the table-ready spine. Use this one as a short commentary on how to run Emberfall in the Sinew & Steel style.
+The scenario chapter, Clanfire: Emberfall, gives you the table-ready spine. This one is a short commentary on running it in the Sinew & Steel style.
 
-Read it beside **The Custodian** for the stance, and beside **Customisation** for why Shadow, Instinct, taboo, and clocks are there at all.
+Read it beside The Custodian for the stance, and beside Customisation for why Shadow, Instinct, taboo, and clocks are there at all.
 
 ---
 
@@ -12,7 +12,7 @@ Read it beside **The Custodian** for the stance, and beside **Customisation** fo
 
 The scenario spine tells you what to put in front of the players: the dying hearth, the sound beyond the birches, the immediate options, the cave wolf, the possible deeper truth.
 
-Behind the screen, track pressure rather than sequence. Three forces are already moving:
+Behind the screen, follow the forces in play rather than a sequence of scenes. Three are already moving:
 
 - hunger wants the clan to take risks,
 - the wolf wants food and advantage,
@@ -51,7 +51,7 @@ Make each cost feel like it came from the fiction:
 
 Clanfire is intentionally close to the core rules. Its added pieces should feel like flavour only until they suddenly matter.
 
-Use **Instinct** when a miss is close and the choice has teeth. Spending a bead should feel like digging into luck, nerve, and clan-memory.
+Offer **Instinct** when a miss is close and the choice has teeth. Spending a bead should feel like digging into luck, nerve, and clan-memory.
 
 Use **Shadow** when fear, taboo, spirits, desperation, or survival have been disturbed. A failed track-reading roll may only cost time; a failed rite that asks the dead for help may invite Shadow.
 
@@ -65,7 +65,7 @@ The wolf's stat card is in the scenario spine. What matters here is how you inha
 
 The wolf wants meat, safety, and advantage. It tests the edge of firelight. It snaps at the isolated. It retreats if hurt badly. It returns if it has learned where the clan is weak.
 
-This teaches the combat engine through a fight that may end in retreat, lost meat, pursuit, or death. Driving the wolf off is a win. Losing meat is a consequence. Following blood into the trees is a choice. Killing it may solve the immediate problem and expose the next one.
+That makes it a good first fight, one that can end in retreat, lost meat, or pursuit before it ever ends in death.
 
 ---
 
@@ -74,7 +74,7 @@ This teaches the combat engine through a fight that may end in retreat, lost mea
 Name a rule only when it becomes useful:
 
 - "This matters, so let's roll."
-- "Say what you risk before the die hits."
+- "Before you roll: if this fails, the wolf reaches the meat first."
 - "You missed by 1. Spend Instinct if you want to nudge fate."
 - "That failure changes the situation..."
 - "The wolf is hurt. It looks ready to flee. Do you let it?"
@@ -87,7 +87,7 @@ When in doubt, return to the Custodian basics: offer two to four plausible optio
 
 ## After the first session
 
-When the immediate danger has changed form, stop before every question is answered.
+Stop before every question is answered.
 
 Record only what matters for continuity:
 
@@ -102,4 +102,4 @@ Then close on the question the scenario is built to leave behind:
 
 > What is making the birch-line wrong?
 
-If the table wants to answer that, stop there and bring the question back next time.
+When the table starts itching to answer it, end the session and bring the question back next time.

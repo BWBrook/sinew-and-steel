@@ -25,7 +25,7 @@ Suggested creation tone: **standard** (**6** build points).
 | Empathy | **Harmony (HAR)** | morale boosts, mediation, reading subtext under stress |
 | Luck | **Resourcefulness (RES)** | miracle fixes **and** token pool |
 
-**Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
+**Rules reminder:** a natural 1 always succeeds and a natural 20 always fails, whatever the target; neither can be nudged.
 
 ### Resourcefulness (Luck)
 

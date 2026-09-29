@@ -27,7 +27,7 @@ Suggested creation tone: **standard** (**6** build points): gritty but capable o
 | Empathy | **Mind (MND)** | composure, persuasion, mental shock, psionics |
 | Luck | **Luck (LCK)** | fortune **and** token pool |
 
-**Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
+**Rules reminder:** a natural 1 always succeeds and a natural 20 always fails, whatever the target; neither can be nudged.
 
 ### Luck (LCK)
 

@@ -671,7 +671,7 @@ Use this skin with the Sinew & Steel core rules. The core governs everything els
 
 Clanfire is for survival stories in a cold land where hunger, weather, beasts, spirits, and strangers all bite. The hearth matters as much as the spear. Expect hunts, migration, taboo, hard bargains, and uneasy encounters with Sapiens.
 
-This skin keeps the base engine intact and changes four things: the attribute names, Luck as **Instinct**, Pressure as **Shadow**, and a small set of clan-and-spirit procedures.
+This skin renames the attributes (Luck becomes **Instinct**) and Pressure (**Shadow**), and adds a small set of clan-and-spirit procedures.
 
 ---
 
@@ -687,17 +687,15 @@ This skin keeps the base engine intact and changes four things: the attribute na
 | Empathy | **Spirit (SPR)** | willpower, ritual chant, resisting fear and frost |
 | Luck | **Instinct (INS)** | gut fortune, sudden insight, and the spendable Luck pool |
 
-**Rules reminder:** natural **1** is best; natural **20** is worst and cannot be nudged.
+**Rules reminder:** a natural 1 always succeeds and a natural 20 always fails, whatever the target; neither can be nudged.
 
 ### Instinct (Luck)
 
-Instinct tokens are carved bone beads.
+Instinct tokens are carved bone beads, and you spend them exactly as Luck tokens: after a roll, each bead moves the die 1 point up or down.
 
-When the Custodian calls for pure chance or gut feeling, they say: **"Test your Instinct."** Roll under your **current beads**. An empty bead-pouch leaves hunters exposed to fate.
+When the fiction turns on pure chance or gut feeling, the Custodian says: **"Test your Instinct."** Roll under your current beads. An empty pouch leaves a hunter to fate: only a natural 1 succeeds.
 
-You may spend Instinct beads exactly as Luck tokens: after a roll, spend beads to nudge the die by +/-1 per bead, unless the roll was a natural 1 or 20.
-
-A rest by the hearth restores **+1 bead**. Mythic visions, trance rites, spirit blessings, or a major clan milestone may restore more.
+A rest by the hearth restores 1 bead, and a milestone refills the pouch. Visions, trance rites, and spirit blessings may restore more.
 
 ### Weapons and edge
 
@@ -714,11 +712,11 @@ A rest by the hearth restores **+1 bead**. Mythic visions, trance rites, spirit 
 | Hide / fur cloak | 1 |
 | Leather and bone splints | 2 |
 
-Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natural **1** ignores soak and adds +1.
+Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; a natural 1 ignores soak and adds +1.
 
 ### Recovery
 
-A short rest with fire and water restores **+1 Stamina**. Deep shelter, herbs, and patient care restore **+2 Stamina**, up to the character’s maximum.
+A short rest with fire and water restores 1 Stamina. Deep shelter, herbs, and patient care restore 2 instead, up to your maximum.
 
 Grave wounds need shaman craft, clan protection, and time somewhere the cold cannot reach.
 
@@ -726,18 +724,18 @@ Grave wounds need shaman craft, clan protection, and time somewhere the cold can
 
 Invoke a clan spirit: Bear, Owl, Salmon, Wolf, Fire, River, or another sign that belongs to your people.
 
-Gain **Advantage** on one thematically linked roll. Then choose one cost:
+Gain Advantage on one roll the spirit fits, such as Bear for a feat of strength or Owl for a watch in the dark. Pay one cost when you invoke it:
 
-- spend **1 Instinct bead**, or
-- mark **+1 Shadow**.
+- spend 1 Instinct bead, or
+- mark +1 Shadow.
 
 Name the totem and show its sign in the fiction: breath smokes, eyes flash owl-gold, the air tastes of river stone.
 
 ### Beast Bond
 
-A bonded beast has a **3-token Instinct pool** you may spend instead of your own.
+A bonded beast, such as a wolf raised from a pup, has its own pool of 3 Instinct beads. When it could plausibly help, spend its beads instead of your own, one per point of nudge, as it lunges, warns, or steadies you.
 
-Each intervention spends one token. At 0 tokens, the animal flees, dies, turns feral, or demands costly care before it will help again.
+Its beads come back as yours do: 1 per rest by the hearth, and all of them at a milestone. If the pool hits 0, the animal flees, dies, turns feral, or demands costly care before it will help again.
 
 ### Carry limit
 
@@ -745,7 +743,7 @@ A hunter can carry six big items comfortably: spears, blade kit, hide waterskin,
 
 Extra gear gives Disadvantage on Fleetness when speed, balance, or stealth matters.
 
-> *Hold these laws close; the Ice drinks fools. The clan that masters flint and fate endures another dawn.*
+> *Hold these laws close; the Ice drinks fools.*
 
 ---
 
@@ -760,13 +758,13 @@ Clanfire Custodian play should feel physical and immediate: cracked knuckles, we
 | Step | Portent | Custodian levers |
 | -- | ---- | ----- |
 | 0 | Hearth calm | None yet |
-| 1 | Whispering wind | cosmetic omens |
-| 2 | Strange tracks | minor Disadvantage, resource drain |
+| 1 | Whispering wind | Cosmetic omens |
+| 2 | Strange tracks | Minor Disadvantage, resource drain |
 | 3 | Spirits restless | NPC mistrust, eerie dreams |
-| 4 | Veil tearing | all rites cost **+1 Instinct bead** |
-| 5 **Crisis** | Blizzard / Curse | trigger a crisis, then reset Shadow to **0** |
+| 4 | Veil tearing | All rites cost +1 Instinct bead |
+| 5 **Crisis** | Blizzard / Curse | Trigger a crisis, then reset Shadow to **0** |
 
-**Gain Shadow** for failed risky rites, taboo breaches, parlay with Sapiens, invoking old spirits, noisy desperation, or choosing Shadow as the cost for Totem Mark.
+**Gain +1 Shadow** for failed risky rites, taboo breaches, parley with Sapiens, invoking old spirits, noisy desperation, or choosing Shadow as the cost of a Totem Mark.
 
 **Purge Shadow** through sacrifice, dangerous ritual, a great hunt, a story quest, or a hard-won return to clan safety.
 
@@ -778,14 +776,14 @@ Other Shadow motifs include dying hearth-fires, a one-eyed cave bear, flutes fro
 | - | ------- |
 | 1 | Ancestor possession: the Custodian controls one hunter for a scene. |
 | 2 | Withering chill: lose 1 Stamina; a prized tool shatters. |
-| 3 | Nightmare fugue: take Disadvantage on the next perilous beat. |
+| 3 | Nightmare fugue: Disadvantage on the key roll of the next perilous beat, chosen by the Custodian. |
 | 4 | Blizzard migration: the clan must move or be buried. |
 | 5 | Secret revealed: Sapiens learn the camp's location. |
 | 6 | Roll twice and stack the horrors. |
 
 ### Hearth beats
 
-When play slows, move through weather, hunger, predator pressure, clan obligation, or uneasy strangers. A Clanfire beat will often ask a concrete survival question: What do you carry? Whom do you feed? Which sign do you trust? What taboo will you risk?
+When play slows, bring in weather, hunger, a predator, a clan obligation, or uneasy strangers. A Clanfire beat will often ask a concrete survival question: What do you carry? Whom do you feed? Which sign do you trust? What taboo will you risk?
 
 **Frame a beat:**
 
@@ -801,20 +799,20 @@ Let outcomes ripple. Sharing meat with Sapiens may avert a later spear-fight; re
 
 **Vision Glass (omens):** rare obsidian shards that show a fork of possible futures. In the firelight you glimpse a sign: a broken spear, fresh footprints, a sky-fire glow.
 
-Once per session, you may **Test your Instinct**. On success, ask the Custodian one yes/no question about the next beat. On failure, the omen still comes, but mark **+1 Shadow**.
+A hunter who holds a shard may use it once per session to Test Instinct. Ask the Custodian one yes/no question about the next beat and get a true answer either way; on a failure, mark +1 Shadow.
 
 ### Milestone boon seeds (d6)
 
-After a successful megafauna hunt, a hard migration, a forged alliance, a dangerous rite, or surviving sky-fire, award a milestone:
+Milestones come at the usual pace, every 3-4 perilous beats. In Clanfire they tend to land after a successful megafauna hunt, a hard migration, a forged alliance, a dangerous rite, or surviving sky-fire. Roll or choose a boon:
 
 | d6 | Milestone boon |
 | - | -------------- |
 | 1 | Amber pendant: once, gain Advantage on a Spirit test. |
 | 2 | Wolf pup: gain a Beast Bond. |
-| 3 | Spirit scar: once per session, gain Advantage on one Spirit test to bargain with spirits; mark +1 Shadow. |
+| 3 | Spirit scar: once per session, gain Advantage on a Spirit test to bargain with spirits, and mark +1 Shadow. |
 | 4 | Hidden hot spring: once, fully restore Instinct during a journey. |
 | 5 | Obsidian blade: a weapon gains +1 edge. |
-| 6 | Vision glass shard: once per session, Test Instinct for a true omen; on failure, mark +1 Shadow. |
+| 6 | Vision glass shard: read omens once per session (see Vision Glass). |
 
 Other boons might be a quality flint core, mammoth-bone armour, rights to a winter cave, a remembered migration path, or a dream of distant summers.
 
@@ -844,18 +842,18 @@ Reliable Custodian moves:
 ### Grak of Tall Cliffs (Hunter)
 
 *Sturdy hunter, bearer of granite confidence.*<br>
-Creation: standard budget (**6** build points).<br>
+Creation: standard budget (6 build points).<br>
 MGT 12 | FLT 10 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7 | Shadow 0/5<br>
-Tag: **Megafauna tracker** (Advantage when tracking big game). Wary fascination with Sapiens antler blades.<br>
+Tag: *Megafauna tracker* (Advantage when tracking big game). Wary fascination with Sapiens antler blades.<br>
 Stone spear +1 (thrown or thrust), hand-axe +1 (strike), hide cloak (soak 1).<br>
 Ochre pouch (ritual mark), sinew cord.
 
 ### Tarra the Ember-Singer (Shaman)
 
 *Clan shaman, voice between worlds.*<br>
-Creation: standard budget (**6** build points).<br>
+Creation: standard budget (6 build points).<br>
 MGT 6 | FLT 8 | CUN 12 | SPR 14 | INS 11/11 | STM 3/3 | Shadow 0/5<br>
-Ritual **Ember Dream**: when a rite's outcome is uncertain, Test Spirit; on failure, mark +1 Shadow.<br>
+Ritual *Ember Dream*: when a rite's outcome is uncertain, Test Spirit; on failure, mark +1 Shadow.<br>
 Can sense weather shifts hours ahead; Disadvantage when forced into raw melee.<br>
 Carved bone flute (Advantage when calming beasts), fire-bow drill, herb bundle, scrap of strange cloth from southern strangers.
 

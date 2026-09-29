@@ -31,7 +31,7 @@ For a meat-grinder crawl, lower build points to standard **6** or grim **0**; th
 | Empathy | **Faith (FTH)** | divine petitions, morale, turning undead |
 | Luck | **Fortune (FOR)** | sheer chance **and** token pool |
 
-**Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
+**Rules reminder:** a natural 1 always succeeds and a natural 20 always fails, whatever the target; neither can be nudged.
 
 ### Fortune (Luck)
 
@@ -214,7 +214,7 @@ Pole-tapping every slab should find hidden hinges; charging the idol deserves th
 
 ---
 
-### Fatal tag (reminder)
+### Fatal harm (reminder)
 
 **Fatal** ignores Stamina and soak: a struck target drops to **0 Stamina** unless they possess the listed counter-measure or are immune to fatal strikes.
 

@@ -29,7 +29,7 @@ In this skin, the Custodian is often called the **Keeper**.
 | Empathy | **Fortitude (FRT)** | composure, persuasion, mental resilience |
 | Luck | **Fate (FAT)** | uncanny chance **and** token pool |
 
-**Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
+**Rules reminder:** a natural 1 always succeeds and a natural 20 always fails, whatever the target; neither can be nudged.
 
 ### Fate (Luck)
 
@@ -45,7 +45,7 @@ A short rest in safety restores **+1 ticket**; opium dreams or saintly relics ma
 
 ---
 
-## Gear and tags
+## Gear
 
 | Weapon | Edge |
 |---|--|
@@ -53,7 +53,7 @@ A short rest in safety restores **+1 ticket**; opium dreams or saintly relics ma
 | .38 revolver, brass knuckles | +1 |
 | Coach gun (shotgun, close) | +2 |
 
-**Fatal tag (example):** point-blank shotgun blast on a helpless target: **Fatal (counter: hard cover)**.
+**Fatal harm (example):** point-blank shotgun blast on a helpless target: **Fatal (counter: hard cover)**.
 
 | Wearable | Soak |
 |---|--|

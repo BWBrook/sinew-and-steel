@@ -26,7 +26,7 @@ For a more capable party, raise build points to standard **6**; the other rules 
 | Empathy | **Mercy (MCY)** | soothing souls, interrogation, reading hearts |
 | Luck | **Providence (PRV)** | divine fortune **and** token pool |
 
-**Rules reminder:** natural **1** is best; natural **20** is worst (and cannot be nudged).
+**Rules reminder:** a natural 1 always succeeds and a natural 20 always fails, whatever the target; neither can be nudged.
 
 ### Providence (Luck)
 

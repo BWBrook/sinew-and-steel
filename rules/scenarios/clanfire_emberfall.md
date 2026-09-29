@@ -2,7 +2,7 @@
 
 ## A play-tonight starter scenario for Sinew & Steel
 
-**Custodian-facing scenario spine.** Use this after reading the Clanfire skin. Give the next chapter, **Clanfire Player Handout**, to the players. Keep the **Clanfire Custodian Notes** behind the screen.
+**Custodian-facing scenario spine.** Use this after reading the Clanfire skin. Give the next chapter, the Clanfire Player Handout, to the players, and keep the Clanfire Custodian Notes behind the screen.
 
 ### In one sentence
 The clan's hearth is dying in a hard winter, and the hunt that should save them is already being claimed by hungry things in the birch-line.
@@ -16,13 +16,13 @@ Emberfall is built for a first session: quick to start, and it ends on one unans
 
 ## What you need
 
-- The **Quickstart** rules.
-- The **Clanfire** skin.
-- The **Clanfire Player Handout**.
+- The Quickstart rules.
+- The Clanfire skin.
+- The Clanfire Player Handout.
 - One or two player characters. Grak and Tarra are ready to use.
-- A d20, or a digital roll tool.
+- A d20 and a d6 (for the Shadow crisis table), or a digital roll tool.
 
-If you only have one player, use **Grak** as the player character and keep **Tarra** as an NPC ally.
+If you only have one player, use Grak as the player character and keep Tarra as an NPC ally.
 
 ---
 
@@ -64,10 +64,10 @@ Then ask:
 
 If the table hesitates, offer options and accept anything else that makes sense:
 
-1. **Slip out and read the tracks** downwind (Cunning).
-2. **Stalk the sound** with spear ready (Fleetness).
-3. **Feed the fire and call to the spirits** for an omen (Spirit; on a miss, +1 Shadow).
-4. **Wake the clan and bar the cave** (resolve in the fiction; time passes).
+1. Slip out and read the tracks downwind (Cunning).
+2. Stalk the sound with spear ready (Fleetness).
+3. Feed the fire and call to the spirits for an omen (Spirit; on a miss, +1 Shadow).
+4. Wake the clan and bar the cave (no roll; time passes).
 
 Each option should change the situation. Reading tracks may reveal the wolf early. Stalking may seize position but risk an ambush. Calling spirits may give an omen but raise Shadow on a miss. Barring the cave buys safety at the cost of time, hunger, and initiative.
 
@@ -75,9 +75,9 @@ Each option should change the situation. Reading tracks may reveal the wolf earl
 
 ## Default costs
 
-When a roll fails, choose the cost that best fits the fiction:
+Before a roll, name what failure will likely cost, choosing whatever fits the fiction best:
 
-- mark **+1 Shadow**,
+- mark +1 Shadow,
 - tick a clock,
 - lose time or position,
 - take Stamina damage,
@@ -112,9 +112,9 @@ Keep clocks visible if you want the table to feel danger tightening. Keep them h
 - **Defend:** Fleetness 10 (dodge / weave).
 - **Stamina:** 4.
 - **Soak:** 0.
-- **Hook:** if the wolf wins an opposed roll by margin 4 or more, it drags the target a few metres toward darkness.
+- **Hook:** if the wolf wins an opposed roll with a margin of 4 or more, it drags the target a few metres toward darkness.
 
-If you want it tougher, make it **Elite 12** and give it **Stamina 5**.
+If you want it tougher, make it Elite 12 with Stamina 5.
 
 The wolf wants food and advantage. It circles for isolated prey and retreats from costly resistance. Driving it off is a victory. Wounding it and following blood into the trees is a choice. Killing it may solve one problem and reveal another.
 
@@ -122,37 +122,37 @@ The wolf wants food and advantage. It circles for isolated prey and retreats fro
 
 ## Teaching exchange: drive it off
 
-Use this if the table wants to see the combat engine in motion.
+Use this if the table wants to see the combat engine in motion. Each side rolls a d20 for initiative. The hunters roll higher, so Grak and Tarra both act before the wolf this round.
 
-### Round 1: Grak lunges
+### Grak lunges
 
-Grak wants to drive the wolf back with a spear. The wolf wants to dodge and snap at the opening.
+Grak wants to drive the wolf back with a spear. The wolf tries to slip aside.
 
-- **Grak:** roll under Might 12.
-- **Wolf:** roll under Fleetness 10.
+- Grak: roll under Might 12.
+- Wolf: roll under Fleetness 10.
 
 Example:
 
-- Grak rolls **8**: success, margin **+4**.
-- Wolf rolls **15**: fail, margin **-5**.
+- Grak rolls 8: success, margin +4.
+- Wolf rolls 15: fail, margin -5.
 
 Grak wins. Damage is `1 + edge 1 + 0 (margin under 5) - soak 0` = **2**. The wolf drops from Stamina 4 to 2. In the fiction, the spear cuts it and forces it back, hurt and free to flee.
 
-### Round 2: Tarra turns fire into a weapon
+### Tarra turns fire into a weapon
 
-Tarra wants to break the wolf's nerve with flame and chant. Roll Spirit for presence, fear, omen, and a voice held steady by the fire.
+Tarra wants to break the wolf's nerve with flame and chant, so she rolls Spirit for presence, fear, omen, and a voice held steady by the fire. Before the dice, the Custodian sets the stakes: if Tarra wins, the wolf flees; if she loses, it goes for her or the meat.
 
-- **Tarra:** roll under Spirit 14.
-- **Wolf:** roll under Fleetness 10.
+- Tarra: roll under Spirit 14.
+- Wolf: roll under 10, its tier score, to hold its nerve.
 
 Example:
 
-- Tarra rolls **9**: success, margin **+5**.
-- Wolf rolls **9**: success, margin **+1**.
+- Tarra rolls 9: success, margin +5.
+- Wolf rolls 9: success, margin +1.
 
-Both succeed, but Tarra has the higher margin. Apply the agreed consequence instead of damage: **the wolf breaks and flees**, yelping. If Tarra rolled a natural 1, the pack stays away this night.
+Both succeed, but Tarra has the higher margin, so the agreed consequence applies instead of damage: the wolf breaks and flees, yelping, before its turn comes. If Tarra rolled a natural 1, the pack stays away this night.
 
-If both rolls fail, let the wolf bite, steal meat, or drag someone toward the dark. Then tick **Hunger**, mark **+1 Shadow**, or worsen position.
+If the wolf wins instead, with a higher margin, a tie, or both rolls failing (ties and double failures go to the defender), let it bite, steal meat, or drag someone toward the dark. Then tick Hunger, mark +1 Shadow, or worsen position.
 
 ---
 
@@ -166,7 +166,7 @@ Close on one clear question:
 
 Offer next-session paths:
 
-1. **Follow the wolf's blood** toward the frozen stream (Cunning).
-2. **Set a trap line** and retreat before the storm turns (Cunning).
-3. **Perform a fire-circle omen** and pay its cost (Spirit; on a miss, +1 Shadow).
-4. **Wake the clan and migrate** before dawn (resolve in the fiction; tick Hunger and Storm).
+1. Follow the wolf's blood toward the frozen stream (Cunning).
+2. Set a trap line and retreat before the storm turns (Cunning).
+3. Perform a fire-circle omen and pay its cost (Spirit; on a miss, +1 Shadow).
+4. Wake the clan and migrate before dawn (no roll; tick Hunger and Storm).
