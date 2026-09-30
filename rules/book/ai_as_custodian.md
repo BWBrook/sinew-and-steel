@@ -8,9 +8,7 @@ Sinew & Steel was written with that possibility in mind. AI Custodian play is an
 
 ## The AI in the Custodian’s chair
 
-You can put an AI to work as a co-Custodian, assistant, brainstorm partner, or NPC voice generator. All of those uses are fine. The use that matters most here is the plain one:
-
-**treat the AI as the full Custodian.**
+You can put an AI to work as a co-Custodian, assistant, brainstorm partner, or NPC voice generator. All of those uses are fine, but this chapter is about the plainest one: the AI as the full Custodian.
 
 If you want the most S&S-like experience, bring the same social contract you would bring to a human Custodian:
 
@@ -18,11 +16,7 @@ If you want the most S&S-like experience, bring the same social contract you wou
 - accept consequences and resist turning every ruling into a negotiation,
 - and assume good faith while correcting drift plainly.
 
-Correct mistakes as they appear, and keep the shared fiction coherent and moving.
-
 ## What AIs do unusually well
-
-An AI Custodian has some real strengths:
 
 - **Scene craft.** It can put a place on the table quickly: torch-smoke, wet stone, a door that will not quite close.
 - **Live options.** It can offer 2-4 plausible paths forward and accept moves beyond them.
@@ -33,31 +27,29 @@ An AI Custodian has some real strengths:
 
 Four failure modes recur:
 
-- **Over-rolling.** Left alone, an AI may gamify everything into checks. Apply the S&S stance: ask for intent, method, and stakes, then roll only if uncertainty matters.
-- **Accidental railroading.** An AI may "help" by pulling everything back to a tidy plot. Correct it the same way you would with a human Custodian: restate intent, restate what is true, and ask for options that split in different directions.
+- **Over-rolling.** Left alone, an AI may gamify everything into checks. Apply the S&S stance: ask for intent, method, and stakes, then roll only when the outcome is uncertain and matters.
+- **Accidental railroading.** An AI may try to help by pulling everything back to a tidy plot. Correct it the same way you would with a human Custodian: restate intent, restate what is true, and ask for options that split in different directions.
 - **Context drift.** Even strong models forget details. Give the AI a spine of memory: a current sheet, a short recap, and a last checkpoint. It will become far more consistent.
 - **Dice integrity.** Treat dice as external truth: roll physically or with a trusted roller, and tell the AI the results.
 
 ## Secrets need a screen
 
-One practical limit matters more than any prompt trick: a shared channel makes every AI message public.
-
-For hidden motives, unseen clocks, or private scenario notes, give the AI a private Custodian channel (or keep secrets in human notes) and share only player-safe narration and options.
+A shared channel makes every AI message public, so hidden motives, unseen clocks, and private scenario notes need somewhere else to live: a private Custodian channel, or notes a human keeps. Share only player-safe narration and options.
 
 ## Why Sinew & Steel fits AI play
 
-Some RPGs are hard for an AI to run because the rules are exception-heavy: too many bespoke subsystems, too many small modifiers, too many places for drift to creep in.
+Some RPGs are hard for an AI to run because the rules are exception-heavy, with bespoke subsystems and piles of small modifiers where drift can creep in.
 
 S&S gives the model one core resolution language and a short list of resources to track. Its consequences can be narrated cleanly. That makes drift easier to spot and correct.
 
 ## Three ways to use an AI
 
 - **Solo play:** the AI is the world, and you are the party.
-- **GM-less groups:** the AI carries the GM role for the table.
-- **Busy Custodians:** the AI is a co-pilot: generating options, voicing NPCs, and keeping momentum when your energy is low.
+- **GM-less groups:** the AI takes the Custodian's role for the table.
+- **Busy Custodians:** the AI is a co-pilot that generates options, voices NPCs, and keeps momentum when your energy is low.
 
 Each uses the same rules.
 
-## If you want the next layer
+## Next: the harness
 
-For the next layer, go to **AI Play Notes**: a light overview of what the repository harness adds, why secrets need a private channel, and how to keep AI-assisted play grounded in real consequences. The command-level workflow lives in the repo documentation.
+The next chapter, AI Play Notes, sketches what the repository harness adds and how it keeps AI-assisted play grounded in real consequences. The command-level workflow lives in the repository documentation.

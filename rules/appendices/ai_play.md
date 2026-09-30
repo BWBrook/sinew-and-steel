@@ -1,8 +1,6 @@
 # AI Play Notes
 
-This appendix sketches what the repository harness adds.
-
-The previous chapter makes the case: an AI can act as Custodian, and Sinew & Steel is deliberately legible enough for that to work. These notes are for readers who want the repository path.
+These notes sketch what the repository harness adds. AI as Custodian makes the case that an AI can run the game, and that Sinew & Steel is deliberately legible enough for that to work; this chapter is for readers who want the repository path.
 
 You can play S&S perfectly well with paper, dice, and people at a table. The harness exists for a different case: solo play, GM-less play, or long-running AI-assisted campaigns where memory, secrecy, and consequence tracking matter.
 
@@ -34,9 +32,7 @@ Both are Sinew & Steel. They differ in how much memory the table wants the machi
 
 ## Secrets need a private place
 
-A shared channel makes every AI message public. This matters more than any prompt trick.
-
-A human Custodian also keeps notes behind the screen. The harness makes that boundary explicit. Hidden scenario notes, unseen clocks, and private consequences belong in files or a private Custodian channel. Player-facing narration should contain only what the characters could plausibly perceive.
+A human Custodian keeps notes behind the screen; the harness makes that boundary explicit. Hidden scenario notes, unseen clocks, and private consequences belong in files or a private Custodian channel. Player-facing narration should contain only what the characters could plausibly perceive.
 
 If you want fair surprises, protect the information flow.
 
@@ -65,16 +61,12 @@ Use physical dice, a trusted roller, or a local tool. Surface the roll, the marg
 
 During play, the harness should disappear.
 
-The player sees a scene, makes a choice, rolls when it matters, and watches the world respond. Behind the screen, the AI has more to lean on than a bare chat: the current character sheet, the private scenario notes, the pressure clocks, the last checkpoint, and the campaign log.
+The player sees a scene, makes a choice, rolls when it matters, and watches the world respond. Behind the screen, the AI has more to lean on than a bare chat: the current character sheet, the private scenario notes, the Pressure track and clocks, the last checkpoint, and the campaign log.
 
 That gives AI play a different texture from an oracle table. The world can surprise you, but it can also remember you.
 
 ## Where the tool details live
 
-AI is an optional, supported mode. Sinew & Steel remains a tabletop game.
-
-The repository documentation contains the exact commands and workflow. Start with:
-
-`docs/ai_play_harness.md`
+The repository, <https://github.com/BWBrook/sinew-and-steel>, documents the exact commands and workflow. Start with `docs/ai_play_harness.md`.
 
 At a paper table, keep the core advice: preserve secrets, roll only when it matters, state stakes, and record what changed.
