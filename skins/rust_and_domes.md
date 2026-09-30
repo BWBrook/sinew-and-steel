@@ -9,13 +9,11 @@ Use this skin with the Sinew & Steel core rules. The core governs everything els
 
 Rust & Domes is hard-sci-fi frontier play: dust and domes, corporate rot, and people who will sell you oxygen. Expect salvage, heists, mag-rail runs, life-support scares, and hard choices made under cameras.
 
-Suggested creation tone: **standard** (**6** build points): gritty but capable operatives.
+Suggested creation tone: standard (6 build points): gritty but capable operatives.
 
 ---
 
 ## Colonist's Handbook (Adventurer-facing rules)
-
-*A fast-moving toolkit for dust-choked sci-fi adventure.*
 
 ### Attribute labels
 
@@ -25,18 +23,17 @@ Suggested creation tone: **standard** (**6** build points): gritty but capable o
 | Reflex | **Defence (DEF)** | dodging fire, reactive shields, evasive driving |
 | Intellect | **Skill (SKL)** | hacking, piloting, repair, sleight |
 | Empathy | **Mind (MND)** | composure, persuasion, mental shock, psionics |
-| Luck | **Luck (LCK)** | fortune **and** token pool |
+| Luck | **Luck (LCK)** | fortune, and the token pool |
 
 **Rules reminder:** a natural 1 always succeeds and a natural 20 always fails, whatever the target; neither can be nudged.
 
 ### Luck (LCK)
 
-Tokens are battered cred-chits.
+Tokens are battered cred-chits, spent exactly as Luck tokens.
 
-When the Custodian calls for blind chance, they say: **"Test your Luck."** Roll under your **current cred-chits** (not your maximum).
-Spend cred-chits now to nudge rolls, but remember: fewer chits means shakier Luck later.
+When the Custodian calls for blind chance, they say: **"Test your Luck."** Roll under your current cred-chits, not your maximum. Every chit you spend on a nudge makes Luck shakier later.
 
-A short rest in a safe hab restores **+1 cred-chit**; stim packs or narrative boons may restore more.
+A short rest in a safe hab restores 1 cred-chit, and a milestone refills them; stim packs or narrative boons may restore more.
 
 ### Weapons and edge (baseline colony tech)
 
@@ -55,19 +52,19 @@ A short rest in a safe hab restores **+1 cred-chit**; stim packs or narrative bo
 | Composite plate / powered hardsuit | 2 |
 | Carbite battlearmour | 3 |
 
-Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natural **1** ignores soak and adds +1.
+Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; a natural 1 ignores soak and adds +1.
 
 ### Recovery
 
 ![](../assets/art/ss_rust_domes_oxygen_gauge.png){.wrap-left width=1.5in}
 
-A short breather with clean water restores **+1 Stamina**; a full med-bay cycle or expert field surgeon restores **+2 Stamina** (up to max).
+A short breather with clean water restores 1 Stamina; a full med-bay cycle or an expert field surgeon restores 2 instead, up to your maximum.
 
 Critical injuries may require med-gel, cybernetic grafts, or a night in the autodoc.
 
 ### Equipment and burden
 
-Six big items (long guns, bulky toolkits, sealed cargo). Extra load means Disadvantage on **DEF** tests.
+You can carry six big items (long guns, bulky toolkits, sealed cargo); more gives Disadvantage on DEF tests.
 
 Flashing digi-coin draws attention from Syndicate footpads and corp-security alike.
 
@@ -75,29 +72,27 @@ Flashing digi-coin draws attention from Syndicate footpads and corp-security ali
 
 ### Psionics
 
-Hard vacuum, cobalt storms, and stray solar flux have coaxed a minority of colonists into weak **M-field sensitives**.
+Hard vacuum, cobalt storms, and stray solar flux have turned a minority of colonists into weak M-field sensitives.
 
-Psionics ride **Mind (MND)** and slot in beside guns and hacks. They use the existing dice and add pressure.
+Psionics ride Mind (MND) and slot in beside guns and hacks. They use the existing dice and risk Heat.
 
 | Step | Rule |
 |--|------|
-| **Activate** | Test **MND**. Spend Luck to nudge as usual. |
-| **On success** | The effect manifests (see table). Extra margin means stronger, subtler, or wider-reaching, at the Custodian's discretion. |
-| **On failure** | Your spike pings a scanner: mark **+1 Heat** and suffer Disadvantage on your next psionic test this scene. |
-| **Cost** | Each use costs **1 Stamina** (nosebleed, neural shock). You may instead spend **1 Luck token** (a cred-chit) to ignore the fatigue. |
+| **Cost** | Pay when you activate: 1 Stamina (nosebleed, neural shock) or 1 Luck token (a cred-chit). |
+| **Activate** | Test MND, nudging with Luck as usual. If the target actively resists, it is an opposed test. |
+| **On success** | The effect manifests (see the menu). Extra margin makes it stronger, subtler, or wider-reaching, at the Custodian's discretion. |
+| **On failure** | Your spike pings a scanner: mark +1 Heat, and your next psionic test this scene has Disadvantage. |
 
 #### Quick power menu
 
 | Power | Baseline effect |
 |--|------|
 | **Telepathic Probe** | Read surface thoughts of one target in sight. Margin 8 or more lifts buried memories. |
-| **Kinetic Shove** | Inflict **1 STM** (no edge) or knock a human-sized target prone; margin 4 or more can hurl them across the room. |
-| **Neuro-Veil** | For one minute, hide from basic sensors/cams; margin 6 or more cloaks an adjacent ally too. |
-| **Chrono-Glitch** | Glimpse a likely outcome of the next beat (Custodian gives a one-sentence omen). Margin 10 or more lets you ask a yes/no follow-up. |
+| **Kinetic Shove** | Inflict 1 Stamina (no edge) or knock a human-sized target prone; margin 4 or more can hurl them across the room. |
+| **Neuro-Veil** | For one minute, hide from basic sensors and cams; margin 6 or more cloaks an adjacent ally too. |
+| **Chrono-Glitch** | Glimpse a likely outcome of the next beat (the Custodian gives a one-sentence omen). Margin 10 or more lets you ask a yes/no follow-up. |
 
-Psionics cannot pierce psi-mesh helmets (rare, expensive) and cannot alter natural **1s** or **20s** (those cannot be nudged).
-
-Because each miss spikes **Heat**, repeated misuse draws Corp-Sec mind-scrub squads in a hurry.
+Psionics cannot pierce psi-mesh helmets (rare, expensive). Because each miss spikes Heat, repeated misuse draws Corp-Sec mind-scrub squads in a hurry.
 
 Use sparingly; Mars already wants your mind.
 
@@ -105,24 +100,24 @@ Use sparingly; Mars already wants your mind.
 
 ### Heat track (Pressure)
 
-Heat is Corporate and Syndicate scrutiny. It runs **0-5**; at **5**, trigger a crisis, then reset Heat to **0**.
+Heat is Corporate and Syndicate scrutiny. It runs 0-5; at 5, trigger a crisis, then reset Heat to 0.
 
-A **risky test** is any roll where failure would materially change the situation (harm, loss, alarm, exposure). Routine travel and obvious chores resolve in the fiction.
+A risky test is any roll where failure would materially change the situation (harm, loss, alarm, exposure). Routine travel and obvious chores resolve in the fiction.
 
 | Step | HUD colour | Custodian effects |
 |--|---|------|
-| 0 | Green | clear |
-| 1 | Blue flicker | cosmetic: rumours, routine scans |
-| 2 | Yellow | minor Disadvantage on black-market deals |
-| 3 | Orange | bounty posted; NPC suspicion |
-| 4 | Red | walls have eyes: each **risky test** you attempt marks **+1 Heat** even on success; habitats lock doors |
-| 5 **Crisis** | Crimson alert | trigger a Heat crisis, then reset to **0** |
+| 0 | Green | Clear |
+| 1 | Blue flicker | Cosmetic: rumours, routine scans |
+| 2 | Yellow | Minor Disadvantage on black-market deals |
+| 3 | Orange | Bounty posted; NPC suspicion |
+| 4 | Red | Walls have eyes: each risky test marks +1 Heat, even on success; habitats lock doors |
+| 5 **Crisis** | Crimson alert | Trigger a Heat crisis, then reset to **0** |
 
-**Gain Heat:** failed covert tests, public gunfire, traced hacks, or reckless media leaks.
+**Gain +1 Heat** for failed covert tests, public gunfire, traced hacks, or reckless media leaks.
 
-**Clear Heat:** pay bribes (lose creds/item), lie low for an entire session, or do a favour for the controlling corp.
+**Clear Heat** by paying bribes (lose creds or an item), lying low for an entire session, or doing a favour for the controlling corp.
 
-**Heat crisis (d6)**
+#### Heat crisis (d6)
 
 |d6| Crisis |
 |-|------|
@@ -133,15 +128,9 @@ A **risky test** is any roll where failure would materially change the situation
 | 5 | Universal arrest warrant: Disadvantage on the next key social test, chosen by the Custodian. |
 | 6 | Roll twice and apply both. |
 
-### Milestone boon seeds
-
-Examples: salvage permit (once: ignore **+1 Heat** from a single trigger), Dome Elder favour (once: Advantage on a social test), Pre-Collapse alloy blade (+1 edge), hidden cache (refill your Luck pool mid-run), or scrambler code (Advantage on your next SKL hack).
-
 \clearpage
 
 ## Controller's Dossier (Custodian-facing rules)
-
-*A Controller brief for jobs, feuds, bad air, and dust-choked wonder across the Red Frontier.*
 
 In Rust & Domes, the Custodian is often called the **Controller**: the one watching the HUD and deciding what the system does next.
 
@@ -173,7 +162,7 @@ Colonies were established by **Perihelion Mining Corporation (PMC)** after rich 
 
 ### Martian threats (quick bestiary seeds)
 
-For fast, punchy threats that feel *Martian*, start with:
+For fast, punchy threats that feel Martian, start with these, and stat them with the tiers in the Custodian's Almanac:
 
 - **Crusher:** bipedal brute; armoured hide; hits like a piledriver.
 - **Dust Slug:** burrows under the sand; erupts beneath boots and vehicles.
@@ -182,19 +171,25 @@ For fast, punchy threats that feel *Martian*, start with:
 - **Spine Urchin:** spined crawler; poisonous barbs; can "shoot" spines at close range.
 - **Thresher:** lank, whipping-armed horror that closes fast in tight corridors.
 
-### Beat and graph notes
+### Scenes and records
 
 Open with a sensory hook (sand rasping against a visor, antiseptic med-gel, the tang of ozone), follow with decisive action, end at a fork.
 
-Tag nodes by dome/quadrant (HW-01, MJ-A2) and keep a short job ledger: objective, debts, Heat triggers, casualties.
+Label locations by dome and quadrant (HW-01, MJ-A2) and keep a short job ledger: objective, debts, Heat triggers, casualties.
 
-For an in-fiction safety net, use **black-box logs** to preserve what happened and supply clues.
+For an in-fiction safety net, use black-box logs to preserve what happened and supply clues.
 
 ### Tricks and tactics
 
-Creative stunts are encouraged. Fire-suppression foam may smother a plasma arc; a grappling drone can provide swift exfiltration.
+Encourage creative stunts. Fire-suppression foam may smother a plasma arc; a grappling drone can provide swift exfiltration.
 
 Reward ingenuity with Advantage or a concrete opening.
+
+### Milestone boon seeds
+
+Milestones come at the usual pace, every 3-4 perilous beats. Let them land after a heist concludes, a secret is unearthed, or a dust-storm crossing is survived.
+
+Examples: salvage permit (once: ignore +1 Heat from a single trigger), Dome Elder favour (once: Advantage on a social test), Pre-Collapse alloy blade (+1 edge), hidden cache (refill your Luck pool mid-run), or scrambler code (Advantage on your next SKL hack).
 
 ### Controller moves
 
@@ -207,8 +202,6 @@ Reliable Controller moves:
 - terraformer glitch kicks up a storm,
 - corp auditor arrives,
 - nomads block the pass.
-
-After a heist concludes, a secret is unearthed, or a dust-storm crossing is survived, grant a Milestone.
 
 When in doubt, favour bold action.
 
@@ -224,26 +217,26 @@ Keep it to 1-2 per session. Mars is harsh, but not roulette.
 
 ## Active operatives
 
-### Tom Calder - Spacer
+### Tom Calder (Spacer)
 
 ![](../assets/art/ss_rust_dome_tom.png){.wrap-left width=1in}
 
 *Roguish spacer marooned on the Red Frontier, silver tongue masking weary pragmatism.*
 
-Creation: standard budget (**6** build points; used **6**)<br>
-ATK 10 DEF 10 SKL 10 MND 13 LCK 9/9 STM 4/4<br>
+Creation: standard budget (6 build points; used 6)<br>
+ATK 10 | DEF 10 | SKL 10 | MND 13 | LCK 9/9 | STM 4/4<br>
 
 Laser carbine (+2 edge at range; Disadvantage on ATK if used in melee), handgun +1, kevlar wrap (soak 1), omni-tool (Advantage on SKL tests to repair or hack when you have access), mixed ammo, battered cred-chits.
-Tag: **Streetwise** (Advantage on MND tests with criminals and dock-bosses). Solvent enough to eat, broke enough to take risks.
+Tag: *Streetwise* (Advantage on MND tests with criminals and dock-bosses). Solvent enough to eat, broke enough to take risks.
 
-### Miira Nix - Hacker
+### Miira Nix (Hacker)
 
 ![](../assets/art/ss_rust_dome_miira.png){.wrap-left width=1in}
 
 *Composed hacker steeped in Martian network lore, preferring code to gun-smoke.*
 
-Creation: standard budget (**6** build points; used **6**)<br>
-ATK 8 DEF 8 SKL 14 MND 12 LCK 8/8 STM 5/5<br>
+Creation: standard budget (6 build points; used 6)<br>
+ATK 8 | DEF 8 | SKL 14 | MND 12 | LCK 8/8 | STM 5/5<br>
 
 Datapad & probes (Advantage on SKL tests to hack secured systems once connected), light sidearm +1, work suit (soak 0), ration pack, hoarded cred-chits.
 Keeps a hidden crash-pad in Hearthwell; prefers to avoid gunfights.

@@ -9,13 +9,10 @@ Use this skin with the Sinew & Steel core rules. The core governs everything els
 
 Candlelight Dungeons is old-school dungeon-crawl play: mapping by torchlight, hard bargains, traps that hurt, and monsters with motives. Expect heroic competence under grim pressure. The dungeon is mean; the delvers are capable.
 
-Optional sidecar:
-If you want stricter exploration turns, hidden/player maps, keyed progression, and seeded site support, use the Candlelight Delvekit sidecar and quick reference in the online repository.
+This skin stands on its own. For stricter dungeon machinery, see the Delvekit coda at the end of the Custodian section.
 
-If you want lighter, scene-first dungeon play, this skin stands on its own.
-
-Suggested creation tone: **heroic** (**16** build points).
-For a meat-grinder crawl, lower build points to standard **6** or grim **0**; the other rules stay the same.
+Suggested creation tone: heroic (16 build points).
+For a meat-grinder crawl, lower build points to standard 6 or grim 0; the other rules stay the same.
 
 ---
 
@@ -25,11 +22,11 @@ For a meat-grinder crawl, lower build points to standard **6** or grim **0**; th
 
 | Core slot | Dungeon label | Covers |
 |--|---|------|
-| Might | **Strength (STR)** | breaking doors, swinging axes, hauling loot |
-| Reflex | **Dexterity (DEX)** | stealth, traps, missile aim |
-| Intellect | **Lore (LOR)** | occult knowledge, arcane casting, riddles |
-| Empathy | **Faith (FTH)** | divine petitions, morale, turning undead |
-| Luck | **Fortune (FOR)** | sheer chance **and** token pool |
+| Might | **Strength (STR)** | breaking doors, grappling, swinging axes, hauling loot |
+| Reflex | **Dexterity (DEX)** | stealth, climbing, locks, traps, missile aim |
+| Intellect | **Lore (LOR)** | occult knowledge, noticing oddities, runes, riddles, arcane casting |
+| Empathy | **Faith (FTH)** | divine petitions, nerve, morale, turning undead |
+| Luck | **Fortune (FOR)** | sheer chance, and the token pool |
 
 **Rules reminder:** a natural 1 always succeeds and a natural 20 always fails, whatever the target; neither can be nudged.
 
@@ -37,22 +34,11 @@ For a meat-grinder crawl, lower build points to standard **6** or grim **0**; th
 
 ![](../assets/art/ss_candlelight_dungeon_door.png){.wrap-left width=1.5in}
 
-Tokens are tarnished silver coins.
+Tokens are tarnished silver coins, spent exactly as Luck tokens.
 
-When the Custodian calls for blind chance, they say: **"Test your Fortune."** Roll under your **current coins** (not your maximum).
-Spend coins now to nudge rolls, but remember: fewer coins means shakier Fortune later.
+When the Custodian calls for blind chance, they say: **"Test your Fortune."** Roll under your current coins, not your maximum. Every coin you spend on a nudge makes Fortune shakier later.
 
-Only a short rest at a warm hearth restores **+1 coin**.
-
-### Common tests (defaults)
-
-Use these as quick defaults; if the approach changes, change the stat.
-
-- **STR:** force doors, grapple, haul, smash.
-- **DEX:** sneak, climb, pick locks, disarm traps, missile aim.
-- **LOR:** notice oddities, read runes, solve riddles, cast arcane spells.
-- **FTH:** steel your nerve, rally allies, petition saints, turn undead.
-- **FOR:** when sheer chance decides: "Test your Fortune."
+A short rest restores 1 coin, but only at a warm hearth, never in a dank cave. A milestone refills your purse.
 
 ### Weapons and edge
 
@@ -71,96 +57,90 @@ Use these as quick defaults; if the approach changes, change the stat.
 | Chain shirt | 2 |
 | Plate & shield | 3 |
 
-Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natural **1** ignores soak and adds +1.
+Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; a natural 1 ignores soak and adds +1.
 
 ---
 
-## Spellcraft
+### Spellcraft
 
-> *Spells are named effects tagged to a tier when learned. Test under the listed stat, then pay the tier cost.*
+A spell is a named effect with a tier, agreed with the Custodian when you learn it by study, scroll, or blessing. Arcane spells use LOR and divine spells use FTH; note each with its tier and stat, such as *Sleep* (Spell, LOR). Test under that stat, then pay the tier's cost.
 
-| Tier | Cast with | On **success** | On **failure** |
+| Tier | Before the roll | On success | On failure |
 |--|---|-----|-----|
-| **Cantrip** | LOR or FTH | no cost | no cost |
-| **Spell** | LOR or FTH | choose: spend **1 FOR coin** *or* mark **+1 Fatigue** | mark **+1 Fatigue** |
-| **Greater Spell** | LOR or FTH | spend **1 FOR coin** *and* mark **+1 Fatigue** | mark **+2 Fatigue** |
-| **Arcanum** | LOR or FTH (Cannot spend FOR coin to nudge this roll) | the effect manifests (natural **1** = legend), mark **+2 Fatigue** | suffer a Custodian-determined backlash **and** roll a Fatigue crisis immediately (reset to **0**) |
+| **Cantrip** | Nothing | No cost | No cost |
+| **Spell** | Nothing | Spend 1 Fortune coin or mark +1 Fatigue | Mark +1 Fatigue |
+| **Greater Spell** | Nothing | Spend 1 Fortune coin and mark +1 Fatigue | Mark +2 Fatigue |
+| **Arcanum** | Mark +2 Fatigue; no Fortune nudges | The effect manifests (a natural 1 is legend) | A backlash of the Custodian's choosing, and a Fatigue crisis |
 
 ![](../assets/art/ss_candlelight_spell_backlash.png){.wrap-right width=1.5in}
 
-Learn a spell by study, scroll, or blessing; agree its tier with the Custodian; note it as **Sleep - Spell (LOR)**.
+You may nudge a Cantrip, Spell, or Greater Spell with Fortune coins, on top of any spell cost; never an Arcanum.
 
-Cantrips, Spells, and Greater Spells can all be nudged by spending Fortune coins, in addition to any spell cost paid. Arcanums cannot.
+**Arcanum procedure:** note the starting Fatigue for penalties, mark +2 Fatigue, then cast. That +2 is the whole cost; a success does not charge it again. After the cast, resolve one crisis if Fatigue reached 5 or the cast failed (never two), then reset Fatigue to 0 with nothing carried over. A failure also brings a backlash.
 
-**Arcanum procedure:** use starting Fatigue for penalties, mark **+2 Fatigue** once, then cast. This is the table's +2 cost, not a second payment on success. Resolve one crisis after casting if the gain reaches 5 or the cast fails; reset to 0 with no remainder. Failure also brings the listed backlash.
-
-**Backlash examples:** demon whisper (Disadvantage on your next cast), mana flare (all torches gutter out), witch-mark (your next rest restores **no** Fortune).
+**Backlash examples:** demon whisper (Disadvantage on your next cast), mana flare (all torches gutter out), witch-mark (your next rest restores no Fortune).
 
 \clearpage
 
-## Fatigue track (Pressure)
+### Fatigue track (Pressure)
 
-Fatigue is the dungeon's hourglass. It runs **0-5**; at **5**, trigger a crisis, then reset Fatigue to **0**.
+Fatigue is the dungeon's hourglass, shared by the whole party. It runs 0-5; at 5, trigger a crisis, then reset Fatigue to 0.
 
-|Step | Portent | Effect |
+| Step | Portent | Effect |
 |--|----|--------|
 | 0 | Fresh | None |
-| 1 | Winded | cosmetic sweat, shaky torch |
-| 2 | Weary | Disadvantage on your next **STR** or **DEX** test |
-| 3 | Exhausted | attacks against you have Advantage |
-| 4 | Ragged | each **risky test** costs **1 FOR coin** before rolling or marks **+1 Fatigue** |
-| 5 **Crisis** | Collapse / spell backlash | roll a Fatigue crisis, then reset to **0** |
+| 1 | Winded | Cosmetic: sweat, a shaky torch |
+| 2 | Weary | Each delver's next STR or DEX test has Disadvantage |
+| 3 | Exhausted | Attacks against the delvers have Advantage |
+| 4 | Ragged | Each risky test costs 1 Fortune coin before rolling, or marks +1 Fatigue |
+| 5 **Crisis** | Collapse / spell backlash | Roll a Fatigue crisis, then reset to **0** |
 
-**Gain Fatigue:** failed spells, forced marches, grave wounds, or a night without rest.
+A risky test is any roll where failure would materially change the situation: harm, loss, alarm, separation. Routine mapping and careful talk resolve in the fiction.
 
-**Clear Fatigue:** sleep, hearty stew, or a miracle that removes Fatigue.
+**Gain Fatigue** from failed spells (see the spell table), forced marches, grave wounds, or a night without rest.
 
-**Fatigue crisis (d6)**
+**Clear Fatigue** through sleep, hearty stew, or a miracle.
+
+#### Fatigue crisis (d6)
 
 |d6 | Crisis |
 |-|----------------------------------------------------------|
 | 1 | Collapse: drop what you are holding; lose your next action. |
 | 2 | Torch-gutter: light falters; the next beat begins in dimness or dark. |
-| 3 | Cramp: lose **1 STM**; you cannot run until you rest. |
-| 4 | Wrong turn: you blunder into trouble or split the party; Custodian chooses. |
+| 3 | Cramp: lose 1 Stamina; you cannot run until you rest. |
+| 4 | Wrong turn: you blunder into trouble or split the party; the Custodian chooses. |
 | 5 | Backlash: if magic was used this scene, it twists; otherwise, a trap triggers late. |
 | 6 | Roll twice and apply both. |
 
-_(A risky test is any roll where failure would materially change the situation: harm, loss, alarm, separation. Routine mapping and careful talk resolve in the fiction.)_
-
 \clearpage
 
-## Knacks (choose one per PC)
+### Knacks (choose one per PC)
 
 Knacks and Expertise are tags (Adventurer's Manual 2.6). This skin grants every PC one Knack and one Expertise free at creation; further tags cost 2 build points as usual.
 
-Each Knack is usable once per scene and states its whole use cost. Pay only that cost unless the entry explicitly says **additional**.
+A Knack is usable once per scene, and each use costs 1 Fortune coin or +1 Fatigue. Turn Undead's failure cost comes on top of that.
 
-| Knack | Cost | Effect |
-|---|---|------------|
-| **Backstab** | spend **1 Fortune** or mark **+1 Fatigue** | If you strike from surprise, the edge is +2; if the opponent is helpless, the hit is **Fatal** (counter: specialised protection, e.g., gorget helmet). |
-| **Turn Undead** | spend **1 Fortune** or mark **+1 Fatigue** | Test **FTH**. Success: lesser undead recoil for a beat; margin **8 or more** destroys one lesser undead (or scatters the pack). Failure: mark an **additional +1 Fatigue**. |
-| **Second Wind** | spend **1 Fortune** or mark **+1 Fatigue** | Regain **+1 Stamina** (up to max) and shake off one Disadvantage affecting you. |
-| **Arcane Flex** | spend **1 Fortune** or mark **+1 Fatigue** | Cast one **Spell**-tier effect as if it were a **Cantrip** (no cost). Your next cast this scene is at Disadvantage. |
-| **Beast Tongue** | spend **1 Fortune** or mark **+1 Fatigue** | Auto-succeed one attempt to calm, lure, or bargain with a natural creature (Custodian sets the terms). |
-| **Jack-of-Trades** | spend **1 Fortune** or mark **+1 Fatigue** | After you roll but before you spend Fortune to nudge, treat the roll as governed by a different stat. |
-
-*Note:* some NPC monsters are immune to fatal backstab effects, as determined by the Custodian.
+| Knack | Effect |
+|---|------------|
+| **Backstab** | If you strike from surprise, the edge is +2; if the opponent is helpless, the hit is Fatal (counter: specialised protection, such as a gorget helmet). Some monsters are immune to a Fatal backstab; the Custodian decides which. |
+| **Turn Undead** | Test FTH. Success: lesser undead recoil for a beat; margin 8 or more destroys one lesser undead (or scatters the pack). Failure: mark an additional +1 Fatigue. |
+| **Second Wind** | Regain 1 Stamina (up to your maximum) and shake off one Disadvantage affecting you. |
+| **Arcane Flex** | Cast one Spell-tier effect as if it were a Cantrip (no cost). Your next cast this scene has Disadvantage. |
+| **Beast Tongue** | Auto-succeed one attempt to calm, lure, or bargain with a natural creature (the Custodian sets the terms). |
+| **Jack-of-Trades** | After you roll but before you spend Fortune to nudge, treat the roll as governed by a different stat. |
 
 ---
 
-## Expertise (choose one stat)
+### Expertise (choose one stat)
 
-Pick one stat as your **Expertise**: a broad tag naming that stat's specialty.
-
-When the task squarely fits that expertise, roll with **Advantage**. Expertise replaces class labels.
+Pick one stat and name the specialty it covers for you, such as fighter (STR) or hedge magic (LOR). That is your Expertise: a broad tag that takes the place of a class label. When a task squarely fits it, roll with Advantage.
 
 ---
 
-## Tools and tags
+### Tools
 
-- **Lockpick satchel:** Advantage on **DEX** tests to open locks or disarm traps when you have access. On a natural **20**, the picks snap (spent).
-- **Holy symbol:** required focus for Turn Undead; shatters on a natural **20** on a Turn Undead test.
+- **Lockpick satchel:** Advantage on DEX tests to open locks or disarm traps when you have access. On a natural 20, the picks snap (spent).
+- **Holy symbol:** required focus for Turn Undead; shatters on a natural 20 on a Turn Undead test.
 
 \clearpage
 
@@ -180,7 +160,7 @@ Keep a scratch grid of rooms, traps, and wandering signs. Let fear be earned by 
 When a delver tries the unexpected, pouring oil down a murder-hole or bargaining with a skeleton, judge it cleanly, call for a single test at most, and let the tale run.
 
 **4. Treasure is tempo.**
-A purse of 50 silver keeps iron rations flowing; a ruby the size of a child's heart funds the next delve. Tie milestones to discoveries and daring.
+A purse of 50 silver keeps iron rations flowing; a ruby the size of a child's heart funds the next delve. Milestones still come every 3-4 perilous beats; let them land on discoveries and daring.
 
 **5. Monsters want something.**
 Goblins barter for lamp oil, ghouls crave tales of grief, muck-ogres yearn for refuse. One motive line turns fodder into story.
@@ -202,55 +182,56 @@ Pole-tapping every slab should find hidden hinges; charging the idol deserves th
 
 > _"The candle gutters; the map curls at the edges. Ahead: a door iron-banded and warm to the touch. Choose, delvers."_
 
-### Chronicler flavour bullets
+### Flavour and moves
 
 - Sweat drips into guttering sconces; fat spatters like rain on hot stone.
 - The corridor air tastes of copper and mildew.
 - A single rat squeals, then a silence too complete.
+- Wet limestone drips; torch oil hisses; a waft of grave rosemary.
 
-- **Sensory kick-starters:** wet limestone drip; torch oil hisses; waft of grave rosemary.
-- **Moves:** loose flagstone drops to pit; goblin horn echoes; mould spores force **STR** test (mark **+1 Fatigue** on failure).
-- **Beat tags:** CR-1 (crypt), ST-3 (stair), WD-2 (wilderness).
+Reliable Custodian moves:
+
+- a loose flagstone drops into a pit,
+- a goblin horn echoes,
+- mould spores force a STR test (mark +1 Fatigue on a failure).
+
+Label beats by place: CR-1 (crypt), ST-3 (stair), WD-2 (wilderness).
 
 ---
 
 ### Fatal harm (reminder)
 
-**Fatal** ignores Stamina and soak: a struck target drops to **0 Stamina** unless they possess the listed counter-measure or are immune to fatal strikes.
+**Fatal** ignores Stamina and soak: a struck target drops to 0 Stamina unless they possess the listed countermeasure or are immune to fatal strikes.
 
-Example: Assassin's throat-slit on a sleeping victim: **Fatal (counter: staying awake or wearing a gorget helmet while resting)**.
+Example: an assassin's throat-slit on a sleeping victim: **Fatal (counter: staying awake or wearing a gorget helmet while resting)**.
 
 ### Delvekit coda
 
-If Candlelight is the torchlit mood, Delvekit is the machinery under the floor.
-
-Use it when repeated dungeon play should care about hidden maps, player-map reveal, keyed loops, faction movement, and generated sites. It keeps the existing combat engine and makes the dungeon remember where the delvers have been, what they have stirred, and what waits behind doors still sealed against them.
-
-For AI Agent repo play, start with the Delvekit guide in `docs/`. For table play, keep the quick reference beside this skin.
+If Candlelight is the torchlit mood, Delvekit is the machinery under the floor: stricter exploration turns, hidden maps and player-map reveal, keyed loops, faction movement, and generated sites, all on the same combat engine. It lives in the online repository. For AI agent play, start with its guide in `docs/`; for table play, print its quick reference and keep it beside this skin.
 
 \clearpage
 
 ## Sample dungeoneers
 
-### Durn Bravefoot - Fighter
+### Durn Bravefoot (Fighter)
 
 ![](../assets/art/ss_candlelight_durn.png){.wrap-left width=1in}
 
-Creation: heroic budget (**16** build points; used **16**)<br>
-STR 16 DEX 11 LOR 9 FTH 9 FOR 10/10 STM 7/7<br>
-Knack: Second Wind. Expertise: STR.<br>
+Creation: heroic budget (16 build points; used 16)<br>
+STR 16 | DEX 11 | LOR 9 | FTH 9 | FOR 10/10 | STM 7/7<br>
+Knack: Second Wind. Expertise: fighter (STR).<br>
 Sword +1, shield, chain shirt (soak 2).<br>
 
-### Lirae Willow-Tongue - Hedge Mage
+### Lirae Willow-Tongue (Hedge Mage)
 
 ![](../assets/art/ss_candlelight_lirae.png){.wrap-left width=1in}
 
-Creation: heroic budget (**16** build points; used **16**)<br>
-STR 8 DEX 10 LOR 16 FTH 11 FOR 12/12 STM 5/5<br>
-Knack: Arcane Flex. Expertise: LOR.<br>
-Spells: *Sleep* - Spell (LOR), *Flickerlight* - Cantrip (LOR), *Minor Ward* - Spell (FTH).<br>
+Creation: heroic budget (16 build points; used 16)<br>
+STR 8 | DEX 10 | LOR 16 | FTH 11 | FOR 12/12 | STM 5/5<br>
+Knack: Arcane Flex. Expertise: hedge magic (LOR).<br>
+Spells: *Sleep* (Spell, LOR), *Flickerlight* (Cantrip, LOR), *Minor Ward* (Spell, FTH).<br>
 Dagger 0, robes (soak 0), spellbook (Advantage on LOR tests to recall ritual details).
 
 ---
 
-*Track Fortune, Fatigue, Stamina, and scars.*
+> *Track Fortune, Fatigue, Stamina, and scars.*

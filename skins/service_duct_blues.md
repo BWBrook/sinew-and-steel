@@ -9,7 +9,7 @@ Use this skin with the Sinew & Steel core rules. The core governs everything els
 
 Service Duct Blues is lower-decks starship drama: miracles under deadlines, competence under scrutiny, and optimism under stress. Expect coolant leaks, anomalous readings, personal frictions, and episodes where the real victory is keeping everyone alive and keeping the ship's conscience intact.
 
-Suggested creation tone: **standard** (**6** build points).
+Suggested creation tone: standard (6 build points).
 
 > _The deck plates hum under your palms. A warning chime tries to sound polite. Somewhere above, Command stays calm, and expects you to do the same._
 
@@ -17,24 +17,25 @@ Suggested creation tone: **standard** (**6** build points).
 
 ## Crew Training (Adventurer-facing rules)
 
+### Attribute labels
+
 | Core slot | Crew label | Covers |
 |--|---|------|
 | Might | **Muscle (MSC)** | heaving manifolds, restraining a panicked crewmate, hard climbs |
 | Reflex | **Reflex (REF)** | EVA manoeuvres, duct crawls, quick reroute taps |
 | Intellect | **Systems (SYS)** | diagnostics, reactor theory, programming, sensor reads |
 | Empathy | **Harmony (HAR)** | morale boosts, mediation, reading subtext under stress |
-| Luck | **Resourcefulness (RES)** | miracle fixes **and** token pool |
+| Luck | **Resourcefulness (RES)** | miracle fixes, and the token pool |
 
 **Rules reminder:** a natural 1 always succeeds and a natural 20 always fails, whatever the target; neither can be nudged.
 
 ### Resourcefulness (Luck)
 
-Tokens are battered **emergency chits** in a pocket case.
+Tokens are battered emergency chits in a pocket case, spent exactly as Luck tokens. Costs written as RES are paid in chits.
 
-When the Custodian calls for blind chance, they say: **"Test your Resourcefulness."** Roll under your **current chits** (not your maximum).
-Spend chits now to nudge rolls, but remember: fewer chits means shakier Resourcefulness later.
+When the Custodian calls for blind chance, they say: **"Test your Resourcefulness."** Roll under your current chits, not your maximum. Every chit you spend on a nudge makes Resourcefulness shakier later.
 
-A short rest in quarters or the mess restores **+1 chit**; a focus drill or strong coffee may restore more.
+A short rest in quarters or the mess restores 1 chit, and a milestone refills the case; a focus drill or strong coffee may restore more.
 
 ### Tools and edge
 
@@ -44,7 +45,7 @@ A short rest in quarters or the mess restores **+1 chit**; a focus drill or stro
 | Beam sidearm (stun), torque wrench | +1 |
 | Beam sidearm (lethal), micro-cutter | +2 |
 
-*(Safety regs: going lethal in a crowded corridor marks **+1 Stress** automatically.)*
+Safety regs: going lethal in a crowded corridor marks +1 Stress automatically.
 
 ### Uniform and soak
 
@@ -54,33 +55,33 @@ A short rest in quarters or the mess restores **+1 chit**; a focus drill or stro
 | Tactical vest | 2 |
 | Personal shield belt | 3 |
 
-Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; natural **1** ignores soak and adds +1.
+Damage is **1 + edge + 1 per full 5 points of margin - soak**, minimum 1; a natural 1 ignores soak and adds +1.
 
 ### Operations
 
-- **"Reroute!"** *(once per scene):* declare a systems miracle; spend **1 RES** for Advantage on a **SYS** test that patches power, re-phases a shield segment, isolates a leak, etc.
-- **"Technobabble Buffer"**: after a failed **SYS** test, spend **2 RES** to delay the consequence by one beat. If the problem is not resolved by the next scene, mark **+1 Stress** and the delayed consequence lands.
+- **"Reroute!"** *(once per scene):* declare a systems miracle; spend 1 RES for Advantage on a SYS test that patches power, re-phases a shield segment, isolates a leak, or similar.
+- **"Technobabble Buffer":** after a failed SYS test, spend 2 RES to hold off the consequence for one beat. If the problem is still unsolved when that beat ends, mark +1 Stress and the consequence lands.
 - **Cross-Training Override** *(once per scene):* you have done time in other departments. Choose one below, pay the cost, then take Advantage on the roll and claim the narrative perk.
 
 | Department | Gain Advantage on... | Narrative perk | Cost |
 |--|----|----|---|
-| **Ops / Security** | MSC and REF tests to restrain, firefight, EVA repair | A locker sidearm is conveniently nearby. | spend 1 RES |
-| **Research / Medical** | SYS (analysis) or HAR (triage) | Custodian must reveal one hard data point about the anomaly. | mark +1 Stress |
-| **Command / Flight** | HAR (orders) or SYS (helm, shuttle) | You may shift **1 Stress** from the crew to the ship's alert status (fiction only). | spend 1 RES or mark +1 Stress |
+| **Ops / Security** | MSC and REF tests to restrain, firefight, EVA repair | A locker sidearm is conveniently nearby. | Spend 1 RES |
+| **Research / Medical** | SYS (analysis) or HAR (triage) | The Custodian must reveal one hard data point about the anomaly. | Mark +1 Stress |
+| **Command / Flight** | HAR (orders) or SYS (helm, shuttle) | Command's calm steadies the crew (narration only; the Stress track does not change). | Spend 1 RES or mark +1 Stress |
 
-*Limits:* only one override per scene. If Stress is already 4, you can only pay costs with RES, not Stress.
+At Stress 4, pay override costs in chits, not Stress.
 
 ### Scanner protocol
 
 | Mode | How to use | What you get | Cost / Risk |
 |--|----|-----|----|
-| **Quick Scan** *(one free use per scene)* | Test **SYS** with Advantage | One concrete data point available to the sensors | none for the first use |
-| **Deep Scan** *(once per scene)* | Name one target; spend **1 RES** *or* mark **+1 Stress**, then test **SYS** (normal) | Ask two targeted yes/no questions about it; the Custodian answers truthfully within the sensors' reach | cost above |
-| **Overload Push** | If you roll a natural **20** on a scan (worst), you may spend **2 RES** to salvage a partial reading | Avoid total failure; the scanner fries until repaired (simple **SYS** test) | **2 RES**; device offline |
+| **Quick Scan** *(one free use per scene)* | Test SYS with Advantage | One concrete data point available to the sensors | None for the first use |
+| **Deep Scan** *(once per scene)* | Name one target; spend 1 RES or mark +1 Stress, then test SYS (normal) | On a success, ask two targeted yes/no questions about it; the Custodian answers truthfully within the sensors' reach | Cost above |
+| **Overload Push** | If you roll a natural 20 on a scan, you may spend 2 RES to salvage a partial reading | Avoid total failure; the scanner fries until repaired (simple SYS test) | 2 RES; device offline |
 
-A scan cannot reveal evidence the available instruments could not detect. After a Quick Scan, another scan of the same situation needs materially new information, access, equipment, or method. Before that extra scan, the Custodian states the time or risk it will incur. Quick Scan gives breadth; Deep Scan spends resources for targeted depth.
+A scan cannot reveal evidence the available instruments could not detect. After a Quick Scan, another scan of the same situation needs materially new information, access, equipment, or method, and the Custodian first states the time or risk it will incur. Quick Scan gives breadth; Deep Scan spends resources for targeted depth.
 
-> Safety regs: bypassing sensor interlocks without authorisation marks **+1 Stress**.
+Safety regs: bypassing sensor interlocks without authorisation marks +1 Stress.
 
 ### The other 99% (crew roles)
 
@@ -90,45 +91,47 @@ This skin is about the people who keep the ship alive while senior officers make
 
 Rotate spotlight scenes across departments so the ship has more than one corridor and one chain of command.
 
-- **Science specialist (lab / survey):** you turn chaos into data. Default approach: **SYS** (analysis) and **HAR** (ethics, persuasion, de-escalation). Ask for clean procedures.
-- **Medical tech (sickbay / triage):** you keep people breathing. Default approach: **HAR** (triage, bedside), sometimes **SYS** (diagnostics). On failure, offer hard choices while care still helps.
-- **Security / Ops crew (corridors / brig / away team):** you keep order and preserve trust. Default approach: **REF** (cover, timing), **MSC** (restraint), **HAR** (talk someone down).
-- **Shuttle / flight deck:** you survive docking, debris, and crossfire. Default approach: **SYS** (helm, nav) and **REF** (evasive timing).
-- **Service crew (mess / hydroponics / quarters):** you keep morale and routines intact. Default approach: **HAR** (crew cohesion) with **RES** when supply lines fail.
+- **Science specialist (lab / survey):** you turn chaos into data. Default approach: SYS (analysis) and HAR (ethics, persuasion, de-escalation). Ask for clean procedures.
+- **Medical tech (sickbay / triage):** you keep people breathing. Default approach: HAR (triage, bedside), sometimes SYS (diagnostics). On failure, offer hard choices while care still helps.
+- **Security / Ops crew (corridors / brig / away team):** you keep order and preserve trust. Default approach: REF (cover, timing), MSC (restraint), HAR (talk someone down).
+- **Shuttle / flight deck:** you survive docking, debris, and crossfire. Default approach: SYS (helm, nav) and REF (evasive timing).
+- **Service crew (mess / hydroponics / quarters):** you keep morale and routines intact. Default approach: HAR (crew cohesion) with RES when supply lines fail.
 
 \clearpage
 
 ## Computer Systems (Custodian-facing rules)
 
+Here the Custodian is the Showrunner, and each session is an episode.
+
 ### Stress track (Pressure)
 
-Stress is shipboard pressure. It runs **0-5**; at **5**, trigger a crisis, then reset Stress to **0**.
+Stress is shipboard pressure, shared by the whole crew. It runs 0-5; at 5, trigger a crisis, then reset Stress to 0.
 
 | Step | Status hue | Shipboard effect |
 |--|---|------|
 | 0 | Blue-calm | None |
-| 1 | Green blip | cosmetic: warning chimes, flickering panels |
+| 1 | Green blip | Cosmetic: warning chimes, flickering panels |
 | 2 | Yellow | Disadvantage on time-sensitive repairs |
-| 3 | Orange | section lockdowns, NPC suspicion |
-| 4 | High alert | each **risky test** costs **1 RES** before rolling or marks **+1 Stress**; senior staff glare |
-| 5 **Crisis** | Breach klaxon | roll a Stress crisis, then reset to **0** |
+| 3 | Orange | Section lockdowns, NPC suspicion |
+| 4 | High alert | Each risky test costs 1 RES before rolling, or marks +1 Stress; senior staff glare |
+| 5 **Crisis** | Breach klaxon | Roll a Stress crisis, then reset to **0** |
 
 ![](../assets/art/ss_service_ducts_klaxon_steam.png){.margin-left width=2in}
 
-_(A risky test is any roll where failure would materially change the situation: injuries, disciplinary fallout, alarms, lockdowns, or escalating danger. Routine movement and obvious chores resolve in the fiction.)_
+A risky test is any roll where failure would materially change the situation: injuries, disciplinary fallout, alarms, lockdowns, or escalating danger. Routine movement and obvious chores resolve in the fiction.
 
-**Gain Stress:** failed covert repairs, sidearm discharge in public corridors, ignoring safety interlocks, or Technobabble Buffer overrun.
+**Gain +1 Stress** for failed covert repairs, sidearm discharge in public corridors, ignoring safety interlocks, or a Technobabble Buffer overrun.
 
-**Reduce Stress:** shore leave, commendation, or spotless inspection.
+**Reduce Stress** through shore leave, a commendation, or a spotless inspection.
 
-**Crisis table (d6)**
+#### Crisis table (d6)
 
 |d6 | Crisis |
 |-|------|
 | 1 | Reactor cascade: EVA scramble or emergency vent. |
-| 2 | Containment loss: radiation burns; lose **1 Stamina** if you are in the section. |
+| 2 | Containment loss: radiation burns; everyone in the section loses 1 Stamina. |
 | 3 | Safety inquiry: Disadvantage on the next key social test with Command, chosen by the Custodian. |
-| 4 | Nanite alarm: test **SYS** or lose a key system until repaired. |
+| 4 | Nanite alarm: test SYS or lose a key system until repaired. |
 | 5 | Shipwide lockdown: travel restricted, timers tick. |
 | 6 | Roll twice and apply both. |
 
@@ -169,16 +172,16 @@ Reliable Showrunner moves:
 - away team loses comms,
 - captain on comm: "I need that grid stable in three minutes, ensign."
 
-### Beat tags
+### Scene labels
 ![](../assets/art/ss_service_ducts_duct_maze.png){.wrap-right width=2in}
 
-Label nodes by deck/section: ENG-D4, SCI-B2, MED-C1, SHBAY-2, DUCT-J19, AWAY-01.
+Label locations by deck and section: ENG-D4, SCI-B2, MED-C1, SHBAY-2, DUCT-J19, AWAY-01.
 
-If you want a safety valve, use **logs** as clues: sensor records and captain's reports might reveal what happened.
+If you want a safety valve, use logs as clues: sensor records and captain's reports might reveal what happened.
 
 ### Scene seed
 
-> *The ship shudders as a gravimetric shear slams the hull. In Junction J-19 steam hisses from a ruptured conduit; crimson strobes wash the crawl-tube walls. Talara's scanner whines - grid flow spiking. Ortiz braces one boot against the hatch-rim, voice tight over comms.*
+> *The ship shudders as a gravimetric shear slams the hull. In Junction J-19 steam hisses from a ruptured conduit; crimson strobes wash the crawl-tube walls. Talara's scanner whines: grid flow spiking. Ortiz braces one boot against the hatch-rim, voice tight over comms.*
 
 > Options:
 > 1. Close the manual cutoff and risk flash-burn (Muscle).
@@ -192,20 +195,20 @@ If you want a safety valve, use **logs** as clues: sensor records and captain's 
 
 ## Active crew
 
-### Ensign Talara - Away-Team Specialist
+### Ensign Talara (Away-Team Specialist)
 
 ![](../assets/art/ss_service_duct_talara.png){.wrap-left width=1in}
 
-Creation: standard budget (**6** build points; used **6**)<br>
-MSC 10 REF 12 SYS 11 HAR 8 RES 10/10 STM 6/6<br>
+Creation: standard budget (6 build points; used 6)<br>
+MSC 10 | REF 12 | SYS 11 | HAR 8 | RES 10/10 | STM 6/6<br>
 Beam sidearm +1 (stun), spanner set, scanner (Advantage on SYS scans).
 
-### Chief Ortiz - Maintenance Bosun
+### Chief Ortiz (Maintenance Bosun)
 
 ![](../assets/art/ss_service_duct_ortiz.png){.wrap-left width=1in}
 
-Creation: standard budget (**6** build points; used **6**)<br>
-MSC 11 REF 8 SYS 13 HAR 11 RES 8/8 STM 5/5<br>
+Creation: standard budget (6 build points; used 6)<br>
+MSC 11 | REF 8 | SYS 13 | HAR 11 | RES 8/8 | STM 5/5<br>
 Tool satchel (Advantage on SYS repairs when you have access), stun baton 0, tactical vest (soak 2).
 Knows every duct crawlspace between the engine rooms.
 
