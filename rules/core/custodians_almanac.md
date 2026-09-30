@@ -57,7 +57,7 @@ Let the fiction adjust recovery: a sacred rite might restore 3 tokens, and a nig
 
 ### 4. Pressure and clocks
 
-Every skin runs the same 0-5 Pressure fuse, and the whole party shares one track. When it reaches 5, a crisis triggers and the track resets to 0.
+Every skin runs the same 0-5 Pressure fuse. The whole party shares one track, unless the skin makes it personal, as Whispers in the Fog does. When it reaches 5, a crisis triggers and the track resets to 0.
 
 | Step | Mood | Custodian levers |
 | -- | --- | ------ |

@@ -72,7 +72,7 @@ Flashing digi-coin draws attention from Syndicate footpads and corp-security ali
 
 ### Psionics
 
-Hard vacuum, cobalt storms, and stray solar flux have turned a minority of colonists into weak M-field sensitives.
+Hard vacuum, cobalt storms, and stray solar flux have turned a minority of colonists into weak M-field sensitives. Being one is a tag, *M-field sensitive* (2 build points; Adventurer's Manual 2.6). Instead of granting Advantage, it unlocks the powers below, each paid for as it is used.
 
 Psionics ride Mind (MND) and slot in beside guns and hacks. They use the existing dice and risk Heat.
 

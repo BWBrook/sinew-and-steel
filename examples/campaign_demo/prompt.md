@@ -288,7 +288,7 @@ Money does not count toward the limit and is tracked loosely in the fiction. If 
 
 Every skin uses the same Pressure track (0-5) under its own name: Shadow, Doom, Anomaly, Sin, Heat, Fatigue, Stress, Insanity, Strain or Dread.
 
-Pressure is the fuse: it rises with risk, blunders, bargains, and time. The whole party shares one track, so one hero's gamble shortens everyone's fuse.
+Pressure is the fuse: it rises with risk, blunders, bargains, and time. The whole party shares one track, so one hero's gamble shortens everyone's fuse. A skin can instead give each character their own track, as Whispers in the Fog does for madness.
 
 - When Pressure reaches 5, a crisis hits, then the track resets to 0.
 - If a crisis falls on one character, it falls on the one whose action tipped the track, unless the fiction points elsewhere.
@@ -387,7 +387,7 @@ Let the fiction adjust recovery: a sacred rite might restore 3 tokens, and a nig
 
 ### 4. Pressure and clocks
 
-Every skin runs the same 0-5 Pressure fuse, and the whole party shares one track. When it reaches 5, a crisis triggers and the track resets to 0.
+Every skin runs the same 0-5 Pressure fuse. The whole party shares one track, unless the skin makes it personal, as Whispers in the Fog does. When it reaches 5, a crisis triggers and the track resets to 0.
 
 | Step | Mood | Custodian levers |
 | -- | --- | ------ |

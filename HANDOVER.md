@@ -187,16 +187,17 @@ these were acted on in the rules, which stay frozen for Astra.
 ## Prose pass, from 24 September 2026
 
 Barry and Fable are revising the book section by section in reading order,
-removing generic AI phrasing and checking every rule against the core. Done
-through Briar & Benedictine; next are Rust & Domes, Candlelight Dungeons and
-Service Duct Blues. Rulings made along the way, all now in the text: Pressure
-is one track for the whole party (a crisis that falls on one character falls
-on whoever tipped the track), so statlines no longer carry it; optional
-condition tracks stay per character; trade-offs never pay for tags, so a
-grim-budget character earns tags at milestones; skins are optional and the
-core plays with the default names; crisis results cost one key roll, never a
-whole session; Iron & Ruin lets Fortune nudge Whispers and Weaves only.
-Astra's next review waits for the end of the pass.
+removing generic AI phrasing and checking every rule against the core. All ten
+skins are done; next are AI as Custodian, AI Play Notes and the back-cover
+blurb. Rulings made along the way, all now in the text: Pressure is one track
+for the whole party (a crisis that falls on one character falls on whoever
+tipped the track), so statlines no longer carry it, except in Whispers in the
+Fog, whose Insanity stays personal; optional condition tracks stay per
+character; trade-offs never pay for tags, so a grim-budget character earns
+tags at milestones; skins are optional and the core plays with the default
+names; crisis results cost one key roll, never a whole session; no skin's top
+tier of magic can be nudged (in Iron & Ruin, Fortune nudges Whispers and
+Weaves only). Astra's next review waits for the end of the pass. After it, Barry wants a thorough audit-and-improve pass over the harness tooling, which predates these rulings (for example, campaign_init sets up one shared Pressure clock, but Whispers needs one per investigator).
 
 ## Useful commands and code map
 

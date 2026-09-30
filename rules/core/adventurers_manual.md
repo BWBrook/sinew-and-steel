@@ -293,7 +293,7 @@ Money does not count toward the limit and is tracked loosely in the fiction. If 
 
 Every skin uses the same Pressure track (0-5) under its own name: Shadow, Doom, Anomaly, Sin, Heat, Fatigue, Stress, Insanity, Strain or Dread.
 
-Pressure is the fuse: it rises with risk, blunders, bargains, and time. The whole party shares one track, so one hero's gamble shortens everyone's fuse.
+Pressure is the fuse: it rises with risk, blunders, bargains, and time. The whole party shares one track, so one hero's gamble shortens everyone's fuse. A skin can instead give each character their own track, as Whispers in the Fog does for madness.
 
 ![](../../assets/art/ss_pressure_fuse.png){.wrap-right width=2in}
 

@@ -38,7 +38,7 @@ If you write a new skin, make it runnable by a newcomer to the genre. It should 
 
 - **What stories is this for?** One paragraph is enough; scope prevents drift.
 - **The five attributes** (keys, names, and what each covers), including which one is Luck.
-- **What Pressure is called here**, what it means, and what a crisis looks like.
+- **What Pressure is called here**, what it means, what a crisis looks like, and whether each character keeps their own track (the default is one for the party).
 - **How recovery tends to work** in this genre (especially Luck refresh).
 - **What special procedures apply**, written in core terms: when to roll, what changes, and what cost ticks.
 

@@ -41,7 +41,7 @@ Roll under, count the margin, spend Luck to nudge close calls, and watch Pressur
   - Natural 1 ignores soak and adds +1 damage.
 - *Carry limit.* Up to 6 big items; more gives Disadvantage on agility tasks (usually Reflex).
 - *Money.* Kept abstract unless you use the optional Wealth track (0-4) from the Custodian’s Almanac.
-- *Pressure track (0-5).* The whole party shares one track. Each skin names it and its crises; with no skin, the Custodian does. At 5 a crisis triggers, then the track resets to 0.
+- *Pressure track (0-5).* The whole party shares one track unless the skin says otherwise. Each skin names it and its crises; with no skin, the Custodian does. At 5 a crisis triggers, then the track resets to 0.
 
 *Example (check + nudge):* REF 12, you roll 15: fail (margin -3).
 Spend 3 Luck to nudge 15 to 12: success (margin 0).
@@ -66,7 +66,7 @@ The core book’s ten skins:
 - Rust & Domes (red planet noir): Heat track; psionics and corporate scrutiny.
 - Candlelight Dungeons (classic dungeon crawl): Fatigue track; torchlight and spell backlash.
 - Service Duct Blues (lower-decks starship drama): Stress track; scans and miracle repairs.
-- Whispers in the Fog (1920s horror): Insanity track; forbidden rites and a failing lantern.
+- Whispers in the Fog (1920s horror): personal Insanity track; forbidden rites and a failing lantern.
 - Free Traders of the Drift Marches (space trade): Strain track; jumps and debt.
 - Twilight of the Northlands (wanderer fantasy): Dread track; hard roads and companionship.
 
