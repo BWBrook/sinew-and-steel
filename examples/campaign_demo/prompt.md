@@ -294,6 +294,7 @@ Pressure is the fuse: it rises with risk, blunders, bargains, and time. The whol
 - If a crisis falls on one character, it falls on the one whose action tipped the track, unless the fiction points elsewhere.
 - If one action adds several points, add them together. Reaching or passing 5 causes one crisis, and the track resets to 0 with nothing carried over. If the skin’s own rule already triggers a crisis for that action, that is the same crisis, not a second one.
 - Penalties and extra costs from Pressure use its level at the start of the action. Pay each cost once, resolve the action, then resolve any crisis it caused. Separate costs for failing, and skin backlashes, still apply.
+- A skin's Pressure table lists an effect for each step, and the effects add up: everything at or below the current step applies while the track stays there. A one-test penalty, such as Disadvantage on your next test, fires once when the track first reaches or passes its step (a jump from 1 to 3 fires step 2's too), and fires again only after a crisis has reset the track.
 - The Custodian awards a milestone every 3-4 perilous beats (dangerous scenes you come through). Each milestone brings:
   - +2 build points, spent as at creation (for example, +1 to a score or a new tag),
   - a narrative boon (ally, relic, favour, scar, access), and
@@ -408,6 +409,7 @@ Every skin runs the same 0-5 Pressure fuse. The whole party shares one track, un
 - If a crisis falls on one character, it falls on the one whose action tipped the track, unless the fiction points elsewhere.
 - Add up the points from one action. Reaching or passing 5 causes one crisis, then the track resets to 0 with nothing carried over. If a skin already triggers a crisis for that action, it is the same crisis.
 - Penalties and surcharges use the Pressure level at the start of the action. Charge each cost once and resolve the action, then its crisis. Paying a surcharge does not trigger another one, but separate failure costs and backlashes still apply.
+- Step effects add up: everything at or below the current step applies while the track stays there. A one-test penalty fires once when the track first reaches or passes its step, so a jump from 1 to 3 fires step 2's too, and it re-arms only after a crisis resets the track.
 - Make every crisis a dramatic twist with real consequences, never a free way to clear the track. State what is at stake before you offer Pressure as a cost.
 
 ---
@@ -568,10 +570,10 @@ Build points let heroes raise a signature strength or shore up a weakness withou
    - Stamina by tier (human scale): Peasant 3, Soldier 4, Elite 5, Monster 6, Nemesis 7.
    - Large beasts add +2 Stamina; a boss adds +4 (or gets a second phase at 0).
    - Weapon edge: light +0, standard +1, brutal +2.
-   - Armour soak: hide 1, shell 2, plate 3. Plate’s third point only matters against hard blows: a standard weapon (edge +1) in the hands of an attacker at 12 or more, or any brutal weapon (edge +2). Against light weapons it protects no better than soak 2.
+   - Armour soak: hide 1, shell 2, plate 3. Plate’s third point matters only against a hit that would deal 4 or more before soak (1 + edge + 1 per full 5 points of margin); against weaker hits it protects no better than soak 2.
 3. Give a hook: one special move or rule that makes them distinct (“mind-spike forces a Luck test”, “web-snare: a failed Reflex test leaves the target stuck until cut free”, “howl: on a natural 20, targets mark +1 Pressure”).
 
-How hard each tier hits: against a standard PC (attribute 12, blade, hide, Stamina 5), a one-score Peasant almost never wins, a Soldier wins about one fight in five, and an Elite is a coin flip. A Monster needs two or three PCs, who beat it 69% and 96% of the time; a Nemesis needs four, who win 88% of the time and lose one or two of their own. These odds assume no Luck spending and no retreat, so read them as a guide to how hard a fight will be.
+How hard each tier hits, as a worked example. Standard PCs (attribute 12, blade, hide, Stamina 5) face one-score NPCs with tier Stamina: a Peasant unarmed, a Soldier or Elite with blade and hide, a Monster with edge +2 and soak 1, a Nemesis with edge +2 and soak 3. Assume fair initiative, no Luck spending, no retreat, every PC attacking the one foe, and the foe striking the most wounded PC. Then a Peasant almost never beats a lone PC, a Soldier wins about one fight in five, and an Elite is a coin flip. Two PCs beat a Monster about 63% of the time and three about 93%; four PCs beat a Nemesis about 85% of the time and lose 1.5 of their own on average. Read these as examples of how numbers and position matter, not as encounter ratings.
 
 Examples:
 

@@ -15,7 +15,7 @@ This is simply the way I like RPGs most.
 Sinew & Steel (S&S) makes a few promises:
 
 - One roll resolves the decisive moment. Talk comes first, the stakes are clear before anyone rolls, and the dice come out only when the outcome is uncertain and it matters.
-- Every point counts, and the odds stay transparent. Raise a stat by one and your chance of success goes up by one in twenty. Spend a resource now and you know what you give up later.
+- Every point counts, and the odds stay transparent. Raise a stat by one and your chance of success on an ordinary roll goes up by one in twenty. Spend a resource now and you know what you give up later.
 - Consequences are visible and tracked. The game gives you a tension fuse you can watch climb until it finally blows.
 - Characters are yours to build, and every strength has a price.
 - One chassis carries many genres. Each gets its own skin, but the rules underneath stay the same.

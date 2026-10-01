@@ -195,16 +195,16 @@ Other PCs help through preparation and the fiction; they do not add extra assemb
 
 Use this only if you want a little road-fantasy texture in combat within the Sinew & Steel chassis. It adds two ideas on top of ordinary Stamina loss:
 
-- **Combat positions:** choose whether Advantage or Disadvantage applies to your attack or your defence.
+- **Combat positions:** declare each round where Advantage and Disadvantage fall, on your attack or your defence.
 - **Injury:** significant lingering damage, such as a lacerating or crushing blow that gets through a defence.
 
 \clearpage
 
-#### Combat positions (choose each exchange)
+#### Combat positions (declare each round)
 
 ![](../assets/art/ss_twilight_combat_positions.png){.margin-left width=2.5in}
 
-At the start of each combat exchange, or round, each PC chooses a position in the line. It shifts their ability to inflict damage or limit Stamina loss:
+At the start of each round, each PC declares a position in the line and holds it until the next round, for every attack they make and every defence they roll. The bonus and the drawback come as a bundle: no switching mid-round.
 
 | Position | Attack | Defence | Notes |
 |---|----|----|------|
