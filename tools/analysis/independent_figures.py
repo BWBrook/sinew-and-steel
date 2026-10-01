@@ -18,7 +18,7 @@ def main():
     tiers = ['peasant','soldier','elite','monster','nemesis']
     for build, label in [('balanced_dual','Balanced 12/12, STM 7'),
                          ('minmax_dual','Extreme 16/16, STM 9'),
-                         ('floor8_dual','Refund cap 8 example: 16/16, STM 6')]:
+                         ('floor8_dual','Restricted build: 16/16, STM 6, Hope 8')]:
         rr = [rows[f'duel_{build}_vs_{t}'] for t in tiers]
         y = np.array([float(r['p_pc_win'])*100 for r in rr])
         low = y-np.array([float(r['p_pc_win_ci_low'])*100 for r in rr])

@@ -1,7 +1,10 @@
 # Independent Sinew & Steel engine review
 
-20 September 2026. Rules baseline: `a77d476`, version 0.4.0. The working tree now
-contains the bounded repairs below; no commit or release was made.
+Initial review: 20 September 2026, rules baseline `a77d476`, version 0.4.0.
+The bounded repairs landed in `715ce90`. The
+[1 October Stage 2 follow-up](../reviews/2026-10-01-stage2-engine-check.md)
+corrects two Twilight modelling errors, refreshes the affected results below,
+and records the subsequent Pressure and initiative rulings.
 
 ## Decision
 
@@ -52,12 +55,15 @@ edge 2, soak 2), identical player gear and a two-token-per-decision Luck policy:
 | Balanced, same attribute reused | 12 / 12 | 7 | 8 | 9.0% |
 | Extreme, same attribute reused | 16 / 16 | 9 | 8 | 50.6% |
 | Extreme, threat forces weak defence | 16 / 6 | 9 | 8 | 23.3% |
-| Example under an eight-point refund cap | 16 / 16 | 6 | 8 | 30.2% |
+| Illustrative restricted build | 16 / 16 | 6 | 8 | 30.2% |
 
 These are **conditional duel probabilities**, not global character ratings or
 NPC tier guarantees. With no Luck spending, the matched balanced/extreme
 contrast is 3.9% versus 31.0%; with a four-token cap it is 13.0% versus 62.1%.
 The size of the advantage depends on the opponent and spending policy.
+The restricted row tests one `[16,8,8,8,8]`, Stamina-6 profile, not the full
+legal builds under a refund cap. A total refund cap, an attribute floor, and
+no refund below a floor are different creation rules.
 
 There is a real cost outside that favourite domain. For ordinary checks, if
 the signature gets share `s` and the other four attributes share the rest
@@ -105,14 +111,18 @@ Against a Monster, the same Halvar with no Hope has:
 
 | Position | Win the fight | Stand through three rounds |
 |---|---:|---:|
-| Vanguard | 70.2% | 79.0% |
+| Vanguard | 69.9% | 78.8% |
 | Steady | 59.3% | 81.0% |
 | Watchful | 36.8% | 85.0% |
 
 With Hope 12 the ranking persists: Vanguard wins more often; Watchful improves
 short-horizon survival. Screened ranged support can make the defensive choice
 useful to the company. These experiments do not prove optimal adaptive tactics:
-the chosen stance is fixed during each simulated fight.
+the preferred stance is fixed during each simulated fight. It is declared at
+each round's start; if Injury makes Vanguard unavailable, the model chooses
+Steady. Injury penalties apply immediately, while the declaration holds through
+the current round. This fallback is an explicit model policy, not a rule
+requiring players to choose Steady.
 
 **Decision:** keep the stance numbers and the optional natural-1 Injury rule.
 Making Watchful's attack free of Disadvantage would remove Steady's comparative
@@ -184,9 +194,10 @@ matched controls and the relevant sensitivities. Separate convolution verified
 all 16 creation-count cells; binomial identities checked the simple Pressure
 process; exact coupled-duel recursion checked simulated initiative outcomes.
 
-All **27 harness tests**, repository validation, and all ten skin prompt/sheet
-checks pass. Further book layout work was stopped at Barry's request; Markdown
-is the review surface. PDF drafts are not validated release artefacts.
+The original review passed **27 harness tests**, repository validation, and
+all ten skin prompt/sheet checks. Current checks are recorded in the Stage 2
+follow-up linked above. Further book layout work was stopped at Barry's request;
+Markdown is the review surface. PDF drafts are not validated release artefacts.
 
 Remaining limits: no optimal campaign-wide policy, adaptive stance search,
 morale/retreat model, full NPC-hook library, empirical playtest, or numerical

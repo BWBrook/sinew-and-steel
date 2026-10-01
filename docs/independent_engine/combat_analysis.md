@@ -18,13 +18,13 @@ Monte Carlo results use 20,000 independent combats per scenario, master seed 202
 | equal10_plain | 36.3% | 0.670 | 1.848 | 4.8% | 7.5% |
 | equal10_attack_adv | 56.4% | 1.124 | 1.992 | 9.3% | 14.4% |
 | equal10_defence_adv | 27.3% | 0.545 | 1.996 | 4.5% | 6.0% |
-| halvar_vanguard_vs_elite | 83.6% | 2.900 | 3.470 | 9.8% | 42.7% |
+| halvar_vanguard_vs_elite | 71.2% | 2.569 | 3.609 | 9.8% | 32.7% |
 | halvar_steady_vs_elite | 50.5% | 1.682 | 3.332 | 5.0% | 18.8% |
-| halvar_watchful_vs_elite | 19.5% | 0.554 | 2.844 | 0.3% | 2.7% |
+| halvar_watchful_vs_elite | 29.8% | 0.796 | 2.669 | 0.3% | 4.8% |
 | minmax16_vs_nemesis16 | 46.0% | 0.897 | 1.951 | 4.8% | 18.8% |
 | minmax16_tag_vs_nemesis16 | 63.7% | 1.433 | 2.249 | 9.3% | 31.7% |
 
-The exact calculation enumerates the kept-face PMFs, including all 160,000 raw 2d20-by-2d20 combinations when both sides have Advantage/Disadvantage. A damage-zero mass represents misses. Luck is excluded from this table because it is a path-dependent finite resource in combat.
+The exact calculation enumerates the kept-face PMFs, including all 160,000 raw 2d20-by-2d20 combinations when both sides have Advantage/Disadvantage. A damage-zero mass represents misses. Luck is excluded from this table because it is a path-dependent finite resource in combat. The Halvar rows change his attack roll only; the Elite defends with a plain roll in all three cases.
 
 Natural results apply to the final kept die: a kept natural 1 succeeds regardless of score and a kept natural 20 fails regardless of score. Nudges cannot alter a raw natural 1/20, and the model never nudges another result into a natural 1.
 
@@ -52,7 +52,7 @@ The legal extreme uses attributes `[16, 6, 6, 6, 8]`, Stamina 9, and the six sta
 | Monster | 34.0% [33.3%, 34.6%] | 38.9% [38.2%, 39.6%] | 87.5% [87.1%, 88.0%] | 68.2% [67.6%, 68.9%] | 70.3% [69.6%, 70.9%] |
 | Nemesis | 6.7% [6.3%, 7.0%] | 9.0% [8.7%, 9.5%] | 50.6% [49.9%, 51.2%] | 23.3% [22.7%, 23.9%] | 30.2% [29.5%, 30.8%] |
 
-The floor-8 alternative is a deliberately small creation-rule counterfactual: keeping every attribute at 8+, or equivalently granting no trade-off refund below 8, makes `[16, 8, 8, 8, 8]`, Stamina 6 exactly legal with six build points. It preserves a score-16 signature and the same combat procedure while removing the simultaneous Stamina-9 extreme. This is evidence for discussion, not an adopted fix.
+The floor-8 row tests one representative profile: `[16, 8, 8, 8, 8]`, Stamina 6, Hope 8. It is legal with six build points under an attribute floor of 8, no attribute trade-off refund below 8, or an eight-point total refund cap. Those are different creation rules: no refund below 8 still permits lower scores without additional credit, while a total refund cap permits concentrating reductions in fewer attributes. The simulation compares this profile, not their full legal build sets. It preserves a score-16 signature and reduces this fighter's Stamina from 9 to 6; it is evidence for discussion, not an adopted fix.
 
 For the separate legal tag extreme `[16, 6, 6, 6, 6]`, Stamina 9, Hope 6, a niche-fitting attack tag raises its matched Nemesis duel from 49.9% to 72.3%. This is a conditional ceiling, not a universal-tag assumption.
 
@@ -80,24 +80,26 @@ The one-score version is the reported baseline, not an invisible default. Encoun
 
 ## Twilight positions and objectives
 
+Each fighter has a fixed preferred stance. At each round's start it declares that stance, or Steady if Injury makes a preferred Vanguard illegal, and holds the declaration for every attack and defence that round. Injury penalties apply as soon as Injury occurs; the forced Steady fallback starts at the next declaration. This is a documented baseline policy, not adaptive stance optimisation.
+
 | Scenario | Win | Standing after 3 rounds | Mean Stamina lost (SE) | Mean rounds (SE) |
 |---|---:|---:|---:|---:|
-| Halvar vanguard vs Elite | 96.6% [96.4%, 96.9%] | 97.3% [97.1%, 97.6%] | 1.55 (0.01) | 2.35 (0.01) |
+| Halvar vanguard vs Elite | 96.3% [96.0%, 96.5%] | 97.2% [97.0%, 97.5%] | 1.57 (0.01) | 2.36 (0.01) |
 | Halvar steady vs Elite | 94.8% [94.4%, 95.1%] | 97.5% [97.2%, 97.7%] | 1.67 (0.01) | 3.21 (0.01) |
 | Halvar watchful vs Elite | 92.7% [92.4%, 93.1%] | 98.4% [98.2%, 98.6%] | 1.78 (0.02) | 5.18 (0.02) |
 
 | Harder stance test: Halvar vs Monster | Win | Standing after 3 rounds | Mean Stamina lost (SE) |
 |---|---:|---:|---:|
-| Vanguard, Hope 0 | 70.2% [69.5%, 70.8%] | 79.0% [78.4%, 79.5%] | 3.99 (0.02) |
+| Vanguard, Hope 0 | 69.9% [69.3%, 70.6%] | 78.8% [78.2%, 79.3%] | 4.00 (0.02) |
 | Steady, Hope 0 | 59.3% [58.6%, 60.0%] | 81.0% [80.5%, 81.5%] | 4.43 (0.02) |
 | Watchful, Hope 0 | 36.8% [36.1%, 37.4%] | 85.0% [84.5%, 85.5%] | 5.51 (0.02) |
-| Vanguard, Hope 12 | 81.3% [80.8%, 81.9%] | 85.2% [84.7%, 85.7%] | 3.22 (0.02) |
+| Vanguard, Hope 12 | 81.1% [80.5%, 81.6%] | 85.2% [84.7%, 85.7%] | 3.20 (0.02) |
 | Steady, Hope 12 | 75.5% [74.9%, 76.1%] | 87.2% [86.7%, 87.7%] | 3.39 (0.02) |
 | Watchful, Hope 12 | 64.4% [63.7%, 65.0%] | 91.1% [90.7%, 91.4%] | 4.04 (0.02) |
 
 | Twilight sample company | Win | At least one PC standing after 3 rounds | Mean PC survivors (SE) |
 |---|---:|---:|---:|
-| Halvar vanguard; Tolly screened/ranged | 99.6% [99.5%, 99.7%] | 100.0% [99.9%, 100.0%] | 1.98 (0.00) |
+| Halvar vanguard; Tolly screened/ranged | 99.6% [99.5%, 99.7%] | 99.9% [99.9%, 100.0%] | 1.97 (0.00) |
 | Halvar steady; Tolly screened/ranged | 99.6% [99.5%, 99.7%] | 100.0% [99.9%, 100.0%] | 1.98 (0.00) |
 | Halvar watchful; Tolly screened/ranged | 99.8% [99.7%, 99.9%] | 100.0% [100.0%, 100.0%] | 1.99 (0.00) |
 
@@ -135,7 +137,7 @@ Cap 8 is effectively pool-bounded for these Hope-8 builds. The cap changes both 
 
 ## Decisive findings and recommendation
 
-1. **The creation ledger is a major tested balance pressure whose effect interacts with Hope policy.** Under the cap-2 heuristic against a Nemesis, the full 16/16, Stamina-9 extreme gains +41.5 percentage points of win probability over the matched dual-use balanced 12/12 build under identical gear. Allowing score reuse adds +2.4 points for the balanced build and +27.3 points for the extreme relative to their split controls; retaining extreme dual use but reducing Stamina 9 to 6 under the floor-8/refund-cap-8 alternative removes 20.4 points. The cap-sensitivity table is the correct evidence for other resource policies; the cap-2 gap is not a ledger-only effect.
+1. **The creation ledger is a major tested balance pressure whose effect interacts with Hope policy.** Under the cap-2 heuristic against a Nemesis, the full 16/16, Stamina-9 extreme gains +41.5 percentage points of win probability over the matched dual-use balanced 12/12 build under identical gear. Allowing score reuse adds +2.4 points for the balanced build and +27.3 points for the extreme relative to their split controls; retaining extreme dual use but reducing Stamina 9 to 6 in the representative Hope-8 profile removes 20.4 points. That profile does not establish equivalence between a floor of 8, no refund below 8, and a total refund cap of 8. The cap-sensitivity table is the correct evidence for other resource policies; the cap-2 gap is not a ledger-only effect.
 2. **Initiative and focus fire materially alter outcomes.** The model implements the core's fair statless side initiative and separately forces each side first to quantify its effect. Encounter guidance and future analyses should also state target selection and report coupled win/survival probabilities. Expected damage or rounds alone cannot support encounter-balance claims.
 3. **Twilight stances are objective-dependent rather than one scalar ladder.** Treat Watchful as a hold/survival choice, Vanguard as an aggression choice, and Ranged as a formation benefit with a screen. The present experiment does not justify changing the stance text if those trade-offs appear in the table above; a numerical fix would erase intended fictional distinctions.
 4. **The grittier Injury trigger is a consequential lethality dial.** Its balanced-vs-Elite win shift relative to natural-1-only is -2.9 percentage points, with a larger change in injury incidence shown above. Keep effective-margin 8+ explicitly optional and do not mix its results with the core no-Injury baseline or natural-1 Twilight module.
@@ -162,9 +164,9 @@ No Twilight stance counterfactual is recommended from these data unless one stan
 - coupled duel MC recovers random exact win probability (0.5009 vs 0.5000; <5 MC SE).
 - Exact results test only an isolated action; simulation uncertainty brackets cover Monte Carlo error but not uncertainty about player tactics, encounter fiction, morale, or rule interpretation.
 - The Hope policy is deliberately finite and reproducible, but it is a stated heuristic rather than an optimal policy. For each flip it searches the cheapest legal split between improving the PC die and worsening the NPC die, never manufactures a natural 1/20, and avoids the unspecified two-sided counter-spending game. A player who spends more than two tokens or values later Hope tests differently can obtain different results.
-- Advantage and Disadvantage are treated as non-stacking and cancel when both apply. The core explains each state but does not explicitly state stacking/cancellation.
+- Advantage and Disadvantage do not stack; any source of each cancels to a plain roll, as the core's section 1.3 specifies.
 - Sampling a fair side-order coin is distributionally identical to the core's one-d20-per-side initiative with tied rolls rerolled. Within-side order remains fixed in the model and can advantage the first listed actor; scenario order is held constant for comparison.
-- Twilight stances are held fixed for each simulated combat. Adaptive round-by-round stance choice, Companionship, morale or retreat, terrain, NPC hooks, and between-encounter attrition can change the objective trade-offs.
+- Twilight stance preferences are fixed for each simulated combat, with a forced Steady fallback at the next round's declaration when Injury forbids Vanguard. The model does not optimise adaptive choices. Companionship, morale or retreat, terrain, NPC hooks, and between-encounter attrition can also change the objective trade-offs.
 - Exact coupled recursion validates the no-Hope/no-Injury duel only. Finite-Hope results use the stated heuristic rather than an exact dynamic programme over resource value.
 - `combat_results.csv` contains all exact distributions and scenario estimates for reanalysis.
 

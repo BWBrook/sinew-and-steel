@@ -292,13 +292,19 @@ class Fighter:
     spec: CombatantSpec
     stamina: int
     hope: int
+    declared_stance: str = "steady"
     injured: bool = False
     injuries: int = 0
     luck_spent: int = 0
 
     @classmethod
     def fresh(cls, spec: CombatantSpec) -> "Fighter":
-        return cls(spec=spec, stamina=spec.stamina, hope=spec.hope)
+        return cls(
+            spec=spec,
+            stamina=spec.stamina,
+            hope=spec.hope,
+            declared_stance=spec.stance,
+        )
 
     @property
     def alive(self) -> bool:
@@ -337,12 +343,24 @@ class CombatResult:
     pc_stamina_at_hold: int
 
 
+def declare_round_stance(fighter: Fighter) -> None:
+    """Keep the fixed preference, falling back to Steady if Injury forbids it.
+
+    Called at round start, never while resolving an attack. Injury penalties
+    apply immediately, but a position already declared lasts for that round.
+    """
+    fighter.declared_stance = (
+        "steady" if fighter.injured and fighter.spec.stance == "vanguard"
+        else fighter.spec.stance
+    )
+
+
 def attack_mode(fighter: Fighter) -> str:
     advantages = 0
     disadvantages = 0
-    if fighter.spec.stance in ("vanguard", "ranged"):
+    if fighter.declared_stance in ("vanguard", "ranged"):
         advantages += 1
-    elif fighter.spec.stance == "watchful":
+    elif fighter.declared_stance == "watchful":
         disadvantages += 1
     if fighter.spec.tagged_attack:
         advantages += 1
@@ -352,9 +370,9 @@ def attack_mode(fighter: Fighter) -> str:
 
 
 def defence_mode(fighter: Fighter, screened: bool) -> str:
-    advantages = 1 if fighter.spec.stance == "watchful" else 0
-    disadvantages = 1 if fighter.spec.stance == "vanguard" else 0
-    if fighter.spec.stance == "ranged" and not screened:
+    advantages = 1 if fighter.declared_stance == "watchful" else 0
+    disadvantages = 1 if fighter.declared_stance == "vanguard" else 0
+    if fighter.declared_stance == "ranged" and not screened:
         disadvantages += 1
     if fighter.injured:
         disadvantages += 1
@@ -676,6 +694,9 @@ def simulate_once(scenario: Scenario, rng: random.Random) -> CombatResult:
     pc_stamina_at_hold = -1
     completed_rounds = 0
     for round_number in range(1, scenario.max_rounds + 1):
+        for fighter in (*pcs, *npcs):
+            if fighter.alive:
+                declare_round_stance(fighter)
         for actors, opponents in sides:
             for actor in actors:
                 if not actor.alive or not any(target.alive for target in opponents):
@@ -1202,9 +1223,9 @@ def exact_rows() -> list[dict[str, object]]:
         ("equal10_plain", 10, 10, 1, 1, MODE_PLAIN, MODE_PLAIN),
         ("equal10_attack_adv", 10, 10, 1, 1, MODE_ADV, MODE_PLAIN),
         ("equal10_defence_adv", 10, 10, 1, 1, MODE_PLAIN, MODE_ADV),
-        ("halvar_vanguard_vs_elite", 14, 12, 2, 1, MODE_ADV, MODE_DIS),
+        ("halvar_vanguard_vs_elite", 14, 12, 2, 1, MODE_ADV, MODE_PLAIN),
         ("halvar_steady_vs_elite", 14, 12, 2, 1, MODE_PLAIN, MODE_PLAIN),
-        ("halvar_watchful_vs_elite", 14, 12, 2, 1, MODE_DIS, MODE_ADV),
+        ("halvar_watchful_vs_elite", 14, 12, 2, 1, MODE_DIS, MODE_PLAIN),
         ("minmax16_vs_nemesis16", 16, 16, 1, 2, MODE_PLAIN, MODE_PLAIN),
         ("minmax16_tag_vs_nemesis16", 16, 16, 1, 2, MODE_ADV, MODE_PLAIN),
     ]
@@ -1283,7 +1304,7 @@ def render_markdown(
 
     lines += [
         "",
-        "The exact calculation enumerates the kept-face PMFs, including all 160,000 raw 2d20-by-2d20 combinations when both sides have Advantage/Disadvantage. A damage-zero mass represents misses. Luck is excluded from this table because it is a path-dependent finite resource in combat.",
+        "The exact calculation enumerates the kept-face PMFs, including all 160,000 raw 2d20-by-2d20 combinations when both sides have Advantage/Disadvantage. A damage-zero mass represents misses. Luck is excluded from this table because it is a path-dependent finite resource in combat. The Halvar rows change his attack roll only; the Elite defends with a plain roll in all three cases.",
         "",
         "Natural results apply to the final kept die: a kept natural 1 succeeds regardless of score and a kept natural 20 fails regardless of score. Nudges cannot alter a raw natural 1/20, and the model never nudges another result into a natural 1.",
         "",
@@ -1325,7 +1346,7 @@ def render_markdown(
     tag_base = row_by_name(simulated, "duel_minmax_tag_base_vs_nemesis_niche")
     lines += [
         "",
-        "The floor-8 alternative is a deliberately small creation-rule counterfactual: keeping every attribute at 8+, or equivalently granting no trade-off refund below 8, makes `[16, 8, 8, 8, 8]`, Stamina 6 exactly legal with six build points. It preserves a score-16 signature and the same combat procedure while removing the simultaneous Stamina-9 extreme. This is evidence for discussion, not an adopted fix.",
+        "The floor-8 row tests one representative profile: `[16, 8, 8, 8, 8]`, Stamina 6, Hope 8. It is legal with six build points under an attribute floor of 8, no attribute trade-off refund below 8, or an eight-point total refund cap. Those are different creation rules: no refund below 8 still permits lower scores without additional credit, while a total refund cap permits concentrating reductions in fewer attributes. The simulation compares this profile, not their full legal build sets. It preserves a score-16 signature and reduces this fighter's Stamina from 9 to 6; it is evidence for discussion, not an adopted fix.",
         "",
         f"For the separate legal tag extreme `[16, 6, 6, 6, 6]`, Stamina 9, Hope 6, a niche-fitting attack tag raises its matched Nemesis duel from {fmt_pct(float(tag_base['p_pc_win']))} to {fmt_pct(float(tagged['p_pc_win']))}. This is a conditional ceiling, not a universal-tag assumption.",
         "",
@@ -1372,6 +1393,8 @@ def render_markdown(
         "The one-score version is the reported baseline, not an invisible default. Encounter claims should identify which NPC construction is used because a two-point defensive texture changes PC win probability while leaving NPC attacks unchanged.",
         "",
         "## Twilight positions and objectives",
+        "",
+        "Each fighter has a fixed preferred stance. At each round's start it declares that stance, or Steady if Injury makes a preferred Vanguard illegal, and holds the declaration for every attack and defence that round. Injury penalties apply as soon as Injury occurs; the forced Steady fallback starts at the next declaration. This is a documented baseline policy, not adaptive stance optimisation.",
         "",
         "| Scenario | Win | Standing after 3 rounds | Mean Stamina lost (SE) | Mean rounds (SE) |",
         "|---|---:|---:|---:|---:|",
@@ -1516,7 +1539,7 @@ def render_markdown(
         "",
         "## Decisive findings and recommendation",
         "",
-        f"1. **The creation ledger is a major tested balance pressure whose effect interacts with Hope policy.** Under the cap-2 heuristic against a Nemesis, the full 16/16, Stamina-9 extreme gains {100 * whole_extreme_gap:+.1f} percentage points of win probability over the matched dual-use balanced 12/12 build under identical gear. Allowing score reuse adds {100 * balanced_reuse_gap:+.1f} points for the balanced build and {100 * reuse_gap:+.1f} points for the extreme relative to their split controls; retaining extreme dual use but reducing Stamina 9 to 6 under the floor-8/refund-cap-8 alternative removes {100 * stamina_gap:.1f} points. The cap-sensitivity table is the correct evidence for other resource policies; the cap-2 gap is not a ledger-only effect.",
+        f"1. **The creation ledger is a major tested balance pressure whose effect interacts with Hope policy.** Under the cap-2 heuristic against a Nemesis, the full 16/16, Stamina-9 extreme gains {100 * whole_extreme_gap:+.1f} percentage points of win probability over the matched dual-use balanced 12/12 build under identical gear. Allowing score reuse adds {100 * balanced_reuse_gap:+.1f} points for the balanced build and {100 * reuse_gap:+.1f} points for the extreme relative to their split controls; retaining extreme dual use but reducing Stamina 9 to 6 in the representative Hope-8 profile removes {100 * stamina_gap:.1f} points. That profile does not establish equivalence between a floor of 8, no refund below 8, and a total refund cap of 8. The cap-sensitivity table is the correct evidence for other resource policies; the cap-2 gap is not a ledger-only effect.",
         "2. **Initiative and focus fire materially alter outcomes.** The model implements the core's fair statless side initiative and separately forces each side first to quantify its effect. Encounter guidance and future analyses should also state target selection and report coupled win/survival probabilities. Expected damage or rounds alone cannot support encounter-balance claims.",
         "3. **Twilight stances are objective-dependent rather than one scalar ladder.** Treat Watchful as a hold/survival choice, Vanguard as an aggression choice, and Ranged as a formation benefit with a screen. The present experiment does not justify changing the stance text if those trade-offs appear in the table above; a numerical fix would erase intended fictional distinctions.",
         f"4. **The grittier Injury trigger is a consequential lethality dial.** Its balanced-vs-Elite win shift relative to natural-1-only is {100 * gritty_gap:+.1f} percentage points, with a larger change in injury incidence shown above. Keep effective-margin 8+ explicitly optional and do not mix its results with the core no-Injury baseline or natural-1 Twilight module.",
@@ -1531,9 +1554,9 @@ def render_markdown(
     lines += [
         "- Exact results test only an isolated action; simulation uncertainty brackets cover Monte Carlo error but not uncertainty about player tactics, encounter fiction, morale, or rule interpretation.",
         "- The Hope policy is deliberately finite and reproducible, but it is a stated heuristic rather than an optimal policy. For each flip it searches the cheapest legal split between improving the PC die and worsening the NPC die, never manufactures a natural 1/20, and avoids the unspecified two-sided counter-spending game. A player who spends more than two tokens or values later Hope tests differently can obtain different results.",
-        "- Advantage and Disadvantage are treated as non-stacking and cancel when both apply. The core explains each state but does not explicitly state stacking/cancellation.",
+        "- Advantage and Disadvantage do not stack; any source of each cancels to a plain roll, as the core's section 1.3 specifies.",
         "- Sampling a fair side-order coin is distributionally identical to the core's one-d20-per-side initiative with tied rolls rerolled. Within-side order remains fixed in the model and can advantage the first listed actor; scenario order is held constant for comparison.",
-        "- Twilight stances are held fixed for each simulated combat. Adaptive round-by-round stance choice, Companionship, morale or retreat, terrain, NPC hooks, and between-encounter attrition can change the objective trade-offs.",
+        "- Twilight stance preferences are fixed for each simulated combat, with a forced Steady fallback at the next round's declaration when Injury forbids Vanguard. The model does not optimise adaptive choices. Companionship, morale or retreat, terrain, NPC hooks, and between-encounter attrition can also change the objective trade-offs.",
         "- Exact coupled recursion validates the no-Hope/no-Injury duel only. Finite-Hope results use the stated heuristic rather than an exact dynamic programme over resource value.",
         "- `combat_results.csv` contains all exact distributions and scenario estimates for reanalysis.",
         "",

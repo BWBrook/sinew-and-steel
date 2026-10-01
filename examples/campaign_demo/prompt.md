@@ -294,7 +294,7 @@ Pressure is the fuse: it rises with risk, blunders, bargains, and time. The whol
 - If a crisis falls on one character, it falls on the one whose action tipped the track, unless the fiction points elsewhere.
 - If one action adds several points, add them together. Reaching or passing 5 causes one crisis, and the track resets to 0 with nothing carried over. If the skin’s own rule already triggers a crisis for that action, that is the same crisis, not a second one.
 - Penalties and extra costs from Pressure use its level at the start of the action. Pay each cost once, resolve the action, then resolve any crisis it caused. Separate costs for failing, and skin backlashes, still apply.
-- A skin's Pressure table lists an effect for each step, and the effects add up: everything at or below the current step applies while the track stays there. A one-test penalty, such as Disadvantage on your next test, fires once when the track first reaches or passes its step (a jump from 1 to 3 fires step 2's too), and fires again only after a crisis has reset the track.
+- A skin's Pressure table lists an effect for each step, and the effects add up: everything at or below the current step applies while the track stays there. A one-test penalty, such as Disadvantage on your next test, fires once when the track first reaches or passes its step (a jump from 1 to 3 fires step 2's too), and fires again only after a crisis has reset the track. If the track falls below that step, discard any unused penalty from it.
 - The Custodian awards a milestone every 3-4 perilous beats (dangerous scenes you come through). Each milestone brings:
   - +2 build points, spent as at creation (for example, +1 to a score or a new tag),
   - a narrative boon (ally, relic, favour, scar, access), and
@@ -409,7 +409,7 @@ Every skin runs the same 0-5 Pressure fuse. The whole party shares one track, un
 - If a crisis falls on one character, it falls on the one whose action tipped the track, unless the fiction points elsewhere.
 - Add up the points from one action. Reaching or passing 5 causes one crisis, then the track resets to 0 with nothing carried over. If a skin already triggers a crisis for that action, it is the same crisis.
 - Penalties and surcharges use the Pressure level at the start of the action. Charge each cost once and resolve the action, then its crisis. Paying a surcharge does not trigger another one, but separate failure costs and backlashes still apply.
-- Step effects add up: everything at or below the current step applies while the track stays there. A one-test penalty fires once when the track first reaches or passes its step, so a jump from 1 to 3 fires step 2's too, and it re-arms only after a crisis resets the track.
+- Step effects add up: everything at or below the current step applies while the track stays there. A one-test penalty fires once when the track first reaches or passes its step, so a jump from 1 to 3 fires step 2's too, and it re-arms only after a crisis resets the track. If the track falls below that step, discard any unused penalty from it.
 - Make every crisis a dramatic twist with real consequences, never a free way to clear the track. State what is at stake before you offer Pressure as a cost.
 
 ---
