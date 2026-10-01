@@ -12,7 +12,7 @@ skins:
     _gen:
       primary: MGT
       min_steps: 2
-      max_steps: 6
+      max_steps: 4
     attributes:
       MGT: Might
       FLT: Fleetness
@@ -28,7 +28,7 @@ skins:
     _gen:
       primary: BRN
       min_steps: 2
-      max_steps: 6
+      max_steps: 4
     attributes:
       BRN: Brawn
       AGI: Agility
@@ -44,7 +44,7 @@ skins:
     _gen:
       primary: PRW
       min_steps: 2
-      max_steps: 6
+      max_steps: 4
     attributes:
       PRW: Prowess
       REF: Reflex
@@ -60,7 +60,7 @@ skins:
     _gen:
       primary: LOR
       min_steps: 2
-      max_steps: 6
+      max_steps: 4
     attributes:
       HEW: Hew
       FLT: Fleet
@@ -76,7 +76,7 @@ skins:
     _gen:
       primary: ATK
       min_steps: 2
-      max_steps: 6
+      max_steps: 4
     attributes:
       ATK: Attack
       DEF: Defence
@@ -94,7 +94,7 @@ skins:
     _gen:
       primary: STR
       min_steps: 2
-      max_steps: 6
+      max_steps: 4
     attributes:
       STR: Strength
       DEX: Dexterity
@@ -110,7 +110,7 @@ skins:
     _gen:
       primary: MSC
       min_steps: 2
-      max_steps: 6
+      max_steps: 4
     attributes:
       MSC: Muscle
       REF: Reflex
@@ -126,7 +126,7 @@ skins:
     _gen:
       primary: SCH
       min_steps: 2
-      max_steps: 6
+      max_steps: 4
     attributes:
       VIG: Vigor
       AGI: Agility
@@ -142,7 +142,7 @@ skins:
     _gen:
       primary: EDU
       min_steps: 2
-      max_steps: 6
+      max_steps: 4
     attributes:
       STR: Strength
       DEX: Dexterity
@@ -158,7 +158,7 @@ skins:
     _gen:
       primary: HRT
       min_steps: 2
-      max_steps: 6
+      max_steps: 4
     attributes:
       STR: Strength
       NIM: Nimbleness

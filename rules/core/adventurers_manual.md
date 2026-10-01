@@ -103,7 +103,7 @@ Skins rename and reshape the attributes, but the core game assumes five broad do
 
 Raising a score has a price, and there are two ways to pay it. Both draw on the same ledger, so you can mix them freely.
 
-**A) Trade-offs (the “double-debit” ledger).** Every +1 above baseline is paid for by -2 in total below baseline on your other scores, Stamina included.
+**A) Trade-offs (the “double-debit” ledger).** Every +1 above baseline is paid for by -2 in total below baseline on your other scores, Stamina included. Lowering pays back at most 8 points in all, enough for +4; scores lowered further buy nothing. The cap keeps a new character from specialising too far, and milestones (section 8) take them further.
 
 **B) Build points (the tone dial).** Your starting budget (2.3) pays for raises directly:
 
@@ -126,7 +126,7 @@ At creation, the Custodian chooses a starting budget to set the tone:
 1. Pick a skin, or play the core with the default names. A skin names your five attributes, tells you which one is Luck, and names the party's Pressure track.
 2. Write the baseline: five attributes at 10, Stamina 5.
 3. Choose a signature strength and raise it.
-4. Pay for your choices. Spend build points on raises and tags, and cover any further raises by lowering other scores (-2 for each extra +1). Keep every score in range: attributes 6-16, Stamina 3-9.
+4. Pay for your choices. Spend build points on raises and tags, and cover any further raises by lowering other scores (-2 for each extra +1, and no more than 8 in all). Keep every score in range: attributes 6-16, Stamina 3-9.
 5. Fill your Luck pool: your starting tokens equal your Luck score.
 6. Choose 3-6 items of gear. Your skin lists weapons and armour.
 
@@ -298,7 +298,7 @@ Pressure is the fuse: it rises with risk, blunders, bargains, and time. The whol
 ![](../../assets/art/ss_pressure_fuse.png){.wrap-right width=2in}
 
 - When Pressure reaches 5, a crisis hits, then the track resets to 0.
-- If a crisis falls on one character, it falls on the one whose action tipped the track, unless the fiction points elsewhere.
+- If a crisis falls on one character, it falls on the one whose action tipped the track, unless the fiction points elsewhere. When no single action tipped it, as with a group check or a shared hazard, the Custodian names the character the fiction points to.
 - If one action adds several points, add them together. Reaching or passing 5 causes one crisis, and the track resets to 0 with nothing carried over. If the skin’s own rule already triggers a crisis for that action, that is the same crisis, not a second one.
 - Penalties and extra costs from Pressure use its level at the start of the action. Pay each cost once, resolve the action, then resolve any crisis it caused. Separate costs for failing, and skin backlashes, still apply.
 - A skin's Pressure table lists an effect for each step, and the effects add up: everything at or below the current step applies while the track stays there. A one-test penalty, such as Disadvantage on your next test, fires once when the track first reaches or passes its step (a jump from 1 to 3 fires step 2's too), and fires again only after a crisis has reset the track. If the track falls below that step, discard any unused penalty from it.

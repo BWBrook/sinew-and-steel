@@ -18,7 +18,7 @@ Roll under, count the margin, spend Luck to nudge close calls, and watch Pressur
   - Five attributes at 10 (range 6-16, for life).
   - Stamina 5 (range 3-9, for life).
   - Standard creation gives 6 build points (grim 0 / pulp 12 / heroic 16).
-    - +1 above baseline costs 2 build points (or lower other scores by 2 in total).
+    - +1 above baseline costs 2 build points (or lower other scores by 2; at most 8 in all).
     - +1 below baseline costs 1 build point (to climb back).
     - A tag (Advantage when one named niche squarely fits) costs 2 build points.
 
@@ -84,7 +84,7 @@ The core book’s ten skins:
 5. Give 2-4 options when players hesitate, including at least one trade-off that needs no roll.
 6. Offer a Luck nudge when a roll just misses and the cost would be interesting.
 7. Advance Pressure for big blunders, dark bargains, noisy heroics, or time passing.
-8. Award a milestone every 3-4 perilous beats: +2 build points and a narrative boon.
+8. Award a milestone every 3-4 perilous beats (dangerous scenes): +2 build points and a boon.
 9. If play stalls, advance Pressure, change the weather, introduce a hard bargain, or reveal a threat.
 
 ---

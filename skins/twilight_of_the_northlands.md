@@ -76,7 +76,7 @@ Track the pool like a clock, as current/max.
 
 Knacks are tags (Adventurer's Manual 2.6) with a cost per use; every PC gets one free at creation.
 
-Each entry states its whole use cost. Costs are personal and cannot be paid from Companionship.
+Each entry states its whole use cost: Hope comes from your own pool, Dread lands on the company's track, and neither can be paid from Companionship.
 
 | Culture | Knack | Cost | Effect |
 |---|---|---|--------|
@@ -119,7 +119,7 @@ Fatigue measures road-wear: wet boots, empty bellies, and too many miles under a
 
 For each travel leg longer than a day, the Lorekeeper states the main danger before roles are assigned. A normal leg calls for one matching test: STR (rugged climb), NIM (river ford), WIS (navigation among ruins), or HRT (lead weary companions). A perilous leg may call for up to three tests only when it presents separate, clearly stated dangers.
 
-- **Failure:** mark +1 Fatigue for the character who failed, or for everyone if the whole party blundered.
+- **Failure:** mark +1 Fatigue for the character who failed, or for everyone if the whole party blundered. A failed role test (see Travel roles in the Lorekeeper's Chronicle) takes the role's own failure instead.
 - **At Fatigue 3+:** each risky test during the travel costs 1 Hope token (spent before rolling), or marks +1 Fatigue.
 - **At Fatigue 5:** you are spent. You cannot take another travel leg until you rest in true comfort, and the Lorekeeper makes a hard travel move (separation, injury, pursuit, lost time).
 
@@ -240,7 +240,7 @@ After a completed adventure, each PC picks one undertaking:
 
 | Undertaking | Effect |
 |--|-----|
-| **Healing Rest** | Clear all Fatigue and recover 1 Hope token |
+| **Healing Rest** | Clear all Fatigue and any Injury, and recover 1 Hope token |
 | **Research Lore** | Ask the Lorekeeper one lore question; if it touches the Dread, mark +1 Dread |
 | **Craft / Repair** | For the next adventure, one weapon or tool gains +1 edge (does not stack; edge caps at +2) |
 | **Strengthen Bonds** | Restore 1 Companionship token (up to the starting maximum) |

@@ -77,13 +77,20 @@ Every skin runs the same 0-5 Pressure fuse. The whole party shares one track, un
 
 **Running the fuse**
 
-- If a crisis falls on one character, it falls on the one whose action tipped the track, unless the fiction points elsewhere.
+- If a crisis falls on one character, it falls on the one whose action tipped the track, unless the fiction points elsewhere. When no single action tipped it, as with a group check or a shared hazard, the Custodian names the character the fiction points to.
 - Add up the points from one action. Reaching or passing 5 causes one crisis, then the track resets to 0 with nothing carried over. If a skin already triggers a crisis for that action, it is the same crisis.
 - Penalties and surcharges use the Pressure level at the start of the action. Charge each cost once and resolve the action, then its crisis. Paying a surcharge does not trigger another one, but separate failure costs and backlashes still apply.
 - Step effects add up: everything at or below the current step applies while the track stays there. A one-test penalty fires once when the track first reaches or passes its step, so a jump from 1 to 3 fires step 2's too, and it re-arms only after a crisis resets the track. If the track falls below that step, discard any unused penalty from it.
+- A bigger party fills the fuse faster, because more characters take risks and pay costs. If crises come too often for your table, charge shared hazards (time, weather, noise) once per beat for the whole party rather than once per character, or purge more generously. You set the pace; the numbers only describe it.
 - Make every crisis a dramatic twist with real consequences, never a free way to clear the track. State what is at stake before you offer Pressure as a cost.
 
 ---
+
+**Example (a shared fuse, using Free Traders' Strain table):**
+
+> Strain stands at 1 when a failed jump adds 2. Passing step 2 fires its penalty: every crew member's next EDU or SOC test has Disadvantage, and from now on each risky test also pays the step-3 toll. Mara uses her penalty at once on a SOC test; she had Advantage, so the two cancel, but the penalty is still spent. Before Holo uses his, shore leave lowers Strain to 1, and his is discarded. If Strain climbs back to 3, the toll returns, but step 2 does not fire again until a crisis resets the track.
+>
+> Later, the whole crew must keep its nerve under fire, and two of them fail: mark 1 Strain for the group, which tips the track to 5. No single action tipped it, so the Guildmaster names the first to fail as the crisis target. The crisis's own effects last as long as they say, even though the track resets to 0, and any Pressure the crisis itself would add is wiped by that reset.
 
 **Example (Pressure as a lever):**
 
@@ -188,7 +195,7 @@ See the AI for Solo Play chapters for more on AI Custodian play and the agent ha
 
 ### A. Why five numbers?
 
-Five broad attributes cover almost any action without a skill list, and the d20 turns each point into a clear 5% step. The build economy is tight enough to stop power creep, yet a determined player can still build a 16.
+Five broad attributes cover almost any action without a skill list, and the d20 turns each point into a clear 5% step on an ordinary roll. The build economy keeps power creep in check: the refund cap limits how far a new character can specialise, yet from the standard budget up a determined player can still start with a 16.
 
 ### B. Burning Luck: when it matters
 
@@ -200,12 +207,12 @@ Five broad attributes cover almost any action without a skill list, and the d20 
 
 ### C. Sample builds (baseline 10/5)
 
-Each costs exactly 6 build points, with trade-offs wherever a score drops below baseline. Bold marks the signature scores.
+Each costs exactly 6 build points, with trade-offs wherever a score drops below baseline (never more than the 8-point refund cap). Bold marks the signature scores.
 
 | Concept | MGT | REF | INT | EMP | LCK | STM |
 | ----- | --- | --- | --- | --- | --- | --- |
 | Scholar       | 7      | 10  | **14** | 10     | **11** | 4   |
-| Iron Brute    | **15** | 7   | 6      | 7      | 10  | **8** |
+| Iron Brute    | **15** | 7   | 6      | 9      | 10  | **7** |
 | Silver-tongue | 8      | 10  | **11** | **13** | 10  | 5   |
 
 ---
@@ -222,7 +229,7 @@ In an opposed test, ties and double failures go to the defender, so at equal sco
 
 The starting budget (Adventurer’s Manual 2.3) sets the tone: 0 for grim survival, 6 for standard play (the default), 12 for pulp competence, 16 for heroic flair, or any number that suits your table. At 0, every strength is paid for with a weakness, and any tag beyond a skin’s free grant is earned at a milestone.
 
-Build points let heroes raise a signature strength or shore up a weakness without lowering their other scores. The 16 ceiling still binds, so a heroic budget buys breadth, not a taller spike.
+Build points let heroes raise a signature strength or shore up a weakness without lowering their other scores. Lowering pays back at most 8 points (Adventurer’s Manual 2.2), so the budget also limits how far a character can specialise: at 0 no attribute starts above 14. At the top end the 16 ceiling binds, so a heroic budget buys breadth, not a taller spike.
 
 ### B. Pressure colour suggestions
 
@@ -301,7 +308,7 @@ Advantage on attack is the stronger lever. It raises the chance to hit and, by k
 ### G. Conversion pointers
 
 - **d100 games:** divide the skill by 5 for an approximate attribute.
-- **2d6+stat games:** use 10 + stat as the attribute (a +2 becomes 12).
+- **2d6+stat games:** as a rough character translation, use 10 + stat as the attribute (a +2 becomes 12). It is not a probability match.
 - **Old-school AC:** halve the armour’s bonus to AC over no armour, round down, and use that as soak, to a maximum of 3 (leather 1, plate 3).
 
 ---

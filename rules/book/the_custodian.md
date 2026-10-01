@@ -39,12 +39,14 @@ When you do call for a roll, one roll should settle the moment. Avoid a ladder o
 
 S&S leaves the consequence of failure to the fiction. A fixed sequence of penalties soon becomes predictable, and predictable failure loses its tension.
 
-Common consequences: Pressure rises, time passes or position worsens, resources drain, harm lands, threats escalate, a clock ticks, or the scene changes. Pick the one that best fits the fiction and the moment.
+Common consequences: Pressure rises, time passes or position worsens, resources drain, harm lands, threats escalate, a clock ticks, or the scene changes. Pick the one that best fits the fiction and the moment, and pick it before the roll, as part of the stakes you state.
 
 When several fit, make the choice openly and fairly:
 
-- offer two plausible consequences and pick one in the open (a d6 is fine), or
+- name two plausible consequences, and if the roll fails, let a d6 pick between them, or
 - ask the table which fits the scene best.
+
+When the failure lands, add detail, not new costs.
 
 ## Keep prep light
 

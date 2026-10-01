@@ -25,7 +25,7 @@ If you want your custom work to still feel like Sinew & Steel, keep these intact
 
 - Resolution stays d20 roll-under, and margin matters.
 - The chassis is still five attributes (Luck doubling as a token pool), Stamina, and Pressure (0-5).
-- Character creation uses the core ledger: the same baselines, ranges, build-point prices, and 2-point tag. A skin picks the starting budget and any free grants.
+- Character creation uses the core ledger: the same baselines, ranges, build-point prices, 8-point refund cap, and 2-point tag. A skin picks the starting budget and any free grants.
 - Pressure is a short fuse: when it reaches 5, a crisis hits, then the track resets to 0.
 - Advantage and Disadvantage remain the main way fictional positioning changes the odds; additive modifiers stay exceptional.
 - Reach for the existing d20 tools before adding another dice type.

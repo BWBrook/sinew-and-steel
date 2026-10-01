@@ -132,6 +132,7 @@ def validate_double_debit_mixed(
 
 
 TAG_COST = 2
+REFUND_CAP = 8
 
 
 def tag_cost(tags: Any) -> int:
@@ -149,6 +150,7 @@ def build_points_needed_mixed(
     - Raising a score above baseline costs 2 build points per +1.
     - Raising a score from below baseline toward baseline costs 1 build point per +1.
       (This matches the rules text: 2 build points = +1 above baseline OR +2 below baseline.)
+    - Lowering scores below baseline refunds at most REFUND_CAP (8) points in total.
 
     Returns:
       needed, increases, decreases, required_decreases, slack
@@ -157,13 +159,13 @@ def build_points_needed_mixed(
       increases = total points above baseline (sum of deltas > 0)
       decreases = total points below baseline (sum of deltas < 0, absolute)
       required_decreases = 2 * increases
-      needed = max(0, required_decreases - decreases)
+      needed = max(0, required_decreases - min(decreases, REFUND_CAP))
       slack = decreases - required_decreases
 
     With build point budget B, the legal condition is: needed <= B.
     """
     increases, decreases, required_decreases, slack = validate_double_debit_mixed(values, baselines)
-    needed = max(0, required_decreases - decreases)
+    needed = max(0, required_decreases - min(decreases, REFUND_CAP))
     return needed, increases, decreases, required_decreases, slack
 
 

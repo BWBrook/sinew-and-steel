@@ -59,6 +59,22 @@ class HarnessTests(unittest.TestCase):
         two_tags = _characters.build_sheet(**kwargs, build_points_used=8, tags=["Megafauna tracker", "Steady hands"])
         self.assertFalse(validate_sheet.validate_sheet(two_tags, manifest).ok())
 
+    def test_refund_cap_limits_trade_offs(self):
+        baselines = {"A": 10, "B": 10, "C": 10, "D": 10, "E": 10, "STM": 5}
+        extreme = {"A": 16, "B": 6, "C": 6, "D": 6, "E": 8, "STM": 9}
+        needed, *_ = _sslib.build_points_needed_mixed(extreme, baselines)
+        self.assertEqual(needed, 12)
+        at_cap = {"A": 14, "B": 8, "C": 8, "D": 8, "E": 8, "STM": 5}
+        needed, *_ = _sslib.build_points_needed_mixed(at_cap, baselines)
+        self.assertEqual(needed, 0)
+        command = [
+            sys.executable, str(ROOT / "tools" / "gen_character.py"),
+            "--skin", "clanfire", "--name", "Too Far", "--steps", "5", "--dry-run", "--json",
+        ]
+        result = subprocess.run(command, capture_output=True, text=True, cwd=ROOT)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("refund cap", result.stderr)
+
     def test_generated_character_with_tag_stays_on_budget(self):
         command = [
             sys.executable, str(ROOT / "tools" / "gen_character.py"),

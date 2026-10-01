@@ -112,7 +112,7 @@ Keep clocks visible if you want the table to feel danger tightening. Keep them h
 - **Defend:** Fleetness 10 (dodge / weave).
 - **Stamina:** 4.
 - **Soak:** 0.
-- **Hook:** if the wolf wins an opposed roll with a margin of 4 or more, it drags the target a few metres toward darkness.
+- **Hook:** if the wolf wins an attack with a margin of 4 or more, it also drags the target a few metres toward darkness.
 
 If you want it tougher, make it Elite 12 with Stamina 5.
 
@@ -122,7 +122,7 @@ The wolf wants food and advantage. It circles for isolated prey and retreats fro
 
 ## Teaching exchange: drive it off
 
-Use this if the table wants to see the combat engine in motion. Each side rolls a d20 for initiative at the start of the fight. The hunters roll higher, so Grak and Tarra act before the wolf every round.
+Use this if the table wants to see the combat engine in motion. Each side rolls a d20 for initiative at the start of the fight. The hunters roll higher, so Grak and Tarra act before the wolf every round. Each able combatant acts once per round, and defending is a reaction that uses no action: the wolf can dodge both hunters and still take its own turn.
 
 ### Grak lunges
 
@@ -152,7 +152,7 @@ Example:
 
 Both succeed, but Tarra has the higher margin, so the agreed consequence applies instead of damage: the wolf breaks and flees, yelping, before its turn comes. If Tarra rolled a natural 1, the pack stays away this night.
 
-If the wolf wins instead, with a higher margin, a tie, or both rolls failing (ties and double failures go to the defender), let it bite, steal meat, or drag someone toward the dark. Then tick Hunger, mark +1 Shadow, or worsen position.
+If the wolf wins instead, with a higher margin, a tie, or both rolls failing (ties and double failures go to the defender), it holds its ground. The loss gives it no extra action: on its turn, it lunges at Tarra (a normal attack) or snatches the meat (tick Hunger). If her chant called on the spirits, the failure also marks +1 Shadow, as a failed risky rite does.
 
 ---
 
@@ -160,9 +160,11 @@ If the wolf wins instead, with a higher margin, a tie, or both rolls failing (ti
 
 End when the immediate danger has changed form. The clan may have meat, the wolf may be bleeding, the storm may be rising, or a stranger's track may point into the dark.
 
-Close on one clear question:
+Close on one clear question. If play has not answered it yet, use the scenario's own:
 
 > What is making the birch-line wrong?
+
+If the players have already earned that truth, close instead on the next question their actions raised.
 
 Offer next-session paths:
 

@@ -98,8 +98,8 @@ Record only what matters for continuity:
 - which NPCs now matter,
 - what sign points toward the next session.
 
-Then close on the question the scenario is built to leave behind:
+Then close on the question the scenario is built to leave behind, unless play has already answered it:
 
 > What is making the birch-line wrong?
 
-When the table starts itching to answer it, end the session and bring the question back next time.
+When the table starts itching to answer it, end the session and bring the question back next time. If they have earned the answer, close on the question their actions created instead.

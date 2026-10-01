@@ -16,7 +16,7 @@ S&S plays best when the action feels like it is happening in real time. Help kee
 
 - Be ready to act when the spotlight lands on you.
 - Choose an approach quickly, even if it isn’t perfect.
-- If you hesitate, treat it as real in the fiction: time passes, attention shifts, danger closes.
+- Asking questions and thinking aloud are fine. If you stall in the fiction, though, treat it as real: time passes, attention shifts, danger closes.
 
 ## Declare intent, method, risk
 
@@ -51,7 +51,7 @@ If there is disagreement, the Custodian decides, briefly and calmly. A tense bea
 
 ## Some actions resolve in the fiction
 
-You can earn roll-free outcomes by removing uncertainty: good prep, useful tools, strong positioning, clever plans, or an approach that makes success plainly plausible.
+You can earn roll-free outcomes by removing the uncertainty: good prep, useful tools, strong positioning, or a clever plan that leaves no real chance of failure. And when failure would cost nothing interesting, there is nothing to roll for.
 
 ## Spend Luck like a storyteller
 

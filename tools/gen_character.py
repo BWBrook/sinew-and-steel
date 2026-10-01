@@ -176,6 +176,9 @@ def spend_build_points(
 
 
 def sample_stats(keys, steps: int | None, min_steps: int, max_steps: int, primary: str | None) -> dict:
+    step_limit = _sslib.REFUND_CAP // 2
+    if (steps if steps is not None else max_steps) > step_limit:
+        raise ValueError(f"more than {step_limit} double-debit steps would exceed the {_sslib.REFUND_CAP}-point refund cap")
     if steps is None:
         if min_steps < 0 or max_steps < min_steps:
             raise ValueError("Invalid min/max steps")
@@ -206,7 +209,7 @@ def build_sheet(skin_entry: dict, name: str, player: str, tags: list[str] | None
         keys,
         steps=gen.get("steps"),
         min_steps=int(gen.get("min_steps", 2)),
-        max_steps=int(gen.get("max_steps", 6)),
+        max_steps=int(gen.get("max_steps", 4)),
         primary=gen.get("primary"),
     )
 
@@ -284,7 +287,7 @@ def main() -> int:
     parser.add_argument("--seed", type=int, help="Random seed")
     parser.add_argument("--steps", type=int, help="Number of double-debit steps to apply")
     parser.add_argument("--min-steps", type=int, help="Min steps when --steps not provided (default: skin _gen or 2)")
-    parser.add_argument("--max-steps", type=int, help="Max steps when --steps not provided (default: skin _gen or 6)")
+    parser.add_argument("--max-steps", type=int, help="Max steps when --steps not provided (default: skin _gen or 4; at most 4 under the refund cap)")
     parser.add_argument("--primary", help="Bias stat increases toward this stat key (default: skin _gen)")
     parser.add_argument(
         "--tag",
@@ -355,7 +358,7 @@ def main() -> int:
     gen_defaults = skin_entry.get("_gen", {}) if isinstance(skin_entry.get("_gen"), dict) else {}
     steps = args.steps if args.steps is not None else gen_defaults.get("steps")
     min_steps = args.min_steps if args.min_steps is not None else int(gen_defaults.get("min_steps", 2))
-    max_steps = args.max_steps if args.max_steps is not None else int(gen_defaults.get("max_steps", 6))
+    max_steps = args.max_steps if args.max_steps is not None else int(gen_defaults.get("max_steps", 4))
     primary = args.primary if args.primary else gen_defaults.get("primary")
 
     try:

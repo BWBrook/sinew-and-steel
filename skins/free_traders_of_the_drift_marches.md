@@ -219,7 +219,7 @@ Each round:
 1. Both pilots test DEX. The winner grants their gunner Advantage on the next attack test this round.
 2. Gunner tests DEX (attack) against the defending pilot's DEX (defence).
 3. On a hit, tick Hull Damage as for any hit: **1 + turret edge + 1 per full 5 points of margin - screens soak**, minimum 1.
-4. At Hull Damage 6, the drive is disabled: drift, board, or boom, as the fiction dictates.
+4. When a ship's Hull Damage clock fills, its drive is disabled: drift, board, or boom, as the fiction dictates.
 
 Missiles (optional): one salvo per rack. The defender tests EDU to jam; on a failed jam, the missile hits with edge +2 and no margin bonus, ticking Hull Damage by 3 minus screens soak (minimum 1).
 
