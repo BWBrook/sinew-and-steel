@@ -1,138 +1,96 @@
 #!/usr/bin/env python3
+"""Verify the creation/advancement ledger and refresh derived pool metadata."""
 import argparse
+from contextlib import nullcontext
+import json
 from pathlib import Path
 import sys
 import yaml
 
+import _characters
 import _sslib
+import _runtime
+from advance import campaign_sheet_target
+import validate_sheet
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Recompute creation.build_points_used from a sheet.")
+    parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--file", help="Character sheet YAML file")
     parser.add_argument("--campaign", help="Campaign slug under campaigns/")
     parser.add_argument("--character", help="Character slug or filename under campaign state")
-    parser.add_argument("--stdout", action="store_true", help="Print to stdout instead of writing")
-    parser.add_argument("--dry-run", action="store_true", help="Compute output but do not write files")
+    parser.add_argument("--stdout", action="store_true", help="Print the resulting sheet without writing")
+    parser.add_argument("--dry-run", action="store_true", help="Validate and preview without writing")
     parser.add_argument("--json", action="store_true", help="Output JSON summary")
-
+    parser.add_argument("--adopt-creation", action="store_true",
+                        help="Explicitly assert a schema-1 sheet has never advanced; record it as creation (all existing tags bought)")
     args = parser.parse_args()
-
     root = _sslib.repo_root()
-    if args.file:
-        path = Path(args.file)
-        if not path.is_absolute():
-            path = root / path
-    elif args.campaign:
-        chars_dir = _sslib.campaign_characters_dir(args.campaign, root=root)
-        try:
-            path = _sslib.resolve_character_file(chars_dir, args.character)
-        except FileNotFoundError as exc:
-            print(f"error: {exc}", file=sys.stderr)
-            return 1
-    else:
-        print("error: provide --file or --campaign", file=sys.stderr)
-        return 1
-
-    if not path.exists():
-        print(f"error: file not found: {path}", file=sys.stderr)
-        return 1
-
-    data = yaml.safe_load(path.read_text(encoding="utf-8"))
-    if data is None:
-        data = {}
-
-    attrs = data.get("attributes")
-    if not isinstance(attrs, dict) or not attrs:
-        print("error: sheet missing attributes", file=sys.stderr)
-        return 1
-
-    pools = data.get("pools")
-    if not isinstance(pools, dict):
-        print("error: sheet missing pools", file=sys.stderr)
-        return 1
-
-    stamina = pools.get("stamina")
-    if not isinstance(stamina, dict):
-        print("error: sheet missing pools.stamina", file=sys.stderr)
-        return 1
-
-    stamina_value = stamina.get("max")
-    if not isinstance(stamina_value, int):
-        stamina_value = stamina.get("current")
-    if not isinstance(stamina_value, int):
-        print("error: pools.stamina.max or current is not an int", file=sys.stderr)
-        return 1
-
-    values = {k: int(v) for k, v in attrs.items()}
-    values["STM"] = int(stamina_value)
-    baselines = {k: 10 for k in attrs.keys()}
-    baselines["STM"] = 5
-
     try:
-        needed, increases, decreases, required_decreases, slack = _sslib.build_points_needed_mixed(values, baselines)
-    except Exception as exc:
-        print(f"error: failed to compute build points: {exc}", file=sys.stderr)
-        return 1
-
-    tags = data.get("tags") or []
-    if not isinstance(tags, list):
-        print("error: tags must be a list", file=sys.stderr)
-        return 1
-    needed += _sslib.tag_cost(tags)
-
-    creation = data.get("creation")
-    if not isinstance(creation, dict):
-        creation = {}
-        data["creation"] = creation
-    creation["build_points_used"] = int(needed)
-
-    budget = creation.get("build_points_budget")
-    if isinstance(budget, int) and needed > budget:
-        print(
-            f"warning: build points exceed budget (needed={needed} budget={budget})",
-            file=sys.stderr,
-        )
-
-    output = yaml.safe_dump(data, sort_keys=False)
-    payload = {
-        "ok": True,
-        "file": str(path),
-        "build_points_used": int(needed),
-        "budget": budget if isinstance(budget, int) else None,
-        "details": {
-            "increases": int(increases),
-            "decreases": int(decreases),
-            "required_decreases": int(required_decreases),
-            "slack": int(slack),
-            "tags": len(tags),
-        },
-        "dry_run": bool(args.dry_run),
-    }
-
-    if args.dry_run:
-        if args.json:
-            import json
-
-            print(json.dumps(payload, indent=2))
+        if args.file and args.campaign:
+            raise ValueError("provide --file or --campaign, not both")
+        if args.file:
+            path = Path(args.file)
+            if not path.is_absolute():
+                path = root / path
+        elif args.campaign:
+            path = _sslib.resolve_character_file(_sslib.campaign_characters_dir(args.campaign, root=root), args.character)
         else:
-            print(output)
-        return 0
-
-    if not args.stdout:
-        path.write_text(output, encoding="utf-8")
-
+            raise ValueError("provide --file or --campaign")
+        campaign_target = campaign_sheet_target(path)
+        directory = _sslib.campaign_dir(args.campaign, root=root).resolve() if args.campaign else None
+        if directory:
+            if not campaign_target or campaign_target[0] != directory:
+                raise ValueError("selected sheet is outside this campaign; use its own --campaign or --file")
+        elif campaign_target:
+            directory, filename = campaign_target
+            path = directory / "state/characters" / filename
+        lock = (_runtime.campaign_lock(directory, dry_run=args.dry_run or args.stdout)
+                if directory else nullcontext())
+        with lock:
+            data = _sslib.load_yaml(path)
+            manifest = _sslib.load_manifest(root)
+            skin = manifest["skins"].get(data.get("skin"))
+            if not skin:
+                raise ValueError("unknown or missing sheet skin")
+            if data.get("schema_version") == 1:
+                if not args.adopt_creation:
+                    raise ValueError("legacy advancement history is ambiguous; use --adopt-creation only if this sheet has never advanced, otherwise reconstruct its real history manually")
+                data = _characters.adopt_legacy_creation(data, skin)
+            elif args.adopt_creation:
+                raise ValueError("creation snapshot already exists; it cannot be adopted or repriced again")
+            summary = _characters.replay_advancement(data, skin)
+            # Refresh derived metadata only. Preserve the snapshot, creation spend,
+            # every advancement entry, and all current pool values.
+            luck = data["pools"]["luck"]
+            luck["max"] = data["attributes"][skin["luck_key"]]
+            luck["name"] = skin.get("luck_name", skin["luck_key"])
+            validation = validate_sheet.validate_sheet(data, manifest)
+            if not validation.ok():
+                raise ValueError("; ".join(validation.errors))
+            payload = {
+                "ok": True, "file": str(path), "build_points_used": summary["creation_points_used"],
+                "budget": data["creation"]["build_points_budget"], "details": summary,
+                "dry_run": args.dry_run, "adopted_creation": args.adopt_creation,
+            }
+            if not args.dry_run and not args.stdout:
+                output = yaml.safe_dump(data, sort_keys=False)
+                if directory:
+                    _runtime.commit_files(directory / "state", {path: output})
+                else:
+                    _runtime.atomic_text(path, output)
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        if args.json:
+            print(json.dumps({"ok": False, "error": str(exc)}))
+        else:
+            print(f"error: {exc}", file=sys.stderr)
+        return 1
     if args.json:
-        import json
-
         print(json.dumps(payload, indent=2))
-        return 0
-
-    if args.stdout:
-        print(output)
+    elif args.stdout or args.dry_run:
+        print(yaml.safe_dump(data, sort_keys=False))
     else:
-        print(f"updated {path}")
-
+        print(f"verified {path}: {summary['points_available']} build point(s) available")
     return 0
 
 

@@ -1,66 +1,59 @@
 ---
 name: character-build
-description: Build character sheets with point-buy validation or random generation.
+description: Create legal sheets and record milestone advancement without repricing creation.
 ---
 
 # Character Build
 
-## Goal
-Create a legal character sheet for a chosen skin, either random or point-buy.
+Start with five attributes at 10 and Stamina (`STM`) at 5. Attributes remain
+6–16 and Stamina 3–9 for the character's life. Lowering scores funds raises, with
+an 8-point refund cap across attributes and Stamina together. A +1 costs 1 point
+while below baseline and 2 at or above it.
 
-## Random generation
-```bash
-uv run python tools/gen_character.py --skin <skin> --name "Name" --out state/characters/name.yaml
-```
-
-## Point-buy build (manual)
-Provide scores explicitly (attributes 6–16; `STM` 3–9) following the **build points** economy.
-
-Baselines:
-- Attributes baseline at **10**.
-- Stamina baseline at **5** (treat as `STM`).
-
-Costs:
-- **+1 above baseline costs 2 build points.**
-- **+1 below baseline costs 1 build point** (so **2 build points** can restore **+2** below baseline).
-
-A **tag** (a named niche; Advantage when the fiction squarely fits) costs **2 build points**. Add one with `--tag "Megafauna tracker"`.
-
-Default starting budget is **6 build points** (“standard”), but you can run:
-- `--tone grim` (0), `--tone standard` (6), `--tone pulp` (12), `--tone heroic` (16)
-- or `--build-points N` for an explicit budget.
+Budgets are `--tone grim` (0), `standard` (6), `pulp` (12), or `heroic` (16), or
+`--build-points N`. Campaign mode reads the campaign's budget.
 
 ```bash
-uv run python tools/char_builder.py --skin service_duct_blues --name "Name" \
-  --set MSC=12 --set REF=8 --set SYS=8 --set HAR=10 --set RES=10
+uv run python tools/char_builder.py --campaign ice_hunt --name Grak \
+  --set MGT=12 --set SPR=8 --set INS=8 --set STM=7 --tag "Megafauna tracker" --dry-run --json
 ```
 
-Example that trades Stamina down to pay for a spike:
+The example spends exactly 6 points. Remove `--dry-run` to add the character.
+`--set KEY=N` assigns scores; `--delta KEY=N` adjusts the baseline before those
+assignments. `--strict` disallows voluntary extra weaknesses. Use `--skin` and
+`--out FILE` for a standalone sheet.
+
+## Bought tags and grants
+
+Bought tags cost 2 points each and use `--tag NAME`. Spare lowering refunds never
+buy tags, so the grim budget cannot buy one. A skin's free tags use
+`--free-tag knack=NAME` or `--free-tag expertise=NAME` and are recorded separately.
+Candlelight and Free Traders grant one of each; Whispers and Twilight grant one
+Knack. Further tags cost 2. Agree their scope from the skin and fiction.
+Rust & Domes' M-field sensitive is a bought 2-point tag, with no extra attribute or
+invented score prerequisite.
+
+## Advancement
 
 ```bash
-uv run python tools/char_builder.py --skin service_duct_blues --name "Name" \
-  --set MSC=10 --set REF=10 --set SYS=14 --set HAR=10 --set RES=7 --set STM=3
+uv run python tools/advance.py --campaign ice_hunt --character grak \
+  --event-id ridge-milestone award --id ridge --boon "A sheltered camp"
+uv run python tools/advance.py --campaign ice_hunt --character grak raise --stat MGT
+uv run python tools/advance.py --campaign ice_hunt --character grak show --json
 ```
 
-Example using a heroic budget to raise the floor while still specializing:
+Each milestone awards 2 points and refills Luck. `raise --stat KEY --steps N`
+records each +1 and its actual price; `tag --name NAME` buys a tag. Add
+`--dry-run --json` to preview any purchase. Unspent points carry over. Increasing
+a pool maximum leaves current tokens/health unchanged.
 
-```bash
-uv run python tools/char_builder.py --skin service_duct_blues --tone heroic --name "Name" \
-  --set MSC=13 --set REF=10 --set SYS=10 --set HAR=10 --set RES=10 --set STM=6
-```
+Schema-2 sheets preserve `creation.snapshot` and `creation.build_points_used`.
+`advancement.entries` records awards and purchases; validation replays them and
+checks the current sheet. A capped creation refund can leave the current creation
+price unchanged after a raise: the advancement point is still spent.
 
-Use campaign mode to write directly into campaigns/<slug>/state/characters/:
-
-```bash
-uv run python tools/char_builder.py --campaign <slug> --name "Name" --set STAT1=12 --set STAT2=10 --set STAT3=8 --set STAT4=9 --set STAT5=11
-```
-
-## Notes
-- The builder enforces the Sinew & Steel creation rules:
-  - Ranges: attributes 6–16, `STM` 3–9.
-  - Build points budget (default 6, or campaign.yaml `build_points_budget` in campaign mode).
-- Stamina participates in the same economy, but uses a baseline of **5**.
-- Tags cost 2 build points each and live under `tags:` on the sheet; `validate_sheet.py` and `recalc_sheet.py` count them.
-- Use `--strict` to disallow extra decreases (voluntary weakness below baseline).
-- Use `--delta STAT=+2` to adjust from baseline (10 for attributes; 5 for `STM`), then `--set` to override.
-- If you edit a sheet by hand, run `uv run python tools/recalc_sheet.py --file <sheet.yaml>` to refresh `creation.build_points_used`.
+Use `validate_sheet.py` to check the result. `recalc_sheet.py` refreshes derived
+pool metadata while preserving the snapshot and every purchase; it does not
+repair a hand-edited score by erasing its spending history. Legacy adoption
+requires `--adopt-creation`, asserting that the character has never advanced and
+all existing tags were bought. Ambiguous histories need manual reconstruction.

@@ -1,14 +1,30 @@
-# Template only: replace stat_1..stat_4 and luck with skin-specific keys before validation.
+# Template only: replace stat_1..stat_4 and luck in BOTH attribute maps.
 # Prefer tools/char_builder.py or tools/gen_character.py for skin-aware sheets.
-schema_version: 1
+schema_version: 2
 name: ""
 skin: ""
 player: ""
 created: ""
 
+# Fixed creation record: never reprice it from an advanced character's scores.
 creation:
   build_points_budget: 6
   build_points_used: 0
+  snapshot:
+    attributes:
+      stat_1: 10
+      stat_2: 10
+      stat_3: 10
+      stat_4: 10
+      luck: 10
+    stamina: 5
+    bought_tags: []
+    # Each free skin grant is {name: "...", grant: knack} (or expertise).
+    free_tags: []
+
+# Use tools/advance.py to award milestones or record itemized purchases.
+advancement:
+  entries: []
 
 attributes:
   stat_1: 10
@@ -30,6 +46,6 @@ inventory:
   big_items: []
   small_items: []
 
+# All active tags, including creation grants and recorded purchases.
 tags: []
-
 notes: []

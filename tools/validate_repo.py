@@ -4,11 +4,15 @@ from pathlib import Path
 import sys
 import yaml
 
+from validate_examples import validate_samples
+
 ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED_PLACEHOLDERS = [
-    "{{CORE_RULES_ADVENTURERS}}",
-    "{{CORE_RULES_CUSTODIANS}}",
+    "{{CORE_RULES}}",
+    "{{RULES_SECTIONS}}",
+    "{{PUBLIC_STATE}}",
+    "{{PRIVATE_STATE}}",
     "{{SKIN_TEXT}}",
     "{{HIDDEN_SCENARIO}}",
 ]
@@ -65,6 +69,8 @@ def collect_errors() -> list[str]:
         errors.append(f"skin not in manifest: {slug}")
     for slug in sorted(missing_on_disk):
         errors.append(f"skin missing on disk: {slug}")
+
+    errors.extend(validate_samples(manifest, ROOT).errors)
 
     # Check prompt template placeholders
     prompts = manifest.get("prompts", {})

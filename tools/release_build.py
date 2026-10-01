@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 import argparse
 from datetime import datetime, timezone
+import html
 from pathlib import Path
+import re
+import shutil
 import subprocess
 import sys
+import unicodedata
 import yaml
 
 from _pdf_common import (
@@ -25,6 +29,104 @@ from _release_content import (
 ROOT = Path(__file__).resolve().parents[1]
 AUTHOR = "Barry W. Brook"
 KEYWORDS = "tabletop role-playing game, RPG, roll-under d20, genre skins, AI game master, solo play"
+
+
+def _page_words(text: str) -> str:
+    """Compare headings through harmless PDF whitespace and ligature changes."""
+    text = html.unescape(re.sub(r"<[^>]+>", " ", text))
+    text = unicodedata.normalize("NFKC", text).replace("\u00ad", "")
+    return " ".join(re.findall(r"\w+", text.casefold()))
+
+
+def check_quickstart_pages(
+    pages: list[str],
+    quickstart_source: str,
+    *,
+    chapter_title: str | None = None,
+    next_chapter_title: str | None = None,
+) -> dict:
+    """Enforce the two-page contract on text extracted from an actual PDF.
+
+    Source headings and the final source line are anchors, rather than a copy
+    of the current prose. Full-book chapter titles come from its bundle, so a
+    table-of-contents mention cannot stand in for the chapter's actual page.
+    """
+    full_book = chapter_title is not None
+    start, end = (6, 7) if full_book else (1, 2)
+    if not full_book and len(pages) != 2:
+        raise ValueError(f"standalone Quickstart must occupy exactly 2 pages; got {len(pages)}")
+    if len(pages) < end + int(full_book):
+        raise ValueError("PDF ends before the required Quickstart boundaries")
+
+    headings = re.findall(r"^#{1,2}\s+(.+?)\s*$", quickstart_source, re.MULTILINE)
+    if len(headings) < 2:
+        raise ValueError("Quickstart source has no usable heading anchors")
+    terminal = next(
+        (line.strip() for line in reversed(quickstart_source.splitlines())
+         if line.strip() and line.strip() != "---"),
+        "",
+    )
+    if not _page_words(terminal):
+        raise ValueError("Quickstart source has no usable final-content anchor")
+
+    def heading_pages(heading: str) -> list[int]:
+        target = _page_words(heading)
+        return [
+            index for index, page in enumerate(pages, start=1)
+            if target in {_page_words(line) for line in page.splitlines()}
+        ]
+
+    def require_heading(heading: str, expected: list[int]) -> None:
+        found = heading_pages(heading)
+        if found != expected:
+            raise ValueError(f"PDF heading {heading!r} must be on page(s) {expected}; found {found}")
+
+    require_heading(chapter_title or headings[0], [start])
+    require_heading(headings[1], [start])
+    require_heading(headings[-1], [end])
+    for heading in headings[2:-1]:
+        found = heading_pages(heading)
+        if len(found) != 1 or found[0] not in (start, end):
+            raise ValueError(f"Quickstart heading {heading!r} is outside pages {start}-{end}: {found}")
+    if _page_words(terminal) not in _page_words(pages[end - 1]):
+        raise ValueError(f"Quickstart final content is missing from page {end}")
+    if full_book:
+        if not next_chapter_title:
+            raise ValueError("full-book Quickstart gate requires the following chapter")
+        require_heading(next_chapter_title, [end + 1])
+    return {"ok": True, "quickstart_pages": [start, end], "pdf_pages": len(pages)}
+
+
+def check_quickstart_pdf(pdf_path: Path, *, bundle, key: str) -> dict:
+    """Read the saved PDF; never infer pagination from source line counts."""
+    if shutil.which("pdftotext") is None:
+        raise ValueError("Quickstart PDF gate requires pdftotext (Poppler)")
+    try:
+        extracted = subprocess.run(
+            ["pdftotext", "-layout", str(pdf_path), "-"],
+            check=True, capture_output=True, text=True,
+        ).stdout
+    except subprocess.CalledProcessError as exc:
+        raise ValueError(f"cannot read built PDF {pdf_path.name}: {exc.stderr.strip()}") from exc
+    pages = extracted.split("\f")
+    if pages and not pages[-1].strip():
+        pages.pop()  # pdftotext terminates every page with a form feed.
+
+    if key == "quickstart":
+        return check_quickstart_pages(pages, load_text(bundle.input_paths[0]))
+    chapters = [chapter for part in bundle.book_parts for chapter in part.chapters]
+    quickstart = next(
+        (index for index, chapter in enumerate(chapters)
+         if chapter.content_class == "ss-quickstart-standalone"),
+        None,
+    )
+    if quickstart is None or quickstart + 1 >= len(chapters):
+        raise ValueError("full-book bundle has no bounded Quickstart chapter")
+    chapter = chapters[quickstart]
+    return check_quickstart_pages(
+        pages, load_text(chapter.path), chapter_title=chapter.title,
+        next_chapter_title=chapters[quickstart + 1].title,
+    )
 
 
 def report_path(path: Path) -> str:
@@ -152,6 +254,13 @@ def build_bundle(
                 include_before_body=cover_include,
                 **pdf_metadata,
             )
+            if key in {"quickstart", "full_book"}:
+                try:
+                    gate = check_quickstart_pdf(pdf_path, bundle=bundle, key=key)
+                except ValueError as exc:
+                    print(f"error: Quickstart release gate: {exc}", file=sys.stderr)
+                    return None
+                bundle_result.setdefault("quickstart_gate", {})[variant] = gate
             bundle_result["pdf"].append(report_path(pdf_path))
 
     return bundle_result
@@ -172,7 +281,7 @@ def main() -> int:
     parser.add_argument(
         "--pdf",
         action="store_true",
-        help="Also build PDFs (requires pandoc + WeasyPrint: uv sync --extra pdf).",
+        help="Also build PDFs (pandoc + WeasyPrint; Quickstart/full-book gates also require Poppler's pdftotext).",
     )
     parser.add_argument(
         "--style",
@@ -249,6 +358,9 @@ def main() -> int:
 
     if args.pdf and not pandoc_available():
         print("error: pandoc not found in PATH; install pandoc or omit --pdf", file=sys.stderr)
+        return 1
+    if args.pdf and {"quickstart", "full_book"}.intersection(targets) and shutil.which("pdftotext") is None:
+        print("error: Quickstart PDF gate requires pdftotext (Poppler)", file=sys.stderr)
         return 1
     if args.pdf and not weasyprint_available():
         print(

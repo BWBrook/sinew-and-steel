@@ -6,6 +6,9 @@ import sys
 import yaml
 
 import _characters
+import _rules
+import _runtime
+from advance import campaign_sheet_target
 import _sslib
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -43,7 +46,7 @@ def main() -> int:
     parser.add_argument(
         "--stamina",
         type=int,
-        default=5,
+        default=_rules.STAMINA_BASELINE,
         help="Stamina score (default 5; participates in point-buy). Prefer --set STM=... for clarity.",
     )
     parser.add_argument(
@@ -57,6 +60,8 @@ def main() -> int:
         help="Shortcut for build-point budgets: grim=0, standard=6, pulp=12, heroic=16.",
     )
     parser.add_argument("--tag", action="append", default=[], help="Add a tag (2 build points each)")
+    parser.add_argument("--free-tag", action="append", default=[],
+                        help="Claim a skin grant as GRANT=NAME (knack or expertise); repeatable.")
     parser.add_argument("--note", action="append", default=[], help="Add note to sheet")
     parser.add_argument(
         "--strict",
@@ -100,7 +105,7 @@ def main() -> int:
         print("error: provide only one of --tone or --build-points", file=sys.stderr)
         return 1
 
-    tone_map = {"grim": 0, "standard": 6, "pulp": 12, "heroic": 16}
+    tone_map = _rules.TONE_BUDGETS
     if args.tone:
         build_points_budget = tone_map[args.tone]
     elif args.build_points is not None:
@@ -115,7 +120,7 @@ def main() -> int:
         return 1
 
     # Build stats from baseline 10; Stamina uses its own baseline of 5.
-    stats = {key: 10 for key in attrs.keys()}
+    stats = {key: _rules.ATTRIBUTE_BASELINE for key in attrs.keys()}
     stamina_value = int(args.stamina)
 
     try:
@@ -143,17 +148,17 @@ def main() -> int:
 
     # Validate point-buy rules (attributes baseline 10; stamina baseline 5) with build points.
     errors = []
-    baselines = {key: 10 for key in stats.keys()}
-    baselines["STM"] = 5
+    baselines = {key: _rules.ATTRIBUTE_BASELINE for key in stats.keys()}
+    baselines["STM"] = _rules.STAMINA_BASELINE
     values = dict(stats)
     values["STM"] = stamina_value
 
     try:
-        needed, increases, decreases, required_decreases, slack = _sslib.build_points_needed_mixed(values, baselines)
+        needed, increases, decreases, required_decreases, slack = _rules.build_points_needed_mixed(values, baselines)
     except Exception as exc:
         errors.append(f"failed to compute point-buy validation: {exc}")
         needed = increases = decreases = required_decreases = slack = 0
-    needed += _sslib.tag_cost(args.tag)
+    needed += _rules.tag_cost(args.tag)
 
     if needed > build_points_budget:
         errors.append(
@@ -162,12 +167,10 @@ def main() -> int:
             f"(increases={increases} decreases={decreases} tags={len(args.tag)})"
         )
 
-    for key, value in stats.items():
-        if value < 6 or value > 16:
-            errors.append(f"{key} out of range (6-16): {value}")
-
-    if stamina_value < 3 or stamina_value > 9:
-        errors.append(f"stamina out of range (3-9): {stamina_value}")
+    try:
+        _rules.validate_scores(stats, stamina_value)
+    except ValueError as exc:
+        errors.append(str(exc))
 
     if errors:
         for err in errors:
@@ -185,18 +188,24 @@ def main() -> int:
         print("error: luck_key not found in attributes", file=sys.stderr)
         return 1
 
-    sheet = _characters.build_sheet(
-        skin_slug=skin_slug,
-        skin=skin,
-        name=args.name,
-        player=args.player,
-        attributes=stats,
-        stamina=stamina_value,
-        build_points_budget=build_points_budget,
-        build_points_used=needed,
-        tags=args.tag,
-        notes=args.note,
-    )
+    try:
+        sheet = _characters.build_sheet(
+            skin_slug=skin_slug,
+            skin=skin,
+            name=args.name,
+            player=args.player,
+            attributes=stats,
+            stamina=stamina_value,
+            build_points_budget=build_points_budget,
+            build_points_used=needed,
+            tags=args.tag,
+            free_tags=[_characters.parse_free_tag(item) for item in args.free_tag],
+            notes=args.note,
+        )
+        _characters.replay_advancement(sheet, skin)
+    except ValueError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 1
 
     output = yaml.safe_dump(sheet, sort_keys=False)
 
@@ -208,7 +217,28 @@ def main() -> int:
     elif args.campaign:
         char_slug = _sslib.slugify(args.name, fallback="character")
         out_path = ROOT / "campaigns" / args.campaign / "state" / "characters" / f"{char_slug}.yaml"
-        out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    if args.out:
+        try:
+            if out_path.exists() or out_path.is_symlink():
+                raise ValueError("output destination already exists; creation cannot overwrite a saved sheet")
+            target = campaign_sheet_target(out_path)
+            if target:
+                raise ValueError(f"campaign characters need synchronized trackers; use --campaign {target[0]} instead of --out")
+        except (OSError, ValueError) as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 1
+
+    campaign_saved = bool(args.campaign and not args.out)
+    if campaign_saved:
+        try:
+            _runtime.add_character(
+                _sslib.campaign_dir(args.campaign, root=ROOT), out_path.stem, sheet,
+                dry_run=args.dry_run,
+            )
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 1
 
     payload = {
         "ok": True,
@@ -224,7 +254,16 @@ def main() -> int:
         return 0
 
     if out_path:
-        out_path.write_text(output, encoding="utf-8")
+        if not campaign_saved:
+            try:
+                out_path.parent.mkdir(parents=True, exist_ok=True)
+                # Exclusive creation also refuses a destination created after
+                # the preview check; a fresh character never replaces a file.
+                with out_path.open("x", encoding="utf-8") as stream:
+                    stream.write(output)
+            except OSError as exc:
+                print(f"error: cannot create output without overwriting: {exc}", file=sys.stderr)
+                return 1
         if args.json:
             print(json.dumps(payload, indent=2))
             return 0

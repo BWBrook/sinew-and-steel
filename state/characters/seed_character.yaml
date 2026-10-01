@@ -1,33 +1,39 @@
-schema_version: 1
-name: "Example Hero"
-skin: "clanfire"
-player: "Local"
-created: "YYYY-MM-DD"
-
+schema_version: 2
+name: Example Hero
+skin: clanfire
+player: Local
+created: YYYY-MM-DD
 creation:
   build_points_budget: 6
   build_points_used: 0
-
+  snapshot:
+    attributes:
+      MGT: 10
+      FLT: 10
+      CUN: 10
+      SPR: 10
+      INS: 10
+    stamina: 5
+    bought_tags: []
+    free_tags: []
 attributes:
   MGT: 10
   FLT: 10
   CUN: 10
   SPR: 10
   INS: 10
-
 pools:
   luck:
-    name: "Instinct"
+    name: Instinct
     current: 10
     max: 10
   stamina:
     current: 5
     max: 5
-
 inventory:
   big_items: []
   small_items: []
-
 tags: []
-
 notes: []
+advancement:
+  entries: []

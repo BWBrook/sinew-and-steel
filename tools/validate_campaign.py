@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Validate campaign state without migrating or otherwise changing it."""
 import argparse
 import json
 from pathlib import Path
@@ -6,7 +7,10 @@ import sys
 
 import yaml
 
+import _pressure
+import _resources
 import _sslib
+import build_prompt
 import validate_sheet
 
 
@@ -14,199 +18,124 @@ def is_int(value) -> bool:
     return isinstance(value, int) and not isinstance(value, bool)
 
 
-def validate_campaign(campaign_slug: str, manifest: dict) -> _sslib.ValidationResult:
-    errors: list[str] = []
-    warnings: list[str] = []
-
-    root = _sslib.repo_root()
+def validate_campaign(campaign_slug: str, manifest: dict, *, root: Path | None = None) -> _sslib.ValidationResult:
+    root = root or _sslib.repo_root()
     cdir = _sslib.campaign_dir(campaign_slug, root=root)
+    errors, warnings = [], []
 
-    if not cdir.exists():
-        errors.append(f"campaign directory missing: {cdir}")
+    def read(path: Path):
+        try:
+            data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+            if not isinstance(data, dict):
+                raise ValueError("expected a mapping")
+            return data
+        except (OSError, ValueError, yaml.YAMLError) as exc:
+            errors.append(f"{path.name}: {exc}")
+            return None
+
+    if not cdir.is_dir():
+        return _sslib.ValidationResult([f"campaign directory missing: {cdir}"], [])
+    campaign = read(cdir / "campaign.yaml")
+    if campaign is None:
         return _sslib.ValidationResult(errors, warnings)
-
-    cfile = _sslib.campaign_file(campaign_slug, root=root)
-    if not cfile.exists():
-        errors.append(f"campaign.yaml missing: {cfile}")
-        return _sslib.ValidationResult(errors, warnings)
-
-    campaign = yaml.safe_load(cfile.read_text(encoding="utf-8")) or {}
+    if campaign.get("schema_version") != 2:
+        errors.append("campaign.yaml schema_version must be 2; adopt legacy campaigns explicitly")
+    if campaign.get("slug") != cdir.name:
+        errors.append("campaign.yaml slug does not match the campaign folder")
+    budget = campaign.get("build_points_budget")
+    if not is_int(budget) or budget < 0:
+        errors.append("campaign.yaml build_points_budget must be a nonnegative integer")
+    if campaign.get("prompt_profile", "compact") not in {"compact", "full"}:
+        errors.append("campaign.yaml prompt_profile must be compact or full")
     skin_slug = campaign.get("skin")
-    if not skin_slug:
-        errors.append("campaign.yaml missing skin")
-        return _sslib.ValidationResult(errors, warnings)
-
-    schema_version = campaign.get("schema_version")
-    if schema_version != 1:
-        errors.append(f"campaign.yaml schema_version must be 1 (got {schema_version!r})")
-
-    build_points_budget = campaign.get("build_points_budget")
-    if build_points_budget is None:
-        warnings.append("campaign.yaml missing build_points_budget")
-    elif not is_int(build_points_budget):
-        errors.append(f"campaign.yaml build_points_budget is not int: {build_points_budget}")
-    elif int(build_points_budget) < 0:
-        errors.append(f"campaign.yaml build_points_budget must be >= 0 (got {build_points_budget})")
-
-    slug_field = campaign.get("slug")
-    if not isinstance(slug_field, str) or not slug_field:
-        errors.append("campaign.yaml missing slug")
-    elif slug_field != campaign_slug:
-        errors.append(f"campaign.yaml slug '{slug_field}' != folder '{campaign_slug}'")
-
-    skins = manifest.get("skins", {})
-    skin = skins.get(skin_slug)
+    skin = manifest.get("skins", {}).get(skin_slug)
     if not skin:
-        errors.append(f"campaign references unknown skin '{skin_slug}'")
-        return _sslib.ValidationResult(errors, warnings)
+        return _sslib.ValidationResult(errors + [f"unknown campaign skin: {skin_slug}"], warnings)
 
-    # Required dirs
-    for rel_dir in (
-        _sslib.campaign_state_dir(campaign_slug, root=root),
-        _sslib.campaign_characters_dir(campaign_slug, root=root),
-        _sslib.campaign_trackers_dir(campaign_slug, root=root),
-        _sslib.campaign_memory_dir(campaign_slug, root=root),
-        _sslib.campaign_logs_dir(campaign_slug, root=root),
-    ):
-        if not rel_dir.exists():
-            errors.append(f"missing directory: {rel_dir}")
-
-    # Tracker
-    tracker_path = _sslib.campaign_trackers_dir(campaign_slug, root=root) / "session.yaml"
-    if not tracker_path.exists():
-        errors.append(f"missing tracker: {tracker_path}")
-    else:
-        tracker = yaml.safe_load(tracker_path.read_text(encoding="utf-8")) or {}
-        tracker_schema = tracker.get("schema_version")
-        if tracker_schema != 1:
-            errors.append(f"tracker schema_version must be 1 (got {tracker_schema!r})")
-
-        extra_tracker_keys = sorted(set(tracker.keys()) - {"schema_version", "name", "scene", "clocks", "notes"})
-        if extra_tracker_keys:
-            warnings.append(f"tracker unexpected keys: {', '.join(extra_tracker_keys)}")
-
-        scene = tracker.get("scene")
-        if scene is None:
-            warnings.append("tracker missing scene counter")
-        elif not is_int(scene):
-            errors.append("tracker scene is not an int")
-
-        clocks = tracker.get("clocks")
-        if not isinstance(clocks, dict):
-            errors.append("tracker clocks missing or invalid")
-        else:
-            for clock_name, clock in clocks.items():
-                if not isinstance(clock, dict):
-                    errors.append(f"tracker clock '{clock_name}' is not a dict")
-                    continue
-                extra_clock_keys = sorted(set(clock.keys()) - {"name", "current", "max", "notes"})
-                if extra_clock_keys:
-                    warnings.append(f"tracker clock '{clock_name}' unexpected keys: {', '.join(extra_clock_keys)}")
-                cur_value = clock.get("current")
-                max_value = clock.get("max")
-                if not is_int(cur_value) or not is_int(max_value):
-                    errors.append(f"tracker clock '{clock_name}' current/max must be ints")
-                else:
-                    if cur_value < 0 or cur_value > max_value:
-                        errors.append(
-                            f"tracker clock '{clock_name}' current out of range (0-{max_value}): {cur_value}"
-                        )
-
-            pressure = clocks.get("pressure")
-            if not isinstance(pressure, dict):
-                errors.append("tracker missing clocks.pressure")
-            else:
-                cur_value = pressure.get("current")
-                max_value = pressure.get("max")
-                if not is_int(cur_value) or not is_int(max_value):
-                    errors.append("tracker clocks.pressure current/max must be ints")
-                else:
-                    if max_value != 5:
-                        warnings.append(f"tracker clocks.pressure.max expected 5 (got {max_value})")
-                    if cur_value < 0 or cur_value > max_value:
-                        errors.append(f"tracker clocks.pressure.current out of range (0-{max_value}): {cur_value}")
-
-                expected_name = skin.get("pressure_track")
-                actual_name = pressure.get("name")
-                if expected_name and actual_name and expected_name != actual_name:
-                    warnings.append(
-                        f"tracker clocks.pressure.name '{actual_name}' != expected '{expected_name}' for skin"
-                    )
-
-    # Characters
-    chars_dir = _sslib.campaign_characters_dir(campaign_slug, root=root)
-    sheets = sorted(chars_dir.glob("*.yaml"))
+    for relative in ("state", "state/characters", "state/trackers", "state/memory", "state/logs", "state/checkpoints"):
+        if not (cdir / relative).is_dir():
+            errors.append(f"missing directory: {relative}")
+    sheets = sorted([*(cdir / "state/characters").glob("*.yaml"), *(cdir / "state/characters").glob("*.yml")])
+    actors = [path.stem for path in sheets]
+    if len(actors) != len(set(actors)):
+        errors.append("character filenames have duplicate stems")
     if not sheets:
         warnings.append("no character sheets found")
-    for sheet_path in sheets:
-        try:
-            sheet = validate_sheet.load_sheet(sheet_path)
-        except Exception as exc:
-            errors.append(f"failed to read sheet {sheet_path.name}: {exc}")
+    for path in sheets:
+        sheet = read(path)
+        if sheet is None:
             continue
+        result = validate_sheet.validate_sheet(sheet, manifest)
+        errors.extend(f"{path.name}: {message}" for message in result.errors)
+        warnings.extend(f"{path.name}: {message}" for message in result.warnings)
+        if sheet.get("skin") != skin_slug:
+            errors.append(f"{path.name}: skin does not match campaign")
 
-        sheet_result = validate_sheet.validate_sheet(sheet, manifest)
-        for e in sheet_result.errors:
-            errors.append(f"{sheet_path.name}: {e}")
-        for w in sheet_result.warnings:
-            warnings.append(f"{sheet_path.name}: {w}")
-
-    # Memory
-    memory_dir = _sslib.campaign_memory_dir(campaign_slug, root=root)
-    if memory_dir.exists():
-        memory_files = sorted(memory_dir.glob("session_*.yaml"))
-        if not memory_files:
-            warnings.append("no session_*.yaml files in memory")
-        for mem_path in memory_files:
-            mem = yaml.safe_load(mem_path.read_text(encoding="utf-8")) or {}
-            mem_schema = mem.get("schema_version")
-            if mem_schema != 1:
-                errors.append(f"{mem_path.name}: schema_version must be 1 (got {mem_schema!r})")
-            for key in ("summary", "threads", "npcs", "secrets"):
-                if key not in mem:
+    tracker = read(cdir / "state/trackers/session.yaml")
+    if tracker is not None:
+        if tracker.get("schema_version") != 2:
+            errors.append("tracker schema_version must be 2; adopt legacy tracking explicitly")
+        for counter in ("scene", "session"):
+            if not is_int(tracker.get(counter)) or tracker[counter] < 0:
+                errors.append(f"tracker {counter} must be a nonnegative integer")
+        errors.extend(_pressure.validate_pressure(tracker.get("pressure"), skin, actors))
+        errors.extend(_resources.validate_resources(tracker.get("resources"), skin, actors))
+        clocks = tracker.get("clocks")
+        if not isinstance(clocks, dict):
+            errors.append("tracker clocks must be a mapping")
+        else:
+            if "pressure" in clocks:
+                errors.append("legacy clocks.pressure duplicates structured Pressure; adopt it explicitly")
+            for key, clock in clocks.items():
+                if not isinstance(clock, dict):
+                    errors.append(f"clock {key} must be a mapping")
                     continue
-                value = mem.get(key)
-                if not isinstance(value, list) and not isinstance(value, str):
-                    warnings.append(f"{mem_path.name}: {key} should be list or string")
+                current, maximum = clock.get("current"), clock.get("max")
+                if not is_int(maximum) or maximum < 1:
+                    errors.append(f"clock {key} max must be a positive integer")
+                if not is_int(current) or current < 0 or (is_int(maximum) and current > maximum):
+                    errors.append(f"clock {key} current must be between zero and its maximum")
+            for key in skin.get("clocks", {}):
+                if key not in clocks:
+                    warnings.append(f"recommended skin clock missing: {key}")
 
-    # Logs
-    logs_dir = _sslib.campaign_logs_dir(campaign_slug, root=root)
-    if logs_dir.exists():
-        if not any(logs_dir.glob("session_*.md")):
-            warnings.append("no session_*.md logs yet")
-
+    memory_files = sorted((cdir / "state/memory").glob("session_*.y*ml"))
+    if not memory_files:
+        warnings.append("no session memory yet")
+    for path in memory_files:
+        memory = read(path)
+        if memory is None:
+            continue
+        if memory.get("schema_version") != 1:
+            errors.append(f"{path.name}: memory schema_version must be 1")
+        for key in ("summary", "threads", "npcs", "secrets"):
+            if key in memory and not isinstance(memory[key], (list, str)):
+                errors.append(f"{path.name}: {key} must be a list or string")
+    if not any((cdir / "state/logs").glob("session_*.md")):
+        warnings.append("no public session log yet")
+    prompt = cdir / "prompt.md"
+    if prompt.exists():
+        errors.extend(build_prompt.check_prompt(prompt, root))
+    else:
+        warnings.append("no prompt.md yet; build it before starting a Custodian session")
     return _sslib.ValidationResult(errors, warnings)
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Validate a campaign scaffold and its state files.")
-    parser.add_argument("--campaign", required=True, help="Campaign slug under campaigns/")
-    parser.add_argument("--json", action="store_true", help="Output JSON")
-
+    parser = argparse.ArgumentParser(description="Validate campaign sheets, structured Pressure, resources, and prompt freshness.")
+    parser.add_argument("--campaign", required=True)
+    parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
-
-    manifest = _sslib.load_manifest()
-    result = validate_campaign(args.campaign, manifest)
-
-    payload = {
-        "campaign": args.campaign,
-        "ok": result.ok(),
-        "errors": result.errors,
-        "warnings": result.warnings,
-    }
-
+    result = validate_campaign(args.campaign, _sslib.load_manifest())
+    payload = {"campaign": args.campaign, "ok": result.ok(), "errors": result.errors, "warnings": result.warnings}
     if args.json:
         print(json.dumps(payload, indent=2))
     else:
-        if result.ok():
-            print("ok")
-        else:
-            print("error")
-        for w in result.warnings:
-            print(f"warning: {w}", file=sys.stderr)
-        for e in result.errors:
-            print(f"error: {e}", file=sys.stderr)
-
+        print("ok" if result.ok() else "error")
+        for message in result.warnings:
+            print(f"warning: {message}", file=sys.stderr)
+        for message in result.errors:
+            print(f"error: {message}", file=sys.stderr)
     return 0 if result.ok() else 1
 
 

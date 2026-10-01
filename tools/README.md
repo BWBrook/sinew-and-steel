@@ -1,104 +1,60 @@
 # Tools
 
-Local CLI helpers intended for Codex/Claude Code agents (and humans).
-Requires Python 3 and PyYAML (already present in most agent runtimes).
+Run from the repository root with `uv run python tools/<tool>.py`. Setup is
+`uv sync`; the local harness uses Python and PyYAML. Campaigns live under
+`campaigns/` and remain private and untracked.
 
-- build_prompt.py: assemble a full prompt from rules + skin + optional hidden notes.
-- campaign_init.py: create a per-campaign state scaffold (untracked).
-- char_builder.py: build a character sheet with point-buy validation.
-- gen_character.py: generate a random character sheet for a skin; `--tag` reserves 2 build points per tag before the rest is spent on scores.
-- recalc_sheet.py: recompute build_points_used on a sheet after manual edits.
-- new_skin.py: create a skin from templates and optionally register it in the manifest.
-- roll.py: d20 rolls for checks and opposed tests.
-- beat.py: roll + (optional) nudge + state updates + log/recap in one command.
-- apply_roll.py: apply roll results to sheets/trackers based on success/failure.
-- doctor.py: run repo/campaign diagnostics in one command.
-- recap.py: append a structured summary to memory and optionally advance clocks.
-- session_log.py: append public narration or roll results to session logs.
-- checkpoint.py: save exact last GM text for “save and quit” (separate from logs/memory).
-- resume_pack.py: print a compact resume snapshot (campaign + character + memory + log + checkpoint).
-- new_session.py: create paired session memory/log files together to avoid drift.
-- summary.py: one-screen campaign snapshot (scene, clocks, sheet, last memory).
-- trackers.py: update scene counters and clocks (pressure, threat, etc).
-- update_sheet.py: update YAML sheets and trackers by path.
-- validate_sheet.py: validate a character sheet against point-buy + manifest.
-- validate_campaign.py: validate a campaign scaffold and its state.
-- validate_repo.py: sanity checks for manifest and file layout.
-- release_build.py: build release bundles (Markdown + optional PDFs via pandoc + WeasyPrint) into release/dist/.
-- md_pdf.py: build an ad-hoc PDF from arbitrary markdown file(s) for layout/art iteration.
-- layout_lab.py: render the fixtures in examples/layout_lab/ to PDFs (and optional PNGs) for wrap and pagination checks.
-- delvekit_seed.py: generate a deterministic Candlelight Delvekit dungeon prototype as YAML and optional markdown/maps.
-- delvekit_map.py: render hidden GM maps and progressively revealed player maps from Delvekit YAML.
-- delvekit_pitch.py: prepare a Codex-facing pitch-polish prompt bundle and apply polished title/blurb text back into Delvekit YAML.
-- delvekit_adventure.py: prepare a Codex-facing adventure-polish bundle and write the finished module markdown.
-- ss.py: thin dispatcher (`uv run python tools/ss.py <command> ...`) for single-command workflows.
+`play.py` is the campaign engine. It commits sheets, trackers, structured events,
+and a receipt together. Use `--dry-run --json` to inspect a proposed action and
+`--seed N` for reproducible dice. A stable `--event-id` makes retries return the
+saved receipt; reuse it only for the same request. Read deferred dice before
+choosing Luck expenditure. See [the worked workflow](../docs/ai_play_harness.md)
+for combat, Pressure, recovery, and session boundaries.
 
-For PDF building (including wrapped inline images), see `docs/pdf_building.md`.
+| Work | Tools |
+|---|---|
+| New campaign and characters | `campaign_init.py`, `char_builder.py`, `gen_character.py` |
+| Mechanical state and rolls | `play.py`; `roll.py` is a stateless dice calculator |
+| Milestones and purchases | `advance.py`; `recalc_sheet.py` verifies recorded history and derived pool metadata |
+| Prompts and resumes | `build_prompt.py`, `resume_pack.py`, `summary.py` |
+| Public narration and exact checkpoint | `session_log.py`, `checkpoint.py` |
+| Private memory and sheet metadata | `recap.py`, `update_sheet.py` |
+| Checks and playtest evidence | `validate_sheet.py`, `validate_campaign.py`, `validate_repo.py`, `doctor.py`, `playtest_summary.py` |
+| Explicit legacy adoption | `migrate_campaign.py` (preview by default; backs up original files before applying) |
 
-Note: state mutation tools are strict by default; use `--allow-new` only when you intend to create new keys.
-Most mutators also accept `--dry-run` (no writes) and `--json` (machine-readable summary).
-For tools with subcommands (roll/beat/trackers), global flags can appear before or after the subcommand.
-Random generation reads optional per-skin `_gen` defaults from manifest.yaml (override with CLI flags).
-
-For `beat.py`, sheet stat keys belong to the character selected by `--as`:
-use `--attacker-key` as attacker or `--defender-key` as defender. A skin's Luck
-key reads current tokens, with the target fixed before spending. Nudging either
-die spends the selected character's tokens; `--nudge-spend none` explicitly
-leaves that accounting to the caller. Natural faces are locked, adjusted faces
-stay within 1–20, and simultaneous Advantage/Disadvantage cancel.
-
-Manifest-defined addons:
-- `build_prompt.py` embeds any addon files listed under a skin in `manifest.yaml`.
-- Today that means `uv run python tools/build_prompt.py --skin candlelight_dungeons ...` includes `skins/candlelight_delvekit.md` automatically.
-
-Examples:
+`trackers.py` dispatches Pressure, clock, and scene commands to `play.py`;
+`new_session.py` dispatches its session command. `recap.py` changes memory only.
+`update_sheet.py` edits metadata, not attributes, pools, advancement, or mechanical
+trackers. Use `ss.py <command> ...` as a short dispatcher if preferred. Every tool
+and subcommand has `--help`.
 
 ```bash
-uv run python tools/build_prompt.py --list-skins
-uv run python tools/build_prompt.py --skin clanfire --mode agent --out /tmp/ss_prompt.md
-# Note: build_prompt strips artwork image tags by default (for LLM prompt cleanliness).
-# Use --keep-art if you explicitly want the `![](...){...}` artwork markers included.
-uv run python tools/build_prompt.py --skin clanfire --mode chat --out /tmp/ss_prompt_chat.md
-uv run python tools/build_prompt.py --skin candlelight_dungeons --mode agent --out /tmp/candlelight_prompt.md
-uv run python tools/build_prompt.py --campaign ice_hunt --mode agent
-uv run python tools/campaign_init.py --title "Ice Hunt" --skin clanfire --tone standard --random-character "Grak"
-uv run python tools/char_builder.py --campaign ice_hunt --name "Grak" --set MGT=12 --set SPR=8 --set INS=8 --set STM=7 --tag "Megafauna tracker"
-uv run python tools/gen_character.py --skin clanfire --tone standard --name "Tarra" --tag "Ember-singer" --out /tmp/tarra.yaml
-uv run python tools/new_skin.py --slug skyfarer   # writes skins/skyfarer.md and edits manifest.yaml
-uv run python tools/roll.py check --stat 12 --adv --pretty
-uv run python tools/beat.py --campaign ice_hunt --character grak --log check --stat-key MGT --adv --nudge -1
-uv run python tools/recap.py --campaign ice_hunt --summary "Beat 1: the blizzard" --pressure-inc 1 --scene-inc 1
-uv run python tools/session_log.py --campaign ice_hunt --role GM --text "The storm splits the ridge."
-uv run python tools/summary.py --campaign ice_hunt
-uv run python tools/new_session.py --campaign ice_hunt
-uv run python tools/trackers.py --campaign ice_hunt scene --inc 1
-uv run python tools/trackers.py --campaign ice_hunt pressure --inc 1 --clamp
-uv run python tools/update_sheet.py --campaign ice_hunt --character grak --inc pools.luck.current=-1
-uv run python tools/apply_roll.py --campaign ice_hunt --character grak --roll /tmp/roll.json --success-sheet-inc pools.stamina.current=-1
-uv run python tools/recalc_sheet.py --campaign ice_hunt --character grak
-uv run python tools/validate_sheet.py --campaign ice_hunt --character grak
-uv run python tools/validate_campaign.py --campaign ice_hunt
-uv run python tools/validate_repo.py
-uv run python tools/doctor.py --campaign ice_hunt
-uv run python tools/ss.py beat --campaign ice_hunt --character grak check --stat-key MGT
-uv run python tools/checkpoint.py --campaign ice_hunt --show
-uv run python tools/resume_pack.py --campaign ice_hunt --character grak
-uv run python tools/resume_pack.py --campaign ice_hunt --character grak --public
-uv run python tools/delvekit_seed.py --seed 42 --size tiny --difficulty hard --out /tmp/delve.yaml
-uv run python tools/delvekit_map.py --file /tmp/delve.yaml --mode gm
-uv run python tools/delvekit_seed.py --seed 42 --size medium --difficulty medium --out /tmp/delve.yaml --pitch-prompt-out /tmp/delve_pitch.md
-uv run python tools/delvekit_seed.py --seed 42 --size medium --difficulty medium --out /tmp/delve.yaml --adventure-prompt-out /tmp/delve_adventure.md
-uv run python tools/delvekit_pitch.py prepare --file /tmp/delve.yaml --out /tmp/delve_pitch.md --json-out /tmp/delve_pitch.json
-uv run python tools/delvekit_pitch.py apply --file /tmp/delve.yaml --text-file /tmp/polished_pitch.txt --echo
-uv run python tools/delvekit_adventure.py prepare --file /tmp/delve.yaml --out /tmp/delve_adventure.md --json-out /tmp/delve_adventure.json
-uv run python tools/delvekit_adventure.py apply --out /tmp/delve_module.md --markdown-file /tmp/polished_module.md
-uv run python tools/delvekit_map.py --file examples/candlelight_delvekit/pale_warrens.yaml --mode player --frontier --reveal-rooms 3,4 --position 4
-uv run --extra pdf python tools/md_pdf.py rules/quickstart.md --out /tmp/quickstart.pdf --style bookish
-uv run --extra pdf python tools/md_pdf.py rules/quickstart.md skins/clanfire.md --out /tmp/layout_test.pdf --toc --style bookish
-uv run --extra pdf python tools/md_pdf.py --files "rules/quickstart.md skins/clanfire.md" --out /tmp/layout_test.pdf --toc --style bookish
+uv run python tools/campaign_init.py --slug ice_hunt --skin clanfire \
+  --tone standard --random-character Grak --seed 42 --dry-run --json
+# Remove --dry-run to create the reviewed scaffold.
+uv run python tools/build_prompt.py --campaign ice_hunt
+uv run python tools/build_prompt.py --campaign ice_hunt --check --json
+uv run python tools/build_prompt.py --section manual:6
 
-# Save and quit (ironman): store exactly one checkpoint per campaign (overwritten each time).
-# Prefer stdin or --text-file for multi-line messages.
-cat /tmp/last_gm.md | uv run python tools/checkpoint.py --campaign ice_hunt
-uv run python tools/checkpoint.py --campaign ice_hunt --show
+uv run python tools/play.py --campaign ice_hunt --character grak --seed 42 \
+  --event-id ridge-test check --attribute FLT --method "Cross the icy ridge" \
+  --stakes "Reach shelter; failure costs time and adds Shadow" --failure-pressure 1 --defer
+# Read the saved dice, then settle without rerolling; add a legal --nudge if chosen.
+uv run python tools/play.py --campaign ice_hunt --event-id ridge-settle settle
+
+uv run python tools/advance.py --campaign ice_hunt --character grak \
+  --event-id milestone-one award --id ridge --boon "A safe refuge"
+uv run python tools/advance.py --campaign ice_hunt --character grak show --json
+uv run python tools/validate_campaign.py --campaign ice_hunt
+uv run python tools/resume_pack.py --campaign ice_hunt --public --json
 ```
+
+New sheets record an immutable creation snapshot and separate advancement entries.
+Raises cost 1 point while below baseline and 2 at or above it; creation refunds
+are capped at 8 across all scores. Bought tags cost 2 and cannot be funded by
+unused refunds. Use `--free-tag GRANT=NAME` for an explicit skin grant. The caps
+remain attributes 16 and Stamina 9. See [character build](../skills/character_build.md).
+
+For publishing and dungeon authoring, use `release_build.py`, `md_pdf.py`,
+`layout_lab.py`, `new_skin.py`, and the `delvekit_*.py` tools. Their workflows are
+in [PDF building](../docs/pdf_building.md) and the [Delvekit guide](../docs/candlelight_delvekit.md).

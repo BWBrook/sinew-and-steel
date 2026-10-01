@@ -16,11 +16,14 @@ Use the files and tools below to keep play consistent, reproducible, and private
 ## Operating rules
 - Keep private notes in state/. Do not reveal them to players unless explicitly requested.
 - Do not roll by default. Roll only when the outcome is uncertain *and* it matters; many choices can be resolved narratively.
-- Use tools/roll.py for dice and tools/update_sheet.py for sheet changes.
-- Use tools/trackers.py for pressure clocks and scene counters.
+- Use tools/play.py for campaign rolls, costs, damage, Pressure and resource changes. Use tools/roll.py for standalone dice only.
+- Use tools/advance.py for milestone awards and purchases; tools/update_sheet.py edits descriptive metadata only.
+- Choose intent, method and stakes before rolling. Use play.py --defer and then settle for an informed Luck choice; never reroll a pending action. Reuse --event-id when retrying a command.
+- Pressure is structured campaign state, personal in Whispers and shared elsewhere. Record the crisis target and consequence before its atomic reset; keep lasting crisis effects separate.
+- Record narrative beats with play.py beat (and --perilous where appropriate); individual rolls are not beats. Close completed sessions with play.py session-close before starting another.
 - Use tools/campaign_init.py and tools/gen_character.py for campaign setup.
 - For fast resumes, use tools/resume_pack.py or follow skills/agent_bootstrap.md.
-- Record each roll result and consequence in state/memory/ or state/logs/.
+- The play commands record mechanics in per-session JSONL logs. Record their fictional consequences in state/memory/ or state/logs/ too.
 - After each GM response, save the *exact* text to the campaign checkpoint (tools/checkpoint.py) so the session can be resumed from a fresh context window.
 - Separate public narration from private tracking.
 - Prefer manifest.yaml for paths instead of hardcoding.
@@ -37,8 +40,8 @@ uv sync
 1. Choose a skin from manifest.yaml.
 2. Create a character sheet in state/characters/ (start from templates/character_sheet.yaml).
 3. (Optional) Create hidden scenario notes in state/memory/.
-4. Build a full prompt with tools/build_prompt.py.
-5. Run play: narrate publicly, track privately, roll via tools/roll.py.
+4. Build a compact campaign prompt with tools/build_prompt.py; retrieve rule sections as needed.
+5. Run play: narrate publicly, track privately, resolve campaign actions via tools/play.py.
 6. Update sheets/tracks immediately after each outcome.
 7. Close with a short memory summary and unresolved threads.
 

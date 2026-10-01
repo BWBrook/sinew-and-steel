@@ -7,15 +7,18 @@ import sys
 import yaml
 
 import _characters
+import _rules
+import _runtime
+from advance import campaign_sheet_target
 import _sslib
 
 ROOT = Path(__file__).resolve().parents[1]
-BASELINE = 10
-STAMINA_BASELINE = 5
-MIN_STAT = 6
-MAX_STAT = 16
-MIN_STAMINA = 3
-MAX_STAMINA = 9
+BASELINE = _rules.ATTRIBUTE_BASELINE
+STAMINA_BASELINE = _rules.STAMINA_BASELINE
+MIN_STAT = _rules.ATTRIBUTE_MIN
+MAX_STAT = _rules.ATTRIBUTE_MAX
+MIN_STAMINA = _rules.STAMINA_MIN
+MAX_STAMINA = _rules.STAMINA_MAX
 
 
 def load_manifest() -> dict:
@@ -31,6 +34,8 @@ def load_campaign(campaign_slug: str) -> dict:
 
 
 def apply_double_debit_steps(keys, steps: int, primary: str | None = None) -> dict:
+    if not 0 <= steps <= _rules.REFUND_CAP // 2:
+        raise ValueError(f"steps must be 0-{_rules.REFUND_CAP // 2} under the refund cap")
     baselines = {key: BASELINE for key in keys}
     mins = {key: MIN_STAT for key in keys}
     maxs = {key: MAX_STAT for key in keys}
@@ -176,9 +181,11 @@ def spend_build_points(
 
 
 def sample_stats(keys, steps: int | None, min_steps: int, max_steps: int, primary: str | None) -> dict:
-    step_limit = _sslib.REFUND_CAP // 2
+    step_limit = _rules.REFUND_CAP // 2
     if (steps if steps is not None else max_steps) > step_limit:
-        raise ValueError(f"more than {step_limit} double-debit steps would exceed the {_sslib.REFUND_CAP}-point refund cap")
+        raise ValueError(f"more than {step_limit} double-debit steps would exceed the {_rules.REFUND_CAP}-point refund cap")
+    if steps is not None and steps < 0:
+        raise ValueError("steps must be nonnegative")
     if steps is None:
         if min_steps < 0 or max_steps < min_steps:
             raise ValueError("Invalid min/max steps")
@@ -188,6 +195,9 @@ def sample_stats(keys, steps: int | None, min_steps: int, max_steps: int, primar
     if "STM" in keys:
         baselines["STM"] = STAMINA_BASELINE
 
+    if steps == 0:
+        return dict(baselines)
+
     for _ in range(200):
         stats = apply_double_debit_steps(keys, steps=steps, primary=primary)
         if any(int(stats[k]) > baselines[k] for k in stats.keys()):
@@ -196,7 +206,8 @@ def sample_stats(keys, steps: int | None, min_steps: int, max_steps: int, primar
     raise RuntimeError("Failed to generate a specialized character after 200 attempts")
 
 
-def build_sheet(skin_entry: dict, name: str, player: str, tags: list[str] | None = None):
+def build_sheet(skin_entry: dict, name: str, player: str, tags: list[str] | None = None,
+                free_tags: list[dict[str, str]] | None = None):
     tags = list(tags or [])
     attrs = skin_entry.get("attributes", {})
     if len(attrs) != 5:
@@ -219,7 +230,9 @@ def build_sheet(skin_entry: dict, name: str, player: str, tags: list[str] | None
     maxs["STM"] = MAX_STAMINA
 
     build_points_budget = int(gen.get("build_points_budget", 6))
-    tag_points = _sslib.tag_cost(tags)
+    if build_points_budget < 0:
+        raise ValueError("build point budget must be nonnegative")
+    tag_points = _rules.tag_cost(tags)
     if tag_points > build_points_budget:
         raise ValueError(
             f"{len(tags)} tag(s) cost {tag_points} build points, more than the budget of {build_points_budget}"
@@ -235,7 +248,7 @@ def build_sheet(skin_entry: dict, name: str, player: str, tags: list[str] | None
     stamina_value = int(stats.get("STM", STAMINA_BASELINE))
     stats = {k: stats[k] for k in attrs.keys()}
 
-    needed, _, _, _, slack = _sslib.build_points_needed_mixed(
+    needed, _, _, _, slack = _rules.build_points_needed_mixed(
         {**stats, "STM": stamina_value},
         {**{k: BASELINE for k in attrs.keys()}, "STM": STAMINA_BASELINE},
     )
@@ -252,7 +265,7 @@ def build_sheet(skin_entry: dict, name: str, player: str, tags: list[str] | None
         print("error: luck_key not found in attributes", file=sys.stderr)
         sys.exit(1)
 
-    return _characters.build_sheet(
+    sheet = _characters.build_sheet(
         skin_slug=skin_entry.get("slug", ""),
         skin=skin_entry,
         name=name,
@@ -262,17 +275,20 @@ def build_sheet(skin_entry: dict, name: str, player: str, tags: list[str] | None
         build_points_budget=build_points_budget,
         build_points_used=needed,
         tags=tags,
+        free_tags=free_tags,
         generated={
             "method": "double_debit",
             "steps": gen.get("steps"),
             "min_steps": gen.get("min_steps", 2),
-            "max_steps": gen.get("max_steps", 6),
+            "max_steps": gen.get("max_steps", 4),
             "primary": gen.get("primary"),
             "build_points_budget": build_points_budget,
             "build_points_unspent": int(remaining),
             "tags_cost": tag_points,
         },
     )
+    _characters.replay_advancement(sheet, skin_entry)
+    return sheet
 
 
 def main() -> int:
@@ -295,6 +311,8 @@ def main() -> int:
         default=[],
         help="Add a tag (2 build points each, reserved before scores are bought). Repeatable.",
     )
+    parser.add_argument("--free-tag", action="append", default=[],
+                        help="Claim a skin grant as GRANT=NAME (knack or expertise); repeatable.")
     parser.add_argument(
         "--build-points",
         type=int,
@@ -338,7 +356,7 @@ def main() -> int:
         print(f"error: unknown skin '{skin_slug}'", file=sys.stderr)
         return 1
 
-    tone_map = {"grim": 0, "standard": 6, "pulp": 12, "heroic": 16}
+    tone_map = _rules.TONE_BUDGETS
     if args.tone:
         build_points_budget = tone_map[args.tone]
     elif args.build_points is not None:
@@ -376,6 +394,7 @@ def main() -> int:
             args.name,
             args.player,
             tags=args.tag,
+            free_tags=[_characters.parse_free_tag(item) for item in args.free_tag],
         )
         if args.seed is not None:
             sheet.setdefault("meta", {}).setdefault("generated", {})["seed"] = args.seed
@@ -392,7 +411,28 @@ def main() -> int:
     elif args.campaign:
         char_slug = _sslib.slugify(args.name, fallback="character")
         out_path = ROOT / "campaigns" / args.campaign / "state" / "characters" / f"{char_slug}.yaml"
-        out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    if args.out:
+        try:
+            if out_path.exists() or out_path.is_symlink():
+                raise ValueError("output destination already exists; creation cannot overwrite a saved sheet")
+            target = campaign_sheet_target(out_path)
+            if target:
+                raise ValueError(f"campaign characters need synchronized trackers; use --campaign {target[0]} instead of --out")
+        except (OSError, ValueError) as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 1
+
+    campaign_saved = bool(args.campaign and not args.out)
+    if campaign_saved:
+        try:
+            _runtime.add_character(
+                _sslib.campaign_dir(args.campaign, root=ROOT), out_path.stem, sheet,
+                dry_run=args.dry_run,
+            )
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 1
 
     payload = {
         "ok": True,
@@ -408,7 +448,16 @@ def main() -> int:
         return 0
 
     if out_path:
-        out_path.write_text(output, encoding="utf-8")
+        if not campaign_saved:
+            try:
+                out_path.parent.mkdir(parents=True, exist_ok=True)
+                # Exclusive creation also refuses a destination created after
+                # the preview check; a fresh character never replaces a file.
+                with out_path.open("x", encoding="utf-8") as stream:
+                    stream.write(output)
+            except OSError as exc:
+                print(f"error: cannot create output without overwriting: {exc}", file=sys.stderr)
+                return 1
         if args.json:
             print(json.dumps(payload, indent=2))
             return 0

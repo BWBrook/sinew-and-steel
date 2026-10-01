@@ -1,5 +1,9 @@
 """Exact probability engine for the Sinew & Steel resolution rules.
 
+Historical analysis implementation: creation/build_cost uses the uncapped
+pre-1-October-2026 ledger. Production rules are in tools/_rules.py. Retained
+for reproducibility, not for current character validation.
+
 Everything here is exact enumeration over the d20 (or 20x20 for opposed
 tests). No simulation, so no Monte Carlo error. A separate script
 cross-checks these results against random sampling.

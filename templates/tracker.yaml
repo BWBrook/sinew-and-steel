@@ -1,11 +1,27 @@
-schema_version: 1
-name: "Session Tracker"
+schema_version: 2
+name: Session Tracker
+session: 1
 scene: 0
-
-clocks:
-  pressure:
-    name: "Pressure"
-    current: 0
-    max: 5
-
+beat: 0
+session_closed: false
+pressure:
+  name: Pressure
+  scope: party
+  tracks:
+    party:
+      current: 0
+      cycle: 0
+      fired_steps: []
+      pending: {}
+      crisis_pending: false
+      tipper: null
+  effects: []
+  crises: []
+resources:
+  party: {}
+  characters: {}
+clocks: {}
+pending_action: null
+npcs: {}
+combat: {}
 notes: []

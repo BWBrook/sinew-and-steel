@@ -1,17 +1,16 @@
 # Skills
 
-Skills are short, reusable instruction files for agent workflows.
-Each skill uses YAML frontmatter with `name` and `description` to keep conventions
-compatible across Codex, Claude Code, and similar tools.
+Short agent workflows; frontmatter names are stable. Start with
+[agent bootstrap](agent_bootstrap.md) and the [Custodian handbook](agent_dm_handbook.md).
+The complete command walkthrough is [AI play harness](../docs/ai_play_harness.md).
 
-Index:
-- skills/agent_bootstrap.md
-- skills/build_prompt.md
-- skills/agent_dm_handbook.md
-- skills/campaign_setup.md
-- skills/character_build.md
-- skills/dice_resolution.md
-- skills/manage_state.md
-- skills/random_character.md
-- skills/session_recap.md
-- skills/run_session.md
+| Workflow | Guide |
+|---|---|
+| Create a campaign | [Campaign setup](campaign_setup.md) |
+| Build or advance a character | [Character build](character_build.md) |
+| Generate a character | [Random character](random_character.md) |
+| Assemble/check a prompt | [Build prompt](build_prompt.md) |
+| Resolve dice and Luck choices | [Dice resolution](dice_resolution.md) |
+| Maintain mechanical and private state | [Manage state](manage_state.md) |
+| Run and close a session | [Run session](run_session.md), [Session recap](session_recap.md) |
+| Edit rules or skins | [Editor notes](editor_notes.md) |

@@ -7,7 +7,7 @@ The living plan for Sinew & Steel, set by Barry on 1 October 2026 and recorded o
 1. **Cross-examine the prose-pass revision.** Done: Astra's review is `docs/reviews/2026-10-01-stage1-review.md`.
 2. **Decide and implement engine changes with Barry.** Closed on 1 October 2026; decisions below. The evidence is the independent engine review (`docs/independent_engine/`), the engine atlas (`docs/engine_atlas.md`), and the Stage 1 review and Stage 2 engine check (`docs/reviews/`).
 3. **Align the rules and chapters with those changes,** keeping the narrative voice the prose pass established. Fable implemented it on 1 October 2026; Astra reviewed and signed off the changes at `14b6544` on the same day. The changes are listed below.
-4. **Overhaul the AI Custodian harness and supporting tools.** A stage of its own, not incidental cleanup. Astra takes the first pass and Fable reviews and critiques it. Notes below.
+4. **Overhaul the AI Custodian harness and supporting tools.** Astra's implementation is ready for Fable's review and fixes. The handoff is `docs/reviews/2026-10-01-stage4-harness.md`; this stage is not signed off yet.
 
 After Stage 4 come simulated playtests: AI-run sessions across several skins and party sizes, logged well enough to test the reopen triggers below. Barry's human sessions will add an indicative trickle ("more vibes than distributional probabilities"). Then the rules and writing are declared GOLD, and only then comes layout. Until then, every text change must still keep the Quickstart on exactly two facing pages.
 
@@ -46,11 +46,32 @@ Implemented by Fable on 1 October 2026, from the Stage 1 tally. Items marked "ch
 
 Astra's closeout check passed all 31 tests and repository validation. Independent pricing checked 2,600 generated characters across all ten skins and four budgets, plus every published sample. The saved book and Quickstart assemblies match the current sources; PDF inspection confirms two standalone Quickstart pages and full-book pages 6-7. The older uncapped analyses are explicitly labelled historical pending Stage 4 refresh.
 
-## Stage 4 notes
+## Stage 4 implementation and review
 
-- The harness predates the 0.4.0 and prose-pass rulings throughout. Check sheets, validators, `gen_character.py` and `build_prompt.py` against them: Pressure off character statlines, no bought tags at the grim budget, the M-field sensitive tag, personal Insanity in Whispers, and step-effect accumulation. The refund cap is already enforced: `_sslib.REFUND_CAP`, a generator limit of 4 trade-off steps, and a regression test.
-- `campaign_init.py` sets up one shared Pressure clock, but Whispers needs one Insanity clock per investigator. `trackers.py clock` already handles named clocks.
-- Track pending one-test penalties per affected character and which thresholds have fired since the last crisis. Recovery discards unused penalties below their thresholds without re-arming them; a crisis reset clears old step penalties and starts a new cycle. Keep crisis-created consequences separate from these step penalties.
-- Build the playtest logging above into the harness, so that simulated sessions can test the reopen triggers.
-- The creation-economy outputs in the analysis tools (the atlas and the independent review's enumeration) still assume the uncapped ledger; rerun or relabel them.
-- Keep advancement expenditure separately from the current sheet's creation price. For example, the pulp build `[16,6,6,6,8]`, Stamina 9 costs 12 creation points both before and after raising one 6 to 7, because its reductions still exceed the refund cap; that advancement nevertheless costs 1 point. A state-only recalculation must not erase the expenditure.
+Implemented on 1–2 October 2026. Detailed contracts, verification and remaining
+Custodian judgments are in `docs/reviews/2026-10-01-stage4-harness.md`.
+
+- Shared rules code, with executable book examples and automatic pricing of all
+  20 skin samples. The Quickstart's two-page spread is a release check.
+- Schema-2 Pressure state: party scope except personal Insanity in Whispers;
+  fired thresholds, per-character pending penalties, discard without re-arming,
+  atomic crisis reset, and separate lasting effects.
+- Immutable creation snapshots and replayable advancement entries. The pulp
+  `[16,6,6,6,8]`, Stamina 9 example now retains its 1-point advancement charge
+  when a 6 becomes 7 even though the capped creation price remains 12.
+- Atomic campaign actions and receipts, deferred Luck decisions, attack/damage
+  resolution, fixed side initiative, Twilight positions and optional Injury,
+  manifest-defined resource bookkeeping, and explicit backed-up migration.
+- Structured session logs and a descriptive summariser for the reopen triggers.
+  Completed sessions are kept separate from unfinished or migrated partial
+  histories; roster changes occur between logged sessions.
+- Compact prompts, on-demand rules sections, stale-prompt checks, safe public
+  exports, and updated CLI documentation/skills. Private campaigns remain in
+  their existing format until explicitly migrated.
+- Historical creation-economy scripts and outputs are labelled as uncapped;
+  the expensive analyses have not been rerun.
+
+Next: Fable critiques the implementation and fixes agreed defects, starting with
+the book examples and adversarial state sequences. Then run the planned simulated
+sessions across skins and party sizes. Harness tests do not replace those
+playtests or authorize GOLD and layout.

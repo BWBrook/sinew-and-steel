@@ -7,6 +7,9 @@ import re
 import sys
 import yaml
 
+from _rules import (TAG_COST, REFUND_CAP, tag_cost,
+                    validate_double_debit_mixed, build_points_needed_mixed)
+
 
 def repo_root() -> Path:
     return Path(__file__).resolve().parents[1]
@@ -20,8 +23,8 @@ def load_yaml(path: Path) -> dict:
 
 
 def save_yaml(path: Path, data: dict) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(yaml.safe_dump(data, sort_keys=False), encoding="utf-8")
+    from _runtime import atomic_text
+    atomic_text(path, yaml.safe_dump(data, sort_keys=False))
 
 
 def load_manifest(root: Path | None = None) -> dict:
@@ -71,15 +74,18 @@ def resolve_character_file(characters_dir: Path, character: str | None) -> Path:
         if not candidate.is_absolute():
             # Allow passing "name.yaml" or "name".
             if candidate.suffix in (".yaml", ".yml"):
-                rel = characters_dir / candidate.name
+                matches = [characters_dir / candidate.name]
             else:
-                rel = characters_dir / f"{candidate.name}.yaml"
-            if rel.exists():
-                return rel
+                matches = [characters_dir / f"{candidate.name}{suffix}" for suffix in (".yaml", ".yml")]
+            matches = [path for path in matches if path.is_file()]
+            if len(matches) == 1:
+                return matches[0]
+            if len(matches) > 1:
+                raise ValueError(f"duplicate character filename stem: {candidate.name}")
 
         raise FileNotFoundError(f"character not found: {character}")
 
-    candidates = sorted(characters_dir.glob("*.yaml"))
+    candidates = sorted(p for p in characters_dir.iterdir() if p.is_file() and p.suffix in {".yaml", ".yml"})
     if len(candidates) == 1:
         return candidates[0]
     if not candidates:
@@ -109,64 +115,6 @@ class ValidationResult:
 
     def ok(self) -> bool:
         return not self.errors
-
-
-def validate_double_debit_mixed(
-    values: dict[str, Any],
-    baselines: dict[str, int],
-) -> tuple[int, int, int, int]:
-    increases = 0
-    decreases = 0
-    for key, raw in values.items():
-        if key not in baselines:
-            raise KeyError(f"missing baseline for '{key}'")
-        baseline = int(baselines[key])
-        value = int(raw)
-        if value > baseline:
-            increases += value - baseline
-        elif value < baseline:
-            decreases += baseline - value
-    required_decreases = 2 * increases
-    slack = decreases - required_decreases
-    return increases, decreases, required_decreases, slack
-
-
-TAG_COST = 2
-REFUND_CAP = 8
-
-
-def tag_cost(tags: Any) -> int:
-    """Build-point cost of a sheet's tags: 2 each."""
-    return TAG_COST * len(tags or [])
-
-
-def build_points_needed_mixed(
-    values: dict[str, Any],
-    baselines: dict[str, int],
-) -> tuple[int, int, int, int, int]:
-    """
-    Compute creation build-point usage under the Sinew & Steel economy.
-
-    - Raising a score above baseline costs 2 build points per +1.
-    - Raising a score from below baseline toward baseline costs 1 build point per +1.
-      (This matches the rules text: 2 build points = +1 above baseline OR +2 below baseline.)
-    - Lowering scores below baseline refunds at most REFUND_CAP (8) points in total.
-
-    Returns:
-      needed, increases, decreases, required_decreases, slack
-
-    Where:
-      increases = total points above baseline (sum of deltas > 0)
-      decreases = total points below baseline (sum of deltas < 0, absolute)
-      required_decreases = 2 * increases
-      needed = max(0, required_decreases - min(decreases, REFUND_CAP))
-      slack = decreases - required_decreases
-
-    With build point budget B, the legal condition is: needed <= B.
-    """
-    increases, decreases, required_decreases, slack = validate_double_debit_mixed(values, baselines)
-    needed = max(0, required_decreases - min(decreases, REFUND_CAP))
-    return needed, increases, decreases, required_decreases, slack
 
 
 ALLOWED_CLOCK_FIELDS = {"name", "current", "max", "notes"}

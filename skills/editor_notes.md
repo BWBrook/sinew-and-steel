@@ -97,11 +97,12 @@ Use this as a “lint list” whenever you add or revise anything in skins/*.md 
 
   - Resolution stays d20 roll-under (and margin matters); no new dice systems or additive modifiers layered on top.
   - The game still runs on five attributes + Stamina + Luck tokens + Pressure (0–5); no extra stats, derived stats, or “sub-attributes.”
-  - Pressure is universal 0–5 and when it hits 5 it triggers a crisis, then resets to 0 (skins can rename it: Shadow/Heat/Doom/etc.).
+  - Pressure runs 0–5 and at 5 triggers a crisis, then resets to 0 after its consequence. Most skins share a party track; Whispers uses personal Insanity. Step effects accumulate, and one-test penalties fire once per crisis cycle; recovery discards unused penalties above the new level without re-arming them.
   - Stamina participates in the creation ledger with baseline 5, range 3–9 (attributes baseline 10, range 6–16). Those ceilings hold for life; milestone points cannot pass them.
   - Build points remain the same rules:
       - Default creation budget 6 (grim 0 / pulp 12 / heroic 16).
-      - Spend rule: +1 costs 2 points above baseline, +1 costs 1 point below baseline (Stamina baseline 5; attributes baseline 10).
+      - Spend rule: +1 costs 2 points at or above baseline, +1 costs 1 point below baseline (Stamina baseline 5; attributes baseline 10).
+      - Lowering refunds at most 8 points in total and funds raises only; bought tags need build points. Keep advancement purchases separate from creation spending.
       - A tag costs 2 build points (Adventurer's Manual 2.6). Skin knacks and Expertise are tags; if the skin grants any free, it must say so in one sentence.
   - Luck remains dual-purpose:
       - Luck tokens are a pool you spend to nudge.
@@ -163,13 +164,15 @@ Use this as a “lint list” whenever you add or revise anything in skins/*.md 
 
   - manifest.yaml entry matches the skin doc:
       - skins.<slug>.file is correct
-      - pressure_track matches the name used in the doc
+      - pressure_track and pressure_scope match the doc
+      - pressure_steps encode the applicable thresholds, contexts, tolls, and one-test effects
+      - creation_free_tags and resources match the grants, limits, and reset boundaries stated in the skin
       - attributes keys/names match the doc
       - luck_key is one of those 5 keys
       - luck_name matches the doc’s Luck naming
   - Generator hints (skins.<slug>._gen) remain sane:
       - primary should be a real attribute key for the skin
-      - min_steps/max_steps stay within your expected ranges
+      - min_steps/max_steps stay within 0–4 under the 8-point refund cap
 
   7) Quick Mechanical Smoke Tests for Any Skin Edit (Recommended Practice)
   After editing a skin, run a tiny end-to-end loop to catch “I renamed something but forgot the manifest” errors:
@@ -180,4 +183,4 @@ Use this as a “lint list” whenever you add or revise anything in skins/*.md 
       - uv run python tools/validate_campaign.py --campaign skin_smoke
       - uv run python tools/build_prompt.py --campaign skin_smoke
 
-  If all of that passes, you’ve proven the skin works mechanically with the harness.
+  These checks cover scaffold validity and prompt assembly. Verify changed mechanics with a focused rule example or playtest before claiming the skin behaves correctly.

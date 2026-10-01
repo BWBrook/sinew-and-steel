@@ -1,5 +1,13 @@
 # Engine analysis
 
+**Historical creation economy:** these analysis scripts and their saved creation
+enumerations use the ledger from before the 1 October 2026 refund cap. Their
+creation frontiers, counts and advancement comparisons must not be used to
+validate current characters. The live harness uses `tools/_rules.py`; run
+`tools/validate_examples.py` for the current published builds. The historical
+inputs and outputs remain intact for comparison. Resolution/combat calculations
+do not acquire the new creation cap merely by being rerun.
+
 Exact probability analysis of the Sinew & Steel resolution engine. Pure standard
 library (`fractions`, `itertools`, `random`), so it runs without the project venv.
 

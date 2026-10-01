@@ -1,30 +1,27 @@
 ---
 name: session-recap
-description: Distill a session into private memory notes, open threads, and tracker updates.
+description: Record private outcomes and open threads, then mark genuinely completed sessions for playtest review.
 ---
 
 # Session Recap
 
-## Goal
-Create a concise, private summary after each session beat or milestone, then update trackers and sheets.
+`recap.py` edits memory only. After a scene or session, record a concise summary
+of outcomes and new facts, unresolved threads, NPC changes, and private secrets.
+Do not duplicate already-applied mechanical costs in the recap.
 
-## Recap format (YAML)
-Use state/memory/seed_memory.yaml as the base.
-Populate:
-- summary: 3-6 sentences, focusing on outcomes and new facts.
-- threads: unresolved hooks or decisions.
-- npcs: new NPCs or status changes.
-- secrets: GM-only reveals or hidden motives.
-
-## Checklist
-1. Write a summary entry in state/memory/ (tools/recap.py can do this).
-2. Update pressure or threat clocks (tools/recap.py or tools/trackers.py).
-3. Update character sheets for spent Luck, damage, or new items.
-4. Note any milestone boons or build points awarded.
-
-## Commands
 ```bash
-uv run python tools/trackers.py --campaign <slug> pressure --inc 1 --clamp
-uv run python tools/update_sheet.py --campaign <slug> --character <name> --inc pools.luck.current=-1
-uv run python tools/recap.py --campaign <slug> --summary "Beat recap" --pressure-inc 1 --scene-inc 1
+uv run python tools/recap.py --campaign ice_hunt \
+  --summary "The clan found shelter; the wolf still follows." \
+  --thread "Find a safe route to the river"
 ```
+
+Apply mechanical changes when they happen through `play.py`; use `advance.py`
+for milestone awards and purchases. Those operations create the structured
+playtest events. Recaps do not replace that evidence.
+
+At the real end of a session, save the exact public checkpoint, resolve pending
+actions/crises, then run `play.py session-close --label "Session complete"`.
+`playtest_summary.py --campaign ice_hunt --json` distinguishes completed sessions
+from interrupted ones. Begin the next session with `play.py session --label ...`,
+which creates matching memory and public log files. Keep private recap contents
+out of player output; `resume_pack.py --public` omits memory and logs entirely.

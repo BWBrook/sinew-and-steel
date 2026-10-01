@@ -9,6 +9,30 @@ skins:
     name: Clanfire
     file: skins/clanfire.md
     pressure_track: Shadow
+    pressure_scope: party
+    pressure_steps:
+    - step: 2
+      kind: custodian
+      label: 'Strange tracks: minor Disadvantage and resource drain selected by the Custodian'
+    - step: 4
+      kind: luck_cost
+      label: Rites cost an extra Instinct bead
+      contexts:
+      - rite
+      amount: 1
+    resources:
+      totem_mark:
+        name: Totem Mark
+        kind: uses
+        scope: character
+        limit: 1
+        reset: session
+      beast_bond:
+        name: Beast Bond
+        kind: pool
+        scope: character
+        initial: 0
+        max: 3
     _gen:
       primary: MGT
       min_steps: 2
@@ -25,6 +49,24 @@ skins:
     name: Iron & Ruin
     file: skins/iron_and_ruin.md
     pressure_track: Doom
+    pressure_scope: party
+    pressure_steps:
+    - step: 2
+      kind: custodian
+      label: 'Blood sigils: minor Disadvantage selected by the Custodian'
+    - step: 3
+      kind: luck_cost
+      label: Rituals cost an extra Fortune token
+      contexts:
+      - ritual
+      amount: 1
+    resources:
+      heroic_act:
+        name: Heroic Act
+        kind: uses
+        scope: character
+        limit: 1
+        reset: session
     _gen:
       primary: BRN
       min_steps: 2
@@ -41,6 +83,7 @@ skins:
     name: Time Odyssey
     file: skins/time_odyssey.md
     pressure_track: Anomaly
+    pressure_scope: party
     _gen:
       primary: PRW
       min_steps: 2
@@ -57,6 +100,33 @@ skins:
     name: Briar & Benedictine
     file: skins/briar_benedictine.md
     pressure_track: Sin
+    pressure_scope: party
+    pressure_steps:
+    - step: 2
+      kind: disadvantage
+      label: 'Clergy distrust: Disadvantage on Mercy with clergy'
+      attributes:
+      - MCY
+      contexts:
+      - clergy
+    - step: 3
+      kind: toll
+      label: Open defiance costs 1 Providence bead before rolling or adds 1 Sin
+      contexts:
+      - open_defiance
+      amount: 1
+    - step: 4
+      kind: disadvantage
+      label: Providence tests have Disadvantage
+      attributes:
+      - PRV
+    resources:
+      insight:
+        name: Insight
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
     _gen:
       primary: LOR
       min_steps: 2
@@ -73,6 +143,19 @@ skins:
     name: Rust & Domes
     file: skins/rust_and_domes.md
     pressure_track: Heat
+    pressure_scope: party
+    pressure_steps:
+    - step: 2
+      kind: disadvantage
+      label: Black-market dealing has Disadvantage
+      contexts:
+      - black_market
+    - step: 4
+      kind: pressure_cost
+      label: Risky actions cost an extra Heat
+      contexts:
+      - risky
+      amount: 1
     _gen:
       primary: ATK
       min_steps: 2
@@ -89,6 +172,63 @@ skins:
     name: Candlelight Dungeons
     file: skins/candlelight_dungeons.md
     pressure_track: Fatigue
+    pressure_scope: party
+    pressure_steps:
+    - step: 2
+      kind: next_disadvantage
+      label: Next Strength or Dexterity test has Disadvantage
+      attributes:
+      - STR
+      - DEX
+    - step: 3
+      kind: incoming_advantage
+      label: Enemies have Advantage against the party
+    - step: 4
+      kind: toll
+      label: Each risky test costs 1 personal Luck token before rolling or adds 1 Pressure
+      contexts:
+      - risky
+      amount: 1
+    resources:
+      backstab:
+        name: Backstab
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+      turn_undead:
+        name: Turn Undead
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+      second_wind:
+        name: Second Wind
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+      arcane_flex:
+        name: Arcane Flex
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+      beast_tongue:
+        name: Beast Tongue
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+      jack_of_trades:
+        name: Jack-of-Trades
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+    creation_free_tags:
+      knack: 1
+      expertise: 1
     addons:
       - skins/candlelight_delvekit.md
     _gen:
@@ -107,6 +247,44 @@ skins:
     name: Service Duct Blues
     file: skins/service_duct_blues.md
     pressure_track: Stress
+    pressure_scope: party
+    pressure_steps:
+    - step: 2
+      kind: disadvantage
+      label: Time-sensitive repairs have Disadvantage
+      contexts:
+      - time_sensitive_repair
+    - step: 4
+      kind: toll
+      label: Each risky test costs 1 personal Luck token before rolling or adds 1 Pressure
+      contexts:
+      - risky
+      amount: 1
+    resources:
+      reroute:
+        name: Reroute
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+      cross_training_override:
+        name: Cross-Training Override
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+      quick_scan_free:
+        name: Quick Scan free use
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+      deep_scan:
+        name: Deep Scan
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
     _gen:
       primary: MSC
       min_steps: 2
@@ -123,6 +301,51 @@ skins:
     name: Whispers in the Fog
     file: skins/whispers_in_the_fog.md
     pressure_track: Insanity
+    pressure_scope: character
+    pressure_steps:
+    - step: 2
+      kind: next_disadvantage
+      label: Next Fortitude test against fear or coercion has Disadvantage
+      attributes:
+      - FRT
+      contexts:
+      - fear
+      - coercion
+    - step: 3
+      kind: toll
+      label: Each risky test costs 1 personal Luck token before rolling or adds 1 Pressure
+      contexts:
+      - risky
+      amount: 1
+    - step: 4
+      kind: disadvantage
+      label: All tests have Disadvantage
+    resources:
+      occult_scholar:
+        name: Occult Scholar
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+      detective_intuition:
+        name: Detective Intuition
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+      veterans_nerves:
+        name: Veteran's Nerves
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+    clocks:
+      lantern:
+        name: Lantern
+        current: 0
+        max: 4
+    creation_free_tags:
+      knack: 1
     _gen:
       primary: SCH
       min_steps: 2
@@ -139,6 +362,75 @@ skins:
     name: Free Traders of the Drift Marches
     file: skins/free_traders_of_the_drift_marches.md
     pressure_track: Strain
+    pressure_scope: party
+    pressure_steps:
+    - step: 2
+      kind: next_disadvantage
+      label: Next Education or Social test has Disadvantage
+      attributes:
+      - EDU
+      - SOC
+    - step: 3
+      kind: toll
+      label: Each risky test costs 1 personal Luck token before rolling or adds 1 Pressure
+      contexts:
+      - risky
+      amount: 1
+    - step: 4
+      kind: disadvantage
+      label: All tests have Disadvantage
+    resources:
+      ship_shares:
+        name: Ship Shares
+        kind: pool
+        scope: party
+        initial: 2
+        max: null
+        zero_pressure: 1
+      ex_marine:
+        name: Ex-Marine
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+      scout_surveyor:
+        name: Scout Surveyor
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+      merchant_broker:
+        name: Merchant Broker
+        kind: uses
+        scope: character
+        limit: 1
+        reset: port
+      salvage_rat:
+        name: Salvage Rat
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+    clocks:
+      fuel:
+        name: Fuel Depletion
+        current: 0
+        max: 4
+      hull:
+        name: Hull Damage
+        current: 0
+        max: 6
+      debt:
+        name: Debt
+        current: 0
+        max: 6
+      medkit:
+        name: Medkit Supplies
+        current: 0
+        max: 4
+    creation_free_tags:
+      knack: 1
+      expertise: 1
     _gen:
       primary: EDU
       min_steps: 2
@@ -155,6 +447,79 @@ skins:
     name: Twilight of the Northlands
     file: skins/twilight_of_the_northlands.md
     pressure_track: Dread
+    pressure_scope: party
+    pressure_steps:
+    - step: 2
+      kind: next_disadvantage
+      label: Next Heart test against dread has Disadvantage
+      attributes:
+      - HRT
+      contexts:
+      - dread
+    - step: 3
+      kind: toll
+      label: Each risky test costs 1 personal Luck token before rolling or adds 1 Pressure
+      contexts:
+      - risky
+      amount: 1
+    - step: 4
+      kind: disadvantage
+      label: All tests have Disadvantage
+    resources:
+      companionship:
+        name: Companionship
+        kind: pool
+        scope: party
+        initial: 0
+        max: null
+        per_character: true
+        purpose: nudge
+        per_actor_use: companionship_nudge
+        zero_pressure: 1
+      companionship_nudge:
+        name: Companionship nudge
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+      small_and_quiet:
+        name: Small & Quiet
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+      keen_eyes:
+        name: Keen Eyes
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+      stout_heart:
+        name: Stout-Heart
+        kind: uses
+        scope: character
+        limit: 1
+        reset: session
+      starlit_memory:
+        name: Starlit Memory
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+      plain_speech:
+        name: Plain Speech
+        kind: uses
+        scope: character
+        limit: 1
+        reset: scene
+      song_of_rest:
+        name: Song of Rest
+        kind: uses
+        scope: party
+        limit: 1
+        reset: camp
+    creation_free_tags:
+      knack: 1
     _gen:
       primary: HRT
       min_steps: 2

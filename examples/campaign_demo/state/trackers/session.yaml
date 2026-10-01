@@ -1,11 +1,7 @@
-schema_version: 1
+schema_version: 2
 name: Session Tracker
 scene: 1
 clocks:
-  pressure:
-    name: Shadow
-    current: 0
-    max: 5
   hunger:
     name: Hunger
     current: 0
@@ -15,3 +11,49 @@ clocks:
     current: 0
     max: 6
 notes: []
+session: 1
+beat: 0
+session_closed: false
+pressure:
+  name: Shadow
+  scope: party
+  tracks:
+    party:
+      current: 0
+      cycle: 0
+      fired_steps: []
+      pending: {}
+      crisis_pending: false
+      tipper: null
+  effects: []
+  crises: []
+resources:
+  party: {}
+  characters:
+    grak:
+      totem_mark:
+        name: Totem Mark
+        kind: uses
+        used: 0
+        limit: 1
+        reset: session
+      beast_bond:
+        name: Beast Bond
+        kind: pool
+        current: 0
+        max: 3
+    tarra:
+      totem_mark:
+        name: Totem Mark
+        kind: uses
+        used: 0
+        limit: 1
+        reset: session
+      beast_bond:
+        name: Beast Bond
+        kind: pool
+        current: 0
+        max: 3
+pending_action: null
+npcs: {}
+combat: {}

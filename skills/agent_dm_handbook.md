@@ -1,141 +1,77 @@
 ---
 name: agent-dm-handbook
-description: End-to-end guide for running a Sinew & Steel game with the repo and tools.
+description: Custodian operating discipline for the campaign engine, source rules, and private state.
 ---
 
 # Agent DM Handbook
 
-This guide explains how to run a full Sinew & Steel session using the repo, tools, and state files.
-It is written for Codex/Claude-Code style agents and keeps private GM data separate from public play.
+Read the selected skin before play. `manifest.yaml` indexes the canonical books,
+skins, and mechanical metadata. Use [the harness workflow](../docs/ai_play_harness.md)
+for commands and [agent bootstrap](agent_bootstrap.md) for a quick resume.
 
-## Philosophy
-- Keep rules, skin, and prompt assembly deterministic and auditable.
-- Store private notes and trackers locally (never show them unless asked).
-- Use the CLI tools for rolls and state updates to avoid mistakes.
-- Keep mechanics in service of story: roll only when uncertainty + real stakes.
+## Table discipline
 
-## When to roll (and when not to)
-- **Do not roll by default.** If the player’s approach is plausible and the outcome is interesting either way, you can resolve it narratively.
-- **Roll only when** (a) the outcome is genuinely uncertain, and (b) it matters (danger, time, reputation, resources, irreversible consequences).
-- **Reward initiative.** Smart plans can be auto-success, reduce risk, or grant Advantage; dice are not “permission slips.”
-- **Prefer meaningful costs over filler rolls.** If you need tension without randomness, offer: a hard bargain, a time cost, +1 Pressure/Stress, or a resource spend.
-- **Keep cadence tight.** Many beats need zero rolls; most beats should need at most 1–2.
+- Roll only when the outcome is uncertain and failure has an interesting cost.
+  Ordinary competence and settled fictional outcomes need no roll.
+- Ask what the character does and how. Choose the attribute that fits; a new
+  description does not make an unsuitable favourite attribute apply.
+- State stakes before rolling. If two failure consequences fit, name both before
+  the roll and use the book's selection procedure; do not invent a new price after
+  seeing the result.
+- Keep choices concrete, including plausible narrative options. Let the player
+  think aloud; only fictional stalling costs time.
+- Judge tags, equipment, contextual modifiers, and exceptional harm from the
+  fiction. The CLI records the judgment; it does not read a description as rules.
 
-Examples of non-roll resolutions:
-- “Yes, but…” (success with complication) or “No, but…” (failure with progress).
-- Offer a choice: “You can do it quietly, or quickly, but not both.”
-- Spend a token to bypass a routine obstacle rather than rolling.
+## Mechanics and records
 
-## Repo map (agent view)
-- rules/: core system (adventurers_manual + custodians_almanac)
-- skins/: setting overlays
-- prompts/agent/: agent prompt templates
-- prompts/chat/: chat-oriented prompt templates
-- skills/: repeatable workflows (including this guide)
-- tools/: CLI helpers
-- state/: private runtime data (repo-level)
-- campaigns/: per-campaign workspaces (untracked)
+Use `play.py` for campaign checks, opposition, attacks, Pressure, pools, clocks,
+conditions, resources, and session boundaries. `--defer` persists dice and upfront
+costs; show the dice, then `settle` without rerolling. Use an explicit event ID for
+safe retries. A dry-run previews an operation and creates no pending roll.
 
-## Recommended workflow (campaign mode)
+Declare semantic contexts for both sides. Pressure modifiers are snapshotted at
+start, accumulate, and consume one-test penalties even when Advantage cancels
+them. Supply the toll choice when required, and keep base ability costs separate
+from automatic tolls. A pending crisis requires a table result, target,
+adjudicated consequence, and any lasting effects before reset. Record effects'
+expiry explicitly and supply their applicable modifiers on later tests.
 
-### 1) Initialize a campaign
-```bash
-uv run python tools/campaign_init.py --title "My Campaign" --skin <skin> --tone standard --random-character "Name"
-```
-This creates:
-- campaigns/<slug>/campaign.yaml
-- campaigns/<slug>/state/{characters,trackers,memory,logs}/
+Each able combatant acts once per round; defence uses no action. Establish side
+initiative once for the fight. Twilight positions keep both their benefit and
+drawback throughout the round. Supply edge, soak, and the actual legal defence;
+use `opposed` instead of `attack` for a contest whose consequence is not damage.
 
-Campaign tone:
-- `campaign.yaml` records `build_points_budget` (default 6).
-- Character creation tools use this budget in campaign workflows (or you can override per character).
+Use `advance.py` for milestones and purchases. Creation snapshots and spending
+are fixed; advancement has its own replayable entries. `recalc_sheet.py` verifies
+that history rather than repricing the current scores. New campaign characters
+must be added through the builders so personal Pressure and resource rosters stay
+in sync. Never infer missing legacy history merely because a current sheet looks
+legal.
 
-### 2) Build the full prompt
-```bash
-uv run python tools/build_prompt.py --campaign <slug> --mode agent
-```
-This writes campaigns/<slug>/prompt.md using the campaign skin.
+## Public and private
 
-### 3) Start play
-- Use prompt.md to seed the model.
-- Keep public narration in the conversation.
-- Keep private notes in campaigns/<slug>/state/memory/.
+Keep public narration in the conversation and public Markdown log. Store private
+motives, hidden consequences, and recaps under campaign memory. Save the exact
+public Custodian response with `checkpoint.py` after every turn. Resume from
+current state and this checkpoint; it is not a rewind point.
 
-### 4) Resolve actions
-- Roll dice with tools/roll.py.
-- Apply outcomes using tools/update_sheet.py, tools/trackers.py, or tools/apply_roll.py.
+A private resume includes raw sheets, tracker, memory, and log. Public mode uses
+a field allowlist and excludes all raw private state and logs; its checkpoint text
+must already be public. Full campaign prompts are private, including chat-mode
+prompts. The compact prompt is the default; load numbered sections on demand and
+check/rebuild its source fingerprint after changes.
 
-Choice design (avoid dice spam):
-- Offer 2–4 options; **at least one should be narrative** (no roll, or a simple tradeoff).
-- If a roll is needed, state **what’s at stake** before rolling (what changes on success vs failure).
-- Use rolls to resolve risky actions; use narration to resolve competence and routine work.
+## Session evidence
 
-Examples:
-```bash
-uv run python tools/roll.py check --stat 12 --adv > /tmp/roll.json
-uv run python tools/apply_roll.py --roll /tmp/roll.json \
-  --sheet campaigns/<slug>/state/characters/hero.yaml \
-  --success-sheet-inc pools.stamina.current=-1
-```
+Record scene-scale beats separately from rolls. Mark perilous beats honestly,
+award milestones at the book's cadence, and log recovery when it occurs. Close
+only completed sessions with `play.py session-close`; start the next with `session`.
+The playtest summary distinguishes complete and partial sessions and supports
+review of Luck depletion and red-line duration. These logs inform a Custodian's
+judgment; they do not turn a small playtest into precise balance evidence.
 
-One-command alternative (roll + optional nudge + updates + logging):
-
-```bash
-uv run python tools/beat.py --campaign <slug> --character hero --log \
-  check --stat-key <STAT> --adv --nudge -1
-```
-
-### 5) Capture memory and logs
-- Memory: use tools/recap.py after each beat or scene.
-- Logs: use tools/session_log.py to append public narration or roll results.
-
-Examples:
-```bash
-uv run python tools/recap.py --campaign <slug> \
-  --summary "Beat 1: the bridge collapses" --pressure-inc 1 --scene-inc 1
-
-uv run python tools/session_log.py --campaign <slug> --role GM \
-  --text "The bridge sways, ropes snapping in the storm."
-```
-
-## Public vs private
-- Public: scene narration, options, roll results shown to the player.
-- Private: GM notes, hidden motives, clocks, consequences.
-
-## Skin toggles
-- The manifest stores per-skin attributes, luck naming, and pressure track names.
-- Campaign initialization uses the skin to label trackers and sheets automatically.
-- The manifest can also define skin addons that are concatenated into prompt builds. At present, `candlelight_dungeons` automatically pulls in `skins/candlelight_delvekit.md` when you use `tools/build_prompt.py`.
-
-## When to update state
-- After every roll: update sheet and tracker immediately.
-- After every beat: add a memory recap.
-- At session end: summarize unresolved threads.
-
-## Troubleshooting
-- Run `uv run python tools/validate_repo.py` if tools or paths break.
-- Use `tools/build_prompt.py --list-skins` to verify skin slugs.
-- If a campaign is missing, re-run campaign_init.
-- Use `uv run python tools/validate_campaign.py --campaign <slug>` to check campaign scaffolding/state.
-- Use `uv run python tools/summary.py --campaign <slug>` for a quick snapshot (scene, clocks, pools).
-- Use `uv run python tools/doctor.py --campaign <slug>` for a single diagnostic pass.
-
-## Save and quit (ironman checkpoint)
-If you need to stop mid-beat and later resume with a fresh context window, save the *exact* last GM message text.
-This is separate from the deliberately summarized memory and the session log, and is **not** intended as a branch-point rewind.
-
-- Save (overwrites the prior checkpoint for that campaign):
-  `cat /tmp/last_gm.md | uv run python tools/checkpoint.py --campaign <slug>`
-- Restore (prints the exact text):
-  `uv run python tools/checkpoint.py --campaign <slug> --show`
-
-### Recommended discipline (do this every GM message)
-To avoid “where were we?” drift when resuming in a fresh context window:
-- After you send a GM response to the player, immediately write that exact text into `/tmp/last_gm.md` (or any temp file).
-- Then run: `cat /tmp/last_gm.md | uv run python tools/checkpoint.py --campaign <slug>`
-
-This keeps one authoritative “last GM output” checkpoint per campaign with no checkpoint bloat.
-
-## Optional: repo-level state
-If you are not using campaigns/, you can store data in state/ at repo root.
-The tools work the same way; just point them to state/ paths.
+For an unexpected state error, stop the dependent action, inspect the receipt and
+`validate_campaign.py` output, and repair the actual inconsistency. Do not reroll,
+reinitialize a played campaign, or bypass a protected mechanical field through a
+generic YAML updater.

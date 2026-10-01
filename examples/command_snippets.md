@@ -27,10 +27,10 @@ Roll a standard check:
 uv run python tools/roll.py check --stat 12
 ```
 
-Update a sheet (spend 1 Luck):
+Record an adjudicated Luck cost:
 
 ```bash
-uv run python tools/update_sheet.py --campaign <slug> --character <name> --inc pools.luck.current=-1
+uv run python tools/play.py --campaign <slug> --character <name> luck --amount -1 --source "Declared ability cost"
 ```
 
 Resume fast (agent context):
@@ -47,8 +47,9 @@ cat /tmp/last_gm.md | uv run python tools/checkpoint.py --campaign <slug>
 uv run python tools/checkpoint.py --campaign <slug> --show
 ```
 
-Start a new paired session (memory + log):
+Close the completed session, then start its successor (memory, prose log and telemetry):
 
 ```bash
+uv run python tools/play.py --campaign <slug> session-close --label "Session complete"
 uv run python tools/new_session.py --campaign <slug>
 ```

@@ -7,6 +7,8 @@ import sys
 import yaml
 
 import _sslib
+import _characters
+import _rules
 
 
 def load_sheet(path: Path) -> dict:
@@ -23,8 +25,10 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
     warnings: list[str] = []
 
     schema_version = sheet.get("schema_version")
-    if schema_version != 1:
-        errors.append(f"sheet schema_version must be 1 (got {schema_version!r})")
+    if schema_version not in (1, _characters.SHEET_SCHEMA_VERSION) or isinstance(schema_version, bool):
+        errors.append(f"sheet schema_version must be 1 or 2 (got {schema_version!r})")
+    elif schema_version == 1:
+        warnings.append("legacy sheet has no verified advancement history; adopt an unadvanced creation snapshot explicitly before advancing")
 
     skin_slug = sheet.get("skin")
     if not skin_slug or not isinstance(skin_slug, str):
@@ -63,8 +67,11 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
         if not is_int(value):
             errors.append(f"attribute {key} must be int (got {type(value).__name__})")
             continue
-        if value < 6 or value > 16:
-            errors.append(f"attribute {key} out of range (6-16): {value}")
+        if not _rules.ATTRIBUTE_MIN <= value <= _rules.ATTRIBUTE_MAX:
+            errors.append(f"attribute {key} out of range ({_rules.ATTRIBUTE_MIN}-{_rules.ATTRIBUTE_MAX}): {value}")
+
+    if isinstance(sheet.get("tracks"), dict) and "pressure" in sheet["tracks"]:
+        errors.append("Pressure belongs in campaign trackers, never tracks.pressure")
 
     # Pools
     pools = sheet.get("pools")
@@ -72,7 +79,9 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
         errors.append("missing or invalid sheet.pools")
         return _sslib.ValidationResult(errors, warnings)
     else:
-        extra_pool_keys = sorted(set(pools.keys()) - {"luck", "stamina"})
+        if "pressure" in pools:
+            errors.append("Pressure belongs in campaign trackers, never pools.pressure")
+        extra_pool_keys = sorted(set(pools.keys()) - {"luck", "stamina", "pressure"})
         if extra_pool_keys:
             warnings.append(f"unexpected pools keys: {', '.join(extra_pool_keys)}")
 
@@ -94,7 +103,7 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
                 errors.append("pools.luck.current and pools.luck.max must be ints")
             else:
                 if max_value != luck_stat_value:
-                    warnings.append(
+                    errors.append(
                         f"pools.luck.max ({max_value}) != luck stat {luck_key} ({luck_stat_value})"
                     )
                 if cur_value < 0 or cur_value > max_value:
@@ -120,68 +129,41 @@ def validate_sheet(sheet: dict, manifest: dict) -> _sslib.ValidationResult:
         if not is_int(max_value) or not is_int(cur_value):
             errors.append("pools.stamina.current and pools.stamina.max must be ints")
         else:
-            if max_value < 3 or max_value > 9:
-                errors.append(f"pools.stamina.max out of range (3-9): {max_value}")
+            if not _rules.STAMINA_MIN <= max_value <= _rules.STAMINA_MAX:
+                errors.append(f"pools.stamina.max out of range ({_rules.STAMINA_MIN}-{_rules.STAMINA_MAX}): {max_value}")
             if cur_value < 0 or cur_value > max_value:
                 errors.append(f"pools.stamina.current out of range (0-{max_value}): {cur_value}")
             stamina_max_for_validation = max_value
 
-    # Build points validation (attributes baseline 10; stamina baseline 5).
-    # Economy: +1 above baseline costs 2 build points; +1 below baseline costs 1 build point.
-    creation = sheet.get("creation")
-    if creation is None:
-        warnings.append("sheet missing creation section (assuming build_points_budget=6)")
-        build_points_budget = 6
-        build_points_declared_used = None
-    elif not isinstance(creation, dict):
-        warnings.append("sheet creation is not a dict (assuming build_points_budget=6)")
-        build_points_budget = 6
-        build_points_declared_used = None
-    else:
-        budget = creation.get("build_points_budget")
-        if budget is None:
-            warnings.append("creation missing build_points_budget (assuming 6)")
-            build_points_budget = 6
-        elif not is_int(budget):
-            warnings.append(f"creation build_points_budget is not int (assuming 6): {budget}")
-            build_points_budget = 6
+    # Replay historical purchases from a fixed creation snapshot. Repricing the
+    # current scores would erase spending when creation refunds exceed the cap.
+    if schema_version == _characters.SHEET_SCHEMA_VERSION:
+        try:
+            _characters.replay_advancement(sheet, skin)
+        except (ValueError, TypeError, KeyError, AttributeError) as exc:
+            errors.append(str(exc))
+    elif schema_version == 1:
+        creation = sheet.get("creation")
+        if not isinstance(creation, dict):
+            errors.append("legacy creation spending is missing; cannot infer advancement history")
+        elif sheet.get("advancement") or creation.get("snapshot"):
+            errors.append("legacy advancement metadata is ambiguous; reconcile it into schema 2")
         else:
-            build_points_budget = int(budget)
-        if is_int(build_points_budget) and int(build_points_budget) < 0:
-            errors.append(f"creation build_points_budget must be >= 0 (got {build_points_budget})")
-
-        declared = creation.get("build_points_used")
-        build_points_declared_used = int(declared) if is_int(declared) else None
-        if declared is not None and build_points_declared_used is None:
-            warnings.append(f"creation build_points_used is not int: {declared}")
-
-    try:
-        baselines = {key: 10 for key in stats.keys()}
-        values = dict(stats)
-        baselines["STM"] = 5
-        if stamina_max_for_validation is None:
-            raise ValueError("missing stamina max for point-buy validation")
-        values["STM"] = stamina_max_for_validation
-
-        needed, increases, decreases, required, slack = _sslib.build_points_needed_mixed(values, baselines)
-        tags = sheet.get("tags") or []
-        if not isinstance(tags, list) or not all(isinstance(t, str) for t in tags):
-            errors.append("tags must be a list of strings")
-            tags = []
-        needed += _sslib.tag_cost(tags)
-        if needed > int(build_points_budget):
-            errors.append(
-                f"build points exceeded: needed={needed} budget={build_points_budget} "
-                f"(increases={increases} decreases={decreases} tags={len(tags)})"
-            )
-        if slack > 0:
-            warnings.append(f"extra decreases below baseline: slack={slack} (voluntary weakness)")
-        if build_points_declared_used is not None and build_points_declared_used != needed:
-            warnings.append(
-                f"creation build_points_used ({build_points_declared_used}) != computed needed ({needed})"
-            )
-    except Exception as exc:
-        errors.append(f"failed to compute point-buy validation: {exc}")
+            try:
+                budget = _rules.integer(creation.get("build_points_budget"), "creation build_points_budget")
+                declared = _rules.integer(creation.get("build_points_used"), "creation build_points_used")
+                if budget < 0 or declared < 0:
+                    raise ValueError("creation build points must be nonnegative")
+                tags = _characters._tags(sheet.get("tags", []))
+                needed = _rules.creation_price(stats, stamina_max_for_validation, tags)
+                if needed > budget:
+                    errors.append(f"build points exceeded: needed={needed} budget={budget}")
+                if declared != needed:
+                    errors.append("legacy declared spending differs from its current creation price; advancement history is ambiguous")
+                if tags:
+                    warnings.append("legacy tags have no grant provenance and are treated as bought")
+            except (ValueError, TypeError, KeyError) as exc:
+                errors.append(str(exc))
 
     # Inventory warnings
     inv = sheet.get("inventory")

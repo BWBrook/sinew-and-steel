@@ -1,21 +1,30 @@
 ---
 name: build-prompt
-description: Assemble a complete GM prompt from rules, skin, and optional hidden notes.
+description: Assemble a compact Custodian prompt, load detailed sections, and verify source freshness.
 ---
 
 # Build Prompt
 
-## Goal
-Create a single prompt file containing core rules, the chosen skin, and optional hidden scenario notes.
+```bash
+uv run python tools/build_prompt.py --list-skins
+uv run python tools/build_prompt.py --campaign ice_hunt
+uv run python tools/build_prompt.py --campaign ice_hunt --check --json
+uv run python tools/build_prompt.py --section manual:6
+```
 
-## Steps
-1. List available skins: `uv run python tools/build_prompt.py --list-skins`.
-2. Build a prompt: `uv run python tools/build_prompt.py --skin <slug> --out /tmp/ss_prompt.md`.
-3. (Optional) Include a hidden scenario: `--hidden path/to/notes.md`.
+The default compact prompt includes the Quickstart, complete skin and addons,
+current campaign state, and a detailed-rules index. `--full` includes both core
+books. `--section manual:6` prints a numbered section on demand; `--section
+almanac:4` retrieves the Pressure procedure. Supplying `--section` with a campaign
+includes it in the assembled prompt, so use the section-only form for a read.
 
-## Notes
-- Default templates are `prompts/agent/starter_prompt.md` (agent mode) and `prompts/chat/starter_prompt.md` (chat mode).
-- Use `--mode chat` for non-agent play or `--template` to override.
-- By default, `tools/build_prompt.py` strips embedded artwork tags like `![](...){...}` from the rules and skins so the prompt is clean for LLM ingestion. Use `--keep-art` if you explicitly want to include them.
-- The manifest is the source of truth for file paths.
-- Use `--dry-run` to avoid writing files, or `--json` for a machine-readable summary.
+Campaign output goes to `campaigns/<slug>/prompt.md`. Without a campaign, use
+`--skin SLUG --out FILE`, or omit `--out` for stdout. `--dry-run` writes nothing;
+`--json` reports assembly metadata. `--check` verifies a saved campaign prompt or
+`--out FILE`, including body, source hashes, and campaign file inventory.
+
+Use `--hidden FILE` for explicit scenario material. Campaign-local
+`state/memory/hidden_scenario.md` is included automatically. All assembled campaign
+prompts are private. `--mode chat` selects the chat template, not a public filter.
+Artwork is stripped by default; `--keep-art` preserves it. Resolve paths through
+`manifest.yaml` and rebuild when a freshness check reports changes.

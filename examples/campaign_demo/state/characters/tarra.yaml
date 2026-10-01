@@ -1,4 +1,4 @@
-schema_version: 1
+schema_version: 2
 name: Tarra
 skin: clanfire
 player: Example
@@ -6,6 +6,16 @@ created: '2025-12-24'
 creation:
   build_points_budget: 6
   build_points_used: 6
+  snapshot:
+    attributes:
+      MGT: 6
+      FLT: 8
+      CUN: 12
+      SPR: 14
+      INS: 11
+    stamina: 3
+    bought_tags: []
+    free_tags: []
 meta:
   generated:
     method: example
@@ -23,17 +33,15 @@ pools:
   stamina:
     current: 3
     max: 3
-tracks:
-  pressure:
-    name: Shadow
-    current: 0
-    max: 5
 inventory:
   big_items:
   - Carved bone flute (Adv calming beasts)
-  - Fire‑bow drill
+  - "Fire\u2011bow drill"
   - Herb bundle
   - Scrap of strange cloth
   small_items: []
 notes:
 - Clan shaman; voice between worlds.
+tags: []
+advancement:
+  entries: []

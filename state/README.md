@@ -14,4 +14,7 @@ Seed files:
 - state/trackers/seed_tracker.yaml
 - state/memory/seed_memory.yaml
 
-Use tools/update_sheet.py and tools/trackers.py for consistent edits.
+Use `tools/play.py` for mechanical changes and `tools/advance.py` for milestones
+and spending. `tools/update_sheet.py` edits descriptive fields only. Campaign
+creation supplies the selected skin's Pressure and resource structures; the
+seed files illustrate the formats and do not supply a complete party roster.

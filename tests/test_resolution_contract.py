@@ -5,44 +5,36 @@ and token-paid nudges. Sheet/CLI checks exercise that same contract at its
 state boundary, including current Luck and the pre-spend target snapshot.
 """
 
-import argparse
-import contextlib
-import io
 import json
 from pathlib import Path
 import subprocess
 import sys
-import tempfile
 import unittest
 from unittest.mock import patch
 
-import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
 import _dice
 import _sslib
-import beat
+import _characters
+import _play
+import _pressure
+import _resources
 
 
-def sheet():
-    return {
-        "skin": "clanfire",
-        "attributes": {"MGT": 12, "INS": 10},
-        "pools": {"luck": {"current": 3, "max": 10}},
-    }
-
-
-def args(**overrides):
-    defaults = dict(
-        command="check", stat=None, stat_key="INS", adv=False, dis=False,
-        nudge=0, label=None, attacker=None, attacker_key=None,
-        defender=None, defender_key=None, as_role="attacker",
-        adv_attacker=False, dis_attacker=False, adv_defender=False,
-        dis_defender=False, nudge_target="attacker", nudge_spend="as",
-    )
-    return argparse.Namespace(**(defaults | overrides))
+def state(slug="clanfire"):
+    skin = _sslib.load_manifest()["skins"][slug]
+    actors = ("hero", "rival")
+    sheets = {actor: _characters.build_sheet(skin_slug=slug, skin=skin, name=actor,
+        attributes={key: 10 for key in skin["attributes"]}, stamina=5,
+        build_points_budget=6, build_points_used=0) for actor in actors}
+    for sheet in sheets.values():
+        sheet["pools"]["luck"]["current"] = 3
+    tracker = {"pressure": _pressure.new_pressure(skin, list(actors)),
+               "resources": _resources.new_resources(skin, list(actors))}
+    return skin, sheets, tracker
 
 
 class ResolutionContractTests(unittest.TestCase):
@@ -134,65 +126,45 @@ class ResolutionContractTests(unittest.TestCase):
                 _dice.apply_nudge_to_check(self.roll(12, raw), nudge)
 
     def test_every_skin_uses_current_luck_not_attribute_maximum(self):
-        for slug, skin in _sslib.load_manifest()["skins"].items():
-            hero = sheet()
-            hero["skin"] = slug
-            key = skin["luck_key"]
-            hero["attributes"] = {key: 10}
+        for slug in _sslib.load_manifest()["skins"]:
+            skin, sheets, tracker = state(slug)
             with self.subTest(skin=slug), patch.object(_dice, "roll_d20", return_value=4):
-                check, success = beat.resolve_roll(args(stat_key=key), hero)
-            self.assertEqual(check["stat"], 3)
-            self.assertFalse(success)
+                action, _ = _play.prepare_action(tracker, sheets, skin, kind="check", actor="hero",
+                    attribute=skin["luck_key"], method="chance", stakes="fall")
+            self.assertEqual(action["checks"]["attacker"]["stat"], 3)
+            self.assertFalse(action["checks"]["attacker"]["success"])
 
     def test_luck_target_is_snapshot_before_own_nudge_spend(self):
-        hero = sheet()
-        options = args(nudge=-1)
+        skin, sheets, tracker = state()
         with patch.object(_dice, "roll_d20", return_value=4):
-            check, success = beat.resolve_roll(options, hero)
-        beat.spend_luck(options, hero, check)
-        self.assertTrue(success)
-        self.assertEqual(check["stat"], 3)
-        self.assertEqual(check["result"], 3)
-        self.assertEqual(hero["pools"]["luck"]["current"], 2)
-        self.assertEqual(check["luck_spent"], 1)
+            _play.prepare_action(tracker, sheets, skin, kind="check", actor="hero",
+                attribute="INS", method="chance", stakes="fall")
+        result, events = _play.finish_action(tracker, sheets, skin, nudge=-1)
+        self.assertTrue(result["success"])
+        self.assertEqual(result["checks"]["attacker"]["stat"], 3)
+        self.assertEqual(result["checks"]["attacker"]["result"], 3)
+        self.assertEqual(sheets["hero"]["pools"]["luck"]["current"], 2)
+        self.assertEqual(sum(e["amount"] for e in events if e["type"] == "luck"), -1)
 
-    def test_owner_pays_to_nudge_opponent_on_either_side(self):
-        for role, target, delta in (("attacker", "defender", 2), ("defender", "attacker", 2)):
-            hero = sheet()
-            options = args(command="opposed", attacker=12, defender=12,
-                           as_role=role, nudge_target=target, nudge=delta)
-            with self.subTest(role=role), patch.object(_dice, "roll_d20", side_effect=[8, 8]):
-                result, success = beat.resolve_roll(options, hero)
-            beat.spend_luck(options, hero, result)
-            self.assertTrue(success)
-            self.assertEqual(result["outcome"]["winner"], role)
-            self.assertEqual(hero["pools"]["luck"]["current"], 1)
-            self.assertEqual(result["luck_spent"], 2)
+    def test_either_participant_can_pay_to_nudge_opponent(self):
+        for payer, target, winner in (("hero", "defender", "attacker"), ("rival", "attacker", "defender")):
+            skin, sheets, tracker = state()
+            with patch.object(_dice, "roll_d20", side_effect=[8, 8]):
+                _play.prepare_action(tracker, sheets, skin, kind="opposed", actor="hero", attribute="MGT",
+                    opponent="rival", defender_attribute="FLT", method="grapple", stakes="held")
+            result, _ = _play.finish_action(tracker, sheets, skin, nudge=2, nudge_target=target, payer=payer)
+            self.assertEqual(result["outcome"]["winner"], winner)
+            self.assertEqual(sheets[payer]["pools"]["luck"]["current"], 1)
 
-    def test_insufficient_or_wrong_owner_spend_cannot_debit(self):
-        for options, message in (
-            (args(nudge=-4), "not enough luck"),
-            (args(command="opposed", nudge=-1, nudge_spend="defender"), "owning character"),
-        ):
-            hero = sheet()
-            with self.subTest(message=message), self.assertRaisesRegex(ValueError, message):
-                beat.spend_luck(options, hero, {})
-            self.assertEqual(hero["pools"]["luck"]["current"], 3)
-
-    def test_explicit_manual_accounting_skips_pool_debit(self):
-        hero, receipt = sheet(), {}
-        beat.spend_luck(args(nudge=-2, nudge_spend="none"), hero, receipt)
-        self.assertEqual(hero["pools"]["luck"]["current"], 3)
-        self.assertEqual(receipt["nudge_spend"], "none")
-        self.assertNotIn("luck_spent", receipt)
-
-    def test_opposed_sheet_keys_belong_to_selected_role(self):
-        for options in (
-            args(command="opposed", as_role="defender", attacker_key="INS", defender=10),
-            args(command="opposed", attacker=10, defender_key="INS"),
-        ):
-            with self.assertRaisesRegex(ValueError, "owning sheet"):
-                beat.resolve_roll(options, sheet())
+    def test_insufficient_luck_or_uninvolved_payer_rejected(self):
+        for options in ({"nudge": -4}, {"nudge": -1, "payer": "outsider"}):
+            skin, sheets, tracker = state()
+            with patch.object(_dice, "roll_d20", return_value=8):
+                _play.prepare_action(tracker, sheets, skin, kind="check", actor="hero", attribute="MGT",
+                    method="climb", stakes="fall")
+            with self.assertRaises(ValueError):
+                _play.finish_action(tracker, sheets, skin, **options)
+            self.assertEqual(sheets["hero"]["pools"]["luck"]["current"], 3)
 
     def test_roll_cli_cancellation_in_check_and_opposed(self):
         commands = [
@@ -209,35 +181,6 @@ class ResolutionContractTests(unittest.TestCase):
                 self.assertEqual(len(check["rolls"]), 1)
                 self.assertFalse(check["adv"] or check["dis"])
 
-    def test_defender_luck_cli_persists_correct_pool_and_recomputed_winner(self):
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            campaign = root / "campaigns" / "contract"
-            characters = campaign / "state" / "characters"
-            trackers = campaign / "state" / "trackers"
-            characters.mkdir(parents=True)
-            trackers.mkdir()
-            (campaign / "campaign.yaml").write_text("{}\n")
-            hero_path = characters / "hero.yaml"
-            hero_path.write_text(yaml.safe_dump(sheet()))
-            (trackers / "session.yaml").write_text("scene: 0\nclocks: {}\n")
-            # Manifest-backed names are still canonical; only runtime state is temporary.
-            (root / "manifest.yaml").write_text((ROOT / "manifest.yaml").read_text())
-            argv = ["beat.py", "--campaign", "contract", "--character", "hero", "--json",
-                    "--nudge", "-1", "--nudge-target", "defender", "opposed", "--as", "defender",
-                    "--attacker", "10", "--defender-key", "INS", "--adv-defender", "--dis-defender"]
-            output = io.StringIO()
-            with patch.object(_sslib, "repo_root", return_value=root), \
-                 patch.object(_dice, "roll_d20", side_effect=[10, 4]), \
-                 patch.object(sys, "argv", argv), contextlib.redirect_stdout(output):
-                status = beat.main()
-            self.assertEqual(status, 0)
-            receipt = json.loads(output.getvalue())
-            self.assertEqual(receipt["defender"]["stat"], 3)
-            self.assertEqual(receipt["defender"]["result"], 3)
-            self.assertEqual(receipt["outcome"]["winner"], "defender")
-            self.assertEqual(receipt["luck_spent"], 1)
-            self.assertEqual(yaml.safe_load(hero_path.read_text())["pools"]["luck"]["current"], 2)
 
 
 if __name__ == "__main__":

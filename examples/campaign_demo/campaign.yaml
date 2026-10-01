@@ -1,7 +1,8 @@
-schema_version: 1
+schema_version: 2
 slug: campaign_demo
 title: Emberfall Demo
 skin: clanfire
 created: '2025-12-24'
 build_points_budget: 6
 notes: ''
+prompt_profile: compact

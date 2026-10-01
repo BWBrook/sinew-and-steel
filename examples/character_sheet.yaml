@@ -1,20 +1,28 @@
-schema_version: 1
+schema_version: 2
 name: Grak
 skin: clanfire
 player: Example
 created: '2025-12-24'
-
 creation:
   build_points_budget: 6
   build_points_used: 6
-
+  snapshot:
+    attributes:
+      MGT: 12
+      FLT: 11
+      CUN: 9
+      SPR: 8
+      INS: 9
+    stamina: 6
+    bought_tags:
+    - Megafauna tracker (Advantage when tracking big game)
+    free_tags: []
 attributes:
   MGT: 12
   FLT: 11
   CUN: 9
   SPR: 8
   INS: 9
-
 pools:
   luck:
     name: Instinct
@@ -23,24 +31,17 @@ pools:
   stamina:
     current: 6
     max: 6
-
-tracks:
-  pressure:
-    name: Shadow
-    current: 1
-    max: 5
-
 inventory:
   big_items:
-    - Stone spear (+1 edge)
-    - Hand‑axe (+1 edge)
-    - Hide cloak (soak 1)
-    - Waterskin
+  - Stone spear (+1 edge)
+  - "Hand\u2011axe (+1 edge)"
+  - Hide cloak (soak 1)
+  - Waterskin
   small_items:
-    - Ochre pouch
-    - Sinew cord
-
+  - Ochre pouch
+  - Sinew cord
 tags:
-  - Megafauna tracker (Advantage when tracking big game)
-
+- Megafauna tracker (Advantage when tracking big game)
 notes: []
+advancement:
+  entries: []

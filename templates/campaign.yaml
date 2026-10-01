@@ -1,7 +1,8 @@
-schema_version: 1
+schema_version: 2
 slug: ""
 title: ""
 skin: ""
 created: ""
 build_points_budget: 6
+prompt_profile: compact
 notes: ""

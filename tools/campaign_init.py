@@ -1,189 +1,169 @@
 #!/usr/bin/env python3
+"""Prepare a complete campaign before writing any of its files."""
 import argparse
+from copy import deepcopy
 from datetime import date
+import json
+import os
 from pathlib import Path
+import random
+import re
 import sys
+import tempfile
+
 import yaml
 
+import _pressure
+import _resources
 import _sslib
+import gen_character
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def write_yaml(path: Path, data: dict):
-    path.write_text(yaml.safe_dump(data, sort_keys=False), encoding="utf-8")
+def build_scaffold(manifest: dict, *, skin_slug: str, slug: str, title: str,
+                   budget: int = 6, names: list[str] | None = None, seed: int | None = None,
+                   tags: list[str] | None = None, free_tags: list[dict] | None = None,
+                   existing_actors: list[str] | None = None) -> dict[str, dict]:
+    skin = manifest["skins"][skin_slug]
+    characters = {}
+    old_random = random.getstate()
+    try:
+        if seed is not None:
+            random.seed(seed)
+        for name in names or []:
+            actor = _sslib.slugify(name, fallback="character")
+            if actor in characters:
+                raise ValueError(f"character names resolve to the same filename: {actor}")
+            kwargs = {"tags": tags or []}
+            if free_tags:
+                kwargs["free_tags"] = free_tags
+            characters[actor] = gen_character.build_sheet(
+                {**skin, "slug": skin_slug, "_gen": {**skin.get("_gen", {}), "build_points_budget": budget}},
+                name, "", **kwargs,
+            )
+            if seed is not None:
+                characters[actor].setdefault("meta", {}).setdefault("generated", {})["seed"] = seed
+    finally:
+        random.setstate(old_random)
+
+    actors = sorted(set(existing_actors or []) | set(characters))
+    campaign = {"schema_version": 2, "slug": slug, "title": title, "skin": skin_slug,
+                "created": date.today().isoformat(), "build_points_budget": budget,
+                "prompt_profile": "compact", "notes": ""}
+    tracker = {"schema_version": 2, "name": "Session Tracker", "scene": 0, "session": 1,
+               "beat": 0, "pending_action": None, "npcs": {}, "combat": {}, "session_closed": False,
+               "pressure": _pressure.new_pressure(skin, actors),
+               "resources": _resources.new_resources(skin, actors),
+               "clocks": deepcopy(skin.get("clocks", {})), "notes": []}
+    memory_path = ROOT / "state" / "memory" / "seed_memory.yaml"
+    memory = _sslib.load_yaml(memory_path) if memory_path.exists() else {
+        "schema_version": 1, "summary": [], "threads": [], "npcs": [], "secrets": []}
+    files = {"campaign.yaml": campaign, "state/trackers/session.yaml": tracker,
+             "state/memory/session_001.yaml": memory}
+    files.update({f"state/characters/{actor}.yaml": sheet for actor, sheet in characters.items()})
+    return files
+
+
+def write_scaffold(campaign_dir: Path, files: dict[str, dict]) -> list[str]:
+    """New campaigns appear atomically; existing files are never overwritten."""
+    directories = ("state/characters", "state/trackers", "state/memory", "state/logs", "state/checkpoints")
+    campaign_dir.parent.mkdir(parents=True, exist_ok=True)
+    if not campaign_dir.exists():
+        with tempfile.TemporaryDirectory(prefix=f".{campaign_dir.name}_", dir=campaign_dir.parent) as temp:
+            stage = Path(temp) / "campaign"
+            for relative in directories:
+                (stage / relative).mkdir(parents=True, exist_ok=True)
+            for relative, data in files.items():
+                (stage / relative).write_text(yaml.safe_dump(data, sort_keys=False), encoding="utf-8")
+            os.rename(stage, campaign_dir)
+        return list(files)
+    written = []
+    for relative in directories:
+        (campaign_dir / relative).mkdir(parents=True, exist_ok=True)
+    for relative, data in files.items():
+        path = campaign_dir / relative
+        # Exclusive creation keeps preservation true even if another process writes first.
+        try:
+            with path.open("x", encoding="utf-8") as stream:
+                stream.write(yaml.safe_dump(data, sort_keys=False))
+        except FileExistsError:
+            continue
+        written.append(relative)
+    return written
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Initialize a campaign folder with state scaffolding.")
-    parser.add_argument("--slug", help="Campaign slug (folder name)")
-    parser.add_argument("--title", help="Campaign title (used to derive slug if --slug not provided)")
-    parser.add_argument("--skin", required=True, help="Skin slug from manifest.yaml")
-    parser.add_argument("--dry-run", action="store_true", help="Compute output but do not write files")
-    parser.add_argument("--json", action="store_true", help="Output JSON summary")
-    parser.add_argument(
-        "--build-points",
-        type=int,
-        help="Build points budget at creation for this campaign (default 6).",
-    )
-    parser.add_argument(
-        "--tone",
-        choices=["grim", "standard", "pulp", "heroic"],
-        help="Shortcut for build-point budgets: grim=0, standard=6, pulp=12, heroic=16.",
-    )
-    parser.add_argument("--base-dir", default="campaigns", help="Base campaigns directory")
-    parser.add_argument("--force", action="store_true", help="Overwrite existing files")
-    parser.add_argument("--random-character", help="Optional character name to generate")
-
+    parser = argparse.ArgumentParser(description="Initialize a campaign with structured Pressure and resource state.")
+    parser.add_argument("--slug", help="Campaign folder name")
+    parser.add_argument("--title", help="Campaign title; also derives a slug")
+    parser.add_argument("--skin", required=True)
+    parser.add_argument("--build-points", type=int)
+    parser.add_argument("--tone", choices=["grim", "standard", "pulp", "heroic"])
+    parser.add_argument("--base-dir", default="campaigns")
+    parser.add_argument("--force", action="store_true", help="Fill missing scaffold files; preserve every existing file")
+    parser.add_argument("--random-character", action="append", default=[], help="Generate a named character; repeat for a party")
+    parser.add_argument("--seed", type=int, help="Reproducible character generation")
+    parser.add_argument("--tag", action="append", default=[], help="Bought tag for each generated character")
+    parser.add_argument("--free-tag", action="append", default=[], help="Skin grant as GRANT=NAME for each character")
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
-
-    manifest = _sslib.load_manifest(ROOT)
-    skins = manifest.get("skins", {})
-    if args.skin not in skins:
-        print(f"error: unknown skin '{args.skin}'", file=sys.stderr)
-        return 1
-
-    if not args.slug and not args.title:
-        print("error: provide --slug or --title", file=sys.stderr)
-        return 1
-
-    if args.tone and args.build_points is not None:
-        print("error: provide only one of --tone or --build-points", file=sys.stderr)
-        return 1
-
-    tone_map = {"grim": 0, "standard": 6, "pulp": 12, "heroic": 16}
-    if args.tone:
-        build_points_budget = tone_map[args.tone]
-    elif args.build_points is not None:
-        build_points_budget = int(args.build_points)
-    else:
-        build_points_budget = 6
-
-    if build_points_budget < 0:
-        print("error: --build-points must be >= 0", file=sys.stderr)
-        return 1
-
-    slug = args.slug or _sslib.slugify(args.title, fallback="campaign")
-    title = args.title or slug
-
-    base_dir = Path(args.base_dir)
-    if not base_dir.is_absolute():
-        base_dir = ROOT / base_dir
-    campaign_dir = base_dir / slug
-
-    # Scaffold directories
-    state_dir = campaign_dir / "state"
-    chars_dir = state_dir / "characters"
-    trackers_dir = state_dir / "trackers"
-    memory_dir = state_dir / "memory"
-    logs_dir = state_dir / "logs"
-    checkpoints_dir = state_dir / "checkpoints"
-
-    # campaign.yaml
-    campaign_file = campaign_dir / "campaign.yaml"
-    if campaign_file.exists() and not args.force:
-        print(f"error: campaign already exists: {campaign_file}", file=sys.stderr)
-        return 1
-
-    payload = {
-        "ok": True,
-        "campaign": {
-            "slug": slug,
-            "title": title,
-            "skin": args.skin,
-            "build_points_budget": build_points_budget,
-            "dir": str(campaign_dir),
-            "campaign_yaml": str(campaign_file),
-        },
-        "paths": {
-            "state": str(state_dir),
-            "characters": str(chars_dir),
-            "trackers": str(trackers_dir),
-            "memory": str(memory_dir),
-            "logs": str(logs_dir),
-            "checkpoints": str(checkpoints_dir),
-        },
-        "random_character": args.random_character,
-        "dry_run": bool(args.dry_run),
-    }
-
-    if args.dry_run:
+    try:
+        manifest = _sslib.load_manifest(ROOT)
+        if args.skin not in manifest.get("skins", {}):
+            raise ValueError(f"unknown skin '{args.skin}'")
+        if not args.slug and not args.title:
+            raise ValueError("provide --slug or --title")
+        if args.tone and args.build_points is not None:
+            raise ValueError("provide only one of --tone or --build-points")
+        budget = {"grim": 0, "standard": 6, "pulp": 12, "heroic": 16}[args.tone] if args.tone else (
+            6 if args.build_points is None else args.build_points)
+        if budget < 0:
+            raise ValueError("--build-points must be >= 0")
+        slug = args.slug or _sslib.slugify(args.title, fallback="campaign")
+        if not re.fullmatch(r"[a-zA-Z0-9][a-zA-Z0-9_-]*", slug):
+            raise ValueError("slug must contain only letters, digits, underscores, and hyphens")
+        base = Path(args.base_dir)
+        campaign_dir = (base if base.is_absolute() else ROOT / base) / slug
+        if campaign_dir.exists() and not args.force:
+            raise ValueError(f"campaign directory already exists: {campaign_dir}")
+        cfile = campaign_dir / "campaign.yaml"
+        if cfile.exists():
+            saved = _sslib.load_yaml(cfile)
+            if saved.get("skin") != args.skin or saved.get("build_points_budget", 6) != budget:
+                raise ValueError("existing campaign skin/budget differs; --force only fills missing files")
+        free_tags = []
+        for raw in args.free_tag:
+            grant, separator, name = raw.partition("=")
+            if not separator or not grant.strip() or not name.strip():
+                raise ValueError("--free-tag must be GRANT=NAME")
+            free_tags.append({"grant": grant.strip(), "name": name.strip()})
+        existing = sorted(p.stem for p in (campaign_dir / "state/characters").glob("*.y*ml"))
+        if (campaign_dir / "state/trackers/session.yaml").exists():
+            additions = {_sslib.slugify(name, fallback="character") for name in args.random_character} - set(existing)
+            if additions:
+                raise ValueError("add characters with gen_character.py --campaign so their roster bookkeeping updates; --force preserves existing state")
+        files = build_scaffold(manifest, skin_slug=args.skin, slug=slug, title=args.title or slug,
+                               budget=budget, names=args.random_character, seed=args.seed,
+                               tags=args.tag, free_tags=free_tags, existing_actors=existing)
+        preserved = sorted(relative for relative in files if (campaign_dir / relative).exists())
+        writes = {relative: data for relative, data in files.items() if relative not in preserved}
+        payload = {"ok": True, "campaign": {"slug": slug, "title": args.title or slug,
+                    "skin": args.skin, "build_points_budget": budget, "dir": str(campaign_dir)},
+                   "files": writes, "preserved": preserved, "seed": args.seed, "dry_run": args.dry_run}
+        if not args.dry_run:
+            payload["written"] = write_scaffold(campaign_dir, writes)
         if args.json:
-            import json
-
             print(json.dumps(payload, indent=2))
         else:
-            print(f"dry-run: would initialize {campaign_dir}")
+            print(f"{'dry-run: would initialize' if args.dry_run else 'initialized'} {campaign_dir}")
+            if preserved:
+                print(f"preserved {len(preserved)} existing files")
         return 0
-
-    for d in (campaign_dir, state_dir, chars_dir, trackers_dir, memory_dir, logs_dir, checkpoints_dir):
-        d.mkdir(parents=True, exist_ok=True)
-
-    campaign_data = {
-        "schema_version": 1,
-        "slug": slug,
-        "title": title,
-        "skin": args.skin,
-        "created": date.today().isoformat(),
-        "build_points_budget": build_points_budget,
-        "notes": "",
-    }
-    write_yaml(campaign_file, campaign_data)
-
-    # tracker seed
-    tracker_template = ROOT / manifest.get("templates", {}).get("tracker", "templates/tracker.yaml")
-    tracker_data = yaml.safe_load(tracker_template.read_text(encoding="utf-8"))
-    tracker_data = tracker_data or {}
-    pressure_name = skins[args.skin].get("pressure_track", "Pressure")
-    clocks = tracker_data.setdefault("clocks", {})
-    pressure = clocks.setdefault("pressure", {})
-    pressure["name"] = pressure_name
-    pressure.setdefault("current", 0)
-    pressure.setdefault("max", 5)
-    tracker_out = trackers_dir / "session.yaml"
-    if tracker_out.exists() and not args.force:
-        pass
-    else:
-        write_yaml(tracker_out, tracker_data)
-
-    # memory seed
-    memory_template = ROOT / "state" / "memory" / "seed_memory.yaml"
-    if memory_template.exists():
-        memory_data = yaml.safe_load(memory_template.read_text(encoding="utf-8"))
-        memory_out = memory_dir / "session_001.yaml"
-        if not memory_out.exists() or args.force:
-            write_yaml(memory_out, memory_data)
-
-    # optional character
-    if args.random_character:
-        from subprocess import run
-        char_path = chars_dir / f"{_sslib.slugify(args.random_character, fallback='character')}.yaml"
-        if char_path.exists() and not args.force:
-            print(f"warning: character already exists: {char_path}", file=sys.stderr)
-        else:
-            cmd = [
-                sys.executable,
-                str(ROOT / "tools" / "gen_character.py"),
-                "--skin",
-                args.skin,
-                "--build-points",
-                str(build_points_budget),
-                "--name",
-                args.random_character,
-                "--out",
-                str(char_path),
-            ]
-            result = run(cmd)
-            if result.returncode != 0:
-                return result.returncode
-
-    if args.json:
-        import json
-
-        print(json.dumps(payload, indent=2))
-    else:
-        print(f"initialized {campaign_dir}")
-    return 0
+    except (ValueError, RuntimeError, OSError, yaml.YAMLError) as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 1
 
 
 if __name__ == "__main__":

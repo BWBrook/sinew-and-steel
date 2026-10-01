@@ -96,7 +96,8 @@ If you’re resuming a campaign in a new agent context, use the resume pack:
 ```bash
 uv run python tools/resume_pack.py --campaign <slug> --character <name>
 ```
-Add `--public` to redact private memory/secrets when you need player-safe output.
+Add `--public` for the player view: a fixed selection of character fields and the
+exact public checkpoint. Private clocks, logs, paths and memory are omitted.
 
 Or read: `skills/agent_bootstrap.md` for the shortest possible “get playing” path.
 
@@ -185,13 +186,16 @@ Key utilities for play:
 * `tools/campaign_init.py` to scaffold a campaign workspace.
 * `tools/gen_character.py` to generate legal random characters.
 * `tools/recap.py` and `tools/session_log.py` to capture private memory and public logs.
-* `tools/apply_roll.py` to update sheets and trackers based on roll results.
-* `tools/new_session.py` to advance memory/log files in lockstep.
-* `tools/recalc_sheet.py` to recompute `creation.build_points_used` after manual edits.
+* `tools/play.py` to resolve tests and attacks, manage structured Pressure and resources, and save state with JSONL receipts. Use `--defer`, read the dice, then `settle` to choose a Luck nudge without rerolling.
+* `tools/advance.py` to award milestones and record spending against the creation snapshot.
+* `tools/playtest_summary.py` to summarize Luck, red-line windows, crises and roll choices from completed sessions.
+* `tools/new_session.py` to start the next session after `play.py session-close`.
+* `tools/recalc_sheet.py` to verify spending history and refresh derived metadata.
+* `tools/migrate_campaign.py` to preview an explicit, backed-up adoption of legacy state.
 * `tools/resume_pack.py` (or `--public`) for fast context resumes.
 * `tools/checkpoint.py` for ironman save-and-quit checkpoints.
 * `tools/doctor.py` to validate repo + campaign in one command.
-* `tools/ss.py` for a single entry point (`uv run python tools/ss.py beat ...`).
+* `tools/ss.py` for a single entry point (`uv run python tools/ss.py play ...`).
 * `tools/delvekit_seed.py`, `tools/delvekit_map.py`, `tools/delvekit_pitch.py`, and `tools/delvekit_adventure.py` for Candlelight Delvekit site generation, map rendering, and polish workflows.
 
 ---

@@ -1,5 +1,8 @@
 """Independent exact/economic stress tests, derived from the authored rules.
 
+Historical pre-cap creation economy. Rerunning reproduces the uncapped
+baseline, not the 1 October 2026 eight-point refund cap. See README.md.
+
 Run: uv run --extra analysis python tools/analysis/independent_economy.py
 No imports from the earlier analysis or live harness. Figures need matplotlib;
 enumeration uses numpy to keep the full labelled creation space inexpensive.

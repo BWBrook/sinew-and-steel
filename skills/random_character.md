@@ -1,23 +1,25 @@
 ---
 name: random-character
-description: Generate a random character sheet that obeys Sinew & Steel build rules.
+description: Generate reproducible characters with the shared creation ledger and explicit tag grants.
 ---
 
 # Random Character
 
-## Goal
-Create a legal random sheet with skin-specific labels, generated using:
-- a double-debit “specialization” pass, then
-- spending a build points budget (default 6) to improve scores.
-
-## Command
 ```bash
-uv run python tools/gen_character.py --skin <skin> --name "Name" --out state/characters/name.yaml
+uv run python tools/gen_character.py --campaign ice_hunt --name Tarra \
+  --seed 42 --tone standard --tag "Ember-singer" --dry-run --json
 ```
 
-## Notes
-- The generator uses manifest.yaml for attribute labels and luck naming.
-- Per-skin generator defaults live under manifest `skins.<slug>._gen` (override with `--primary`, `--min-steps`, `--max-steps`). Each double-debit step lowers 2 points, so at most 4 steps fit the 8-point refund cap; the generator refuses more.
-- Use --seed for reproducible generation.
-- Use `--tone grim|standard|pulp|heroic` (or `--build-points N`) to control starting power.
-- Add tags with `--tag "Name"` (repeatable). Each reserves 2 build points before scores are bought; the sheet lists them under `tags:`.
+Remove `--dry-run` to add the sheet and its campaign bookkeeping. For an exported
+sheet, use `--skin clanfire --out /tmp/tarra.yaml` instead of campaign mode.
+
+The generator reads attribute names, Luck naming, and `_gen` defaults from the
+manifest. It makes trade-offs, then spends the available budget. Each trade-off
+step refunds 2 points; at most 4 steps fit the shared 8-point cap. Override defaults
+with `--primary`, `--steps`, or `--min-steps`/`--max-steps`; `--steps 0` starts from
+the baseline before spending.
+
+Bought `--tag` choices reserve 2 points each. A free skin grant uses repeatable
+`--free-tag GRANT=NAME` and remains separate in the immutable creation snapshot.
+Choose grants from the skin's rules; the generator does not invent their scope.
+See [character build](character_build.md) for budgets, caps, and advancement.

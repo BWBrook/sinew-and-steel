@@ -15,11 +15,21 @@ import _delvekit
 import _delvekit_output
 import _pdf_common
 import _sslib
-import recap
 import validate_sheet
 
 
 class HarnessTests(unittest.TestCase):
+    def test_character_lookup_handles_yml_without_choosing_a_duplicate_stem(self):
+        with tempfile.TemporaryDirectory() as folder:
+            directory = Path(folder)
+            path = directory / "hero.yml"
+            path.write_text("name: Hero\n")
+            self.assertEqual(_sslib.resolve_character_file(directory, "hero"), path)
+            self.assertEqual(_sslib.resolve_character_file(directory, None), path)
+            (directory / "hero.yaml").write_text("name: Different Hero\n")
+            with self.assertRaisesRegex(ValueError, "duplicate"):
+                _sslib.resolve_character_file(directory, "hero")
+
     def test_opposed_resolution_keeps_defender_on_double_failure(self):
         attacker = {"success": False, "margin": -3}
         defender = {"success": False, "margin": -7}
@@ -121,13 +131,6 @@ class HarnessTests(unittest.TestCase):
         ]
         result = subprocess.run(command, check=True, capture_output=True, text=True)
         self.assertEqual(json.loads(result.stdout)["seed"], 42)
-
-    def test_recap_reports_scene_changes(self):
-        with tempfile.TemporaryDirectory() as temp_dir:
-            tracker_path = Path(temp_dir) / "session.yaml"
-            tracker_path.write_text("schema_version: 1\nscene: 2\nclocks: {}\n", encoding="utf-8")
-            _, changed = recap.update_tracker(tracker_path, 1, None, [], [], clamp=True)
-            self.assertIn("scene", changed)
 
     def test_image_rewrite_preserves_angle_link_syntax(self):
         text = '![art](<../assets/art.png> "caption")'

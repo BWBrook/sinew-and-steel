@@ -1,193 +1,60 @@
 #!/usr/bin/env python3
+"""One-screen campaign status from the same privacy boundary as resume packs."""
 import argparse
 import json
-from pathlib import Path
-import re
 import sys
 
 import yaml
 
 import _sslib
-
-SESSION_RE = re.compile(r"session_(\d{3})\.(md|ya?ml)$")
-
-
-def load_yaml_optional(path: Path) -> dict:
-    if not path.exists():
-        return {}
-    data = yaml.safe_load(path.read_text(encoding="utf-8"))
-    return data or {}
-
-
-def latest_session_file(directory: Path, suffixes: tuple[str, ...]) -> Path | None:
-    latest = None
-    latest_num = -1
-    for p in directory.iterdir() if directory.exists() else []:
-        if not p.is_file() or p.suffix not in suffixes:
-            continue
-        match = SESSION_RE.search(p.name)
-        if not match:
-            continue
-        num = int(match.group(1))
-        if num > latest_num:
-            latest_num = num
-            latest = p
-    return latest
-
-
-def normalize_list(value):
-    if value is None:
-        return []
-    if isinstance(value, list):
-        return [str(v) for v in value]
-    if isinstance(value, str):
-        if value.strip() == "":
-            return []
-        return [value]
-    return [str(value)]
+import resume_pack
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Print a one-screen status summary for a campaign.")
-    parser.add_argument("--campaign", required=True, help="Campaign slug under campaigns/")
-    parser.add_argument("--character", help="Character slug or filename")
-    parser.add_argument("--json", action="store_true", help="Output JSON")
-
+    parser = argparse.ArgumentParser(description="Print a compact status summary for a campaign.")
+    parser.add_argument("--campaign", required=True)
+    parser.add_argument("--character")
+    parser.add_argument("--public", action="store_true", help="Omit all private tracking, notes, and paths")
+    parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
-
-    root = _sslib.repo_root()
-    manifest = _sslib.load_manifest(root)
-
-    cfile = _sslib.campaign_file(args.campaign, root=root)
-    if not cfile.exists():
-        print(f"error: campaign not found: {cfile}", file=sys.stderr)
-        return 1
-
-    campaign = load_yaml_optional(cfile)
-    skin_slug = campaign.get("skin")
-    campaign_title = campaign.get("title") or args.campaign
-    skins = manifest.get("skins", {})
-    skin = skins.get(skin_slug, {})
-
-    tracker_path = _sslib.campaign_trackers_dir(args.campaign, root=root) / "session.yaml"
-    tracker = load_yaml_optional(tracker_path)
-
-    chars_dir = _sslib.campaign_characters_dir(args.campaign, root=root)
     try:
-        sheet_path = _sslib.resolve_character_file(chars_dir, args.character)
-        sheet = load_yaml_optional(sheet_path)
-    except FileNotFoundError as exc:
-        print(f"warning: {exc}", file=sys.stderr)
-        sheet_path = None
-        sheet = {}
-
-    memory_dir = _sslib.campaign_memory_dir(args.campaign, root=root)
-    memory_path = latest_session_file(memory_dir, (".yaml", ".yml"))
-    memory = load_yaml_optional(memory_path) if memory_path else {}
-
-    logs_dir = _sslib.campaign_logs_dir(args.campaign, root=root)
-    log_path = latest_session_file(logs_dir, (".md",))
-
-    # Clocks summary
-    clocks = tracker.get("clocks", {}) if isinstance(tracker.get("clocks"), dict) else {}
-    clocks_out = {}
-    for key, value in clocks.items():
-        if not isinstance(value, dict):
-            continue
-        clocks_out[key] = {
-            "name": value.get("name", key),
-            "current": value.get("current"),
-            "max": value.get("max"),
-        }
-
-    # Character summary
-    stats = sheet.get("attributes") if isinstance(sheet.get("attributes"), dict) else {}
-    pools = sheet.get("pools") if isinstance(sheet.get("pools"), dict) else {}
-    luck = pools.get("luck") if isinstance(pools.get("luck"), dict) else {}
-    stamina = pools.get("stamina") if isinstance(pools.get("stamina"), dict) else {}
-    creation = sheet.get("creation") if isinstance(sheet.get("creation"), dict) else {}
-
-    memory_summary = normalize_list(memory.get("summary"))
-    last_summary = memory_summary[-1] if memory_summary else ""
-
-    payload = {
-        "campaign": {
-            "slug": args.campaign,
-            "title": campaign_title,
-            "skin": skin_slug,
-            "created": campaign.get("created"),
-        },
-        "tracker": {
-            "scene": tracker.get("scene"),
-            "clocks": clocks_out,
-        },
-        "character": {
-            "file": str(sheet_path) if sheet_path else None,
-            "name": sheet.get("name"),
-            "stats": stats,
-            "luck": {
-                "name": luck.get("name", skin.get("luck_name")),
-                "current": luck.get("current"),
-                "max": luck.get("max"),
-            },
-            "stamina": {
-                "current": stamina.get("current"),
-                "max": stamina.get("max"),
-            },
-            "creation": {
-                "build_points_budget": creation.get("build_points_budget"),
-                "build_points_used": creation.get("build_points_used"),
-            },
-        },
-        "memory": {
-            "file": str(memory_path) if memory_path else None,
-            "last_summary": last_summary,
-            "threads": normalize_list(memory.get("threads")),
-        },
-        "log": {
-            "file": str(log_path) if log_path else None,
-        },
-    }
-
-    if args.json:
-        print(json.dumps(payload, indent=2))
+        root = _sslib.repo_root()
+        cdir = _sslib.campaign_dir(args.campaign, root=root)
+        if not (cdir / "campaign.yaml").exists():
+            raise ValueError("campaign not found")
+        pack = resume_pack.collect_resume(cdir, _sslib.load_manifest(root), character=args.character,
+                                          public=args.public, summary_count=1, no_log=True, no_checkpoint=True)
+        payload = {key: pack[key] for key in ("campaign", "characters", "character", "scene")}
+        if not args.public:
+            tracker = pack["tracker"]
+            payload["tracker"] = {key: tracker.get(key) for key in ("scene", "session", "pressure", "resources", "clocks")}
+            payload["memory"] = {key: pack["memory"].get(key) for key in ("summary", "threads")}
+        if args.json:
+            print(json.dumps(payload, indent=2))
+            return 0
+        campaign = payload["campaign"]
+        print(f"Campaign: {campaign.get('title')} (skin: {campaign.get('skin')})")
+        print(f"Scene: {payload.get('scene')}")
+        for character in payload["characters"]:
+            luck, stamina = character["luck"], character["stamina"]
+            print(f"{character.get('name')}: {luck['name']} {luck.get('current')}/{luck.get('max')} | STM {stamina.get('current')}/{stamina.get('max')}")
+        if not args.public:
+            pressure = payload["tracker"].get("pressure") or {}
+            tracks = pressure.get("tracks", {})
+            if tracks:
+                print(f"{pressure.get('name', 'Pressure')}: " + ", ".join(f"{key} {track.get('current')}/5" for key, track in tracks.items()))
+                pending = sum(len(items) for track in tracks.values() for items in track.get("pending", {}).values())
+                print(f"Pending step penalties: {pending}; outstanding effects: {len(pressure.get('effects', []))}")
+            clocks = payload["tracker"].get("clocks") or {}
+            if clocks:
+                print("Clocks: " + ", ".join(f"{value.get('name', key)} {value.get('current')}/{value.get('max')}" for key, value in clocks.items()))
+            summaries = payload["memory"].get("summary") or []
+            if summaries:
+                print(f"Last memory: {summaries[-1] if isinstance(summaries, list) else summaries}")
         return 0
-
-    skin_name = skin.get("name", skin_slug)
-    if campaign_title and campaign_title != args.campaign:
-        print(f"Campaign: {campaign_title} ({args.campaign}) (skin: {skin_name})")
-    else:
-        print(f"Campaign: {args.campaign} (skin: {skin_name})")
-    scene = tracker.get("scene")
-    if scene is not None:
-        print(f"Scene: {scene}")
-
-    if clocks_out:
-        pieces = []
-        for key, value in clocks_out.items():
-            n = value.get("name", key)
-            pieces.append(f"{n} {value.get('current')}/{value.get('max')}")
-        print("Clocks: " + ", ".join(pieces))
-
-    if sheet_path:
-        print(f"Character: {payload['character']['name']} ({Path(sheet_path).name})")
-        if stats:
-            stat_str = " ".join(f"{k} {v}" for k, v in stats.items())
-            print(f"Stats: {stat_str}")
-        print(
-            f"Pools: {payload['character']['luck']['name']} {payload['character']['luck']['current']}/{payload['character']['luck']['max']}"
-            f" | STM {payload['character']['stamina']['current']}/{payload['character']['stamina']['max']}"
-        )
-    else:
-        print("Character: (none)")
-
-    if last_summary:
-        print(f"Last memory: {last_summary}")
-    threads = payload["memory"]["threads"]
-    if threads:
-        print(f"Threads: {len(threads)}")
-
-    return 0
+    except (ValueError, OSError, yaml.YAMLError) as exc:
+        print("error: unable to read requested public summary" if args.public else f"error: {exc}", file=sys.stderr)
+        return 1
 
 
 if __name__ == "__main__":
