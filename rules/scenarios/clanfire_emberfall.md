@@ -122,7 +122,7 @@ The wolf wants food and advantage. It circles for isolated prey and retreats fro
 
 ## Teaching exchange: drive it off
 
-Use this if the table wants to see the combat engine in motion. Each side rolls a d20 for initiative. The hunters roll higher, so Grak and Tarra both act before the wolf this round.
+Use this if the table wants to see the combat engine in motion. Each side rolls a d20 for initiative at the start of the fight. The hunters roll higher, so Grak and Tarra act before the wolf every round.
 
 ### Grak lunges
 

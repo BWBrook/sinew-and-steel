@@ -221,7 +221,7 @@ When someone actively resists, both sides test at once and 1.4 decides who wins.
 
 ![](../../assets/art/ss_combat_sequence.png){.wrap-right width=2in}
 
-A fight runs in rounds. If the fiction settles who acts first (an ambush, a drawn bow), that side goes first; otherwise each side rolls one d20, the higher roll goes first, and ties roll again. Each combatant who can act acts once per round, and anyone dropped before their turn loses that action. Defending is a reaction and does not use your action.
+A fight runs in rounds. If the fiction settles who acts first (an ambush, a drawn bow), that side goes first; otherwise each side rolls one d20 at the start of the fight, the higher roll goes first, and ties roll again. That order holds for the whole fight. Within each side, its players (or the Custodian, for NPCs) choose their order each round. Each combatant who can act acts once per round, and anyone dropped before their turn loses that action. Defending is a reaction and does not use your action.
 
 Each attack is an opposed test:
 

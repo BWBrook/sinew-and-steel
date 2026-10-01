@@ -15,6 +15,7 @@ Layout comes last. It waits until the rules and writing are GOLD. Until then, ev
 
 - 1 October 2026: Pressure step effects add up, as exhaustion does: everything at or below the current step applies while the track stays there. A one-test penalty fires once when the track first reaches or passes its step, and re-arms only after a crisis resets the track. Written into Manual 8 and Almanac 4.
 - 1 October 2026: Twilight combat positions are declared at the start of each round and held for every attack and defence that round; the bonus and the drawback come as a bundle. Written into the Twilight skin.
+- 1 October 2026: unless the fiction settles who acts first, each side rolls a d20 once, at the start of the fight, and that order holds for the whole fight; each side chooses its own members' order every round. Written into Manual 6 and the Emberfall teaching round.
 
 ## Stage 3 tally
 
@@ -27,7 +28,6 @@ From the Stage 1 review, plus items raised since. Barry decides wherever two rea
 - **The Adventurer:** distinguish thinking and clarifying from stalling in the fiction; "plainly plausible" does not by itself remove uncertainty.
 - **Almanac:** "stops power creep" overstates what the ledger proves; 10 + stat is a rough 2d6 character translation, not a probability conversion.
 - **Tipper rule:** add a short example for group checks and ambient gains, where no single action tipped the track (for example, the Custodian names the first to fail). Also show what happens to Pressure gained during a crisis: resolve, then reset.
-- **Initiative:** say whether the side roll-off happens once per fight or every round, and how a side orders its members (proposal: once per fight, and players choose their order within the side). Awaiting Barry.
 - **Free Traders:** larger Hull clocks still disable the drive at 6; use the clock's filled threshold.
 - **Twilight travel:** state whether a failed Scout test gives its hazard instead of, or as well as, generic travel Fatigue.
 - **Twilight knacks:** "Costs are personal" now sits beside shared Dread; say instead that Hope is personal and Dread is the company's, and neither is paid from Companionship.
