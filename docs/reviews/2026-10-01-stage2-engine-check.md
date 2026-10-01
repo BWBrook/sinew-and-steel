@@ -5,6 +5,13 @@ thread 46 through message 791. This follows the
 [Stage 1 critique](2026-10-01-stage1-review.md). `PLAN.md` remains the active
 staged plan; the older handover is historical.
 
+**Subsequent author decision:** Barry adopted an eight-point total refund cap
+in `14b6544` later on 1 October, superseding this report's recommendation to
+retain the uncapped creation ledger. Its uncapped specialist examples and
+creation comparisons remain historical evidence, not current standard-budget
+builds. The combat-model corrections and Pressure ruling still apply. The
+current decisions and Stage 3 sign-off are recorded in [PLAN.md](../../PLAN.md).
+
 ## Recommendation
 
 **Retain the current numerical engine and creation ledger.** The latest rulings

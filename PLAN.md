@@ -6,7 +6,7 @@ The living plan for Sinew & Steel, set by Barry on 1 October 2026 and recorded o
 
 1. **Cross-examine the prose-pass revision.** Done: Astra's review is `docs/reviews/2026-10-01-stage1-review.md`.
 2. **Decide and implement engine changes with Barry.** Closed on 1 October 2026; decisions below. The evidence is the independent engine review (`docs/independent_engine/`), the engine atlas (`docs/engine_atlas.md`), and the Stage 1 review and Stage 2 engine check (`docs/reviews/`).
-3. **Align the rules and chapters with those changes,** keeping the narrative voice the prose pass established. Fable implemented it on 1 October 2026; it awaits Astra's review and sign-off. The changes are listed below.
+3. **Align the rules and chapters with those changes,** keeping the narrative voice the prose pass established. Fable implemented it on 1 October 2026; Astra reviewed and signed off the changes at `14b6544` on the same day. The changes are listed below.
 4. **Overhaul the AI Custodian harness and supporting tools.** A stage of its own, not incidental cleanup. Astra takes the first pass and Fable reviews and critiques it. Notes below.
 
 After Stage 4 come simulated playtests: AI-run sessions across several skins and party sizes, logged well enough to test the reopen triggers below. Barry's human sessions will add an indicative trickle ("more vibes than distributional probabilities"). Then the rules and writing are declared GOLD, and only then comes layout. Until then, every text change must still keep the Quickstart on exactly two facing pages.
@@ -28,9 +28,9 @@ The engine numbers stay: damage, soak, margin steps, natural results, Luck, and 
 
 The playtest logs should record the attribute and method behind each roll, Pressure gains by source, Luck spent and recovered, and each crisis with its target.
 
-## Stage 3 changes, awaiting Astra's sign-off
+## Stage 3 changes, signed off
 
-Implemented by Fable on 1 October 2026, from the Stage 1 tally. Items marked "choice" took one reading where two were possible; Astra and Barry may overrule them.
+Implemented by Fable on 1 October 2026, from the Stage 1 tally. Items marked "choice" took one reading where two were possible; Astra's review accepted these readings.
 
 - **Emberfall teaching round:** states the round essentials (each able combatant acts once per round; defending uses no action). Choice: a lost intimidation contest lets the wolf hold its ground, with no extra action; on its turn it attacks Tarra or snatches the meat. Choice: the wolf's drag hook needs an attack won by a margin of 4 or more, not a successful dodge.
 - **Emberfall and Custodian Notes:** the closing question applies only if play has not answered it; otherwise close on the question play created.
@@ -44,6 +44,8 @@ Implemented by Fable on 1 October 2026, from the Stage 1 tally. Items marked "ch
 - **Twilight knacks:** Hope comes from your own pool and Dread lands on the company's track; neither comes from Companionship.
 - **Twilight Healing Rest:** the undertakings table now clears Injury too.
 
+Astra's closeout check passed all 31 tests and repository validation. Independent pricing checked 2,600 generated characters across all ten skins and four budgets, plus every published sample. The saved book and Quickstart assemblies match the current sources; PDF inspection confirms two standalone Quickstart pages and full-book pages 6-7. The older uncapped analyses are explicitly labelled historical pending Stage 4 refresh.
+
 ## Stage 4 notes
 
 - The harness predates the 0.4.0 and prose-pass rulings throughout. Check sheets, validators, `gen_character.py` and `build_prompt.py` against them: Pressure off character statlines, no bought tags at the grim budget, the M-field sensitive tag, personal Insanity in Whispers, and step-effect accumulation. The refund cap is already enforced: `_sslib.REFUND_CAP`, a generator limit of 4 trade-off steps, and a regression test.
@@ -51,3 +53,4 @@ Implemented by Fable on 1 October 2026, from the Stage 1 tally. Items marked "ch
 - Track pending one-test penalties per affected character and which thresholds have fired since the last crisis. Recovery discards unused penalties below their thresholds without re-arming them; a crisis reset clears old step penalties and starts a new cycle. Keep crisis-created consequences separate from these step penalties.
 - Build the playtest logging above into the harness, so that simulated sessions can test the reopen triggers.
 - The creation-economy outputs in the analysis tools (the atlas and the independent review's enumeration) still assume the uncapped ledger; rerun or relabel them.
+- Keep advancement expenditure separately from the current sheet's creation price. For example, the pulp build `[16,6,6,6,8]`, Stamina 9 costs 12 creation points both before and after raising one 6 to 7, because its reductions still exceed the refund cap; that advancement nevertheless costs 1 point. A state-only recalculation must not erase the expenditure.

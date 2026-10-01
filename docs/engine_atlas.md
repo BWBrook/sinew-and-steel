@@ -1,5 +1,12 @@
 # Engine atlas
 
+**Historical baseline:** this atlas predates the eight-point total refund cap
+adopted in `14b6544` on 1 October 2026. Its creation counts and build comparisons
+use the uncapped ledger; they do not establish which starting builds are legal
+now. The stance-tuning recommendation is also superseded by the later independent
+review. See [PLAN.md](../PLAN.md) for the adopted rules and scheduled analysis
+refresh; the data below are retained as historical evidence.
+
 An exact map of the Sinew & Steel resolution engine at version 0.4.0: every interaction between attributes, Advantage, margin, edge, soak, Stamina, Luck, build points, milestones and the Pressure fuse, with the discontinuities named and the powerbuilding routes priced. It exists so that further tuning can be argued from numbers rather than impressions, by the author, by an AI reviewer, or by a playtester.
 
 Everything here is exact enumeration over the d20 (400 cells for an opposed test, absorbing Markov chains for time to drop and for the Luck pool), computed by `tools/analysis/atlas.py`. The full data tables are in [engine_atlas/tables.md](engine_atlas/tables.md); the figures are in `engine_atlas/figures/`. Regenerate both with:

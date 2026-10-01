@@ -6,6 +6,14 @@ The bounded repairs landed in `715ce90`. The
 corrects two Twilight modelling errors, refreshes the affected results below,
 and records the subsequent Pressure and initiative rulings.
 
+**Creation baseline superseded:** Barry adopted an eight-point total refund cap
+in `14b6544` later on 1 October. The creation counts and build comparisons below
+retain the earlier uncapped ledger. In particular, score 16 with Stamina 9 now
+needs at least 12 starting points, not the standard 6. The recommendation to
+retain the uncapped ledger and the statement that no cap was implemented are
+historical. See [PLAN.md](../../PLAN.md) for the adopted decision and Stage 4
+refresh. The resolution and stance controls retain their stated assumptions.
+
 ## Decision
 
 **Keep the resolution engine; repair the procedures around it.** The damage
