@@ -6,11 +6,13 @@ description: Generate reproducible characters with the shared creation ledger an
 # Random Character
 
 ```bash
-uv run python tools/gen_character.py --campaign ice_hunt --name Tarra \
+uv run python tools/gen_character.py --campaign scratch_demo --name Tarra \
   --seed 42 --tone standard --tag "Ember-singer" --dry-run --json
 ```
 
-Remove `--dry-run` to add the sheet and its campaign bookkeeping. For an exported
+Remove `--dry-run` to add the sheet and its campaign bookkeeping, before the first
+logged action or after `play.py session-close` and before the next `session`; the
+generator refuses a mid-session addition. For an exported
 sheet, use `--skin clanfire --out /tmp/tarra.yaml` instead of campaign mode.
 
 The generator reads attribute names, Luck naming, and `_gen` defaults from the

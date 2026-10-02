@@ -132,7 +132,7 @@ Fate is personal risk. Strain is the ship's mood, its wear, and the crew's fraye
 | 0 | Green board | None |
 | 1 | Amber caution | Cosmetic: crew snappish, hull pings |
 | 2 | High load | Each crew member's next EDU or SOC test has Disadvantage |
-| 3 | Over-taxed | Each risky test costs 1 Fate token before rolling, or marks +1 Strain |
+| 3 | Over-taxed | Each risky test a character attempts costs 1 Fate token before rolling, or marks +1 Strain |
 | 4 | Red line | Disadvantage on all tests |
 | 5 **Crisis** | Panic, mutiny, or hull crisis | Roll a Strain crisis, then reset Strain to **0** |
 

@@ -380,4 +380,4 @@ def yaml_template() -> str:
             "current_room": "1",
         },
     }
-    return yaml.safe_dump(template, sort_keys=False)
+    return yaml.safe_dump(template, sort_keys=False, allow_unicode=True)

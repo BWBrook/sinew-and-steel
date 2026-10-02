@@ -1,13 +1,15 @@
-# State (Local Runtime Data)
+# State (Seed Fixtures)
 
-This folder is for private, runtime state used by AI agents running a session.
-Keep it local; do not share these files with players unless you intend spoilers.
+This folder holds seed files that show the formats; it holds no live campaign
+data. Each campaign keeps its own private state under `campaigns/<slug>/state/`.
+Keep that state local; do not share it with players unless you intend spoilers.
 
-Suggested layout:
-- state/characters/ : YAML character sheets
-- state/trackers/   : pressure, clocks, scene counters
-- state/memory/     : private notes and summaries
-- state/logs/       : session transcripts (private)
+Layout of a campaign's state directory:
+- characters/  : YAML character sheets
+- trackers/    : Pressure, resources, clocks, scene counters
+- memory/      : private notes and summaries, one file per session
+- logs/        : public session log and the engine's structured events
+- checkpoints/ : the exact last public response
 
 Seed files:
 - state/characters/seed_character.yaml

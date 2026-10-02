@@ -117,7 +117,7 @@ def prepare_sheet(path: Path, operations: list[tuple], allow_new: bool) -> tuple
     if any(data.get(key) != value for key, value in original.items() if key not in METADATA_ROOTS):
         raise ValueError("metadata edit would alter mechanical or other protected content")
     changed = list(dict.fromkeys(key for _, key, _ in operations if _value(original, key) != _value(data, key)))
-    return yaml.safe_dump(data, sort_keys=False), changed
+    return yaml.safe_dump(data, sort_keys=False, allow_unicode=True), changed
 
 
 def main(argv=None) -> int:

@@ -78,7 +78,7 @@ def campaign_lock(directory: Path, *, dry_run: bool = False):
     journal = state / ".transaction.json"
     if dry_run:
         if journal.exists():
-            raise ValueError("interrupted transaction: run a writing command to recover it before dry-run")
+            raise ValueError("interrupted transaction: run `play.py --campaign <campaign> status` to recover it first")
         yield
         return
     with (state / ".runtime.lock").open("a", encoding="utf-8") as handle:
@@ -89,6 +89,12 @@ def campaign_lock(directory: Path, *, dry_run: bool = False):
             yield
         finally:
             fcntl.flock(handle, fcntl.LOCK_UN)
+
+
+def ensure_recovered(directory: Path) -> None:
+    """Readers must not report half-written state from an interrupted transaction."""
+    if (directory / "state" / ".transaction.json").exists():
+        raise ValueError("interrupted transaction: run `play.py --campaign <campaign> status` to recover it first")
 
 
 def load_campaign(directory: Path, root: Path | None = None) -> tuple[dict, dict, dict, dict[str, dict]]:
@@ -117,9 +123,14 @@ def load_campaign(directory: Path, root: Path | None = None) -> tuple[dict, dict
 def actor_key(character: str | None, sheets: dict[str, dict]) -> str:
     if character:
         key = Path(character).stem
-        if key not in sheets:
-            raise ValueError(f"unknown character: {character}")
-        return key
+        if key in sheets:
+            return key
+        wanted = key.casefold()
+        matches = [k for k, sheet in sheets.items()
+                   if wanted in {k.casefold(), str(sheet.get("name", "")).casefold()}]
+        if len(matches) == 1:
+            return matches[0]
+        raise ValueError(f"unknown character: {character}")
     if len(sheets) == 1:
         return next(iter(sheets))
     raise ValueError("select --character when the campaign has zero or multiple characters")
@@ -161,16 +172,19 @@ def request_hash(request: dict) -> str:
 def receipt_path(directory: Path, event_id: str) -> Path:
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,119}", event_id):
         raise ValueError("event ID must be 1..120 letters, digits, dots, hyphens or underscores")
-    return directory / "state/receipts" / f"{event_id}.json"
+    # IDs are case-insensitive, so every filesystem treats them alike.
+    return directory / "state/receipts" / f"{event_id.lower()}.json"
 
 
-def replay_receipt(directory: Path, event_id: str, request: dict) -> dict | None:
+def replay_receipt(directory: Path, event_id: str, request: dict, session: int | None = None) -> dict | None:
     path = receipt_path(directory, event_id)
     if not path.exists():
         return None
     receipt = json.loads(path.read_text(encoding="utf-8"))
     if receipt["request_hash"] != request_hash(request):
         raise ValueError("event ID was already used for a different command")
+    if session is not None and receipt.get("session", session) != session:
+        raise ValueError(f"event ID {event_id} was already used in session {receipt['session']}; choose a new ID")
     return {**receipt, "replayed": True}
 
 
@@ -180,7 +194,9 @@ def commit_campaign(directory: Path, campaign: dict, tracker: dict,
                     initial_luck: dict | None = None, initial_pressure: dict | None = None) -> dict:
     path = event_path(directory, tracker)
     prior = path.read_text(encoding="utf-8") if path.exists() else ""
-    existing = [json.loads(line) for line in prior.splitlines() if line.strip()]
+    # Split on newlines only: str.splitlines() also breaks on U+2028 and friends,
+    # which JSON writes raw inside strings.
+    existing = [json.loads(line) for line in prior.split("\n") if line.strip()]
     # Capture the true start of telemetry, including campaigns with no rolls yet.
     if not existing:
         events = [{"type": "session_start", "initial_luck": initial_luck or {},
@@ -193,17 +209,18 @@ def commit_campaign(directory: Path, campaign: dict, tracker: dict,
     stamped = [{**base, **event, "sequence": len(existing) + i + 1}
                for i, event in enumerate(events)]
     receipt = {"ok": True, "event_id": event_id, "request_hash": request_hash(request),
+               "session": tracker.get("session", 1),
                "dry_run": dry_run, "result": result, "events": stamped}
     if not dry_run:
-        lines = "".join(json.dumps(event, ensure_ascii=False, sort_keys=True) + "\n" for event in stamped)
-        updates = {directory / "state/trackers/session.yaml": yaml.safe_dump(tracker, sort_keys=False),
+        lines = "".join(json.dumps(event, ensure_ascii=False, sort_keys=True, default=str) + "\n" for event in stamped)
+        updates = {directory / "state/trackers/session.yaml": yaml.safe_dump(tracker, sort_keys=False, allow_unicode=True),
                    path: prior + lines,
-                   receipt_path(directory, event_id): json.dumps(receipt, indent=2, ensure_ascii=False) + "\n"}
+                   receipt_path(directory, event_id): json.dumps(receipt, indent=2, ensure_ascii=False, default=str) + "\n"}
         for key, sheet in sheets.items():
             path = directory / "state/characters" / f"{key}.yaml"
             if not path.exists() and path.with_suffix(".yml").exists():
                 path = path.with_suffix(".yml")
-            updates[path] = yaml.safe_dump(sheet, sort_keys=False)
+            updates[path] = yaml.safe_dump(sheet, sort_keys=False, allow_unicode=True)
         if any(event["type"] == "session" for event in events):
             number = tracker["session"]
             public_log = directory / "state/logs" / f"session_{number:03d}.md"
@@ -211,7 +228,15 @@ def commit_campaign(directory: Path, campaign: dict, tracker: dict,
             if public_log.exists() or memory.exists():
                 raise ValueError("new session's memory/log files already exist; refusing to overwrite")
             updates[public_log] = f"# Session {number:03d}\n"
-            updates[memory] = yaml.safe_dump({"schema_version": 1, "summary": [], "threads": [], "npcs": [], "secrets": []}, sort_keys=False)
+            # Threads, NPCs and secrets continue; the summary is per session.
+            carried = {"threads": [], "npcs": [], "secrets": []}
+            previous = directory / "state/memory" / f"session_{number - 1:03d}.yaml"
+            if previous.exists():
+                prior = yaml.safe_load(previous.read_text(encoding="utf-8")) or {}
+                for field in carried:
+                    value = prior.get(field) or []
+                    carried[field] = value if isinstance(value, list) else [value]
+            updates[memory] = yaml.safe_dump({"schema_version": 1, "summary": [], **carried}, sort_keys=False, allow_unicode=True)
         commit_files(directory / "state", updates)
     return receipt
 
@@ -253,6 +278,6 @@ def add_character(directory: Path, filename_stem: str, sheet: dict, *, dry_run: 
         result = {"ok": True, "actor": filename_stem, "dry_run": dry_run}
         if not dry_run:
             commit_files(directory / "state", {
-                directory / "state/characters" / f"{filename_stem}.yaml": yaml.safe_dump(sheet, sort_keys=False),
-                directory / "state/trackers/session.yaml": yaml.safe_dump(tracker, sort_keys=False)})
+                directory / "state/characters" / f"{filename_stem}.yaml": yaml.safe_dump(sheet, sort_keys=False, allow_unicode=True),
+                directory / "state/trackers/session.yaml": yaml.safe_dump(tracker, sort_keys=False, allow_unicode=True)})
         return result

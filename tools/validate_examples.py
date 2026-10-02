@@ -20,7 +20,6 @@ from _rules import ATTRIBUTE_MAX, ATTRIBUTE_MIN, STAMINA_MAX, STAMINA_MIN, creat
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_SAMPLE_COUNT = 20
 SAMPLES_PER_SKIN = 2
 _SAMPLE_SECTION = re.compile(r"^##\s+.*\b(?:sample|example|active|figures)\b.*$", re.I | re.M)
 _SECTION = re.compile(r"^##\s+.+$", re.M)
@@ -171,8 +170,8 @@ def validate_samples(manifest: dict, root: Path = ROOT) -> SampleValidation:
         parsed = parse_skin_samples((root / source).read_text(encoding="utf-8"), slug, skin, source)
         result.samples.extend(parsed.samples)
         result.errors.extend(parsed.errors)
-    if len(result.samples) != EXPECTED_SAMPLE_COUNT:
-        result.errors.append(f"expected {EXPECTED_SAMPLE_COUNT} published skin samples; parsed {len(result.samples)}")
+    if not result.samples:
+        result.errors.append("no published skin samples parsed")
     return result
 
 

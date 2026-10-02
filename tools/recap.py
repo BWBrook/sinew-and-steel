@@ -42,7 +42,7 @@ def prepare_memory(path: Path, additions: dict[str, list[str]]) -> str:
         # Assign fresh lists, preserving both existing entries and any other
         # memory content without mutating a YAML alias elsewhere in the file.
         data[field] = deepcopy(ensure_list(data.get(field))) + values
-    return yaml.safe_dump(data, sort_keys=False)
+    return yaml.safe_dump(data, sort_keys=False, allow_unicode=True)
 
 
 def campaign_for_path(path: Path) -> Path | None:

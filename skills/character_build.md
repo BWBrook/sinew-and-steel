@@ -14,11 +14,14 @@ Budgets are `--tone grim` (0), `standard` (6), `pulp` (12), or `heroic` (16), or
 `--build-points N`. Campaign mode reads the campaign's budget.
 
 ```bash
-uv run python tools/char_builder.py --campaign ice_hunt --name Grak \
+uv run python tools/char_builder.py --campaign scratch_demo --name Brann \
   --set MGT=12 --set SPR=8 --set INS=8 --set STM=7 --tag "Megafauna tracker" --dry-run --json
 ```
 
-The example spends exactly 6 points. Remove `--dry-run` to add the character.
+The example adds a new character, Brann, to a campaign whose setup already created
+Grak, and spends exactly 6 points. Remove `--dry-run` to add the character, before
+the first logged action or after `play.py session-close` and before the next
+`session`; a builder refuses a mid-session addition or an existing name.
 `--set KEY=N` assigns scores; `--delta KEY=N` adjusts the baseline before those
 assignments. `--strict` disallows voluntary extra weaknesses. Use `--skin` and
 `--out FILE` for a standalone sheet.
@@ -36,16 +39,19 @@ invented score prerequisite.
 ## Advancement
 
 ```bash
-uv run python tools/advance.py --campaign ice_hunt --character grak \
+uv run python tools/advance.py --campaign scratch_demo --character grak \
   --event-id ridge-milestone award --id ridge --boon "A sheltered camp"
-uv run python tools/advance.py --campaign ice_hunt --character grak raise --stat MGT
-uv run python tools/advance.py --campaign ice_hunt --character grak show --json
+uv run python tools/advance.py --campaign scratch_demo --character grak raise --stat MGT
+uv run python tools/advance.py --campaign scratch_demo --character grak show --json
 ```
 
-Each milestone awards 2 points and refills Luck. `raise --stat KEY --steps N`
-records each +1 and its actual price; `tag --name NAME` buys a tag. Add
-`--dry-run --json` to preview any purchase. Unspent points carry over. Increasing
-a pool maximum leaves current tokens/health unchanged.
+Each milestone awards 2 points and refills Luck. Award milestones and make
+purchases while the session is open, before `play.py session-close`; `advance.py`
+refuses while a session is closed or an action is pending. `raise --stat KEY
+--steps N` records each +1 and its actual price; `tag --name NAME` buys a tag. Add
+`--dry-run --json` to preview any purchase. Unspent points carry over. Raising
+Stamina does not heal; raising the Luck attribute adds its new token too, so a
+milestone spent on Luck leaves a full pool.
 
 Schema-2 sheets preserve `creation.snapshot` and `creation.build_points_used`.
 `advancement.entries` records awards and purchases; validation replays them and

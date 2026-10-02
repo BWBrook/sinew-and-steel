@@ -144,6 +144,15 @@ class CampaignContractTests(unittest.TestCase):
                     self.assertNotIn("PRIVATE_CANARY", result.stdout + result.stderr)
                     self.assertNotIn(str(path), result.stdout + result.stderr)
 
+    def test_campaign_files_and_prompt_are_owner_only(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path, files = self.scaffold(temp)
+            argv = ["build_prompt.py", "--campaign", str(path)]
+            with patch.object(sys, "argv", argv), redirect_stdout(io.StringIO()):
+                self.assertEqual(build_prompt.main(), 0)
+            for relative in [*files, "prompt.md"]:
+                self.assertEqual((path / relative).stat().st_mode & 0o777, 0o600, relative)
+
     def test_prompt_fingerprint_tracks_state_source_inventory_and_body(self):
         with tempfile.TemporaryDirectory() as temp:
             path, _ = self.scaffold(temp)

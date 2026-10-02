@@ -37,17 +37,22 @@ from automatic tolls. A pending crisis requires a table result, target,
 adjudicated consequence, and any lasting effects before reset. Record effects'
 expiry explicitly and supply their applicable modifiers on later tests.
 
-Each able combatant acts once per round; defence uses no action. Establish side
-initiative once for the fight. Twilight positions keep both their benefit and
+Each able combatant acts once per round; defence uses no action. An `attack`, or
+an `opposed` test the combatant starts, uses that action; a plain `check` does not,
+so record a turn spent on a check or other activity with `play.py pass`. The
+earlier side in initiative order acts or passes before the later side. Establish
+side initiative once for the fight. Twilight positions keep both their benefit and
 drawback throughout the round. Supply edge, soak, and the actual legal defence;
 use `opposed` instead of `attack` for a contest whose consequence is not damage.
 
-Use `advance.py` for milestones and purchases. Creation snapshots and spending
-are fixed; advancement has its own replayable entries. `recalc_sheet.py` verifies
-that history rather than repricing the current scores. New campaign characters
-must be added through the builders so personal Pressure and resource rosters stay
-in sync. Never infer missing legacy history merely because a current sheet looks
-legal.
+Use `advance.py` for milestones and purchases, while the session is open and before
+`session-close`; it refuses once the session is closed. Creation snapshots and
+spending are fixed; advancement has its own replayable entries. `recalc_sheet.py`
+verifies that history rather than repricing the current scores. New campaign
+characters must be added through the builders so personal Pressure and resource
+rosters stay in sync, before the first logged action or between `session-close` and
+the next `session`. Never infer missing legacy history merely because a current
+sheet looks legal.
 
 ## Public and private
 
@@ -59,8 +64,10 @@ current state and this checkpoint; it is not a rewind point.
 A private resume includes raw sheets, tracker, memory, and log. Public mode uses
 a field allowlist and excludes all raw private state and logs; its checkpoint text
 must already be public. Full campaign prompts are private, including chat-mode
-prompts. The compact prompt is the default; load numbered sections on demand and
-check/rebuild its source fingerprint after changes.
+prompts. The compact prompt is the default; load numbered sections on demand. Any
+play action, checkpoint or advancement makes the saved prompt stale by design, so
+rebuild it, with the same `--mode`, `--full` and `--hidden` options, before
+validating or resuming.
 
 ## Session evidence
 
@@ -72,6 +79,6 @@ review of Luck depletion and red-line duration. These logs inform a Custodian's
 judgment; they do not turn a small playtest into precise balance evidence.
 
 For an unexpected state error, stop the dependent action, inspect the receipt and
-`validate_campaign.py` output, and repair the actual inconsistency. Do not reroll,
-reinitialize a played campaign, or bypass a protected mechanical field through a
-generic YAML updater.
+`validate_campaign.py` output, and repair the actual inconsistency; a stale-prompt
+error only needs a rebuild. Do not reroll, reinitialize a played campaign, or
+bypass a protected mechanical field through a generic YAML updater.

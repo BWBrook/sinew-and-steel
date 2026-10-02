@@ -140,7 +140,7 @@ def modifiers(pressure: dict, skin: dict, actor: str, attribute: str | None,
     result = {"track": key, "level": track["current"],
               "active_steps": list(range(1, min(4, track["current"]) + 1)),
               "disadvantage_sources": [], "incoming_advantage_sources": [],
-              "costs": [], "pending_consumed": []}
+              "costs": [], "pending_consumed": [], "custodian_levers": []}
     pending = track["pending"].get(actor, [])
     matched = [p for p in pending if _applies(p, attribute, contexts)]
     for p in matched:
@@ -152,7 +152,9 @@ def modifiers(pressure: dict, skin: dict, actor: str, attribute: str | None,
         if rule["step"] > track["current"] or not _applies(rule, attribute, contexts):
             continue
         label = f"pressure:{key}:step{rule['step']}:{rule['label']}"
-        if rule["kind"] == "disadvantage":
+        if rule["kind"] == "custodian":
+            result["custodian_levers"].append(label)
+        elif rule["kind"] == "disadvantage":
             result["disadvantage_sources"].append(label)
         elif rule["kind"] == "incoming_advantage":
             result["incoming_advantage_sources"].append(label)

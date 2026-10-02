@@ -45,7 +45,7 @@ def pay_costs(actor: str, sheet: dict, tracker: dict, skin: dict, sheets: dict,
         amount = cost.get("amount", 1)
         if cost["kind"] == "toll":
             if toll not in {"luck", "pressure"}:
-                raise ValueError(f"choose --toll luck|pressure for {cost['source']}")
+                raise ValueError(f"choose --toll luck|pressure for {actor}: {cost['source']}")
             if toll == "luck":
                 events.append(_runtime.luck_change(sheet, -amount, actor=actor,
                               source=cost["source"], category="action_cost"))
@@ -95,11 +95,12 @@ def prepare_action(tracker: dict, sheets: dict, skin: dict, *, kind: str,
                    adv_sources: list[str] | None = None, dis_sources: list[str] | None = None,
                    defender_adv_sources: list[str] | None = None,
                    defender_dis_sources: list[str] | None = None,
-                   toll: str | None = None, defender_toll: str | None = None,
+                   toll: str | None = None,
                    luck_cost: int = 0, pressure_cost: int = 0,
                    failure_pressure: int = 0, use_resource: str | None = None,
                    edge: int = 0, soak: int = 0, injury: bool = False,
-                   gritty: bool = False, undefended: bool = False) -> tuple[dict, list[dict]]:
+                   gritty: bool = False, undefended: bool = False,
+                   no_nudge: bool = False) -> tuple[dict, list[dict]]:
     ensure_ready(tracker)
     if kind not in {"check", "opposed", "attack"} or not method.strip() or not stakes.strip():
         raise ValueError("tests require their method and declared stakes")
@@ -107,8 +108,9 @@ def prepare_action(tracker: dict, sheets: dict, skin: dict, *, kind: str,
         raise ValueError("failure Pressure must be nonnegative")
     if injury and skin.get("luck_key") != "HOP":
         raise ValueError("the optional Injury module belongs to Twilight")
-    if type(edge) is not int or not 0 <= edge <= 2 or type(soak) is not int or soak < 0:
-        raise ValueError("weapon edge must be 0..2 and soak nonnegative")
+    # Edge may exceed +2 (a boon or stunt on a brutal weapon); skins that cap it say so.
+    if type(edge) is not int or edge < 0 or type(soak) is not int or soak < 0:
+        raise ValueError("weapon edge and soak must be nonnegative integers")
     if gritty and not injury:
         raise ValueError("--gritty requires the optional Injury module")
     if undefended and kind != "attack":
@@ -126,7 +128,7 @@ def prepare_action(tracker: dict, sheets: dict, skin: dict, *, kind: str,
     sides = [("attacker", actor, a_sheet, attribute, contexts, toll,
               list(adv_sources or []), list(dis_sources or []))]
     if d_sheet and not undefended:
-        sides.append(("defender", opponent, d_sheet, defender_attribute, d_contexts, defender_toll,
+        sides.append(("defender", opponent, d_sheet, defender_attribute, d_contexts, None,
                       list(defender_adv_sources or []), list(defender_dis_sources or [])))
     snapshots = {}
     for role, who, sheet, key, context, _, adv, dis in sides:
@@ -134,7 +136,7 @@ def prepare_action(tracker: dict, sheets: dict, skin: dict, *, kind: str,
             mods = _pressure.modifiers(tracker["pressure"], skin, who, key, context, consume=False)
         else:
             mods = {"level": None, "disadvantage_sources": [], "incoming_advantage_sources": [],
-                    "costs": [], "pending_consumed": []}
+                    "costs": [], "pending_consumed": [], "custodian_levers": []}
         dis += mods["disadvantage_sources"]
         if sheet.get("conditions", {}).get("injured") and key in {"STR", "NIM"}:
             dis.append("condition:injured")
@@ -148,7 +150,10 @@ def prepare_action(tracker: dict, sheets: dict, skin: dict, *, kind: str,
                                           d_contexts, consume=False)
         snapshots["attacker"]["advantage_sources"] += target_mods["incoming_advantage_sources"]
     combat = tracker.get("combat", {})
-    if kind == "attack" and combat.get("active"):
+    # An attack, or an opposed test a combatant starts (intimidate, disarm, shove),
+    # is that combatant's action for the round.
+    uses_turn = combat.get("active") and (kind == "attack" or (kind == "opposed" and actor in combat["positions"]))
+    if uses_turn:
         if actor not in combat["positions"]:
             raise ValueError("attacker is not in this combat")
         if actor in combat.get("acted", []):
@@ -168,11 +173,10 @@ def prepare_action(tracker: dict, sheets: dict, skin: dict, *, kind: str,
     for role, who, sheet, key, context, toll_choice, _, _ in sides:
         if who in sheets:
             _pressure.modifiers(tracker["pressure"], skin, who, key, context, consume=True)
-    for role, who, sheet, key, context, toll_choice, _, _ in sides:
-        events += pay_costs(who, sheet, tracker, skin, sheets, snapshots[role]["modifiers"],
-                           toll=toll_choice, luck=luck_cost if role == "attacker" else 0,
-                           pressure=pressure_cost if role == "attacker" else 0,
-                           source=method, use_resource=use_resource if role == "attacker" else None)
+    # Only the side attempting the test pays; defence never pays tolls or step costs.
+    events += pay_costs(actor, a_sheet, tracker, skin, sheets, snapshots["attacker"]["modifiers"],
+                        toll=toll, luck=luck_cost, pressure=pressure_cost,
+                        source=method, use_resource=use_resource)
     targets = {role: _stat(sheet, skin, key) for role, _, sheet, key, _, _, _, _ in sides}
     checks = {}
     for role, who, sheet, key, context, _, _, _ in sides:
@@ -184,8 +188,8 @@ def prepare_action(tracker: dict, sheets: dict, skin: dict, *, kind: str,
     action = {"kind": kind, "actor": actor, "opponent": opponent, "method": method,
               "stakes": stakes, "checks": checks, "sides": snapshots,
               "failure_pressure": failure_pressure, "edge": edge, "soak": soak,
-              "injury": injury, "gritty": gritty, "undefended": undefended,
-              "pressure_snapshot": pressure_snapshot, "defender_toll": defender_toll}
+              "injury": injury, "gritty": gritty, "undefended": undefended, "no_nudge": no_nudge,
+              "pressure_snapshot": pressure_snapshot}
     tracker["pending_action"] = deepcopy(action)
     return action, events
 
@@ -193,7 +197,7 @@ def prepare_action(tracker: dict, sheets: dict, skin: dict, *, kind: str,
 def finish_action(tracker: dict, sheets: dict, skin: dict, *, nudge: int = 0,
                   nudge_target: str = "attacker", payer: str | None = None,
                   companionship: bool = False, deflection_nudge: int = 0,
-                  seed: int | None = None, deflection_toll: str | None = None,
+                  seed: int | None = None,
                   adjustments: list[tuple[str, str, int]] | None = None) -> tuple[dict, list[dict]]:
     stored = tracker.get("pending_action")
     if not stored:
@@ -218,6 +222,8 @@ def finish_action(tracker: dict, sheets: dict, skin: dict, *, nudge: int = 0,
         raise ValueError("Companionship requires a one-point nudge")
     deltas: dict[str, int] = {}
     for who, side, delta, shared in nudges:
+        if side == "attacker" and action.get("no_nudge"):
+            raise ValueError("this roll was declared --no-nudge (top-tier magic); settle it without nudging the caster's die")
         if side not in checks:
             raise ValueError("cannot nudge a side that did not roll")
         if who not in {action["actor"], action["opponent"]}:
@@ -286,11 +292,10 @@ def finish_action(tracker: dict, sheets: dict, skin: dict, *, nudge: int = 0,
         injurious = checks["attacker"].get("crit") == "nat1" or (action["gritty"] and effective >= 8)
         if action["injury"] and injurious:
             who = action["opponent"]
+            # Deflection is an involuntary reaction: its penalties apply, but it pays no toll.
             def_mods = (_pressure.modifiers(action["pressure_snapshot"], skin, who,
                         "Deflection", ["risky"], consume=False) if who in sheets else
                         {"level": None, "costs": [], "disadvantage_sources": []})
-            events += pay_costs(who, target, tracker, skin, sheets, def_mods,
-                               toll=deflection_toll or action["defender_toll"], source="Deflection")
             deflection = _dice.resolve_check(10 + action["soak"] * 2,
                                             dis=bool(def_mods["disadvantage_sources"]))
             result.update(pending=True, phase="deflection", deflection=deflection)
@@ -302,8 +307,10 @@ def finish_action(tracker: dict, sheets: dict, skin: dict, *, nudge: int = 0,
     if not success and action["failure_pressure"]:
         events += _pressure.change(tracker["pressure"], skin, list(sheets),
                   amount=action["failure_pressure"], source=action["method"], category="failure", actor=action["actor"])
-    if action["kind"] == "attack" and tracker.get("combat", {}).get("active"):
-        tracker["combat"]["acted"].append(action["actor"])
+    combat = tracker.get("combat", {})
+    if combat.get("active") and (action["kind"] == "attack" or (
+            action["kind"] == "opposed" and action["actor"] in combat["positions"])):
+        combat["acted"].append(action["actor"])
     if not result.get("pending"):
         tracker["pending_action"] = None
     return result, events

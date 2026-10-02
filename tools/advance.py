@@ -89,7 +89,8 @@ def main() -> int:
             with _runtime.campaign_lock(directory, dry_run=readonly):
                 request = vars(args).copy()
                 event_id = args.event_id or str(uuid4())
-                replayed = (_runtime.replay_receipt(directory, event_id, request)
+                session = _sslib.load_yaml(directory / "state/trackers/session.yaml").get("session", 1)
+                replayed = (_runtime.replay_receipt(directory, event_id, request, session)
                             if args.event_id and args.command != "show" else None)
                 if replayed is not None:
                     receipt = replayed
@@ -138,17 +139,17 @@ def main() -> int:
                 raise ValueError("unknown or missing sheet skin")
             sheet, receipt = apply_operation(sheet, skin, args, path)
             if not args.dry_run and args.command != "show":
-                _runtime.atomic_text(path, yaml.safe_dump(sheet, sort_keys=False))
+                _runtime.atomic_text(path, yaml.safe_dump(sheet, sort_keys=False, allow_unicode=True))
         else:
             raise ValueError("provide --file or --campaign")
     except (OSError, ValueError, KeyError, TypeError) as exc:
         if args.json:
-            print(json.dumps({"ok": False, "error": str(exc)}))
+            print(json.dumps({"ok": False, "error": str(exc)}, default=str))
         else:
             print(f"error: {exc}", file=sys.stderr)
         return 1
     if args.json:
-        print(json.dumps(receipt, indent=2))
+        print(json.dumps(receipt, indent=2, default=str))
     else:
         prefix = "preview" if args.dry_run else "verified" if args.command == "show" else "updated"
         result = receipt.get("result", receipt)

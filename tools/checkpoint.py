@@ -50,7 +50,7 @@ def write_checkpoint(
         metadata_tmp = metadata_path.with_suffix(".yaml.tmp")
         try:
             markdown_tmp.write_text(text, encoding="utf-8")
-            metadata_tmp.write_text(yaml.safe_dump(meta, sort_keys=False), encoding="utf-8")
+            metadata_tmp.write_text(yaml.safe_dump(meta, sort_keys=False, allow_unicode=True), encoding="utf-8")
             os.replace(markdown_tmp, base)
             os.replace(metadata_tmp, metadata_path)
         finally:

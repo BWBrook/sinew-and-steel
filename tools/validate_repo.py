@@ -72,6 +72,11 @@ def collect_errors() -> list[str]:
 
     errors.extend(validate_samples(manifest, ROOT).errors)
 
+    # The tracked demo prompt must match its current sources (rules, skin, state, tools).
+    import build_prompt
+    errors.extend(f"examples/campaign_demo/prompt.md: {error}"
+                  for error in build_prompt.check_prompt(ROOT / "examples" / "campaign_demo" / "prompt.md"))
+
     # Check prompt template placeholders
     prompts = manifest.get("prompts", {})
     agent_path = ROOT / prompts.get("agent_starter", prompts.get("starter", "prompts/agent/starter_prompt.md"))

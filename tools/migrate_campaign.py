@@ -280,9 +280,9 @@ def prepare_migration(directory: Path, manifest: dict, *, fresh_pressure: bool,
     tracker.setdefault("npcs", {})
     tracker.setdefault("combat", {})
     campaign.update(schema_version=2, prompt_profile="compact")
-    updates = {cpath: yaml.safe_dump(campaign, sort_keys=False), tpath: yaml.safe_dump(tracker, sort_keys=False)}
+    updates = {cpath: yaml.safe_dump(campaign, sort_keys=False, allow_unicode=True), tpath: yaml.safe_dump(tracker, sort_keys=False, allow_unicode=True)}
     for path in paths:
-        updates[path] = yaml.safe_dump(sheets[path.stem], sort_keys=False)
+        updates[path] = yaml.safe_dump(sheets[path.stem], sort_keys=False, allow_unicode=True)
     updates.update({backup / path.relative_to(directory): text for path, text in original.items()})
     payload = {"ok": True, "campaign": campaign, "tracker": tracker, "characters": actors,
                "sheets": sheets, "session_selection": session,

@@ -7,8 +7,8 @@ description: Assemble a compact Custodian prompt, load detailed sections, and ve
 
 ```bash
 uv run python tools/build_prompt.py --list-skins
-uv run python tools/build_prompt.py --campaign ice_hunt
-uv run python tools/build_prompt.py --campaign ice_hunt --check --json
+uv run python tools/build_prompt.py --campaign scratch_demo
+uv run python tools/build_prompt.py --campaign scratch_demo --check --json
 uv run python tools/build_prompt.py --section manual:6
 ```
 
@@ -23,8 +23,14 @@ Campaign output goes to `campaigns/<slug>/prompt.md`. Without a campaign, use
 `--json` reports assembly metadata. `--check` verifies a saved campaign prompt or
 `--out FILE`, including body, source hashes, and campaign file inventory.
 
-Use `--hidden FILE` for explicit scenario material. Campaign-local
-`state/memory/hidden_scenario.md` is included automatically. All assembled campaign
-prompts are private. `--mode chat` selects the chat template, not a public filter.
+Hidden scenario material belongs in `campaigns/<slug>/state/memory/hidden_scenario.md`,
+which every rebuild includes automatically. `--hidden FILE` is for one-off prompts.
+It is not remembered, and neither are `--mode`, `--full` or `--keep-art`, so pass
+them again when rebuilding; the first line of `prompt.md` records the mode, profile
+and sources of the last build. Any play action, checkpoint or advancement makes a
+saved campaign prompt stale by design: `--check` reports it, `validate_campaign.py`
+treats it as an error, and the remedy is to rebuild before validating or resuming.
+All assembled campaign prompts are private. `--mode chat` selects the chat template,
+not a public filter; a model that cannot read the repository also needs `--full`.
 Artwork is stripped by default; `--keep-art` preserves it. Resolve paths through
-`manifest.yaml` and rebuild when a freshness check reports changes.
+`manifest.yaml`.

@@ -92,7 +92,7 @@ Fatigue is the dungeon's hourglass, shared by the whole party. It runs 0-5; at 5
 | 1 | Winded | Cosmetic: sweat, a shaky torch |
 | 2 | Weary | Each delver's next STR or DEX test has Disadvantage |
 | 3 | Exhausted | Attacks against the delvers have Advantage |
-| 4 | Ragged | Each risky test costs 1 Fortune coin before rolling, or marks +1 Fatigue |
+| 4 | Ragged | Each risky test a delver attempts costs 1 Fortune coin before rolling, or marks +1 Fatigue |
 | 5 **Crisis** | Collapse / spell backlash | Roll a Fatigue crisis, then reset to **0** |
 
 A risky test is any roll where failure would materially change the situation: harm, loss, alarm, separation. Routine mapping and careful talk resolve in the fiction.

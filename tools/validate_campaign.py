@@ -35,6 +35,9 @@ def validate_campaign(campaign_slug: str, manifest: dict, *, root: Path | None =
 
     if not cdir.is_dir():
         return _sslib.ValidationResult([f"campaign directory missing: {cdir}"], [])
+    if (cdir / "state" / ".transaction.json").exists():
+        # Torn files would only add noise to the report.
+        return _sslib.ValidationResult(["interrupted transaction: run `play.py --campaign <campaign> status` to recover it"], [])
     campaign = read(cdir / "campaign.yaml")
     if campaign is None:
         return _sslib.ValidationResult(errors, warnings)

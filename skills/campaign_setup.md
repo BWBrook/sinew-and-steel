@@ -8,19 +8,21 @@ description: Create a private campaign with skin-specific Pressure and resource 
 Choose a skin from `manifest.yaml`, then preview the entire scaffold:
 
 ```bash
-uv run python tools/campaign_init.py --slug ice_hunt --title "Ice Hunt" --skin clanfire \
+uv run python tools/campaign_init.py --slug scratch_demo --title "Scratch Demo" --skin clanfire \
   --tone standard --random-character Grak --seed 42 --dry-run --json
 ```
 
 Remove `--dry-run` to create the reviewed campaign. Repeat `--random-character`
 for a party, or omit it and add characters later with `char_builder.py` or
-`gen_character.py --campaign ice_hunt`. Both builders register the character's
+`gen_character.py --campaign scratch_demo`. Add characters before the first
+logged action, or after `play.py session-close` and before the next `session`,
+never mid-session. Both builders register the character's
 Pressure and limited-use resources and refuse to overwrite an existing sheet.
 Use `--tag NAME` for bought tags and `--free-tag GRANT=NAME` for a skin's free grant.
 
 ```bash
-uv run python tools/validate_campaign.py --campaign ice_hunt
-uv run python tools/build_prompt.py --campaign ice_hunt
+uv run python tools/build_prompt.py --campaign scratch_demo
+uv run python tools/validate_campaign.py --campaign scratch_demo
 ```
 
 Campaigns are untracked under `campaigns/`. Sheets hold Luck and Stamina;

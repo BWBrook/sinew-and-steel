@@ -3,23 +3,29 @@
 Use the harness to keep a campaign's rules, dice, character history, Pressure,
 and private notes consistent across sessions. `play.py` handles mechanical state;
 the Custodian still judges intent, plausible methods, stakes, and consequences.
-Roll only when the outcome is uncertain and failure would matter.
+Roll only when the outcome is uncertain and failure would matter. The examples
+use a throwaway campaign slug, `scratch_demo`; never run them against a real
+campaign.
 
 ## Setup and characters
 
 ```bash
 uv sync
 uv run python tools/validate_repo.py
-uv run python tools/campaign_init.py --slug emberfall --title Emberfall --skin clanfire --tone standard
-uv run python tools/char_builder.py --campaign emberfall --name Grak \
+uv run python tools/campaign_init.py --slug scratch_demo --title "Scratch Demo" --skin clanfire --tone standard
+uv run python tools/char_builder.py --campaign scratch_demo --name Grak \
   --set MGT=12 --set SPR=8 --set INS=8 --set STM=7 --tag "Megafauna tracker"
-uv run python tools/validate_campaign.py --campaign emberfall
+uv run python tools/build_prompt.py --campaign scratch_demo
+uv run python tools/validate_campaign.py --campaign scratch_demo
 ```
 
 Alternatively, pass `--random-character Grak --seed 42` when initializing the
 campaign. Add `--dry-run --json` to preview generation without creating files.
 Character builders add the sheet and its Pressure/resource bookkeeping together;
-they refuse to overwrite an existing campaign character.
+they refuse to overwrite an existing campaign character. Add characters before
+the first logged action, or after `session-close` and before the next `session`;
+the engine refuses a mid-session addition. Build the prompt before validating,
+because a saved prompt older than the latest state change is stale by design.
 
 Campaign data lives under `campaigns/<slug>/state/`: sheets in `characters/`,
 mechanical state in `trackers/session.yaml`, private recaps in `memory/`, public
@@ -36,24 +42,33 @@ in Rust & Domes is a bought tag, not another attribute.
 ## Prompts and source checks
 
 ```bash
-uv run python tools/build_prompt.py --campaign emberfall
-uv run python tools/build_prompt.py --campaign emberfall --check --json
+uv run python tools/build_prompt.py --campaign scratch_demo
+uv run python tools/build_prompt.py --campaign scratch_demo --check --json
 uv run python tools/build_prompt.py --section manual:6
-uv run python tools/build_prompt.py --campaign emberfall --full
+uv run python tools/build_prompt.py --campaign scratch_demo --full
 ```
 
 The default compact prompt contains the Quickstart, complete selected skin and
 addons, current state, and a detailed-rule lookup index. `--full` embeds both core
 books. `--section manual:6` prints combat rules without rebuilding a campaign
 prompt; repeat `--section` to retrieve more sections. `--check` checks the saved
-prompt's body, sources, and campaign file inventory without writing. Rebuild a
-stale prompt before resuming. Artwork is stripped unless `--keep-art` is supplied.
+prompt's body, sources, and campaign file inventory without writing. Artwork is
+stripped unless `--keep-art` is supplied.
 
-Campaign-local `state/memory/hidden_scenario.md` is included automatically. Use
-`--hidden rules/scenarios/clanfire_emberfall_hidden.md` for a supplied module or
-another explicit file. Assembled prompts contain private material: do not send
-one to the players. `--mode chat` changes the template for copy/paste play; it does
-not turn a private campaign prompt into a public export.
+Any play action, checkpoint, or advancement makes the saved prompt stale by design,
+and `validate_campaign.py` reports a stale prompt as an error. Rebuild it before
+validating or resuming. `--mode`, `--full`, `--keep-art`, and `--hidden` are not
+remembered, so pass them again on every rebuild; the header comment on the first
+line of `prompt.md` records the mode, profile, and sources of the last build.
+
+Hidden scenario material belongs in `campaigns/<slug>/state/memory/hidden_scenario.md`,
+which every rebuild includes automatically. Use
+`--hidden rules/scenarios/clanfire_emberfall_hidden.md` only for a one-off prompt
+from a supplied module or another explicit file. Assembled prompts contain private
+material: do not send one to the players. `--mode chat` changes the template for
+copy/paste play, and a model that cannot read this repository also needs `--full`
+for the detailed rules; it does not turn a private campaign prompt into a public
+export.
 
 ## Checks and informed Luck spending
 
@@ -61,13 +76,14 @@ State the method and both possible outcomes before rolling. Choose the attribute
 that fits the method, and supply applicable contexts and Advantage sources.
 
 ```bash
-uv run python tools/play.py --campaign emberfall --character grak --seed 42 \
+uv run python tools/play.py --campaign scratch_demo --character grak --seed 42 \
   --event-id river-roll check --attribute FLT --method "Cross on the fallen tree" \
   --stakes "Reach the far bank; failure loses time and adds Shadow" \
   --failure-pressure 1 --defer
-uv run python tools/play.py --campaign emberfall --event-id river-settle settle
+uv run python tools/play.py --campaign scratch_demo --event-id river-settle settle
 ```
 
+`--character` takes the sheet's file stem (`grak` for Grak).
 `--defer` saves the raw dice and upfront costs. Show the dice to the player, then
 use `settle` once they choose; it never rerolls the saved action. To spend Luck,
 add, for example, `--nudge -1 --payer grak`; an opposed test can instead use
@@ -78,6 +94,12 @@ the result without a Luck nudge. If settlement cannot pay a required cost, the
 receipt retains the pending dice and upfront costs with `settlement_error`;
 inspect that reason and settle the saved action rather than rolling again.
 
+Some skins forbid nudging the caster's die at their top magic tiers: Iron & Ruin's
+Wrack and Wyrd, Candlelight's Arcanum, Whispers' Incantation and Unspeakable, and
+Twilight's Invocation and Reckoning. Declare `--no-nudge` on that roll; `settle`
+then refuses any nudge or adjustment to the caster's die, though an opponent's die
+can still be nudged.
+
 For several adjustments, repeat `--adjust PAYER=SIDE:DELTA`, for example
 `settle --adjust mara=attacker:-2 --adjust holo=defender:-1`. Either participant
 may adjust either rolled die, paying from their own pool. Each adjustment costs
@@ -86,10 +108,17 @@ must be legal and affordable. `--companionship` funds only the one-point
 `--nudge` convenience option; `--adjust` spends ordinary Luck.
 
 Use a stable `--event-id` for each write. Repeating the same command with the same
-ID returns its saved receipt; using that ID for a changed command fails. An
-operation without an explicit ID receives a new one. A seed reproduces dice; it
+ID returns its saved receipt; using that ID for a changed command fails. IDs are
+case-insensitive, and an ID belongs to the session that first used it: reusing it
+in a later session fails, so choose a fresh one. An operation without an explicit
+ID receives a new one. A seed reproduces dice; it
 does not make a second command a safe retry. `--dry-run --json` previews without
 saving an action, so it cannot be followed by `settle` until the action is committed.
+
+Every write is journaled. If a command is interrupted part-way, the next writing
+command restores the campaign first. Until then `build_prompt.py`, `resume_pack.py`,
+`summary.py`, `playtest_summary.py` and `validate_campaign.py` refuse to read it;
+run `play.py --campaign <slug> status` to restore it.
 
 ### Contexts, costs, and conditions
 
@@ -109,8 +138,9 @@ The engine does not infer circumstances from prose. Supply every relevant
 For opposition, give the defender's contexts with `--defender-context`. The
 engine snapshots applicable Pressure effects at action start, consumes a pending
 one-test penalty even if Advantage cancels it, and charges the active toll.
-Where a toll offers a choice, supply `--toll luck` or `--toll pressure` (and
-`--defender-toll` when needed). Base ability costs use `--luck-cost` and
+Where a toll offers a choice, supply `--toll luck` or `--toll pressure`. Only
+the character attempting the test pays; a defence or Deflection roll never pays a
+toll, although step penalties still apply to it. Base ability costs use `--luck-cost` and
 `--pressure-cost`; do not add the automatic toll again. A Luck target uses current
 tokens after mandatory upfront costs and remains fixed during nudging.
 
@@ -119,6 +149,20 @@ including those a skin leaves to the Custodian. Tags, equipment, exhaustion, and
 lasting crisis effects still require the applicable fictional judgment. Known
 limited abilities can be charged with `--use-resource NAME`; this records use,
 not an inferred benefit from its prose. Declare the relevant Advantage source.
+Name a resource by its manifest id (for example `totem_mark`, `beast_bond`, or
+`companionship`), not its display name; `play.py status` lists a campaign's ids
+under `resources`.
+
+Outside a roll, `play.py resource` records the use of a limited ability, or
+restores pool tokens with `--recover` when the fiction allows it. `play.py
+condition` sets or clears a named condition on a sheet.
+
+```bash
+uv run python tools/play.py --campaign scratch_demo --character grak resource --name totem_mark --source "Calls on the totem"
+uv run python tools/play.py --campaign scratch_demo --character grak resource --name beast_bond --recover --amount 1 --source "Bond rite at the fire"
+uv run python tools/play.py --campaign scratch_demo --character grak condition --name injured --source "Spear wound"
+uv run python tools/play.py --campaign scratch_demo --character grak condition --name injured --clear --source "Healing rest"
+```
 
 ## Opponents and combat
 
@@ -126,20 +170,24 @@ Register an NPC, then establish side order once. Omit `--order` to roll initiati
 use it only when the fiction already establishes who acts first.
 
 ```bash
-uv run python tools/play.py --campaign emberfall npc --id wolf --stat MGT=10 --stat FLT=10 --stamina 4
-uv run python tools/play.py --campaign emberfall combat-start --side clan=grak --side pack=npc:wolf --order clan,pack
-uv run python tools/play.py --campaign emberfall --character grak --seed 42 \
+uv run python tools/play.py --campaign scratch_demo npc --id wolf --stat MGT=10 --stat FLT=10 --stamina 4
+uv run python tools/play.py --campaign scratch_demo combat-start --side clan=grak --side pack=npc:wolf --order clan,pack
+uv run python tools/play.py --campaign scratch_demo --character grak --seed 42 \
   --event-id wolf-strike attack --attribute MGT --opponent npc:wolf --defender-attribute FLT \
   --context melee --defender-context melee --edge 1 --soak 0 \
   --method "Keep the wolf back with the spear" --stakes "Wound it if the attack wins" --defer
-uv run python tools/play.py --campaign emberfall --event-id wolf-settle settle
+uv run python tools/play.py --campaign scratch_demo --event-id wolf-settle settle
 ```
 
 `attack` applies winning damage to the target; `opposed` resolves a contest without
-damage. Edge belongs to the attacking weapon and soak to the defender. Use
-`--actor npc:wolf` for the NPC's turn. Each able combatant gets one action;
-defending consumes none. `pass --actor grak --reason "Drag Tarra into cover"`
-records a turn used for another activity. After all able combatants act, `round`
+damage. Edge belongs to the attacking weapon and soak to the defender. Add
+`--actor npc:wolf` after the subcommand for the NPC's turn. Each able combatant
+gets one action per round, and defending consumes none. An `attack`, or an
+`opposed` test the combatant starts (intimidate, disarm, shove), uses that action;
+a plain `check` does not, so record a turn spent on a check or any other activity
+with `pass --actor grak --reason "Drag Tarra into cover"`. The earlier side in
+initiative order must act or pass before the later side, and the engine refuses a
+second action from the same combatant. After all able combatants act, `round`
 starts the next round and retains initiative. End with `combat-end --reason ...`.
 The Custodian judges whether a defence is possible; `--undefended` records that
 ruling for an attack.
@@ -156,8 +204,7 @@ An Injury-triggering attack may return another pending action with
 die, then run `settle` again, optionally with `--deflection-nudge -1` and
 `--companionship` if chosen and legal. This is a second informed Luck decision;
 do not rerun the attack or choose its Deflection nudge before seeing the die.
-When a forthcoming Deflection requires a different mandatory toll, supply
-`--deflection-toll luck|pressure` while settling the attack.
+Deflection pays no toll.
 
 ## Pressure and crises
 
@@ -167,8 +214,8 @@ affected investigator with `--character` for personal changes. For shared gains,
 use `--character` when one action identifies the tipper; omit it for a group hazard.
 
 ```bash
-uv run python tools/play.py --campaign emberfall pressure --gain 1 --category ambient --source "Storm closes the pass"
-uv run python tools/play.py --campaign emberfall pressure --purge 1 --source "Safe shelter"
+uv run python tools/play.py --campaign scratch_demo pressure --gain 1 --category ambient --source "Storm closes the pass"
+uv run python tools/play.py --campaign scratch_demo pressure --purge 1 --source "Safe shelter"
 ```
 
 Effects accumulate at their thresholds. One-test penalties fire once per crisis
@@ -178,7 +225,7 @@ consequence, and apply any mechanical harm/cost with the appropriate command.
 Then record the adjudicated table result and lasting effects to reset the track:
 
 ```bash
-uv run python tools/play.py --campaign emberfall pressure --crisis --target grak \
+uv run python tools/play.py --campaign scratch_demo pressure --crisis --target grak \
   --table-result 2 --source "Describe the actual adjudicated consequence" \
   --effect "Describe its lasting effect=until the stated recovery condition"
 ```
@@ -197,22 +244,25 @@ crisis with a generic clock reset.
 Record adjudicated recovery and damage through the engine:
 
 ```bash
-uv run python tools/play.py --campaign emberfall --character grak luck --amount 1 --source "Short rest"
-uv run python tools/play.py --campaign emberfall --character grak stamina --amount 1 --source "Short rest"
-uv run python tools/play.py --campaign emberfall beat --perilous --label "Survived the crossing"
-uv run python tools/advance.py --campaign emberfall --character grak --event-id ridge-award \
+uv run python tools/play.py --campaign scratch_demo --character grak luck --amount 1 --source "Short rest"
+uv run python tools/play.py --campaign scratch_demo --character grak stamina --amount 1 --source "Short rest"
+uv run python tools/play.py --campaign scratch_demo beat --perilous --label "Survived the crossing"
+uv run python tools/advance.py --campaign scratch_demo --character grak --event-id ridge-award \
   award --id ridge --boon "A sheltered camp"
-uv run python tools/advance.py --campaign emberfall --character grak raise --stat MGT
-uv run python tools/advance.py --campaign emberfall --character grak show --json
+uv run python tools/advance.py --campaign scratch_demo --character grak raise --stat MGT
+uv run python tools/advance.py --campaign scratch_demo --character grak show --json
 ```
 
 A beat is a scene-scale development, not an individual die roll. The Custodian
 awards milestones at the book's cadence; each grants 2 points, a narrative boon,
-and full Luck. `advance.py` records the award and each purchase separately from
+and full Luck. Award milestones and record purchases while the session is open,
+before `session-close`; `advance.py` refuses while a session is closed or an
+action is pending. `advance.py` records the award and each purchase separately from
 the immutable creation snapshot. A +1 costs 1 below baseline or 2 at/above it;
 `tag --name "Steady hands"` costs 2. Unspent points carry over. Attribute 16 and
-Stamina 9 remain lifetime ceilings. Raising a maximum does not heal or refill a
-current pool. `recalc_sheet.py` verifies this history; it never erases advancement
+Stamina 9 remain lifetime ceilings. Raising Stamina does not heal. Raising the Luck
+attribute adds its new token too, so a milestone spent on Luck still ends with a
+full pool. `recalc_sheet.py` verifies this history; it never erases advancement
 by repricing the current scores.
 
 `scene --label ...` resets scene uses. `boundary --kind camp|port --reason ...`
@@ -220,18 +270,21 @@ resets relevant skin uses when the fiction allows it. These boundaries do not
 substitute for explicit Luck, Stamina, or Pressure recovery.
 
 ```bash
-uv run python tools/recap.py --campaign emberfall --summary "The clan found shelter; the wolf still follows."
-uv run python tools/session_log.py --campaign emberfall --role GM --text "Public narration only."
-cat /tmp/last_gm.md | uv run python tools/checkpoint.py --campaign emberfall
-uv run python tools/play.py --campaign emberfall session-close --label "End of the first session"
-uv run python tools/playtest_summary.py --campaign emberfall --json
-uv run python tools/play.py --campaign emberfall session --label "The next morning"
+uv run python tools/recap.py --campaign scratch_demo --summary "The clan found shelter; the wolf still follows."
+uv run python tools/session_log.py --campaign scratch_demo --role GM --text "Public narration only."
+cat /tmp/last_gm.md | uv run python tools/checkpoint.py --campaign scratch_demo
+uv run python tools/play.py --campaign scratch_demo session-close --label "End of the first session"
+uv run python tools/playtest_summary.py --campaign scratch_demo --json
+uv run python tools/play.py --campaign scratch_demo session --label "The next morning"
 ```
 
 Save the exact public Custodian response after every turn. Private summaries
 belong in memory. `session-close` marks a completed session for the telemetry
-summary; `session` begins the next one and creates matching memory/log files.
-Add characters before the first action, or between `session-close` and `session`.
+summary (end any combat and settle pending actions and crises first); `session`
+begins the next one and creates matching memory/log files. The new memory file
+carries forward open threads, NPCs and secrets, and starts a fresh summary.
+Add characters before the first logged action, or after `session-close` and before
+the next `session`, never mid-session.
 The roster stays fixed within each logged session so party-size comparisons remain
 valid. Adding a character increases a shared pool's capacity without restoring
 tokens spent in play.
@@ -249,12 +302,15 @@ more than 3 affected rolls is a provisional reading of “a few”; change it wi
 ## Resume and legacy state
 
 ```bash
-uv run python tools/resume_pack.py --campaign emberfall
-uv run python tools/resume_pack.py --campaign emberfall --public --json
+uv run python tools/build_prompt.py --campaign scratch_demo
+uv run python tools/resume_pack.py --campaign scratch_demo
+uv run python tools/resume_pack.py --campaign scratch_demo --public --json
 ```
 
-The private pack includes the authoritative sheets, tracker, latest memory/log,
-and exact checkpoint. Public mode allows selected campaign/character fields,
+Rebuild the saved prompt first, with the same options as before (see Prompts and
+source checks). `--character <character_slug>` filters a pack to one sheet, so omit
+it for a party. The private pack includes the authoritative sheets, tracker, latest
+memory/log, and exact checkpoint. Public mode allows selected campaign/character fields,
 scene number, and checkpoint text only. It omits logs, private memory, hidden
 clocks, arbitrary sheet fields, and paths. The checkpoint must already contain
 only the public response; the tool cannot detect a secret inside that prose.

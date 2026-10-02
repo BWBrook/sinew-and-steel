@@ -120,7 +120,7 @@ Fatigue measures road-wear: wet boots, empty bellies, and too many miles under a
 For each travel leg longer than a day, the Lorekeeper states the main danger before roles are assigned. A normal leg calls for one matching test: STR (rugged climb), NIM (river ford), WIS (navigation among ruins), or HRT (lead weary companions). A perilous leg may call for up to three tests only when it presents separate, clearly stated dangers.
 
 - **Failure:** mark +1 Fatigue for the character who failed, or for everyone if the whole party blundered. A failed role test (see Travel roles in the Lorekeeper's Chronicle) takes the role's own failure instead.
-- **At Fatigue 3+:** each risky test during the travel costs 1 Hope token (spent before rolling), or marks +1 Fatigue.
+- **At Fatigue 3+:** each risky test you attempt during the travel costs 1 Hope token (spent before rolling), or marks +1 Fatigue.
 - **At Fatigue 5:** you are spent. You cannot take another travel leg until you rest in true comfort, and the Lorekeeper makes a hard travel move (separation, injury, pursuit, lost time).
 
 **Clear Fatigue:** a night in true comfort clears all Fatigue; a warm campfire and dry socks clear 1.
@@ -140,7 +140,7 @@ Dread is temptation, fear, and the slow creep of despair, and the whole company 
 | 0 | Bright spirit | None |
 | 1 | Gloom | Cosmetic foreboding |
 | 2 | Weight of worry | Each companion's next HRT test against dread has Disadvantage |
-| 3 | Dark whispers | Each risky test costs 1 Hope token before rolling, or marks +1 Dread |
+| 3 | Dark whispers | Each risky test a companion attempts costs 1 Hope token before rolling, or marks +1 Dread |
 | 4 | Twisted will | Disadvantage on all tests |
 | 5 **Crisis** | Corruption, despair, or the enemy's hand | Roll a Dread crisis, then reset Dread to **0** |
 

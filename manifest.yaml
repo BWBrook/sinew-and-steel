@@ -60,6 +60,9 @@ skins:
       contexts:
       - ritual
       amount: 1
+    - step: 4
+      kind: custodian
+      label: 'Veil thins: sorcery backlash deals +1 damage; the environment warps'
     resources:
       heroic_act:
         name: Heroic Act
@@ -185,7 +188,7 @@ skins:
       label: Enemies have Advantage against the party
     - step: 4
       kind: toll
-      label: Each risky test costs 1 personal Luck token before rolling or adds 1 Pressure
+      label: Each risky test a character attempts costs 1 personal Luck token before rolling or adds 1 Pressure
       contexts:
       - risky
       amount: 1
@@ -256,7 +259,7 @@ skins:
       - time_sensitive_repair
     - step: 4
       kind: toll
-      label: Each risky test costs 1 personal Luck token before rolling or adds 1 Pressure
+      label: Each risky test a character attempts costs 1 personal Luck token before rolling or adds 1 Pressure
       contexts:
       - risky
       amount: 1
@@ -313,7 +316,7 @@ skins:
       - coercion
     - step: 3
       kind: toll
-      label: Each risky test costs 1 personal Luck token before rolling or adds 1 Pressure
+      label: Each risky test a character attempts costs 1 personal Luck token before rolling or adds 1 Pressure
       contexts:
       - risky
       amount: 1
@@ -372,7 +375,7 @@ skins:
       - SOC
     - step: 3
       kind: toll
-      label: Each risky test costs 1 personal Luck token before rolling or adds 1 Pressure
+      label: Each risky test a character attempts costs 1 personal Luck token before rolling or adds 1 Pressure
       contexts:
       - risky
       amount: 1
@@ -458,7 +461,7 @@ skins:
       - dread
     - step: 3
       kind: toll
-      label: Each risky test costs 1 personal Luck token before rolling or adds 1 Pressure
+      label: Each risky test a character attempts costs 1 personal Luck token before rolling or adds 1 Pressure
       contexts:
       - risky
       amount: 1

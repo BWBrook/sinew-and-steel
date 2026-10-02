@@ -129,6 +129,8 @@ Use this as a “lint list” whenever you add or revise anything in skins/*.md 
   - If the skin introduces any named procedures (rituals, hacking, travel, corruption, sanity, etc.):
       - State the procedure in core terms (what to roll, what counts as Advantage/Disadvantage, what happens on success/failure, what resources tick).
       - Keep it short and auditable.
+  - Sample characters:
+      - Exactly two, each under its own ### heading inside a section whose title contains Sample, Example, Active or Figures, in the published statline format. validate_repo.py prices them against the creation ledger, so copy the format from an existing skin (Example clansfolk in skins/clanfire.md): one "Creation: standard budget (6 build points)." line, one statline giving all five attribute keys and STM ("MGT 12 | FLT 10 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7"), and a Tag:, Knack: or Expertise: label for each tag. Gear is not a tag.
 
   3) Allowed Skin Customizations (Safe Ways to Add Texture Without Warping Core)
 
@@ -178,9 +180,9 @@ Use this as a “lint list” whenever you add or revise anything in skins/*.md 
   After editing a skin, run a tiny end-to-end loop to catch “I renamed something but forgot the manifest” errors:
 
   - uv run python tools/validate_repo.py
-  - Create a throwaway campaign with that skin and a random character, then validate:
+  - Create a throwaway campaign with that skin and a random character, build its prompt, then validate:
       - uv run python tools/campaign_init.py --slug skin_smoke --skin <skin_slug> --random-character "Smoke"
-      - uv run python tools/validate_campaign.py --campaign skin_smoke
       - uv run python tools/build_prompt.py --campaign skin_smoke
+      - uv run python tools/validate_campaign.py --campaign skin_smoke
 
-  These checks cover scaffold validity and prompt assembly. Verify changed mechanics with a focused rule example or playtest before claiming the skin behaves correctly.
+  These checks cover scaffold validity and prompt assembly. A skin made with new_skin.py fails validate_repo.py until its two sample characters are written. Verify changed mechanics with a focused rule example or playtest before claiming the skin behaves correctly.

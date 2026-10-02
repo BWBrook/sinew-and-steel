@@ -46,12 +46,11 @@ def parser() -> tuple[argparse.ArgumentParser, argparse.ArgumentParser]:
         p.add_argument("--payer", help="Actor paying for the nudge (defaults to attacker)")
         p.add_argument("--companionship", action="store_true", help="Use one Companionship token for a one-point nudge")
         p.add_argument("--deflection-nudge", type=int, default=0)
-        p.add_argument("--deflection-toll", choices=["luck", "pressure"], help="Choose a separate toll for a forthcoming Deflection test")
 
     def action_costs(p):
         p.add_argument("--luck-cost", type=int, default=0, help="Declared base cost, excluding automatic Pressure tolls")
         p.add_argument("--pressure-cost", type=int, default=0, help="Declared base cost, excluding automatic Pressure tolls")
-        p.add_argument("--toll", choices=["luck", "pressure"], help="Choice for an active risky-test toll")
+        p.add_argument("--toll", choices=["luck", "pressure"], help="Choice for an active risky-test toll; only the acting character pays, never a defender")
         p.add_argument("--use-resource", help="Record an eligible limited ability in the same action")
 
     for name in ("check", "opposed", "attack"):
@@ -65,6 +64,7 @@ def parser() -> tuple[argparse.ArgumentParser, argparse.ArgumentParser]:
         p.add_argument("--dis-source", action="append", default=[])
         p.add_argument("--failure-pressure", type=int, default=0)
         p.add_argument("--defer", action="store_true", help="Persist raw dice, then use settle after reading them")
+        p.add_argument("--no-nudge", action="store_true", help="The declared magic tier forbids nudging the actor's die (Wrack, Wyrd, Arcanum, Incantation, Unspeakable, Invocation, Reckoning)")
         action_costs(p)
         if name != "check":
             p.add_argument("--opponent", required=True, help="Sheet stem or npc:NAME")
@@ -72,7 +72,6 @@ def parser() -> tuple[argparse.ArgumentParser, argparse.ArgumentParser]:
             p.add_argument("--defender-context", action="append", default=[])
             p.add_argument("--defender-adv-source", action="append", default=[])
             p.add_argument("--defender-dis-source", action="append", default=[])
-            p.add_argument("--defender-toll", choices=["luck", "pressure"])
         if name == "attack":
             p.add_argument("--edge", type=int, default=0)
             p.add_argument("--soak", type=int, default=0)
@@ -165,8 +164,8 @@ def dispatch(args, campaign: dict, skin: dict, tracker: dict, sheets: dict) -> t
         raise ValueError("session is closed; begin a new session before changing state")
     if command in {"check", "opposed", "attack"}:
         actor = args.actor or _runtime.actor_key(args.character, sheets)
-        keys = {"attribute", "method", "stakes", "opponent", "defender_attribute", "toll", "defender_toll",
-                "luck_cost", "pressure_cost", "failure_pressure", "use_resource", "edge", "soak", "injury", "gritty", "undefended"}
+        keys = {"attribute", "method", "stakes", "opponent", "defender_attribute", "toll",
+                "luck_cost", "pressure_cost", "failure_pressure", "use_resource", "edge", "soak", "injury", "gritty", "undefended", "no_nudge"}
         options = {key: getattr(args, key) for key in keys if hasattr(args, key)}
         options.update(contexts=args.context, adv_sources=args.adv_source, dis_sources=args.dis_source,
                        defender_contexts=getattr(args, "defender_context", []),
@@ -202,7 +201,7 @@ def dispatch(args, campaign: dict, skin: dict, tracker: dict, sheets: dict) -> t
             adjustments.append((who, side, amount))
         return _play.finish_action(tracker, sheets, skin, nudge=args.nudge,
             nudge_target=args.nudge_target, payer=args.payer, companionship=args.companionship,
-            deflection_nudge=args.deflection_nudge, seed=args.seed, deflection_toll=args.deflection_toll,
+            deflection_nudge=args.deflection_nudge, seed=args.seed,
             adjustments=adjustments)
     _play.ensure_ready(tracker, allow_crisis=command in {"pressure", "effect-end", "luck", "stamina", "condition", "resource", "clock"})
     actor = _runtime.actor_key(args.character, sheets) if args.character else None
@@ -233,6 +232,8 @@ def dispatch(args, campaign: dict, skin: dict, tracker: dict, sheets: dict) -> t
         event = _pressure.clear_effect(tracker["pressure"], args.id, args.reason)
         return event, [event]
     if command == "session-close":
+        if tracker.get("combat", {}).get("active"):
+            raise ValueError("end the combat (play.py combat-end) before closing the session")
         tracker["session_closed"] = True
         event = {"type": "session_end", "label": args.label,
                  "luck": {k: v["pools"]["luck"]["current"] for k, v in sheets.items()}}
@@ -280,6 +281,7 @@ def dispatch(args, campaign: dict, skin: dict, tracker: dict, sheets: dict) -> t
             raise ValueError("resource costs must be nonnegative")
         if args.use_resource:
             raise ValueError("resource uses --name; --use-resource belongs to roll actions")
+        args.name = _resources.resolve_id(skin, args.name)
         definition = skin.get("resources", {}).get(args.name, {})
         if (definition.get("scope") == "character" or args.luck_cost or args.pressure_cost) and actor is None:
             actor = _runtime.actor_key(None, sheets)
@@ -357,11 +359,15 @@ def main(argv: list[str] | None = None) -> int:
     directory = _sslib.campaign_dir(args.campaign, root=root)
     request = vars(args).copy()
     try:
-        with _runtime.campaign_lock(directory, dry_run=args.dry_run or args.command == "status"):
+        # status writes nothing unless it must recover an interrupted transaction.
+        readonly = args.dry_run or (args.command == "status"
+                                    and not (directory / "state/.transaction.json").exists())
+        with _runtime.campaign_lock(directory, dry_run=readonly):
             if args.event_id and args.command != "status":
-                receipt = _runtime.replay_receipt(directory, args.event_id, request)
+                session = _sslib.load_yaml(directory / "state/trackers/session.yaml").get("session", 1)
+                receipt = _runtime.replay_receipt(directory, args.event_id, request, session)
                 if receipt:
-                    print(json.dumps(receipt, indent=2))
+                    print(json.dumps(receipt, indent=2, default=str))
                     return 0
             campaign, skin, tracker, sheets = _runtime.load_campaign(directory, root)
             before_luck = {key: value["pools"]["luck"]["current"] for key, value in sheets.items()}
@@ -374,7 +380,7 @@ def main(argv: list[str] | None = None) -> int:
                 random.seed(args.seed)
             result, events = dispatch(args, campaign, skin, tracker, sheets)
             if args.command == "status":
-                print(json.dumps(result, indent=2, ensure_ascii=False))
+                print(json.dumps(result, indent=2, ensure_ascii=False, default=str))
                 return 0
             errors = _pressure.validate_pressure(tracker["pressure"], skin, list(sheets))
             errors += _resources.validate_resources(tracker["resources"], skin, list(sheets))
@@ -383,7 +389,7 @@ def main(argv: list[str] | None = None) -> int:
             receipt = _runtime.commit_campaign(directory, campaign, tracker, sheets, events, result,
                 request=request, event_id=args.event_id or uuid.uuid4().hex, dry_run=args.dry_run,
                 initial_luck=before_luck, initial_pressure=before_pressure)
-            print(json.dumps(receipt, indent=2, ensure_ascii=False))
+            print(json.dumps(receipt, indent=2, ensure_ascii=False, default=str))
     except (ValueError, KeyError, TypeError, OSError, json.JSONDecodeError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1

@@ -167,6 +167,13 @@ def summarize_session(events: list[dict], source: str = "<memory>", red_line_rol
         raise ValueError(f"{source}: repeated or out-of-order beat records")
     last_beat = max(beat_numbers) if beats else None
     midpoint = last_beat // 2 if last_beat is not None else None
+    # A beat is recorded when its scene ends, so the first half is everything up to
+    # and including the last beat record at or below the midpoint (by sequence).
+    # With fewer than two beats only the session's starting Luck counts.
+    cut = None
+    if midpoint is not None:
+        closing = [event for event in beats if event["beat"] <= midpoint]
+        cut = closing[-1]["sequence"] if closing else start.get("sequence", 0)
     rolls = [event for event in events if event["type"] == "roll" and _pc(event.get("actor"))]
     actors = set(initial_luck)
     actors.update(event["actor"] for event in events if event["type"] in {"roll", "luck"} and _pc(event.get("actor")))
@@ -179,7 +186,7 @@ def summarize_session(events: list[dict], source: str = "<memory>", red_line_rol
         if initial is not None:
             _integer(initial, f"{source}: initial Luck for {actor}")
         observations = []
-        if initial is not None and midpoint is not None and start["beat"] <= midpoint:
+        if initial is not None and cut is not None:
             observations.append(initial)
         spent = recovered = 0
         spent_by_source, recovered_by_source = Counter(), Counter()
@@ -200,7 +207,7 @@ def summarize_session(events: list[dict], source: str = "<memory>", red_line_rol
                 values = [_integer(event["luck_current"], f"{source}: roll Luck for {actor}")]
             elif event["type"] == "beat" and actor in event.get("luck", {}):
                 values = [_integer(event["luck"][actor], f"{source}: beat Luck for {actor}")]
-            if midpoint is not None and event["beat"] <= midpoint:
+            if cut is not None and event["sequence"] <= cut:
                 observations.extend(values)
         minimum = min(observations) if observations else None
         actor_rolls = [event for event in rolls if event["actor"] == actor]
@@ -287,7 +294,7 @@ def summarize_files(paths, red_line_rolls: int = 3) -> dict:
         "schema_version": 1,
         "interpretation": "Descriptive logged observations; no population claim or automatic rules decision.",
         "definitions": {
-            "midpoint": "floor(last recorded beat number / 2); include only observations with event.beat <= midpoint. Unavailable without beat events.",
+            "midpoint": "floor(last recorded beat number / 2). Beats are recorded as their scenes end, so the first half runs to and includes the last beat record at or below the midpoint, by event sequence; with fewer than two beats only starting Luck counts. Unavailable without beat events.",
             "beat_denominator": "Count explicit beat events, not rolls or the largest beat number; omit sessions without beats from both rate numerator and denominator.",
             "completed": "Explicit session_start and session_end with an uninterrupted event sequence and no partial legacy history; incomplete sessions are separate.",
             "pc_rolls": "Each finalized PC roll, including opposed sides and Deflection; exclude raw_roll records and npc: actors.",
@@ -352,6 +359,8 @@ def main(argv=None) -> int:
                 directory = ROOT / "campaigns" / args.campaign
             if not (directory / "campaign.yaml").is_file():
                 raise ValueError(f"campaign not found: {directory}")
+            if (directory / "state/.transaction.json").exists():
+                raise ValueError("interrupted transaction: run `play.py --campaign <campaign> status` to recover it first")
             paths = sorted((directory / "state/logs").glob("session_*.jsonl"))
         report = summarize_files(paths, args.red_line_rolls)
         print(json.dumps(report, indent=2, ensure_ascii=False) if args.json else format_summary(report))

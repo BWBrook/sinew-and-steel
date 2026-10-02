@@ -94,7 +94,7 @@ The mind forgets the count; it does not forget the scar.
 | 0 | Steady | None |
 | 1 | Agitation | Mislaid words, a whisper at the keyhole |
 | 2 | Deep unease | Disadvantage on your next FRT test to resist fear or coercion |
-| 3 | Fracture | Each risky test costs 1 Fate ticket before rolling, or marks +1 Insanity |
+| 3 | Fracture | Each risky test you attempt costs 1 Fate ticket before rolling, or marks +1 Insanity |
 | 4 | Night terrors | Disadvantage on all your tests |
 | 5 **Break (Crisis)** | Psychotic episode / possession | Roll an Insanity crisis, then reset to **0** |
 

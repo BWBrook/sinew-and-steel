@@ -228,6 +228,7 @@ def raise_stat(sheet: dict[str, Any], skin: dict[str, Any], key: str, steps: int
             result["attributes"][key] += 1
             if key == skin.get("luck_key"):
                 result["pools"]["luck"]["max"] += 1
+                result["pools"]["luck"]["current"] += 1
     replay_advancement(result, skin)
     return result
 

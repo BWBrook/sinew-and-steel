@@ -9,10 +9,10 @@ Roll only for meaningful uncertainty. Choose the method, fitting attribute, and
 stakes before the die. Supply applicable contexts and modifiers explicitly.
 
 ```bash
-uv run python tools/play.py --campaign ice_hunt --character grak --seed 42 \
+uv run python tools/play.py --campaign scratch_demo --character grak --seed 42 \
   --event-id crossing-roll check --attribute FLT --method "Cross the ice bridge" \
   --stakes "Cross safely; failure loses time and adds Shadow" --failure-pressure 1 --defer
-uv run python tools/play.py --campaign ice_hunt --event-id crossing-settle settle
+uv run python tools/play.py --campaign scratch_demo --event-id crossing-settle settle
 ```
 
 Read the persisted dice before settling. Add `--nudge -1 --payer grak` only if
@@ -24,18 +24,25 @@ For multiple participants or dice, repeat `--adjust PAYER=SIDE:DELTA`, for examp
 `--adjust grak=attacker:-2 --adjust tarra=defender:-1`. Each payer covers the sum
 of their absolute adjustments; opposite adjustments do not cancel the spending.
 
+In combat, an `attack` or an `opposed` test a combatant starts uses that
+combatant's action for the round; a plain `check` does not, so follow it with
+`play.py pass` when it was their action.
+
 With Twilight's optional Injury module, an attack can commit damage and return
 `pending` with `phase: deflection`. Read that saved die, then call `settle` again
 with the chosen `--deflection-nudge` (or no nudge). Do not rerun the attack;
-Deflection has its own post-roll Luck decision. A separate forthcoming toll can
-be chosen with `settle --deflection-toll luck|pressure` while settling the attack.
+Deflection has its own post-roll Luck decision. Defence and Deflection rolls
+never pay Pressure tolls; only the character attempting a test pays one.
 
 The engine uses current Luck for a Luck test, after mandatory upfront costs,
 and fixes that target during nudging. Natural 1 and 20 are locked; nudged endpoints
 are not natural. Advantage/Disadvantage sources cancel and do not stack. Nudge
 flags are accepted only on `settle`; an immediate roll command accepts its result
 without nudging. A returned `settlement_error` leaves the original dice pending
-for a valid settlement, never a reroll.
+for a valid settlement, never a reroll. When a skin's magic tier forbids nudges
+(Iron & Ruin's Wrack and Wyrd, Candlelight's Arcanum, Whispers' Incantation and
+Unspeakable, Twilight's Invocation and Reckoning), declare the roll with
+`--no-nudge`; `settle` then refuses any nudge to the caster's die.
 
 Use `--context` and `--defender-context` for relevant semantic conditions: fear,
 dread, ritual, clergy, repairs, melee, and so on as defined by the skin/manifest.

@@ -105,7 +105,7 @@ def main() -> int:
             }
     skin_path.write_text(content, encoding="utf-8")
     if manifest is not None:
-        manifest_path.write_text(yaml.safe_dump(manifest, sort_keys=False), encoding="utf-8")
+        manifest_path.write_text(yaml.safe_dump(manifest, sort_keys=False, allow_unicode=True), encoding="utf-8")
 
     print(f"created {skin_path}")
     return 0

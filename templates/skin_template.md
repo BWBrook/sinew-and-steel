@@ -52,4 +52,4 @@ Tone, pacing, moves, and scene hooks.
 ---
 
 ## SAMPLE CHARACTERS
-Provide 1-2 examples with stats, gear, and track values.
+Replace this note with exactly two sample characters, each under its own `###` heading, in the published statline format. `validate_repo.py` prices them against the creation ledger, so copy the format from an existing skin (Example clansfolk in `skins/clanfire.md`): one `Creation: standard budget (6 build points).` line, one statline giving all five attribute keys and STM, such as `MGT 12 | FLT 10 | CUN 10 | SPR 8 | INS 8/8 | STM 7/7`, and a `Tag:`, `Knack:` or `Expertise:` label for each tag. Gear and track values go on further lines.

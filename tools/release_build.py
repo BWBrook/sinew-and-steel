@@ -392,7 +392,7 @@ def main() -> int:
             return 1
         report["bundles"][key] = bundle_result
 
-    (out_dir / "build_report.yaml").write_text(yaml.safe_dump(report, sort_keys=False), encoding="utf-8")
+    (out_dir / "build_report.yaml").write_text(yaml.safe_dump(report, sort_keys=False, allow_unicode=True), encoding="utf-8")
 
     if args.json:
         import json

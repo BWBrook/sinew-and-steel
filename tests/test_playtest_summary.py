@@ -40,26 +40,28 @@ class Timeline:
 
 
 def shared_timeline():
+    # Beats are recorded as each scene ends (skills/run_session.md), so events
+    # carry the number of beats completed so far.
     timeline = Timeline().start()
-    timeline.add("beat", 1, perilous=True, luck={"a": 5, "b": 1})
-    timeline.add("pressure", 1, track="party", before=3, after=4, category="action_cost", source="risky toll")
-    timeline.roll("a", 1, "MGT", "spear", 3, 5)  # Snapshot precedes the toll.
-    timeline.add("raw_roll", 1, action={"checks": {"attacker": {"rolls": [11]}}})
-    timeline.add("luck", 1, actor="a", before=5, after=2, source="nudge", category="nudge", event_id="opposed-nudge")
-    timeline.roll("a", 1, "MGT", "spear", 4, 2, luck_spent=3, event_id="opposed-nudge")
-    timeline.roll("b", 1, "REF", "dodge", 4, 1, role="defender", event_id="opposed-nudge")
-    timeline.roll("npc:wolf", 1, "FLT", "bite", None, 0)
-    timeline.add("beat", 2, perilous=False, luck={"a": 2, "b": 1})
-    timeline.add("luck", 2, actor="a", before=2, after=1, source="ward", category="action_cost")
-    timeline.roll("a", 2, "INT", "read sigils", 4, 1)
-    timeline.roll("b", 2, "REF", "dodge", 4, 1)
-    timeline.add("pressure", 2, track="party", before=4, after=5, category="failure", source="rite")
-    timeline.add("crisis", 2, track="party", target="a", table_result=[3])
-    timeline.add("pressure", 2, track="party", before=5, after=0, category="crisis_reset", source="crisis:1")
-    timeline.add("beat", 3, perilous=True, luck={"a": 1, "b": 1})
-    timeline.add("luck", 3, actor="a", before=1, after=3, source="milestone", category="recovery")
-    timeline.add("pressure", 3, track="party", before=0, after=4, category="ambient", source="storm")
-    timeline.roll("a", 3, "INT", "search", 4, 3)
+    timeline.add("pressure", 0, track="party", before=3, after=4, category="action_cost", source="risky toll")
+    timeline.roll("a", 0, "MGT", "spear", 3, 5)  # Snapshot precedes the toll.
+    timeline.add("raw_roll", 0, action={"checks": {"attacker": {"rolls": [11]}}})
+    timeline.add("luck", 0, actor="a", before=5, after=2, source="nudge", category="nudge", event_id="opposed-nudge")
+    timeline.roll("a", 0, "MGT", "spear", 4, 2, luck_spent=3, event_id="opposed-nudge")
+    timeline.roll("b", 0, "REF", "dodge", 4, 1, role="defender", event_id="opposed-nudge")
+    timeline.roll("npc:wolf", 0, "FLT", "bite", None, 0)
+    timeline.add("beat", 1, perilous=True, luck={"a": 2, "b": 1})
+    timeline.add("luck", 1, actor="a", before=2, after=1, source="ward", category="action_cost")
+    timeline.roll("a", 1, "INT", "read sigils", 4, 1)
+    timeline.roll("b", 1, "REF", "dodge", 4, 1)
+    timeline.add("pressure", 1, track="party", before=4, after=5, category="failure", source="rite")
+    timeline.add("crisis", 1, track="party", target="a", table_result=[3])
+    timeline.add("pressure", 1, track="party", before=5, after=0, category="crisis_reset", source="crisis:1")
+    timeline.add("beat", 2, perilous=False, luck={"a": 1, "b": 1})
+    timeline.add("luck", 2, actor="a", before=1, after=3, source="milestone", category="recovery")
+    timeline.add("pressure", 2, track="party", before=0, after=4, category="ambient", source="storm")
+    timeline.roll("a", 2, "INT", "search", 4, 3)
+    timeline.add("beat", 3, perilous=True, luck={"a": 3, "b": 1})
     timeline.add("beat", 4, perilous=True, luck={"a": 3, "b": 1})
     timeline.add("session_end", 4)
     return timeline.events
@@ -155,9 +157,9 @@ class PlaytestSummaryTests(unittest.TestCase):
 
     def test_midpoint_uses_last_recorded_beat_number_without_inventing_beats(self):
         timeline = Timeline(party_size=1).start({"a": 5})
+        timeline.add("luck", 1, actor="a", before=5, after=2, source="cost")
         timeline.add("beat", 2, perilous=True)
-        timeline.add("luck", 2, actor="a", before=5, after=2, source="cost")
-        timeline.add("luck", 3, actor="a", before=2, after=1, source="later cost")
+        timeline.add("luck", 2, actor="a", before=2, after=1, source="later cost")
         timeline.add("beat", 5, perilous=False)
         timeline.add("session_end", 5)
         report = summary.summarize_session(timeline.events)
@@ -230,6 +232,17 @@ class PlaytestSummaryTests(unittest.TestCase):
         self.assertEqual(rows[("whispers_in_the_fog", 2)]["crises_per_20_recorded_beats"], 10)
         incomplete = report["incomplete_observations"]["by_skin_and_party_size"][0]
         self.assertEqual((incomplete["sessions"], incomplete["crises"]), (1, 1))
+
+    def test_midpoint_excludes_the_scene_after_the_midpoint_beat(self):
+        # Three scenes: only the first is "by mid-session" (floor(3/2) = 1 beat).
+        timeline = Timeline(party_size=1).start({"a": 5})
+        timeline.add("beat", 1, perilous=True, luck={"a": 5})
+        timeline.add("luck", 1, actor="a", before=5, after=1, source="scene two cost")
+        timeline.add("beat", 2, perilous=True, luck={"a": 1})
+        timeline.add("beat", 3, perilous=False, luck={"a": 1}).add("session_end", 3)
+        a = summary.summarize_session(timeline.events)["characters"]["a"]
+        self.assertEqual(a["minimum_luck_first_half"], 5)
+        self.assertFalse(a["reached_one_or_less_by_midpoint"])
 
     def test_cli_accepts_campaign_or_repeated_files_and_does_not_write(self):
         with tempfile.TemporaryDirectory() as temp:

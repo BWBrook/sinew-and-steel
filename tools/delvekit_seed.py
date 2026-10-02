@@ -33,7 +33,7 @@ def main() -> int:
         difficulty=args.difficulty,
         title=args.title,
     )
-    yaml_text = yaml.safe_dump(payload, sort_keys=False)
+    yaml_text = yaml.safe_dump(payload, sort_keys=False, allow_unicode=True)
 
     if args.out:
         path = Path(args.out)

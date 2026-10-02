@@ -113,7 +113,7 @@ Stress is shipboard pressure, shared by the whole crew. It runs 0-5; at 5, trigg
 | 1 | Green blip | Cosmetic: warning chimes, flickering panels |
 | 2 | Yellow | Disadvantage on time-sensitive repairs |
 | 3 | Orange | Section lockdowns, NPC suspicion |
-| 4 | High alert | Each risky test costs 1 RES before rolling, or marks +1 Stress; senior staff glare |
+| 4 | High alert | Each risky test a crew member attempts costs 1 RES before rolling, or marks +1 Stress; senior staff glare |
 | 5 **Crisis** | Breach klaxon | Roll a Stress crisis, then reset to **0** |
 
 ![](../assets/art/ss_service_ducts_klaxon_steam.png){.margin-left width=2in}

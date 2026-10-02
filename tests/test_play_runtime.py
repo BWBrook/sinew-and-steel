@@ -23,6 +23,7 @@ import _sslib
 import campaign_init
 import play
 import playtest_summary
+import validate_campaign
 
 
 def fixture(slug="free_traders_of_the_drift_marches", actors=("mara", "holo")):
@@ -37,6 +38,80 @@ def fixture(slug="free_traders_of_the_drift_marches", actors=("mara", "holo")):
 
 
 class PlayRuntimeTests(unittest.TestCase):
+    def test_edge_above_two_is_legal_and_priced(self):
+        # Heroic Act or a boon can lift a brutal weapon to edge +3.
+        skin, sheets, tracker = fixture()
+        with patch.object(_dice, "roll_d20", side_effect=[3, 15]):
+            _play.prepare_action(tracker, sheets, skin, kind="attack", actor="mara", attribute="STR",
+                opponent="holo", defender_attribute="DEX", method="heroic cleave",
+                stakes="drive him back", edge=3, soak=1)
+        result, _ = _play.finish_action(tracker, sheets, skin)
+        self.assertEqual(result["damage"], 1 + 3 + 7 // 5 - 1)
+        with self.assertRaisesRegex(ValueError, "nonnegative"):
+            _play.prepare_action(tracker, sheets, skin, kind="attack", actor="mara", attribute="STR",
+                opponent="holo", defender_attribute="DEX", method="x", stakes="x", edge=-1)
+
+    def test_defender_pays_no_toll_only_the_acting_character_does(self):
+        # Author ruling (2 Oct 2026): tolls fall on tests a character attempts, never on defence.
+        skin, sheets, tracker = fixture()
+        _pressure.change(tracker["pressure"], skin, list(sheets), amount=3, source="jump", category="failure")
+        with self.assertRaisesRegex(ValueError, "--toll luck"):
+            _play.prepare_action(deepcopy(tracker), deepcopy(sheets), skin, kind="opposed", actor="mara",
+                attribute="EDU", opponent="holo", defender_attribute="SOC", method="argue", stakes="x")
+        # Step 2 has fired for both, so each side rolls two dice for its Disadvantage.
+        with patch.object(_dice, "roll_d20", side_effect=[6, 7, 8, 9]):
+            _, events = _play.prepare_action(tracker, sheets, skin, kind="opposed", actor="mara",
+                attribute="EDU", opponent="holo", defender_attribute="SOC", method="argue",
+                stakes="lose the cargo", toll="luck")
+        self.assertEqual((sheets["mara"]["pools"]["luck"]["current"], sheets["holo"]["pools"]["luck"]["current"]), (9, 10))
+        self.assertEqual(tracker["pressure"]["tracks"]["party"]["current"], 3)
+        self.assertEqual([e["actor"] for e in events if e.get("category") == "action_cost"], ["mara"])
+
+    def test_deflection_pays_no_toll(self):
+        skin, sheets, tracker = fixture("twilight_of_the_northlands", ("ana", "bo"))
+        _pressure.change(tracker["pressure"], skin, list(sheets), amount=3, source="barrow", category="ambient")
+        with patch.object(_dice, "roll_d20", side_effect=[1, 15, 9]):
+            _play.prepare_action(tracker, sheets, skin, kind="attack", actor="ana", attribute="STR",
+                opponent="bo", defender_attribute="NIM", method="spear", stakes="x", toll="luck",
+                edge=1, soak=1, injury=True)
+            result, events = _play.finish_action(tracker, sheets, skin)
+        self.assertEqual(result.get("phase"), "deflection")
+        self.assertEqual(sheets["bo"]["pools"]["luck"]["current"], sheets["bo"]["pools"]["luck"]["max"])
+        self.assertEqual(tracker["pressure"]["tracks"]["party"]["current"], 3)
+
+    def test_no_nudge_roll_refuses_nudges_on_the_casters_die(self):
+        skin, sheets, tracker = fixture()
+        with patch.object(_dice, "roll_d20", side_effect=[12]):
+            _play.prepare_action(tracker, sheets, skin, kind="check", actor="mara", attribute="EDU",
+                method="Wyrd", stakes="history buckles", no_nudge=True)
+        with self.assertRaisesRegex(ValueError, "no-nudge"):
+            _play.finish_action(deepcopy(tracker), deepcopy(sheets), skin, nudge=-2)
+        result, _ = _play.finish_action(tracker, sheets, skin)
+        self.assertFalse(result["success"])
+
+    def test_opposed_test_in_combat_uses_the_combatants_action(self):
+        skin, sheets, tracker = fixture()
+        _play.start_combat(tracker, sheets, {"crew": ["mara"], "rivals": ["holo"]}, order=["crew", "rivals"])
+        with self.assertRaisesRegex(ValueError, "earlier side"):
+            _play.prepare_action(deepcopy(tracker), deepcopy(sheets), skin, kind="opposed", actor="holo",
+                attribute="SOC", opponent="mara", defender_attribute="SOC", method="taunt", stakes="x")
+        with patch.object(_dice, "roll_d20", side_effect=[5, 15]):
+            _play.prepare_action(tracker, sheets, skin, kind="opposed", actor="mara", attribute="SOC",
+                opponent="holo", defender_attribute="SOC", method="intimidate", stakes="he backs off")
+        _play.finish_action(tracker, sheets, skin)
+        self.assertEqual(tracker["combat"]["acted"], ["mara"])
+        with self.assertRaisesRegex(ValueError, "already acted"):
+            _play.prepare_action(tracker, sheets, skin, kind="attack", actor="mara", attribute="STR",
+                opponent="holo", defender_attribute="DEX", method="punch", stakes="x", edge=0)
+
+    def test_custodian_levers_are_reported_from_their_step(self):
+        skin = _sslib.load_manifest()["skins"]["iron_and_ruin"]
+        pressure = _pressure.new_pressure(skin, ["yara"])
+        _pressure.change(pressure, skin, ["yara"], amount=4, source="wyrd", category="action_cost", actor="yara")
+        levers = _pressure.modifiers(pressure, skin, "yara", "WIL", ["risky"])["custodian_levers"]
+        self.assertEqual(len(levers), 2)
+        self.assertTrue(any("step4" in lever and "backlash" in lever for lever in levers))
+
     def test_pressure_snapshot_precedes_all_upfront_costs(self):
         skin, sheets, tracker = fixture()
         _pressure.change(tracker["pressure"], skin, list(sheets), amount=1, source="hazard", category="ambient")
@@ -180,6 +255,120 @@ class PlayRuntimeTests(unittest.TestCase):
                 _runtime.commit_files(state, {a: "new a", b: "new b"})
             self.assertEqual((a.read_text(), b.read_text()), ("original a", "original b"))
             self.assertFalse((state / ".transaction.json").exists())
+
+    def test_new_session_memory_carries_threads_npcs_and_secrets(self):
+        with tempfile.TemporaryDirectory() as folder:
+            directory = Path(folder) / "campaign"
+            files = campaign_init.build_scaffold(_sslib.load_manifest(), skin_slug="clanfire",
+                slug="campaign", title="Test", names=["Hero"], seed=2)
+            campaign_init.write_scaffold(directory, files)
+            memory = directory / "state/memory/session_001.yaml"
+            data = yaml.safe_load(memory.read_text())
+            data.update(summary=["wolf driven off"], threads=["who watches the birch-line?"],
+                        npcs=["Old Ma"], secrets=["the strangers are scouts"])
+            memory.write_text(yaml.safe_dump(data, sort_keys=False))
+            for args in (["session-close", "--label", "one"], ["session", "--label", "two"]):
+                with contextlib.redirect_stdout(io.StringIO()):
+                    self.assertEqual(play.main(["--campaign", str(directory), *args]), 0)
+            carried = yaml.safe_load((directory / "state/memory/session_002.yaml").read_text())
+            self.assertEqual(carried["summary"], [])
+            self.assertEqual((carried["threads"], carried["npcs"], carried["secrets"]),
+                             (["who watches the birch-line?"], ["Old Ma"], ["the strangers are scouts"]))
+
+    def test_names_resolve_case_insensitively_and_resources_by_display_name(self):
+        skin = _sslib.load_manifest()["skins"]["clanfire"]
+        self.assertEqual(_resources.resolve_id(skin, "Totem Mark"), "totem_mark")
+        self.assertEqual(_resources.resolve_id(skin, "totem_mark"), "totem_mark")
+        with self.assertRaisesRegex(ValueError, "unknown skin resource"):
+            _resources.resolve_id(skin, "Not A Resource")
+        sheets = {"grak": {"name": "Grak"}, "tarra": {"name": "Tarra the Ember-Singer"}}
+        self.assertEqual(_runtime.actor_key("Grak", sheets), "grak")
+        self.assertEqual(_runtime.actor_key("tarra the ember-singer", sheets), "tarra")
+
+    def test_interrupted_transaction_blocks_readers_until_status_recovers(self):
+        with tempfile.TemporaryDirectory() as folder:
+            directory = Path(folder) / "campaign"
+            files = campaign_init.build_scaffold(_sslib.load_manifest(), skin_slug="clanfire",
+                slug="campaign", title="Test", names=["Hero"], seed=2)
+            campaign_init.write_scaffold(directory, files)
+            tracker = directory / "state/trackers/session.yaml"
+            original = tracker.read_text()
+            # A crash after the journal and one write leaves torn state behind.
+            journal = directory / "state/.transaction.json"
+            journal.write_text(json.dumps([{"path": str(tracker.resolve()), "before": original}]))
+            tracker.write_text("scene: torn\n")
+            with self.assertRaisesRegex(ValueError, "interrupted transaction"):
+                _runtime.ensure_recovered(directory)
+            report = validate_campaign.validate_campaign(str(directory), _sslib.load_manifest())
+            self.assertIn("interrupted transaction", report.errors[0])
+            error = io.StringIO()
+            with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(error):
+                self.assertEqual(play.main(["--campaign", str(directory), "--dry-run", "status"]), 1)
+            self.assertIn("status", error.getvalue())
+            with contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(play.main(["--campaign", str(directory), "status"]), 0)
+            self.assertEqual(tracker.read_text(), original)
+            self.assertFalse(journal.exists())
+            _runtime.ensure_recovered(directory)
+
+    def test_session_close_refuses_an_active_combat(self):
+        with tempfile.TemporaryDirectory() as folder:
+            directory = Path(folder) / "campaign"
+            files = campaign_init.build_scaffold(_sslib.load_manifest(), skin_slug="clanfire",
+                slug="campaign", title="Test", names=["Hero"], seed=2)
+            campaign_init.write_scaffold(directory, files)
+            def call(*args):
+                error = io.StringIO()
+                with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(error):
+                    return play.main(["--campaign", str(directory), *args]), error.getvalue()
+            hero = next((directory / "state/characters").glob("*.yaml")).stem
+            self.assertEqual(call("npc", "--id", "wolf", "--stat", "MGT=10", "--stamina", "3")[0], 0)
+            self.assertEqual(call("combat-start", "--side", f"pcs={hero}", "--side", "foes=npc:wolf",
+                                  "--order", "pcs,foes")[0], 0)
+            status, error = call("session-close", "--label", "mid-fight")
+            self.assertEqual(status, 1)
+            self.assertIn("combat-end", error)
+            self.assertEqual(call("combat-end", "--reason", "wolf fled")[0], 0)
+            self.assertEqual(call("session-close", "--label", "done")[0], 0)
+
+    def test_event_ids_are_case_insensitive_and_never_reused_across_sessions(self):
+        with tempfile.TemporaryDirectory() as folder:
+            directory = Path(folder) / "campaign"
+            files = campaign_init.build_scaffold(_sslib.load_manifest(), skin_slug="clanfire",
+                slug="campaign", title="Test", names=["Hero"], seed=2)
+            campaign_init.write_scaffold(directory, files)
+            def call(*args, expected=0):
+                output, error = io.StringIO(), io.StringIO()
+                with contextlib.redirect_stdout(output), contextlib.redirect_stderr(error):
+                    status = play.main(["--campaign", str(directory), "--json", *args])
+                self.assertEqual(status, expected, error.getvalue())
+                return json.loads(output.getvalue()) if status == 0 else error.getvalue()
+            call("--event-id", "Scene-End", "beat", "--label", "scene end")
+            self.assertTrue(call("--event-id", "scene-end", "beat", "--label", "scene end")["replayed"])
+            call("session-close", "--label", "one")
+            call("session", "--label", "two")
+            self.assertIn("already used in session 1",
+                          call("--event-id", "scene-end", "beat", "--label", "scene end", expected=1))
+
+    def test_raising_luck_at_a_milestone_leaves_a_full_pool(self):
+        skin, sheets, _ = fixture()
+        sheet = sheets["mara"]
+        sheet["pools"]["luck"]["current"] = 3
+        sheet = _characters.award_milestone(sheet, skin, "m1", label="ridge held", boon="ally")
+        sheet = _characters.raise_stat(sheet, skin, skin["luck_key"])
+        luck = sheet["pools"]["luck"]
+        self.assertEqual((luck["current"], luck["max"]), (11, 11))
+
+    def test_absolute_character_paths_must_stay_inside_the_campaign(self):
+        with tempfile.TemporaryDirectory() as folder:
+            characters = Path(folder) / "state/characters"
+            characters.mkdir(parents=True)
+            inside, outside = characters / "hero.yaml", Path(folder) / "elsewhere.yaml"
+            inside.write_text("name: Hero\n")
+            outside.write_text("name: Stranger\n")
+            self.assertEqual(_sslib.resolve_character_file(characters, str(inside)), inside)
+            with self.assertRaisesRegex(ValueError, "inside"):
+                _sslib.resolve_character_file(characters, str(outside))
 
     def test_cli_deferred_settlement_is_deterministic_retryable_and_logged(self):
         with tempfile.TemporaryDirectory() as folder:

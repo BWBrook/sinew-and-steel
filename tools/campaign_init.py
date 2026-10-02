@@ -65,6 +65,13 @@ def build_scaffold(manifest: dict, *, skin_slug: str, slug: str, title: str,
     return files
 
 
+def _write_private(path: Path, text: str) -> None:
+    # Owner-only from the first write, like every later campaign transaction.
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+    with os.fdopen(fd, "w", encoding="utf-8") as stream:
+        stream.write(text)
+
+
 def write_scaffold(campaign_dir: Path, files: dict[str, dict]) -> list[str]:
     """New campaigns appear atomically; existing files are never overwritten."""
     directories = ("state/characters", "state/trackers", "state/memory", "state/logs", "state/checkpoints")
@@ -75,7 +82,7 @@ def write_scaffold(campaign_dir: Path, files: dict[str, dict]) -> list[str]:
             for relative in directories:
                 (stage / relative).mkdir(parents=True, exist_ok=True)
             for relative, data in files.items():
-                (stage / relative).write_text(yaml.safe_dump(data, sort_keys=False), encoding="utf-8")
+                _write_private(stage / relative, yaml.safe_dump(data, sort_keys=False, allow_unicode=True))
             os.rename(stage, campaign_dir)
         return list(files)
     written = []
@@ -85,8 +92,7 @@ def write_scaffold(campaign_dir: Path, files: dict[str, dict]) -> list[str]:
         path = campaign_dir / relative
         # Exclusive creation keeps preservation true even if another process writes first.
         try:
-            with path.open("x", encoding="utf-8") as stream:
-                stream.write(yaml.safe_dump(data, sort_keys=False))
+            _write_private(path, yaml.safe_dump(data, sort_keys=False, allow_unicode=True))
         except FileExistsError:
             continue
         written.append(relative)

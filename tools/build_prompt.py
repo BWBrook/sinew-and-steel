@@ -9,12 +9,25 @@ import sys
 
 import yaml
 
+import _runtime
 import _sslib
 import resume_pack
 
 ROOT = Path(__file__).resolve().parents[1]
 METADATA_PREFIX = "<!-- SINEW_PROMPT_METADATA "
 MD_IMAGE_RE = re.compile(r'!\[[^\]]*\]\(\s*(?:<[^>]+>|[^)]+?)\s*(?:\s+"[^\"]*")?\)(?:\{[^}]*\})?[ \t]*')
+
+
+class _StateDumper(yaml.SafeDumper):
+    """Multi-line strings print as literal blocks, which read cleanly in a prompt."""
+
+
+_StateDumper.add_representer(str, lambda dumper, value: dumper.represent_scalar(
+    "tag:yaml.org,2002:str", value, style="|" if "\n" in value else None))
+
+
+def state_yaml(data: dict) -> str:
+    return yaml.dump(data, Dumper=_StateDumper, sort_keys=False, allow_unicode=True).strip()
 
 
 def strip_art_markdown(text: str) -> str:
@@ -143,13 +156,15 @@ def assemble_prompt(manifest: dict, skin_slug: str | None, *, root: Path = ROOT,
             paths.append(hidden_path)
             hidden_text = load_text(hidden_path)
         core_text = (load_joined_text([adv_path, cust_path]) if profile == "full" else load_text(quickstart_path))
-        index = ("For detailed rulings load a numbered section with `tools/build_prompt.py --section manual:6` "
+        index = ("Both complete core books are under Rules above. Read the selected skin's exceptions first."
+                 if profile == "full" else
+                 "For detailed rulings load a numbered section with `tools/build_prompt.py --section manual:6` "
                  "(combat), `--section manual:8` (Pressure), or `--section almanac:4` (Custodian Pressure procedure). "
                  "Read the selected skin's exceptions first. Use `--full` for both complete core books.")
         replacements = {"{{CORE_RULES}}": core_text, "{{RULES_SECTIONS}}": "\n\n".join(section_texts) or index,
                         "{{SKIN_TEXT}}": load_joined_text(skin_paths), "{{SKIN_NAME}}": skin["name"],
-                        "{{PUBLIC_STATE}}": yaml.safe_dump(public_state, sort_keys=False).strip(),
-                        "{{PRIVATE_STATE}}": yaml.safe_dump(private_state, sort_keys=False).strip(),
+                        "{{PUBLIC_STATE}}": state_yaml(public_state),
+                        "{{PRIVATE_STATE}}": state_yaml(private_state),
                         "{{HIDDEN_SCENARIO}}": hidden_text,
                         # Existing custom templates remain usable, but full books are now opt-in.
                         "{{CORE_RULES_ADVENTURERS}}": core_text,
@@ -227,6 +242,8 @@ def main() -> int:
             list_skins(manifest)
             return 0
         cdir = _sslib.campaign_dir(args.campaign, root=ROOT) if args.campaign else None
+        if cdir and (cdir / "state" / ".transaction.json").exists():
+            raise ValueError("interrupted transaction: run `play.py --campaign <campaign> status` to recover it first")
         campaign = _sslib.load_yaml(cdir / "campaign.yaml") if cdir else {}
         if args.skin and campaign.get("skin") and args.skin != campaign["skin"]:
             raise ValueError("--skin does not match campaign.yaml")
@@ -246,8 +263,8 @@ def main() -> int:
                    "output_path": str(out) if out else None, "bytes": len(output.encode()),
                    "fingerprint": metadata["fingerprint"], "sources": metadata["sources"], "dry_run": args.dry_run}
         if out and not args.dry_run:
-            out.parent.mkdir(parents=True, exist_ok=True)
-            out.write_text(output, encoding="utf-8")
+            # A campaign prompt holds hidden notes and private state: owner-only, like the state.
+            _runtime.atomic_text(out, output)
         if args.json:
             print(json.dumps(payload, indent=2))
         elif args.dry_run or out is None:

@@ -1,4 +1,4 @@
-<!-- SINEW_PROMPT_METADATA {"body_sha256":"7f67fa7257cb83dd95797f6dd2d3baa53d2b9a3e4148882fc9addfd36e7720f5","campaign":"examples/campaign_demo","campaign_sources":["examples/campaign_demo/campaign.yaml","examples/campaign_demo/state/characters/grak.yaml","examples/campaign_demo/state/characters/tarra.yaml","examples/campaign_demo/state/checkpoints/last.md","examples/campaign_demo/state/logs/session_001.md","examples/campaign_demo/state/memory/hidden_scenario.md","examples/campaign_demo/state/memory/session_001.yaml","examples/campaign_demo/state/trackers/session.yaml"],"fingerprint":"24eaf415bdc2d8463c922b9f591f640c350a36b343337e053417e4878e9d32f1","keep_art":false,"mode":"agent","profile":"compact","schema_version":1,"sections":[],"skin":"clanfire","sources":{"VERSION":"40b8eb4000a913a7791090535f291d3d369874162a89ef3c9e3d4e887a1b9e79","examples/campaign_demo/campaign.yaml":"0af33738ea045ad66eb5894f6b3e119d6c7b91f70db6a4071a8587b31f63f049","examples/campaign_demo/state/characters/grak.yaml":"c139f0c82aeb7dfab0502a1a92dda71e2bd91fc3ce4a260f4a37ef843b5a0b88","examples/campaign_demo/state/characters/tarra.yaml":"442dd6b1491c07d52fbc4d610ad1329a33ae6b894f10371ddd806b2b6f2a6a34","examples/campaign_demo/state/checkpoints/last.md":"8f5e73ba951d59cf421ad380ce5724a539e4d9ccb3e88ae3621d5093dcef7210","examples/campaign_demo/state/logs/session_001.md":"ed7c6323d58e2bca9c074fc2916e8177fe49d3325244f0d239ac5a151832a9fe","examples/campaign_demo/state/memory/hidden_scenario.md":"df149554e7f0cadd9b59f7d3c38699ebe07507eda6db5fe1338eeb88730d4989","examples/campaign_demo/state/memory/session_001.yaml":"c38c49726bb40c206a03d190ba204f4c933d9fe4b4bb69ee0cbfa5e6b87cabdd","examples/campaign_demo/state/trackers/session.yaml":"506d0d7ef309d02959871cf92c67636aa7049fd0765493dcb375a8fdb3a61cc3","manifest.yaml":"f241cba1b22ae0db3046fa5c7c13b70bbfe9db2ccb33ba9b0a04b0bc4d26b7b3","prompts/agent/starter_prompt.md":"056dc2d13ec3dce70a4a0728df19e641994020161f655d1b277f4a96ea6f45f1","rules/core/adventurers_manual.md":"1add05c09c8437febe24d843d0ab5093cac2bd2241d85bf4131934bff2dfe211","rules/core/custodians_almanac.md":"ff8f3e607c8b92b3ee05d67da0395e55180b75cd88ec67ebfd881e1f43c3be7e","rules/quickstart.md":"f8977cde3c99504538ec51fad9ef49b3dfd0fbeaed8c08d313adebd55f746248","skins/clanfire.md":"37852f3ba73fbda83387d59b558d476206044b86e60358a0532f9e407dac7d36","tools/build_prompt.py":"fc0e49bca9c5c13018e848757c73b8dcfeead13aa0f0b96b7a162cf64efcc4c6","tools/resume_pack.py":"5f4aaee77cd0f3e4654d580871cbea705fd8bc4d43efdb3b8e3fcf050abac6c0"}} -->
+<!-- SINEW_PROMPT_METADATA {"body_sha256":"0c4726c6774a700ea4a7d7a052e83d8ecbfafc3e9806c8770f8c2cc4b4936493","campaign":"examples/campaign_demo","campaign_sources":["examples/campaign_demo/campaign.yaml","examples/campaign_demo/state/characters/grak.yaml","examples/campaign_demo/state/characters/tarra.yaml","examples/campaign_demo/state/checkpoints/last.md","examples/campaign_demo/state/logs/session_001.md","examples/campaign_demo/state/memory/hidden_scenario.md","examples/campaign_demo/state/memory/session_001.yaml","examples/campaign_demo/state/trackers/session.yaml"],"fingerprint":"b7036a7f1d87c5b17684cf4e3fca3a86a094fc5833e8e4853b4587ad7d2a3092","keep_art":false,"mode":"agent","profile":"compact","schema_version":1,"sections":[],"skin":"clanfire","sources":{"VERSION":"40b8eb4000a913a7791090535f291d3d369874162a89ef3c9e3d4e887a1b9e79","examples/campaign_demo/campaign.yaml":"0af33738ea045ad66eb5894f6b3e119d6c7b91f70db6a4071a8587b31f63f049","examples/campaign_demo/state/characters/grak.yaml":"c139f0c82aeb7dfab0502a1a92dda71e2bd91fc3ce4a260f4a37ef843b5a0b88","examples/campaign_demo/state/characters/tarra.yaml":"442dd6b1491c07d52fbc4d610ad1329a33ae6b894f10371ddd806b2b6f2a6a34","examples/campaign_demo/state/checkpoints/last.md":"8f5e73ba951d59cf421ad380ce5724a539e4d9ccb3e88ae3621d5093dcef7210","examples/campaign_demo/state/logs/session_001.md":"ed7c6323d58e2bca9c074fc2916e8177fe49d3325244f0d239ac5a151832a9fe","examples/campaign_demo/state/memory/hidden_scenario.md":"df149554e7f0cadd9b59f7d3c38699ebe07507eda6db5fe1338eeb88730d4989","examples/campaign_demo/state/memory/session_001.yaml":"c38c49726bb40c206a03d190ba204f4c933d9fe4b4bb69ee0cbfa5e6b87cabdd","examples/campaign_demo/state/trackers/session.yaml":"506d0d7ef309d02959871cf92c67636aa7049fd0765493dcb375a8fdb3a61cc3","manifest.yaml":"4b52b5b7567b6cf119312fbdbec61a3561ee20f129a84bfa704d539c22182e2d","prompts/agent/starter_prompt.md":"164c343c51d4f7ec8537a83a8bd975bbb0b5757cae9b4edb7b81c4c121a62ad2","rules/core/adventurers_manual.md":"4190841d63c5594e84ea5a1ab5be981035c880cdabd429e43208faf5e4f572d2","rules/core/custodians_almanac.md":"43a1faf1f41d7cd095df8982e9a099287a5b6a253027f755eeb77587f97ab7f8","rules/quickstart.md":"f8977cde3c99504538ec51fad9ef49b3dfd0fbeaed8c08d313adebd55f746248","skins/clanfire.md":"37852f3ba73fbda83387d59b558d476206044b86e60358a0532f9e407dac7d36","tools/build_prompt.py":"b17cc7d61bd9d27256c6e6622a73d85b0f430d977f521cb97bf83ae31f87e71e","tools/resume_pack.py":"03ba5b8f561566aa292e33a55b016c3e9b23611487814632858eaf898eff3015"}} -->
 # Sinew & Steel — Clanfire Custodian
 
 You run Sinew & Steel with the player. Use concrete second-person adventure prose, short scenes, and meaningful choices; freeform action is always welcome. This prompt contains private Custodian material. Share only narration, stated stakes, public roll results, and the player's options.
@@ -330,13 +330,12 @@ characters:
   inventory:
     big_items:
     - Stone spear (+1 edge)
-    - "Hand\u2011axe (+1 edge)"
+    - Hand‑axe (+1 edge)
     - Hide cloak (soak 1)
     - Waterskin
     small_items:
     - Ochre pouch
     - Sinew cord
-  conditions: {}
 - name: Tarra
   stats:
     MGT: 6
@@ -355,20 +354,23 @@ characters:
   inventory:
     big_items:
     - Carved bone flute (Adv calming beasts)
-    - "Fire\u2011bow drill"
+    - Fire‑bow drill
     - Herb bundle
     - Scrap of strange cloth
     small_items: []
-  conditions: {}
 scene: 1
 checkpoint:
-  text: "The cave wolf is gone, blood dark on snow.\n\nThe birches click together\
-    \ in the wind, but beneath that you catch another rhythm: lighter steps, too neat\
-    \ for any beast. Whoever made them walked *without hurry*.\n\nAhead, the trees\
-    \ thin toward the frozen stream. In the dark, something taps bone against stone\
-    \ \u2014 once, then again \u2014 like a signal.\n\nOptions:\n1. Follow the wolf\u2019\
-    s blood toward the frozen stream (CUN).\n2. Circle wide and try to spot the watcher\
-    \ before it spots you (FLT).\n3. Call softly for Tarra and the clan (no roll).\n"
+  text: |
+    The cave wolf is gone, blood dark on snow.
+
+    The birches click together in the wind, but beneath that you catch another rhythm: lighter steps, too neat for any beast. Whoever made them walked *without hurry*.
+
+    Ahead, the trees thin toward the frozen stream. In the dark, something taps bone against stone — once, then again — like a signal.
+
+    Options:
+    1. Follow the wolf’s blood toward the frozen stream (CUN).
+    2. Circle wide and try to spot the watcher before it spots you (FLT).
+    3. Call softly for Tarra and the clan (no roll).
 ```
 
 ## Current private state
@@ -420,7 +422,7 @@ sheets:
     inventory:
       big_items:
       - Stone spear (+1 edge)
-      - "Hand\u2011axe (+1 edge)"
+      - Hand‑axe (+1 edge)
       - Hide cloak (soak 1)
       - Waterskin
       small_items:
@@ -470,7 +472,7 @@ sheets:
     inventory:
       big_items:
       - Carved bone flute (Adv calming beasts)
-      - "Fire\u2011bow drill"
+      - Fire‑bow drill
       - Herb bundle
       - Scrap of strange cloth
       small_items: []
@@ -547,23 +549,25 @@ memory:
   - '[2025-12-24T01:18:40Z] A cave wolf tested the edge of the light. Grak wounded
     it; Tarra drove it off with flame and chant.'
   threads:
-  - "What is making the birch-line \u201Cwrong\u201D tonight?"
+  - What is making the birch-line “wrong” tonight?
   - Where did the wolf retreat to, and is it alone?
   npcs:
   - 'Tarra the Ember-Singer: hears ''patient hunger'' in the wind.'
   secrets:
-  - "The wolf\u2019s prints run alongside other, lighter tracks that do not match\
-    \ any beast."
+  - The wolf’s prints run alongside other, lighter tracks that do not match any beast.
 log:
-  last_entry: "## System\n\nMechanics (example combat beat):\n- Grak attacks with\
-    \ MGT 12 \u2192 rolled 8 \u2192 success (margin +4)\n- Cave wolf defends with\
-    \ FLT 10 \u2192 rolled 15 \u2192 fail (margin \u20135)\n- Hit. Damage = 1 + edge(+1)\
-    \ + 0 (margin under 5) \u2212 soak(0) = 2 \u2192 wolf STM 4 \u2192 2\n- Tarra\
-    \ attacks with SPR 14 \u2192 rolled 9 \u2192 success (margin +5)\n- Cave wolf\
-    \ defends with FLT 10 \u2192 rolled 9 \u2192 success (margin +1)\n- Both succeed;\
-    \ Tarra wins \u2192 consequence: the wolf breaks and flees (no further damage)\n\
-    \nResult: Grak\u2019s spear drives the wolf back bleeding; Tarra\u2019s ember-chant\
-    \ turns fear into motion. It vanishes into the birch\u2011line, yelping."
+  last_entry: |-
+    ## System
+
+    Mechanics (example combat beat):
+    - Grak attacks with MGT 12 → rolled 8 → success (margin +4)
+    - Cave wolf defends with FLT 10 → rolled 15 → fail (margin –5)
+    - Hit. Damage = 1 + edge(+1) + 0 (margin under 5) − soak(0) = 2 → wolf STM 4 → 2
+    - Tarra attacks with SPR 14 → rolled 9 → success (margin +5)
+    - Cave wolf defends with FLT 10 → rolled 9 → success (margin +1)
+    - Both succeed; Tarra wins → consequence: the wolf breaks and flees (no further damage)
+
+    Result: Grak’s spear drives the wolf back bleeding; Tarra’s ember-chant turns fear into motion. It vanishes into the birch‑line, yelping.
 ```
 
 ## Hidden scenario
@@ -624,13 +628,15 @@ Offer options (2–4):
 - Roll when uncertainty + stakes. Use clocks/Shadow as costs instead of constant checks.
 
 ## Operating procedure
+Play loop: choose intent, method, and stakes; roll with `play.py check|opposed|attack`, adding `--defer` and then `settle` when a Luck decision depends on seeing the dice; record scene-scale beats with `play.py beat` (`--perilous` when dangerous); award milestones with `advance.py` while the session is open; then close with `play.py session-close`.
+
 - Roll only when failure is possible and has an interesting cost. State success and failure stakes before rolling; routine actions resolve in the fiction.
-- Use `tools/play.py` for campaign checks, opposed tests, attacks, Pressure, scene boundaries, and resource use. Use `tools/update_sheet.py` for explicit sheet changes. Record the attribute, method, Pressure source, Luck spent or recovered, and crisis target.
+- Use `tools/play.py` for campaign checks, opposed tests, attacks, Pressure, scene boundaries, and state changes (`luck`, `stamina`, `condition`, `resource`, `clock`). Use `tools/advance.py` for milestones and purchases; `tools/update_sheet.py` edits only name, player, notes, and inventory. Record the attribute, method, Pressure source, Luck spent or recovered, and crisis target.
 - Show both dice of an opposed test before the Luck offer. Do not decide the narrated outcome until the player has accepted or declined their nudge.
 - Pressure belongs to the company except personal Insanity in Whispers. Steps accumulate. A pending next-test penalty is spent even if Advantage cancels it; recovery below its step discards it without re-arming. Record the crisis consequence before its reset, retaining any consequence that outlasts the reset.
 - Resource counters record use; they do not grant a knack, beast, or other fictional permission. Pay the stated skin cost. Companionship pays only for nudges.
-- If combat order is uncertain, roll each side's initiative once for the fight. Each side chooses its members' order each round. Twilight positions are declared each round and held for every attack and defence that round.
+- If combat order is uncertain, roll each side's initiative once for the fight. Each side chooses its members' order each round. Twilight positions are declared each round and held for every attack and defence that round. An attack or an opposed test is that combatant's action for the round; record other turns with `play.py pass`, and the earlier side acts or passes first.
 - Keep hidden notes, Pressure, and unrevealed clocks private. Use `tools/resume_pack.py --public` for a player-safe export.
-- After every GM reply, save its exact public text with `tools/checkpoint.py`. Before resuming a saved prompt, run `tools/build_prompt.py --campaign <slug> --check`; rebuild if stale.
+- After every GM reply, save its exact public text with `tools/checkpoint.py`. Any play action, checkpoint, or advancement makes the saved prompt stale by design: rebuild it with `tools/build_prompt.py --campaign <slug>` (same `--mode`, `--full`, and `--hidden` options) before validating or resuming; `--check` reports staleness.
 
 Resume from the exact public checkpoint if present. Otherwise establish the opening situation and invite the player's next action.

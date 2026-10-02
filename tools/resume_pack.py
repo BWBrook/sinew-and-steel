@@ -8,6 +8,7 @@ import sys
 
 import yaml
 
+import _runtime
 import _sslib
 
 SESSION_MD_RE = re.compile(r"session_(\d+)\.md$")
@@ -45,8 +46,6 @@ def public_character(sheet: dict, skin: dict) -> dict:
     pools = sheet.get("pools", {})
     inventory = sheet.get("inventory", {})
     inventory = inventory if isinstance(inventory, dict) else {}
-    conditions = sheet.get("conditions", {})
-    conditions = conditions if isinstance(conditions, dict) else {}
     def strings(value):
         return [item for item in value if isinstance(item, str)] if isinstance(value, list) else []
     def pool(key):
@@ -59,8 +58,7 @@ def public_character(sheet: dict, skin: dict) -> dict:
             "luck": {"name": skin.get("luck_name", "Luck"), **pool("luck")},
             "stamina": pool("stamina"),
             "tags": strings(sheet.get("tags")),
-            "inventory": {key: strings(inventory.get(key)) for key in ("big_items", "small_items")},
-            "conditions": {key: value for key, value in conditions.items() if isinstance(key, str) and type(value) is bool}}
+            "inventory": {key: strings(inventory.get(key)) for key in ("big_items", "small_items")}}
 
 
 def collect_resume(campaign_dir: Path, manifest: dict, *, character: str | None = None,
@@ -114,7 +112,7 @@ def print_pack(payload: dict, *, public: bool = False) -> None:
         print(f"{luck['name']} {luck.get('current')}/{luck.get('max')} | Stamina {stamina.get('current')}/{stamina.get('max')}")
     if not public:
         print("\nPrivate state:")
-        print(yaml.safe_dump({key: payload[key] for key in ("tracker", "memory", "log")}, sort_keys=False).rstrip())
+        print(yaml.safe_dump({key: payload[key] for key in ("tracker", "memory", "log")}, sort_keys=False, allow_unicode=True).rstrip())
     checkpoint = payload["checkpoint"]["text"]
     if checkpoint:
         print("\nLast public GM text:")
@@ -142,13 +140,14 @@ def main() -> int:
         campaign_dir = _sslib.campaign_dir(args.campaign, root=root)
         if not (campaign_dir / "campaign.yaml").exists():
             raise ValueError("campaign not found")
+        _runtime.ensure_recovered(campaign_dir)
         payload = collect_resume(campaign_dir, _sslib.load_manifest(root), character=args.character,
                                  public=args.public, summary_count=args.summary_count, log_lines=args.log_lines,
                                  no_log=args.no_log, no_memory=args.no_memory, no_checkpoint=args.no_checkpoint)
         if args.json:
-            print(json.dumps(payload, indent=2))
+            print(json.dumps(payload, indent=2, default=str))
         elif args.yaml:
-            print(yaml.safe_dump(payload, sort_keys=False))
+            print(yaml.safe_dump(payload, sort_keys=False, allow_unicode=True))
         else:
             print_pack(payload, public=args.public)
         return 0

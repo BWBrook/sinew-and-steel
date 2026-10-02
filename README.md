@@ -74,14 +74,15 @@ Start here if you want a Codex CLI or Claude Code agent to run the game from thi
 2. **List skins:** `uv run python tools/build_prompt.py --list-skins`
 3. **Create a campaign + character:**
    ```bash
-   uv run python tools/campaign_init.py --title "Ice Hunt" --skin clanfire --tone standard --random-character "Grak"
+   uv run python tools/campaign_init.py --title "Scratch Demo" --skin clanfire --tone standard --random-character "Grak"
    ```
+   (The slug, `scratch_demo` here, is derived from the title; use your own title for a real campaign.)
 4. **Build the agent prompt:**
    ```bash
-   uv run python tools/build_prompt.py --campaign ice_hunt --mode agent
+   uv run python tools/build_prompt.py --campaign scratch_demo --mode agent
    ```
    (By default this strips PDF-only artwork tags from rules/skins to keep the prompt clean for LLM ingestion; use `--keep-art` if you want them included. For Candlelight Dungeons, the manifest currently pulls in the Delvekit sidecar automatically.)
-5. **Start play** using `campaigns/ice_hunt/prompt.md`, then track state with tools.
+5. **Start play** using `campaigns/scratch_demo/prompt.md`, then track state with tools.
 
 Canonical guide: `skills/agent_dm_handbook.md`
 
@@ -91,11 +92,15 @@ Starter scenario (Clanfire, “play tonight”):
 
 ### Resume fast (fresh context)
 
-If you’re resuming a campaign in a new agent context, use the resume pack:
+If you’re resuming a campaign in a new agent context, rebuild the saved prompt and use the resume pack:
 
 ```bash
-uv run python tools/resume_pack.py --campaign <slug> --character <name>
+uv run python tools/build_prompt.py --campaign <slug>
+uv run python tools/resume_pack.py --campaign <slug>
 ```
+Any play action, checkpoint or advancement makes the saved prompt stale by design, so
+rebuild it first with the same `--mode`, `--full` and `--hidden` options as before.
+`--character <character_slug>` filters the pack to one sheet; omit it for a party.
 Add `--public` for the player view: a fixed selection of character fields and the
 exact public checkpoint. Private clocks, logs, paths and memory are omitted.
 
@@ -104,7 +109,8 @@ Or read: `skills/agent_bootstrap.md` for the shortest possible “get playing”
 Example player directive (fresh Codex resume):
 ```
 You’re resuming a Sinew & Steel campaign. Read only AGENTS.md and skills/agent_dm_handbook.md.
-Then run: uv run python tools/resume_pack.py --campaign <campaign_slug> --character <character_slug>
+Then run: uv run python tools/build_prompt.py --campaign <campaign_slug>
+and: uv run python tools/resume_pack.py --campaign <campaign_slug>
 Use that output for your internal context only (do not show memory/secrets/log to me).
 If you have any questions, ask now. If not, print ONLY the checkpoint text and continue play from there.
 ```
@@ -117,7 +123,7 @@ If you have any questions, ask now. If not, print ONLY the checkpoint text and c
 1. **Read `rules/quickstart.md`.**  
 2. Pick or clone a skin from `/skins/`. If you choose Candlelight Dungeons and want the stricter dungeon procedure, also read `skins/candlelight_delvekit.md`.  
 3. Hand the rules page to players; keep the skin doc behind your screen.  
-4. (Optional) paste the **Starter Prompt** in `/prompts/chat/` into ChatGPT or another LLM and hit enter.
+4. (Optional) fill the **Starter Prompt** template in `/prompts/chat/` and paste the result into ChatGPT or another LLM. The template holds `{{...}}` placeholders, so do not paste it raw: `uv run python tools/build_prompt.py --skin clanfire --mode chat --full --out /tmp/chat_prompt.md` builds a filled prompt. `--full` embeds both core books, which a model that cannot read this repository needs for detailed rulings.
 5. (Optional) use the **Hidden Scenario Prompt** in `/prompts/chat/` to generate a secret scenario/module! 
 6. Roll dice, burn Luck, tell messy stories.
 
@@ -156,8 +162,8 @@ PDFs are rendered with pandoc + WeasyPrint; `tools/md_pdf.py` builds one-off fil
 
 The repo’s `/prompts/chat/` folder contains:
 
-* A **starter prompt template** that loads the engine + chosen skin in one go.  
-* A **hidden scenario prompt** for secret GM notes.
+* A **starter prompt template** that loads the engine + chosen skin in one go; `tools/build_prompt.py --mode chat --full` fills its placeholders.
+* A **hidden scenario prompt** for secret GM notes (replace its `{{ SKIN NAME }}` placeholder by hand; see `prompts/chat/how_to_use_chinese_room.md`).
 
 No plugins needed for reasoning engines with tool use — `random.randint(1,20)` and short, punchy prose carry the night.
 
@@ -173,12 +179,12 @@ This repo includes an agent-focused harness to run sessions without API adapters
 
 * **`AGENTS.md`** — operational rules for an AI agent running games.
 * **`skills/`** — small, reusable instruction files for common tasks (prompt build, editor notes, dice, state updates).
-* **`tools/`** — CLI helpers for assembling prompts, rolling dice, and updating YAML sheets.
+* **`tools/`** — CLI helpers for assembling prompts, resolving rolls and campaign state, and recording sessions.
 * **`manifest.yaml`** — a machine-readable index of rules, skins, and prompts.
 * **`docs/ai_play_harness.md`** — practical workflow for AI Custodian campaigns using the repo harness.
 * **`docs/candlelight_delvekit.md`** and **`examples/candlelight_delvekit/`** — the Candlelight Delvekit lane for seeded dungeon generation, map rendering, and module-polish workflows.
-* **`state/`** — private notes, trackers, and character sheets (local runtime data).
-* **`campaigns/`** — untracked per-campaign workspaces with their own state and logs.
+* **`state/`** — seed fixtures that show the sheet, tracker, and memory formats.
+* **`campaigns/`** — untracked per-campaign workspaces; live state, logs, and checkpoints are in `campaigns/<slug>/state/`.
 * **`skills/agent_dm_handbook.md`** — end-to-end guide for running sessions with the tools.
 * **`examples/campaign_demo/`** — a real example campaign scaffold (prompt, logs, memory, tracker).
 

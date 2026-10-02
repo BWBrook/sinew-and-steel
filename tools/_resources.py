@@ -12,6 +12,19 @@ def _definitions(skin: dict) -> dict:
     return skin.get("resources", {})
 
 
+def resolve_id(skin: dict, name: str) -> str:
+    """Accept a manifest id (totem_mark) or its display name ("Totem Mark")."""
+    definitions = _definitions(skin)
+    if name in definitions:
+        return name
+    wanted = name.strip().casefold().replace("-", " ").replace("_", " ")
+    matches = [key for key, d in definitions.items()
+               if wanted in {key.replace("_", " "), str(d.get("name", "")).casefold()}]
+    if len(matches) == 1:
+        return matches[0]
+    raise ValueError(f"unknown skin resource: {name}")
+
+
 def new_resources(skin: dict, actors: list[str]) -> dict:
     """Seed counters, without granting the abilities whose uses they record."""
     actors = sorted(set(actors))
@@ -107,9 +120,8 @@ def use_resource(resources: dict, skin: dict, resource_id: str, actor: str | Non
     """Record an adjudicated use. Returns a new state and unapplied consequence data."""
     if not _is_int(amount) or amount < 1:
         raise ValueError("resource amount must be a positive integer")
-    definition = _definitions(skin).get(resource_id)
-    if not definition:
-        raise ValueError(f"unknown skin resource: {resource_id}")
+    resource_id = resolve_id(skin, resource_id)
+    definition = _definitions(skin)[resource_id]
     if definition.get("purpose") and purpose != definition["purpose"]:
         raise ValueError(f"{resource_id} may only be used for {definition['purpose']}")
     result = deepcopy(resources)
@@ -136,8 +148,9 @@ def recover_resource(resources: dict, skin: dict, resource_id: str, actor: str |
     """Restore pool tokens after the fiction permits it; uses reset at their boundary."""
     if not _is_int(amount) or amount < 1:
         raise ValueError("resource amount must be a positive integer")
-    definition = _definitions(skin).get(resource_id)
-    if not definition or definition["kind"] != "pool":
+    resource_id = resolve_id(skin, resource_id)
+    definition = _definitions(skin)[resource_id]
+    if definition["kind"] != "pool":
         raise ValueError("only a known pool can recover tokens")
     result = deepcopy(resources)
     state = _state(result, definition, resource_id, actor)

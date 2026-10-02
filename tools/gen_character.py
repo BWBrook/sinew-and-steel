@@ -402,7 +402,7 @@ def main() -> int:
         print(f"error: {exc}", file=sys.stderr)
         return 1
 
-    output = yaml.safe_dump(sheet, sort_keys=False)
+    output = yaml.safe_dump(sheet, sort_keys=False, allow_unicode=True)
     out_path = None
     if args.out:
         out_path = Path(args.out)

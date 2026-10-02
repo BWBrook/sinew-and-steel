@@ -74,7 +74,7 @@ def main() -> int:
                 "dry_run": args.dry_run, "adopted_creation": args.adopt_creation,
             }
             if not args.dry_run and not args.stdout:
-                output = yaml.safe_dump(data, sort_keys=False)
+                output = yaml.safe_dump(data, sort_keys=False, allow_unicode=True)
                 if directory:
                     _runtime.commit_files(directory / "state", {path: output})
                 else:
@@ -88,7 +88,7 @@ def main() -> int:
     if args.json:
         print(json.dumps(payload, indent=2))
     elif args.stdout or args.dry_run:
-        print(yaml.safe_dump(data, sort_keys=False))
+        print(yaml.safe_dump(data, sort_keys=False, allow_unicode=True))
     else:
         print(f"verified {path}: {summary['points_available']} build point(s) available")
     return 0

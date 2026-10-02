@@ -20,6 +20,7 @@ The engine numbers stay: damage, soak, margin steps, natural results, Luck, and 
 - **Initiative:** unless the fiction settles who acts first, each side rolls a d20 once, at the start of the fight, and that order holds for the whole fight; each side chooses its own members' order every round. Manual 6, Emberfall.
 - **Refund cap:** lowering scores below baseline pays back at most 8 build points in total. In Barry's words, it works "to further de-emphasise min-maxxing… Initial specialisation can only go so far, after that, milestones are required to get more extremes out of the characters, and the Custodian can ultimately overrule anything." A 16 with Stamina 9 now needs the pulp budget, and no attribute starts above 14 on the grim budget. The Almanac's Iron Brute was rebuilt to fit; every other sample build already did. Manual 2.2 and 2.4, Quickstart, Almanac Part I and the tone dial, Customisation; the ledger, generator and tests enforce it.
 - **Pressure and party size:** Barry: "real play will sit somewhere in between, and can be 'tuned' [by] the Custodian if required." The Almanac now tells Custodians that a bigger party fills the fuse faster, and how to slow it: charge shared hazards once per beat for the whole party, or purge more generously.
+- **Tolls fall on choices** (2 October 2026, during the Stage 4 review): Pressure tolls and step costs apply only to tests a character attempts, never to a defence or Deflection roll; step penalties still apply to those rolls. Barry: "It was never intended to be involuntarily sapped like that!" Manual 8, Almanac 4, the six skins with tolls, the manifest labels and the harness (the defender and Deflection toll flags are gone).
 
 ### Reopen triggers for the simulated playtests
 
@@ -71,7 +72,18 @@ Custodian judgments are in `docs/reviews/2026-10-01-stage4-harness.md`.
 - Historical creation-economy scripts and outputs are labelled as uncapped;
   the expensive analyses have not been rerun.
 
-Next: Fable critiques the implementation and fixes agreed defects, starting with
-the book examples and adversarial state sequences. Then run the planned simulated
-sessions across skins and party sizes. Harness tests do not replace those
-playtests or authorize GOLD and layout.
+Fable's review (2 October 2026, `docs/reviews/2026-10-02-stage4-review.md`) found
+the core sound and fixed the defects at its edges. Defence and Deflection no longer
+pay tolls (author ruling above), and Iron & Ruin's missing step 4 is restored as a
+Custodian lever. Edge may exceed +2, top-tier magic can be marked `--no-nudge`, and
+an opposed test uses a combatant's action. A session cannot close mid-combat, and a
+new session carries open threads, NPCs and secrets. Read-only tools refuse torn
+state until `play.py status` recovers it. Event IDs are case-insensitive and
+session-bound. A milestone Luck raise leaves a full pool, and the playtest midpoint
+no longer counts the scene after its beat. The documentation was audited command by
+command. 158 tests pass. Follow-ups that were noted but not fixed are listed in the
+review.
+
+Next: Barry signs off Stage 4. Then run the planned simulated sessions across skins
+and party sizes. Harness tests do not replace those playtests or authorize GOLD and
+layout.

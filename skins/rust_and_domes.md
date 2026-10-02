@@ -110,7 +110,7 @@ A risky test is any roll where failure would materially change the situation (ha
 | 1 | Blue flicker | Cosmetic: rumours, routine scans |
 | 2 | Yellow | Minor Disadvantage on black-market deals |
 | 3 | Orange | Bounty posted; NPC suspicion |
-| 4 | Red | Walls have eyes: each risky test marks +1 Heat, even on success; habitats lock doors |
+| 4 | Red | Walls have eyes: each risky test a character attempts marks +1 Heat, even on success; habitats lock doors |
 | 5 **Crisis** | Crimson alert | Trigger a Heat crisis, then reset to **0** |
 
 **Gain +1 Heat** for failed covert tests, public gunfire, traced hacks, or reckless media leaks.
