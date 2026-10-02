@@ -7,9 +7,9 @@ The living plan for Sinew & Steel, set by Barry on 1 October 2026 and recorded o
 1. **Cross-examine the prose-pass revision.** Done: Astra's review is `docs/reviews/2026-10-01-stage1-review.md`.
 2. **Decide and implement engine changes with Barry.** Closed on 1 October 2026; decisions below. The evidence is the independent engine review (`docs/independent_engine/`), the engine atlas (`docs/engine_atlas.md`), and the Stage 1 review and Stage 2 engine check (`docs/reviews/`).
 3. **Align the rules and chapters with those changes,** keeping the narrative voice the prose pass established. Fable implemented it on 1 October 2026; Astra reviewed and signed off the changes at `14b6544` on the same day. The changes are listed below.
-4. **Overhaul the AI Custodian harness and supporting tools.** Astra's implementation is ready for Fable's review and fixes. The handoff is `docs/reviews/2026-10-01-stage4-harness.md`; this stage is not signed off yet.
+4. **Overhaul the AI Custodian harness and supporting tools.** Done on 2 October 2026: Astra's implementation (`7f595b9`, handoff `docs/reviews/2026-10-01-stage4-harness.md`) and Fable's review and fixes (`79d4d38`, `docs/reviews/2026-10-02-stage4-review.md`), committed and pushed at Barry's direction.
 
-After Stage 4 come simulated playtests: AI-run sessions across several skins and party sizes, logged well enough to test the reopen triggers below. Barry's human sessions will add an indicative trickle ("more vibes than distributional probabilities"). Then the rules and writing are declared GOLD, and only then comes layout. Until then, every text change must still keep the Quickstart on exactly two facing pages.
+Before the playtests, Barry is commissioning an independent external review of the whole repository from GPT-6 Pro (brief: `docs/reviews/2026-10-02-external-review-brief.md`). Its findings will be triaged with Barry, as the Stage 1 review was. Then come simulated playtests: AI-run sessions across several skins and party sizes, logged well enough to test the reopen triggers below. Barry's human sessions will add an indicative trickle ("more vibes than distributional probabilities"). Then the rules and writing are declared GOLD, and only then comes layout. Until then, every text change must still keep the Quickstart on exactly two facing pages.
 
 ## Stage 2 decisions
 
@@ -84,6 +84,6 @@ no longer counts the scene after its beat. The documentation was audited command
 command. 158 tests pass. Follow-ups that were noted but not fixed are listed in the
 review.
 
-Next: Barry signs off Stage 4. Then run the planned simulated sessions across skins
-and party sizes. Harness tests do not replace those playtests or authorize GOLD and
+Next: the external review, then the planned simulated sessions across skins and
+party sizes. Harness tests do not replace those playtests or authorize GOLD and
 layout.
