@@ -9,6 +9,7 @@ import yaml
 
 import _pressure
 import _resources
+import _runtime
 import _sslib
 import build_prompt
 import validate_sheet
@@ -129,7 +130,11 @@ def main() -> int:
     parser.add_argument("--campaign", required=True)
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
-    result = validate_campaign(args.campaign, _sslib.load_manifest())
+    try:
+        with _runtime.campaign_snapshot(_sslib.campaign_dir(args.campaign, root=_sslib.repo_root())):
+            result = validate_campaign(args.campaign, _sslib.load_manifest())
+    except ValueError as exc:
+        result = _sslib.ValidationResult([str(exc)], [])
     payload = {"campaign": args.campaign, "ok": result.ok(), "errors": result.errors, "warnings": result.warnings}
     if args.json:
         print(json.dumps(payload, indent=2))

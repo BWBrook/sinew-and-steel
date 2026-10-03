@@ -6,15 +6,17 @@
 
 ## Why another ruleset?
 
-Because most RPG rulebooks ask you to memorise a phone-book of subsystems before you can bleed on the page.  
+Because most RPG rulebooks ask you to memorise a phone-book of subsystems before you can bleed on the page.
 Sinew & Steel works the other way round:
 
-* **One d20. Five stats. Luck tokens. Stamina. Pressure.**  
-* **Friction where it matters:**  Burning Luck, pushing damage through armour with margin, riding the Pressure fuse.  
-* **Skin-agnostic.**  Swap the coat of paint and you’re in Bronze-Age Atlantis, a Martian dust storm, or the heat-death horizon.  
-* **AI-ready.**  The rules are easy for a language model to keep in short-term memory, so the “GM” can focus on story beats instead of chart-flipping.
+* **One d20. Five stats. Luck tokens. Stamina. Pressure.**
+* **Friction where it matters:** burning Luck, pushing damage through armour with margin, riding the Pressure fuse.
+* **Skin-agnostic.** Swap the coat of paint and you're in Bronze-Age Atlantis, a Martian dust storm, or the heat-death horizon.
+* **AI-ready.** The rules are easy for a language model to keep in short-term memory, so the Custodian (the game master) can focus on story beats instead of chart-flipping. This repository also gives an AI agent the tools to keep dice, state and secrets honest.
 
 > *A lean chassis for messy stories. Expansion skins for the sparks.*
+
+**Status:** version 0.4.0. The rules, ten skins and AI harness are being finalised; AI-run playtests come next, then the final book layout. Everything here is free and openly licensed (see [License](#license)).
 
 ---
 
@@ -22,123 +24,119 @@ Sinew & Steel works the other way round:
 
 | Pillar | One-line summary |
 |---|---|
-| **Roll-under d20** | ≤ attribute = succeed.  Natural 1 legendary (ignores soak, +1 damage), 20 catastrophic. |
-| **Scores** | Attributes baseline 10 (6–16) and Stamina baseline 5 (3–9), ceilings for life. Standard play starts with **6 build points** (grim 0, pulp 12, heroic 16): +1 above baseline costs 2 points; +1 below baseline costs 1 point; a **tag** (Advantage in one named niche) costs 2. |
-| **Luck = tokens** | Spend to nudge dice after seeing them (both dice, in an opposed test); pool size *is* the score. |
-| **Stamina** | Baseline at 5; nudge with build points.  Hits deal 1 + weapon edge + 1 per full 5 margin, minus soak (min 1).  0 = collapse. |
-| **Pressure track** | 0-5 fuse.  Colour changes by skin (Doom, Shadow, Sin, Heat, Fatigue, Stress, Strain, Dread, Insanity, Anomaly…). |
-| **Armour** | Soak 1-3 subtracts from damage; a winning hit always deals at least 1. |
+| **Roll-under d20** | Roll at or under your score to succeed. A natural 1 always succeeds (it ignores soak and adds +1 damage); a natural 20 always fails. |
+| **Scores** | Attributes baseline 10 (6–16) and Stamina baseline 5 (3–9), ceilings for life. Standard play starts with **6 build points** (grim 0, pulp 12, heroic 16): +1 above baseline costs 2 points; +1 below baseline costs 1 point; lowering scores pays back at most 8 points in all; a **tag** (Advantage in one named niche) costs 2. |
+| **Luck = tokens** | Spend to nudge dice after seeing them (either die, in an opposed test). Your score sets the pool's size; a Luck test rolls under the tokens you have left. |
+| **Stamina** | Baseline 5; buy it up or down with build points. Hits deal 1 + weapon edge + 1 per full 5 points of margin, minus soak (minimum 1). 0 = collapse. |
+| **Pressure track** | A 0–5 fuse, usually shared by the party. Its name and effects change by skin (Doom, Shadow, Sin, Heat, Fatigue, Stress, Strain, Dread, Insanity, Anomaly…). |
+| **Armour** | Soak 1–3 subtracts from damage; a winning hit always deals at least 1. |
 
-That’s the chassis. Everything else is flavour‐text.
+That's the chassis. Skins add the setting and its procedures.
 
 ---
 
-## Example skins
+## Skins
 
-|Scenario | Pitch |
+| Skin | Pitch |
 |---|---|
-|Clanfire | Neanderthal Ice-Age survival. Totem spirits, Beast bonds, Shadow track. |
-|Iron & Ruin | Pulp sword-and-sorcery. Doom, Heroic acts, bargain-magic. |
-|Time Odyssey | Brass-and-crystal chrononautics. Ingenuity pool, Anomaly crises, epoch graphing. |
-|Briar & Benedictine | Medieval sleuthing. Divine providence, Sin and penance, murder mystery. |
-|Rust & Domes | Noir-tinged Red Planet frontier. Heat track, psionics, red-dust grime. |
-|Candlelight Dungeons | Old-school dungeon crawl. Fatigue clock, spell backlash, torchlit terror, plus an optional Delvekit sidecar for stricter procedural exploration. |
-|Service Duct Blues | Lower-decks starship drama. Resourcefulness pool, Stress track, system saves. |
-|Whispers in the Fog | Weird 1920s horror. Insanity track, fragile hope, occult terror. |
-|Free Traders of the Drift Marches | Starfreight drama. Ship Shares, Strain track, speculative cargo gambles. |
-|Twilight of the Northlands | Wanderer fantasy elegy. Hope and Dread, subtle rites, travel Fatigue. |
+| Clanfire | Neanderthal Ice-Age survival. Totem spirits, Beast bonds, Shadow track. The book's exemplar skin. |
+| Iron & Ruin | Pulp sword-and-sorcery. Doom, Heroic Acts, bargain-magic. |
+| Time Odyssey | Brass-and-crystal chrononautics. Ingenuity pool, Anomaly crises, epoch graphing. |
+| Briar & Benedictine | Medieval sleuthing. Divine providence, Sin and penance, murder mystery. |
+| Rust & Domes | Noir-tinged Red Planet frontier. Heat track, psionics, red-dust grime. |
+| Candlelight Dungeons | Old-school dungeon crawl. Fatigue clock, spell backlash, torchlit terror, plus an optional Delvekit for stricter procedural exploration. |
+| Service Duct Blues | Lower-decks starship drama. Resourcefulness pool, Stress track, system saves. |
+| Whispers in the Fog | Weird 1920s horror. Personal Insanity tracks, fragile hope, occult terror. |
+| Free Traders of the Drift Marches | Starfreight drama. Ship Shares, Strain track, speculative cargo gambles. |
+| Twilight of the Northlands | Wanderer fantasy elegy. Hope and Dread, subtle rites, travel Fatigue. |
 
-Swap a few words and build your own skin in an afternoon.
-
-## Candlelight Fast Path
-
-If you want the repo's torchlit dungeon-crawl lane, start here:
-
-- Read `skins/candlelight_dungeons.md` for the base skin.
-- Add `skins/candlelight_delvekit.md` and `rules/appendices/candlelight_delvekit_quickref.md` when you want stricter exploration turns, keyed progression, hidden/player maps, and seeded site generation.
-- Use `uv run python tools/build_prompt.py --skin candlelight_dungeons --mode agent --out /tmp/candlelight_prompt.md` for an agent-ready prompt. The current manifest wiring includes the Delvekit sidecar automatically for Candlelight prompt builds.
-- Use `uv run python tools/delvekit_seed.py --seed 42 --size tiny --difficulty hard --out /tmp/delve.yaml` if you want a bounded dungeon prototype before play.
-- See `docs/candlelight_delvekit.md` for the full workflow and `examples/candlelight_delvekit/` for ready-to-read examples.
+Skins are optional: the core rules play perfectly well on their own. Swap a few words and build your own skin in an afternoon (`templates/skin_template.md`).
 
 ---
 
-## Quick start (campaign + agent)
+## Three ways to play
 
-Start here if you want a Codex CLI or Claude Code agent to run the game from this repo.
+### At the table
 
-1. **Install deps (recommended):**
-   ```bash
-   uv venv
-   uv sync
-   ```
+1. Read `rules/quickstart.md` (two pages), then the Adventurer's Manual and Custodian's Almanac in `rules/core/` as you need them.
+2. Pick a skin from `skins/`. Clanfire with the Emberfall starter scenario (`rules/scenarios/clanfire_emberfall.md`) is the gentlest first game.
+3. Hand the rules to the players; keep the skin and scenario notes behind your screen.
+4. Roll dice, burn Luck, tell messy stories.
+
+To print the book, see `docs/pdf_building.md`.
+
+### With an AI in chat
+
+Any capable chat model can be your Custodian; the book's AI chapters (`rules/book/ai_as_custodian.md` and `rules/appendices/ai_play.md`) explain how to get the best from one. Build a filled-in prompt and paste it in:
+
+```bash
+uv run python tools/build_prompt.py --skin clanfire --mode chat --out /tmp/chat_prompt.md
+```
+
+Chat prompts carry both complete core books, because a chat model cannot read this repository. (`--profile compact` builds a shorter prompt with only the Quickstart and the skin; it tells the model to ask for missing rules rather than invent them.) The template in `prompts/chat/starter_prompt.md` holds `{{...}}` placeholders, so do not paste it raw.
+
+For a secret scenario, the **Hidden Scenario Prompt** in `prompts/chat/` asks the model to write its notes in Chinese (see `prompts/chat/how_to_use_chinese_room.md`). That only guards against accidental spoilers: anyone with the chat can read or translate the notes.
+
+### With an AI agent in this repository
+
+Here a Codex CLI or Claude Code agent runs the game, and the tools keep the dice, campaign state and secrets honest.
+
+1. **Install dependencies** (see [Setup](#setup)).
 2. **List skins:** `uv run python tools/build_prompt.py --list-skins`
-3. **Create a campaign + character:**
+3. **Create a campaign and character:**
    ```bash
    uv run python tools/campaign_init.py --title "Scratch Demo" --skin clanfire --tone standard --random-character "Grak"
    ```
-   (The slug, `scratch_demo` here, is derived from the title; use your own title for a real campaign.)
+   The slug, `scratch_demo` here, comes from the title; use your own title for a real campaign.
 4. **Build the agent prompt:**
    ```bash
    uv run python tools/build_prompt.py --campaign scratch_demo --mode agent
    ```
-   (By default this strips PDF-only artwork tags from rules/skins to keep the prompt clean for LLM ingestion; use `--keep-art` if you want them included. For Candlelight Dungeons, the manifest currently pulls in the Delvekit sidecar automatically.)
-5. **Start play** using `campaigns/scratch_demo/prompt.md`, then track state with tools.
+   This strips PDF-only artwork tags to keep the prompt clean; `--keep-art` keeps them.
+5. **Play** from `campaigns/scratch_demo/prompt.md`. The agent resolves rolls and records state with `tools/play.py`.
 
-Canonical guide: `skills/agent_dm_handbook.md`
+The worked workflow is `docs/ai_play_harness.md`; `skills/agent_dm_handbook.md` is the agent's own guide, and `AGENTS.md` its operating rules.
 
-Starter scenario (Clanfire, “play tonight”):
-- `rules/scenarios/clanfire_emberfall.md`
-- `rules/scenarios/clanfire_emberfall_hidden.md` (prompt-ready module)
-
-### Resume fast (fresh context)
-
-If you’re resuming a campaign in a new agent context, rebuild the saved prompt and use the resume pack:
+**Resuming in a fresh context.** Any play action, checkpoint or advancement makes the saved prompt stale by design, so rebuild it first (with the same `--mode`, `--full` and `--hidden` options as before), then load the resume pack:
 
 ```bash
 uv run python tools/build_prompt.py --campaign <slug>
 uv run python tools/resume_pack.py --campaign <slug>
 ```
-Any play action, checkpoint or advancement makes the saved prompt stale by design, so
-rebuild it first with the same `--mode`, `--full` and `--hidden` options as before.
-`--character <character_slug>` filters the pack to one sheet; omit it for a party.
-Add `--public` for the player view: a fixed selection of character fields and the
-exact public checkpoint. Private clocks, logs, paths and memory are omitted.
 
-Or read: `skills/agent_bootstrap.md` for the shortest possible “get playing” path.
+`--character <character_slug>` filters the pack to one sheet; omit it for a party. Add `--public` for the player view: a fixed selection of character fields and the exact public checkpoint, with private clocks, logs, paths and memory omitted. `skills/agent_bootstrap.md` is the shortest "get playing" path.
 
-Example player directive (fresh Codex resume):
+Example player directive for a fresh agent:
 ```
-You’re resuming a Sinew & Steel campaign. Read only AGENTS.md and skills/agent_dm_handbook.md.
+You're resuming a Sinew & Steel campaign. Read only AGENTS.md and skills/agent_dm_handbook.md.
 Then run: uv run python tools/build_prompt.py --campaign <campaign_slug>
 and: uv run python tools/resume_pack.py --campaign <campaign_slug>
 Use that output for your internal context only (do not show memory/secrets/log to me).
 If you have any questions, ask now. If not, print ONLY the checkpoint text and continue play from there.
 ```
 
+### Candlelight fast path
+
+For the torchlit dungeon-crawl lane:
+
+- Read `skins/candlelight_dungeons.md` for the base skin.
+- Add `skins/candlelight_delvekit.md` and `rules/appendices/candlelight_delvekit_quickref.md` for stricter exploration turns, keyed progression, hidden and player maps, and seeded site generation.
+- `uv run python tools/build_prompt.py --skin candlelight_dungeons --mode agent --out /tmp/candlelight_prompt.md` builds an agent prompt; Candlelight prompts include the Delvekit automatically.
+- `uv run python tools/delvekit_seed.py --seed 42 --size tiny --difficulty hard --out /tmp/delve.yaml` generates a bounded dungeon prototype.
+- `docs/candlelight_delvekit.md` has the full workflow, and `examples/candlelight_delvekit/` has ready-to-read examples.
 
 ---
 
-## Quick start (table / chat play)
+## Setup
 
-1. **Read `rules/quickstart.md`.**  
-2. Pick or clone a skin from `/skins/`. If you choose Candlelight Dungeons and want the stricter dungeon procedure, also read `skins/candlelight_delvekit.md`.  
-3. Hand the rules page to players; keep the skin doc behind your screen.  
-4. (Optional) fill the **Starter Prompt** template in `/prompts/chat/` and paste the result into ChatGPT or another LLM. The template holds `{{...}}` placeholders, so do not paste it raw: `uv run python tools/build_prompt.py --skin clanfire --mode chat --full --out /tmp/chat_prompt.md` builds a filled prompt. `--full` embeds both core books, which a model that cannot read this repository needs for detailed rulings.
-5. (Optional) use the **Hidden Scenario Prompt** in `/prompts/chat/` to generate a secret scenario/module! 
-6. Roll dice, burn Luck, tell messy stories.
-
----
-
-## Local setup (recommended)
-
-The CLI tools are Python-based. For reproducible installs, use `uv`:
+The tools need Python 3.10 or later and PyYAML. For reproducible installs, use `uv`:
 
 ```bash
 uv venv
 uv sync
 ```
 
-Alternative (no uv):
+Without `uv`:
 
 ```bash
 python -m venv .venv
@@ -146,63 +144,33 @@ python -m venv .venv
 pip install pyyaml
 ```
 
----
-
-## Building PDFs
-
-If you want print-ready PDFs (for release packaging or home printing), see:
-
-- `docs/pdf_building.md`
-
-PDFs are rendered with pandoc + WeasyPrint; `tools/md_pdf.py` builds one-off files for layout checks.
+Check the repository with `uv run python tools/validate_repo.py`, and run the tests with `uv run python -m unittest discover -s tests -q`.
 
 ---
 
-## For AI game-masters
+## What's in the repository
 
-The repo’s `/prompts/chat/` folder contains:
-
-* A **starter prompt template** that loads the engine + chosen skin in one go; `tools/build_prompt.py --mode chat --full` fills its placeholders.
-* A **hidden scenario prompt** for secret GM notes (replace its `{{ SKIN NAME }}` placeholder by hand; see `prompts/chat/how_to_use_chinese_room.md`).
-
-No plugins needed for reasoning engines with tool use — `random.randint(1,20)` and short, punchy prose carry the night.
-
-Book appendix (AI play): `rules/appendices/ai_play.md`
-
-Practical harness workflow: `docs/ai_play_harness.md`
-
----
-
-## Agent harness (Codex / Claude Code / Jules-friendly)
-
-This repo includes an agent-focused harness to run sessions without API adapters:
-
-* **`AGENTS.md`** — operational rules for an AI agent running games.
-* **`skills/`** — small, reusable instruction files for common tasks (prompt build, editor notes, dice, state updates).
-* **`tools/`** — CLI helpers for assembling prompts, resolving rolls and campaign state, and recording sessions.
+* **`rules/`** — the book: Quickstart, core rules, starter scenario and AI chapters.
+* **`skins/`** — the ten setting overlays.
 * **`manifest.yaml`** — a machine-readable index of rules, skins, and prompts.
-* **`docs/ai_play_harness.md`** — practical workflow for AI Custodian campaigns using the repo harness.
-* **`docs/candlelight_delvekit.md`** and **`examples/candlelight_delvekit/`** — the Candlelight Delvekit lane for seeded dungeon generation, map rendering, and module-polish workflows.
+* **`AGENTS.md`** — operational rules for an AI agent running games.
+* **`skills/`** — short, reusable instructions for common agent tasks (prompt building, dice, state, recaps).
+* **`tools/`** — command-line helpers for prompts, rolls, campaign state and sessions (`tools/README.md` lists them).
+* **`docs/ai_play_harness.md`** — the practical workflow for AI Custodian campaigns.
+* **`examples/campaign_demo/`** — a worked example campaign (prompt, logs, memory, tracker).
 * **`state/`** — seed fixtures that show the sheet, tracker, and memory formats.
-* **`campaigns/`** — untracked per-campaign workspaces; live state, logs, and checkpoints are in `campaigns/<slug>/state/`.
-* **`skills/agent_dm_handbook.md`** — end-to-end guide for running sessions with the tools.
-* **`examples/campaign_demo/`** — a real example campaign scaffold (prompt, logs, memory, tracker).
+* **`campaigns/`** — your untracked campaign workspaces; live state, logs, and checkpoints are in `campaigns/<slug>/state/`.
+* **`docs/`** — the PDF build guide, the Delvekit guide, engine analyses and review records.
 
-Key utilities for play:
-* `tools/campaign_init.py` to scaffold a campaign workspace.
-* `tools/gen_character.py` to generate legal random characters.
-* `tools/recap.py` and `tools/session_log.py` to capture private memory and public logs.
-* `tools/play.py` to resolve tests and attacks, manage structured Pressure and resources, and save state with JSONL receipts. Use `--defer`, read the dice, then `settle` to choose a Luck nudge without rerolling.
-* `tools/advance.py` to award milestones and record spending against the creation snapshot.
-* `tools/playtest_summary.py` to summarize Luck, red-line windows, crises and roll choices from completed sessions.
-* `tools/new_session.py` to start the next session after `play.py session-close`.
-* `tools/recalc_sheet.py` to verify spending history and refresh derived metadata.
-* `tools/migrate_campaign.py` to preview an explicit, backed-up adoption of legacy state.
-* `tools/resume_pack.py` (or `--public`) for fast context resumes.
-* `tools/checkpoint.py` for ironman save-and-quit checkpoints.
-* `tools/doctor.py` to validate repo + campaign in one command.
-* `tools/ss.py` for a single entry point (`uv run python tools/ss.py play ...`).
-* `tools/delvekit_seed.py`, `tools/delvekit_map.py`, `tools/delvekit_pitch.py`, and `tools/delvekit_adventure.py` for Candlelight Delvekit site generation, map rendering, and polish workflows.
+The tools you will use most in play:
+
+* `tools/campaign_init.py` scaffolds a campaign; `tools/gen_character.py` and `tools/char_builder.py` add characters.
+* `tools/play.py` resolves checks, opposed tests and attacks, and records Pressure, resources, scenes and sessions with atomic receipts. `--defer`, then `settle`, lets a player choose a Luck nudge after seeing the dice without a reroll.
+* `tools/advance.py` awards milestones and records purchases against the creation snapshot.
+* `tools/recap.py` and `tools/session_log.py` capture private memory and the public log; `tools/checkpoint.py` saves the exact last Custodian reply for a clean resume.
+* `tools/resume_pack.py` (or `--public`) loads a campaign into a fresh context.
+* `tools/playtest_summary.py` summarises Luck, Pressure, crises and roll choices from completed sessions.
+* `tools/ss.py` is a single entry point (`uv run python tools/ss.py play ...`), and `tools/doctor.py` validates the repository and a campaign in one command.
 
 ---
 
@@ -210,16 +178,16 @@ Key utilities for play:
 
 Issues, forks, pull requests, new skins, typo fixes — all welcome. Keep additions:
 
-* **Lean.**  One new rule should replace three lines of “crunch”.  
-* **Setting-agnostic** in core; setting-specific rules live in `skins/`.  
-* **Plain Markdown** first; we’ll prettify later.
+* **Lean.** One new rule should replace three lines of "crunch".
+* **Setting-agnostic** in core; setting-specific rules live in `skins/`.
+* **Plain Markdown** first; we'll prettify later.
 
 ---
 
 ## License
 
-* Sinew & Steel core rules © 2025 Barry Brook
-* **Text & tables:** Creative Commons **CC-BY 4.0**  
+* Sinew & Steel core rules © 2025 Barry Brook
+* **Text & tables:** Creative Commons **CC-BY 4.0**
 * **Helper code snippets:** MIT
 
 See `NOTICE` and `LICENSES/` for details and scope.
@@ -228,7 +196,7 @@ Credit the project, hack it, sell adventures, translate it into Akkadian — jus
 
 ---
 
-> “Steel is honest; spells are treacherous. Dice are the coin we pay for either.”  
+> "Steel is honest; spells are treacherous. Dice are the coin we pay for either."
 > — *Design notes, margin scrawl*
 
 Happy carving.

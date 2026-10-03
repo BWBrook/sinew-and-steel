@@ -25,8 +25,9 @@ For multiple participants or dice, repeat `--adjust PAYER=SIDE:DELTA`, for examp
 of their absolute adjustments; opposite adjustments do not cancel the spending.
 
 In combat, an `attack` or an `opposed` test a combatant starts uses that
-combatant's action for the round; a plain `check` does not, so follow it with
-`play.py pass` when it was their action.
+combatant's action for the round. A plain `check` is a free reaction; add
+`--combat-action` when the check is their action, so it gets the same turn checks
+and uses the turn.
 
 With Twilight's optional Injury module, an attack can commit damage and return
 `pending` with `phase: deflection`. Read that saved die, then call `settle` again
@@ -42,7 +43,12 @@ without nudging. A returned `settlement_error` leaves the original dice pending
 for a valid settlement, never a reroll. When a skin's magic tier forbids nudges
 (Iron & Ruin's Wrack and Wyrd, Candlelight's Arcanum, Whispers' Incantation and
 Unspeakable, Twilight's Invocation and Reckoning), declare the roll with
-`--no-nudge`; `settle` then refuses any nudge to the caster's die.
+`--no-nudge`; `settle` then refuses any nudge to the caster's die and any nudge
+the caster pays for, though a resister may nudge their own die. Declare a cost due
+only on success (Candlelight's Greater Spell) with `--success-luck-cost N`: it is
+set aside, paid on success and kept on failure. `settle --fund beast_bond` (Clanfire)
+or `--fund companionship` (Twilight) pays the `--nudge` from that pool instead of
+Luck. A test a pending crisis demands uses `check --crisis-test`; it pays no toll.
 
 Use `--context` and `--defender-context` for relevant semantic conditions: fear,
 dread, ritual, clergy, repairs, melee, and so on as defined by the skin/manifest.

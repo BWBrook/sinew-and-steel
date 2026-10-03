@@ -44,7 +44,7 @@ def parser() -> tuple[argparse.ArgumentParser, argparse.ArgumentParser]:
         p.add_argument("--nudge", type=int, default=0, help="Signed change to a kept die; pay abs(N) Luck")
         p.add_argument("--nudge-target", choices=["attacker", "defender"], default="attacker")
         p.add_argument("--payer", help="Actor paying for the nudge (defaults to attacker)")
-        p.add_argument("--companionship", action="store_true", help="Use one Companionship token for a one-point nudge")
+        p.add_argument("--fund", help="Pay the --nudge from a nudge pool instead of Luck (companionship, beast_bond)")
         p.add_argument("--deflection-nudge", type=int, default=0)
 
     def action_costs(p):
@@ -64,8 +64,12 @@ def parser() -> tuple[argparse.ArgumentParser, argparse.ArgumentParser]:
         p.add_argument("--dis-source", action="append", default=[])
         p.add_argument("--failure-pressure", type=int, default=0)
         p.add_argument("--defer", action="store_true", help="Persist raw dice, then use settle after reading them")
-        p.add_argument("--no-nudge", action="store_true", help="The declared magic tier forbids nudging the actor's die (Wrack, Wyrd, Arcanum, Incantation, Unspeakable, Invocation, Reckoning)")
+        p.add_argument("--no-nudge", action="store_true", help="The declared magic tier cannot be nudged (Wrack, Wyrd, Arcanum, Incantation, Unspeakable, Invocation, Reckoning): no one moves the caster's die, and the caster pays for no nudge")
+        p.add_argument("--success-luck-cost", type=int, default=0, help="Luck the method costs only on success (Greater Spell); set aside now, paid if it succeeds")
         action_costs(p)
+        if name == "check":
+            p.add_argument("--crisis-test", action="store_true", help="A test the pending crisis demands; pays no toll or cost")
+            p.add_argument("--combat-action", action="store_true", help="This check is the combatant's action for the round")
         if name != "check":
             p.add_argument("--opponent", required=True, help="Sheet stem or npc:NAME")
             p.add_argument("--defender-attribute")
@@ -88,6 +92,7 @@ def parser() -> tuple[argparse.ArgumentParser, argparse.ArgumentParser]:
     group.add_argument("--gain", type=int)
     group.add_argument("--purge", type=int)
     group.add_argument("--crisis", action="store_true")
+    p.add_argument("--forced", action="store_true", help="With --crisis: a skin rule forces this crisis below 5 (failed Arcanum or Unspeakable)")
     p.add_argument("--source", required=True, help="Cause, or the adjudicated crisis consequence")
     p.add_argument("--category", choices=["action_cost", "failure", "ambient"], default="ambient")
     p.add_argument("--target", help="Crisis target, required when no individual tipped the track")
@@ -151,6 +156,8 @@ def parser() -> tuple[argparse.ArgumentParser, argparse.ArgumentParser]:
     p.add_argument("--reason", required=True)
     p = sub.add_parser("combat-end", help="Close a combat")
     p.add_argument("--reason", required=True)
+    p = sub.add_parser("retire", help="Take a dead or departed character out of play between sessions")
+    p.add_argument("--reason", required=True)
     sub.add_parser("status", help="Private structured campaign state (read only)")
     return global_parser, commands
 
@@ -165,7 +172,8 @@ def dispatch(args, campaign: dict, skin: dict, tracker: dict, sheets: dict) -> t
     if command in {"check", "opposed", "attack"}:
         actor = args.actor or _runtime.actor_key(args.character, sheets)
         keys = {"attribute", "method", "stakes", "opponent", "defender_attribute", "toll",
-                "luck_cost", "pressure_cost", "failure_pressure", "use_resource", "edge", "soak", "injury", "gritty", "undefended", "no_nudge"}
+                "luck_cost", "pressure_cost", "failure_pressure", "use_resource", "edge", "soak", "injury", "gritty", "undefended", "no_nudge",
+                "crisis_test", "combat_action", "success_luck_cost"}
         options = {key: getattr(args, key) for key in keys if hasattr(args, key)}
         options.update(contexts=args.context, adv_sources=args.adv_source, dis_sources=args.dis_source,
                        defender_contexts=getattr(args, "defender_context", []),
@@ -200,7 +208,7 @@ def dispatch(args, campaign: dict, skin: dict, tracker: dict, sheets: dict) -> t
                 raise ValueError(f"--adjust DELTA must be an integer: {item}") from exc
             adjustments.append((who, side, amount))
         return _play.finish_action(tracker, sheets, skin, nudge=args.nudge,
-            nudge_target=args.nudge_target, payer=args.payer, companionship=args.companionship,
+            nudge_target=args.nudge_target, payer=args.payer, fund=args.fund,
             deflection_nudge=args.deflection_nudge, seed=args.seed,
             adjustments=adjustments)
     _play.ensure_ready(tracker, allow_crisis=command in {"pressure", "effect-end", "luck", "stamina", "condition", "resource", "clock"})
@@ -208,9 +216,12 @@ def dispatch(args, campaign: dict, skin: dict, tracker: dict, sheets: dict) -> t
     if command == "pressure":
         if skin.get("pressure_scope") == "character" and actor is None:
             actor = _runtime.actor_key(None, sheets)
+        if args.forced and not args.crisis:
+            raise ValueError("--forced qualifies --crisis")
         if args.crisis:
             _, track = _pressure.track_for(tracker["pressure"], actor)
-            target = args.target or track["tipper"]
+            # A forced crisis falls on the character whose failed rite caused it.
+            target = args.target or track["tipper"] or (actor if args.forced else None)
             if not target:
                 raise ValueError("a shared hazard needs an explicit --target for its crisis")
             # The Custodian supplies table outcomes so recursive 'roll twice'
@@ -219,7 +230,8 @@ def dispatch(args, campaign: dict, skin: dict, tracker: dict, sheets: dict) -> t
                 raise ValueError("supply --table-result and the adjudicated --source before resetting")
             effects = [{"description": key, "duration": value} for key, value in pairs(args.effect).items()]
             events = _pressure.crisis(tracker["pressure"], skin, actors, target=target,
-                table_result=args.table_result, description=args.source, effects=effects, actor=actor)
+                table_result=args.table_result, description=args.source, effects=effects, actor=actor,
+                forced=args.forced)
         else:
             amount = args.gain if args.gain is not None else args.purge
             if amount is None or amount < 0:
@@ -332,10 +344,8 @@ def dispatch(args, campaign: dict, skin: dict, tracker: dict, sheets: dict) -> t
         event = _play.set_positions(tracker, sheets, pairs(args.position), next_round=command == "round")
     elif command == "pass":
         who = args.actor or actor or _runtime.actor_key(None, sheets)
-        combat = tracker.get("combat", {})
-        if not combat.get("active") or who not in combat["positions"] or who in combat["acted"]:
-            raise ValueError("combatant has no unused action in an active combat")
-        combat["acted"].append(who)
+        _play.combat_preflight(tracker, sheets, who)
+        tracker["combat"]["acted"].append(who)
         event = {"type": "combat_action", "actor": who, "reason": args.reason}
     elif command == "combat-end":
         if not tracker.get("combat", {}).get("active"):
@@ -358,6 +368,17 @@ def main(argv: list[str] | None = None) -> int:
     root = _sslib.repo_root()
     directory = _sslib.campaign_dir(args.campaign, root=root)
     request = vars(args).copy()
+    if args.command == "retire":
+        # A roster change between sessions: its own transaction, like adding a character.
+        try:
+            if not args.character:
+                raise ValueError("name the retiring character with --character")
+            result = _runtime.retire_character(directory, args.character, args.reason, dry_run=args.dry_run)
+        except (ValueError, KeyError, OSError) as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 1
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+        return 0
     try:
         # status writes nothing unless it must recover an interrupted transaction.
         readonly = args.dry_run or (args.command == "status"

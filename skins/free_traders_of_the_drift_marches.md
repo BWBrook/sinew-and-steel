@@ -91,7 +91,7 @@ Space-trader tension comes from logistics, debt, and bad odds. Clocks and a few 
 
 These are story-facing meters. Make them public if you want planning, hidden if you want suspense.
 
-- **Fuel Depletion (0/4):** tick +1 each jump; tick +2 on a misjump. At 4, you are dry: stranded until you refuel.
+- **Fuel Depletion (0/4):** tick +1 each jump, or +2 instead on a misjump. At 4, you are dry: stranded until you refuel.
 - **Hull Damage (0/6):** tick when the ship is hit or the drive strains. At 6, the drive is disabled: drift, board, or die.
 - **Debt (0/6):** tick when fees, bribes, or patron penalties land. Clear ticks when you get paid. At 6, repo attempt, impound, or creditor crisis.
 
@@ -107,7 +107,7 @@ One PC may cover more than one active role. An unaddressed hazard still has its 
 
 | Role | Test | On success | On failure |
 |---|--|---|------|
-| **Astrogator** | EDU | Clean emergence | Mark +1 Strain. On a natural 20, it is also a **misjump**: tick Fuel +2 and arrive somewhere wrong. |
+| **Astrogator** | EDU | Clean emergence | Mark +1 Strain. On a natural 20, it is also a **misjump**: tick Fuel +2 instead of +1 and arrive somewhere wrong. |
 | **Engineer** | EDU | No wear | Mark +1 Strain and tick Hull Damage +1 |
 | **Watch officer** | DEX or SOC | Early warning (the crew has Advantage on the first test of the next encounter) | Surprise encounter or red-tape delay |
 
@@ -216,7 +216,7 @@ Treat each ship as an NPC with:
 - **Turret edge** (+1, or +2 for a high-energy laser).
 
 Each round:
-1. Both pilots test DEX. The winner grants their gunner Advantage on the next attack test this round.
+1. Both pilots test DEX. The winner grants their gunner Advantage on the next attack test this round; on a tie or two failures, neither gunner gains it.
 2. Gunner tests DEX (attack) against the defending pilot's DEX (defence).
 3. On a hit, tick Hull Damage as for any hit: **1 + turret edge + 1 per full 5 points of margin - screens soak**, minimum 1.
 4. When a ship's Hull Damage clock fills, its drive is disabled: drift, board, or boom, as the fiction dictates.

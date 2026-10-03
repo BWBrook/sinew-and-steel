@@ -117,12 +117,25 @@ def main() -> int:
                         events = [{"type": "advancement", "actor": actor, "command": args.command,
                                    "entries": new_entries, "points_before": result["points_before"],
                                    "points_after": result["points_available"]}]
-                        if args.command == "award":
-                            luck_after = sheet["pools"]["luck"]["current"]
-                            events.append({"type": "luck", "actor": actor, "source": f"milestone:{args.id}",
-                                           "category": "recovery", "before": luck_before, "after": luck_after,
+                        luck_after = sheet["pools"]["luck"]["current"]
+                        # Every change to the pool is logged: the milestone refill, and the
+                        # extra token a Luck raise adds, so Luck always reconciles.
+                        if args.command == "award" or luck_after != luck_before:
+                            source = f"milestone:{args.id}" if args.command == "award" else f"advancement:{args.command}"
+                            events.append({"type": "luck", "actor": actor, "source": source,
+                                           "category": "recovery" if args.command == "award" else "advancement",
+                                           "before": luck_before, "after": luck_after,
                                            "requested": luck_after - luck_before, "amount": luck_after - luck_before,
                                            "maximum": sheet["pools"]["luck"]["max"]})
+                        if args.command == "award":
+                            # The harness cannot know whether a bonded beast is still with the
+                            # character, so it reminds the Custodian rather than refilling.
+                            reminders = [f"{d['name']} also refills at a milestone if the fiction allows: play.py "
+                                         f"--character {actor} resource --name {key} --recover --amount {d['max']} "
+                                         f"--source \"Milestone {args.id}\""
+                                         for key, d in skin.get("resources", {}).items() if d.get("refill") == "milestone"]
+                            if reminders:
+                                result["reminders"] = reminders
                         receipt = _runtime.commit_campaign(
                             directory, campaign, tracker, sheets, events, result,
                             request=request, event_id=event_id, dry_run=args.dry_run,

@@ -166,8 +166,9 @@ The two jobs pull against each other. Every token you spend now makes later Luck
 - After you see a roll, spend tokens to move the die 1 point per token, up or down.
 - Adjusted results stay within 1-20. A natural 1 or 20 is locked, and nudging a die to 1 or 20 does not make it natural.
 - In an opposed test, both dice are rolled and read before anyone spends. You may nudge either die, paying from your own pool.
+- When a skin says a roll cannot be nudged, no one may move that die, and its roller may not nudge the other die either; whoever resists may still nudge their own.
 - After a winning attack, you can spend tokens to deepen your margin: every full 5 points adds +1 damage.
-- You cannot spend tokens you do not have. If an ability has a mandatory token cost, set it aside before you nudge; a cost that applies only on success is paid only on success.
+- You cannot spend tokens you do not have. Set aside an ability's token cost before you nudge, including a cost due only on success; you keep that one if the roll fails.
 
 **Luck tests**
 
@@ -301,7 +302,7 @@ Pressure is the fuse: it rises with risk, blunders, bargains, and time. The whol
 - If a crisis falls on one character, it falls on the one whose action tipped the track, unless the fiction points elsewhere. When no single action tipped it, as with a group check or a shared hazard, the Custodian names the character the fiction points to.
 - If one action adds several points, add them together. Reaching or passing 5 causes one crisis, and the track resets to 0 with nothing carried over. If the skin’s own rule already triggers a crisis for that action, that is the same crisis, not a second one.
 - Penalties and extra costs from Pressure use its level at the start of the action. Pay each cost once, resolve the action, then resolve any crisis it caused. Separate costs for failing, and skin backlashes, still apply.
-- A skin's Pressure table lists an effect for each step, and the effects add up: everything at or below the current step applies while the track stays there. A one-test penalty, such as Disadvantage on your next test, fires once when the track first reaches or passes its step (a jump from 1 to 3 fires step 2's too), and fires again only after a crisis has reset the track. If the track falls below that step, discard any unused penalty from it. Tolls and extra costs from a step fall only on tests a character chooses to attempt, never on a defence roll.
+- A skin's Pressure table lists an effect for each step, and the effects add up: everything at or below the current step applies while the track stays there. A one-test penalty, such as Disadvantage on your next test, fires once when the track first reaches or passes its step (a jump from 1 to 3 fires step 2's too), and fires again only after a crisis has reset the track. If the track falls below that step, discard any unused penalty from it. Tolls and extra costs from a step fall only on tests a character chooses to attempt, never on a defence roll or a test a crisis demands.
 - The Custodian awards a milestone every 3-4 perilous beats (dangerous scenes you come through). Each milestone brings:
   - +2 build points, spent as at creation (for example, +1 to a score or a new tag),
   - a narrative boon (ally, relic, favour, scar, access), and

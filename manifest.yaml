@@ -33,6 +33,8 @@ skins:
         scope: character
         initial: 0
         max: 3
+        purpose: nudge
+        refill: milestone
     _gen:
       primary: MGT
       min_steps: 2

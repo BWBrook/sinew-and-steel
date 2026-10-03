@@ -233,6 +233,24 @@ class PlaytestSummaryTests(unittest.TestCase):
         incomplete = report["incomplete_observations"]["by_skin_and_party_size"][0]
         self.assertEqual((incomplete["sessions"], incomplete["crises"]), (1, 1))
 
+    def test_defence_dice_carry_no_method_and_crises_and_gains_are_split(self):
+        timeline = Timeline().start(pressure={"scope": "party", "tracks": {"party": {"current": 0}}})
+        timeline.add("pressure", 0, track="party", before=0, after=2, amount=2, category="action_cost", source="Arcanum")
+        timeline.roll("a", 0, "MGT", "spear", 0, 5)
+        timeline.roll("b", 0, "REF", None, 0, 1, role="defender", against="spear")
+        timeline.add("crisis", 0, track="party", target="a", table_result=[2], at_threshold=False, forced=True)
+        timeline.add("pressure", 0, track="party", before=2, after=0, category="crisis_reset", source="crisis:1")
+        timeline.add("pressure", 0, track="party", before=0, after=5, amount=7, category="ambient", source="storm")
+        timeline.add("crisis", 0, track="party", target="b", table_result=[1], at_threshold=True, forced=False)
+        report = summary.summarize_session(timeline.events)
+        b = report["characters"]["b"]
+        self.assertEqual((b["pc_rolls"], b["acting_rolls"], b["roll_share_by_method"]), (1, 0, {}))
+        self.assertEqual(report["roll_share_by_method"], {"spear": {"count": 1, "share": 1.0}})
+        self.assertEqual((report["threshold_crises"], report["forced_crises"]), (1, 1))
+        # Realised gains: the storm asked for 7 but the track stops at 5.
+        self.assertEqual(report["pressure_gains_by_source"], {"Arcanum": 2, "storm": 5})
+        self.assertEqual(report["pressure_gained"], 7)
+
     def test_midpoint_excludes_the_scene_after_the_midpoint_beat(self):
         # Three scenes: only the first is "by mid-session" (floor(3/2) = 1 beat).
         timeline = Timeline(party_size=1).start({"a": 5})

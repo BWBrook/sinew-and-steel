@@ -144,6 +144,19 @@ class CampaignContractTests(unittest.TestCase):
                     self.assertNotIn("PRIVATE_CANARY", result.stdout + result.stderr)
                     self.assertNotIn(str(path), result.stdout + result.stderr)
 
+    def test_chat_prompts_default_to_the_full_books(self):
+        def build(*extra):
+            output = io.StringIO()
+            argv = ["build_prompt.py", "--skin", "clanfire", "--mode", "chat", "--dry-run", "--json", *extra]
+            with patch.object(sys, "argv", argv), redirect_stdout(output):
+                self.assertEqual(build_prompt.main(), 0)
+            return json.loads(output.getvalue())
+        self.assertEqual(build()["profile"], "full")
+        self.assertEqual(build("--profile", "compact")["profile"], "compact")
+        compact, _ = build_prompt.assemble_prompt(self.manifest, "clanfire", mode="chat")
+        self.assertIn("do not invent a procedure", compact)
+        self.assertNotIn("tools/build_prompt.py --section", compact)
+
     def test_campaign_files_and_prompt_are_owner_only(self):
         with tempfile.TemporaryDirectory() as temp:
             path, files = self.scaffold(temp)

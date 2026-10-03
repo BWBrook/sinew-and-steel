@@ -20,6 +20,7 @@ import _pressure
 import _resources
 import _runtime
 import _sslib
+import advance
 import campaign_init
 import play
 import playtest_summary
@@ -35,6 +36,26 @@ def fixture(slug="free_traders_of_the_drift_marches", actors=("mara", "holo")):
                "pressure": _pressure.new_pressure(skin, list(actors)),
                "resources": _resources.new_resources(skin, list(actors)), "clocks": {}}
     return skin, sheets, tracker
+
+
+
+def campaign_with(folder, slug, names):
+    """A scaffolded campaign whose characters have every attribute at 10."""
+    directory = Path(folder) / "campaign"
+    campaign_init.write_scaffold(directory, campaign_init.build_scaffold(
+        _sslib.load_manifest(), skin_slug=slug, slug="campaign", title="Test"))
+    _, sheets, _ = fixture(slug, tuple(names))
+    for name in names:
+        _runtime.add_character(directory, name, sheets[name])
+    return directory
+
+
+def cli(test, directory, *args, expected=0):
+    output, error = io.StringIO(), io.StringIO()
+    with contextlib.redirect_stdout(output), contextlib.redirect_stderr(error):
+        status = play.main(["--campaign", str(directory), "--json", *args])
+    test.assertEqual(status, expected, error.getvalue())
+    return json.loads(output.getvalue()) if status == 0 else error.getvalue()
 
 
 class PlayRuntimeTests(unittest.TestCase):
@@ -369,6 +390,190 @@ class PlayRuntimeTests(unittest.TestCase):
             self.assertEqual(_sslib.resolve_character_file(characters, str(inside)), inside)
             with self.assertRaisesRegex(ValueError, "inside"):
                 _sslib.resolve_character_file(characters, str(outside))
+
+    def test_a_failed_rite_forces_one_crisis_below_five(self):
+        # Candlelight's Arcanum: +2 Fatigue upfront; a failed cast brings a crisis, never two.
+        skin, sheets, tracker = fixture("candlelight_dungeons", ("vex", "orla"))
+        pressure, actors = tracker["pressure"], list(sheets)
+        _pressure.change(pressure, skin, actors, amount=2, source="Arcanum", category="action_cost", actor="vex")
+        with self.assertRaisesRegex(ValueError, "needs --forced"):
+            _pressure.crisis(deepcopy(pressure), skin, actors, target="vex", table_result=[2], description="x")
+        record, reset = _pressure.crisis(pressure, skin, actors, target="vex", table_result=[2],
+                                         description="The ward collapses", forced=True)
+        self.assertEqual((record["forced"], record["at_threshold"], reset["before"], reset["after"]), (True, False, 2, 0))
+        _pressure.change(pressure, skin, actors, amount=3, source="delve", category="ambient")
+        _pressure.change(pressure, skin, actors, amount=2, source="Arcanum", category="action_cost", actor="vex")
+        record, _ = _pressure.crisis(pressure, skin, actors, target="vex", table_result=[3],
+                                     description="One crisis for both causes", forced=True)
+        self.assertTrue(record["at_threshold"])
+        self.assertEqual((len(pressure["crises"]), pressure["tracks"]["party"]["cycle"]), (2, 2))
+        # Whispers' Unspeakable resets only the caster's personal Insanity.
+        skin, sheets, tracker = fixture("whispers_in_the_fog", ("ada", "eli"))
+        pressure, actors = tracker["pressure"], list(sheets)
+        _pressure.change(pressure, skin, actors, amount=1, source="dread", category="ambient", actor="eli")
+        _pressure.change(pressure, skin, actors, amount=2, source="Unspeakable", category="action_cost", actor="ada")
+        _pressure.crisis(pressure, skin, actors, target="ada", table_result=[1], description="Break",
+                         actor="ada", forced=True)
+        self.assertEqual((pressure["tracks"]["ada"]["current"], pressure["tracks"]["eli"]["current"]), (0, 1))
+        with tempfile.TemporaryDirectory() as folder:
+            directory = campaign_with(folder, "candlelight_dungeons", ["vex"])
+            cli(self, directory, "--character", "vex", "pressure", "--gain", "2", "--category", "action_cost",
+                "--source", "Arcanum")
+            receipt = cli(self, directory, "--character", "vex", "pressure", "--crisis", "--forced",
+                          "--table-result", "2", "--source", "Failed Arcanum: the ward collapses")
+            crisis = next(event for event in receipt["events"] if event["type"] == "crisis")
+            self.assertEqual((crisis["target"], crisis["forced"]), ("vex", True))
+
+    def test_a_crisis_test_rolls_while_its_crisis_is_pending_and_pays_no_toll(self):
+        # Service Duct Blues result 4: "test SYS or lose a key system until repaired".
+        skin, sheets, tracker = fixture("service_duct_blues", ("kit", "sol"))
+        _pressure.change(tracker["pressure"], skin, list(sheets), amount=5, source="reactor", category="ambient", actor="kit")
+        options = dict(kind="check", actor="kit", attribute="SYS", method="patch the scrubbers", stakes="lose a key system")
+        with self.assertRaisesRegex(ValueError, "pending crisis"):
+            _play.prepare_action(deepcopy(tracker), deepcopy(sheets), skin, **options)
+        with self.assertRaisesRegex(ValueError, "pays no costs"):
+            _play.prepare_action(deepcopy(tracker), deepcopy(sheets), skin, **options, crisis_test=True, toll="luck")
+        luck = sheets["kit"]["pools"]["luck"]["current"]
+        with patch.object(_dice, "roll_d20", side_effect=[4, 6]):
+            _play.prepare_action(tracker, sheets, skin, **options, crisis_test=True)
+            _, events = _play.finish_action(tracker, sheets, skin)
+        self.assertEqual((sheets["kit"]["pools"]["luck"]["current"], tracker["pressure"]["tracks"]["party"]["current"]), (luck, 5))
+        self.assertTrue(next(event for event in events if event["type"] == "roll")["crisis_test"])
+        _pressure.crisis(tracker["pressure"], skin, list(sheets), target="kit", table_result=[4],
+                         description="Nanite alarm: SYS held; no system lost")
+        with self.assertRaisesRegex(ValueError, "needs a pending crisis"):
+            _play.prepare_action(tracker, sheets, skin, **options, crisis_test=True)
+
+    def test_beast_bond_beads_pay_for_a_nudge_instead_of_luck(self):
+        skin, sheets, tracker = fixture("clanfire", ("grak", "tarra"))
+        tracker["resources"]["characters"]["grak"]["beast_bond"]["current"] = 3
+        sheets["grak"]["pools"]["luck"]["current"] = 0
+        with patch.object(_dice, "roll_d20", side_effect=[12]):
+            _play.prepare_action(tracker, sheets, skin, kind="check", actor="grak", attribute="MGT",
+                method="the wolf drags the elk down", stakes="lose the herd")
+        with self.assertRaisesRegex(ValueError, "cannot pay for a nudge"):
+            _play.finish_action(deepcopy(tracker), deepcopy(sheets), skin, nudge=-2, fund="totem_mark")
+        result, events = _play.finish_action(tracker, sheets, skin, nudge=-2, fund="Beast Bond")
+        self.assertTrue(result["success"])
+        self.assertEqual((result["checks"]["attacker"]["result"],
+                          tracker["resources"]["characters"]["grak"]["beast_bond"]["current"],
+                          sheets["grak"]["pools"]["luck"]["current"]), (10, 1, 0))
+        roll = next(event for event in events if event["type"] == "roll")
+        self.assertEqual(roll["nudges"], [{"payer": "grak", "delta": -2, "funding": "beast_bond"}])
+
+    def test_advancement_logs_every_luck_change_and_reminds_about_beast_beads(self):
+        with tempfile.TemporaryDirectory() as folder:
+            directory = campaign_with(folder, "clanfire", ["grak", "tarra"])
+            def call(*args):
+                output = io.StringIO()
+                argv = ["advance.py", "--campaign", str(directory), "--character", "grak", "--json", *args]
+                with patch.object(sys, "argv", argv), contextlib.redirect_stdout(output):
+                    self.assertEqual(advance.main(), 0, output.getvalue())
+                return json.loads(output.getvalue())
+            awarded = call("award", "--id", "hunt", "--boon", "Wolf pup")
+            self.assertIn("--name beast_bond --recover --amount 3", " ".join(awarded["result"]["reminders"]))
+            raised = call("raise", "--stat", "INS")
+            self.assertEqual([(event["source"], event["amount"]) for event in raised["events"] if event["type"] == "luck"],
+                             [("advancement:raise", 1)])
+            call("award", "--id", "camp", "--boon", "A safe cave")
+            other = call("raise", "--stat", "MGT")
+            self.assertFalse([event for event in other["events"] if event["type"] == "luck"])
+
+    def test_a_check_declared_as_a_combat_action_uses_the_turn_and_its_guards(self):
+        skin, sheets, tracker = fixture()
+        _play.start_combat(tracker, sheets, {"crew": ["mara"], "foes": ["holo"]}, ["crew", "foes"])
+        options = dict(kind="check", attribute="EDU", method="reroute power", stakes="lose the shields")
+        with self.assertRaisesRegex(ValueError, "earlier side"):
+            _play.prepare_action(deepcopy(tracker), deepcopy(sheets), skin, actor="holo", **options, combat_action=True)
+        with patch.object(_dice, "roll_d20", side_effect=[3, 4]):
+            _play.prepare_action(tracker, sheets, skin, actor="mara", **options)
+            _play.finish_action(tracker, sheets, skin)
+            self.assertEqual(tracker["combat"]["acted"], [])  # a plain check is a free reaction
+            _play.prepare_action(tracker, sheets, skin, actor="mara", **options, combat_action=True)
+            _play.finish_action(tracker, sheets, skin)
+        self.assertEqual(tracker["combat"]["acted"], ["mara"])
+        with self.assertRaisesRegex(ValueError, "already acted"):
+            _play.prepare_action(deepcopy(tracker), deepcopy(sheets), skin, actor="mara", **options, combat_action=True)
+        sheets["holo"]["pools"]["stamina"]["current"] = 0
+        with self.assertRaisesRegex(ValueError, "zero Stamina"):
+            _play.combat_preflight(tracker, sheets, "holo")
+        with tempfile.TemporaryDirectory() as folder:
+            directory = campaign_with(folder, "clanfire", ["grak", "tarra"])
+            cli(self, directory, "npc", "--id", "wolf", "--stat", "MGT=10", "--stamina", "3")
+            cli(self, directory, "combat-start", "--side", "clan=grak,tarra", "--side", "pack=npc:wolf", "--order", "clan,pack")
+            self.assertIn("earlier side", cli(self, directory, "pass", "--actor", "npc:wolf", "--reason", "x", expected=1))
+
+    def test_the_caster_of_an_unnudgeable_roll_cannot_buy_down_the_resister(self):
+        skin, sheets, tracker = fixture()
+        with patch.object(_dice, "roll_d20", side_effect=[8, 9]):
+            _play.prepare_action(tracker, sheets, skin, kind="opposed", actor="mara", attribute="EDU",
+                opponent="holo", defender_attribute="SOC", method="Wyrd", stakes="a city forgets", no_nudge=True)
+        for payer, side in (("mara", "defender"), ("holo", "attacker")):
+            with self.assertRaisesRegex(ValueError, "no-nudge"):
+                _play.finish_action(deepcopy(tracker), deepcopy(sheets), skin, nudge=2, nudge_target=side, payer=payer)
+        result, _ = _play.finish_action(tracker, sheets, skin, nudge=-1, nudge_target="defender", payer="holo")
+        self.assertEqual((result["checks"]["defender"]["result"], result["outcome"]["winner"]), (8, "defender"))
+
+    def test_a_success_only_luck_cost_is_set_aside_then_paid_or_released(self):
+        # Candlelight's Greater Spell costs 1 Fortune coin only if it succeeds.
+        skin, sheets, tracker = fixture("candlelight_dungeons", ("vex", "orla"))
+        sheets["vex"]["pools"]["luck"]["current"] = 1
+        options = dict(kind="check", actor="vex", attribute="LOR", method="Greater Spell", stakes="the ward fails")
+        with self.assertRaisesRegex(ValueError, "set aside"):
+            _play.prepare_action(deepcopy(tracker), deepcopy(sheets), skin, **options, success_luck_cost=2)
+        with patch.object(_dice, "roll_d20", side_effect=[11]):
+            _play.prepare_action(tracker, sheets, skin, **options, success_luck_cost=1)
+        with self.assertRaisesRegex(ValueError, "set aside"):
+            _play.finish_action(deepcopy(tracker), deepcopy(sheets), skin, nudge=-1)
+        result, _ = _play.finish_action(tracker, sheets, skin)
+        self.assertFalse(result["success"])
+        self.assertEqual(sheets["vex"]["pools"]["luck"]["current"], 1)  # released on failure
+        with patch.object(_dice, "roll_d20", side_effect=[7]):
+            _play.prepare_action(tracker, sheets, skin, **options, success_luck_cost=1)
+        result, events = _play.finish_action(tracker, sheets, skin)
+        self.assertTrue(result["success"])
+        self.assertEqual(sheets["vex"]["pools"]["luck"]["current"], 0)  # paid once on success
+        self.assertIn("Greater Spell (success cost)", [event.get("source") for event in events if event["type"] == "luck"])
+
+    def test_readers_wait_for_a_writer_to_finish(self):
+        import fcntl
+        import threading
+        with tempfile.TemporaryDirectory() as folder:
+            directory = campaign_with(folder, "clanfire", ["grak", "tarra"])
+            lock = directory / "state/.runtime.lock"
+            self.assertTrue(lock.exists())
+            entered = threading.Event()
+            def reader():
+                with _runtime.campaign_snapshot(directory):
+                    entered.set()
+            with lock.open("a") as handle:
+                fcntl.flock(handle, fcntl.LOCK_EX)
+                thread = threading.Thread(target=reader)
+                thread.start()
+                self.assertFalse(entered.wait(0.2))
+                fcntl.flock(handle, fcntl.LOCK_UN)
+            thread.join(2)
+            self.assertTrue(entered.is_set())
+
+    def test_a_character_retires_between_sessions_and_leaves_the_roster(self):
+        with tempfile.TemporaryDirectory() as folder:
+            directory = campaign_with(folder, "twilight_of_the_northlands", ["ana", "bo", "cy"])
+            cli(self, directory, "--character", "ana", "resource", "--name", "companionship",
+                "--purpose", "nudge", "--source", "shared resolve")
+            self.assertIn("close the current session",
+                          cli(self, directory, "--character", "cy", "retire", "--reason", "fell at the ford", expected=1))
+            cli(self, directory, "session-close", "--label", "end")
+            retired = cli(self, directory, "--character", "cy", "retire", "--reason", "fell at the ford")
+            self.assertEqual(retired["roster"], ["ana", "bo"])
+            self.assertFalse((directory / "state/characters/cy.yaml").exists())
+            kept = _sslib.load_yaml(directory / "state/characters/retired/cy.yaml")
+            self.assertEqual(kept["retired"], {"reason": "fell at the ford", "session": 1})
+            state = _sslib.load_yaml(directory / "state/trackers/session.yaml")
+            pool = state["resources"]["party"]["companionship"]
+            self.assertEqual((pool["current"], pool["max"]), (2, 2))
+            self.assertNotIn("cy", state["resources"]["characters"])
+            start = cli(self, directory, "session", "--label", "after the ford")["events"][0]
+            self.assertEqual(start["party_size"], 2)
 
     def test_cli_deferred_settlement_is_deterministic_retryable_and_logged(self):
         with tempfile.TemporaryDirectory() as folder:

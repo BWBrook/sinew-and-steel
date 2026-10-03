@@ -165,10 +165,12 @@ def modifiers(pressure: dict, skin: dict, actor: str, attribute: str | None,
 
 def crisis(pressure: dict, skin: dict, actors: list[str], *, target: str,
            table_result: list[int], description: str, effects: list[dict] | None = None,
-           actor: str | None = None) -> list[dict]:
+           actor: str | None = None, forced: bool = False) -> list[dict]:
+    """Record a crisis and reset its track. A skin rule may force one below 5
+    (a failed Arcanum or Unspeakable rite); at 5 it is the same single crisis."""
     key, track = track_for(pressure, actor)
-    if not track["crisis_pending"]:
-        raise ValueError("this track has no pending crisis")
+    if not track["crisis_pending"] and not forced:
+        raise ValueError("this track has no pending crisis; a skin rule that forces one needs --forced")
     if target not in actors or (pressure["scope"] == "character" and target != key):
         raise ValueError("crisis target must be an affected campaign character")
     if not description.strip():
@@ -186,6 +188,7 @@ def crisis(pressure: dict, skin: dict, actors: list[str], *, target: str,
         effect.update(id=f"crisis-{index}-{i + 1}", crisis=index, active=True)
     record = {"type": "crisis", "id": index, "track": key, "cycle": track["cycle"],
               "target": target, "tipper": track["tipper"], "table_result": table_result,
+              "at_threshold": track["crisis_pending"], "forced": forced,
               "description": description, "effects": deepcopy(effects)}
     pressure["crises"].append(deepcopy(record))
     pressure["effects"].extend(effects)

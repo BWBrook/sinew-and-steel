@@ -1,6 +1,6 @@
 # Agent Harness Instructions (Sinew & Steel)
 
-This repo is structured for AI coding agents (Codex CLI, Claude Code, Jules) to run RPG sessions.
+This repo is structured for AI coding agents (Codex CLI, Claude Code) to run RPG sessions.
 Use the files and tools below to keep play consistent, reproducible, and private.
 
 ## Sources of truth
@@ -21,8 +21,8 @@ Use the files and tools below to keep play consistent, reproducible, and private
 - Choose intent, method and stakes before rolling. Use play.py --defer and then settle for an informed Luck choice; never reroll a pending action. Reuse --event-id when retrying a command.
 - Pressure is structured campaign state, personal in Whispers and shared elsewhere. Record the crisis target and consequence before its atomic reset; keep lasting crisis effects separate.
 - Record narrative beats with play.py beat (and --perilous where appropriate); individual rolls are not beats. Close completed sessions with play.py session-close before starting another.
-- Create characters with tools/campaign_init.py --random-character, tools/char_builder.py --campaign, or tools/gen_character.py --campaign, before the first logged action or between session-close and the next session. templates/character_sheet.yaml is for standalone --file sheets only.
-- In combat, an attack or an opposed test uses that combatant's action for the round; record other turns with play.py pass. The earlier side in initiative order acts or passes first.
+- Create characters with tools/campaign_init.py --random-character, tools/char_builder.py --campaign, or tools/gen_character.py --campaign, before the first logged action or between session-close and the next session; a dead or departed character leaves in the same window with play.py retire. templates/character_sheet.yaml is for standalone --file sheets only.
+- In combat, an attack, an opposed test, or a check declared with --combat-action uses that combatant's action for the round; record turns without a roll with play.py pass. The earlier side in initiative order acts or passes first.
 - Any play action, checkpoint or advancement makes the saved prompt stale by design. For fast resumes, rebuild it with tools/build_prompt.py (same --mode, --full and --hidden options), then use tools/resume_pack.py, or follow skills/agent_bootstrap.md.
 - The play commands record mechanics in per-session JSONL logs. Record their fictional consequences in the campaign's state/memory/ (tools/recap.py) and public log (tools/session_log.py) too.
 - After each GM response, save the *exact* text to the campaign checkpoint (tools/checkpoint.py) so the session can be resumed from a fresh context window.

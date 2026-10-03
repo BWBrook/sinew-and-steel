@@ -68,6 +68,31 @@ def pay_costs(actor: str, sheet: dict, tracker: dict, skin: dict, sheets: dict,
     return events
 
 
+def combat_preflight(tracker: dict, sheets: dict, actor: str) -> None:
+    """Refuse an action from a combatant who may not act now."""
+    combat = tracker.get("combat", {})
+    if not combat.get("active") or actor not in combat["positions"]:
+        raise ValueError(f"{actor} is not in an active combat")
+    if actor in combat["acted"]:
+        raise ValueError("this combatant has already acted this round")
+    if entity(actor, sheets, tracker)["pools"]["stamina"]["current"] <= 0:
+        raise ValueError("a combatant at zero Stamina cannot act")
+    # Lower-priority sides wait for every able member of earlier sides.
+    side = next(s for s, members in combat["sides"].items() if actor in members)
+    for earlier in combat["order"][:combat["order"].index(side)]:
+        waiting = [member for member in combat["sides"][earlier]
+                   if member not in combat["acted"] and entity(member, sheets, tracker)["pools"]["stamina"]["current"] > 0]
+        if waiting:
+            raise ValueError(f"earlier side still has actions: {', '.join(waiting)}")
+
+
+def uses_turn(combat: dict, kind: str, actor: str, combat_action: bool = False) -> bool:
+    # An attack, an opposed test a combatant starts (intimidate, disarm, shove), or a
+    # check declared as the combatant's action is that combatant's action for the round.
+    return bool(combat.get("active")) and (kind == "attack" or combat_action or (
+        kind == "opposed" and actor in combat["positions"]))
+
+
 def _stance_sources(tracker: dict, actor: str, sheet: dict, role: str,
                     contexts: list[str]) -> tuple[list[str], list[str]]:
     adv, dis = [], []
@@ -100,12 +125,29 @@ def prepare_action(tracker: dict, sheets: dict, skin: dict, *, kind: str,
                    failure_pressure: int = 0, use_resource: str | None = None,
                    edge: int = 0, soak: int = 0, injury: bool = False,
                    gritty: bool = False, undefended: bool = False,
-                   no_nudge: bool = False) -> tuple[dict, list[dict]]:
-    ensure_ready(tracker)
+                   no_nudge: bool = False, crisis_test: bool = False,
+                   combat_action: bool = False, success_luck_cost: int = 0) -> tuple[dict, list[dict]]:
+    ensure_ready(tracker, allow_crisis=crisis_test)
     if kind not in {"check", "opposed", "attack"} or not method.strip() or not stakes.strip():
         raise ValueError("tests require their method and declared stakes")
     if failure_pressure < 0:
         raise ValueError("failure Pressure must be nonnegative")
+    if type(success_luck_cost) is not int or success_luck_cost < 0:
+        raise ValueError("a success-only Luck cost must be a nonnegative integer")
+    if crisis_test:
+        # A test the crisis itself demands (Service Duct Blues' nanite alarm) is not
+        # a chosen attempt: it pays no toll or cost, though step penalties apply.
+        if kind != "check":
+            raise ValueError("a crisis test is a single check")
+        if not any(track["crisis_pending"] for track in tracker["pressure"]["tracks"].values()):
+            raise ValueError("--crisis-test needs a pending crisis")
+        if toll or luck_cost or pressure_cost or failure_pressure or use_resource or success_luck_cost:
+            raise ValueError("a crisis test pays no costs")
+    if combat_action:
+        if kind != "check":
+            raise ValueError("attacks and opposed tests already use the combatant's action")
+        if not tracker.get("combat", {}).get("active"):
+            raise ValueError("--combat-action needs an active combat")
     if injury and skin.get("luck_key") != "HOP":
         raise ValueError("the optional Injury module belongs to Twilight")
     # Edge may exceed +2 (a boon or stunt on a brutal weapon); skins that cap it say so.
@@ -149,24 +191,8 @@ def prepare_action(tracker: dict, sheets: dict, skin: dict, *, kind: str,
         target_mods = _pressure.modifiers(tracker["pressure"], skin, opponent, defender_attribute,
                                           d_contexts, consume=False)
         snapshots["attacker"]["advantage_sources"] += target_mods["incoming_advantage_sources"]
-    combat = tracker.get("combat", {})
-    # An attack, or an opposed test a combatant starts (intimidate, disarm, shove),
-    # is that combatant's action for the round.
-    uses_turn = combat.get("active") and (kind == "attack" or (kind == "opposed" and actor in combat["positions"]))
-    if uses_turn:
-        if actor not in combat["positions"]:
-            raise ValueError("attacker is not in this combat")
-        if actor in combat.get("acted", []):
-            raise ValueError("this combatant has already acted this round")
-        if a_sheet["pools"]["stamina"]["current"] <= 0:
-            raise ValueError("a combatant at zero Stamina cannot act")
-        # Lower-priority sides wait for every able member of earlier sides.
-        side = next(s for s, members in combat["sides"].items() if actor in members)
-        for earlier in combat["order"][:combat["order"].index(side)]:
-            waiting = [member for member in combat["sides"][earlier]
-                       if member not in combat["acted"] and entity(member, sheets, tracker)["pools"]["stamina"]["current"] > 0]
-            if waiting:
-                raise ValueError(f"earlier side still has actions: {', '.join(waiting)}")
+    if uses_turn(tracker.get("combat", {}), kind, actor, combat_action):
+        combat_preflight(tracker, sheets, actor)
     pressure_snapshot = deepcopy(tracker["pressure"])
     events = []
     # Take all modifiers at action start, before anyone pays an upfront cost.
@@ -174,9 +200,12 @@ def prepare_action(tracker: dict, sheets: dict, skin: dict, *, kind: str,
         if who in sheets:
             _pressure.modifiers(tracker["pressure"], skin, who, key, context, consume=True)
     # Only the side attempting the test pays; defence never pays tolls or step costs.
-    events += pay_costs(actor, a_sheet, tracker, skin, sheets, snapshots["attacker"]["modifiers"],
+    charged = {**snapshots["attacker"]["modifiers"], "costs": []} if crisis_test else snapshots["attacker"]["modifiers"]
+    events += pay_costs(actor, a_sheet, tracker, skin, sheets, charged,
                         toll=toll, luck=luck_cost, pressure=pressure_cost,
                         source=method, use_resource=use_resource)
+    if success_luck_cost > a_sheet["pools"]["luck"]["current"]:
+        raise ValueError("not enough Luck to set aside the success-only cost")
     targets = {role: _stat(sheet, skin, key) for role, _, sheet, key, _, _, _, _ in sides}
     checks = {}
     for role, who, sheet, key, context, _, _, _ in sides:
@@ -189,14 +218,33 @@ def prepare_action(tracker: dict, sheets: dict, skin: dict, *, kind: str,
               "stakes": stakes, "checks": checks, "sides": snapshots,
               "failure_pressure": failure_pressure, "edge": edge, "soak": soak,
               "injury": injury, "gritty": gritty, "undefended": undefended, "no_nudge": no_nudge,
-              "pressure_snapshot": pressure_snapshot}
+              "crisis_test": crisis_test, "combat_action": combat_action,
+              "reserved_luck": success_luck_cost, "pressure_snapshot": pressure_snapshot}
     tracker["pending_action"] = deepcopy(action)
     return action, events
 
 
+def _fund_nudge(tracker: dict, sheets: dict, skin: dict, fund: str, payer: str,
+                amount: int, source: str) -> list[dict]:
+    """Pay a nudge from a pool the skin reserves for nudges (Companionship, Beast Bond)."""
+    definition = skin.get("resources", {}).get(fund, {})
+    if definition.get("kind") != "pool" or definition.get("purpose") != "nudge":
+        raise ValueError(f"{fund} cannot pay for a nudge")
+    if payer not in sheets:
+        raise ValueError(f"{fund} pays only for a character's nudge")
+    tracker["resources"], event = _resources.use_resource(
+        tracker["resources"], skin, fund, payer, amount, purpose="nudge")
+    events = [{"type": "resource", **event, "source": source}]
+    if event.get("pressure_gain"):
+        events += _pressure.change(tracker["pressure"], skin, list(sheets),
+                  amount=event["pressure_gain"], source=event["pressure_source"],
+                  category="action_cost", actor=payer)
+    return events
+
+
 def finish_action(tracker: dict, sheets: dict, skin: dict, *, nudge: int = 0,
                   nudge_target: str = "attacker", payer: str | None = None,
-                  companionship: bool = False, deflection_nudge: int = 0,
+                  fund: str | None = None, deflection_nudge: int = 0,
                   seed: int | None = None,
                   adjustments: list[tuple[str, str, int]] | None = None) -> tuple[dict, list[dict]]:
     stored = tracker.get("pending_action")
@@ -205,7 +253,7 @@ def finish_action(tracker: dict, sheets: dict, skin: dict, *, nudge: int = 0,
     if stored.get("phase") == "deflection":
         if adjustments or nudge or (payer and payer != stored["target"]):
             raise ValueError("settle Deflection with --deflection-nudge; its defender pays")
-        return finish_deflection(tracker, sheets, skin, nudge=deflection_nudge, companionship=companionship)
+        return finish_deflection(tracker, sheets, skin, nudge=deflection_nudge, fund=fund)
     if deflection_nudge:
         raise ValueError("read the persisted Deflection dice before choosing --deflection-nudge")
     action = deepcopy(stored)
@@ -213,17 +261,19 @@ def finish_action(tracker: dict, sheets: dict, skin: dict, *, nudge: int = 0,
     events = []
     luck_spent: dict[str, int] = {}
     nudges = [(who, side, delta, False) for who, side, delta in (adjustments or [])]
+    if fund:
+        fund = _resources.resolve_id(skin, fund)
     if nudge:
         payer = payer or action["actor"]
-        if companionship and (abs(nudge) != 1 or payer not in sheets):
-            raise ValueError("Companionship supplies one point of nudge to a PC")
-        nudges.append((payer, nudge_target, nudge, companionship))
-    elif companionship:
-        raise ValueError("Companionship requires a one-point nudge")
+        nudges.append((payer, nudge_target, nudge, fund))
+    elif fund:
+        raise ValueError("--fund pays for the --nudge")
     deltas: dict[str, int] = {}
-    for who, side, delta, shared in nudges:
-        if side == "attacker" and action.get("no_nudge"):
-            raise ValueError("this roll was declared --no-nudge (top-tier magic); settle it without nudging the caster's die")
+    for who, side, delta, funded in nudges:
+        # Unnudgeable magic: no one moves the caster's die, and the caster may not
+        # spend on the opposing die either; a resister may still nudge their own.
+        if action.get("no_nudge") and (side == "attacker" or who == action["actor"]):
+            raise ValueError("this roll was declared --no-nudge (top-tier magic): no one may nudge the caster's die, and the caster may not nudge either die")
         if side not in checks:
             raise ValueError("cannot nudge a side that did not roll")
         if who not in {action["actor"], action["opponent"]}:
@@ -232,24 +282,20 @@ def finish_action(tracker: dict, sheets: dict, skin: dict, *, nudge: int = 0,
         # even when opposing adjustments would add to zero.
         _dice.apply_nudge_to_check(checks[side], delta)
         deltas[side] = deltas.get(side, 0) + delta
-        if not shared:
+        if not funded:
             luck_spent[who] = luck_spent.get(who, 0) + abs(delta)
     for side, delta in deltas.items():
         checks[side] = _dice.apply_nudge_to_check(checks[side], delta)
     # Validate each payer's complete cost and the optional token before changing
     # any pool. Each entry costs its absolute delta; opposing spends do not net.
+    reserved = action.get("reserved_luck", 0)
+    if reserved and luck_spent.get(action["actor"], 0) > entity(action["actor"], sheets, tracker)["pools"]["luck"]["current"] - reserved:
+        raise ValueError(f"{reserved} Luck is set aside for the success-only cost and cannot fund a nudge")
     payments = [_runtime.luck_change(deepcopy(entity(who, sheets, tracker)), -amount,
                 actor=who, source="nudge", category="nudge")
                 for who, amount in luck_spent.items() if amount]
-    if companionship:
-        resources, event = _resources.use_resource(
-            tracker["resources"], skin, "companionship", payer, purpose="nudge")
-        tracker["resources"] = resources
-        events.append({"type": "resource", **event, "source": "nudge"})
-        if event.get("pressure_gain"):
-            events += _pressure.change(tracker["pressure"], skin, list(sheets),
-                      amount=event["pressure_gain"], source=event["pressure_source"],
-                      category="action_cost", actor=payer)
+    if fund:
+        events += _fund_nudge(tracker, sheets, skin, fund, payer, abs(nudge), "nudge")
     for event in payments:
         entity(event["actor"], sheets, tracker)["pools"]["luck"]["current"] = event["after"]
         events.append(event)
@@ -259,19 +305,26 @@ def finish_action(tracker: dict, sheets: dict, skin: dict, *, nudge: int = 0,
     else:
         success = checks["attacker"]["success"]
         outcome = {"winner": "attacker" if success else "defender", "reason": "single_check"}
+    if success and reserved:
+        events.append(_runtime.luck_change(entity(action["actor"], sheets, tracker), -reserved,
+                      actor=action["actor"], source=f"{action['method']} (success cost)", category="action_cost"))
     for role, check in checks.items():
         side = action["sides"][role]
         who = side["actor"]
+        # A defender's die records what it resisted, not the attacker's method as its own.
         events.append({"type": "roll", "actor": who, "role": role,
-                       "attribute": side["attribute"], "method": action["method"],
+                       "attribute": side["attribute"],
+                       "method": action["method"] if role == "attacker" else None,
+                       "against": action["method"] if role == "defender" else None,
+                       "crisis_test": action.get("crisis_test", False),
+                       "reserved_luck": reserved if role == "attacker" else 0,
                        "stakes": action["stakes"], "target": check["stat"],
                        "advantage_sources": side["advantage_sources"],
                        "disadvantage_sources": side["disadvantage_sources"],
                        "contexts": side["contexts"], "pressure_at_start": side["modifiers"]["level"],
                        "pending_consumed": side["modifiers"]["pending_consumed"],
-                       "nudges": [{"payer": payer_key, "delta": delta,
-                                   "funding": "companionship" if shared else "luck"}
-                                  for payer_key, target_side, delta, shared in nudges if target_side == role],
+                       "nudges": [{"payer": payer_key, "delta": delta, "funding": funded or "luck"}
+                                  for payer_key, target_side, delta, funded in nudges if target_side == role],
                        "luck_spent": luck_spent.get(who, 0),
                        "luck_current": entity(who, sheets, tracker)["pools"]["luck"]["current"],
                        "check": check, "outcome": outcome, "seed": action.get("seed")})
@@ -308,8 +361,7 @@ def finish_action(tracker: dict, sheets: dict, skin: dict, *, nudge: int = 0,
         events += _pressure.change(tracker["pressure"], skin, list(sheets),
                   amount=action["failure_pressure"], source=action["method"], category="failure", actor=action["actor"])
     combat = tracker.get("combat", {})
-    if combat.get("active") and (action["kind"] == "attack" or (
-            action["kind"] == "opposed" and action["actor"] in combat["positions"])):
+    if uses_turn(combat, action["kind"], action["actor"], action.get("combat_action", False)):
         combat["acted"].append(action["actor"])
     if not result.get("pending"):
         tracker["pending_action"] = None
@@ -317,22 +369,18 @@ def finish_action(tracker: dict, sheets: dict, skin: dict, *, nudge: int = 0,
 
 
 def finish_deflection(tracker: dict, sheets: dict, skin: dict, *, nudge: int = 0,
-                      companionship: bool = False) -> tuple[dict, list[dict]]:
+                      fund: str | None = None) -> tuple[dict, list[dict]]:
     """Settle already-persisted Deflection dice; this operation never rolls."""
     stored = tracker["pending_action"]
     actor = stored["target"]
     target = entity(actor, sheets, tracker)
     check = _dice.apply_nudge_to_check(stored["check"], nudge)
     events = []
-    if companionship:
-        if abs(nudge) != 1 or actor not in sheets:
-            raise ValueError("Companionship supplies one point of nudge to a PC")
-        tracker["resources"], event = _resources.use_resource(
-            tracker["resources"], skin, "companionship", actor, purpose="nudge")
-        events.append({"type": "resource", **event, "source": "deflection_nudge"})
-        if event.get("pressure_gain"):
-            events += _pressure.change(tracker["pressure"], skin, list(sheets),
-                amount=event["pressure_gain"], source=event["pressure_source"], category="action_cost", actor=actor)
+    if fund:
+        if not nudge:
+            raise ValueError("--fund pays for the --deflection-nudge")
+        events += _fund_nudge(tracker, sheets, skin, _resources.resolve_id(skin, fund), actor,
+                              abs(nudge), "deflection_nudge")
     elif nudge:
         events.append(_runtime.luck_change(target, -abs(nudge), actor=actor,
                       source="deflection_nudge", category="nudge"))
@@ -346,7 +394,7 @@ def finish_deflection(tracker: dict, sheets: dict, skin: dict, *, nudge: int = 0
                    "method": "deflect injurious blow", "target": check["stat"], "check": check,
                    "advantage_sources": [], "disadvantage_sources": mods["disadvantage_sources"],
                    "pressure_at_start": mods["level"], "seed": stored.get("seed"),
-                   "luck_spent": abs(nudge) if not companionship else 0,
+                   "luck_spent": abs(nudge) if not fund else 0,
                    "luck_current": target["pools"]["luck"]["current"]})
     result = {**stored["result"], "pending": False, "deflection": check,
               "injured": bool(target.get("conditions", {}).get("injured")),

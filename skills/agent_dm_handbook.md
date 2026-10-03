@@ -34,13 +34,16 @@ Declare semantic contexts for both sides. Pressure modifiers are snapshotted at
 start, accumulate, and consume one-test penalties even when Advantage cancels
 them. Supply the toll choice when required, and keep base ability costs separate
 from automatic tolls. A pending crisis requires a table result, target,
-adjudicated consequence, and any lasting effects before reset. Record effects'
+adjudicated consequence, and any lasting effects before reset. A failed Arcanum or
+Unspeakable rite forces a crisis below 5 (`pressure --crisis --forced`); a test the
+crisis itself demands rolls with `check --crisis-test` before the reset. Record effects'
 expiry explicitly and supply their applicable modifiers on later tests.
 
-Each able combatant acts once per round; defence uses no action. An `attack`, or
-an `opposed` test the combatant starts, uses that action; a plain `check` does not,
-so record a turn spent on a check or other activity with `play.py pass`. The
-earlier side in initiative order acts or passes before the later side. Establish
+Each able combatant acts once per round; defence uses no action. An `attack`, an
+`opposed` test the combatant starts, or a `check` declared with `--combat-action`
+uses that action; a plain `check` is a free reaction. Record a turn without a roll
+with `play.py pass`. The earlier side in initiative order acts or passes before the
+later side. Establish
 side initiative once for the fight. Twilight positions keep both their benefit and
 drawback throughout the round. Supply edge, soak, and the actual legal defence;
 use `opposed` instead of `attack` for a contest whose consequence is not damage.

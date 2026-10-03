@@ -50,8 +50,8 @@ def _restore(journal: Path) -> None:
     journal.unlink()
 
 
-def commit_files(state_dir: Path, updates: dict[Path, str]) -> None:
-    """Must be called while holding campaign_lock. Failed writes roll back."""
+def commit_files(state_dir: Path, updates: dict[Path, str | None]) -> None:
+    """Must be called while holding campaign_lock. Failed writes roll back; None deletes."""
     journal = state_dir / ".transaction.json"
     if any(not path.resolve().is_relative_to(state_dir.parent.resolve()) for path in updates):
         raise ValueError("campaign transaction cannot write outside its directory")
@@ -63,7 +63,10 @@ def commit_files(state_dir: Path, updates: dict[Path, str]) -> None:
     atomic_text(journal, json.dumps(entries, ensure_ascii=False))
     try:
         for path, text in updates.items():
-            atomic_text(path, text)
+            if text is None:
+                path.unlink(missing_ok=True)
+            else:
+                atomic_text(path, text)
         journal.unlink()
     except BaseException:
         _restore(journal)
@@ -77,15 +80,32 @@ def campaign_lock(directory: Path, *, dry_run: bool = False):
         raise ValueError(f"campaign not found: {directory}")
     journal = state / ".transaction.json"
     if dry_run:
-        if journal.exists():
-            raise ValueError("interrupted transaction: run `play.py --campaign <campaign> status` to recover it first")
-        yield
+        with campaign_snapshot(directory):
+            yield
         return
     with (state / ".runtime.lock").open("a", encoding="utf-8") as handle:
         fcntl.flock(handle, fcntl.LOCK_EX)
         if journal.exists():
             _restore(journal)
         try:
+            yield
+        finally:
+            fcntl.flock(handle, fcntl.LOCK_UN)
+
+
+@contextmanager
+def campaign_snapshot(directory: Path):
+    """Readers share the writers' lock, so they see one whole campaign state."""
+    lock = directory / "state" / ".runtime.lock"
+    if not lock.exists():
+        # No writer has ever run here; campaign_init creates the lock file.
+        ensure_recovered(directory)
+        yield
+        return
+    with lock.open("r", encoding="utf-8") as handle:
+        fcntl.flock(handle, fcntl.LOCK_SH)
+        try:
+            ensure_recovered(directory)
             yield
         finally:
             fcntl.flock(handle, fcntl.LOCK_UN)
@@ -118,6 +138,62 @@ def load_campaign(directory: Path, root: Path | None = None) -> tuple[dict, dict
         if not validation.ok():
             raise ValueError(f"{key}: {'; '.join(validation.errors)}")
     return campaign, skin, tracker, sheets
+
+
+def retire_character(directory: Path, character: str, reason: str, *, dry_run: bool = False) -> dict:
+    """Take a dead or departed character out of play between sessions, keeping the sheet."""
+    import _pressure
+    import _resources
+    if not reason.strip():
+        raise ValueError("record why the character leaves play")
+    with campaign_lock(directory, dry_run=dry_run):
+        campaign, skin, tracker, sheets = load_campaign(directory)
+        stem = actor_key(character, sheets)
+        if len(sheets) < 2:
+            raise ValueError("the last character cannot retire; close the campaign instead")
+        if tracker.get("pending_action") or tracker.get("combat", {}).get("active"):
+            raise ValueError("finish the current action/combat before changing the party roster")
+        telemetry = event_path(directory, tracker)
+        started = telemetry.exists() and bool(telemetry.read_text().strip())
+        if started and not tracker.get("session_closed"):
+            raise ValueError("close the current session before a character retires; the roster changes between sessions")
+        pressure = tracker["pressure"]
+        if any(track["crisis_pending"] for track in pressure["tracks"].values()):
+            raise ValueError("record the pending crisis before changing the roster")
+        if pressure["scope"] == "character":
+            pressure["tracks"].pop(stem, None)
+        for track in pressure["tracks"].values():
+            track["pending"].pop(stem, None)
+        for effect in pressure["effects"]:
+            if effect.get("active") and effect.get("target") == stem:
+                effect.update(active=False, ended_by=f"retired: {reason}")
+        sheet = sheets.pop(stem)
+        old = tracker.get("resources", {})
+        resources = _resources.new_resources(skin, list(sheets))
+        for actor in sheets:
+            resources["characters"][actor] = old.get("characters", {}).get(actor, resources["characters"][actor])
+        for key, new in resources["party"].items():
+            previous = old.get("party", {}).get(key)
+            if previous:
+                field = "used" if new["kind"] == "uses" else "current"
+                # A smaller party shrinks a shared pool's capacity; spent tokens stay spent.
+                new[field] = previous[field] if new.get("max") is None else min(previous[field], new["max"])
+        tracker["resources"] = resources
+        errors = (_pressure.validate_pressure(tracker["pressure"], skin, list(sheets))
+                  + _resources.validate_resources(tracker["resources"], skin, list(sheets)))
+        if errors:
+            raise ValueError("; ".join(errors))
+        sheet["retired"] = {"reason": reason, "session": tracker.get("session", 1)}
+        path = directory / "state/characters" / f"{stem}.yaml"
+        if not path.exists():
+            path = path.with_suffix(".yml")
+        result = {"ok": True, "retired": stem, "roster": sorted(sheets), "dry_run": dry_run}
+        if not dry_run:
+            commit_files(directory / "state", {
+                directory / "state/characters/retired" / f"{stem}.yaml": yaml.safe_dump(sheet, sort_keys=False, allow_unicode=True),
+                path: None,
+                directory / "state/trackers/session.yaml": yaml.safe_dump(tracker, sort_keys=False, allow_unicode=True)})
+        return result
 
 
 def actor_key(character: str | None, sheets: dict[str, dict]) -> str:

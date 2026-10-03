@@ -31,6 +31,7 @@ and sources of the last build. Any play action, checkpoint or advancement makes 
 saved campaign prompt stale by design: `--check` reports it, `validate_campaign.py`
 treats it as an error, and the remedy is to rebuild before validating or resuming.
 All assembled campaign prompts are private. `--mode chat` selects the chat template,
-not a public filter; a model that cannot read the repository also needs `--full`.
+not a public filter. Chat prompts default to both full books, because a chat model
+cannot read the repository; `--profile compact` opts out.
 Artwork is stripped by default; `--keep-art` preserves it. Resolve paths through
 `manifest.yaml`.

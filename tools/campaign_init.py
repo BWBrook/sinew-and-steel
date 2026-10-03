@@ -83,11 +83,15 @@ def write_scaffold(campaign_dir: Path, files: dict[str, dict]) -> list[str]:
                 (stage / relative).mkdir(parents=True, exist_ok=True)
             for relative, data in files.items():
                 _write_private(stage / relative, yaml.safe_dump(data, sort_keys=False, allow_unicode=True))
+            # Readers share this lock with writers; it exists from the start.
+            _write_private(stage / "state/.runtime.lock", "")
             os.rename(stage, campaign_dir)
         return list(files)
     written = []
     for relative in directories:
         (campaign_dir / relative).mkdir(parents=True, exist_ok=True)
+    if not (campaign_dir / "state/.runtime.lock").exists():
+        _write_private(campaign_dir / "state/.runtime.lock", "")
     for relative, data in files.items():
         path = campaign_dir / relative
         # Exclusive creation keeps preservation true even if another process writes first.

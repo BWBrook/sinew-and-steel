@@ -34,7 +34,7 @@ Roll under, count the margin, spend Luck to nudge close calls, and watch Pressur
   - Typical weapons add edge: 0 / +1 / +2.
   - Once per safe pause, a short rest restores 1 STM, or good care restores 2 (up to max).
 - *Luck pool (tokens).* Your Luck score is the size of your token pool.
-  - When sheer chance decides, roll under your current tokens, counted before any spending on that roll; every token spent makes later Luck tests harder.
+  - When sheer chance decides, roll under your current tokens, counted before nudging that roll; every token spent makes later Luck tests harder.
   - Spend tokens after seeing the roll (both dice, if opposed) to nudge either die by 1 per token, within 1-20. Natural 1s and 20s are locked, and nudging cannot create them.
   - A short rest restores 1 token; a milestone refills you to your Luck score.
 - *Damage & soak.* An attack is an opposed test. A winning attack deals 1 + edge + 1 per full 5 points of margin, minus armour soak (1-3); minimum 1.

@@ -23,9 +23,9 @@ def main() -> int:
         cdir = _sslib.campaign_dir(args.campaign, root=root)
         if not (cdir / "campaign.yaml").exists():
             raise ValueError("campaign not found")
-        _runtime.ensure_recovered(cdir)
-        pack = resume_pack.collect_resume(cdir, _sslib.load_manifest(root), character=args.character,
-                                          public=args.public, summary_count=1, no_log=True, no_checkpoint=True)
+        with _runtime.campaign_snapshot(cdir):
+            pack = resume_pack.collect_resume(cdir, _sslib.load_manifest(root), character=args.character,
+                                              public=args.public, summary_count=1, no_log=True, no_checkpoint=True)
         payload = {key: pack[key] for key in ("campaign", "characters", "character", "scene")}
         if not args.public:
             tracker = pack["tracker"]

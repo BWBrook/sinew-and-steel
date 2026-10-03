@@ -9,7 +9,7 @@ The living plan for Sinew & Steel, set by Barry on 1 October 2026 and recorded o
 3. **Align the rules and chapters with those changes,** keeping the narrative voice the prose pass established. Fable implemented it on 1 October 2026; Astra reviewed and signed off the changes at `14b6544` on the same day. The changes are listed below.
 4. **Overhaul the AI Custodian harness and supporting tools.** Done on 2 October 2026: Astra's implementation (`7f595b9`, handoff `docs/reviews/2026-10-01-stage4-harness.md`) and Fable's review and fixes (`79d4d38`, `docs/reviews/2026-10-02-stage4-review.md`), committed and pushed at Barry's direction.
 
-Before the playtests, Barry is commissioning an independent external review of the whole repository from GPT-6 Pro (brief: `docs/reviews/2026-10-02-external-review-brief.md`). Its findings will be triaged with Barry, as the Stage 1 review was. Then come simulated playtests: AI-run sessions across several skins and party sizes, logged well enough to test the reopen triggers below. Barry's human sessions will add an indicative trickle ("more vibes than distributional probabilities"). Then the rules and writing are declared GOLD, and only then comes layout. Until then, every text change must still keep the Quickstart on exactly two facing pages.
+Before the playtests, Barry commissioned an independent external review of the whole repository from GPT-6 Pro (brief: `docs/reviews/2026-10-02-external-review-brief.md`; report: `docs/reviews/2026-10-02-external-review.md`). It was triaged with Barry on 2 October 2026 and its repairs are done (below). Then come simulated playtests: AI-run sessions across several skins and party sizes, logged well enough to test the reopen triggers below. Barry's human sessions will add an indicative trickle ("more vibes than distributional probabilities"). Then the rules and writing are declared GOLD, and only then comes layout. Until then, every text change must still keep the Quickstart on exactly two facing pages.
 
 ## Stage 2 decisions
 
@@ -26,6 +26,7 @@ The engine numbers stay: damage, soak, margin steps, natural results, Luck, and 
 
 - **Luck:** if characters routinely drop to 1 token or fewer by mid-session, revisit rest recovery.
 - **Red line:** if step-4 windows routinely last more than a few rolls, revisit the step-4 effects.
+- **Reading the triggers** (agreed with Barry, 2 October 2026): "routinely" means at least half of the eligible observations in a group of runs declared in advance; "a few" means more than 3 rolls made at step 4. Both flag a cause to investigate with Barry, not an automatic rule change. What "mid-session" means for interactive AI play is an open question (below).
 
 The playtest logs should record the attribute and method behind each roll, Pressure gains by source, Luck spent and recovered, and each crisis with its target.
 
@@ -84,6 +85,71 @@ no longer counts the scene after its beat. The documentation was audited command
 command. 158 tests pass. Follow-ups that were noted but not fixed are listed in the
 review.
 
-Next: the external review, then the planned simulated sessions across skins and
-party sizes. Harness tests do not replace those playtests or authorize GOLD and
-layout.
+## External review (GPT-6 Pro), triaged 2 October 2026
+
+The reviewer recommended keeping the numbers and repairing procedural gaps. Its
+own enumerations against the rules code (1,127,357 creation allocations, 99,550
+damage cases, 41,680 resolution and nudge cases, 23 sample prices) found no
+discrepancy. Fable checked every finding against the code and text; all eleven
+reproduced.
+
+**Barry's decisions**
+- **DriveThruRPG is out.** Its policy refuses products that include AI-generated
+  text and products meant to elicit AI output. Barry: "I think it's pointless to
+  ask them: they'll say no on principle." The aim is to reach players who want an
+  AI-forward game, free and openly licensed, through channels such as GitHub
+  releases, itch.io and his own site. The distribution strategy is parked for
+  later; the licences (CC BY 4.0 text, MIT code) already fit it.
+- **Names.** Sinew & Steel stays. Renaming the Whispers in the Fog skin, which
+  shares its title with a horror video game, is open; Barry is neutral.
+- **Rulings.** Unnudgeable magic: no one moves the caster's die, and the caster pays
+  for no nudge on either die; a resister may nudge their own (Manual 3). A
+  Free Traders misjump ticks Fuel +2 instead of +1. A pilot contest tie or double
+  failure gives no one Advantage. A test a crisis demands pays no toll (Manual 8,
+  Almanac 4). The release package is to be decided after the text and harness
+  are locked.
+- All four nits accepted, and the README overhauled.
+
+**Repairs done** (with tests; 169 pass)
+- A failed Arcanum or Unspeakable rite records its crisis below 5
+  (`pressure --crisis --forced`); summaries count forced and threshold crises.
+- A test a pending crisis demands (Service Duct Blues' nanite alarm) rolls with
+  `check --crisis-test`.
+- Beast Bond beads pay for nudges (`settle --fund beast_bond`, which also carries
+  Companionship), and a milestone reminds the Custodian to refill a bonded beast.
+- A check that is a combatant's action (`--combat-action`) and `pass` get the
+  turn-order, already-acted and 0-Stamina guards.
+- Chat prompts default to both full books; a compact chat prompt tells the model
+  not to invent missing procedures.
+- Success-only Luck costs are set aside before nudging (`--success-luck-cost`).
+- Every advancement change to Luck is logged.
+- Read-only tools share the writers' lock.
+- The hidden-notes chat template no longer promises secrecy.
+- Defence rolls no longer carry the attacker's method; the summary reports Pressure
+  gains by source and category.
+- A dead or departed character retires between sessions (`play.py retire`).
+
+**Playtest programme** (adopted, with Fable's two changes)
+- Five sample skins (Clanfire, Rust & Domes, Candlelight Dungeons, Whispers in
+  the Fog, Twilight of the Northlands) at party sizes 1, 2 and 4, two runs each
+  (30 runs). The other five skins at sizes 1 and 4, one run each (10 runs).
+- A pilot of three or four runs first, to test the procedure.
+- A standard run length fixed before starting, expressed in beats.
+- Each run records its conditions: rules commit, model, skin, roster, policies
+  for Luck, rest and Pressure, and any manual interventions. A different model
+  audits a sample of rulings. Ordinary and adversarial runs are kept apart.
+
+**Open design question: sessions in interactive play.** Barry: "In tabletop its
+clear: a night of gaming. In interactive AI Custodian or other harness play, it's
+not: a player might dip in and out for one exchange, or 10, or 100. There is no
+session." Rules and metrics that count per session (limits, "mid-session", the
+playtest triggers) need a beat-based definition, with a clear definition of a
+beat and quantitative guidance for an AI Custodian who plays whenever the player
+returns. Fable is to draft a short design note for Barry's decision.
+
+**Later:** the distribution strategy; and a possible browser-based client in
+which players connect their own model access (Barry flagged ChatGPT sign-in
+changes from Dev Day 2026).
+
+Next: the beats-and-sessions note, the pilot, then the programme. Harness tests do
+not replace those playtests or authorize GOLD and layout.

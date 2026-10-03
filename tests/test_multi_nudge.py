@@ -110,7 +110,7 @@ class MultiNudgeTests(unittest.TestCase):
 
     def test_companionship_funds_only_the_convenience_nudge(self):
         self.prepare(12, 12)
-        receipt = self.call("settle", "--nudge", "-1", "--payer", "mara", "--companionship",
+        receipt = self.call("settle", "--nudge", "-1", "--payer", "mara", "--fund", "companionship",
                             "--adjust", "mara=attacker:-1", "--adjust", "holo=defender:-1")
         checks = receipt["result"]["checks"]
         self.assertEqual((checks["attacker"]["result"], checks["defender"]["result"]), (10, 11))

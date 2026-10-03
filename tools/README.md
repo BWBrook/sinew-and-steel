@@ -25,7 +25,8 @@ for combat, Pressure, recovery, and session boundaries.
 | Explicit legacy adoption | `migrate_campaign.py` (preview by default; backs up original files before applying) |
 
 `play.py` runs every campaign command (checks, Pressure, clocks, scenes, beats,
-sessions); `trackers.py` is an alias for it, and `new_session.py` is shorthand for
+sessions, and `retire` for a character leaving play between sessions);
+`trackers.py` is an alias for it, and `new_session.py` is shorthand for
 `play.py session` that accepts `--campaign` and `--label`. `recap.py` changes memory
 only. `update_sheet.py` edits metadata (name, player, notes, inventory), not
 attributes, pools, advancement, or mechanical trackers. Use `ss.py <command> ...` as

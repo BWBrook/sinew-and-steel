@@ -66,9 +66,9 @@ which every rebuild includes automatically. Use
 `--hidden rules/scenarios/clanfire_emberfall_hidden.md` only for a one-off prompt
 from a supplied module or another explicit file. Assembled prompts contain private
 material: do not send one to the players. `--mode chat` changes the template for
-copy/paste play, and a model that cannot read this repository also needs `--full`
-for the detailed rules; it does not turn a private campaign prompt into a public
-export.
+copy/paste play and defaults to both full books, because a chat model cannot read
+this repository (`--profile compact` opts out); it does not turn a private campaign
+prompt into a public export.
 
 ## Checks and informed Luck spending
 
@@ -94,18 +94,26 @@ the result without a Luck nudge. If settlement cannot pay a required cost, the
 receipt retains the pending dice and upfront costs with `settlement_error`;
 inspect that reason and settle the saved action rather than rolling again.
 
-Some skins forbid nudging the caster's die at their top magic tiers: Iron & Ruin's
-Wrack and Wyrd, Candlelight's Arcanum, Whispers' Incantation and Unspeakable, and
-Twilight's Invocation and Reckoning. Declare `--no-nudge` on that roll; `settle`
-then refuses any nudge or adjustment to the caster's die, though an opponent's die
-can still be nudged.
+Some skins forbid nudging their top magic tiers: Iron & Ruin's Wrack and Wyrd,
+Candlelight's Arcanum, Whispers' Incantation and Unspeakable, and Twilight's
+Invocation and Reckoning. Declare `--no-nudge` on that roll. `settle` then refuses
+any nudge or adjustment to the caster's die, and any nudge the caster pays for on
+either die; a resisting character may still nudge their own die.
+
+A cost the method charges only on success, such as Candlelight's Greater Spell
+coin, is declared with `--success-luck-cost N`. Those tokens are set aside at the
+roll: `settle` will not spend them on a nudge, pays them once if the roll succeeds,
+and leaves them in the pool if it fails.
 
 For several adjustments, repeat `--adjust PAYER=SIDE:DELTA`, for example
 `settle --adjust mara=attacker:-2 --adjust holo=defender:-1`. Either participant
 may adjust either rolled die, paying from their own pool. Each adjustment costs
 its absolute amount even if another adjustment offsets it. The whole settlement
-must be legal and affordable. `--companionship` funds only the one-point
-`--nudge` convenience option; `--adjust` spends ordinary Luck.
+must be legal and affordable. `--fund NAME` pays the `--nudge` convenience option
+from a pool the skin reserves for nudges instead of Luck: `companionship` (one
+point, once per scene, in Twilight) or `beast_bond` (one bead per point, from the
+acting character's bonded beast, in Clanfire). `--adjust` always spends ordinary
+Luck. When a beast's beads reach 0, the Custodian decides what the beast does.
 
 Use a stable `--event-id` for each write. Repeating the same command with the same
 ID returns its saved receipt; using that ID for a changed command fails. IDs are
@@ -183,11 +191,13 @@ uv run python tools/play.py --campaign scratch_demo --event-id wolf-settle settl
 damage. Edge belongs to the attacking weapon and soak to the defender. Add
 `--actor npc:wolf` after the subcommand for the NPC's turn. Each able combatant
 gets one action per round, and defending consumes none. An `attack`, or an
-`opposed` test the combatant starts (intimidate, disarm, shove), uses that action;
-a plain `check` does not, so record a turn spent on a check or any other activity
-with `pass --actor grak --reason "Drag Tarra into cover"`. The earlier side in
-initiative order must act or pass before the later side, and the engine refuses a
-second action from the same combatant. After all able combatants act, `round`
+`opposed` test the combatant starts (intimidate, disarm, shove), uses that action.
+A plain `check` is a free reaction; when a check *is* the combatant's action (a
+spell on themselves, working a device), add `--combat-action`, which applies the
+same turn checks and uses the action. Record a turn spent on anything without a
+roll with `pass --actor grak --reason "Drag Tarra into cover"`. The earlier side in
+initiative order must act or pass before the later side; the engine refuses an
+action from a combatant who has already acted or is at 0 Stamina. After all able combatants act, `round`
 starts the next round and retains initiative. End with `combat-end --reason ...`.
 The Custodian judges whether a defence is possible; `--undefended` records that
 ruling for an attack.
@@ -197,12 +207,12 @@ using `positions --position grak=vanguard ...` and subsequent
 `round --position ...` declarations. Benefits and drawbacks stay together for
 the round. Supply melee/missile/screened contexts correctly. Its optional Injury
 module uses `--injury` (and optionally `--gritty`); Companionship nudges use
-`settle --nudge -1 --companionship`. Read the skin before enabling these options.
+`settle --nudge -1 --fund companionship`. Read the skin before enabling these options.
 
 An Injury-triggering attack may return another pending action with
 `phase: deflection` after its damage is committed. Read that stored Deflection
 die, then run `settle` again, optionally with `--deflection-nudge -1` and
-`--companionship` if chosen and legal. This is a second informed Luck decision;
+`--fund companionship` if chosen and legal. This is a second informed Luck decision;
 do not rerun the attack or choose its Deflection nudge before seeing the die.
 Deflection pays no toll.
 
@@ -230,6 +240,13 @@ uv run python tools/play.py --campaign scratch_demo pressure --crisis --target g
   --effect "Describe its lasting effect=until the stated recovery condition"
 ```
 
+A failed Arcanum (Candlelight) or Unspeakable rite (Whispers) causes a crisis even
+below 5. Record it with `pressure --crisis --forced --character CASTER ...`; it falls
+on the caster and resets the track. If the rite also took the track to 5, it is
+still one crisis. Service Duct Blues' nanite alarm asks for a SYS test during the
+crisis: roll it with `check --crisis-test` while the crisis is pending (it pays no
+toll or cost; step penalties apply), then record the crisis with the outcome.
+
 The command is a recording form, not a substitute for the selected skin's table.
 If the table calls for multiple outcomes, repeat `--table-result` after resolving
 them. If no single character tipped a shared track, the Custodian chooses the
@@ -255,7 +272,10 @@ uv run python tools/advance.py --campaign scratch_demo --character grak show --j
 
 A beat is a scene-scale development, not an individual die roll. The Custodian
 awards milestones at the book's cadence; each grants 2 points, a narrative boon,
-and full Luck. Award milestones and record purchases while the session is open,
+and full Luck. In Clanfire it also refills a bonded beast's beads if the beast is
+still with the character; the award receipt reminds you, and `resource --name
+beast_bond --recover --amount 3` records it. Award milestones and record purchases
+while the session is open,
 before `session-close`; `advance.py` refuses while a session is closed or an
 action is pending. `advance.py` records the award and each purchase separately from
 the immutable creation snapshot. A +1 costs 1 below baseline or 2 at/above it;
@@ -284,7 +304,10 @@ summary (end any combat and settle pending actions and crises first); `session`
 begins the next one and creates matching memory/log files. The new memory file
 carries forward open threads, NPCs and secrets, and starts a fresh summary.
 Add characters before the first logged action, or after `session-close` and before
-the next `session`, never mid-session.
+the next `session`, never mid-session. A character who dies or leaves stays on the
+roster until the session closes; then `play.py --character NAME retire --reason ...`
+moves the sheet to `state/characters/retired/` and shrinks the shared pools. The
+next session records the smaller party.
 The roster stays fixed within each logged session so party-size comparisons remain
 valid. Adding a character increases a shared pool's capacity without restoring
 tokens spent in play.

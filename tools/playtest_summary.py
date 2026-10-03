@@ -14,6 +14,8 @@ import json
 from pathlib import Path
 import sys
 
+import _runtime
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -211,6 +213,8 @@ def summarize_session(events: list[dict], source: str = "<memory>", red_line_rol
                 observations.extend(values)
         minimum = min(observations) if observations else None
         actor_rolls = [event for event in rolls if event["actor"] == actor]
+        # Methods belong to the acting die; defence and Deflection dice only resist one.
+        acting = [event for event in actor_rolls if event.get("role", "attacker") == "attacker"]
         characters[actor] = {
             "initial_luck": initial, "initially_low": initial <= 1 if initial is not None else None,
             "minimum_luck_first_half": minimum,
@@ -220,10 +224,19 @@ def summarize_session(events: list[dict], source: str = "<memory>", red_line_rol
             "luck_spent_by_source": dict(sorted(spent_by_source.items())),
             "luck_recovered_by_source": dict(sorted(recovered_by_source.items())),
             "pc_rolls": len(actor_rolls),
+            "acting_rolls": len(acting),
+            "roll_share_by_role": _shares(event.get("role", "attacker") for event in actor_rolls),
             "roll_share_by_attribute": _shares(event.get("attribute") or "<unrecorded>" for event in actor_rolls),
-            "roll_share_by_method": _shares(event.get("method") or "<unrecorded>" for event in actor_rolls),
+            "roll_share_by_method": _shares(event.get("method") or "<unrecorded>" for event in acting),
         }
     crises = [event for event in events if event["type"] == "crisis"]
+    # Realised gains, not requested ones: a gain at the cap adds nothing.
+    gains = [event for event in events if event["type"] == "pressure" and event["after"] > event["before"]]
+    gains_by_category, gains_by_source = Counter(), Counter()
+    for event in gains:
+        gains_by_category[event.get("category", "<unrecorded>")] += event["after"] - event["before"]
+        gains_by_source[event.get("source", "<unrecorded>")] += event["after"] - event["before"]
+    acting_rolls = [event for event in rolls if event.get("role", "attacker") == "attacker"]
     return {
         "source": source, "session": events[0]["session"], "skin": events[0]["skin"],
         "party_size": events[0]["party_size"], "completed": not issues,
@@ -231,11 +244,16 @@ def summarize_session(events: list[dict], source: str = "<memory>", red_line_rol
         "recorded_beats": len(beats), "perilous_beats": sum(event["perilous"] for event in beats),
         "last_recorded_beat": last_beat, "midpoint_beat": midpoint,
         "crises": len(crises), "crisis_targets": dict(sorted(Counter(event.get("target", "<unrecorded>") for event in crises).items())),
+        "threshold_crises": sum(bool(event.get("at_threshold", True)) for event in crises),
+        "forced_crises": sum(bool(event.get("forced")) for event in crises),
+        "pressure_gained": sum(gains_by_category.values()),
+        "pressure_gains_by_category": dict(sorted(gains_by_category.items())),
+        "pressure_gains_by_source": dict(sorted(gains_by_source.items())),
         "crises_per_20_recorded_beats": 20 * len(crises) / len(beats) if beats else None,
         "characters": characters, "pc_rolls": len(rolls),
         "npc_rolls_excluded": sum(event["type"] == "roll" and str(event.get("actor", "")).startswith("npc:") for event in events),
         "roll_share_by_attribute": _shares(event.get("attribute") or "<unrecorded>" for event in rolls),
-        "roll_share_by_method": _shares(event.get("method") or "<unrecorded>" for event in rolls),
+        "roll_share_by_method": _shares(event.get("method") or "<unrecorded>" for event in acting_rolls),
         "red_line": _red_line(events, initial_pressure, red_line_rolls),
     }
 
@@ -359,10 +377,11 @@ def main(argv=None) -> int:
                 directory = ROOT / "campaigns" / args.campaign
             if not (directory / "campaign.yaml").is_file():
                 raise ValueError(f"campaign not found: {directory}")
-            if (directory / "state/.transaction.json").exists():
-                raise ValueError("interrupted transaction: run `play.py --campaign <campaign> status` to recover it first")
-            paths = sorted((directory / "state/logs").glob("session_*.jsonl"))
-        report = summarize_files(paths, args.red_line_rolls)
+            with _runtime.campaign_snapshot(directory):
+                paths = sorted((directory / "state/logs").glob("session_*.jsonl"))
+                report = summarize_files(paths, args.red_line_rolls)
+        else:
+            report = summarize_files(paths, args.red_line_rolls)
         print(json.dumps(report, indent=2, ensure_ascii=False) if args.json else format_summary(report))
     except (ValueError, OSError, TypeError, KeyError) as exc:
         print(f"error: {exc}", file=sys.stderr)

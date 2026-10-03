@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Assemble a compact Custodian prompt and check it against its exact sources."""
 import argparse
+import contextlib
 import hashlib
 import json
 from pathlib import Path
@@ -156,11 +157,17 @@ def assemble_prompt(manifest: dict, skin_slug: str | None, *, root: Path = ROOT,
             paths.append(hidden_path)
             hidden_text = load_text(hidden_path)
         core_text = (load_joined_text([adv_path, cust_path]) if profile == "full" else load_text(quickstart_path))
-        index = ("Both complete core books are under Rules above. Read the selected skin's exceptions first."
-                 if profile == "full" else
-                 "For detailed rulings load a numbered section with `tools/build_prompt.py --section manual:6` "
-                 "(combat), `--section manual:8` (Pressure), or `--section almanac:4` (Custodian Pressure procedure). "
-                 "Read the selected skin's exceptions first. Use `--full` for both complete core books.")
+        if profile == "full":
+            index = "Both complete core books are under Rules above. Read the selected skin's exceptions first."
+        elif mode == "chat":
+            # A chat model cannot fetch sections; it must not fill gaps from other games.
+            index = ("This packet holds only the Quickstart and the skin. When a ruling needs rules not shown here "
+                     "(the full combat round, Pressure timing, Luck costs), say so and ask the player for that "
+                     "section of the book; do not invent a procedure. Read the selected skin's exceptions first.")
+        else:
+            index = ("For detailed rulings load a numbered section with `tools/build_prompt.py --section manual:6` "
+                     "(combat), `--section manual:8` (Pressure), or `--section almanac:4` (Custodian Pressure procedure). "
+                     "Read the selected skin's exceptions first. Use `--full` for both complete core books.")
         replacements = {"{{CORE_RULES}}": core_text, "{{RULES_SECTIONS}}": "\n\n".join(section_texts) or index,
                         "{{SKIN_TEXT}}": load_joined_text(skin_paths), "{{SKIN_NAME}}": skin["name"],
                         "{{PUBLIC_STATE}}": state_yaml(public_state),
@@ -242,36 +249,40 @@ def main() -> int:
             list_skins(manifest)
             return 0
         cdir = _sslib.campaign_dir(args.campaign, root=ROOT) if args.campaign else None
-        if cdir and (cdir / "state" / ".transaction.json").exists():
-            raise ValueError("interrupted transaction: run `play.py --campaign <campaign> status` to recover it first")
-        campaign = _sslib.load_yaml(cdir / "campaign.yaml") if cdir else {}
-        if args.skin and campaign.get("skin") and args.skin != campaign["skin"]:
-            raise ValueError("--skin does not match campaign.yaml")
-        out = _resolve(args.out, ROOT) if args.out else cdir / "prompt.md" if cdir else None
-        if args.check:
-            if out is None:
-                raise ValueError("--check requires --out or --campaign")
-            errors = check_prompt(out)
-            payload = {"ok": not errors, "output_path": str(out), "errors": errors}
-            print(json.dumps(payload, indent=2) if args.json else "fresh" if not errors else "\n".join(errors))
-            return 1 if errors else 0
-        output, metadata = assemble_prompt(manifest, args.skin or campaign.get("skin"), campaign_dir=cdir,
-            profile="full" if args.full else args.profile or campaign.get("prompt_profile", "compact"), mode=args.mode,
-            sections=args.section, template_path=_resolve(args.template, ROOT) if args.template else None,
-            hidden_path=_resolve(args.hidden, ROOT) if args.hidden else None, keep_art=args.keep_art)
-        payload = {"ok": True, "skin": metadata["skin"], "profile": metadata["profile"],
-                   "output_path": str(out) if out else None, "bytes": len(output.encode()),
-                   "fingerprint": metadata["fingerprint"], "sources": metadata["sources"], "dry_run": args.dry_run}
-        if out and not args.dry_run:
-            # A campaign prompt holds hidden notes and private state: owner-only, like the state.
-            _runtime.atomic_text(out, output)
-        if args.json:
-            print(json.dumps(payload, indent=2))
-        elif args.dry_run or out is None:
-            print(output, end="")
-        else:
-            print(f"written {out}")
-        return 0
+        with contextlib.ExitStack() as stack:
+            if cdir:
+                # Hold the readers' lock so the prompt reflects one whole campaign state.
+                stack.enter_context(_runtime.campaign_snapshot(cdir))
+            campaign = _sslib.load_yaml(cdir / "campaign.yaml") if cdir else {}
+            if args.skin and campaign.get("skin") and args.skin != campaign["skin"]:
+                raise ValueError("--skin does not match campaign.yaml")
+            out = _resolve(args.out, ROOT) if args.out else cdir / "prompt.md" if cdir else None
+            if args.check:
+                if out is None:
+                    raise ValueError("--check requires --out or --campaign")
+                errors = check_prompt(out)
+                payload = {"ok": not errors, "output_path": str(out), "errors": errors}
+                print(json.dumps(payload, indent=2) if args.json else "fresh" if not errors else "\n".join(errors))
+                return 1 if errors else 0
+            output, metadata = assemble_prompt(manifest, args.skin or campaign.get("skin"), campaign_dir=cdir,
+                # A chat model cannot read the repository, so chat defaults to both full books.
+                profile="full" if args.full else args.profile or (
+                    "full" if args.mode == "chat" else campaign.get("prompt_profile", "compact")), mode=args.mode,
+                sections=args.section, template_path=_resolve(args.template, ROOT) if args.template else None,
+                hidden_path=_resolve(args.hidden, ROOT) if args.hidden else None, keep_art=args.keep_art)
+            payload = {"ok": True, "skin": metadata["skin"], "profile": metadata["profile"],
+                       "output_path": str(out) if out else None, "bytes": len(output.encode()),
+                       "fingerprint": metadata["fingerprint"], "sources": metadata["sources"], "dry_run": args.dry_run}
+            if out and not args.dry_run:
+                # A campaign prompt holds hidden notes and private state: owner-only, like the state.
+                _runtime.atomic_text(out, output)
+            if args.json:
+                print(json.dumps(payload, indent=2))
+            elif args.dry_run or out is None:
+                print(output, end="")
+            else:
+                print(f"written {out}")
+            return 0
     except (OSError, ValueError, KeyError, yaml.YAMLError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1

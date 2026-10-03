@@ -4,7 +4,7 @@
 
 The core fits in your head:
 
-- **Roll under a d20**: lower is better, and margin matters
+- **Roll a d20 under your score**: lower is better, and margin matters
 - **Five attributes**, Luck tokens, Stamina, and a Pressure fuse (0–5)
 - **Advantage and Disadvantage** for fictional positioning, in place of modifier piles
 

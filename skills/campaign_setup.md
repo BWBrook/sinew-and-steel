@@ -17,7 +17,9 @@ for a party, or omit it and add characters later with `char_builder.py` or
 `gen_character.py --campaign scratch_demo`. Add characters before the first
 logged action, or after `play.py session-close` and before the next `session`,
 never mid-session. Both builders register the character's
-Pressure and limited-use resources and refuse to overwrite an existing sheet.
+Pressure and limited-use resources and refuse to overwrite an existing sheet. In
+the same window, `play.py --character NAME retire --reason ...` takes a dead or
+departed character out of play and keeps their sheet under `state/characters/retired/`.
 Use `--tag NAME` for bought tags and `--free-tag GRANT=NAME` for a skin's free grant.
 
 ```bash

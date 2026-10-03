@@ -140,10 +140,10 @@ def main() -> int:
         campaign_dir = _sslib.campaign_dir(args.campaign, root=root)
         if not (campaign_dir / "campaign.yaml").exists():
             raise ValueError("campaign not found")
-        _runtime.ensure_recovered(campaign_dir)
-        payload = collect_resume(campaign_dir, _sslib.load_manifest(root), character=args.character,
-                                 public=args.public, summary_count=args.summary_count, log_lines=args.log_lines,
-                                 no_log=args.no_log, no_memory=args.no_memory, no_checkpoint=args.no_checkpoint)
+        with _runtime.campaign_snapshot(campaign_dir):
+            payload = collect_resume(campaign_dir, _sslib.load_manifest(root), character=args.character,
+                                     public=args.public, summary_count=args.summary_count, log_lines=args.log_lines,
+                                     no_log=args.no_log, no_memory=args.no_memory, no_checkpoint=args.no_checkpoint)
         if args.json:
             print(json.dumps(payload, indent=2, default=str))
         elif args.yaml:
