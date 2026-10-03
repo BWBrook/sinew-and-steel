@@ -1,9 +1,10 @@
 # Pilot protocol: simulated play
 
-Revision 3, 3 October 2026. Drafted by Fable and amended by Astra under Barry's
-instruction to review and agree the updates before the next games. Revision 2
-governed P1 and P5; revision 3 applies their lessons (`pilot/review-1.md`) and
-governs P2 and P6 onwards.
+Revision 4, 3 October 2026. Drafted by Fable and amended by Astra under Barry's
+instruction. Revision 2 governed P1 and P5, and revision 3 governed P2 and P6.
+Revision 4 applies the second round's lessons (`pilot/review-2.md`) and Barry's
+direction to induce more risk, tension, pace and Pressure. It governs P3 and P7
+onwards.
 
 ## Purpose
 
@@ -66,7 +67,8 @@ subagents share the filesystem and tools. Each manifest states which applies.
 - the character's public export (`resume_pack.py --public --character NAME
   --json`), completed with reviewed descriptions of its equipment, abilities,
   spells and the resources it controls;
-- the character's drive: one line on what they want, fixed at setup;
+- the character's drive and temperament, fixed at setup: one line on what they
+  want, and one on how they act, including how much risk they will take;
 - for P1–P2, the Emberfall player handout;
 - the public narration, as play goes on.
 
@@ -85,6 +87,18 @@ campaign at PATH through the harness in this repository.
   lets you choose a table result, say that you chose it.
 - Never invent a die.
 - Use the seed schedule in your setup notes.
+- Open in motion: start the session, and each act, in the middle of something
+  already happening, with a clear and immediate stake, like a film's pre-credit
+  scene, not with quiet preparation. Honour rests and decisions already agreed;
+  an act need not open with a forced fight.
+- Threats move on their own. When enough fictional time passes for the active
+  threat to advance, or the opposition makes its move, advance its clock as
+  declared in the scenario, whether or not anyone rolls. Apply Pressure when the
+  core or skin's fictional trigger occurs. A clock tick is not automatically a
+  Pressure charge, though both may apply. Never charge for real-world
+  deliberation or to reach a target rate.
+- Give each named NPC a want, a manner and a line they will not cross, kept in
+  your private notes, and play them by it.
 - Put everything the players should see between a line `=== PUBLIC ===` and a
   line `=== END PUBLIC ===`. After the closing marker, put a `TO:` line naming
   who should answer (or `TO: none` when the session is closed). The checkpoint
@@ -93,14 +107,23 @@ campaign at PATH through the harness in this repository.
   to the orchestrator only. Keep private notes in the campaign files.
 - The orchestrator relays and keeps records. It gives no rulings; the rules and
   your judgement decide.
-- Before a roll, state the stakes. Make the roll with `--defer`, then show the
-  dice and meaningful legal post-roll choices to the players who can act on them.
+- State the stakes before the player commits. When they are already public, in
+  your options or earlier, the player's declared action is the commitment.
+  Otherwise state the test and its consequences, and get commitment before you
+  roll. Stakes must never first appear in the reply that shows the dice. Make the roll with `--defer`, then show the dice and meaningful legal
+  post-roll choices to the players who can act on them.
   Wait for those decisions before settling; never issue the roll again. If no
   eligible player has a meaningful post-roll choice, explain why and settle
   without discretionary spending in the same reply. Include abilities and
   payment choices in that check, not only Luck nudges.
 - In combat, ask only the combatant or decision now due.
+- When players' declarations conflict, preserve each player's intent.
+  Adjudicate compatible actions in fictional or initiative order, and ask only
+  for a decision needed to settle a truly incompatible pair. Never override one
+  declaration to make another succeed, and keep deferred Luck and ability
+  choices open.
 - Record each scene as a beat as it ends, and mark act breaks with `--act-end`.
+  A cut to another place or time starts a new beat.
 - Save every public body with `tools/checkpoint.py`.
 - Follow the table discipline and session evidence in the handbook, and the
   pacing card. After the second act, award any milestones still due, write the
@@ -110,7 +133,8 @@ campaign at PATH through the harness in this repository.
 were given. If setup explicitly gives a packet-file path, read that exact file
 once as instructed. Otherwise, and after that read, do not use tools or read files.
 - Each turn, say in character what your character does and how. Speak to the
-  other characters as well as the Custodian, and play to your character's drive.
+  other characters as well as the Custodian, and play to your character's drive
+  and temperament, including the risks they would take.
 - Play cooperatively. Ask about unclear stakes or rules, and change or abandon an
   intent before committing to the roll. Once resolved, accept the result without
   seeking a reroll.
@@ -131,8 +155,11 @@ once as instructed. Otherwise, and after that read, do not use tools or read fil
      capabilities its run should exercise: a sensitive in Rust, named spells in
      Candlelight, a plausible sorcerous option in Iron & Ruin, assigned crew
      roles in Free Traders. Record any adjustment.
-   - Give each character a one-line drive, consistent with the sheet, and record
-     it in the manifest.
+   - Give each character a one-line drive and a one-line temperament, consistent
+     with the sheet, and record them in the manifest. A temperament states the
+     risk the character will take and the line they keep. In multi-character
+     runs, temperaments differ and at least one character is bold. A solo
+     character gets an explicit temperament too.
 3. Set the dice schedule:
    - Pick a master seed M for the run.
    - The Nth harness command that draws dice uses seed M×1000+N, with N counting
@@ -143,6 +170,13 @@ once as instructed. Otherwise, and after that read, do not use tools or read fil
      not make the narrative deterministic.
 4. For runs without a published scenario, the Custodian writes its hidden
    scenario to `state/memory/hidden_scenario.md` before play.
+   - The scenario opens in motion, at a moment of action or decision.
+   - It includes at least one active threat with a clock that advances with time
+     or with the opposition's own moves, not only on a player's failure. The
+     scenario declares what advances the clock, what happens when it fills, what
+     can interrupt or delay it, and which core or skin Pressure triggers the
+     threat can set off.
+   - Its named NPCs each have a want, a manner and a line they will not cross.
    - The scenario gives the skin's distinctive procedures a chance to occur; it
      never forces them.
    - Never pick seeds to produce an outcome. A guaranteed outcome, such as a
@@ -218,7 +252,8 @@ once as instructed. Otherwise, and after that read, do not use tools or read fil
 - **`report.md`:** the orchestrator's notes:
   - stalls and invented rules;
   - harness gaps and errors;
-  - pacing against Almanac 9, as description, not a target;
+  - pacing against Almanac 9, as description, not a target, including Pressure
+    gained, rolls per beat and Luck spent to avoid Pressure;
   - coherence and fun;
   - procedures offered but not exercised;
   - what to change before the programme.

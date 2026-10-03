@@ -12,36 +12,36 @@
   },
   "session_counts": {
     "total": 1,
-    "completed": 0,
-    "incomplete": 1
+    "completed": 1,
+    "incomplete": 0
   },
   "completed_evidence": {
-    "by_skin_and_party_size": []
-  },
-  "incomplete_observations": {
     "by_skin_and_party_size": [
       {
         "skin": "candlelight_dungeons",
         "party_size": 4,
         "sessions": 1,
-        "recorded_beats": 1,
-        "perilous_beats": 0,
+        "recorded_beats": 6,
+        "perilous_beats": 2,
         "crises": 0,
         "rate_eligible_sessions": 1,
         "sessions_without_beats": 0,
         "rate_eligible_crises": 0,
         "crises_per_20_recorded_beats": 0.0,
         "character_sessions": 4,
-        "midpoint_available_character_sessions": 0,
+        "midpoint_available_character_sessions": 4,
         "initially_low_character_sessions": 0,
-        "initially_above_one_with_midpoint": 0,
+        "initially_above_one_with_midpoint": 4,
         "newly_low_by_midpoint": 0,
-        "pc_rolls": 0,
+        "pc_rolls": 1,
         "red_line_windows": 0,
         "red_line_windows_above_threshold": 0,
         "ongoing_censored_windows": 0
       }
     ]
+  },
+  "incomplete_observations": {
+    "by_skin_and_party_size": []
   },
   "sessions": [
     {
@@ -49,27 +49,34 @@
       "session": 1,
       "skin": "candlelight_dungeons",
       "party_size": 4,
-      "completed": false,
-      "incomplete_reasons": [
-        "missing session_end"
-      ],
-      "event_count": 2,
-      "recorded_beats": 1,
-      "perilous_beats": 0,
-      "last_recorded_beat": 1,
-      "midpoint_beat": null,
+      "completed": true,
+      "incomplete_reasons": [],
+      "event_count": 12,
+      "recorded_beats": 6,
+      "perilous_beats": 2,
+      "last_recorded_beat": 6,
+      "midpoint_beat": 4,
       "acts": [
         {
           "act": 1,
-          "beats": 1,
-          "perilous_beats": 0,
+          "beats": 4,
+          "perilous_beats": 1,
+          "pc_rolls": 1,
+          "pressure_gained": 0,
+          "crises": 0,
+          "ended": true
+        },
+        {
+          "act": 2,
+          "beats": 2,
+          "perilous_beats": 1,
           "pc_rolls": 0,
           "pressure_gained": 0,
           "crises": 0,
-          "ended": false
+          "ended": true
         }
       ],
-      "completed_acts": 0,
+      "completed_acts": 2,
       "crises": 0,
       "crisis_targets": {},
       "threshold_crises": 0,
@@ -82,9 +89,9 @@
         "bram_cinder": {
           "initial_luck": 12,
           "initially_low": false,
-          "minimum_luck_first_half": null,
-          "reached_one_or_less_by_midpoint": null,
-          "newly_reached_one_or_less_by_midpoint": null,
+          "minimum_luck_first_half": 12,
+          "reached_one_or_less_by_midpoint": false,
+          "newly_reached_one_or_less_by_midpoint": false,
           "luck_spent": 0,
           "luck_recovered": 0,
           "luck_spent_by_source": {},
@@ -98,9 +105,9 @@
         "iona_thistle": {
           "initial_luck": 11,
           "initially_low": false,
-          "minimum_luck_first_half": null,
-          "reached_one_or_less_by_midpoint": null,
-          "newly_reached_one_or_less_by_midpoint": null,
+          "minimum_luck_first_half": 11,
+          "reached_one_or_less_by_midpoint": false,
+          "newly_reached_one_or_less_by_midpoint": false,
           "luck_spent": 0,
           "luck_recovered": 0,
           "luck_spent_by_source": {},
@@ -114,9 +121,9 @@
         "mara_fen": {
           "initial_luck": 11,
           "initially_low": false,
-          "minimum_luck_first_half": null,
-          "reached_one_or_less_by_midpoint": null,
-          "newly_reached_one_or_less_by_midpoint": null,
+          "minimum_luck_first_half": 11,
+          "reached_one_or_less_by_midpoint": false,
+          "newly_reached_one_or_less_by_midpoint": false,
           "luck_spent": 0,
           "luck_recovered": 0,
           "luck_spent_by_source": {},
@@ -130,24 +137,53 @@
         "pip_reed": {
           "initial_luck": 10,
           "initially_low": false,
-          "minimum_luck_first_half": null,
-          "reached_one_or_less_by_midpoint": null,
-          "newly_reached_one_or_less_by_midpoint": null,
-          "luck_spent": 0,
-          "luck_recovered": 0,
-          "luck_spent_by_source": {},
-          "luck_recovered_by_source": {},
-          "pc_rolls": 0,
-          "acting_rolls": 0,
-          "roll_share_by_role": {},
-          "roll_share_by_attribute": {},
-          "roll_share_by_method": {}
+          "minimum_luck_first_half": 9,
+          "reached_one_or_less_by_midpoint": false,
+          "newly_reached_one_or_less_by_midpoint": false,
+          "luck_spent": 1,
+          "luck_recovered": 1,
+          "luck_spent_by_source": {
+            "nudge": 1
+          },
+          "luck_recovered_by_source": {
+            "short rest at Saltmere warm hearth": 1
+          },
+          "pc_rolls": 1,
+          "acting_rolls": 1,
+          "roll_share_by_role": {
+            "attacker": {
+              "count": 1,
+              "share": 1.0
+            }
+          },
+          "roll_share_by_attribute": {
+            "DEX": {
+              "count": 1,
+              "share": 1.0
+            }
+          },
+          "roll_share_by_method": {
+            "Work the iron-bound niche lock gently with the lockpick satchel while Mara steadies the loose plate and Iona lights the keyhole": {
+              "count": 1,
+              "share": 1.0
+            }
+          }
         }
       },
-      "pc_rolls": 0,
+      "pc_rolls": 1,
       "npc_rolls_excluded": 0,
-      "roll_share_by_attribute": {},
-      "roll_share_by_method": {},
+      "roll_share_by_attribute": {
+        "DEX": {
+          "count": 1,
+          "share": 1.0
+        }
+      },
+      "roll_share_by_method": {
+        "Work the iron-bound niche lock gently with the lockpick satchel while Mara steadies the loose plate and Iona lights the keyhole": {
+          "count": 1,
+          "share": 1.0
+        }
+      },
       "red_line": {
         "scope": "party",
         "roll_threshold": 3,

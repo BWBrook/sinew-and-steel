@@ -11,22 +11,34 @@ for commands and [agent bootstrap](agent_bootstrap.md) for a quick resume.
 
 ## Table discipline
 
+- Open in motion. Start a session, and each act, in the middle of something
+  already happening, with a clear and immediate stake, not with quiet
+  preparation. Honour rests and decisions already agreed.
 - Roll only when the outcome is uncertain and failure has an interesting cost.
   Ordinary competence and settled fictional outcomes need no roll.
 - Ask what the character does and how. Choose the attribute that fits; a new
   description does not make an unsuitable favourite attribute apply.
-- State stakes before rolling. If two failure consequences fit, name both before
-  the roll and use the book's selection procedure; do not invent a new price after
-  seeing the result.
+- State stakes before the player commits. When they are already public, the
+  declared action is the commitment; otherwise state them and get commitment
+  before you roll. Stakes must never first appear in the reply that shows the
+  dice. If two failure consequences fit, name both before the roll and use the
+  book's selection procedure; do not invent a new price after seeing the result.
 - Keep choices concrete, including plausible narrative options. Let the player
   think aloud; only fictional stalling costs time.
 - Judge tags, equipment, contextual modifiers, and exceptional harm from the
   fiction. The CLI records the judgment; it does not read a description as rules.
+- Threats move on their own. Decide in advance what advances each threat's
+  clock, what happens when it fills, and what can interrupt it. When enough
+  fictional time passes, or the opposition makes its move, advance the clock,
+  whether or not anyone rolls; a signposted danger does not wait forever. A tick
+  is not automatically a Pressure charge, though both may apply.
 - Apply Pressure when the fiction triggers it, including time passing under
   an active threat, noisy heroics, desperate bargains and taboo acts (Almanac 4),
   as well as when players accept it as a price. Use the skin's rules and the
   declared shared-hazard policy; do not charge for real-world deliberation or
   merely to reach a pacing figure.
+- Give each named NPC a want, a manner and a line they will not cross, kept in
+  private notes, and play them by it, so they push and differ.
 - When the fiction suits a character's distinctive capability (a power, bond,
   rite, spell or signature gear), include it among the options you name. Never
   require it.
@@ -89,20 +101,20 @@ validating or resuming.
 ## Session evidence
 
 Record each scene as a beat, separately from rolls. A fight is one beat, however
-many rounds it runs. Mark a beat perilous when failure in the scene could cost
-Stamina, a life or the goal; assess its actual fictional stakes, not whether dice
-were used. A genuine hazard resolved through preparation or a boon can qualify;
-safe chores, rests and danger staged for milestone credit do not. Mark act breaks
-(`--act-end`) where the story turns or pauses. Award a milestone when the third or
-fourth perilous beat since the last one ends; do not save it for the session's
-close. Log recovery when it occurs. Record promises made in the fiction (rewards,
-debts, favours) as recap threads until they are settled. Close only completed
-sessions with `play.py session-close`; start the next with `session`. Without
-sittings, a session is two acts, about ten beats; Almanac 9 gives the pacing
-numbers. The playtest summary distinguishes complete and partial sessions and
-supports review of Luck depletion and red-line duration. These logs inform a
-Custodian's judgment; they do not turn a small playtest into precise balance
-evidence.
+many rounds it runs; a cut to another place or time starts a new one. Mark a beat
+perilous when failure in the scene could cost Stamina, a life or the goal; assess
+its actual fictional stakes, not whether dice were used. A genuine hazard resolved
+through preparation or a boon can qualify; safe chores, rests and danger staged
+for milestone credit do not. Mark act breaks (`--act-end`) where the story turns
+or pauses. Award a milestone when the third or fourth perilous beat since the last
+one ends; do not save it for the session's close. Log recovery when it occurs.
+Record promises made in the fiction (rewards, debts, favours) as recap threads
+until they are settled. Close only completed sessions with `play.py session-
+close`; start the next with `session`. Without sittings, a session is two acts,
+about ten beats; Almanac 9 gives the pacing numbers. The playtest summary
+distinguishes complete and partial sessions and supports review of Luck depletion
+and red-line duration. These logs inform a Custodian's judgment; they do not turn
+a small playtest into precise balance evidence.
 
 For an unexpected state error, stop the dependent action, inspect the receipt and
 `validate_campaign.py` output, and repair the actual inconsistency; a stale-prompt
