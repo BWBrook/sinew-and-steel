@@ -1,8 +1,8 @@
 # AI Play Notes
 
-These notes sketch what the repository harness adds. AI as Custodian makes the case that an AI can run the game, and that Sinew & Steel is deliberately legible enough for that to work; this chapter is for readers who want the repository path.
+These notes sketch what the repository harness adds. AI as Custodian makes the case that an AI can run the game, and that Hazardry is deliberately legible enough for that to work; this chapter is for readers who want the repository path.
 
-You can play S&S perfectly well with paper, dice, and people at a table. The harness exists for a different case: solo play, GM-less play, or long-running AI-assisted campaigns where memory, secrecy, and consequence tracking matter.
+You can play Hazardry perfectly well with paper, dice, and people at a table. The harness exists for a different case: solo play, GM-less play, or long-running AI-assisted campaigns where memory, secrecy, and consequence tracking matter.
 
 ## The problem the harness solves
 
@@ -28,7 +28,7 @@ There are two broad ways to use an AI Custodian.
 
 **In harness play**, the AI works inside the repository. The rules, skins, sheets, trackers, and campaign memory are files. The agent can build prompts, update sheets, tick clocks, record logs, and resume from a checkpoint. This is slower to set up, but much better for campaigns where consequences should accumulate.
 
-Both are Sinew & Steel. They differ in how much memory the table wants the machinery to carry.
+Both are Hazardry. They differ in how much memory the table wants the machinery to carry.
 
 ## Secrets need a private place
 
@@ -67,6 +67,6 @@ That gives AI play a different texture from an oracle table. The world can surpr
 
 ## Where the tool details live
 
-The repository, <https://github.com/BWBrook/sinew-and-steel>, documents the exact commands and workflow. Start with `docs/ai_play_harness.md`.
+The repository, <https://github.com/BWBrook/hazardry>, documents the exact commands and workflow. Start with `docs/ai_play_harness.md`.
 
 At a paper table, keep the core advice: preserve secrets, roll only when it matters, state stakes, and record what changed.

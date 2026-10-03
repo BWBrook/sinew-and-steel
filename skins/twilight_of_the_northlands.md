@@ -1,11 +1,11 @@
 # Twilight of the Northlands
-### Skin add-on for Sinew & Steel
+### Skin add-on for Hazardry
 
 ![](../assets/covers/ss_logo_twilight_northlands.png){.wrap-right width=2in}
 
 *The Northlands, late in a fading age. The Wardens keep lonely watch, dread gathers in forgotten tombs, and humble folk cherish hearth-fires against the returning dark.*
 
-Use this skin with the Sinew & Steel core rules. The core governs everything else.
+Use this skin with the Hazardry core rules. The core governs everything else.
 
 Twilight of the Northlands is wanderer fantasy: long roads, hard choices, and small lights carried through large darkness. Expect travels, assemblies, songs in the cold, and moments where fear, hunger, and oath-breaking bite as hard as steel.
 
@@ -193,7 +193,7 @@ Other PCs help through preparation and the fiction; they do not add extra assemb
 
 ### Optional combat module: tactical positions and injurious blows
 
-Use this only if you want a little road-fantasy texture in combat within the Sinew & Steel chassis. It adds two ideas on top of ordinary Stamina loss:
+Use this only if you want a little road-fantasy texture in combat within the Hazardry chassis. It adds two ideas on top of ordinary Stamina loss:
 
 - **Combat positions:** declare each round where Advantage and Disadvantage fall, on your attack or your defence.
 - **Injury:** significant lingering damage, such as a lacerating or crushing blow that gets through a defence.

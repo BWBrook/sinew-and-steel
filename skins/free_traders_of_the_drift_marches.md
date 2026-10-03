@@ -1,11 +1,11 @@
 # Free Traders of the Drift Marches
-### Skin add-on for Sinew & Steel
+### Skin add-on for Hazardry
 
 ![](../assets/covers/ss_logo_free_traders.png){.wrap-right width=2in}
 
 *Out along the drift routes between the stars: jump-flashes bloom in the dark, patrons wave low-credit cargo chits, and a worn free trader hauls dreams through the long night.*
 
-Use this skin with the Sinew & Steel core rules. The core governs everything else.
+Use this skin with the Hazardry core rules. The core governs everything else.
 
 Free Traders of the Drift Marches is old-school space adventure: debt, fuel, patron jobs, hard vacuum, and the quiet terror of a jump that comes out wrong. Expect clipped comms, messy morality, ports that smile with teeth, and runs where profit and survival are the same problem.
 

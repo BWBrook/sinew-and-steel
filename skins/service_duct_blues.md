@@ -1,11 +1,11 @@
 # Service Duct Blues
-### Skin add-on for Sinew & Steel
+### Skin add-on for Hazardry
 
 ![](../assets/covers/ss_logo_service_duct_blues.png){.wrap-right width=2in}
 
 *Life below decks on a frontier starship, starbase, or deep-space platform, Shift 17.*
 
-Use this skin with the Sinew & Steel core rules. The core governs everything else.
+Use this skin with the Hazardry core rules. The core governs everything else.
 
 Service Duct Blues is lower-decks starship drama: miracles under deadlines, competence under scrutiny, and optimism under stress. Expect coolant leaks, anomalous readings, personal frictions, and episodes where the real victory is keeping everyone alive and keeping the ship's conscience intact.
 

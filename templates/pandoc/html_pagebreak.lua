@@ -1,4 +1,4 @@
--- Sinew & Steel: HTML page-break helpers
+-- Hazardry: HTML page-break helpers
 --
 -- Purpose:
 -- When authoring for the LaTeX backend, it's convenient to use raw LaTeX

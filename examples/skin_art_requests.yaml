@@ -1,6 +1,6 @@
 schema_version: 1
 
-# Sinew & Steel — Skin Artwork Requests
+# Hazardry — Skin Artwork Requests
 #
 # Purpose
 # - A prompt-ready list of additional spot-art assets (and per-skin logos) to
@@ -19,7 +19,7 @@ style_guide:
     Black-and-white pen-and-ink spot illustration, field-manual schematic.
     White background. No text. High contrast. Clean silhouettes. Minimal fine
     detail so it reads when small. Keep line weight consistent with existing
-    S&S interior art.
+    Hazardry interior art.
   sizing_notes:
     logo_px: 1024
     spot_px: 1024

@@ -1,6 +1,6 @@
 # The Adventurer
 
-Sinew & Steel asks something simple of you as a player: decide what your character would do, and commit to it.
+Hazardry asks something simple of you as a player: decide what your character would do, and commit to it.
 
 Think as this person would, right now, with their courage, habits, pride, fear, and bad information.
 
@@ -8,11 +8,11 @@ The rules are short on purpose. They catch you when the stakes matter, then get 
 
 ## Play the person, not the puzzle
 
-You can tune a character in S&S, but build optimisation, rules lawyering, and fishing for a convenient check flatten play. Play instead to find out what your character becomes, failures included.
+You can tune a character in Hazardry, but build optimisation, rules lawyering, and fishing for a convenient check flatten play. Play instead to find out what your character becomes, failures included.
 
 ## Keep the pace
 
-S&S plays best when the action feels like it is happening in real time. Help keep that pace:
+Hazardry plays best when the action feels like it is happening in real time. Help keep that pace:
 
 - Be ready to act when the spotlight lands on you.
 - Choose an approach quickly, even if it isn’t perfect.
@@ -20,7 +20,7 @@ S&S plays best when the action feels like it is happening in real time. Help kee
 
 ## Declare intent, method, risk
 
-The most useful declarations in S&S sound like this:
+The most useful declarations in Hazardry sound like this:
 
 - **I want** ___ (intent)
 - **by doing** ___ (method)
@@ -64,7 +64,7 @@ When you nudge a die, narrate it. Say what it looks like: a lucky foothold, a su
 
 ## When you fail
 
-Failure in S&S can mean a hard stop, a complication, progress at a cost, or success with collateral damage. Whatever form it takes, it changes the situation.
+Failure in Hazardry can mean a hard stop, a complication, progress at a cost, or success with collateral damage. Whatever form it takes, it changes the situation.
 
 Your character wants to survive. Play that, and let the failures land.
 

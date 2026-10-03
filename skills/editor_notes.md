@@ -1,8 +1,8 @@
-This document describes the editorial style for new skins or rule changes (“Mentzer-era TSR editor”, but adapted to Sinew & Steel’s modern, lean chassis).
+This document describes the editorial style for new skins or rule changes (“Mentzer-era TSR editor”, but adapted to Hazardry’s modern, lean chassis).
 
 ## Editorial North Star
 
-- Teach the game as if the reader has never played Sinew & Steel before (and may not have played an RPG at all), but is intelligent and impatient.
+- Teach the game as if the reader has never played Hazardry before (and may not have played an RPG at all), but is intelligent and impatient.
 - Every rule must answer: what you do at the table, when you do it, and what changes in the fiction/state.
 - Clarity beats vibe; vibe is welcome only when it teaches or motivates play.
 - Keep “agent harness” operational guidance out of the rules unless it’s truly part of the game system (we’ll keep the player/GM rules clean).

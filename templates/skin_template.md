@@ -1,5 +1,5 @@
 # **SKIN NAME**
-## Skin add-on for the Sinew & Steel game system
+## Skin add-on for the Hazardry game system
 *One-line pitch and era.*
 
 _(Layer atop the universal rules; anything not stated here defaults to core.)_

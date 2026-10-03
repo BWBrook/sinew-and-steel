@@ -177,7 +177,7 @@ class CampaignContractTests(unittest.TestCase):
             self.assertEqual(meta["profile"], "compact")
             self.assertIn("The wolf is a spirit.", text)
             self.assertIn("![](public-map.png)", text)
-            self.assertNotIn("# Sinew & Steel Adventurer's Manual", text)
+            self.assertNotIn("# Hazardry Adventurer's Manual", text)
             prompt = path / "prompt.md"
             prompt.write_text(text)
             self.assertEqual(build_prompt.check_prompt(prompt), [])
@@ -198,7 +198,7 @@ class CampaignContractTests(unittest.TestCase):
         compact, _ = build_prompt.assemble_prompt(self.manifest, "clanfire")
         full, _ = build_prompt.assemble_prompt(self.manifest, "clanfire", profile="full")
         self.assertLess(len(compact), len(full))
-        self.assertIn("# Sinew & Steel Adventurer's Manual", full)
+        self.assertIn("# Hazardry Adventurer's Manual", full)
         section, _ = build_prompt.assemble_prompt(self.manifest, None, sections=["manual:6", "almanac:4"])
         self.assertIn("## 6. Combat", section)
         self.assertIn("### 4. Pressure and clocks", section)

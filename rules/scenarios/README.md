@@ -2,7 +2,7 @@
 
 ![](../../assets/art/ss_logbook.png){.wrap-right width=1.25in}
 
-This folder contains short, table-ready scenarios for Sinew & Steel.
+This folder contains short, table-ready scenarios for Hazardry.
 
 - Scenarios are written to be **publish-safe** and **skin-forward** (they teach the chassis by play).
 - Each scenario is written for the **Custodian** (GM). Treat it as “behind the screen” material unless a section is explicitly marked as player-facing.

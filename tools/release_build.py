@@ -175,7 +175,7 @@ def cover_html_block(*, cover_rel: Path) -> str:
     return "\n".join(
         [
             '<section class="ss-cover-page" aria-label="Cover">',
-            f'  <img src="{cover_posix}" alt="Sinew & Steel cover" />',
+            f'  <img src="{cover_posix}" alt="Hazardry cover" />',
             "</section>",
             "",
         ]

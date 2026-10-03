@@ -1,11 +1,11 @@
 # Mournful Shores
-### Skin add-on for Sinew & Steel
+### Skin add-on for Hazardry
 
 ![](../assets/covers/ss_logo_whispers_in_the_fog.png){.wrap-right width=2in}
 
 *Mournful New England shores, 1924. Gas-lamps gutter, marsh-mists coil, and nameless shapes lurk just beyond the churchyard wall.*
 
-Use this skin with the Sinew & Steel core rules. The core governs everything else.
+Use this skin with the Hazardry core rules. The core governs everything else.
 
 Mournful Shores is weird-horror investigation: frail lantern-light, forbidden books, polite conversations that turn sour, and truths too large for a human skull. Expect foreboding that rises by inches, sudden violence, and answers that feel like bargains.
 

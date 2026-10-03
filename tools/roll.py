@@ -33,7 +33,7 @@ def main() -> int:
     global_parser.add_argument("--seed", type=int, help="Random seed for reproducible rolls")
     global_parser.add_argument("--pretty", action="store_true", help="Pretty-print JSON output")
 
-    command_parser = argparse.ArgumentParser(description="Roll d20 checks for Sinew & Steel.")
+    command_parser = argparse.ArgumentParser(description="Roll d20 checks for Hazardry.")
     subparsers = command_parser.add_subparsers(dest="command", required=True)
 
     check = subparsers.add_parser("check", help="Single roll-under check")

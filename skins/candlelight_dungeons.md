@@ -1,11 +1,11 @@
 # Candlelight Dungeons
-### Skin add-on for Sinew & Steel
+### Skin add-on for Hazardry
 
 ![](../assets/covers/ss_logo_candlelight_dungeons.png){.wrap-right width=2in}
 
 *Torchlit delves in the warrens of a dying principality, inspired by classic 1980s dungeon-crawl play.*
 
-Use this skin with the Sinew & Steel core rules. The core governs everything else.
+Use this skin with the Hazardry core rules. The core governs everything else.
 
 Candlelight Dungeons is old-school dungeon-crawl play: mapping by torchlight, hard bargains, traps that hurt, and monsters with motives. Expect heroic competence under grim pressure. The dungeon is mean; the delvers are capable.
 

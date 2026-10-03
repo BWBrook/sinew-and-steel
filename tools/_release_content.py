@@ -66,7 +66,7 @@ def _preferred_logo_image_for_skin(skin_path: Path) -> Path | None:
     Preference order:
       1) Per-skin logo in `assets/covers/ss_logo_<skin>.png`
       2) Compatibility aliases (e.g. remove `_of_the_`, `free_traders_*`)
-      3) Generic S&S logo (`assets/covers/ss_logo.png`)
+      3) Generic Hazardry logo (`assets/covers/ss_logo.png`)
       4) Generic icon fallback (`assets/covers/ss_icon.png`) if present
     """
 
@@ -243,7 +243,7 @@ def concatenate_markdown(paths: list[Path]) -> str:
 
 
 def concatenate_book_parts(parts_spec: tuple[BookPart, ...]) -> str:
-    parts: list[str] = ["# SINEW & STEEL", ""]
+    parts: list[str] = ["# HAZARDRY", ""]
     for part_idx, part in enumerate(parts_spec):
         if part_idx != 0:
             parts.append("\n\\newpage\n")
@@ -398,10 +398,10 @@ def bundle_definitions(manifest: dict, version: str) -> dict[str, Bundle]:
 
         bundles["full_book"] = Bundle(
             key="full_book",
-            title="Sinew & Steel",
+            title="Hazardry",
             subtitle="Core Rules, Skins & Starter Scenario",
             input_paths=[*full_book_input_paths, *full_book_end_matter],
-            output_base=f"SinewAndSteel_FullBook_v{version}",
+            output_base=f"Hazardry_FullBook_v{version}",
             toc=True,
             toc_depth=3,
             number_sections=False,
@@ -413,10 +413,10 @@ def bundle_definitions(manifest: dict, version: str) -> dict[str, Bundle]:
 
     bundles["core_skins"] = Bundle(
         key="core_skins",
-        title="Sinew & Steel",
+        title="Hazardry",
         subtitle="Core Rules & Skins",
         input_paths=[adv, cust] + skin_paths,
-        output_base=f"SinewAndSteel_CoreAndSkins_v{version}",
+        output_base=f"Hazardry_CoreAndSkins_v{version}",
         toc=True,
         number_sections=False,
         variants=("screen", "print"),
@@ -426,10 +426,10 @@ def bundle_definitions(manifest: dict, version: str) -> dict[str, Bundle]:
     if quick:
         bundles["quickstart"] = Bundle(
             key="quickstart",
-            title="Sinew & Steel",
+            title="Hazardry",
             subtitle="Quickstart (Rules on Two Pages)",
             input_paths=[quick],
-            output_base=f"SinewAndSteel_Quickstart_v{version}",
+            output_base=f"Hazardry_Quickstart_v{version}",
             toc=False,
             number_sections=False,
             variants=("pdf",),
@@ -439,10 +439,10 @@ def bundle_definitions(manifest: dict, version: str) -> dict[str, Bundle]:
 
     bundles["scenario_emberfall"] = Bundle(
         key="scenario_emberfall",
-        title="Sinew & Steel",
+        title="Hazardry",
         subtitle="Clanfire: Emberfall (Starter Scenario)",
         input_paths=[ROOT / "rules" / "scenarios" / "clanfire_emberfall.md"],
-        output_base=f"SinewAndSteel_Clanfire_Emberfall_v{version}",
+        output_base=f"Hazardry_Clanfire_Emberfall_v{version}",
         toc=False,
         number_sections=False,
         variants=("pdf",),
@@ -450,10 +450,10 @@ def bundle_definitions(manifest: dict, version: str) -> dict[str, Bundle]:
 
     bundles["ai_appendix"] = Bundle(
         key="ai_appendix",
-        title="Sinew & Steel",
+        title="Hazardry",
         subtitle="Appendix: AI Custodian Play",
         input_paths=[ROOT / "rules" / "appendices" / "ai_play.md"],
-        output_base=f"SinewAndSteel_AI_Play_Appendix_v{version}",
+        output_base=f"Hazardry_AI_Play_Appendix_v{version}",
         toc=True,
         number_sections=False,
         variants=("pdf",),
@@ -467,14 +467,14 @@ def bundle_definitions(manifest: dict, version: str) -> dict[str, Bundle]:
             raise SystemExit(1)
         bundles["layout_test"] = Bundle(
             key="layout_test",
-            title="Sinew & Steel",
+            title="Hazardry",
             subtitle="Layout Test (Quickstart + Clanfire + Time Odyssey)",
             input_paths=[
                 quick,
                 ROOT / clanfire_rel,
                 ROOT / time_odyssey_rel,
             ],
-            output_base=f"SinewAndSteel_LayoutTest_v{version}",
+            output_base=f"Hazardry_LayoutTest_v{version}",
             toc=True,
             number_sections=False,
             variants=("screen", "print"),

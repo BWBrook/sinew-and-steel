@@ -1,11 +1,11 @@
 # Iron & Ruin
-### Skin add-on for Sinew & Steel
+### Skin add-on for Hazardry
 
 ![](../assets/covers/ss_logo_iron_and_ruin.png){.wrap-right width=2in}
 
 *Grim sword-and-sorcery in the spirit of pulp adventure.*
 
-Use this skin with the Sinew & Steel core rules. The core governs everything else.
+Use this skin with the Hazardry core rules. The core governs everything else.
 
 Iron & Ruin is for tales of iron and ash: barbarian courage, decadent cities, and sorcery that always exacts a price. Heroes can defy fate, but the gods, the cults, and the old powers keep ledgers.
 

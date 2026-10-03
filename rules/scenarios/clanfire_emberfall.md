@@ -1,6 +1,6 @@
 # Clanfire: Emberfall
 
-## A play-tonight starter scenario for Sinew & Steel
+## A play-tonight starter scenario for Hazardry
 
 **Custodian-facing scenario spine.** Use this after reading the Clanfire skin. Give the next chapter, the Clanfire Player Handout, to the players, and keep the Clanfire Custodian Notes behind the screen.
 
@@ -8,7 +8,7 @@
 The clan's hearth is dying in a hard winter, and the hunt that should save them is already being claimed by hungry things in the birch-line.
 
 ### Why Emberfall?
-Clanfire sits close to pure core play, but has enough flavour for the rules to bite. Emberfall puts the basic S&S loop on the table in one scene: real choice, sparse rolls, visible stakes, Instinct spending, Shadow, clocks, and combat that can end before death.
+Clanfire sits close to pure core play, but has enough flavour for the rules to bite. Emberfall puts the basic Hazardry loop on the table in one scene: real choice, sparse rolls, visible stakes, Instinct spending, Shadow, clocks, and combat that can end before death.
 
 Emberfall is built for a first session: quick to start, and it ends on one unanswered question.
 

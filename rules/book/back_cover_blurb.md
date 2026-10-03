@@ -1,6 +1,6 @@
 # Back-cover blurb
 
-**Sinew & Steel** is a lean, fast-start RPG for sharp rulings, visible pressure, and consequences that stay on the table.
+**Hazardry** is a lean, fast-start RPG for sharp rulings, visible pressure, and consequences that stay on the table.
 
 The core fits in your head:
 

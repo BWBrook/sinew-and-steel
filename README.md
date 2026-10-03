@@ -1,13 +1,18 @@
-# **Sinew & Steel**
+# **Hazardry**
 
-*A lean, setting-agnostic role-playing engine for the table, and for any reasoning AI in the Custodian's chair.*
+*A lean roleplaying game for the table, and for any AI in the Custodian's chair.*
+
+> *Now wol I yow deffenden hasardrye.*\
+> — the Pardoner, preaching against dicing, in Chaucer's *Canterbury Tales*
+
+Hazardry is an old word for playing at dice and taking risks. The game was developed under the name Sinew & Steel; links to the old repository address still work.
 
 ---
 
 ## Why another ruleset?
 
 Because most RPG rulebooks ask you to memorise a phone-book of subsystems before you can bleed on the page.
-Sinew & Steel works the other way round:
+Hazardry works the other way round:
 
 * **One d20. Five stats. Luck tokens. Stamina. Pressure.**
 * **Friction where it matters:** burning Luck, pushing damage through armour with margin, riding the Pressure fuse.
@@ -108,7 +113,7 @@ uv run python tools/resume_pack.py --campaign <slug>
 
 Example player directive for a fresh agent:
 ```
-You're resuming a Sinew & Steel campaign. Read only AGENTS.md and skills/agent_dm_handbook.md.
+You're resuming a Hazardry campaign. Read only AGENTS.md and skills/agent_dm_handbook.md.
 Then run: uv run python tools/build_prompt.py --campaign <campaign_slug>
 and: uv run python tools/resume_pack.py --campaign <campaign_slug>
 Use that output for your internal context only (do not show memory/secrets/log to me).
@@ -186,7 +191,7 @@ Issues, forks, pull requests, new skins, typo fixes — all welcome. Keep additi
 
 ## License
 
-* Sinew & Steel core rules © 2025 Barry Brook
+* Hazardry core rules © 2025 Barry Brook
 * **Text & tables:** Creative Commons **CC-BY 4.0**
 * **Helper code snippets:** MIT
 

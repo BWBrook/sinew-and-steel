@@ -1,8 +1,8 @@
-# Sinew & Steel Adventurer's Manual
+# Hazardry Adventurer's Manual
 
 ![](../../assets/art/ss_skin_overlay.png){.wrap-right width=2in}
 
-These are the core rules for player characters in *Sinew & Steel*. Everything runs on one d20 and five attribute scores.
+These are the core rules for player characters in *Hazardry*. Everything runs on one d20 and five attribute scores.
 
 The **Custodian** is the game’s GM. Player characters (PCs) are the heroes the players run; everyone else is a non-player character (NPC), played by the Custodian. A **skin** is a small genre overlay: it renames the attributes (including Luck), names your Pressure track, and adds a few rules of its own.
 

@@ -1,6 +1,6 @@
 # Plan
 
-The living plan for Sinew & Steel, set by Barry on 1 October 2026 and recorded on the project board (thread 46, message 787). Finished work is in `CHANGELOG.md`. The old snapshot file is archived at `docs/archive/HANDOVER_2026-09-30.md` and is no longer maintained.
+The living plan for Hazardry (developed as Sinew & Steel), set by Barry on 1 October 2026 and recorded on the project board (thread 46, message 787). Finished work is in `CHANGELOG.md`. The old snapshot file is archived at `docs/archive/HANDOVER_2026-09-30.md` and is no longer maintained.
 
 ## Stages
 
@@ -100,7 +100,8 @@ reproduced.
   AI-forward game, free and openly licensed, through channels such as GitHub
   releases, itch.io and his own site. The distribution strategy is parked for
   later; the licences (CC BY 4.0 text, MIT code) already fit it.
-- **Names.** Sinew & Steel stays. The Whispers in the Fog skin shared its title
+- **Names.** Sinew & Steel stayed at first; on 3 October the game was renamed
+  Hazardry (below). The Whispers in the Fog skin shared its title
   with a horror video game, so on 3 October 2026 Barry renamed it Mournful Shores
   (no game, RPG or book by that title was found). Its internal ID and file name,
   `whispers_in_the_fog`, are unchanged so existing campaigns still load.
@@ -209,15 +210,21 @@ Clearance check (Fable, 3 October 2026), with no conflict found:
 - **GitHub:** a personal account "hazardry" exists, so the repository would become
   BWBrook/hazardry.
 
-Social handles were not checked. Still to do: Barry's go-ahead, then the rename in
-one pass. In the text it
-is mechanical (about 90 mentions in 54 files, plus "S&S" shorthand, release file
-names and the repository). The cover and logo need new lettering in the GOLD art
-pass, and GitHub redirects a renamed repository.
+Social handles were not checked.
 
-Next: the clearance check and the rename to Hazardry, then the pilot and the
-programme. Astra's review of the recent work (board 837) found three bounded
-defects, now fixed: a retired name could be reused and overwrite its archived
-sheet; an older receipt without a session could replay in a later session; and
-red-line windows counted scene boundaries rather than the scenes they touched. Harness tests do
+**Renamed** (3 October 2026, at Barry's go-ahead). The book, skins, prompts,
+docs, tools, NOTICE, the package and the release files now say Hazardry, and the
+"S&S" shorthand is gone. Historical records (reviews, the archive, past changelog
+entries, the engine analyses) keep the old name. The repository is now
+BWBrook/hazardry; GitHub redirects the old address. The Preface and the README
+open with the epigraph, and the README carries the tagline and explains the name.
+The Quickstart still prints on two pages. Barry assigned the new cover and logo
+to Astra, who has image generation (GPT-image 2.5). The local folder and the
+board project keep the old name.
+
+Next: the pilot and the programme. Astra's review of the recent work (board 837)
+found three bounded defects, now fixed: a retired name could be reused and
+overwrite its archived sheet; an older receipt without a session could replay in a
+later session; and red-line windows counted scene boundaries rather than the
+scenes they touched. Harness tests do
 not replace those playtests or authorize GOLD and layout.

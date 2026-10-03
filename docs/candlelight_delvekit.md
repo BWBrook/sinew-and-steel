@@ -11,7 +11,7 @@ Originally contributed by Zach Aandahl, Delvekit adds:
 - hidden and player-facing map rendering,
 - prompt helpers for title, blurb, and module polish.
 
-It does **not** replace Candlelight Dungeons, and it does **not** change core Sinew & Steel. Treat Candlelight Dungeons as the rules chassis; treat Delvekit as the dungeon procedure layered on top.
+It does **not** replace Candlelight Dungeons, and it does **not** change core Hazardry. Treat Candlelight Dungeons as the rules chassis; treat Delvekit as the dungeon procedure layered on top.
 
 ## Start here
 

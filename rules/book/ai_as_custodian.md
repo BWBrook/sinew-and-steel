@@ -1,16 +1,16 @@
 # AI as Custodian
 
-An AI can already run a useful Sinew & Steel session.
+An AI can already run a useful Hazardry session.
 
 Current models wobble over rules, memory, and tone. They can still frame a world, answer free choices, and make consequences stick well enough for solo and GM-less play.
 
-Sinew & Steel was written with that possibility in mind. AI Custodian play is an optional way to use the same complete tabletop rules.
+Hazardry was written with that possibility in mind. AI Custodian play is an optional way to use the same complete tabletop rules.
 
 ## The AI in the Custodian’s chair
 
 You can put an AI to work as a co-Custodian, assistant, brainstorm partner, or NPC voice generator. All of those uses are fine, but this chapter is about the plainest one: the AI as the full Custodian.
 
-If you want the most S&S-like experience, bring the same social contract you would bring to a human Custodian:
+If you want the experience Hazardry is built for, bring the same social contract you would bring to a human Custodian:
 
 - respect the tone of the table,
 - accept consequences and resist turning every ruling into a negotiation,
@@ -27,7 +27,7 @@ If you want the most S&S-like experience, bring the same social contract you wou
 
 Four failure modes recur:
 
-- **Over-rolling.** Left alone, an AI may gamify everything into checks. Apply the S&S stance: ask for intent, method, and stakes, then roll only when the outcome is uncertain and matters.
+- **Over-rolling.** Left alone, an AI may gamify everything into checks. Apply Hazardry's stance: ask for intent, method, and stakes, then roll only when the outcome is uncertain and matters.
 - **Accidental railroading.** An AI may try to help by pulling everything back to a tidy plot. Correct it the same way you would with a human Custodian: restate intent, restate what is true, and ask for options that split in different directions.
 - **Context drift.** Even strong models forget details. Give the AI a spine of memory: a current sheet, a short recap, and a last checkpoint. It will become far more consistent.
 - **Dice integrity.** Treat dice as external truth: roll physically or with a trusted roller, and tell the AI the results.
@@ -44,11 +44,11 @@ At a table, play stops when the evening ends. With an AI, a player may come back
 
 A shared channel makes every AI message public, so hidden motives, unseen clocks, and private scenario notes need somewhere else to live: a private Custodian channel, or notes a human keeps. Share only player-safe narration and options.
 
-## Why Sinew & Steel fits AI play
+## Why Hazardry fits AI play
 
 Some RPGs are hard for an AI to run because the rules are exception-heavy, with bespoke subsystems and piles of small modifiers where drift can creep in.
 
-S&S gives the model one core resolution language and a short list of resources to track. Its consequences can be narrated cleanly. That makes drift easier to spot and correct.
+Hazardry gives the model one core resolution language and a short list of resources to track. Its consequences can be narrated cleanly. That makes drift easier to spot and correct.
 
 ## Three ways to use an AI
 

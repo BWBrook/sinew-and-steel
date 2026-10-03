@@ -1,11 +1,11 @@
 # Rust & Domes
-### Skin add-on for Sinew & Steel
+### Skin add-on for Hazardry
 
 ![](../assets/covers/ss_logo_rust_and_domes.png){.wrap-right width=2in}
 
 *Gritty exploits on a colonised Red Planet, circa 2205 AE.*
 
-Use this skin with the Sinew & Steel core rules. The core governs everything else.
+Use this skin with the Hazardry core rules. The core governs everything else.
 
 Rust & Domes is hard-sci-fi frontier play: dust and domes, corporate rot, and people who will sell you oxygen. Expect salvage, heists, mag-rail runs, life-support scares, and hard choices made under cameras.
 

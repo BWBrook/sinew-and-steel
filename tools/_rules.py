@@ -1,4 +1,4 @@
-"""Pure Sinew & Steel mechanics shared by tools and validators.
+"""Pure Hazardry mechanics shared by tools and validators.
 
 No randomness, file access, or campaign state belongs here. Ceilings apply at
 creation and throughout advancement (Manual sections 2.1 and 8).

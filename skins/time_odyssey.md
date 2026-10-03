@@ -1,11 +1,11 @@
 # Time Odyssey
-### Skin add-on for Sinew & Steel
+### Skin add-on for Hazardry
 
 ![](../assets/covers/ss_logo_time_odyssey.png){.wrap-right width=2in}
 
 *Victorian chrononautics in the spirit of scientific romance and strange futures.*
 
-Use this skin with the Sinew & Steel core rules. The core governs everything else.
+Use this skin with the Hazardry core rules. The core governs everything else.
 
 Time Odyssey is scientific romance: brass and ivory wonder, distant epochs, and the chill realisation that history is indifferent to you. Expect hard choices, strange futures, and consequences that arrive centuries out of order.
 

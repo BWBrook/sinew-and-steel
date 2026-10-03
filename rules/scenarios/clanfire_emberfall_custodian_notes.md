@@ -2,7 +2,7 @@
 
 ## Running the starter scenario behind the screen
 
-The scenario chapter, Clanfire: Emberfall, gives you the table-ready spine. This one is a short commentary on running it in the Sinew & Steel style.
+The scenario chapter, Clanfire: Emberfall, gives you the table-ready spine. This one is a short commentary on running it in the Hazardry style.
 
 Read it beside The Custodian for the stance, and beside Customisation for why Shadow, Instinct, taboo, and clocks are there at all.
 
@@ -36,7 +36,7 @@ For **strangers on the ridge**, keep them distant. In a first session they make 
 
 ## Make costs feel earned
 
-Use Emberfall to practise the S&S failure toolkit: time shifts, position worsens, resources drain, harm lands, Pressure rises, and clocks tick.
+Use Emberfall to practise the Hazardry failure toolkit: time shifts, position worsens, resources drain, harm lands, Pressure rises, and clocks tick.
 
 Make each cost feel like it came from the fiction:
 

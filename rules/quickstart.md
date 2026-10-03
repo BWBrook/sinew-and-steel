@@ -1,4 +1,4 @@
-# Sinew & Steel quickstart (rules on two pages)
+# Hazardry quickstart (rules on two pages)
 
 Roll under, count the margin, spend Luck to nudge close calls, and watch Pressure climb.
 

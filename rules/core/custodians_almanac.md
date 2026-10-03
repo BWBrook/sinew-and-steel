@@ -1,4 +1,4 @@
-# Sinew & Steel Custodian's Almanac
+# Hazardry Custodian's Almanac
 
 Pacing tools, advice on rulings, and optional modules for the Custodian. You will also want a d6 for the random tables.
 
@@ -185,7 +185,7 @@ See the AI for Solo Play chapters for more on AI Custodian play and the agent ha
 
 ### 9. Pacing: beats, acts and sessions
 
-Play falls into scenes and acts, as an episode of television does, though an S&S story runs as long as it needs.
+Play falls into scenes and acts, as an episode of television does, though a Hazardry story runs as long as it needs.
 
 - **Beat:** one scene, with one open question. It ends when the question is answered, dropped or changed, or when the story cuts to another place or time. A beat must change something, so do not slice scenes thin. It is perilous when failure could cost Stamina, a life or the goal.
 - **Act:** four to six beats, ending at a turn (a reveal, a reversal, a hard choice) or a pause (camp, port, a safe bed).
@@ -339,7 +339,7 @@ Advantage on attack is the stronger lever. It raises the chance to hit and, by k
 
 ### H. Wealth & attention (optional money subsystem)
 
-By default, Sinew & Steel tracks coins, credits, and rations loosely in the fiction, outside the carry limit.
+By default, Hazardry tracks coins, credits, and rations loosely in the fiction, outside the carry limit.
 
 If you want money to carry weight at the table, track a single **Wealth** score per party or per character:
 

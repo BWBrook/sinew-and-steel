@@ -39,7 +39,7 @@ of these needs a unit an AI Custodian can see in the story itself.
   usually takes three to six acts.
 
 A television hour runs a teaser and four or five acts of a handful of scenes each.
-On this scale an S&S session is about half an episode, and an arc is the thread
+On this scale a Hazardry session is about half an episode, and an arc is the thread
 that runs across episodes.
 
 **Why a session is two acts, not one.** The Almanac already treats a session as

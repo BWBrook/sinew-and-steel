@@ -25,7 +25,7 @@ Build encounters from the fiction. The world is dangerous, uneven, and indiffere
 
 ## Roll only for stakes
 
-S&S gets worse when everything becomes a roll. Roll only when the outcome is uncertain and it matters, and before anyone rolls, say what is at stake: what success gets and what failure is likely to cost.
+Hazardry gets worse when everything becomes a roll. Roll only when the outcome is uncertain and it matters, and before anyone rolls, say what is at stake: what success gets and what failure is likely to cost.
 
 Most of the time, resolve these without dice:
 
@@ -37,7 +37,7 @@ When you do call for a roll, one roll should settle the moment. Avoid a ladder o
 
 ## When a roll fails
 
-S&S leaves the consequence of failure to the fiction. A fixed sequence of penalties soon becomes predictable, and predictable failure loses its tension.
+Hazardry leaves the consequence of failure to the fiction. A fixed sequence of penalties soon becomes predictable, and predictable failure loses its tension.
 
 Common consequences: Pressure rises, time passes or position worsens, resources drain, harm lands, threats escalate, a clock ticks, or the scene changes. Pick the one that best fits the fiction and the moment, and pick it before the roll, as part of the stakes you state.
 

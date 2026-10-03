@@ -1,6 +1,6 @@
 # Customisation
 
-Sinew & Steel is deliberately lean. That makes it easy to customise, but also easy to overload.
+Hazardry is deliberately lean. That makes it easy to customise, but also easy to overload.
 
 The right addition sharpens a genre, strengthens a tone, or adds a new kind of tension. The wrong one adds drag.
 
@@ -21,7 +21,7 @@ A skin is a framing layer: it translates the core into a genre and leaves the re
 
 ## What to protect
 
-If you want your custom work to still feel like Sinew & Steel, keep these intact:
+If you want your custom work to still feel like Hazardry, keep these intact:
 
 - Resolution stays d20 roll-under, and margin matters.
 - The chassis is still five attributes (Luck doubling as a token pool), Stamina, and Pressure (0-5).
@@ -90,7 +90,7 @@ If you want to borrow rules from multiple skins, use one skin as the foundation 
 
 Keep new procedures small enough to remember: you should be able to state the rule clearly in 8-12 lines.
 
-A good S&S procedure usually has this structure:
+A good Hazardry procedure usually has this structure:
 
 - when it triggers,
 - what you roll,

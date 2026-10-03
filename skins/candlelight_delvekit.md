@@ -4,7 +4,7 @@
 
 *A lean referee kit for graph-paper dungeon exploration: hidden maps, revealed routes, old-school backtracking, and procedural danger.*
 
-_(Use atop `skins/candlelight_dungeons.md`. Anything not listed here follows Candlelight Dungeons and core Sinew & Steel as written.)_
+_(Use atop `skins/candlelight_dungeons.md`. Anything not listed here follows Candlelight Dungeons and core Hazardry as written.)_
 
 Candlelight Delvekit is optional. Candlelight Dungeons already works without it.
 Use this add-on when you want a stricter dungeon loop: turns, map reveal, keys, factions, trap rooms, and revisits that matter.

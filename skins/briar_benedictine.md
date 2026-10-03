@@ -1,11 +1,11 @@
 # Briar & Benedictine
-### Skin add-on for Sinew & Steel
+### Skin add-on for Hazardry
 
 ![](../assets/covers/ss_logo_briar_benedictine.png){.wrap-right width=2in}
 
 *A Benedictine abbey, England, winter of 1142. Murder, heresy, civil war and siege swirl beyond the cloister walls.*
 
-Use this skin with the Sinew & Steel core rules. The core governs everything else.
+Use this skin with the Hazardry core rules. The core governs everything else.
 
 Briar & Benedictine is monastic mystery: investigation under vows, secrets behind stone, and the spiritual cost of prying into darkness. Expect interrogation-by-confession, forensic herbs, whispered politics, medieval morals, and violence that is rare but final.
 

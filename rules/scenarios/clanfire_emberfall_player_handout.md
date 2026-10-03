@@ -1,6 +1,6 @@
 # Clanfire: Emberfall (player handout)
 
-## A player-facing starter brief for Sinew & Steel
+## A player-facing starter brief for Hazardry
 
 Your clan's hearth is dying in a hard winter, and the hunt that should save you is already being claimed by hungry things in the birch-line.
 

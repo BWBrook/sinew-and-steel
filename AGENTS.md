@@ -1,4 +1,4 @@
-# Agent Harness Instructions (Sinew & Steel)
+# Agent Harness Instructions (Hazardry)
 
 This repo is structured for AI coding agents (Codex CLI, Claude Code) to run RPG sessions.
 Use the files and tools below to keep play consistent, reproducible, and private.
