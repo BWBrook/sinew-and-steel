@@ -103,10 +103,9 @@ def parser() -> tuple[argparse.ArgumentParser, argparse.ArgumentParser]:
     p = sub.add_parser("effect-end", help="Record expiry of a crisis-created effect")
     p.add_argument("--id", required=True)
     p.add_argument("--reason", required=True)
-    p = sub.add_parser("beat", help="Record one narrative beat; a beat is not an individual roll")
-    p.add_argument("--perilous", action="store_true")
-    p.add_argument("--label", required=True)
-    p = sub.add_parser("scene", help="Begin a scene and reset its limited uses")
+    p = sub.add_parser("beat", help="End the current scene (a beat) and begin the next; resets once-per-scene limits")
+    p.add_argument("--perilous", action="store_true", help="Failure in this scene could cost Stamina, a life or the goal")
+    p.add_argument("--act-end", action="store_true", help="This beat ends an act: a turn or a pause, usually after 4-6 beats")
     p.add_argument("--label", required=True)
     p = sub.add_parser("session", help="Begin a session; preserve Pressure and reset session use limits")
     p.add_argument("--label", default="New session")
@@ -251,11 +250,24 @@ def dispatch(args, campaign: dict, skin: dict, tracker: dict, sheets: dict) -> t
         event = {"type": "session_end", "label": args.label,
                  "luck": {k: v["pools"]["luck"]["current"] for k, v in sheets.items()}}
         return event, [event]
-    if command in {"beat", "scene", "session", "boundary"}:
+    if command in {"beat", "session", "boundary"}:
         if command == "beat":
+            # A beat is a scene: recording it ends this scene and begins the next.
+            act = tracker.get("act", 1)
             tracker["beat"] = tracker.get("beat", 0) + 1
+            tracker["scene"] = tracker.get("scene", 0) + 1
+            tracker["resources"] = _resources.reset_resources(tracker["resources"], "scene")
             event = {"type": "beat", "perilous": args.perilous, "label": args.label,
+                     "act": act, "act_end": args.act_end,
                      "luck": {k: v["pools"]["luck"]["current"] for k, v in sheets.items()}}
+            result = dict(event)
+            if args.act_end:
+                tracker["act"] = act + 1
+                if act >= 2:
+                    # In play without sittings, a session is two acts (about ten beats).
+                    result["reminders"] = ["This session has had two acts: award any milestone, "
+                                           "then close it with play.py session-close."]
+            return result, [event]
         else:
             boundary = args.kind if command == "boundary" else command
             tracker["resources"] = _resources.reset_resources(tracker["resources"], boundary)
@@ -264,10 +276,9 @@ def dispatch(args, campaign: dict, skin: dict, tracker: dict, sheets: dict) -> t
                     raise ValueError("close the current session before beginning another")
                 tracker["session"] = tracker.get("session", 1) + 1
                 tracker["beat"] = 0
+                tracker["act"] = 1
                 tracker["session_closed"] = False
                 tracker["telemetry_partial"] = False
-            if command in {"scene", "session"}:
-                tracker["scene"] = tracker.get("scene", 0) + 1
             event = {"type": command, "label": getattr(args, "label", None), "boundary": boundary}
         return event, [event]
     if command == "luck":

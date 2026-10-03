@@ -3,7 +3,8 @@
 
 This command never writes campaign state. It counts observed character-session
 histories, not independent population samples, and keeps incomplete sessions
-out of the completed evidence. No beat records means no midpoint or beat rate.
+out of the completed evidence. A session's midpoint is the end of its first act;
+without an act break there is no midpoint, and without beats no beat rate.
 """
 
 from __future__ import annotations
@@ -96,7 +97,7 @@ def _red_line(events: list[dict], initial: dict, threshold: int) -> dict:
             "start_sequence": event["sequence"], "start_beat": event["beat"],
             "start_reason": reason, "left_censored": left_censored,
             "end_sequence": None, "end_beat": None, "end_reason": None,
-            "affected_pc_rolls": 0, "rolls_by_actor": {}, "right_censored": True,
+            "affected_pc_rolls": 0, "beats": 0, "rolls_by_actor": {}, "right_censored": True,
         }
         windows.append(window)
         active[track] = window
@@ -127,6 +128,9 @@ def _red_line(events: list[dict], initial: dict, threshold: int) -> dict:
                 window = active.pop(track)
                 window.update(end_sequence=event["sequence"], end_beat=event["beat"],
                               end_reason=event.get("category"), right_censored=False)
+        elif event["type"] == "beat":
+            for window in active.values():
+                window["beats"] += 1
         elif event["type"] == "roll" and _pc(event.get("actor")):
             snapshot = event.get("pressure_at_start")
             if snapshot is None:
@@ -168,14 +172,12 @@ def summarize_session(events: list[dict], source: str = "<memory>", red_line_rol
     if any(right <= left for left, right in zip(beat_numbers, beat_numbers[1:])):
         raise ValueError(f"{source}: repeated or out-of-order beat records")
     last_beat = max(beat_numbers) if beats else None
-    midpoint = last_beat // 2 if last_beat is not None else None
-    # A beat is recorded when its scene ends, so the first half is everything up to
-    # and including the last beat record at or below the midpoint (by sequence).
-    # With fewer than two beats only the session's starting Luck counts.
-    cut = None
-    if midpoint is not None:
-        closing = [event for event in beats if event["beat"] <= midpoint]
-        cut = closing[-1]["sequence"] if closing else start.get("sequence", 0)
+    # A session's midpoint is the end of its first act. A beat is recorded when its
+    # scene ends, so the first half runs to and includes the first beat record that
+    # ends an act (by sequence). Without an act break there is no midpoint.
+    first_act_end = next((event for event in beats if event.get("act_end")), None)
+    midpoint = first_act_end["beat"] if first_act_end else None
+    cut = first_act_end["sequence"] if first_act_end else None
     rolls = [event for event in events if event["type"] == "roll" and _pc(event.get("actor"))]
     actors = set(initial_luck)
     actors.update(event["actor"] for event in events if event["type"] in {"roll", "luck"} and _pc(event.get("actor")))
@@ -237,12 +239,32 @@ def summarize_session(events: list[dict], source: str = "<memory>", red_line_rol
         gains_by_category[event.get("category", "<unrecorded>")] += event["after"] - event["before"]
         gains_by_source[event.get("source", "<unrecorded>")] += event["after"] - event["before"]
     acting_rolls = [event for event in rolls if event.get("role", "attacker") == "attacker"]
+    acts, act = [], {"act": 1, "beats": 0, "perilous_beats": 0, "pc_rolls": 0,
+                     "pressure_gained": 0, "crises": 0, "ended": False}
+    for event in events:
+        if event["type"] == "roll" and _pc(event.get("actor")):
+            act["pc_rolls"] += 1
+        elif event["type"] == "pressure" and event["after"] > event["before"]:
+            act["pressure_gained"] += event["after"] - event["before"]
+        elif event["type"] == "crisis":
+            act["crises"] += 1
+        elif event["type"] == "beat":
+            act["beats"] += 1
+            act["perilous_beats"] += bool(event.get("perilous"))
+            if event.get("act_end"):
+                act["ended"] = True
+                acts.append(act)
+                act = {**act, "act": act["act"] + 1, "beats": 0, "perilous_beats": 0, "pc_rolls": 0,
+                       "pressure_gained": 0, "crises": 0, "ended": False}
+    if act["beats"] or act["pc_rolls"] or act["pressure_gained"] or act["crises"]:
+        acts.append(act)  # the act still open when the log stops
     return {
         "source": source, "session": events[0]["session"], "skin": events[0]["skin"],
         "party_size": events[0]["party_size"], "completed": not issues,
         "incomplete_reasons": issues, "event_count": len(events),
         "recorded_beats": len(beats), "perilous_beats": sum(event["perilous"] for event in beats),
         "last_recorded_beat": last_beat, "midpoint_beat": midpoint,
+        "acts": acts, "completed_acts": sum(item["ended"] for item in acts),
         "crises": len(crises), "crisis_targets": dict(sorted(Counter(event.get("target", "<unrecorded>") for event in crises).items())),
         "threshold_crises": sum(bool(event.get("at_threshold", True)) for event in crises),
         "forced_crises": sum(bool(event.get("forced")) for event in crises),
@@ -312,12 +334,12 @@ def summarize_files(paths, red_line_rolls: int = 3) -> dict:
         "schema_version": 1,
         "interpretation": "Descriptive logged observations; no population claim or automatic rules decision.",
         "definitions": {
-            "midpoint": "floor(last recorded beat number / 2). Beats are recorded as their scenes end, so the first half runs to and includes the last beat record at or below the midpoint, by event sequence; with fewer than two beats only starting Luck counts. Unavailable without beat events.",
+            "midpoint": "The end of the session's first act: the first beat recorded with --act-end. Beats are recorded as their scenes end, so the first half runs to and includes that beat record, by event sequence. Unavailable without an act break.",
             "beat_denominator": "Count explicit beat events, not rolls or the largest beat number; omit sessions without beats from both rate numerator and denominator.",
             "completed": "Explicit session_start and session_end with an uninterrupted event sequence and no partial legacy history; incomplete sessions are separate.",
             "pc_rolls": "Each finalized PC roll, including opposed sides and Deflection; exclude raw_roll records and npc: actors.",
             "luck_spending": "Use before/after changes in luck events only; roll.luck_spent is not an additional expenditure.",
-            "red_line": "Pressure >=4 until a pressure event lowers or resets it; affected rolls require pressure_at_start >=4. Open windows are right-censored, including at session end.",
+            "red_line": "Pressure >=4 until a pressure event lowers or resets it; affected rolls require pressure_at_start >=4. Each window reports its affected rolls and the beats it spans. Open windows are right-censored, including at session end.",
             "red_line_threshold": f"Provisional interpretation of 'few': more than {red_line_rolls} affected PC rolls observed in one window.",
         },
         "session_counts": {"total": len(summaries), "completed": len(completed), "incomplete": len(incomplete)},
@@ -335,7 +357,7 @@ def format_summary(report: dict) -> str:
         status = "completed" if session["completed"] else "INCOMPLETE: " + "; ".join(session["incomplete_reasons"])
         lines.append(f"\n{session['source']} — {session['skin']}, party {session['party_size']}, session {session['session']} ({status})")
         rate = session["crises_per_20_recorded_beats"]
-        lines.append(f"  Beats: {session['recorded_beats']} ({session['perilous_beats']} perilous); crises: {session['crises']}; per 20 beats: {rate if rate is not None else 'unavailable'}; midpoint: {session['midpoint_beat'] if session['midpoint_beat'] is not None else 'unavailable'}.")
+        lines.append(f"  Beats: {session['recorded_beats']} ({session['perilous_beats']} perilous) in {session['completed_acts']} completed act(s); crises: {session['crises']}; per 20 beats: {rate if rate is not None else 'unavailable'}; midpoint: {'after beat ' + str(session['midpoint_beat']) if session['midpoint_beat'] is not None else 'unavailable (no act break)'}.")
         for actor, character in session["characters"].items():
             minimum = character["minimum_luck_first_half"]
             initial = character["initial_luck"]

@@ -24,6 +24,13 @@ You run Sinew & Steel with the player. Use concrete second-person adventure pros
 ## Hidden scenario
 {{HIDDEN_SCENARIO}}
 
+## Pacing
+- A beat is one scene: it ends when its question is answered, dropped or changed. Record it with `play.py beat` (`--perilous` when failure could cost Stamina, a life or the goal; `--act-end` when it ends an act).
+- An act is 4-6 beats ending at a turn or a pause. Without sittings, a session is two acts (about ten beats): award any milestone, then `play.py session-close`.
+- Per beat: 0-3 rolls outside a fight, about half the beats perilous, Pressure rising in about one beat in three.
+- Per act: a turn, one or two fights at most, one short rest when the fiction allows. Per session: about one milestone and one or two Luck tests.
+- A player's return is not a boundary: recap from the checkpoint and continue the scene.
+
 ## Operating procedure
 Play loop: choose intent, method, and stakes; roll with `play.py check|opposed|attack`, adding `--defer` and then `settle` when a Luck decision depends on seeing the dice; record scene-scale beats with `play.py beat` (`--perilous` when dangerous); award milestones with `advance.py` while the session is open; then close with `play.py session-close`.
 

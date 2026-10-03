@@ -590,6 +590,27 @@ class PlayRuntimeTests(unittest.TestCase):
             start = cli(self, directory, "session", "--label", "after the ford")["events"][0]
             self.assertEqual(start["party_size"], 2)
 
+    def test_a_beat_ends_the_scene_and_two_acts_prompt_a_session_close(self):
+        with tempfile.TemporaryDirectory() as folder:
+            directory = campaign_with(folder, "twilight_of_the_northlands", ["ana", "bo"])
+            scout = ("--character", "ana", "resource", "--name", "keen_eyes", "--source", "scouting")
+            cli(self, directory, *scout)
+            self.assertIn("insufficient", cli(self, directory, *scout, expected=1))
+            first = cli(self, directory, "beat", "--label", "Scouted the ford", "--perilous")
+            self.assertEqual((first["result"]["act"], first["result"]["act_end"]), (1, False))
+            cli(self, directory, *scout)  # a new scene resets once-per-scene limits
+            state = _sslib.load_yaml(directory / "state/trackers/session.yaml")
+            self.assertEqual((state["scene"], state["beat"], state["act"]), (2, 1, 1))
+            self.assertNotIn("reminders", cli(self, directory, "beat", "--label", "The wolves turn", "--act-end")["result"])
+            closing = cli(self, directory, "beat", "--label", "Camp at the cairn", "--act-end")
+            self.assertIn("session-close", closing["result"]["reminders"][0])
+            cli(self, directory, "session-close", "--label", "two acts")
+            cli(self, directory, "session", "--label", "dawn")
+            state = _sslib.load_yaml(directory / "state/trackers/session.yaml")
+            self.assertEqual((state["act"], state["beat"], state["scene"]), (1, 0, 4))
+            with self.assertRaises(SystemExit), contextlib.redirect_stderr(io.StringIO()):
+                play.main(["--campaign", str(directory), "scene", "--label", "gone"])
+
     def test_cli_deferred_settlement_is_deterministic_retryable_and_logged(self):
         with tempfile.TemporaryDirectory() as folder:
             directory = Path(folder) / "campaign"

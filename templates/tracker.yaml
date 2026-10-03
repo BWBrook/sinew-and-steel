@@ -1,7 +1,8 @@
 schema_version: 2
 name: Session Tracker
 session: 1
-scene: 0
+scene: 1
+act: 1
 beat: 0
 session_closed: false
 pressure:

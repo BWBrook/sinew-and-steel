@@ -57,12 +57,12 @@ def shared_timeline():
     timeline.add("pressure", 1, track="party", before=4, after=5, category="failure", source="rite")
     timeline.add("crisis", 1, track="party", target="a", table_result=[3])
     timeline.add("pressure", 1, track="party", before=5, after=0, category="crisis_reset", source="crisis:1")
-    timeline.add("beat", 2, perilous=False, luck={"a": 1, "b": 1})
+    timeline.add("beat", 2, perilous=False, act_end=True, luck={"a": 1, "b": 1})
     timeline.add("luck", 2, actor="a", before=1, after=3, source="milestone", category="recovery")
     timeline.add("pressure", 2, track="party", before=0, after=4, category="ambient", source="storm")
     timeline.roll("a", 2, "INT", "search", 4, 3)
     timeline.add("beat", 3, perilous=True, luck={"a": 3, "b": 1})
-    timeline.add("beat", 4, perilous=True, luck={"a": 3, "b": 1})
+    timeline.add("beat", 4, perilous=True, act_end=True, luck={"a": 3, "b": 1})
     timeline.add("session_end", 4)
     return timeline.events
 
@@ -72,6 +72,9 @@ class PlaytestSummaryTests(unittest.TestCase):
         report = summary.summarize_session(shared_timeline())
         self.assertTrue(report["completed"])
         self.assertEqual((report["recorded_beats"], report["perilous_beats"], report["midpoint_beat"]), (4, 3, 2))
+        self.assertEqual(report["completed_acts"], 2)
+        self.assertEqual([(act["beats"], act["perilous_beats"], act["pc_rolls"], act["pressure_gained"], act["crises"])
+                          for act in report["acts"]], [(2, 1, 5, 2, 1), (2, 2, 1, 4, 0)])
         self.assertEqual(report["crises_per_20_recorded_beats"], 5)
         self.assertEqual(report["crisis_targets"], {"a": 1})
         a, b = report["characters"]["a"], report["characters"]["b"]
@@ -96,6 +99,7 @@ class PlaytestSummaryTests(unittest.TestCase):
         first, second = red["windows"]
         self.assertEqual((first["affected_pc_rolls"], first["rolls_by_actor"]), (4, {"a": 2, "b": 2}))
         self.assertEqual(first["end_reason"], "crisis_reset")
+        self.assertEqual((first["beats"], second["beats"]), (1, 2))  # windows span beats too
         self.assertFalse(first["right_censored"])
         self.assertTrue(first["exceeds_roll_threshold"])
         self.assertEqual(second["affected_pc_rolls"], 1)
@@ -155,10 +159,10 @@ class PlaytestSummaryTests(unittest.TestCase):
         self.assertEqual(report["red_line"]["affected_pc_rolls"], 0)
         self.assertEqual(report["red_line"]["windows"][0]["affected_pc_rolls"], 0)
 
-    def test_midpoint_uses_last_recorded_beat_number_without_inventing_beats(self):
+    def test_midpoint_is_the_end_of_the_first_act(self):
         timeline = Timeline(party_size=1).start({"a": 5})
         timeline.add("luck", 1, actor="a", before=5, after=2, source="cost")
-        timeline.add("beat", 2, perilous=True)
+        timeline.add("beat", 2, perilous=True, act_end=True)
         timeline.add("luck", 2, actor="a", before=2, after=1, source="later cost")
         timeline.add("beat", 5, perilous=False)
         timeline.add("session_end", 5)
@@ -166,11 +170,20 @@ class PlaytestSummaryTests(unittest.TestCase):
         self.assertEqual((report["recorded_beats"], report["last_recorded_beat"], report["midpoint_beat"]), (2, 5, 2))
         self.assertEqual(report["characters"]["a"]["minimum_luck_first_half"], 2)
         self.assertFalse(report["characters"]["a"]["newly_reached_one_or_less_by_midpoint"])
+        # Without an act break there is no midpoint, however many beats were recorded.
+        for event in timeline.events:
+            event.pop("act_end", None)
+        report = summary.summarize_session(timeline.events)
+        self.assertIsNone(report["midpoint_beat"])
+        self.assertIsNone(report["characters"]["a"]["minimum_luck_first_half"])
+        with tempfile.TemporaryDirectory() as temp:
+            path = self.write_log(Path(temp) / "no_acts.jsonl", timeline.events)
+            self.assertIn("no act break", summary.format_summary(summary.summarize_files([path])))
 
     def test_luck_initially_low_can_be_distinguished_from_later_recovery(self):
         timeline = Timeline(party_size=1).start({"a": 0})
         timeline.add("luck", 0, actor="a", before=0, after=4, source="rest")
-        timeline.add("beat", 1, perilous=False, luck={"a": 4})
+        timeline.add("beat", 1, perilous=False, act_end=True, luck={"a": 4})
         timeline.add("beat", 2, perilous=False, luck={"a": 4})
         timeline.add("session_end", 2)
         a = summary.summarize_session(timeline.events)["characters"]["a"]
@@ -193,7 +206,7 @@ class PlaytestSummaryTests(unittest.TestCase):
     def test_missing_initial_snapshot_does_not_invent_initial_luck(self):
         timeline = Timeline(party_size=1)
         timeline.add("luck", actor="a", before=3, after=1, source="observed cost")
-        timeline.add("beat", 1, perilous=False).add("beat", 2, perilous=False).add("session_end", 2)
+        timeline.add("beat", 1, perilous=False, act_end=True).add("beat", 2, perilous=False).add("session_end", 2)
         with tempfile.TemporaryDirectory() as temp:
             path = self.write_log(Path(temp) / "partial.jsonl", timeline.events)
             report = summary.summarize_files([path])
@@ -251,10 +264,10 @@ class PlaytestSummaryTests(unittest.TestCase):
         self.assertEqual(report["pressure_gains_by_source"], {"Arcanum": 2, "storm": 5})
         self.assertEqual(report["pressure_gained"], 7)
 
-    def test_midpoint_excludes_the_scene_after_the_midpoint_beat(self):
-        # Three scenes: only the first is "by mid-session" (floor(3/2) = 1 beat).
+    def test_midpoint_excludes_the_scene_after_the_first_act(self):
+        # The first act ends with the first scene; the next scene is not "by mid-session".
         timeline = Timeline(party_size=1).start({"a": 5})
-        timeline.add("beat", 1, perilous=True, luck={"a": 5})
+        timeline.add("beat", 1, perilous=True, act_end=True, luck={"a": 5})
         timeline.add("luck", 1, actor="a", before=5, after=1, source="scene two cost")
         timeline.add("beat", 2, perilous=True, luck={"a": 1})
         timeline.add("beat", 3, perilous=False, luck={"a": 1}).add("session_end", 3)

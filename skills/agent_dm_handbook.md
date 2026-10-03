@@ -74,9 +74,11 @@ validating or resuming.
 
 ## Session evidence
 
-Record scene-scale beats separately from rolls. Mark perilous beats honestly,
-award milestones at the book's cadence, and log recovery when it occurs. Close
-only completed sessions with `play.py session-close`; start the next with `session`.
+Record each scene as a beat, separately from rolls. Mark perilous beats honestly
+and act breaks (`--act-end`) where the story turns or pauses, award milestones at
+the book's cadence, and log recovery when it occurs. Close only completed sessions
+with `play.py session-close`; start the next with `session`. Without sittings, a
+session is two acts, about ten beats; Almanac 9 gives the pacing numbers.
 The playtest summary distinguishes complete and partial sessions and supports
 review of Luck depletion and red-line duration. These logs inform a Custodian's
 judgment; they do not turn a small playtest into precise balance evidence.

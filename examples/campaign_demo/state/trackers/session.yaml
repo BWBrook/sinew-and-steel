@@ -12,6 +12,7 @@ clocks:
     max: 6
 notes: []
 session: 1
+act: 1
 beat: 0
 session_closed: false
 pressure:

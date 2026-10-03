@@ -273,8 +273,16 @@ uv run python tools/advance.py --campaign scratch_demo --character grak raise --
 uv run python tools/advance.py --campaign scratch_demo --character grak show --json
 ```
 
-A beat is a scene-scale development, not an individual die roll. The Custodian
-awards milestones at the book's cadence; each grants 2 points, a narrative boon,
+A beat is a scene, not an individual die roll: one situation with one open
+question, ending when the question is answered, dropped or changed. Record each
+with `beat --label "what changed"` as the scene ends, adding `--perilous` when
+failure could cost Stamina, a life or the goal, and `--act-end` when it ends an
+act (a turn or a pause, usually after four to six beats). Ending a beat begins the
+next scene and resets once-per-scene limits. Without sittings, a session is two
+acts, about ten beats: the beat that ends the second act returns a reminder to
+award any milestone and close the session. Almanac 9 gives the pacing numbers.
+
+The Custodian awards milestones at the book's cadence; each grants 2 points, a narrative boon,
 and full Luck. In Clanfire it also refills a bonded beast's beads if the beast is
 still with the character; the award receipt reminds you, and `resource --name
 beast_bond --recover --amount 3` records it. Award milestones and record purchases
@@ -288,8 +296,8 @@ attribute adds its new token too, so a milestone spent on Luck still ends with a
 full pool. `recalc_sheet.py` verifies this history; it never erases advancement
 by repricing the current scores.
 
-`scene --label ...` resets scene uses. `boundary --kind camp|port --reason ...`
-resets relevant skin uses when the fiction allows it. These boundaries do not
+`boundary --kind camp|port --reason ...` resets relevant skin uses when the
+fiction allows it. These boundaries do not
 substitute for explicit Luck, Stamina, or Pressure recovery.
 
 ```bash
@@ -320,8 +328,10 @@ Pressure sources, roll methods, and crisis targets are recorded by the engine.
 The first session after legacy migration is marked as partial history even when
 closed; the following session can contribute to the completed-session evidence.
 They support playtest review; they do not decide whether a rule should change.
-Without beat events, midpoint and beat-rate results are unavailable. Open red-line
-windows remain censored, even at session end. The summary's default threshold of
+The summary reports each act, and a session's midpoint is the end of its first
+act, so without an act break the midpoint results are unavailable; without beats,
+so are beat rates. Red-line windows report the beats they span as well as their
+affected rolls, and open windows remain censored, even at session end. The summary's default threshold of
 more than 3 affected rolls is a provisional reading of “a few”; change it with
 `--red-line-rolls N` and keep that choice visible when comparing runs.
 

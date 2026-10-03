@@ -24,7 +24,7 @@ for combat, Pressure, recovery, and session boundaries.
 | Checks and playtest evidence | `validate_sheet.py`, `validate_campaign.py`, `validate_repo.py`, `validate_examples.py`, `doctor.py`, `playtest_summary.py` |
 | Explicit legacy adoption | `migrate_campaign.py` (preview by default; backs up original files before applying) |
 
-`play.py` runs every campaign command (checks, Pressure, clocks, scenes, beats,
+`play.py` runs every campaign command (checks, Pressure, clocks, beats and acts,
 sessions, and `retire` for a character leaving play between sessions);
 `trackers.py` is an alias for it, and `new_session.py` is shorthand for
 `play.py session` that accepts `--campaign` and `--label`. `recap.py` changes memory

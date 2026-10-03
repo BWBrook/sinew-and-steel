@@ -1,6 +1,7 @@
 # Beats, acts and pacing
 
-A design note for Barry's decision, 3 October 2026, by Fable.
+A design note for Barry's decision, 3 October 2026, by Fable. **Adopted** the same day
+with all five decisions as proposed; see `PLAN.md` and Almanac 9.
 
 Barry raised the problem while ruling on the external review: "In tabletop its
 clear: a night of gaming. In interactive AI Custodian or other harness play, it's

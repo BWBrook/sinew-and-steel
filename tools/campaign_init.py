@@ -51,8 +51,8 @@ def build_scaffold(manifest: dict, *, skin_slug: str, slug: str, title: str,
     campaign = {"schema_version": 2, "slug": slug, "title": title, "skin": skin_slug,
                 "created": date.today().isoformat(), "build_points_budget": budget,
                 "prompt_profile": "compact", "notes": ""}
-    tracker = {"schema_version": 2, "name": "Session Tracker", "scene": 0, "session": 1,
-               "beat": 0, "pending_action": None, "npcs": {}, "combat": {}, "session_closed": False,
+    tracker = {"schema_version": 2, "name": "Session Tracker", "scene": 1, "session": 1,
+               "act": 1, "beat": 0, "pending_action": None, "npcs": {}, "combat": {}, "session_closed": False,
                "pressure": _pressure.new_pressure(skin, actors),
                "resources": _resources.new_resources(skin, actors),
                "clocks": deepcopy(skin.get("clocks", {})), "notes": []}

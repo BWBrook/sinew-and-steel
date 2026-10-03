@@ -15,7 +15,7 @@ uv run python tools/play.py --campaign scratch_demo --character grak luck --amou
 uv run python tools/play.py --campaign scratch_demo --character grak stamina --amount -1 --source "Falling debris"
 uv run python tools/play.py --campaign scratch_demo pressure --gain 1 --category ambient --source "Blizzard"
 uv run python tools/play.py --campaign scratch_demo clock --name rescue --amount 1 --max 4 --source "Signal raised"
-uv run python tools/play.py --campaign scratch_demo scene --label "At the shelter"
+uv run python tools/play.py --campaign scratch_demo beat --perilous --act-end --label "Reached the shelter through the blizzard"
 uv run python tools/play.py --campaign scratch_demo --character grak resource --name beast_bond --recover --amount 1 --source "Bond rite at the fire"
 uv run python tools/play.py --campaign scratch_demo --character grak condition --name injured --source "Spear wound"
 ```

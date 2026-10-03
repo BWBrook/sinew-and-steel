@@ -15,8 +15,9 @@ description: Run a campaign through the shared engine and preserve public narrat
    Luck spend. Supply contexts, source modifiers, and declared costs honestly.
 4. Apply adjudicated consequences with engine commands. Resolve pending crises
    through their skin table; do not reset them with a generic clock edit.
-5. Record a narrative beat with `play.py beat --label ...` and mark it `--perilous`
-   when appropriate. A die roll is not itself a beat.
+5. A beat is a scene. As each scene ends, record it with `play.py beat --label ...`,
+   marking it `--perilous` when appropriate and `--act-end` at a turn or pause.
+   Ending a beat begins the next scene. A die roll is not itself a beat.
 6. Keep private summaries in `recap.py`, public narration in `session_log.py`, and
    save the exact public response after each Custodian turn:
 
@@ -29,8 +30,9 @@ declared with `--combat-action` uses that combatant's action for the round; reco
 a turn without a roll with `play.py pass`. The earlier side in initiative order acts or passes before the
 later side.
 
-Start scenes with `play.py scene --label ...`; use `boundary --kind camp|port
---reason ...` only when the fiction allows the corresponding resource reset.
+Use `boundary --kind camp|port --reason ...` only when the fiction allows the
+corresponding resource reset. Without sittings, close a session after two acts
+(about ten beats); the beat that ends the second act reminds you.
 Recovery uses explicit Luck/Stamina/Pressure commands. Award milestones and
 spend build points with `advance.py` while the session is open, before
 `session-close` (it refuses once the session is closed), preserving creation

@@ -32,6 +32,14 @@ Four failure modes recur:
 - **Context drift.** Even strong models forget details. Give the AI a spine of memory: a current sheet, a short recap, and a last checkpoint. It will become far more consistent.
 - **Dice integrity.** Treat dice as external truth: roll physically or with a trusted roller, and tell the AI the results.
 
+## Pacing without sessions
+
+At a table, play stops when the evening ends. With an AI, a player may come back for one exchange or a hundred, so count the story instead of the sittings. A beat is one scene, and it ends when its question is answered, dropped or changed. An act is four to six beats that end at a turn or a pause. Without sittings, a session is two acts, about ten beats, and once-per-session powers refresh when it closes. The Custodian's Almanac gives the pacing numbers.
+
+- **Coming back is not a boundary.** Time away does not end a scene, refresh a power or grant a rest. Recap the last moment in a line or two and carry on.
+- **Follow the story, not the messages.** Mark beats and act breaks as the story makes them.
+- **Check the pace at each beat's end.** Did the question move? How many rolls did it take? How long since the last pause, milestone or Pressure tick?
+
 ## Secrets need a screen
 
 A shared channel makes every AI message public, so hidden motives, unseen clocks, and private scenario notes need somewhere else to live: a private Custodian channel, or notes a human keeps. Share only player-safe narration and options.

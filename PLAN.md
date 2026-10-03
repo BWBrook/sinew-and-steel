@@ -26,7 +26,7 @@ The engine numbers stay: damage, soak, margin steps, natural results, Luck, and 
 
 - **Luck:** if characters routinely drop to 1 token or fewer by mid-session, revisit rest recovery.
 - **Red line:** if step-4 windows routinely last more than a few rolls, revisit the step-4 effects.
-- **Reading the triggers** (agreed with Barry, 2 October 2026): "routinely" means at least half of the eligible observations in a group of runs declared in advance; "a few" means more than 3 rolls made at step 4. Both flag a cause to investigate with Barry, not an automatic rule change. What "mid-session" means for interactive AI play is an open question (below).
+- **Reading the triggers** (agreed with Barry, 2 October 2026): "routinely" means at least half of the eligible observations in a group of runs declared in advance; "a few" means more than 3 rolls made at step 4. Both flag a cause to investigate with Barry, not an automatic rule change. "Mid-session" means the end of a session's first act (adopted 3 October 2026, below), and red-line windows are reported in beats as well as rolls.
 
 The playtest logs should record the attribute and method behind each roll, Pressure gains by source, Luck spent and recovered, and each crisis with its target.
 
@@ -137,12 +137,12 @@ reproduced.
   Shores, Twilight of the Northlands) at party sizes 1, 2 and 4, two runs each
   (30 runs). The other five skins at sizes 1 and 4, one run each (10 runs).
 - A pilot of three or four runs first, to test the procedure.
-- A standard run length fixed before starting, expressed in beats.
+- A standard run is one session: two acts, 10-12 beats.
 - Each run records its conditions: rules commit, model, skin, roster, policies
   for Luck, rest and Pressure, and any manual interventions. A different model
   audits a sample of rulings. Ordinary and adversarial runs are kept apart.
 
-**Open design question: sessions in interactive play.** Barry: "In tabletop its
+**Sessions in interactive play** (adopted 3 October 2026). Barry: "In tabletop its
 clear: a night of gaming. In interactive AI Custodian or other harness play, it's
 not: a player might dip in and out for one exchange, or 10, or 100. There is no
 session." Rules and metrics that count per session (limits, "mid-session", the
@@ -150,8 +150,18 @@ playtest triggers) need a beat-based definition, with a clear definition of a
 beat and quantitative guidance for an AI Custodian who plays whenever the player
 returns. Barry added that play breaks into scenes and acts like a TV episode, but
 with "no neat 'episode' or 'session', just an arc of undefined length". Fable's
-draft, with definitions, pacing numbers and five decisions for Barry, is
-`docs/design/2026-10-03-beats-acts-and-pacing.md`.
+design note, `docs/design/2026-10-03-beats-acts-and-pacing.md`, was accepted with
+all five decisions as proposed (Barry: "Your proposal for beats, acts, sessions
+and arcs is accepted. It's excellent."):
+- A beat is a scene; an act is four to six beats ending at a turn or a pause;
+  without sittings, a session is two acts, about ten beats; an arc is the story.
+- The pacing table is Custodian guidance, not quotas. It is Almanac 9, and AI as
+  Custodian has a section on pacing without sessions; the Quickstart is unchanged.
+- The harness merges `scene` into `beat` (ending a beat begins the next scene),
+  records act breaks (`beat --act-end`) and reminds the agent to close a session
+  after two acts. The summary reports by act, takes the end of the first act as
+  the midpoint, and reports red-line windows in beats as well as rolls. Both
+  prompt templates carry a five-line pacing card.
 
 **Later:** the distribution strategy, to keep ideating on but not start yet.
 Barry: "It's going to be hugely important to get this strategy right." A start: GitHub Releases, a
@@ -161,6 +171,29 @@ links with a cover message are welcome if not spammy. Also later: a possible
 browser-based client in which players connect their own model access (Barry
 flagged ChatGPT sign-in changes from Dev Day 2026).
 
-Next: Astra's feedback on the repairs and the beats note, Barry's decisions on
-the note, the pilot, then the programme. Harness tests do
+**The game's name** (3 October 2026). Barry: "I came up with Sinew & Steel a long
+time ago when it was only a base game with a few of the earlier skins. But I'm not
+sure how descriptive it is of the overall game anymore." The name is also in use
+elsewhere: "Bloody Basic (Sinew & Steel Edition)" is a published fantasy RPG,
+"Steel And Sinew" an unreleased Steam game, and "Sinew and Steel and What They
+Told" a short story by Carrie Vaughn.
+
+Barry's choice is **Hazardry**, an old word for playing at dice and taking risks.
+Barry: "Hazardry: I'm really liking it. We can think of Sinew & Steel as the
+alpha-development codename." No game uses the title, though "Hazard" names are
+common in RPGs. The tagline is "Hazardry: a lean roleplaying game for the table,
+and for any AI in the Custodian's chair." The book will quote Chaucer in his own
+spelling; two candidate lines from the Pardoner's Tale (Harvard's Chaucer edition)
+are "Now wol I yow deffenden hasardrye." and "Hasard is verray mooder of
+lesynges,".
+
+Still to do, after Astra's view: a clearance check (web domains, social handles,
+trademark registers, store titles), then the rename in one pass. In the text it
+is mechanical (about 90 mentions in 54 files, plus "S&S" shorthand, release file
+names and the repository). The cover and logo need new lettering in the GOLD art
+pass, and GitHub redirects a renamed repository.
+
+Next: Astra's feedback on the repairs, the skin rename, the beats implementation
+and the name; the clearance check and rename to Hazardry; then the pilot and the
+programme. Harness tests do
 not replace those playtests or authorize GOLD and layout.
