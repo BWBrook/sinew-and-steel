@@ -175,7 +175,7 @@ The tools you will use most in play:
 * `tools/recap.py` and `tools/session_log.py` capture private memory and the public log; `tools/checkpoint.py` saves the exact last Custodian reply for a clean resume.
 * `tools/resume_pack.py` (or `--public`) loads a campaign into a fresh context.
 * `tools/playtest_summary.py` summarises Luck, Pressure, crises and roll choices from completed sessions.
-* `tools/ss.py` is a single entry point (`uv run python tools/ss.py play ...`), and `tools/doctor.py` validates the repository and a campaign in one command.
+* `tools/hz.py` is a single entry point (`uv run python tools/hz.py play ...`), and `tools/doctor.py` validates the repository and a campaign in one command.
 
 ---
 

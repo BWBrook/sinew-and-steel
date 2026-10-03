@@ -137,7 +137,11 @@ reproduced.
 - Five sample skins (Clanfire, Rust & Domes, Candlelight Dungeons, Mournful
   Shores, Twilight of the Northlands) at party sizes 1, 2 and 4, two runs each
   (30 runs). The other five skins at sizes 1 and 4, one run each (10 runs).
-- A pilot of three or four runs first, to test the procedure.
+- A pilot first, to test the procedure (`docs/playtests/pilot-protocol.md`): eight
+  runs of simulated play, with subagents as Custodian and players. Fable (Sonnet
+  subagents) runs Clanfire with its continuation, Mournful Shores and Twilight;
+  Astra (Sol subagents) runs Rust & Domes, Candlelight, Iron & Ruin and Free
+  Traders. Each team audits the other's runs.
 - A standard run is one session: two acts, 10-12 beats. At least one campaign
   continues across two or three sessions, to exercise carried Pressure,
   once-per-session refreshes and resuming (Astra, 3 October 2026).

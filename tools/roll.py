@@ -33,7 +33,7 @@ def main() -> int:
     global_parser.add_argument("--seed", type=int, help="Random seed for reproducible rolls")
     global_parser.add_argument("--pretty", action="store_true", help="Pretty-print JSON output")
 
-    command_parser = argparse.ArgumentParser(description="Roll d20 checks for Hazardry.")
+    command_parser = argparse.ArgumentParser(description="Roll d20 checks and table draws for Hazardry.")
     subparsers = command_parser.add_subparsers(dest="command", required=True)
 
     check = subparsers.add_parser("check", help="Single roll-under check")
@@ -50,6 +50,10 @@ def main() -> int:
     opposed.add_argument("--adv-defender", action="store_true")
     opposed.add_argument("--dis-defender", action="store_true")
 
+    table = subparsers.add_parser("table", help="Draw a table result, such as a d6 crisis or backlash")
+    table.add_argument("--sides", type=int, default=6)
+    table.add_argument("--count", type=int, default=1, help="Draws, e.g. 2 for a 'roll twice' result")
+
     global_args, remaining = global_parser.parse_known_args()
     command_args = command_parser.parse_args(remaining)
     merged = vars(global_args).copy()
@@ -59,7 +63,12 @@ def main() -> int:
     if args.seed is not None:
         random.seed(args.seed)
 
-    if args.command == "check":
+    if args.command == "table":
+        if args.sides < 2 or args.count < 1:
+            print("error: a table needs at least 2 sides and 1 draw", file=sys.stderr)
+            return 1
+        data = {"sides": args.sides, "faces": [random.randint(1, args.sides) for _ in range(args.count)]}
+    elif args.command == "check":
         try:
             data = command_check(args)
         except ValueError as exc:

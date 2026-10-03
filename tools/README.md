@@ -29,7 +29,7 @@ sessions, and `retire` for a character leaving play between sessions);
 `trackers.py` is an alias for it, and `new_session.py` is shorthand for
 `play.py session` that accepts `--campaign` and `--label`. `recap.py` changes memory
 only. `update_sheet.py` edits metadata (name, player, notes, inventory), not
-attributes, pools, advancement, or mechanical trackers. Use `ss.py <command> ...` as
+attributes, pools, advancement, or mechanical trackers. Use `hz.py <command> ...` as
 a short dispatcher if preferred. Every tool and subcommand has `--help`.
 
 Any play action, checkpoint, or advancement makes a saved campaign prompt stale by

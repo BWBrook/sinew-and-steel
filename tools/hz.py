@@ -38,7 +38,7 @@ TOOLS = {
 
 
 def print_help() -> None:
-    print("Usage: python tools/ss.py <command> [args...]\n")
+    print("Usage: python tools/hz.py <command> [args...]\n")
     print("Commands:")
     for key in sorted(TOOLS.keys()):
         print(f"  {key}")
