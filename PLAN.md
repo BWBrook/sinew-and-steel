@@ -26,7 +26,7 @@ The engine numbers stay: damage, soak, margin steps, natural results, Luck, and 
 
 - **Luck:** if characters routinely drop to 1 token or fewer by mid-session, revisit rest recovery.
 - **Red line:** if step-4 windows routinely last more than a few rolls, revisit the step-4 effects.
-- **Reading the triggers** (agreed with Barry, 2 October 2026): "routinely" means at least half of the eligible observations in a group of runs declared in advance; "a few" means more than 3 rolls made at step 4. Both flag a cause to investigate with Barry, not an automatic rule change. "Mid-session" means the end of a session's first act (adopted 3 October 2026, below), and red-line windows are reported in beats as well as rolls.
+- **Reading the triggers** (agreed with Barry, 2 October 2026): "routinely" means at least half of the eligible observations in a group of runs declared in advance; "a few" means more than 3 rolls made at step 4. Both flag a cause to investigate with Barry, not an automatic rule change. "Mid-session" means the end of a session's first act (adopted 3 October 2026, below), and red-line windows report the scenes they touch as well as their rolls. Censored windows are handled explicitly: one already past 3 rolls is a confirmed exceedance, and one still open below that is unresolved. Sparse flags call for more matched runs, not a rules change.
 
 The playtest logs should record the attribute and method behind each roll, Pressure gains by source, Luck spent and recovered, and each crisis with its target.
 
@@ -137,7 +137,11 @@ reproduced.
   Shores, Twilight of the Northlands) at party sizes 1, 2 and 4, two runs each
   (30 runs). The other five skins at sizes 1 and 4, one run each (10 runs).
 - A pilot of three or four runs first, to test the procedure.
-- A standard run is one session: two acts, 10-12 beats.
+- A standard run is one session: two acts, 10-12 beats. At least one campaign
+  continues across two or three sessions, to exercise carried Pressure,
+  once-per-session refreshes and resuming (Astra, 3 October 2026).
+- The Almanac 9 pacing numbers are illustrations, not targets: the Custodians are
+  not steered towards them, and agreement with them is not validation.
 - Each run records its conditions: rules commit, model, skin, roster, policies
   for Luck, rest and Pressure, and any manual interventions. A different model
   audits a sample of rulings. Ordinary and adversarial runs are kept apart.
@@ -160,7 +164,7 @@ and arcs is accepted. It's excellent."):
 - The harness merges `scene` into `beat` (ending a beat begins the next scene),
   records act breaks (`beat --act-end`) and reminds the agent to close a session
   after two acts. The summary reports by act, takes the end of the first act as
-  the midpoint, and reports red-line windows in beats as well as rolls. Both
+  the midpoint, and reports the scenes each red-line window touches. Both
   prompt templates carry a five-line pacing card.
 
 **Later:** the distribution strategy, to keep ideating on but not start yet.
@@ -185,15 +189,35 @@ common in RPGs. The tagline is "Hazardry: a lean roleplaying game for the table,
 and for any AI in the Custodian's chair." The book will quote Chaucer in his own
 spelling; two candidate lines from the Pardoner's Tale (Harvard's Chaucer edition)
 are "Now wol I yow deffenden hasardrye." and "Hasard is verray mooder of
-lesynges,".
+lesynges,". Astra and Fable both prefer the first, which contains the title's
+ancestor ("deffenden" means forbid), attributed to the Pardoner in Chaucer's tale.
 
-Still to do, after Astra's view: a clearance check (web domains, social handles,
-trademark registers, store titles), then the rename in one pass. In the text it
+Astra's review (board 837) supports Hazardry over both Sinew & Steel and Fuse &
+Fortune and keeps the tagline. It adds that onboarding should state which models
+the game needs, rather than imply that "any AI" has been tested.
+
+Clearance check (Fable, 3 October 2026), with no conflict found:
+- **The word:** only dictionaries use it (Merriam-Webster: obsolete, gambling;
+  rashness).
+- **Games:** no product called Hazardry on Steam, itch.io, DriveThruRPG or
+  BoardGameGeek, though many titles begin "Hazard".
+- **US trademarks:** the USPTO register returns no results for "hazardry". The
+  IP Australia and EU searches need their search forms and were not run.
+- **Domains:** hazardry.com has been registered since 2017 and shows a parking
+  page, so it is probably for sale. hazardry.net, .org, .io and .games, and
+  hazardryrpg.com, are unregistered.
+- **GitHub:** a personal account "hazardry" exists, so the repository would become
+  BWBrook/hazardry.
+
+Social handles were not checked. Still to do: Barry's go-ahead, then the rename in
+one pass. In the text it
 is mechanical (about 90 mentions in 54 files, plus "S&S" shorthand, release file
 names and the repository). The cover and logo need new lettering in the GOLD art
 pass, and GitHub redirects a renamed repository.
 
-Next: Astra's feedback on the repairs, the skin rename, the beats implementation
-and the name; the clearance check and rename to Hazardry; then the pilot and the
-programme. Harness tests do
+Next: the clearance check and the rename to Hazardry, then the pilot and the
+programme. Astra's review of the recent work (board 837) found three bounded
+defects, now fixed: a retired name could be reused and overwrite its archived
+sheet; an older receipt without a session could replay in a later session; and
+red-line windows counted scene boundaries rather than the scenes they touched. Harness tests do
 not replace those playtests or authorize GOLD and layout.

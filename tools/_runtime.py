@@ -140,6 +140,13 @@ def load_campaign(directory: Path, root: Path | None = None) -> tuple[dict, dict
     return campaign, skin, tracker, sheets
 
 
+def retired_stem(directory: Path, stem: str) -> bool:
+    """Retired sheets keep their names for good, so the archive is never overwritten."""
+    archive = directory / "state/characters/retired"
+    return archive.is_dir() and any(path.stem.casefold() == stem.casefold()
+                                    for path in archive.iterdir() if path.suffix in {".yaml", ".yml"})
+
+
 def retire_character(directory: Path, character: str, reason: str, *, dry_run: bool = False) -> dict:
     """Take a dead or departed character out of play between sessions, keeping the sheet."""
     import _pressure
@@ -187,10 +194,13 @@ def retire_character(directory: Path, character: str, reason: str, *, dry_run: b
         path = directory / "state/characters" / f"{stem}.yaml"
         if not path.exists():
             path = path.with_suffix(".yml")
+        archived = directory / "state/characters/retired" / f"{stem}.yaml"
+        if retired_stem(directory, stem):
+            raise ValueError(f"a retired character already uses the name {stem}")
         result = {"ok": True, "retired": stem, "roster": sorted(sheets), "dry_run": dry_run}
         if not dry_run:
             commit_files(directory / "state", {
-                directory / "state/characters/retired" / f"{stem}.yaml": yaml.safe_dump(sheet, sort_keys=False, allow_unicode=True),
+                archived: yaml.safe_dump(sheet, sort_keys=False, allow_unicode=True),
                 path: None,
                 directory / "state/trackers/session.yaml": yaml.safe_dump(tracker, sort_keys=False, allow_unicode=True)})
         return result
@@ -259,8 +269,15 @@ def replay_receipt(directory: Path, event_id: str, request: dict, session: int |
     receipt = json.loads(path.read_text(encoding="utf-8"))
     if receipt["request_hash"] != request_hash(request):
         raise ValueError("event ID was already used for a different command")
-    if session is not None and receipt.get("session", session) != session:
-        raise ValueError(f"event ID {event_id} was already used in session {receipt['session']}; choose a new ID")
+    recorded = receipt.get("session")
+    if recorded is None:
+        # Older receipts lack the field; their stamped events still carry it.
+        stamped = {event.get("session") for event in receipt.get("events", [])}
+        recorded = stamped.pop() if len(stamped) == 1 else None
+    if session is not None and recorded != session:
+        if recorded is None:
+            raise ValueError(f"event ID {event_id} has a receipt from an unknown session; choose a new ID")
+        raise ValueError(f"event ID {event_id} was already used in session {recorded}; choose a new ID")
     return {**receipt, "replayed": True}
 
 
@@ -325,6 +342,8 @@ def add_character(directory: Path, filename_stem: str, sheet: dict, *, dry_run: 
         campaign, skin, tracker, sheets = load_campaign(directory)
         if filename_stem in sheets:
             raise ValueError("character already exists; creation cannot overwrite a played sheet")
+        if retired_stem(directory, filename_stem):
+            raise ValueError(f"a retired character already uses the name {filename_stem}; choose another")
         if sheet.get("skin") != campaign["skin"]:
             raise ValueError("character skin does not match campaign")
         if tracker.get("pending_action") or tracker.get("combat", {}).get("active"):

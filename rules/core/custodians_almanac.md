@@ -192,13 +192,13 @@ Play falls into scenes and acts, as an episode of television does, though an S&S
 - **Session:** a sitting at the table. Without sittings, as when a player returns to an AI Custodian whenever they like, a session is two acts, about ten beats, closed at an act break. Once-per-session powers refresh then.
 - **Arc:** the story. An adventure-sized problem usually takes three to six acts.
 
-These numbers guide the pace; they are not quotas.
+These numbers sketch a typical pace. They are not quotas: never steer a scene to hit them.
 
 | Unit | Pace |
 | ---- | ---- |
 | Beat | 0-3 rolls outside a fight (a fight is one beat); about six beats in ten have a roll; about half are perilous; Pressure rises in about one beat in three |
 | Act | a turn at its end; one or two fights at most; one pause for a short rest when the fiction allows |
-| Session | about one milestone; one or two Luck tests; a crisis about every second session |
+| Session | about one milestone; one or two Luck tests; a crisis every session or two |
 | Arc | two to four milestones and one or two crises before its question is answered |
 
 If a beat stalls, with more than three rolls outside a fight or a dozen exchanges without the question moving, cut away, escalate or resolve it.

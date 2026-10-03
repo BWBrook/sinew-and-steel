@@ -330,7 +330,7 @@ closed; the following session can contribute to the completed-session evidence.
 They support playtest review; they do not decide whether a rule should change.
 The summary reports each act, and a session's midpoint is the end of its first
 act, so without an act break the midpoint results are unavailable; without beats,
-so are beat rates. Red-line windows report the beats they span as well as their
+so are beat rates. Red-line windows report the scenes they touch as well as their
 affected rolls, and open windows remain censored, even at session end. The summary's default threshold of
 more than 3 affected rolls is a provisional reading of “a few”; change it with
 `--red-line-rolls N` and keep that choice visible when comparing runs.

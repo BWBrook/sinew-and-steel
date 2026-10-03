@@ -97,7 +97,7 @@ def _red_line(events: list[dict], initial: dict, threshold: int) -> dict:
             "start_sequence": event["sequence"], "start_beat": event["beat"],
             "start_reason": reason, "left_censored": left_censored,
             "end_sequence": None, "end_beat": None, "end_reason": None,
-            "affected_pc_rolls": 0, "beats": 0, "rolls_by_actor": {}, "right_censored": True,
+            "affected_pc_rolls": 0, "scenes": 1, "rolls_by_actor": {}, "right_censored": True,
         }
         windows.append(window)
         active[track] = window
@@ -113,7 +113,22 @@ def _red_line(events: list[dict], initial: dict, threshold: int) -> dict:
             open_window(track, start, "session_start", left_censored=True)
 
     high_rolls = missing_snapshots = unassigned = 0
+    # A window touches the scene it opens in and each later scene it stays open
+    # through. A beat ends a scene; the next scene counts once anything happens in
+    # it, or once it too ends, so a session ending on a beat adds no empty scene.
+    crossed = set()
     for event in events:
+        if event["type"] == "beat":
+            for track, window in active.items():
+                if track in crossed:
+                    window["scenes"] += 1
+                crossed.add(track)
+            continue
+        if event["type"] == "session_end":
+            continue
+        for track in crossed & set(active):
+            active[track]["scenes"] += 1
+        crossed.clear()
         if event["type"] == "pressure":
             track = event.get("track")
             if not isinstance(track, str) or not track:
@@ -125,12 +140,10 @@ def _red_line(events: list[dict], initial: dict, threshold: int) -> dict:
             if track not in active and after >= 4:
                 open_window(track, event, "threshold_crossing")
             if track in active and after < 4:
+                crossed.discard(track)
                 window = active.pop(track)
                 window.update(end_sequence=event["sequence"], end_beat=event["beat"],
                               end_reason=event.get("category"), right_censored=False)
-        elif event["type"] == "beat":
-            for window in active.values():
-                window["beats"] += 1
         elif event["type"] == "roll" and _pc(event.get("actor")):
             snapshot = event.get("pressure_at_start")
             if snapshot is None:
@@ -339,7 +352,7 @@ def summarize_files(paths, red_line_rolls: int = 3) -> dict:
             "completed": "Explicit session_start and session_end with an uninterrupted event sequence and no partial legacy history; incomplete sessions are separate.",
             "pc_rolls": "Each finalized PC roll, including opposed sides and Deflection; exclude raw_roll records and npc: actors.",
             "luck_spending": "Use before/after changes in luck events only; roll.luck_spent is not an additional expenditure.",
-            "red_line": "Pressure >=4 until a pressure event lowers or resets it; affected rolls require pressure_at_start >=4. Each window reports its affected rolls and the beats it spans. Open windows are right-censored, including at session end.",
+            "red_line": "Pressure >=4 until a pressure event lowers or resets it; affected rolls require pressure_at_start >=4. Each window reports its affected rolls and the scenes it touched: the scene it opened in and each later scene it stayed open through. Open windows are right-censored, including at session end.",
             "red_line_threshold": f"Provisional interpretation of 'few': more than {red_line_rolls} affected PC rolls observed in one window.",
         },
         "session_counts": {"total": len(summaries), "completed": len(completed), "incomplete": len(incomplete)},

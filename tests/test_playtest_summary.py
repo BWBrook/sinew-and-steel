@@ -99,7 +99,7 @@ class PlaytestSummaryTests(unittest.TestCase):
         first, second = red["windows"]
         self.assertEqual((first["affected_pc_rolls"], first["rolls_by_actor"]), (4, {"a": 2, "b": 2}))
         self.assertEqual(first["end_reason"], "crisis_reset")
-        self.assertEqual((first["beats"], second["beats"]), (1, 2))  # windows span beats too
+        self.assertEqual((first["scenes"], second["scenes"]), (2, 2))  # scenes each window touched
         self.assertFalse(first["right_censored"])
         self.assertTrue(first["exceeds_roll_threshold"])
         self.assertEqual(second["affected_pc_rolls"], 1)
@@ -107,6 +107,16 @@ class PlaytestSummaryTests(unittest.TestCase):
         self.assertEqual(red["ongoing_censored_windows"], 1)
         self.assertEqual(red["windows_above_threshold"], 1)
         self.assertFalse(summary.summarize_session(shared_timeline(), red_line_rolls=4)["red_line"]["windows"][0]["exceeds_roll_threshold"])
+
+    def test_a_red_line_window_closed_within_its_scene_touches_one_scene(self):
+        timeline = Timeline(party_size=1).start({"a": 5}, {"scope": "party", "tracks": {"party": {"current": 3}}})
+        timeline.add("pressure", 0, track="party", before=3, after=4, category="ambient", source="storm")
+        for _ in range(4):
+            timeline.roll("a", 0, "MGT", "haul the sled", 4, 5)
+        timeline.add("pressure", 0, track="party", before=4, after=2, category="purge", source="shelter")
+        timeline.add("beat", 1, perilous=True, act_end=True).add("session_end", 1)
+        window = summary.summarize_session(timeline.events)["red_line"]["windows"][0]
+        self.assertEqual((window["affected_pc_rolls"], window["scenes"]), (4, 1))
 
     def test_personal_red_lines_are_actor_specific_and_open_at_session_start(self):
         timeline = Timeline("whispers_in_the_fog").start({"a": 6, "b": 6}, {"scope": "character", "tracks": {"a": {"current": 4}, "b": {"current": 1}}})

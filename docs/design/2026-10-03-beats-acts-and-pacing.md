@@ -60,25 +60,34 @@ two existing sources:
 |---|---|---|
 | Beat | 3–12 exchanges. A fight is one beat of 2–5 rounds. | Outside a fight, 0–3 rolls, with about 6 beats in 10 having a roll. About half the beats are perilous. Pressure ticks in about one beat in three. |
 | Act | 4–6 beats | A turn at its end. At most one or two fights. One pause, when the fiction allows a short rest (+1 Luck, +1 Stamina). One or two Pressure ticks. |
-| Session | Two acts, about 10 beats | About one milestone. One or two Luck tests. Once-per-session powers refresh. A crisis about every second session. |
+| Session | Two acts, about 10 beats | About one milestone. One or two Luck tests. Once-per-session powers refresh. A crisis every session or two. |
 | Arc | 3–6 acts, about 15–30 beats | Ends when its question is answered. Two to four milestones, one or two crises. |
 
-What the numbers imply:
+What the numbers imply, under simple models. These are illustrations, not
+measurements of play: never steer a session towards them, and do not count
+agreement with them as validation. Corrected after Astra's review, 3 October 2026.
 
 - **Milestones.** With half the beats perilous, a milestone every 3–4 perilous
   beats comes every 6–8 beats, so about once a session. Slicing scenes thin would
   speed advancement, which is why a beat must change something.
-- **Luck.** In the atlas, a Luck-8 character who rolls in 60% of beats, rests
-  every six beats and rescues misses by up to 3 still holds about 6 tokens after
-  16 beats; the chance of being down to 1 is 3%. Measured at the end of the first act, the Luck trigger
-  ("1 or fewer by mid-session") should rarely fire in ordinary play. If it fires
-  routinely, that is a real signal.
-- **Pressure.** At one tick in three beats, a crisis comes every 15–20 beats,
-  about every second session. A bigger party ticks faster; the Almanac already
-  says how to slow it.
-- **The red line.** At that rate a window at step 4 lasts about three beats.
-  Measure it in beats as well as rolls: a fixed roll count covers less of the
-  story for four characters than for one.
+- **Luck.** The atlas's model allows at most one ordinary check per beat, with a
+  check in 60% of beats. It rescues misses by up to 3 and adds a +1 rest every
+  six beats. Under that model a Luck-8 character holds about 6.2 tokens after 16
+  beats; 2.7% are at 1 or fewer at that point, and 4.0% have been that low at
+  some point by then. The model leaves out combat and multiple checks, ability
+  costs, opposed nudges and milestones, so it suggests the Luck trigger should
+  rarely fire in ordinary play; only playtests can show whether it does.
+- **Pressure.** Suppose independent one-point gains come in one beat out of three,
+  with no purges, forced crises or other gains. Then a crisis comes every 15 beats
+  on average.
+  - From an empty track, that is about 0.94 crises in the first 20 beats.
+  - The ongoing rate is 1.33 per 20 beats. Pressure carries between sessions, so
+    this is the rate that matters: roughly a crisis every session or two.
+  - The atlas's 35% case gives 1.00 and 1.40.
+  - A bigger party ticks faster; the Almanac already says how to slow it.
+- **The red line.** At that rate, and without purges, a window at step 4 lasts
+  about three beats. Report it in scenes as well as rolls: a fixed roll count
+  covers less of the story for four characters than for one.
 
 ## Interactive play: guidance for an AI Custodian
 
@@ -116,9 +125,10 @@ What the numbers imply:
   - The summary reports by act, and can take the end of a session's first act as
     its midpoint. That would replace the current midpoint of half the last beat
     number.
+  - Red-line windows report the scenes they touch as well as their rolls.
   - Remind the agent to close the session after two acts.
 - **Playtests.** A standard run is one session: two acts, 10–12 beats. Report
-  red-line windows in beats and in rolls.
+  red-line windows in scenes and in rolls.
 
 ## Decisions for Barry
 

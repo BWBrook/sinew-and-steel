@@ -611,6 +611,31 @@ class PlayRuntimeTests(unittest.TestCase):
             with self.assertRaises(SystemExit), contextlib.redirect_stderr(io.StringIO()):
                 play.main(["--campaign", str(directory), "scene", "--label", "gone"])
 
+    def test_a_retired_name_cannot_be_reused(self):
+        with tempfile.TemporaryDirectory() as folder:
+            directory = campaign_with(folder, "clanfire", ["ana", "bo"])
+            cli(self, directory, "--character", "ana", "retire", "--reason", "lost in the snow")
+            _, sheets, _ = fixture("clanfire", ("ana",))
+            for name in ("ana", "Ana"):
+                with self.assertRaisesRegex(ValueError, "retired character already uses the name"):
+                    _runtime.add_character(directory, name, sheets["ana"])
+            self.assertEqual(_sslib.load_yaml(directory / "state/characters/retired/ana.yaml")["retired"]["reason"],
+                             "lost in the snow")
+
+    def test_an_older_receipt_without_a_session_cannot_replay_in_a_later_session(self):
+        with tempfile.TemporaryDirectory() as folder:
+            directory = campaign_with(folder, "clanfire", ["grak", "tarra"])
+            command = ("--event-id", "old-rite", "--character", "grak", "luck", "--amount", "-1", "--source", "rite")
+            cli(self, directory, *command)
+            path = directory / "state/receipts/old-rite.json"
+            receipt = json.loads(path.read_text())
+            receipt.pop("session")  # as written before receipts recorded their session
+            path.write_text(json.dumps(receipt))
+            self.assertTrue(cli(self, directory, *command)["replayed"])  # same session: a safe retry
+            cli(self, directory, "session-close", "--label", "one")
+            cli(self, directory, "session", "--label", "two")
+            self.assertIn("already used in session 1", cli(self, directory, *command, expected=1))
+
     def test_cli_deferred_settlement_is_deterministic_retryable_and_logged(self):
         with tempfile.TemporaryDirectory() as folder:
             directory = Path(folder) / "campaign"
