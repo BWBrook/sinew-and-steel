@@ -66,7 +66,7 @@ The core book’s ten skins:
 - Rust & Domes (red planet noir): Heat track; psionics and corporate scrutiny.
 - Candlelight Dungeons (classic dungeon crawl): Fatigue track; torchlight and spell backlash.
 - Service Duct Blues (lower-decks starship drama): Stress track; scans and miracle repairs.
-- Whispers in the Fog (1920s horror): personal Insanity track; forbidden rites and a failing lantern.
+- Mournful Shores (1920s horror): personal Insanity track; forbidden rites and a failing lantern.
 - Free Traders of the Drift Marches (space trade): Strain track; jumps and debt.
 - Twilight of the Northlands (wanderer fantasy): Dread track; hard roads and companionship.
 

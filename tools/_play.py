@@ -125,7 +125,7 @@ def prepare_action(tracker: dict, sheets: dict, skin: dict, *, kind: str,
                    failure_pressure: int = 0, use_resource: str | None = None,
                    edge: int = 0, soak: int = 0, injury: bool = False,
                    gritty: bool = False, undefended: bool = False,
-                   no_nudge: bool = False, crisis_test: bool = False,
+                   no_nudge: bool = False, crisis_test: bool = False, luck_test: bool = False,
                    combat_action: bool = False, success_luck_cost: int = 0) -> tuple[dict, list[dict]]:
     ensure_ready(tracker, allow_crisis=crisis_test)
     if kind not in {"check", "opposed", "attack"} or not method.strip() or not stakes.strip():
@@ -134,15 +134,19 @@ def prepare_action(tracker: dict, sheets: dict, skin: dict, *, kind: str,
         raise ValueError("failure Pressure must be nonnegative")
     if type(success_luck_cost) is not int or success_luck_cost < 0:
         raise ValueError("a success-only Luck cost must be a nonnegative integer")
+    # Tests forced on a character are not chosen attempts: a test the crisis demands
+    # (Service Duct Blues' nanite alarm) or a Luck test the Custodian calls for pays
+    # no toll or cost, though step penalties and failure consequences apply.
+    compelled = crisis_test or luck_test
     if crisis_test:
-        # A test the crisis itself demands (Service Duct Blues' nanite alarm) is not
-        # a chosen attempt: it pays no toll or cost, though step penalties apply.
         if kind != "check":
             raise ValueError("a crisis test is a single check")
         if not any(track["crisis_pending"] for track in tracker["pressure"]["tracks"].values()):
             raise ValueError("--crisis-test needs a pending crisis")
-        if toll or luck_cost or pressure_cost or failure_pressure or use_resource or success_luck_cost:
-            raise ValueError("a crisis test pays no costs")
+    if luck_test and (kind != "check" or attribute != skin.get("luck_key")):
+        raise ValueError(f"a Luck test is a single check of {skin.get('luck_key')}")
+    if compelled and (toll or luck_cost or pressure_cost or use_resource or success_luck_cost):
+        raise ValueError("a test forced on a character pays no toll or cost")
     if combat_action:
         if kind != "check":
             raise ValueError("attacks and opposed tests already use the combatant's action")
@@ -200,7 +204,7 @@ def prepare_action(tracker: dict, sheets: dict, skin: dict, *, kind: str,
         if who in sheets:
             _pressure.modifiers(tracker["pressure"], skin, who, key, context, consume=True)
     # Only the side attempting the test pays; defence never pays tolls or step costs.
-    charged = {**snapshots["attacker"]["modifiers"], "costs": []} if crisis_test else snapshots["attacker"]["modifiers"]
+    charged = {**snapshots["attacker"]["modifiers"], "costs": []} if compelled else snapshots["attacker"]["modifiers"]
     events += pay_costs(actor, a_sheet, tracker, skin, sheets, charged,
                         toll=toll, luck=luck_cost, pressure=pressure_cost,
                         source=method, use_resource=use_resource)
@@ -218,7 +222,7 @@ def prepare_action(tracker: dict, sheets: dict, skin: dict, *, kind: str,
               "stakes": stakes, "checks": checks, "sides": snapshots,
               "failure_pressure": failure_pressure, "edge": edge, "soak": soak,
               "injury": injury, "gritty": gritty, "undefended": undefended, "no_nudge": no_nudge,
-              "crisis_test": crisis_test, "combat_action": combat_action,
+              "crisis_test": crisis_test, "luck_test": luck_test, "combat_action": combat_action,
               "reserved_luck": success_luck_cost, "pressure_snapshot": pressure_snapshot}
     tracker["pending_action"] = deepcopy(action)
     return action, events
@@ -317,6 +321,7 @@ def finish_action(tracker: dict, sheets: dict, skin: dict, *, nudge: int = 0,
                        "method": action["method"] if role == "attacker" else None,
                        "against": action["method"] if role == "defender" else None,
                        "crisis_test": action.get("crisis_test", False),
+                       "luck_test": action.get("luck_test", False),
                        "reserved_luck": reserved if role == "attacker" else 0,
                        "stakes": action["stakes"], "target": check["stat"],
                        "advantage_sources": side["advantage_sources"],

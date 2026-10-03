@@ -355,7 +355,7 @@ skins:
     logo:
       key: whispers_logo
       suggested_file: assets/covers/ss_logo_whispers_in_the_fog.png
-      description: "Whispers in the Fog maker's mark (weird horror / occult dread)."
+      description: "Mournful Shores maker's mark (weird horror / occult dread)."
       prompt: |
         Black-and-white pen-and-ink maker's mark icon. White background. No text.
         Subject: a lantern half-obscured by fog, with an eye shape faintly implied

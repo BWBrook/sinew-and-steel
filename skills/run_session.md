@@ -24,9 +24,9 @@ description: Run a campaign through the shared engine and preserve public narrat
 cat /tmp/last_gm.md | uv run python tools/checkpoint.py --campaign scratch_demo
 ```
 
-In combat, an `attack` or an `opposed` test a combatant starts uses that
-combatant's action for the round; after a plain `check`, record the turn with
-`play.py pass`. The earlier side in initiative order acts or passes before the
+In combat, an `attack`, an `opposed` test a combatant starts, or a `check`
+declared with `--combat-action` uses that combatant's action for the round; record
+a turn without a roll with `play.py pass`. The earlier side in initiative order acts or passes before the
 later side.
 
 Start scenes with `play.py scene --label ...`; use `boundary --kind camp|port

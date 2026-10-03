@@ -303,7 +303,7 @@ skins:
     luck_key: RES
     luck_name: Resourcefulness
   whispers_in_the_fog:
-    name: Whispers in the Fog
+    name: Mournful Shores
     file: skins/whispers_in_the_fog.md
     pressure_track: Insanity
     pressure_scope: character

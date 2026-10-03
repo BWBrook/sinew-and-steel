@@ -407,7 +407,7 @@ class PlayRuntimeTests(unittest.TestCase):
                                      description="One crisis for both causes", forced=True)
         self.assertTrue(record["at_threshold"])
         self.assertEqual((len(pressure["crises"]), pressure["tracks"]["party"]["cycle"]), (2, 2))
-        # Whispers' Unspeakable resets only the caster's personal Insanity.
+        # Mournful Shores' Unspeakable resets only the caster's personal Insanity.
         skin, sheets, tracker = fixture("whispers_in_the_fog", ("ada", "eli"))
         pressure, actors = tracker["pressure"], list(sheets)
         _pressure.change(pressure, skin, actors, amount=1, source="dread", category="ambient", actor="eli")
@@ -431,7 +431,7 @@ class PlayRuntimeTests(unittest.TestCase):
         options = dict(kind="check", actor="kit", attribute="SYS", method="patch the scrubbers", stakes="lose a key system")
         with self.assertRaisesRegex(ValueError, "pending crisis"):
             _play.prepare_action(deepcopy(tracker), deepcopy(sheets), skin, **options)
-        with self.assertRaisesRegex(ValueError, "pays no costs"):
+        with self.assertRaisesRegex(ValueError, "pays no toll or cost"):
             _play.prepare_action(deepcopy(tracker), deepcopy(sheets), skin, **options, crisis_test=True, toll="luck")
         luck = sheets["kit"]["pools"]["luck"]["current"]
         with patch.object(_dice, "roll_d20", side_effect=[4, 6]):
@@ -443,6 +443,21 @@ class PlayRuntimeTests(unittest.TestCase):
                          description="Nanite alarm: SYS held; no system lost")
         with self.assertRaisesRegex(ValueError, "needs a pending crisis"):
             _play.prepare_action(tracker, sheets, skin, **options, crisis_test=True)
+
+    def test_a_luck_test_the_custodian_calls_pays_no_toll(self):
+        skin, sheets, tracker = fixture("twilight_of_the_northlands", ("ana", "bo"))
+        _pressure.change(tracker["pressure"], skin, list(sheets), amount=3, source="barrow", category="ambient")
+        options = dict(kind="check", actor="ana", attribute="HOP", method="which ford the wolves take",
+                       stakes="the wolves find the camp")
+        # Chosen, a Hope test pays the step-3 toll; called by the Lorekeeper, it does not.
+        with self.assertRaisesRegex(ValueError, "--toll luck"):
+            _play.prepare_action(deepcopy(tracker), deepcopy(sheets), skin, **options)
+        with self.assertRaisesRegex(ValueError, "single check of HOP"):
+            _play.prepare_action(deepcopy(tracker), deepcopy(sheets), skin, **{**options, "attribute": "WIS"}, luck_test=True)
+        with patch.object(_dice, "roll_d20", side_effect=[4, 6]):
+            _, events = _play.prepare_action(tracker, sheets, skin, **options, luck_test=True)
+        self.assertEqual((sheets["ana"]["pools"]["luck"]["current"], tracker["pressure"]["tracks"]["party"]["current"]), (10, 3))
+        self.assertFalse([event for event in events if event.get("category") == "action_cost"])
 
     def test_beast_bond_beads_pay_for_a_nudge_instead_of_luck(self):
         skin, sheets, tracker = fixture("clanfire", ("grak", "tarra"))

@@ -46,7 +46,7 @@ That's the chassis. Skins add the setting and its procedures.
 | Rust & Domes | Noir-tinged Red Planet frontier. Heat track, psionics, red-dust grime. |
 | Candlelight Dungeons | Old-school dungeon crawl. Fatigue clock, spell backlash, torchlit terror, plus an optional Delvekit for stricter procedural exploration. |
 | Service Duct Blues | Lower-decks starship drama. Resourcefulness pool, Stress track, system saves. |
-| Whispers in the Fog | Weird 1920s horror. Personal Insanity tracks, fragile hope, occult terror. |
+| Mournful Shores | Weird 1920s horror. Personal Insanity tracks, fragile hope, occult terror. |
 | Free Traders of the Drift Marches | Starfreight drama. Ship Shares, Strain track, speculative cargo gambles. |
 | Twilight of the Northlands | Wanderer fantasy elegy. Hope and Dread, subtle rites, travel Fatigue. |
 

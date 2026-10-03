@@ -1,4 +1,4 @@
-# Whispers in the Fog
+# Mournful Shores
 ### Skin add-on for Sinew & Steel
 
 ![](../assets/covers/ss_logo_whispers_in_the_fog.png){.wrap-right width=2in}
@@ -7,7 +7,7 @@
 
 Use this skin with the Sinew & Steel core rules. The core governs everything else.
 
-Whispers in the Fog is weird-horror investigation: frail lantern-light, forbidden books, polite conversations that turn sour, and truths too large for a human skull. Expect foreboding that rises by inches, sudden violence, and answers that feel like bargains.
+Mournful Shores is weird-horror investigation: frail lantern-light, forbidden books, polite conversations that turn sour, and truths too large for a human skull. Expect foreboding that rises by inches, sudden violence, and answers that feel like bargains.
 
 Suggested creation tone: standard (6 build points): capable investigators, fragile minds.
 
@@ -21,7 +21,7 @@ In this skin, the Custodian is often called the **Keeper**.
 
 ### Attribute labels
 
-| Core slot | Whispers label | Covers |
+| Core slot | Mournful Shores label | Covers |
 |--|---|-----|
 | Might | **Vigor (VIG)** | brawling, forced doors, sprinting across wharves |
 | Reflex | **Agility (AGI)** | stealth, quick-draw, nimble escapes |

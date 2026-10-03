@@ -57,7 +57,7 @@ Let the fiction adjust recovery: a sacred rite might restore 3 tokens, and a nig
 
 ### 4. Pressure and clocks
 
-Every skin runs the same 0-5 Pressure fuse. The whole party shares one track, unless the skin makes it personal, as Whispers in the Fog does. When it reaches 5, a crisis triggers and the track resets to 0.
+Every skin runs the same 0-5 Pressure fuse. The whole party shares one track, unless the skin makes it personal, as Mournful Shores does. When it reaches 5, a crisis triggers and the track resets to 0.
 
 | Step | Mood | Custodian levers |
 | -- | --- | ------ |
@@ -80,7 +80,7 @@ Every skin runs the same 0-5 Pressure fuse. The whole party shares one track, un
 - If a crisis falls on one character, it falls on the one whose action tipped the track, unless the fiction points elsewhere. When no single action tipped it, as with a group check or a shared hazard, the Custodian names the character the fiction points to.
 - Add up the points from one action. Reaching or passing 5 causes one crisis, then the track resets to 0 with nothing carried over. If a skin already triggers a crisis for that action, it is the same crisis.
 - Penalties and surcharges use the Pressure level at the start of the action. Charge each cost once and resolve the action, then its crisis. Paying a surcharge does not trigger another one, but separate failure costs and backlashes still apply.
-- Step effects add up: everything at or below the current step applies while the track stays there. A one-test penalty fires once when the track first reaches or passes its step, so a jump from 1 to 3 fires step 2's too, and it re-arms only after a crisis resets the track. If the track falls below that step, discard any unused penalty from it. Tolls and extra costs from a step fall only on tests a character chooses to attempt; a defence roll or a test a crisis demands never pays them.
+- Step effects add up: everything at or below the current step applies while the track stays there. A one-test penalty fires once when the track first reaches or passes its step, so a jump from 1 to 3 fires step 2's too, and it re-arms only after a crisis resets the track. If the track falls below that step, discard any unused penalty from it. Tolls and extra costs from a step fall only on tests a character chooses to attempt; a defence roll, a test a crisis demands, or a Luck test the Custodian calls for never pays them.
 - A bigger party fills the fuse faster, because more characters take risks and pay costs. If crises come too often for your table, charge shared hazards (time, weather, noise) once per beat for the whole party rather than once per character, or purge more generously. You set the pace; the numbers only describe it.
 - Make every crisis a dramatic twist with real consequences, never a free way to clear the track. State what is at stake before you offer Pressure as a cost.
 

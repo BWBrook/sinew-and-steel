@@ -41,14 +41,15 @@ are not natural. Advantage/Disadvantage sources cancel and do not stack. Nudge
 flags are accepted only on `settle`; an immediate roll command accepts its result
 without nudging. A returned `settlement_error` leaves the original dice pending
 for a valid settlement, never a reroll. When a skin's magic tier forbids nudges
-(Iron & Ruin's Wrack and Wyrd, Candlelight's Arcanum, Whispers' Incantation and
+(Iron & Ruin's Wrack and Wyrd, Candlelight's Arcanum, Mournful Shores' Incantation and
 Unspeakable, Twilight's Invocation and Reckoning), declare the roll with
 `--no-nudge`; `settle` then refuses any nudge to the caster's die and any nudge
 the caster pays for, though a resister may nudge their own die. Declare a cost due
 only on success (Candlelight's Greater Spell) with `--success-luck-cost N`: it is
 set aside, paid on success and kept on failure. `settle --fund beast_bond` (Clanfire)
 or `--fund companionship` (Twilight) pays the `--nudge` from that pool instead of
-Luck. A test a pending crisis demands uses `check --crisis-test`; it pays no toll.
+Luck. A test a pending crisis demands uses `check --crisis-test`, and a Luck test
+the Custodian calls for uses `check --luck-test`; neither pays a toll.
 
 Use `--context` and `--defender-context` for relevant semantic conditions: fear,
 dread, ritual, clergy, repairs, melee, and so on as defined by the skin/manifest.

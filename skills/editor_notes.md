@@ -97,7 +97,7 @@ Use this as a “lint list” whenever you add or revise anything in skins/*.md 
 
   - Resolution stays d20 roll-under (and margin matters); no new dice systems or additive modifiers layered on top.
   - The game still runs on five attributes + Stamina + Luck tokens + Pressure (0–5); no extra stats, derived stats, or “sub-attributes.”
-  - Pressure runs 0–5 and at 5 triggers a crisis, then resets to 0 after its consequence. Most skins share a party track; Whispers uses personal Insanity. Step effects accumulate, and one-test penalties fire once per crisis cycle; recovery discards unused penalties above the new level without re-arming them.
+  - Pressure runs 0–5 and at 5 triggers a crisis, then resets to 0 after its consequence. Most skins share a party track; Mournful Shores uses personal Insanity. Step effects accumulate, and one-test penalties fire once per crisis cycle; recovery discards unused penalties above the new level without re-arming them.
   - Stamina participates in the creation ledger with baseline 5, range 3–9 (attributes baseline 10, range 6–16). Those ceilings hold for life; milestone points cannot pass them.
   - Build points remain the same rules:
       - Default creation budget 6 (grim 0 / pulp 12 / heroic 16).

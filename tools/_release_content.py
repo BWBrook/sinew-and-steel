@@ -373,7 +373,7 @@ def bundle_definitions(manifest: dict, version: str) -> dict[str, Bundle]:
                     BookChapter("15. Rust and Domes", skin_path("rust_and_domes")),
                     BookChapter("16. Candlelight Dungeons", skin_path("candlelight_dungeons")),
                     BookChapter("17. Service Duct Blues", skin_path("service_duct_blues")),
-                    BookChapter("18. Whispers in the Fog", skin_path("whispers_in_the_fog")),
+                    BookChapter("18. Mournful Shores", skin_path("whispers_in_the_fog")),
                     BookChapter(
                         "19. Free Traders of the Drift Marches",
                         skin_path("free_traders_of_the_drift_marches"),

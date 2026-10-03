@@ -31,7 +31,7 @@ assignments. `--strict` disallows voluntary extra weaknesses. Use `--skin` and
 Bought tags cost 2 points each and use `--tag NAME`. Spare lowering refunds never
 buy tags, so the grim budget cannot buy one. A skin's free tags use
 `--free-tag knack=NAME` or `--free-tag expertise=NAME` and are recorded separately.
-Candlelight and Free Traders grant one of each; Whispers and Twilight grant one
+Candlelight and Free Traders grant one of each; Mournful Shores and Twilight grant one
 Knack. Further tags cost 2. Agree their scope from the skin and fiction.
 Rust & Domes' M-field sensitive is a bought 2-point tag, with no extra attribute or
 invented score prerequisite.

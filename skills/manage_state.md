@@ -7,7 +7,7 @@ description: Maintain campaign mechanics transactionally and keep private memory
 
 Campaign state lives under `campaigns/<slug>/state/`. Character sheets contain
 Luck and Stamina; the session tracker contains structured Pressure, resource
-limits, clocks, and pending actions. Whispers uses individual Insanity tracks.
+limits, clocks, and pending actions. Mournful Shores uses individual Insanity tracks.
 Keep the whole state directory private.
 
 ```bash

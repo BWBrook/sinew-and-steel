@@ -294,7 +294,7 @@ Money does not count toward the limit and is tracked loosely in the fiction. If 
 
 Every skin uses the same Pressure track (0-5) under its own name: Shadow, Doom, Anomaly, Sin, Heat, Fatigue, Stress, Insanity, Strain or Dread.
 
-Pressure is the fuse: it rises with risk, blunders, bargains, and time. The whole party shares one track, so one hero's gamble shortens everyone's fuse. A skin can instead give each character their own track, as Whispers in the Fog does for madness.
+Pressure is the fuse: it rises with risk, blunders, bargains, and time. The whole party shares one track, so one hero's gamble shortens everyone's fuse. A skin can instead give each character their own track, as Mournful Shores does for madness.
 
 ![](../../assets/art/ss_pressure_fuse.png){.wrap-right width=2in}
 
@@ -302,7 +302,7 @@ Pressure is the fuse: it rises with risk, blunders, bargains, and time. The whol
 - If a crisis falls on one character, it falls on the one whose action tipped the track, unless the fiction points elsewhere. When no single action tipped it, as with a group check or a shared hazard, the Custodian names the character the fiction points to.
 - If one action adds several points, add them together. Reaching or passing 5 causes one crisis, and the track resets to 0 with nothing carried over. If the skin’s own rule already triggers a crisis for that action, that is the same crisis, not a second one.
 - Penalties and extra costs from Pressure use its level at the start of the action. Pay each cost once, resolve the action, then resolve any crisis it caused. Separate costs for failing, and skin backlashes, still apply.
-- A skin's Pressure table lists an effect for each step, and the effects add up: everything at or below the current step applies while the track stays there. A one-test penalty, such as Disadvantage on your next test, fires once when the track first reaches or passes its step (a jump from 1 to 3 fires step 2's too), and fires again only after a crisis has reset the track. If the track falls below that step, discard any unused penalty from it. Tolls and extra costs from a step fall only on tests a character chooses to attempt, never on a defence roll or a test a crisis demands.
+- A skin's Pressure table lists an effect for each step, and the effects add up: everything at or below the current step applies while the track stays there. A one-test penalty, such as Disadvantage on your next test, fires once when the track first reaches or passes its step (a jump from 1 to 3 fires step 2's too), and fires again only after a crisis has reset the track. If the track falls below that step, discard any unused penalty from it. Tolls and extra costs from a step fall only on tests a character chooses to attempt, never on a defence roll, a test a crisis demands, or a Luck test the Custodian calls for.
 - The Custodian awards a milestone every 3-4 perilous beats (dangerous scenes you come through). Each milestone brings:
   - +2 build points, spent as at creation (for example, +1 to a score or a new tag),
   - a narrative boon (ally, relic, favour, scar, access), and

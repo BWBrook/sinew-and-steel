@@ -36,7 +36,7 @@ private; public exports deliberately include only selected fields.
 Creation starts with five attributes at 10 and Stamina at 5. Reductions fund
 raises, with at most 8 refunded points in total. Tags cost 2 build points each;
 spare reductions cannot buy them, including on the grim budget. Skin grants are
-explicit, for example `--free-tag "knack=Occult Scholar"` in Whispers. Candlelight and Free Traders also grant an Expertise. M-field sensitive
+explicit, for example `--free-tag "knack=Occult Scholar"` in Mournful Shores. Candlelight and Free Traders also grant an Expertise. M-field sensitive
 in Rust & Domes is a bought tag, not another attribute.
 
 ## Prompts and source checks
@@ -95,7 +95,7 @@ receipt retains the pending dice and upfront costs with `settlement_error`;
 inspect that reason and settle the saved action rather than rolling again.
 
 Some skins forbid nudging their top magic tiers: Iron & Ruin's Wrack and Wyrd,
-Candlelight's Arcanum, Whispers' Incantation and Unspeakable, and Twilight's
+Candlelight's Arcanum, Mournful Shores' Incantation and Unspeakable, and Twilight's
 Invocation and Reckoning. Declare `--no-nudge` on that roll. `settle` then refuses
 any nudge or adjustment to the caster's die, and any nudge the caster pays for on
 either die; a resisting character may still nudge their own die.
@@ -139,7 +139,7 @@ The engine does not infer circumstances from prose. Supply every relevant
 | Dealing with clergy / open defiance | `clergy` / `open_defiance` |
 | Black-market dealing | `black_market` |
 | Time-sensitive Service Duct repairs | `time_sensitive_repair` |
-| Whispers fear or coercion | `fear` / `coercion` |
+| Mournful Shores fear or coercion | `fear` / `coercion` |
 | Twilight dread test | `dread` |
 | Combat approach and defence | `melee`, `missile`, `screened`, as applicable |
 
@@ -219,7 +219,7 @@ Deflection pays no toll.
 ## Pressure and crises
 
 Pressure is structured tracker state, never a character pool. Most skins share
-a party track; Whispers has an Insanity track for each investigator. Select the
+a party track; Mournful Shores has an Insanity track for each investigator. Select the
 affected investigator with `--character` for personal changes. For shared gains,
 use `--character` when one action identifies the tipper; omit it for a group hazard.
 
@@ -240,12 +240,15 @@ uv run python tools/play.py --campaign scratch_demo pressure --crisis --target g
   --effect "Describe its lasting effect=until the stated recovery condition"
 ```
 
-A failed Arcanum (Candlelight) or Unspeakable rite (Whispers) causes a crisis even
+A failed Arcanum (Candlelight) or Unspeakable rite (Mournful Shores) causes a crisis even
 below 5. Record it with `pressure --crisis --forced --character CASTER ...`; it falls
 on the caster and resets the track. If the rite also took the track to 5, it is
 still one crisis. Service Duct Blues' nanite alarm asks for a SYS test during the
 crisis: roll it with `check --crisis-test` while the crisis is pending (it pays no
-toll or cost; step penalties apply), then record the crisis with the outcome.
+toll or cost; step penalties apply), then record the crisis with the outcome. A Luck
+test the Custodian calls for ("Test your Luck!") is not a chosen attempt either:
+roll it with `check --attribute <luck key> --luck-test`. A Luck-attribute test a
+character chooses, such as Time Odyssey's lateral leap, pays tolls as usual.
 
 The command is a recording form, not a substitute for the selected skin's table.
 If the table calls for multiple outcomes, repeat `--table-result` after resolving

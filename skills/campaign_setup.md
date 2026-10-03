@@ -29,7 +29,7 @@ uv run python tools/validate_campaign.py --campaign scratch_demo
 
 Campaigns are untracked under `campaigns/`. Sheets hold Luck and Stamina;
 `state/trackers/session.yaml` holds Pressure, resources, and other clocks.
-Whispers receives one Insanity track per investigator; other current skins use a
+Mournful Shores receives one Insanity track per investigator; other current skins use a
 party track. `--force` on initialization only fills missing files, preserving
 existing state. It is not a migration or reset command.
 

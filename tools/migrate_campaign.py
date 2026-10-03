@@ -179,7 +179,7 @@ def reconcile_pressure(records: list, pressure: dict, actors: list[str], *, fres
         elif actor is not None:
             expected = pressure["tracks"][actor]["current"]
         elif current == 0:
-            # The old scaffold always supplied a shared zero clock, even for Whispers.
+            # The old scaffold always supplied a shared zero clock, even for Mournful Shores.
             continue
         elif len(actors) == 1:
             expected = pressure["tracks"][actors[0]]["current"]

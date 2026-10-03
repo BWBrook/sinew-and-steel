@@ -55,7 +55,7 @@ Custodian judgments are in `docs/reviews/2026-10-01-stage4-harness.md`.
 
 - Shared rules code, with executable book examples and automatic pricing of all
   20 skin samples. The Quickstart's two-page spread is a release check.
-- Schema-2 Pressure state: party scope except personal Insanity in Whispers;
+- Schema-2 Pressure state: party scope except personal Insanity in Mournful Shores;
   fired thresholds, per-character pending penalties, discard without re-arming,
   atomic crisis reset, and separate lasting effects.
 - Immutable creation snapshots and replayable advancement entries. The pulp
@@ -100,13 +100,16 @@ reproduced.
   AI-forward game, free and openly licensed, through channels such as GitHub
   releases, itch.io and his own site. The distribution strategy is parked for
   later; the licences (CC BY 4.0 text, MIT code) already fit it.
-- **Names.** Sinew & Steel stays. Renaming the Whispers in the Fog skin, which
-  shares its title with a horror video game, is open; Barry is neutral.
+- **Names.** Sinew & Steel stays. The Whispers in the Fog skin shared its title
+  with a horror video game, so on 3 October 2026 Barry renamed it Mournful Shores
+  (no game, RPG or book by that title was found). Its internal ID and file name,
+  `whispers_in_the_fog`, are unchanged so existing campaigns still load.
 - **Rulings.** Unnudgeable magic: no one moves the caster's die, and the caster pays
   for no nudge on either die; a resister may nudge their own (Manual 3). A
   Free Traders misjump ticks Fuel +2 instead of +1. A pilot contest tie or double
-  failure gives no one Advantage. A test a crisis demands pays no toll (Manual 8,
-  Almanac 4). The release package is to be decided after the text and harness
+  failure gives no one Advantage. A test a crisis demands pays no toll, and on
+  3 October Barry extended that to a Luck test the Custodian calls for (Manual 8,
+  Almanac 4; `check --crisis-test`, `check --luck-test`). The release package is to be decided after the text and harness
   are locked.
 - All four nits accepted, and the README overhauled.
 
@@ -130,8 +133,8 @@ reproduced.
 - A dead or departed character retires between sessions (`play.py retire`).
 
 **Playtest programme** (adopted, with Fable's two changes)
-- Five sample skins (Clanfire, Rust & Domes, Candlelight Dungeons, Whispers in
-  the Fog, Twilight of the Northlands) at party sizes 1, 2 and 4, two runs each
+- Five sample skins (Clanfire, Rust & Domes, Candlelight Dungeons, Mournful
+  Shores, Twilight of the Northlands) at party sizes 1, 2 and 4, two runs each
   (30 runs). The other five skins at sizes 1 and 4, one run each (10 runs).
 - A pilot of three or four runs first, to test the procedure.
 - A standard run length fixed before starting, expressed in beats.
@@ -145,11 +148,19 @@ not: a player might dip in and out for one exchange, or 10, or 100. There is no
 session." Rules and metrics that count per session (limits, "mid-session", the
 playtest triggers) need a beat-based definition, with a clear definition of a
 beat and quantitative guidance for an AI Custodian who plays whenever the player
-returns. Fable is to draft a short design note for Barry's decision.
+returns. Barry added that play breaks into scenes and acts like a TV episode, but
+with "no neat 'episode' or 'session', just an arc of undefined length". Fable's
+draft, with definitions, pacing numbers and five decisions for Barry, is
+`docs/design/2026-10-03-beats-acts-and-pacing.md`.
 
-**Later:** the distribution strategy; and a possible browser-based client in
-which players connect their own model access (Barry flagged ChatGPT sign-in
-changes from Dev Day 2026).
+**Later:** the distribution strategy, to keep ideating on but not start yet.
+Barry: "It's going to be hugely important to get this strategy right." A start: GitHub Releases, a
+free itch.io page and a small site as the hub, all at no or little cost; then
+deeper and wider, including the RPG Discord communities Barry belongs to, where
+links with a cover message are welcome if not spammy. Also later: a possible
+browser-based client in which players connect their own model access (Barry
+flagged ChatGPT sign-in changes from Dev Day 2026).
 
-Next: the beats-and-sessions note, the pilot, then the programme. Harness tests do
+Next: Astra's feedback on the repairs and the beats note, Barry's decisions on
+the note, the pilot, then the programme. Harness tests do
 not replace those playtests or authorize GOLD and layout.

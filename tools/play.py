@@ -69,6 +69,7 @@ def parser() -> tuple[argparse.ArgumentParser, argparse.ArgumentParser]:
         action_costs(p)
         if name == "check":
             p.add_argument("--crisis-test", action="store_true", help="A test the pending crisis demands; pays no toll or cost")
+            p.add_argument("--luck-test", action="store_true", help="A Luck test the Custodian called for (pure chance); pays no toll or cost")
             p.add_argument("--combat-action", action="store_true", help="This check is the combatant's action for the round")
         if name != "check":
             p.add_argument("--opponent", required=True, help="Sheet stem or npc:NAME")
@@ -173,7 +174,7 @@ def dispatch(args, campaign: dict, skin: dict, tracker: dict, sheets: dict) -> t
         actor = args.actor or _runtime.actor_key(args.character, sheets)
         keys = {"attribute", "method", "stakes", "opponent", "defender_attribute", "toll",
                 "luck_cost", "pressure_cost", "failure_pressure", "use_resource", "edge", "soak", "injury", "gritty", "undefended", "no_nudge",
-                "crisis_test", "combat_action", "success_luck_cost"}
+                "crisis_test", "luck_test", "combat_action", "success_luck_cost"}
         options = {key: getattr(args, key) for key in keys if hasattr(args, key)}
         options.update(contexts=args.context, adv_sources=args.adv_source, dis_sources=args.dis_source,
                        defender_contexts=getattr(args, "defender_context", []),
