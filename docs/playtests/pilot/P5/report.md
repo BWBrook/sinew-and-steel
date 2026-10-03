@@ -2,6 +2,8 @@
 
 P5 completed a two-act session at seven beats. Rhea Voss and Jori Vale restored air to six workers, preserved a diverted-cartridge ledger, and placed copies with independent witnesses. A failed confrontation left the buyer and a legally frozen freight bin unresolved. The session closed through the harness, with all 15 public Custodian replies preserved and matched to checkpoints. Fable's cross-team audit is pending; this report describes the run and its limitations rather than certifying every ruling.
 
+**Post-audit note, 3 October 2026:** Fable's audit is now in `audit.md` and accepts the two tests, Heat charge and milestone. Its preferred exclusion of beat 6 from perilous credit remains a judgement call; see `../review-1.md` for both views. The historical records and the original observations below are preserved.
+
 ## Procedure and pacing
 
 The log records seven beats, four perilous, split 4/3 across the acts. Two beats contained tests: Jori's Skill repair (G005–G007, events 3–5) and Rhea's opposed Mind confrontation (G011–G013, events 10–13). Both followed declared stakes, a deferred draw, a player Luck decision, and settlement. Jori accepted a success and Rhea accepted a loss against an NPC natural 1; neither spent Luck. The first act ended when the archive was secured, the second when the party returned and placed the evidence with a workers' representative.

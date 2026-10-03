@@ -22,6 +22,12 @@ uv run python tools/char_builder.py --campaign scratch_demo --name Grak \
   --set MGT=12 --set SPR=8 --set INS=8 --set STM=7 --tag "Megafauna tracker"
 uv run python tools/char_builder.py --campaign scratch_demo --name Tarra \
   --set MGT=6 --set FLT=8 --set CUN=12 --set SPR=14 --set INS=11 --set STM=3
+uv run python tools/update_sheet.py --campaign scratch_demo --character grak \
+  --append 'inventory.big_items=["Stone spear (+1, thrown or thrust)", "Hand-axe (+1)", "Hide cloak (soak 1)"]' \
+  --append 'inventory.small_items=["Ochre pouch (ritual mark)", "Sinew cord"]'
+uv run python tools/update_sheet.py --campaign scratch_demo --character tarra \
+  --append 'inventory.big_items=["Fire-bow drill"]' \
+  --append 'inventory.small_items=["Carved bone flute (Advantage when calming beasts)", "Herb bundle", "Scrap of strange cloth from southern strangers"]'
 cp rules/scenarios/clanfire_emberfall_hidden.md campaigns/scratch_demo/state/memory/hidden_scenario.md
 uv run python tools/build_prompt.py --campaign scratch_demo
 uv run python tools/validate_campaign.py --campaign scratch_demo

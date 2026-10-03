@@ -1,6 +1,6 @@
 # P5 — Rust & Domes pilot manifest
 
-Status: play complete; cross-team audit pending Fable. Normal two-act close at beat 7, with no cap or early-stop intervention.
+Status: play complete; Fable's cross-team audit delivered on 3 October 2026. Normal two-act close at beat 7, with no cap or early-stop intervention. See `audit.md` and `../review-1.md` for findings and the retained disagreement about beat 6's perilous flag.
 
 - Protocol: revision 2, SHA-256 `78bc7e842c6d204c659652d6640958db562b95db698dc6c33447237509597a9b`.
 - Rules/harness commit: `b89ad90e0e1f7fd4e9e4b2a402a9a703d40207cb`.

@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "interpretation": "Descriptive logged observations; no population claim or automatic rules decision.",
+  "definitions": {
+    "midpoint": "The end of the session's first act: the first beat recorded with --act-end. Beats are recorded as their scenes end, so the first half runs to and includes that beat record, by event sequence. Unavailable without an act break.",
+    "beat_denominator": "Count explicit beat events, not rolls or the largest beat number; omit sessions without beats from both rate numerator and denominator.",
+    "completed": "Explicit session_start and session_end with an uninterrupted event sequence and no partial legacy history; incomplete sessions are separate.",
+    "pc_rolls": "Each finalized PC roll, including opposed sides and Deflection; exclude raw_roll records and npc: actors.",
+    "luck_spending": "Use before/after changes in luck events only; roll.luck_spent is not an additional expenditure.",
+    "red_line": "Pressure >=4 until a pressure event lowers or resets it; affected rolls require pressure_at_start >=4. Each window reports its affected rolls and the scenes it touched: the scene it opened in and each later scene it stayed open through. Open windows are right-censored, including at session end.",
+    "red_line_threshold": "Provisional interpretation of 'few': more than 3 affected PC rolls observed in one window."
+  },
+  "session_counts": {
+    "total": 1,
+    "completed": 1,
+    "incomplete": 0
+  },
+  "completed_evidence": {
+    "by_skin_and_party_size": [
+      {
+        "skin": "clanfire",
+        "party_size": 2,
+        "sessions": 1,
+        "recorded_beats": 10,
+        "perilous_beats": 7,
+        "crises": 0,
+        "rate_eligible_sessions": 1,
+        "sessions_without_beats": 0,
+        "rate_eligible_crises": 0,
+        "crises_per_20_recorded_beats": 0.0,
+        "character_sessions": 2,
+        "midpoint_available_character_sessions": 2,
+        "initially_low_character_sessions": 0,
+        "initially_above_one_with_midpoint": 2,
+        "newly_low_by_midpoint": 0,
+        "pc_rolls": 14,
+        "red_line_windows": 0,
+        "red_line_windows_above_threshold": 0,
+        "ongoing_censored_windows": 0
+      }
+    ]
+  },
+  "incomplete_observations": {
+    "by_skin_and_party_size": []
+  },
+  "sessions": [
+    {
+      "source": "playtests/campaigns/p1_clanfire/state/logs/session_001.jsonl",
+      "session": 1,
+      "skin": "clanfire",
+      "party_size": 2,
+      "completed": true,
+      "incomplete_reasons": [],
+      "event_count": 68,
+      "recorded_beats": 10,
+      "perilous_beats": 7,
+      "last_recorded_beat": 10,
+      "midpoint_beat": 5,
+      "acts": [
+        {
+          "act": 1,
+          "beats": 5,
+          "perilous_beats": 4,
+          "pc_rolls": 9,
+          "pressure_gained": 0,
+          "crises": 0,
+          "ended": true
+        },
+        {
+          "act": 2,
+          "beats": 5,
+          "perilous_beats": 3,
+          "pc_rolls": 5,
+          "pressure_gained": 1,
+          "crises": 0,
+          "ended": true
+        }
+      ],
+      "completed_acts": 2,
+      "crises": 0,
+      "crisis_targets": {},
+      "threshold_crises": 0,
+      "forced_crises": 0,
+      "pressure_gained": 1,
+      "pressure_gains_by_category": {
+        "action_cost": 1
+      },
+      "pressure_gains_by_source": {
+        "Parley with Sapiens (Clanfire skin trigger)": 1
+      },
+      "crises_per_20_recorded_beats": 0.0,
+      "characters": {
+        "grak": {
+          "initial_luck": 8,
+          "initially_low": false,
+          "minimum_luck_first_half": 6,
+          "reached_one_or_less_by_midpoint": false,
+          "newly_reached_one_or_less_by_midpoint": false,
+          "luck_spent": 2,
+          "luck_recovered": 2,
+          "luck_spent_by_source": {
+            "nudge": 2
+          },
+          "luck_recovered_by_source": {
+            "Short rest by the hearth": 1,
+            "milestone:storm-night": 1
+          },
+          "pc_rolls": 5,
+          "acting_rolls": 4,
+          "roll_share_by_role": {
+            "attacker": {
+              "count": 4,
+              "share": 0.8
+            },
+            "defender": {
+              "count": 1,
+              "share": 0.2
+            }
+          },
+          "roll_share_by_attribute": {
+            "CUN": {
+              "count": 2,
+              "share": 0.4
+            },
+            "MGT": {
+              "count": 2,
+              "share": 0.4
+            },
+            "SPR": {
+              "count": 1,
+              "share": 0.2
+            }
+          },
+          "roll_share_by_method": {
+            "Climb slowly with Hesk, using rocks and last birches for cover, downwind, reading where the wind has scoured, to find sign of what stands on the ridge": {
+              "count": 1,
+              "share": 0.25
+            },
+            "Drop the spear, rip the hand-axe free and chop at the wolf's skull and throat while it has his thigh": {
+              "count": 1,
+              "share": 0.25
+            },
+            "Plant the spear, raise an empty hand, order Hesk's axe down, and answer the lead stranger with slow gestures, offering the clan's ochre peace-mark": {
+              "count": 1,
+              "share": 0.25
+            },
+            "Slip out downwind along the birch-line, staying low, to read the tracks and the sounds": {
+              "count": 1,
+              "share": 0.25
+            }
+          }
+        },
+        "tarra": {
+          "initial_luck": 11,
+          "initially_low": false,
+          "minimum_luck_first_half": 10,
+          "reached_one_or_less_by_midpoint": false,
+          "newly_reached_one_or_less_by_midpoint": false,
+          "luck_spent": 6,
+          "luck_recovered": 6,
+          "luck_spent_by_source": {
+            "Catch Hesk's thrown fire-stick, swing it at the wolf's face and cry a rite naming the Fire its enemy, to drive it off Grak by fear": 1,
+            "nudge": 5
+          },
+          "luck_recovered_by_source": {
+            "Short rest by the hearth": 1,
+            "milestone:storm-night": 5
+          },
+          "pc_rolls": 9,
+          "acting_rolls": 9,
+          "roll_share_by_role": {
+            "attacker": {
+              "count": 9,
+              "share": 1.0
+            }
+          },
+          "roll_share_by_attribute": {
+            "SPR": {
+              "count": 9,
+              "share": 1.0
+            }
+          },
+          "roll_share_by_method": {
+            "Argue as shaman in the clan's fire-circle that the elders bring the Ysre, with their children and sick, down to the cave before the blizzard": {
+              "count": 1,
+              "share": 0.1111111111111111
+            },
+            "Catch Hesk's thrown fire-stick, swing it at the wolf's face and cry a rite naming the Fire its enemy, to drive it off Grak by fear": {
+              "count": 1,
+              "share": 0.1111111111111111
+            },
+            "Cool the child's brow, steep the herb bundle, sing the Ember Dream rite softly with Ketha holding the child, openly": {
+              "count": 1,
+              "share": 0.1111111111111111
+            },
+            "Ember Dream rite: kneel at the hearth with the fire-bow drill and the last herbs and ask the Fire for a long burning to dawn, while the clan feeds it racks and bedding": {
+              "count": 1,
+              "share": 0.1111111111111111
+            },
+            "Ember Dream rite: light a fresh flame with the fire-bow drill, feed it herbs and ask the Fire what watches from the ridge": {
+              "count": 1,
+              "share": 0.1111111111111111
+            },
+            "Ember Dream: feed the embers a pinch of herb and sing with the bone flute, asking the Fire what the thing beyond the birches wants": {
+              "count": 1,
+              "share": 0.1111111111111111
+            },
+            "Hold the wolf with a steady flute note and a gift of offal while Grak hooks and drags the calf forty paces to the fire": {
+              "count": 1,
+              "share": 0.1111111111111111
+            },
+            "Kneel, split the calf share, offer half with the southern cloth scrap open on her palm, and ask by gesture and flute about the ridge, the birch-line and the stream": {
+              "count": 1,
+              "share": 0.1111111111111111
+            },
+            "Low steady flute note to settle the cave wolf while Grak backs toward the fire": {
+              "count": 1,
+              "share": 0.1111111111111111
+            }
+          }
+        }
+      },
+      "pc_rolls": 14,
+      "npc_rolls_excluded": 5,
+      "roll_share_by_attribute": {
+        "CUN": {
+          "count": 2,
+          "share": 0.14285714285714285
+        },
+        "MGT": {
+          "count": 2,
+          "share": 0.14285714285714285
+        },
+        "SPR": {
+          "count": 10,
+          "share": 0.7142857142857143
+        }
+      },
+      "roll_share_by_method": {
+        "Argue as shaman in the clan's fire-circle that the elders bring the Ysre, with their children and sick, down to the cave before the blizzard": {
+          "count": 1,
+          "share": 0.07692307692307693
+        },
+        "Catch Hesk's thrown fire-stick, swing it at the wolf's face and cry a rite naming the Fire its enemy, to drive it off Grak by fear": {
+          "count": 1,
+          "share": 0.07692307692307693
+        },
+        "Climb slowly with Hesk, using rocks and last birches for cover, downwind, reading where the wind has scoured, to find sign of what stands on the ridge": {
+          "count": 1,
+          "share": 0.07692307692307693
+        },
+        "Cool the child's brow, steep the herb bundle, sing the Ember Dream rite softly with Ketha holding the child, openly": {
+          "count": 1,
+          "share": 0.07692307692307693
+        },
+        "Drop the spear, rip the hand-axe free and chop at the wolf's skull and throat while it has his thigh": {
+          "count": 1,
+          "share": 0.07692307692307693
+        },
+        "Ember Dream rite: kneel at the hearth with the fire-bow drill and the last herbs and ask the Fire for a long burning to dawn, while the clan feeds it racks and bedding": {
+          "count": 1,
+          "share": 0.07692307692307693
+        },
+        "Ember Dream rite: light a fresh flame with the fire-bow drill, feed it herbs and ask the Fire what watches from the ridge": {
+          "count": 1,
+          "share": 0.07692307692307693
+        },
+        "Ember Dream: feed the embers a pinch of herb and sing with the bone flute, asking the Fire what the thing beyond the birches wants": {
+          "count": 1,
+          "share": 0.07692307692307693
+        },
+        "Hold the wolf with a steady flute note and a gift of offal while Grak hooks and drags the calf forty paces to the fire": {
+          "count": 1,
+          "share": 0.07692307692307693
+        },
+        "Kneel, split the calf share, offer half with the southern cloth scrap open on her palm, and ask by gesture and flute about the ridge, the birch-line and the stream": {
+          "count": 1,
+          "share": 0.07692307692307693
+        },
+        "Low steady flute note to settle the cave wolf while Grak backs toward the fire": {
+          "count": 1,
+          "share": 0.07692307692307693
+        },
+        "Plant the spear, raise an empty hand, order Hesk's axe down, and answer the lead stranger with slow gestures, offering the clan's ochre peace-mark": {
+          "count": 1,
+          "share": 0.07692307692307693
+        },
+        "Slip out downwind along the birch-line, staying low, to read the tracks and the sounds": {
+          "count": 1,
+          "share": 0.07692307692307693
+        }
+      },
+      "red_line": {
+        "scope": "party",
+        "roll_threshold": 3,
+        "affected_pc_rolls": 0,
+        "missing_pressure_snapshot_rolls": 0,
+        "unassigned_high_pressure_rolls": 0,
+        "windows": [],
+        "ongoing_censored_windows": 0,
+        "windows_above_threshold": 0
+      }
+    }
+  ]
+}
