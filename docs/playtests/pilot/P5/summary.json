@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "interpretation": "Descriptive logged observations; no population claim or automatic rules decision.",
+  "definitions": {
+    "midpoint": "The end of the session's first act: the first beat recorded with --act-end. Beats are recorded as their scenes end, so the first half runs to and includes that beat record, by event sequence. Unavailable without an act break.",
+    "beat_denominator": "Count explicit beat events, not rolls or the largest beat number; omit sessions without beats from both rate numerator and denominator.",
+    "completed": "Explicit session_start and session_end with an uninterrupted event sequence and no partial legacy history; incomplete sessions are separate.",
+    "pc_rolls": "Each finalized PC roll, including opposed sides and Deflection; exclude raw_roll records and npc: actors.",
+    "luck_spending": "Use before/after changes in luck events only; roll.luck_spent is not an additional expenditure.",
+    "red_line": "Pressure >=4 until a pressure event lowers or resets it; affected rolls require pressure_at_start >=4. Each window reports its affected rolls and the scenes it touched: the scene it opened in and each later scene it stayed open through. Open windows are right-censored, including at session end.",
+    "red_line_threshold": "Provisional interpretation of 'few': more than 3 affected PC rolls observed in one window."
+  },
+  "session_counts": {
+    "total": 1,
+    "completed": 1,
+    "incomplete": 0
+  },
+  "completed_evidence": {
+    "by_skin_and_party_size": [
+      {
+        "skin": "rust_and_domes",
+        "party_size": 2,
+        "sessions": 1,
+        "recorded_beats": 7,
+        "perilous_beats": 4,
+        "crises": 0,
+        "rate_eligible_sessions": 1,
+        "sessions_without_beats": 0,
+        "rate_eligible_crises": 0,
+        "crises_per_20_recorded_beats": 0.0,
+        "character_sessions": 2,
+        "midpoint_available_character_sessions": 2,
+        "initially_low_character_sessions": 0,
+        "initially_above_one_with_midpoint": 2,
+        "newly_low_by_midpoint": 0,
+        "pc_rolls": 2,
+        "red_line_windows": 0,
+        "red_line_windows_above_threshold": 0,
+        "ongoing_censored_windows": 0
+      }
+    ]
+  },
+  "incomplete_observations": {
+    "by_skin_and_party_size": []
+  },
+  "sessions": [
+    {
+      "source": "/Users/bwbrook/games/sinew-and-steel/playtests/campaigns/p5_rust/state/logs/session_001.jsonl",
+      "session": 1,
+      "skin": "rust_and_domes",
+      "party_size": 2,
+      "completed": true,
+      "incomplete_reasons": [],
+      "event_count": 20,
+      "recorded_beats": 7,
+      "perilous_beats": 4,
+      "last_recorded_beat": 7,
+      "midpoint_beat": 4,
+      "acts": [
+        {
+          "act": 1,
+          "beats": 4,
+          "perilous_beats": 2,
+          "pc_rolls": 1,
+          "pressure_gained": 1,
+          "crises": 0,
+          "ended": true
+        },
+        {
+          "act": 2,
+          "beats": 3,
+          "perilous_beats": 2,
+          "pc_rolls": 1,
+          "pressure_gained": 0,
+          "crises": 0,
+          "ended": true
+        }
+      ],
+      "completed_acts": 2,
+      "crises": 0,
+      "crisis_targets": {},
+      "threshold_crises": 0,
+      "forced_crises": 0,
+      "pressure_gained": 1,
+      "pressure_gains_by_category": {
+        "action_cost": 1
+      },
+      "pressure_gains_by_source": {
+        "Tamper alarm when Rhea disconnects control-room remote lead to block Saye purge": 1
+      },
+      "crises_per_20_recorded_beats": 0.0,
+      "characters": {
+        "jori_vale": {
+          "initial_luck": 9,
+          "initially_low": false,
+          "minimum_luck_first_half": 9,
+          "reached_one_or_less_by_midpoint": false,
+          "newly_reached_one_or_less_by_midpoint": false,
+          "luck_spent": 0,
+          "luck_recovered": 0,
+          "luck_spent_by_source": {},
+          "luck_recovered_by_source": {},
+          "pc_rolls": 1,
+          "acting_rolls": 1,
+          "roll_share_by_role": {
+            "attacker": {
+              "count": 1,
+              "share": 1.0
+            }
+          },
+          "roll_share_by_attribute": {
+            "SKL": {
+              "count": 1,
+              "share": 1.0
+            }
+          },
+          "roll_share_by_method": {
+            "Ease seized pin with life-support toolkit, then route clean air to south shelter": {
+              "count": 1,
+              "share": 1.0
+            }
+          }
+        },
+        "rhea_voss": {
+          "initial_luck": 10,
+          "initially_low": false,
+          "minimum_luck_first_half": 10,
+          "reached_one_or_less_by_midpoint": false,
+          "newly_reached_one_or_less_by_midpoint": false,
+          "luck_spent": 0,
+          "luck_recovered": 0,
+          "luck_spent_by_source": {},
+          "luck_recovered_by_source": {},
+          "pc_rolls": 1,
+          "acting_rolls": 1,
+          "roll_share_by_role": {
+            "attacker": {
+              "count": 1,
+              "share": 1.0
+            }
+          },
+          "roll_share_by_attribute": {
+            "MND": {
+              "count": 1,
+              "share": 1.0
+            }
+          },
+          "roll_share_by_method": {
+            "Press Saye on camera with signed ledger, false delivery, purge command and witnesses": {
+              "count": 1,
+              "share": 1.0
+            }
+          }
+        }
+      },
+      "pc_rolls": 2,
+      "npc_rolls_excluded": 1,
+      "roll_share_by_attribute": {
+        "MND": {
+          "count": 1,
+          "share": 0.5
+        },
+        "SKL": {
+          "count": 1,
+          "share": 0.5
+        }
+      },
+      "roll_share_by_method": {
+        "Ease seized pin with life-support toolkit, then route clean air to south shelter": {
+          "count": 1,
+          "share": 0.5
+        },
+        "Press Saye on camera with signed ledger, false delivery, purge command and witnesses": {
+          "count": 1,
+          "share": 0.5
+        }
+      },
+      "red_line": {
+        "scope": "party",
+        "roll_threshold": 3,
+        "affected_pc_rolls": 0,
+        "missing_pressure_snapshot_rolls": 0,
+        "unassigned_high_pressure_rolls": 0,
+        "windows": [],
+        "ongoing_censored_windows": 0,
+        "windows_above_threshold": 0
+      }
+    }
+  ]
+}
